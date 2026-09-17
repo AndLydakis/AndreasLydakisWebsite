@@ -1153,6 +1153,8 @@ Type: Story
 Priority: Highest  
 Dependencies: `PORT-06A`  
 Milestone: M1
+Status: Done
+Completed: 2026-09-17
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
@@ -1180,6 +1182,23 @@ Render the validated rooms, corridors, and world boundaries through generic layo
 ### Verification
 
 Run the scene with the approved layout and inspect every room, corridor, doorway, world edge, camera scale, and development collision preview.
+
+The completed verification passes:
+
+- `npm test` passes with 7 test files and 60 tests.
+- `npm run typecheck` passes.
+- `npm run build` passes.
+- The local Vite server responds successfully over HTTP; interactive browser automation was unavailable in this environment.
+
+### Completion record
+
+- Added `src/game/rendering/houseRenderer.ts` with generic `buildHouse()` and `buildRoom()` helpers driven by `HouseLayout` data.
+- Rendered every room floor, corridor floor, room wall rectangle, doorway opening preview, collision-preview outline, and complete world outline using Phaser graphics and replaceable layout geometry.
+- Updated `HouseScene` to build the house after validating the layout and to fit the complete world in the fixed logical camera without player follow.
+- Added a responsive 16:9 game-shell aspect ratio so the FIT-scaled canvas remains visible on desktop and narrow screens.
+- Kept player creation, movement, collision bodies, proximity detection, content events, and asset loading out of this story.
+- Decisions and evidence are recorded in `log.md` as `DEC-032` and `DEC-033`.
+- Implementation may proceed to `PORT-06C`.
 
 ---
 

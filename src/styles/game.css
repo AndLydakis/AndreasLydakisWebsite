@@ -12,6 +12,7 @@
 .game-shell {
   position: relative;
   width: 100%;
+  aspect-ratio: 16 / 9;
   min-height: 18rem;
   overflow: hidden;
   border: 3px solid var(--color-border);
@@ -89,6 +90,6 @@
 
 @media (max-width: 42rem) {
   .game-shell {
-    min-height: min(60vh, 24rem);
+    min-height: 0;
   }
 }

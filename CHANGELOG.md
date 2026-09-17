@@ -42,6 +42,13 @@ pushed.
 - Kept room rendering, player creation, movement, collisions, and public `gameReady` emission deferred to later stories.
 - Verification: `npm test` (7 files, 60 tests), `npm run typecheck`, `npm run build`, and a successful local Vite HTTP smoke check.
 
+### PORT-06B — Render the data-driven house
+
+- Added generic Phaser graphics helpers for room floors, corridor paths, walls, doorway previews, collision previews, and world bounds from the validated `HouseLayout`.
+- Configured the scene to fit the complete world in the logical camera while deferring player follow, physics bodies, movement, and interaction systems.
+- Added a responsive 16:9 game-shell aspect ratio for the FIT-scaled canvas.
+- Verification: `npm test` (7 files, 60 tests), `npm run typecheck`, `npm run build`, and a successful local Vite HTTP smoke check.
+
 ### Delivery workflow
 
 - Future story completion entries will include the story ID, a concise change summary, and the verification commands run.

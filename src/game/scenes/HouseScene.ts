@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 
 import { assertValidHouseLayout } from '../data/layoutValidation';
 import type { HouseLayout } from '../data/types';
+import { buildHouse } from '../rendering/houseRenderer';
 
 export interface HouseSceneCallbacks {
   readonly onSceneReady?: () => void;
@@ -32,6 +33,10 @@ export class HouseScene extends Phaser.Scene {
       this.physics.world.setBounds(0, 0, worldWidthPixels, worldHeightPixels);
       this.cameras.main.setBounds(0, 0, worldWidthPixels, worldHeightPixels);
       this.cameras.main.setRoundPixels(true);
+      buildHouse(this, this.layout);
+
+      const fitZoom = Math.min(512 / worldWidthPixels, 288 / worldHeightPixels);
+      this.cameras.main.setZoom(fitZoom);
     } catch (error) {
       this.callbacks.onStartupError?.(error);
       return;
