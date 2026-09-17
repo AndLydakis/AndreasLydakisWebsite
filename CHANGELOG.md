@@ -23,6 +23,13 @@ pushed.
 - Added focused layout-shape and reference tests without Phaser or browser setup.
 - Verification: `npm test` (5 files, 37 tests), `npm run typecheck`, and `npm run build`.
 
+### PORT-04C — Add layout validation and reachability rules
+
+- Added a pure house-layout validator and assertion helper for dimensions, bounds, overlaps, references, doorway geometry/connectivity, spawn walkability, and required-room reachability.
+- Reused the existing room and content registries for interactable reference validation.
+- Added intentionally broken data-only fixtures covering each validation rule.
+- Verification: `npm test` (6 files, 47 tests), `npm run typecheck`, and `npm run build`.
+
 ### Delivery workflow
 
 - Future story completion entries will include the story ID, a concise change summary, and the verification commands run.

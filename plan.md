@@ -969,6 +969,8 @@ Type: Story
 Priority: Highest  
 Dependencies: `PORT-04B`  
 Milestone: M0
+Status: Done
+Completed: 2026-09-17
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
@@ -1004,6 +1006,28 @@ Reject invalid house layouts before rendering or gameplay code consumes them.
 ### Verification
 
 Run validator tests with valid data and intentionally broken copies covering bounds, overlaps, references, doorway geometry, spawn validity, and reachability.
+
+The completed verification passes:
+
+- `npm test` passes with 6 test files and 47 tests.
+- `npm run typecheck` passes.
+- `npm run build` passes.
+
+### Completion record
+
+- Added `src/game/data/layoutValidation.ts` with a pure error-list validator and `assertValidHouseLayout()` startup assertion helper.
+- Validated world dimensions, room and corridor IDs, positive tile geometry, local collision bounds, world bounds, and unexpected room overlaps.
+- Validated doorway references, duplicate IDs, source-room-local openings, boundary contact, world conversion, and destination/corridor connectivity.
+- Reused the existing content and room registries for interactable reference validation and added local interactable geometry checks.
+- Validated world-global initial spawn placement against room/corridor walkability and room collision rectangles.
+- Added a room/corridor walkability graph with configurable required room IDs; the default requires every room in the supplied layout to be reachable from the spawn.
+- Added `src/game/data/layoutValidation.test.ts` with valid and intentionally broken data-only fixtures for all PORT-04C rules.
+- Kept validation and tests independent of Phaser, the DOM, and browser rendering.
+- `npm test` passes with 6 test files and 47 tests.
+- `npm run typecheck` passes.
+- `npm run build` passes.
+- Decisions and evidence are recorded in `log.md` as `DEC-026` and `DEC-027`.
+- Implementation may proceed to `PORT-04D`.
 
 ---
 
