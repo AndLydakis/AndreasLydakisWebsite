@@ -1314,7 +1314,7 @@ The completed verification passes:
 - Added `src/game/entities/Player.ts` to attach one dynamic Arcade Physics body to the sprite created by `PORT-06C`.
 - Added `src/game/entities/playerMotion.ts` with shared, pure conversion from `MovementSnapshot` to normalized velocity and facing state.
 - Connected the existing `InputController` instance to `HouseScene.update()` without adding keyboard listeners, mobile pointer listeners, or a second controller.
-- Set the named `PLAYER_SPEED` to 96 pixels per second, disabled gravity, enabled world-bound collision, and stopped the body when no input is active.
+- Set the named `PLAYER_SPEED` to 144 pixels per second, disabled gravity, enabled world-bound collision, and stopped the body when no input is active.
 - Added the `PlayerState` contract exposing only world-tile position and facing direction to later collision, proximity, and animation systems.
 - Added six pure movement tests for idle, cardinal, diagonal, opposing, facing, and invalid-speed behavior.
 - Updated the shared debug overlay to show player facing state as well as position.

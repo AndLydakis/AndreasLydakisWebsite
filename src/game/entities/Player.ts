@@ -3,9 +3,9 @@ import Phaser from 'phaser';
 import type { WorldTilePoint } from '../data/types';
 import { InputController } from '../systems/InputController';
 import type { Direction } from '../systems/InputController';
-import { facingFromMovement, movementSnapshotToVelocity } from './playerMotion';
+import { PLAYER_SPEED, facingFromMovement, movementSnapshotToVelocity } from './playerMotion';
 
-export const PLAYER_SPEED = 96;
+export { PLAYER_SPEED } from './playerMotion';
 
 export interface PlayerState {
   readonly position: WorldTilePoint;

@@ -63,6 +63,12 @@ pushed.
 - Added pure movement-math tests and debug-overlay facing output without adding duplicate input listeners or DOM access.
 - Verification: `npm test` (9 files, 68 tests), `npm run typecheck`, and `npm run build`.
 
+### PORT-05 follow-up — Increase player movement speed
+
+- Increased the default `PLAYER_SPEED` from 96 to 144 pixels per second (1.5×).
+- Added a regression test that locks the requested default speed.
+- Verification: focused player-motion tests (7 tests) and `npm run typecheck` pass.
+
 ### Delivery workflow
 
 - Future story completion entries will include the story ID, a concise change summary, and the verification commands run.

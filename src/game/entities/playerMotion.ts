@@ -1,5 +1,7 @@
 import type { Direction, MovementSnapshot } from '../systems/InputController';
 
+export const PLAYER_SPEED = 144;
+
 export interface Velocity {
   readonly x: number;
   readonly y: number;

@@ -312,3 +312,11 @@ This file is the project decision record. New implementation decisions, approved
 - Status: Accepted
 - Decision: Mark `PORT-05` complete and proceed to `PORT-07A`.
 - Evidence: `npm test` passes with 9 test files and 68 tests; `npm run typecheck` passes; `npm run build` passes. The movement suite covers idle, cardinal, normalized diagonal, opposing-direction cancellation, facing, and invalid-speed cases; browser automation was unavailable for live movement inspection.
+
+## DEC-038 — PORT-05 movement speed adjustment
+
+- Date: 2026-09-17
+- Status: Accepted
+- Decision: Increase the default `PLAYER_SPEED` from 96 to 144 pixels per second, preserving the existing injectable speed option for future tuning or tests.
+- Decision: Keep the default speed in the Phaser-free `playerMotion.ts` module and re-export it from `Player.ts`, so the regression test does not require a browser environment merely to verify the constant.
+- Evidence: The focused player-motion suite passes with 7 tests and `npm run typecheck` passes.

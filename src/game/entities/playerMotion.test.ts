@@ -1,8 +1,12 @@
 import { describe, expect, it } from 'vitest';
 
-import { facingFromMovement, movementSnapshotToVelocity } from './playerMotion';
+import { PLAYER_SPEED, facingFromMovement, movementSnapshotToVelocity } from './playerMotion';
 
 describe('player movement math', () => {
+  it('uses the requested 1.5x default player speed', () => {
+    expect(PLAYER_SPEED).toBe(144);
+  });
+
   it('stops when no direction is active', () => {
     expect(
       movementSnapshotToVelocity(
