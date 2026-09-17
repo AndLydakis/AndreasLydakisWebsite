@@ -84,7 +84,7 @@ try {
     parent: dom.canvasLayer,
     layout: houseLayout,
     onSceneReady: () => {
-      dom.gameStatus.textContent = 'House scene ready. Player movement will be added next.';
+      bridge.emit('gameReady', undefined);
     },
     onStartupError: reportStartupError,
   });

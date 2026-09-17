@@ -1208,6 +1208,8 @@ Type: Story
 Priority: Highest  
 Dependencies: `PORT-06B`  
 Milestone: M1
+Status: Done
+Completed: 2026-09-17
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
@@ -1236,6 +1238,27 @@ Load the registered placeholder assets, spawn the player, and complete the scene
 ### Verification
 
 Check valid asset loading, player spawn, camera follow, world bounds, debug mode, production preview, and intentionally missing-asset fallback.
+
+The completed verification passes:
+
+- `npm test` passes with 8 test files and 62 tests.
+- `npm run typecheck` passes.
+- `npm run build` passes.
+- All five placeholder assets return HTTP 200 with `image/svg+xml` from the local Vite server.
+- Interactive browser automation was unavailable in this environment; visual camera/debug inspection remains a manual follow-up.
+
+### Completion record
+
+- Added `src/game/config.ts` for the shared 512×288 logical viewport constants.
+- Updated `HouseScene` to load all five registered placeholder assets through base-path-aware URLs and fail clearly when a required texture is unavailable.
+- Added the placeholder player sprite at `HouseLayout.initialSpawn` using world-tile-to-pixel conversion.
+- Added camera follow while preserving the validated world bounds and initial fit zoom.
+- Added the development-only `DebugOverlay` with room bounds, collision rectangles, interactable ranges, world outline, and live player position diagnostics.
+- Emitted the public `gameReady` event only from the scene-ready callback after asset checks and player creation succeed.
+- Corrected `assetUrl()` to resolve manifest paths beneath `/assets/`, preserving base-path support and adding regression tests for SVG and PDF asset paths.
+- Kept player movement, collision bodies, proximity detection, and content events out of this story.
+- Decisions and evidence are recorded in `log.md` as `DEC-034` and `DEC-035`.
+- Implementation may proceed to `PORT-05`.
 
 ---
 

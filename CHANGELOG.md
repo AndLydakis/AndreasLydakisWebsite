@@ -49,6 +49,13 @@ pushed.
 - Added a responsive 16:9 game-shell aspect ratio for the FIT-scaled canvas.
 - Verification: `npm test` (7 files, 60 tests), `npm run typecheck`, `npm run build`, and a successful local Vite HTTP smoke check.
 
+### PORT-06C — Load placeholders and create the player
+
+- Added placeholder asset loading, player placement at the configured spawn, camera follow, and development diagnostics for rooms, collisions, interactable ranges, world bounds, and player position.
+- Corrected `assetUrl()` to resolve the manifest and CV paths beneath `/assets/`, with regression tests for SVG and PDF paths.
+- Emits `gameReady` only after required textures and the player sprite are ready; movement, collision bodies, proximity, and content events remain deferred.
+- Verification: `npm test` (8 files, 62 tests), `npm run typecheck`, `npm run build`, and HTTP checks confirming all five SVG assets return successfully.
+
 ### Delivery workflow
 
 - Future story completion entries will include the story ID, a concise change summary, and the verification commands run.

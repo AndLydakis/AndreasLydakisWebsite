@@ -3,10 +3,8 @@ import Phaser from 'phaser';
 import { houseLayout } from './data/houseLayout';
 import { assertValidHouseLayout } from './data/layoutValidation';
 import type { HouseLayout } from './data/types';
+import { GAME_HEIGHT, GAME_WIDTH } from './config';
 import { HouseScene } from './scenes/HouseScene';
-
-export const GAME_WIDTH = 512;
-export const GAME_HEIGHT = 288;
 
 export interface CreateGameOptions {
   readonly parent: HTMLElement;
