@@ -40,9 +40,9 @@ export function renderDomShell(root: HTMLElement): DomShellElements {
   const header = createElement('header', 'site-header');
   const title = createElement('h1');
   title.id = 'site-title';
-  title.textContent = 'Interactive Portfolio House';
+  title.textContent = 'title.text';
   const introduction = createElement('p');
-  introduction.textContent = 'Explore a playful portfolio presented as a colorful pixel-art house.';
+  introduction.textContent = 'intro.text.';
   header.append(title, introduction);
 
   const experienceLayout = createElement('div', 'experience-layout game-only');
