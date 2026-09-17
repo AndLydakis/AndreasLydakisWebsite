@@ -17,6 +17,12 @@ pushed.
 - Added non-zero-origin, inverse-conversion, invalid-input, and source-room validation tests.
 - Verification: `npm test` (4 files, 30 tests), `npm run typecheck`, and `npm run build`.
 
+### PORT-04B — Author the initial house layout data
+
+- Added the data-only 64×36-tile house layout with four rooms, three corridors, six reciprocal doorways, five interactables, and a world-global initial spawn.
+- Added focused layout-shape and reference tests without Phaser or browser setup.
+- Verification: `npm test` (5 files, 37 tests), `npm run typecheck`, and `npm run build`.
+
 ### Delivery workflow
 
 - Future story completion entries will include the story ID, a concise change summary, and the verification commands run.

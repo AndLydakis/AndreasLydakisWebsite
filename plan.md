@@ -908,6 +908,8 @@ Type: Story
 Priority: Highest  
 Dependencies: `PORT-04A`  
 Milestone: M0
+Status: Done
+Completed: 2026-09-17
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
@@ -938,7 +940,26 @@ Create the first complete, data-only multi-room house layout using the approved 
 
 ### Verification
 
-Inspect the exported layout as data, run typecheck, and run the focused layout-shape tests without starting Phaser.
+Inspect the exported layout as data, run typecheck, and run the focused layout-shape tests without starting Phaser. The completed verification passes:
+
+- `npm test` passes with 5 test files and 37 tests.
+- `npm run typecheck` passes.
+- `npm run build` passes.
+
+### Completion record
+
+- Added `src/game/data/houseLayout.ts` with a 64×36-tile world using 16 logical pixels per tile.
+- Added explicit living room, gym, office, and kitchen origins, dimensions, wall collision rectangles, visual asset IDs, and room-local interactables.
+- Added three world-global corridors and six reciprocal room-local doorways connecting the initial house.
+- Added five stable interactables linked to the existing content IDs: television, record player, squat rack, office workstation, and kitchen stove.
+- Added a world-global initial spawn inside the living-room walkable area.
+- Added `src/game/data/houseLayout.test.ts` for layout shape, local-coordinate bounds, content references, corridors, reciprocal doorways, and spawn placement.
+- Kept layout data and tests independent of Phaser, the DOM, and browser rendering.
+- `npm test` passes with 5 test files and 37 tests.
+- `npm run typecheck` passes.
+- `npm run build` passes.
+- Decisions and evidence are recorded in `log.md` as `DEC-024` and `DEC-025`.
+- Implementation may proceed to `PORT-04C`.
 
 ---
 
