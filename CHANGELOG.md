@@ -92,6 +92,7 @@ pushed.
 - Connected the accessible prompt and mobile Interact button, with prompt text that names both keyboard `E` and mobile `Interact`.
 - Added bridge routing and teardown tests while retaining the existing input-controller request tests.
 - Verification: `npm test` (12 files, 84 tests), `npm run typecheck`, `npm run build`, and `git diff --check`.
+- Follow-up: added `F` as an additional keyboard interaction key.
 
 ### Delivery workflow
 

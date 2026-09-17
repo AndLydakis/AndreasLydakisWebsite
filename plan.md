@@ -1482,6 +1482,7 @@ The completed verification passes:
 - Connected availability to the accessible prompt and existing on-screen `Interact` button; the prompt now names both `E` and `Interact`.
 - Exposed the typed content-request callback through `createGame()` without leaking Phaser internals or DOM nodes into the game systems.
 - Added bridge tests for typed availability/content routing, listener unsubscribe, and bridge teardown. Existing input tests cover repeated, disabled, and one-shot request behavior.
+- Follow-up: added `F` as an additional keyboard interaction key alongside `E`, `Enter`, `Space`, and the mobile `Interact` control.
 - Decisions and evidence are recorded in `log.md` as `DEC-043` and `DEC-044`.
 - Implementation may proceed to `PORT-07D`.
 

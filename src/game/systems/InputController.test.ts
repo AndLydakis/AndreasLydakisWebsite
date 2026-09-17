@@ -93,6 +93,12 @@ describe('InputController', () => {
     expect(controller.consumeInteractionRequest()).toEqual<InteractionRequest>({
       triggerSource: 'keyboard',
     });
+
+    const fDown = dispatchKey(keyboardTarget, 'keydown', 'f');
+    expect(fDown.defaultPrevented).toBe(true);
+    expect(controller.consumeInteractionRequest()).toEqual<InteractionRequest>({
+      triggerSource: 'keyboard',
+    });
   });
 
   it('tracks multiple mobile pointers and releases each direction safely', () => {

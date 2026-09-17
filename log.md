@@ -369,3 +369,11 @@ This file is the project decision record. New implementation decisions, approved
 - Status: Accepted
 - Decision: Mark `PORT-07C` complete and proceed to `PORT-07D`.
 - Evidence: `npm test` passes with 12 test files and 84 tests; `npm run typecheck`, `npm run build`, and `git diff --check` pass. Interactive browser automation was unavailable, so manual preview checks for prompt visibility, keyboard/mobile interaction, and the expected unavailable-content fallback remain follow-up verification.
+
+## DEC-045 — PORT-07C add F interaction key
+
+- Date: 2026-09-17
+- Status: Accepted
+- Decision: Add lowercase `f` to the shared keyboard interaction mapping. Because key handling normalizes `event.key` with `toLowerCase()`, both `F` and `f` activate the same one-shot keyboard interaction request.
+- Decision: Keep the visible prompt unchanged; it describes the interaction action and the mobile control, while the keyboard mapping supports the configured interaction alternatives.
+- Evidence: The input-controller regression test confirms `F` is prevented and produces one keyboard interaction request; the full test, typecheck, and build checks remain required before delivery.

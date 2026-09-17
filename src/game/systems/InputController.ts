@@ -24,7 +24,7 @@ const movementKeys: Record<string, Direction | undefined> = {
   arrowright: 'right',
 };
 
-const interactionKeys = new Set(['e', 'enter', ' ']);
+const interactionKeys = new Set(['e', 'f', 'enter', ' ']);
 
 export class InputController {
   private readonly pressedDirections = new Set<Direction>();
