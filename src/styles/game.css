@@ -29,18 +29,26 @@
 }
 
 .canvas-layer {
-  display: grid;
-  place-items: center;
+  display: block;
   pointer-events: none;
 }
 
+.canvas-layer canvas,
+.canvas-placeholder {
+  position: absolute;
+  inset: 0;
+}
+
 .canvas-layer canvas {
-  display: block;
+  width: 100%;
+  height: 100%;
   max-width: 100%;
   image-rendering: pixelated;
 }
 
 .canvas-placeholder {
+  display: grid;
+  place-items: center;
   padding: var(--space-3);
   color: var(--color-text-muted);
   text-align: center;

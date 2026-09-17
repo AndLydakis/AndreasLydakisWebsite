@@ -409,3 +409,11 @@ This file is the project decision record. New implementation decisions, approved
 - Decision: Model Phaser’s center-relative scroll contract directly: zoom determines the valid scroll range through the effective viewport, while the target is centered relative to the logical camera midpoint. Clamp each axis independently and round scroll values before applying them.
 - Evidence: `npm test` passes with 13 test files and 92 tests; `npm run typecheck`, `npm run build`, and `git diff --check` pass. Browser visual automation was unavailable because no browser surface was exposed; local Vite startup succeeded with escalated permission.
 - Decision: Mark `PORT-07CA` complete and proceed to `PORT-07D`.
+
+## DEC-050 — Fix clipped Phaser canvas overlay
+
+- Date: 2026-09-17
+- Status: Accepted
+- Decision: Make `.canvas-layer` a single absolute stacking context and place both the Phaser canvas and startup placeholder at `inset: 0`. Stretch the 16:9 canvas to the shell rather than allowing CSS Grid auto-placement to create separate rows.
+- Rationale: The preview’s apparent camera-follow failure was caused by the canvas being placed in a second grid row and clipped by `.game-shell`; the game world was not being displayed in the full available viewport.
+- Evidence: The live local preview now shows all four rooms and the complete world outline inside the game shell. Player movement remains functional. The current fit zoom intentionally keeps the whole world visible, so visible panning requires a smaller effective viewport.

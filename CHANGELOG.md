@@ -105,6 +105,7 @@ pushed.
 
 - Updated the interaction tooltip to list `E`, `F`, `Enter`, `Space`, and the mobile `Interact` control.
 - Corrected camera bound initialization after zoom so the current full-house view is centered and follow limits remain valid for larger worlds.
+- Fixed the canvas layer so the Phaser canvas and startup placeholder share one absolute overlay instead of being placed in separate CSS Grid rows, preventing the preview from clipping the lower rooms.
 - Rendered each interactable with its registered furniture placeholder or the generic marker fallback, scaled to fit the room preview.
 - Verification: `npm test` (12 files, 84 tests), `npm run typecheck`, `npm run build`, and `git diff --check`.
 

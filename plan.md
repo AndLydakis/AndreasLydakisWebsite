@@ -1535,6 +1535,7 @@ Inspect the current preview with the full layout, then test a zoomed-in or large
 - Replaced `HouseScene.startFollow()` with explicit camera scroll updates after player movement, while retaining Phaser camera bounds and stopping any follow state during scene shutdown.
 - Added pure tests for the current fit-zoom full-house center, zoomed-in follow, all four edges, smaller-world centering, non-16:9 larger worlds, rounding, and invalid inputs.
 - Preserved the existing movement, collision, proximity, interaction bridge, and DOM contracts.
+- Follow-up: fixed the canvas layer so the Phaser canvas and startup placeholder share one absolute overlay instead of occupying separate CSS Grid rows; the complete house now remains inside the game shell.
 - Automated verification passed: `npm test` (13 files, 92 tests), `npm run typecheck`, `npm run build`, and `git diff --check`.
 - Browser visual automation was unavailable because no browser surface was exposed; the local Vite server started successfully with escalated permission, but preview interaction remains a manual follow-up.
 - Decision and evidence are recorded in `log.md` as `DEC-048` and `DEC-049`.
