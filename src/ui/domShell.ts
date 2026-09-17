@@ -31,8 +31,8 @@ export function renderDomShell(root: HTMLElement): DomShellElements {
   root.replaceChildren();
 
   const skipLink = createElement('a', 'skip-link');
-  skipLink.href = '#content-index';
-  skipLink.textContent = 'Skip to content index';
+  skipLink.href = '#game-shell';
+  skipLink.textContent = 'Skip to interactive house';
 
   const main = createElement('main', 'site-shell');
   main.setAttribute('aria-labelledby', 'site-title');
@@ -45,7 +45,7 @@ export function renderDomShell(root: HTMLElement): DomShellElements {
   introduction.textContent = 'Explore a playful portfolio presented as a colorful pixel-art house.';
   header.append(title, introduction);
 
-  const experienceLayout = createElement('div', 'experience-layout');
+  const experienceLayout = createElement('div', 'experience-layout game-only');
   const gameColumn = createElement('section', 'game-column');
   gameColumn.setAttribute('aria-labelledby', 'game-heading');
 
@@ -106,6 +106,7 @@ export function renderDomShell(root: HTMLElement): DomShellElements {
   const contentList = createElement('div', 'content-list');
   contentList.setAttribute('aria-live', 'polite');
   contentIndex.append(contentHeading, contentIntroduction, contentList);
+  contentIndex.hidden = true;
 
   experienceLayout.append(gameColumn, contentIndex);
   main.append(header, experienceLayout);

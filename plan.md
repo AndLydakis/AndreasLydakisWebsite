@@ -452,7 +452,7 @@ PORT-00
                          └── PORT-04A ── PORT-04B ── PORT-04C ── PORT-04D
 PORT-02 + PORT-02A + PORT-04D ── PORT-06A ── PORT-06B ── PORT-06C
 PORT-02A + PORT-06C ── PORT-05
-PORT-05 ── PORT-07A ── PORT-07B ── PORT-07C ── PORT-07CA ── PORT-07D
+PORT-05 ── PORT-07A ── PORT-07B ── PORT-07C ── PORT-07CA ── PORT-07CB ── PORT-07CC ── PORT-07D
 PORT-07D ── PORT-08A ── PORT-08B
 PORT-08B ── PORT-09A ── PORT-09B ── PORT-09C ── PORT-09D
 PORT-09D ── PORT-10A ── PORT-10B
@@ -1539,6 +1539,100 @@ Inspect the current preview with the full layout, then test a zoomed-in or large
 - Automated verification passed: `npm test` (13 files, 92 tests), `npm run typecheck`, `npm run build`, and `git diff --check`.
 - Browser visual automation was unavailable because no browser surface was exposed; the local Vite server started successfully with escalated permission, but preview interaction remains a manual follow-up.
 - Decision and evidence are recorded in `log.md` as `DEC-048` and `DEC-049`.
+- Implementation may proceed to `PORT-07CB`.
+
+---
+
+## PORT-07CB — Use bounded default camera zoom for expandable layouts
+
+Type: Story<br>
+Priority: Highest<br>
+Dependencies: `PORT-07CA`<br>
+Milestone: M1
+Status: Done
+Completed: 2026-09-17
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
+
+### Goal
+
+Use a readable, configurable gameplay zoom so larger or differently shaped houses can expand beyond the viewport and the camera can follow the player through them.
+
+### Subtasks
+
+1. Replace fit-to-world camera zoom with a named default gameplay zoom of 1×.
+2. Expose an optional camera-zoom override through `createGame()` for future layouts and presentation modes.
+3. Derive camera constraint bounds from the effective viewport after zoom is applied.
+4. Center each world axis when its layout is smaller than the effective viewport.
+5. Follow the player and clamp each axis independently when its layout is larger than the effective viewport.
+6. Preserve the separate physics-world bounds, camera pixel rounding, movement, collision, proximity, interaction bridge, and DOM contracts.
+7. Extend pure camera tests for default zoom, smaller-layout centering, larger-layout panning, independent axes, and configurable zoom.
+
+### Acceptance criteria
+
+- The default camera zoom is independent of the current house dimensions.
+- The player remains visible while moving through a house larger than the effective viewport.
+- Camera scroll is clamped independently at all world edges without unintended blank space.
+- Smaller layouts are centered on either axis when they do not fill the effective viewport.
+- A future caller can override the default zoom without changing `HouseScene` camera logic.
+
+### Verification
+
+Run the current preview at the default zoom and walk across the visible horizontal and vertical thresholds. Verify the player remains in view while the house pans and that each edge stops cleanly. Test a smaller-layout fixture through the pure camera suite, then run the full unit suite, typecheck, and production build.
+
+### Completion record
+
+- Added `DEFAULT_CAMERA_ZOOM` and an optional `cameraZoom` path from `createGame()` to `HouseScene`.
+- Replaced fit-to-world zoom with the configurable 1× default so the current house uses bounded player-follow behavior.
+- Added centered camera constraints for layouts smaller than the effective viewport while preserving independent bounds for larger layouts.
+- Corrected pure camera tests for smaller-world centering and added camera constraint-bound coverage.
+- Verification passed: `npm test` (13 files, 93 tests), `npm run typecheck`, `npm run build`, and `git diff --check`.
+- Preview verification confirmed the game remains usable at the default zoom; native Chrome interaction showed a desktop movement key changing the player position and panning the camera. Full edge-walking remains a manual follow-up.
+- Decisions and evidence are recorded in `log.md` as `DEC-051` and `DEC-052`.
+- Implementation may proceed to `PORT-07CC`.
+
+---
+
+## PORT-07CC — Temporarily hide the content index from the game layout
+
+Type: Story<br>
+Priority: High<br>
+Dependencies: `PORT-07CB`<br>
+Milestone: M1
+Status: Done
+Completed: 2026-09-17
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
+
+### Goal
+
+Give the interactive house the full available layout width while retaining the content-index service and future direct-content route for re-enablement.
+
+### Subtasks
+
+1. Hide the visible content-index section temporarily.
+2. Expand the game column to use the full experience-layout width.
+3. Keep `ContentIndex`, the typed content registry, and its DOM mount available for a future re-enable story.
+4. Redirect the skip link to the focusable game shell while the content index is hidden.
+
+### Acceptance criteria
+
+- The content-index box does not consume visible layout space.
+- The game shell uses the full available experience-layout width.
+- The content-index service remains initialized without Phaser or DOM contract changes.
+- The skip link lands on the interactive house rather than hidden content.
+- Re-enabling the content index later requires only a presentation/layout change.
+
+### Verification
+
+Inspect the desktop and narrow responsive layouts, confirm the game shell expands without horizontal overflow, verify the skip link target, and run the full unit suite, typecheck, and production build.
+
+### Completion record
+
+- Temporarily hid the content-index section while keeping its DOM structure and `ContentIndex` service initialized for future use.
+- Added the `game-only` layout mode so the game column spans the available experience width.
+- Updated the skip link to target the focusable interactive house shell.
+- Verification passed: `npm test` (13 files, 93 tests), `npm run typecheck`, `npm run build`, and `git diff --check`.
+- Native Chrome preview confirmed that the content-index box is not visible and the game shell occupies the available experience width.
+- Decisions and evidence are recorded in `log.md` as `DEC-053` and `DEC-054`.
 - Implementation may proceed to `PORT-07D`.
 
 ---
@@ -1547,7 +1641,7 @@ Inspect the current preview with the full layout, then test a zoomed-in or large
 
 Type: Story<br>
 Priority: High<br>
-Dependencies: `PORT-07CA`<br>
+Dependencies: `PORT-07CC`<br>
 Milestone: M1
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 

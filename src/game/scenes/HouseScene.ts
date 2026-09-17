@@ -2,8 +2,9 @@ import Phaser from 'phaser';
 
 import { assetUrl } from '../../app/assetUrl';
 import { placeholderAssetPaths } from '../../app/assetManifest';
-import { GAME_HEIGHT, GAME_WIDTH } from '../config';
+import { DEFAULT_CAMERA_ZOOM } from '../config';
 import {
+  getCameraConstraintBounds,
   getCameraScrollForTarget,
   roundCameraScroll,
 } from '../camera/cameraFollow';
@@ -27,6 +28,10 @@ export interface HouseSceneCallbacks {
   readonly onContentRequested?: (contentId: string, triggerSource: InteractionTriggerSource) => void;
 }
 
+export interface HouseSceneOptions {
+  readonly cameraZoom?: number;
+}
+
 /**
  * Owns the Phaser scene lifecycle, initial assets, player placement, and
  * navigation systems.
@@ -35,6 +40,7 @@ export class HouseScene extends Phaser.Scene {
   private readonly layout: HouseLayout;
   private readonly callbacks: HouseSceneCallbacks;
   private readonly inputController: InputController;
+  private readonly cameraZoom: number;
   private playerSprite?: Phaser.GameObjects.Sprite;
   private player?: Player;
   private collisionSystem?: CollisionSystem;
@@ -46,11 +52,13 @@ export class HouseScene extends Phaser.Scene {
     layout: HouseLayout,
     inputController: InputController,
     callbacks: HouseSceneCallbacks = {},
+    options: HouseSceneOptions = {},
   ) {
     super({ key: 'HouseScene' });
     this.layout = layout;
     this.inputController = inputController;
     this.callbacks = callbacks;
+    this.cameraZoom = options.cameraZoom ?? DEFAULT_CAMERA_ZOOM;
   }
 
   public preload(): void {
@@ -82,11 +90,22 @@ export class HouseScene extends Phaser.Scene {
       this.cameras.main.setRoundPixels(true);
       buildHouse(this, this.layout);
 
-      const fitZoom = Math.min(GAME_WIDTH / worldWidthPixels, GAME_HEIGHT / worldHeightPixels);
-      this.cameras.main.setZoom(fitZoom);
-      // Apply bounds after zoom so Phaser calculates its scroll limits from
-      // the effective world-space viewport rather than the unzoomed canvas.
-      this.cameras.main.setBounds(0, 0, worldWidthPixels, worldHeightPixels, true);
+      const camera = this.cameras.main;
+      camera.setZoom(this.cameraZoom);
+      const cameraViewport = {
+        width: camera.width,
+        height: camera.height,
+        zoomX: camera.zoomX,
+        zoomY: camera.zoomY,
+      };
+      const cameraConstraintBounds = getCameraConstraintBounds(cameraViewport, this.cameraBounds);
+      camera.setBounds(
+        cameraConstraintBounds.x,
+        cameraConstraintBounds.y,
+        cameraConstraintBounds.width,
+        cameraConstraintBounds.height,
+        true,
+      );
 
       const playerPosition = worldTileToWorldPixel(
         this.layout.initialSpawn,

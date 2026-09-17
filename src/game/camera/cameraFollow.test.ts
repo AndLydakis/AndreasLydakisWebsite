@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import {
+  getCameraConstraintBounds,
   getCameraScrollForTarget,
   getCameraScrollLimits,
   getEffectiveCameraViewport,
@@ -110,14 +111,20 @@ describe('camera follow math', () => {
     };
 
     expect(getCameraScrollLimits(largerEffectiveViewport, smallerBounds)).toEqual({
-      minX: 288,
-      maxX: 288,
-      minY: 192,
-      maxY: 192,
+      minX: 32,
+      maxX: 32,
+      minY: 48,
+      maxY: 48,
     });
     expect(
       getCameraScrollForTarget({ x: 32, y: 48 }, largerEffectiveViewport, smallerBounds),
-    ).toEqual({ x: 288, y: 192 });
+    ).toEqual({ x: 32, y: 48 });
+    expect(getCameraConstraintBounds(largerEffectiveViewport, smallerBounds)).toEqual({
+      x: -224,
+      y: -96,
+      width: 1024,
+      height: 576,
+    });
   });
 
   it('supports a non-16:9 viewport and a larger world', () => {
@@ -143,6 +150,34 @@ describe('camera follow math', () => {
     expect(getCameraScrollForTarget({ x: 816, y: 474 }, viewport, bounds)).toEqual({
       x: 496,
       y: 294,
+    });
+  });
+
+  it('centers only the smaller axis when world dimensions differ', () => {
+    const viewport = {
+      width: 512,
+      height: 288,
+      zoomX: 0.5,
+      zoomY: 1,
+    };
+    const bounds = {
+      x: 16,
+      y: 24,
+      width: 512,
+      height: 900,
+    };
+
+    expect(getCameraScrollLimits(viewport, bounds)).toEqual({
+      minX: 16,
+      maxX: 16,
+      minY: 24,
+      maxY: 636,
+    });
+    expect(getCameraConstraintBounds(viewport, bounds)).toEqual({
+      x: -240,
+      y: 24,
+      width: 1024,
+      height: 900,
     });
   });
 

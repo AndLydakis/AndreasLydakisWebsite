@@ -417,3 +417,33 @@ This file is the project decision record. New implementation decisions, approved
 - Decision: Make `.canvas-layer` a single absolute stacking context and place both the Phaser canvas and startup placeholder at `inset: 0`. Stretch the 16:9 canvas to the shell rather than allowing CSS Grid auto-placement to create separate rows.
 - Rationale: The preview’s apparent camera-follow failure was caused by the canvas being placed in a second grid row and clipped by `.game-shell`; the game world was not being displayed in the full available viewport.
 - Evidence: The live local preview now shows all four rooms and the complete world outline inside the game shell. Player movement remains functional. The current fit zoom intentionally keeps the whole world visible, so visible panning requires a smaller effective viewport.
+
+## DEC-051 — Use a bounded default camera zoom
+
+- Date: 2026-09-17
+- Status: Accepted
+- Decision: Replace fit-to-world camera zoom with the named `DEFAULT_CAMERA_ZOOM` of 1× and expose an optional `cameraZoom` override through `createGame()`.
+- Decision: Keep physics bounds tied to the authored world while deriving camera constraints from the effective viewport. Center smaller layouts and allow bounded player-follow on larger layouts, independently per axis.
+- Rationale: The house may grow with additional rooms and different layouts. A fixed/readable gameplay zoom keeps the player view stable while allowing the camera to pan through a larger world instead of shrinking every new layout to overview size.
+
+## DEC-052 — PORT-07CB completion
+
+- Date: 2026-09-17
+- Status: Accepted
+- Decision: Mark `PORT-07CB` complete and proceed to `PORT-07CC`.
+- Evidence: `npm test` passes with 13 test files and 93 tests; `npm run typecheck`, `npm run build`, and `git diff --check` pass. Native Chrome preview confirmed that a desktop movement key changes the player position and pans the camera at the default zoom.
+
+## DEC-053 — Temporarily hide the content index
+
+- Date: 2026-09-17
+- Status: Accepted
+- Decision: Hide the visible content-index section and use a full-width `game-only` experience layout for now. Keep the content-index DOM structure and `ContentIndex` service initialized so the presentation can be re-enabled later without changing the content contract.
+- Decision: Change the skip link target to the focusable game shell while the content index is hidden.
+- Rationale: The content index currently contains no useful entries and consumes space needed by the interactive house.
+
+## DEC-054 — PORT-07CC completion
+
+- Date: 2026-09-17
+- Status: Accepted
+- Decision: Mark `PORT-07CC` complete and proceed to `PORT-07D`.
+- Evidence: `npm test` passes with 13 test files and 93 tests; `npm run typecheck`, `npm run build`, and `git diff --check` pass. Native Chrome preview confirmed the content index is hidden and the game shell uses the available experience width.

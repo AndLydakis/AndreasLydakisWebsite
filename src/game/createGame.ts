@@ -13,6 +13,7 @@ export interface CreateGameOptions {
   readonly parent: HTMLElement;
   readonly layout?: HouseLayout;
   readonly inputController: InputController;
+  readonly cameraZoom?: number;
   readonly onSceneReady?: () => void;
   readonly onStartupError?: (error: unknown) => void;
   readonly onInteractionTargetChanged?: (target: InteractionTarget | null) => void;
@@ -53,6 +54,8 @@ export function createGame(options: CreateGameOptions): Phaser.Game {
       onStartupError: options.onStartupError,
       onInteractionTargetChanged: options.onInteractionTargetChanged,
       onContentRequested: options.onContentRequested,
+    }, {
+      cameraZoom: options.cameraZoom,
     }),
   };
 

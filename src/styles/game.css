@@ -9,6 +9,10 @@
   min-width: 0;
 }
 
+.experience-layout.game-only {
+  grid-template-columns: 1fr;
+}
+
 .game-shell {
   position: relative;
   width: 100%;

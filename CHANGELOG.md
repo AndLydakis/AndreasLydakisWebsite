@@ -101,6 +101,20 @@ pushed.
 - Added pure tests for fit zoom, zoomed-in follow, independent edge clamping, smaller worlds, non-16:9 viewports, rounding, and invalid inputs.
 - Verification: `npm test` (13 files, 92 tests), `npm run typecheck`, `npm run build`, and `git diff --check`.
 
+### PORT-07CB — Use bounded default camera zoom for expandable layouts
+
+- Replaced fit-to-world zoom with a configurable 1× default gameplay zoom.
+- Added optional camera-zoom configuration and centered constraints for smaller layouts while preserving bounded player-follow for larger layouts.
+- Corrected camera tests for smaller-world centering and added camera constraint-bound coverage.
+- Verification: `npm test` (13 files, 93 tests), `npm run typecheck`, `npm run build`, and `git diff --check`.
+
+### PORT-07CC — Temporarily hide the content index from the game layout
+
+- Hid the visible content-index box and expanded the game column to the full available experience width.
+- Kept the content-index service and DOM mount available for future re-enablement.
+- Updated the skip link to target the interactive house while the content index is hidden.
+- Verification: `npm test` (13 files, 93 tests), `npm run typecheck`, `npm run build`, and `git diff --check`.
+
 ### Preview corrections — PORT-06B, PORT-06C, and PORT-07C follow-ups
 
 - Updated the interaction tooltip to list `E`, `F`, `Enter`, `Space`, and the mobile `Interact` control.

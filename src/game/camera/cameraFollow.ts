@@ -34,6 +34,34 @@ export interface EffectiveCameraViewport {
   readonly height: number;
 }
 
+interface AxisScrollLimits {
+  readonly minimum: number;
+  readonly maximum: number;
+}
+
+function getAxisScrollLimits(
+  boundStart: number,
+  boundSize: number,
+  effectiveViewportSize: number,
+  logicalViewportSize: number,
+): AxisScrollLimits {
+  if (boundSize <= effectiveViewportSize) {
+    const centeredScroll = boundStart + (boundSize - logicalViewportSize) / 2;
+
+    return {
+      minimum: centeredScroll,
+      maximum: centeredScroll,
+    };
+  }
+
+  const minimumScroll = boundStart + (effectiveViewportSize - logicalViewportSize) / 2;
+
+  return {
+    minimum: minimumScroll,
+    maximum: minimumScroll + boundSize - effectiveViewportSize,
+  };
+}
+
 function assertPositiveFinite(value: number, label: string): void {
   if (!Number.isFinite(value) || value <= 0) {
     throw new RangeError(`${label} must be a positive finite number; received ${value}.`);
@@ -84,14 +112,47 @@ export function getCameraScrollLimits(
   assertBounds(bounds);
 
   const effectiveViewport = getEffectiveCameraViewport(viewport);
-  const minX = bounds.x + (effectiveViewport.width - viewport.width) / 2;
-  const minY = bounds.y + (effectiveViewport.height - viewport.height) / 2;
+  const horizontalLimits = getAxisScrollLimits(
+    bounds.x,
+    bounds.width,
+    effectiveViewport.width,
+    viewport.width,
+  );
+  const verticalLimits = getAxisScrollLimits(
+    bounds.y,
+    bounds.height,
+    effectiveViewport.height,
+    viewport.height,
+  );
 
   return {
-    minX,
-    maxX: Math.max(minX, minX + bounds.width - effectiveViewport.width),
-    minY,
-    maxY: Math.max(minY, minY + bounds.height - effectiveViewport.height),
+    minX: horizontalLimits.minimum,
+    maxX: horizontalLimits.maximum,
+    minY: verticalLimits.minimum,
+    maxY: verticalLimits.maximum,
+  };
+}
+
+/**
+ * Expands smaller world axes so Phaser's own bounds clamp agrees with the
+ * centered scroll produced by this module.
+ */
+export function getCameraConstraintBounds(
+  viewport: CameraViewport,
+  bounds: CameraBounds,
+): CameraBounds {
+  assertViewport(viewport);
+  assertBounds(bounds);
+
+  const effectiveViewport = getEffectiveCameraViewport(viewport);
+  const width = Math.max(bounds.width, effectiveViewport.width);
+  const height = Math.max(bounds.height, effectiveViewport.height);
+
+  return {
+    x: bounds.x + (bounds.width - width) / 2,
+    y: bounds.y + (bounds.height - height) / 2,
+    width,
+    height,
   };
 }
 
