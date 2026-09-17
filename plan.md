@@ -452,7 +452,7 @@ PORT-00
                          └── PORT-04A ── PORT-04B ── PORT-04C ── PORT-04D
 PORT-02 + PORT-02A + PORT-04D ── PORT-06A ── PORT-06B ── PORT-06C
 PORT-02A + PORT-06C ── PORT-05
-PORT-05 ── PORT-07A ── PORT-07B ── PORT-07C ── PORT-07D
+PORT-05 ── PORT-07A ── PORT-07B ── PORT-07C ── PORT-07CA ── PORT-07D
 PORT-07D ── PORT-08A ── PORT-08B
 PORT-08B ── PORT-09A ── PORT-09B ── PORT-09C ── PORT-09D
 PORT-09D ── PORT-10A ── PORT-10B
@@ -1487,15 +1487,66 @@ The completed verification passes:
 - Follow-up: added `F` as an additional keyboard interaction key alongside `E`, `Enter`, `Space`, and the mobile `Interact` control.
 - Follow-up: updated the visible availability tooltip to name `E`, `F`, `Enter`, `Space`, and `Interact`.
 - Decisions and evidence are recorded in `log.md` as `DEC-043` and `DEC-044`.
+- Implementation may proceed to `PORT-07CA`.
+
+---
+
+## PORT-07CA — Correct zoom-aware camera follow
+
+Type: Story<br>
+Priority: Highest<br>
+Dependencies: `PORT-07C`<br>
+Milestone: M1
+Status: Done
+Completed: 2026-09-17
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
+
+### Goal
+
+Correct camera positioning and player following at non-1 zoom so the rendered house is centered, fully bounded, and able to pan when the effective viewport is smaller than the world.
+
+### Subtasks
+
+1. Add a Phaser-free camera math helper that derives the effective viewport size from the logical camera dimensions and zoom.
+2. Replace the current non-zoom-aware `startFollow()` and `centerToBounds()` dependency with explicit zoom-aware scroll calculation or an equivalent reusable camera wrapper.
+3. Center the initial camera correctly when the effective viewport is equal to or larger than the world.
+4. Clamp horizontal and vertical camera scroll independently to the world bounds without blank-world overscroll.
+5. Preserve the full-house overview for the current 64×36 layout at the approved fit zoom. Since the effective viewport equals the world at that zoom, panning is not expected in the initial overview; validate panning with a deliberately smaller effective viewport, such as a larger-world fixture or temporary development zoom.
+6. Preserve camera pixel rounding, player following, and the existing collision, proximity, bridge, and DOM contracts.
+7. Add pure tests for fit and centered view, zoomed-in follow, edge clamping, and non-16:9 or larger-world cases.
+8. Keep camera behavior generic and data-driven; do not add room-specific branches.
+9. Remove any camera-follow listeners or subscriptions during scene teardown.
+
+### Acceptance criteria
+
+- The current layout is centered at fit zoom and displays the complete house without clipping.
+- At a non-1 zoom with a smaller effective viewport, the player stays in view and the camera pans as the player approaches the viewport edge.
+- Camera scroll never reveals unintended blank space beyond the validated world bounds.
+- Horizontal and vertical edge clamping work independently.
+- Camera behavior is generic and does not modify movement, collision, proximity, bridge, or DOM contracts.
+
+### Verification
+
+Inspect the current preview with the full layout, then test a zoomed-in or larger-world fixture. Verify player-follow movement at the center and all four world edges, including camera teardown. Run the pure camera tests, full unit suite, typecheck, and production build.
+
+### Completion record
+
+- Added the Phaser-free camera follow math in `src/game/camera/cameraFollow.ts`, including effective viewport calculation, zoom-aware scroll limits, target centering, independent edge clamping, and round-pixel handling.
+- Replaced `HouseScene.startFollow()` with explicit camera scroll updates after player movement, while retaining Phaser camera bounds and stopping any follow state during scene shutdown.
+- Added pure tests for the current fit-zoom full-house center, zoomed-in follow, all four edges, smaller-world centering, non-16:9 larger worlds, rounding, and invalid inputs.
+- Preserved the existing movement, collision, proximity, interaction bridge, and DOM contracts.
+- Automated verification passed: `npm test` (13 files, 92 tests), `npm run typecheck`, `npm run build`, and `git diff --check`.
+- Browser visual automation was unavailable because no browser surface was exposed; the local Vite server started successfully with escalated permission, but preview interaction remains a manual follow-up.
+- Decision and evidence are recorded in `log.md` as `DEC-048` and `DEC-049`.
 - Implementation may proceed to `PORT-07D`.
 
 ---
 
 ## PORT-07D — Add pure proximity and bridge tests
 
-Type: Story  
-Priority: High  
-Dependencies: `PORT-07C`  
+Type: Story<br>
+Priority: High<br>
+Dependencies: `PORT-07CA`<br>
 Milestone: M1
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 

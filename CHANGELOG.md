@@ -94,6 +94,13 @@ pushed.
 - Verification: `npm test` (12 files, 84 tests), `npm run typecheck`, `npm run build`, and `git diff --check`.
 - Follow-up: added `F` as an additional keyboard interaction key.
 
+### PORT-07CA — Correct zoom-aware camera follow
+
+- Added Phaser-free camera viewport, scroll-limit, target-centering, edge-clamping, and round-pixel helpers.
+- Replaced the scene’s built-in player follow with explicit bounded camera scroll updates that remain correct at non-1 zoom.
+- Added pure tests for fit zoom, zoomed-in follow, independent edge clamping, smaller worlds, non-16:9 viewports, rounding, and invalid inputs.
+- Verification: `npm test` (13 files, 92 tests), `npm run typecheck`, `npm run build`, and `git diff --check`.
+
 ### Preview corrections — PORT-06B, PORT-06C, and PORT-07C follow-ups
 
 - Updated the interaction tooltip to list `E`, `F`, `Enter`, `Space`, and the mobile `Interact` control.

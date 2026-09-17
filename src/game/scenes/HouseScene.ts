@@ -3,6 +3,11 @@ import Phaser from 'phaser';
 import { assetUrl } from '../../app/assetUrl';
 import { placeholderAssetPaths } from '../../app/assetManifest';
 import { GAME_HEIGHT, GAME_WIDTH } from '../config';
+import {
+  getCameraScrollForTarget,
+  roundCameraScroll,
+} from '../camera/cameraFollow';
+import type { CameraBounds } from '../camera/cameraFollow';
 import { assertValidHouseLayout } from '../data/layoutValidation';
 import { worldTileToWorldPixel } from '../data/coordinates';
 import type { HouseLayout } from '../data/types';
@@ -35,6 +40,7 @@ export class HouseScene extends Phaser.Scene {
   private collisionSystem?: CollisionSystem;
   private interactionSystem?: InteractionSystem;
   private debugOverlay?: DebugOverlay;
+  private cameraBounds?: CameraBounds;
 
   public constructor(
     layout: HouseLayout,
@@ -65,6 +71,12 @@ export class HouseScene extends Phaser.Scene {
 
       const worldWidthPixels = this.layout.worldWidth * this.layout.tileSize;
       const worldHeightPixels = this.layout.worldHeight * this.layout.tileSize;
+      this.cameraBounds = {
+        x: 0,
+        y: 0,
+        width: worldWidthPixels,
+        height: worldHeightPixels,
+      };
 
       this.physics.world.setBounds(0, 0, worldWidthPixels, worldHeightPixels);
       this.cameras.main.setRoundPixels(true);
@@ -90,7 +102,7 @@ export class HouseScene extends Phaser.Scene {
       this.interactionSystem = new InteractionSystem(this.layout, {
         onTargetChanged: this.callbacks.onInteractionTargetChanged,
       });
-      this.cameras.main.startFollow(this.playerSprite, true);
+      this.updateCameraFollow();
 
       if (import.meta.env.DEV) {
         this.debugOverlay = new DebugOverlay(this, this.layout);
@@ -106,6 +118,7 @@ export class HouseScene extends Phaser.Scene {
 
   public update(): void {
     this.player?.update();
+    this.updateCameraFollow();
 
     if (this.player && this.interactionSystem) {
       this.interactionSystem.setGameplayEnabled(this.inputController.isGameplayEnabled());
@@ -125,10 +138,33 @@ export class HouseScene extends Phaser.Scene {
   }
 
   public shutdown(): void {
+    this.cameras.main.stopFollow();
     this.interactionSystem?.destroy();
     this.interactionSystem = undefined;
     this.collisionSystem?.destroy();
     this.collisionSystem = undefined;
+    this.cameraBounds = undefined;
+  }
+
+  private updateCameraFollow(): void {
+    if (!this.playerSprite || !this.cameraBounds) {
+      return;
+    }
+
+    const camera = this.cameras.main;
+    const scroll = getCameraScrollForTarget(
+      this.playerSprite,
+      {
+        width: camera.width,
+        height: camera.height,
+        zoomX: camera.zoomX,
+        zoomY: camera.zoomY,
+      },
+      this.cameraBounds,
+    );
+    const roundedScroll = roundCameraScroll(scroll);
+
+    camera.setScroll(roundedScroll.x, roundedScroll.y);
   }
 
   private assertPlaceholderTexturesLoaded(): void {
