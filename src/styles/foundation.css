@@ -1,0 +1,144 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  background: var(--color-page);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--color-page);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+.site-shell {
+  width: min(100%, 78rem);
+  margin: 0 auto;
+  padding: var(--space-5) var(--page-gutter);
+}
+
+.site-header {
+  margin-bottom: var(--space-5);
+}
+
+.site-header h1,
+.site-header p,
+.content-index h2,
+.content-index p {
+  margin-top: 0;
+}
+
+.site-header h1 {
+  margin-bottom: var(--space-2);
+  color: var(--color-accent-bright);
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+}
+
+.site-header p {
+  max-width: 52rem;
+  margin-bottom: 0;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.skip-link {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 20;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--color-focus);
+  border-radius: var(--radius-sm);
+  background: var(--color-panel-strong);
+  color: var(--color-text);
+  transform: translateY(-150%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button,
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.content-index {
+  padding: var(--space-4);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-panel);
+}
+
+.content-index h2 {
+  margin-bottom: var(--space-2);
+  color: var(--color-accent-bright);
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+}
+
+.content-index p {
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.content-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.content-list li + li {
+  margin-top: var(--space-2);
+}
+
+.content-list button {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-panel-strong);
+  color: var(--color-text);
+  text-align: left;
+}
+
+.content-list button:hover {
+  border-color: var(--color-accent);
+  background: var(--color-panel-hover);
+}
+
+@media (max-width: 42rem) {
+  .site-shell {
+    padding-top: var(--space-4);
+  }
+}

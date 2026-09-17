@@ -1,0 +1,120 @@
+.content-dialog {
+  width: min(46rem, calc(100vw - 2rem));
+  max-height: min(85vh, 48rem);
+  padding: 0;
+  overflow: hidden;
+  border: 3px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  background: var(--color-panel);
+  color: var(--color-text);
+  box-shadow: 0 1rem 3rem rgb(0 0 0 / 45%);
+}
+
+.content-dialog::backdrop {
+  background: rgb(7 5 15 / 78%);
+}
+
+.dialog-header {
+  display: flex;
+  gap: var(--space-3);
+  align-items: start;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-4) var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-panel-strong);
+}
+
+.dialog-eyebrow {
+  margin: 0 0 var(--space-1);
+  color: var(--color-accent);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.dialog-header h2 {
+  margin: 0;
+  color: var(--color-accent-bright);
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 4vw, 1.75rem);
+}
+
+.dialog-close {
+  flex: 0 0 auto;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text);
+}
+
+.dialog-close:hover {
+  background: var(--color-panel-hover);
+}
+
+.dialog-body {
+  max-height: calc(85vh - 7rem);
+  padding: var(--space-4);
+  overflow: auto;
+}
+
+.dialog-description {
+  margin-top: 0;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.dialog-section + .dialog-section {
+  margin-top: var(--space-4);
+}
+
+.dialog-section h3 {
+  margin: 0 0 var(--space-2);
+  color: var(--color-accent-bright);
+  font-family: var(--font-display);
+  font-size: 1rem;
+}
+
+.dialog-section p,
+.dialog-section li {
+  line-height: 1.6;
+}
+
+.dialog-section p {
+  margin: 0 0 var(--space-2);
+}
+
+.dialog-section ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.dialog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+.dialog-actions a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  color: var(--color-accent-bright);
+}
+
+@media (max-width: 42rem) {
+  .content-dialog {
+    width: calc(100vw - 1rem);
+    max-height: calc(100vh - 1rem);
+  }
+
+  .dialog-body {
+    max-height: calc(100vh - 7rem);
+  }
+}

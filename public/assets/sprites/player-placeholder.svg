@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" role="img" aria-labelledby="title">
+  <title>PLACEHOLDER PLAYER SPRITE</title>
+  <rect width="32" height="32" fill="#171226"/>
+  <rect x="8" y="5" width="16" height="22" rx="3" fill="#62e6ff" stroke="#f8f4ff" stroke-width="2"/>
+  <rect x="11" y="10" width="3" height="3" fill="#171226"/>
+  <rect x="18" y="10" width="3" height="3" fill="#171226"/>
+  <path d="M12 19h8" stroke="#171226" stroke-width="2"/>
+</svg>
