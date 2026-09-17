@@ -7,6 +7,7 @@ import { GAME_HEIGHT, GAME_WIDTH } from './config';
 import { HouseScene } from './scenes/HouseScene';
 import type { InteractionTarget } from './systems/InteractionSystem';
 import { InputController } from './systems/InputController';
+import type { InteractionTriggerSource } from './systems/InputController';
 
 export interface CreateGameOptions {
   readonly parent: HTMLElement;
@@ -15,6 +16,7 @@ export interface CreateGameOptions {
   readonly onSceneReady?: () => void;
   readonly onStartupError?: (error: unknown) => void;
   readonly onInteractionTargetChanged?: (target: InteractionTarget | null) => void;
+  readonly onContentRequested?: (contentId: string, triggerSource: InteractionTriggerSource) => void;
   readonly gameFactory?: (config: Phaser.Types.Core.GameConfig) => Phaser.Game;
 }
 
@@ -50,6 +52,7 @@ export function createGame(options: CreateGameOptions): Phaser.Game {
       onSceneReady: options.onSceneReady,
       onStartupError: options.onStartupError,
       onInteractionTargetChanged: options.onInteractionTargetChanged,
+      onContentRequested: options.onContentRequested,
     }),
   };
 

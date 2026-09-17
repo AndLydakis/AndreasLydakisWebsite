@@ -13,11 +13,13 @@ import { CollisionSystem } from '../systems/CollisionSystem';
 import { InteractionSystem } from '../systems/InteractionSystem';
 import type { InteractionTarget } from '../systems/InteractionSystem';
 import { InputController } from '../systems/InputController';
+import type { InteractionTriggerSource } from '../systems/InputController';
 
 export interface HouseSceneCallbacks {
   readonly onSceneReady?: () => void;
   readonly onStartupError?: (error: unknown) => void;
   readonly onInteractionTargetChanged?: (target: InteractionTarget | null) => void;
+  readonly onContentRequested?: (contentId: string, triggerSource: InteractionTriggerSource) => void;
 }
 
 /**
@@ -106,6 +108,13 @@ export class HouseScene extends Phaser.Scene {
     if (this.player && this.interactionSystem) {
       this.interactionSystem.setGameplayEnabled(this.inputController.isGameplayEnabled());
       this.interactionSystem.update(this.player.getState());
+
+      const interactionRequest = this.inputController.consumeInteractionRequest();
+      const target = this.interactionSystem.getCurrentTarget();
+
+      if (interactionRequest && target) {
+        this.callbacks.onContentRequested?.(target.contentId, interactionRequest.triggerSource);
+      }
     }
 
     if (this.player && this.debugOverlay) {

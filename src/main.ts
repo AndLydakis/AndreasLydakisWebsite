@@ -46,7 +46,7 @@ dom.gameStatus.textContent = 'Starting the interactive house...';
 const subscriptions = [
   bridge.on('interactionAvailable', ({ label }) => {
     dom.interactionPrompt.hidden = false;
-    dom.interactionPrompt.textContent = `Press E to interact with ${label}.`;
+    dom.interactionPrompt.textContent = `Press E or Interact to interact with ${label}.`;
     mobileControls.setInteractionAvailable(true, label);
   }),
   bridge.on('interactionUnavailable', () => {
@@ -86,6 +86,19 @@ try {
     inputController,
     onSceneReady: () => {
       bridge.emit('gameReady', undefined);
+    },
+    onInteractionTargetChanged: (target) => {
+      if (target) {
+        bridge.emit('interactionAvailable', {
+          contentId: target.contentId,
+          label: target.promptLabel,
+        });
+      } else {
+        bridge.emit('interactionUnavailable', undefined);
+      }
+    },
+    onContentRequested: (contentId, triggerSource) => {
+      bridge.emit('contentRequested', { contentId, triggerSource });
     },
     onStartupError: reportStartupError,
   });

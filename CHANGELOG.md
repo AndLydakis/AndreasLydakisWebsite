@@ -85,6 +85,14 @@ pushed.
 - Added pure tests for range limits, overlaps, ties, stable availability, disabled gameplay, world conversion, and cleanup.
 - Verification: `npm test` (11 files, 82 tests), `npm run typecheck`, `npm run build`, and `git diff --check`.
 
+### PORT-07C — Add interaction commands and the game/UI bridge
+
+- Added one-shot interaction request handling in `HouseScene`, validating requests against the active proximity target.
+- Routed availability, unavailability, and content-request events through the typed `GameUiBridge`, preserving keyboard/mobile trigger sources.
+- Connected the accessible prompt and mobile Interact button, with prompt text that names both keyboard `E` and mobile `Interact`.
+- Added bridge routing and teardown tests while retaining the existing input-controller request tests.
+- Verification: `npm test` (12 files, 84 tests), `npm run typecheck`, `npm run build`, and `git diff --check`.
+
 ### Delivery workflow
 
 - Future story completion entries will include the story ID, a concise change summary, and the verification commands run.

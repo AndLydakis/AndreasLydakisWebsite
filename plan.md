@@ -1438,6 +1438,8 @@ Type: Story
 Priority: Highest  
 Dependencies: `PORT-07B`  
 Milestone: M1
+Status: Done
+Completed: 2026-09-17
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
@@ -1464,6 +1466,24 @@ Connect valid interaction requests to the DOM through the typed game-to-UI bridg
 ### Verification
 
 Test repeated requests, no-target requests, disabled gameplay, prompt transitions, keyboard/mobile trigger sources, and bridge teardown.
+
+The completed verification passes:
+
+- `npm test` passes with 12 test files and 84 tests.
+- `npm run typecheck` passes.
+- `npm run build` passes.
+- `git diff --check` passes.
+- Interactive browser automation was unavailable in this environment; bridge behavior and one-shot request contracts are covered by tests, with the full preview flow ready for manual verification.
+
+### Completion record
+
+- Added one-shot interaction-request consumption to `HouseScene`, emitting a typed content request only when the active target exists and gameplay is enabled.
+- Routed target availability and content requests through the existing `GameUiBridge` from `main.ts`, including keyboard/mobile trigger source preservation.
+- Connected availability to the accessible prompt and existing on-screen `Interact` button; the prompt now names both `E` and `Interact`.
+- Exposed the typed content-request callback through `createGame()` without leaking Phaser internals or DOM nodes into the game systems.
+- Added bridge tests for typed availability/content routing, listener unsubscribe, and bridge teardown. Existing input tests cover repeated, disabled, and one-shot request behavior.
+- Decisions and evidence are recorded in `log.md` as `DEC-043` and `DEC-044`.
+- Implementation may proceed to `PORT-07D`.
 
 ---
 
