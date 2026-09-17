@@ -5,10 +5,12 @@ import { assertValidHouseLayout } from './data/layoutValidation';
 import type { HouseLayout } from './data/types';
 import { GAME_HEIGHT, GAME_WIDTH } from './config';
 import { HouseScene } from './scenes/HouseScene';
+import { InputController } from './systems/InputController';
 
 export interface CreateGameOptions {
   readonly parent: HTMLElement;
   readonly layout?: HouseLayout;
+  readonly inputController: InputController;
   readonly onSceneReady?: () => void;
   readonly onStartupError?: (error: unknown) => void;
   readonly gameFactory?: (config: Phaser.Types.Core.GameConfig) => Phaser.Game;
@@ -42,7 +44,7 @@ export function createGame(options: CreateGameOptions): Phaser.Game {
         debug: false,
       },
     },
-    scene: new HouseScene(layout, {
+    scene: new HouseScene(layout, options.inputController, {
       onSceneReady: options.onSceneReady,
       onStartupError: options.onStartupError,
     }),

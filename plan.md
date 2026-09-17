@@ -1268,6 +1268,8 @@ Type: Story
 Priority: Highest  
 Dependencies: `PORT-02A`, `PORT-06C`  
 Milestone: M1
+Status: Done
+Completed: 2026-09-17
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
@@ -1299,6 +1301,25 @@ Attach the player movement system to the sprite created by Phaser, using the sha
 ### Verification
 
 Test movement in all directions, diagonal speed, world-edge behavior, and that the player stops after input reset or dialog disable.
+
+The completed verification passes:
+
+- `npm test` passes with 9 test files and 68 tests.
+- `npm run typecheck` passes.
+- `npm run build` passes.
+- Interactive browser automation was unavailable in this environment; movement behavior is covered by pure motion tests and the Phaser integration is ready for manual browser verification.
+
+### Completion record
+
+- Added `src/game/entities/Player.ts` to attach one dynamic Arcade Physics body to the sprite created by `PORT-06C`.
+- Added `src/game/entities/playerMotion.ts` with shared, pure conversion from `MovementSnapshot` to normalized velocity and facing state.
+- Connected the existing `InputController` instance to `HouseScene.update()` without adding keyboard listeners, mobile pointer listeners, or a second controller.
+- Set the named `PLAYER_SPEED` to 96 pixels per second, disabled gravity, enabled world-bound collision, and stopped the body when no input is active.
+- Added the `PlayerState` contract exposing only world-tile position and facing direction to later collision, proximity, and animation systems.
+- Added six pure movement tests for idle, cardinal, diagonal, opposing, facing, and invalid-speed behavior.
+- Updated the shared debug overlay to show player facing state as well as position.
+- Decisions and evidence are recorded in `log.md` as `DEC-036` and `DEC-037`.
+- Implementation may proceed to `PORT-07A`.
 
 ---
 

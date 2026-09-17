@@ -6,7 +6,8 @@ import {
   worldRectToWorldPixel,
   worldTileToWorldPixel,
 } from '../data/coordinates';
-import type { HouseLayout, WorldTilePoint } from '../data/types';
+import type { HouseLayout } from '../data/types';
+import type { PlayerState } from '../entities/Player';
 
 const ROOM_COLOR = 0x62e6ff;
 const COLLISION_COLOR = 0xff9a9a;
@@ -37,11 +38,12 @@ export class DebugOverlay {
     this.drawStaticGeometry();
   }
 
-  public update(playerPosition: WorldTilePoint): void {
+  public update(playerState: PlayerState): void {
     this.status.setText(
       [
         'DEBUG',
-        `player: ${playerPosition.x.toFixed(1)}, ${playerPosition.y.toFixed(1)}`,
+        `player: ${playerState.position.x.toFixed(1)}, ${playerState.position.y.toFixed(1)}`,
+        `facing: ${playerState.facing}`,
         `rooms: ${this.layout.rooms.length}  interactables: ${this.interactableCount()}`,
       ],
     );

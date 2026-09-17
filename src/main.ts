@@ -83,6 +83,7 @@ try {
   game = createGame({
     parent: dom.canvasLayer,
     layout: houseLayout,
+    inputController,
     onSceneReady: () => {
       bridge.emit('gameReady', undefined);
     },

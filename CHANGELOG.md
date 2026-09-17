@@ -56,6 +56,13 @@ pushed.
 - Emits `gameReady` only after required textures and the player sprite are ready; movement, collision bodies, proximity, and content events remain deferred.
 - Verification: `npm test` (8 files, 62 tests), `npm run typecheck`, `npm run build`, and HTTP checks confirming all five SVG assets return successfully.
 
+### PORT-05 — Integrate Player movement after Phaser boot
+
+- Added the reusable player wrapper and dynamic Arcade Physics body using the existing sprite and shared `InputController`.
+- Added normalized cardinal/diagonal movement, named speed, world-bound enforcement, facing state, and a minimal `PlayerState` contract for later systems.
+- Added pure movement-math tests and debug-overlay facing output without adding duplicate input listeners or DOM access.
+- Verification: `npm test` (9 files, 68 tests), `npm run typecheck`, and `npm run build`.
+
 ### Delivery workflow
 
 - Future story completion entries will include the story ID, a concise change summary, and the verification commands run.

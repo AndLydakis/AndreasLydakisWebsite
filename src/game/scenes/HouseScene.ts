@@ -7,7 +7,9 @@ import { assertValidHouseLayout } from '../data/layoutValidation';
 import { worldTileToWorldPixel } from '../data/coordinates';
 import type { HouseLayout } from '../data/types';
 import { DebugOverlay } from '../debug/DebugOverlay';
+import { Player } from '../entities/Player';
 import { buildHouse } from '../rendering/houseRenderer';
+import { InputController } from '../systems/InputController';
 
 export interface HouseSceneCallbacks {
   readonly onSceneReady?: () => void;
@@ -21,12 +23,19 @@ export interface HouseSceneCallbacks {
 export class HouseScene extends Phaser.Scene {
   private readonly layout: HouseLayout;
   private readonly callbacks: HouseSceneCallbacks;
+  private readonly inputController: InputController;
   private playerSprite?: Phaser.GameObjects.Sprite;
+  private player?: Player;
   private debugOverlay?: DebugOverlay;
 
-  public constructor(layout: HouseLayout, callbacks: HouseSceneCallbacks = {}) {
+  public constructor(
+    layout: HouseLayout,
+    inputController: InputController,
+    callbacks: HouseSceneCallbacks = {},
+  ) {
     super({ key: 'HouseScene' });
     this.layout = layout;
+    this.inputController = inputController;
     this.callbacks = callbacks;
   }
 
@@ -64,11 +73,14 @@ export class HouseScene extends Phaser.Scene {
       this.playerSprite = this.add
         .sprite(playerPosition.x, playerPosition.y, 'player-placeholder')
         .setDepth(6);
+      this.player = new Player(this, this.playerSprite, this.inputController, {
+        tileSize: this.layout.tileSize,
+      });
       this.cameras.main.startFollow(this.playerSprite, true);
 
       if (import.meta.env.DEV) {
         this.debugOverlay = new DebugOverlay(this, this.layout);
-        this.debugOverlay.update(this.layout.initialSpawn);
+        this.debugOverlay.update(this.player.getState());
       }
     } catch (error) {
       this.callbacks.onStartupError?.(error);
@@ -79,11 +91,10 @@ export class HouseScene extends Phaser.Scene {
   }
 
   public update(): void {
-    if (this.playerSprite && this.debugOverlay) {
-      this.debugOverlay.update({
-        x: this.playerSprite.x / this.layout.tileSize - 0.5,
-        y: this.playerSprite.y / this.layout.tileSize - 0.5,
-      });
+    this.player?.update();
+
+    if (this.player && this.debugOverlay) {
+      this.debugOverlay.update(this.player.getState());
     }
   }
 
