@@ -244,15 +244,16 @@ Rooms occupy explicit world positions. Corridors connect rooms through walkable 
 Provide these conversion helpers:
 
 ```text
-roomTileToWorld(roomId, point)
-worldToRoomTile(roomId, point)
-roomRectToWorld(roomId, rect)
-worldTileToWorldPixel(point)
-worldRectToWorldPixel(rect)
-doorwayOpeningToWorld(doorway)
+roomTileToWorld(room, point)
+worldToRoomTile(room, point)
+roomRectToWorld(room, rect)
+corridorToWorldRect(corridor)
+worldTileToWorldPixel(point, tileSize)
+worldRectToWorldPixel(rect, tileSize)
+doorwayOpeningToWorld(doorway, fromRoom)
 ```
 
-`roomTileToWorld` and `roomRectToWorld` add the room origin. `worldToRoomTile` subtracts it. `worldTileToWorldPixel` returns the center pixel of a world tile using `tileSize`; `worldRectToWorldPixel` scales a world rectangle by `tileSize`; and `doorwayOpeningToWorld` converts the opening through `fromRoomId`.
+`roomTileToWorld` and `roomRectToWorld` add the origin from a supplied typed room context. `worldToRoomTile` subtracts it. `corridorToWorldRect` uses the corridor’s world-global origin and dimensions. `worldTileToWorldPixel` returns the center pixel of a world tile using its explicit `tileSize`; `worldRectToWorldPixel` scales a world rectangle by that same tile size; and `doorwayOpeningToWorld` converts the opening through a supplied room whose ID must match `fromRoomId`.
 
 Validate that the initial spawn is inside a walkable room or corridor, room-local rectangles fit their room, corridor bounds fit the world, doorway references and local openings are valid, doorway openings touch the source room boundary, converted openings remain inside the world, and each doorway connects to its destination room or a declared corridor.
 
@@ -477,8 +478,8 @@ All stories belong to `EPIC-001`.
 Type: Story  
 Priority: Highest  
 Dependencies: None  
-Milestone: M0  
-Status: Done  
+Milestone: M0
+Status: Done
 Completed: 2026-09-17
 
 ### Goal
@@ -847,6 +848,8 @@ Type: Story
 Priority: Highest  
 Dependencies: `PORT-03A`  
 Milestone: M0
+Status: Done
+Completed: 2026-09-17
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
@@ -878,7 +881,24 @@ Establish the pure coordinate API that every later layout and Phaser system will
 
 ### Verification
 
-Run the coordinate unit tests and typecheck. Confirm the tests use non-zero origins and cover both points and rectangles.
+Run the coordinate unit tests and typecheck. Confirm the tests use non-zero origins and cover both points and rectangles. The completed verification passes:
+
+- `npm test` passes with 4 test files and 30 tests.
+- `npm run typecheck` passes.
+- `npm run build` passes.
+
+### Completion record
+
+- Added pure coordinate helpers in `src/game/data/coordinates.ts` for room points, inverse room points, room rectangles, corridors, doorways, and world-to-pixel conversion.
+- Used typed room/corridor context objects and an explicit tile-size parameter instead of introducing a global layout lookup before `PORT-04B`.
+- Added source-room validation for doorway conversion and positive finite tile-size validation.
+- Added `src/game/data/coordinates.test.ts` covering non-zero origins, inverse conversion, rectangle conversion, corridor and doorway conversion, pixel conversion, and invalid inputs.
+- Kept all coordinate logic independent of Phaser, the DOM, and browser rendering.
+- `npm test` passes with 4 test files and 30 tests.
+- `npm run typecheck` passes.
+- `npm run build` passes.
+- Decisions and evidence are recorded in `log.md` as `DEC-022` and `DEC-023`.
+- Implementation may proceed to `PORT-04B`.
 
 ---
 
