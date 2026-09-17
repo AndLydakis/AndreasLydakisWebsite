@@ -1037,6 +1037,8 @@ Type: Story
 Priority: High  
 Dependencies: `PORT-04C`  
 Milestone: M0
+Status: Done
+Completed: 2026-09-17
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
@@ -1067,6 +1069,25 @@ Lock down the complete layout contract before the first Phaser scene consumes it
 ### Verification
 
 Run `npm test`, `npm run typecheck`, and `npm run build`. Confirm the full pure layout suite passes before starting PORT-06A.
+
+The completed verification passes:
+
+- `npm test` passes with 7 test files and 60 tests.
+- `npm run typecheck` passes.
+- `npm run build` passes.
+
+### Completion record
+
+- Added `src/game/data/layoutContract.test.ts` as a dedicated pure contract suite for the complete layout boundary.
+- Covered approved room, corridor, doorway, spawn, and coordinate data, including a valid spawn located in a corridor and a valid connected layout with an explicit required-room subset.
+- Added focused tests for invalid world dimensions, negative/fractional room origins, malformed collision rectangles, interactable geometry and references, doorway dimensions and destinations, and full-layout duplicate IDs.
+- Kept the existing coordinate and validator tests as focused rule-level suites and verified the data modules have no Phaser or DOM imports.
+- Confirmed all fixtures run without browser setup, Phaser initialization, or DOM dependencies.
+- `npm test` passes with 7 test files and 60 tests.
+- `npm run typecheck` passes.
+- `npm run build` passes.
+- Decisions and evidence are recorded in `log.md` as `DEC-028` and `DEC-029`.
+- Implementation may proceed to `PORT-06A`.
 
 ## PORT-06A — Boot the Phaser runtime and lifecycle
 

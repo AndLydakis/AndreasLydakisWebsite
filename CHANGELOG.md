@@ -30,6 +30,11 @@ pushed.
 - Added intentionally broken data-only fixtures covering each validation rule.
 - Verification: `npm test` (6 files, 47 tests), `npm run typecheck`, and `npm run build`.
 
+### PORT-04D — Add comprehensive pure layout tests
+
+- Added a dedicated pure layout-contract suite covering valid room/corridor/doorway/spawn data, invalid dimensions and origins, malformed geometry, duplicate and missing references, doorway failures, corridor spawns, required-room subsets, and the Phaser/DOM-free boundary.
+- Verification: `npm test` (7 files, 60 tests), `npm run typecheck`, and `npm run build`.
+
 ### Delivery workflow
 
 - Future story completion entries will include the story ID, a concise change summary, and the verification commands run.

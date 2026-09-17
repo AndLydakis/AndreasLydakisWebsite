@@ -229,3 +229,19 @@ This file is the project decision record. New implementation decisions, approved
 - Status: Accepted
 - Decision: Mark `PORT-04C` complete and proceed to `PORT-04D`.
 - Evidence: `npm test` passes with 6 test files and 47 tests; `npm run typecheck` passes; `npm run build` passes. Focused fixtures cover valid data, dimensions, room/corridor bounds, duplicate IDs, room overlap, collision bounds, doorway references and geometry, world conversion, disconnected targets, interactable references, spawn validity, and unreachable rooms.
+
+## DEC-028 — PORT-04D pure contract-test coverage
+
+- Date: 2026-09-17
+- Status: Accepted
+- Decision: Add a dedicated `layoutContract.test.ts` suite while retaining the coordinate and validator suites as focused rule-level tests.
+- Decision: Use small in-memory layout copies and table-driven cases for invalid scalar configuration, room origins, collision/interactable geometry, references, doorway destinations, valid corridor spawns, and required-room subsets.
+- Decision: Add a raw-source import guard for the layout data, coordinate helpers, and validator to prevent Phaser or DOM dependencies from entering the pure layout boundary.
+- Rationale: The full layout contract is now protected both at the individual-rule level and at the cross-module boundary before Phaser scenes consume it.
+
+## DEC-029 — PORT-04D completion
+
+- Date: 2026-09-17
+- Status: Accepted
+- Decision: Mark `PORT-04D` complete and proceed to `PORT-06A`.
+- Evidence: `npm test` passes with 7 test files and 60 tests; `npm run typecheck` passes; `npm run build` passes. The combined pure suites cover every documented conversion, bounds, overlap, doorway, reference, spawn, reachability, and import-boundary rule without browser or Phaser initialization.
