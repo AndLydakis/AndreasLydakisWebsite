@@ -9,6 +9,7 @@ import type { HouseLayout } from '../data/types';
 import { DebugOverlay } from '../debug/DebugOverlay';
 import { Player } from '../entities/Player';
 import { buildHouse } from '../rendering/houseRenderer';
+import { CollisionSystem } from '../systems/CollisionSystem';
 import { InputController } from '../systems/InputController';
 
 export interface HouseSceneCallbacks {
@@ -17,8 +18,8 @@ export interface HouseSceneCallbacks {
 }
 
 /**
- * Owns the Phaser scene lifecycle, initial assets, and player placement.
- * Movement and collision behavior are added by later stories.
+ * Owns the Phaser scene lifecycle, initial assets, player placement, and
+ * navigation systems.
  */
 export class HouseScene extends Phaser.Scene {
   private readonly layout: HouseLayout;
@@ -26,6 +27,7 @@ export class HouseScene extends Phaser.Scene {
   private readonly inputController: InputController;
   private playerSprite?: Phaser.GameObjects.Sprite;
   private player?: Player;
+  private collisionSystem?: CollisionSystem;
   private debugOverlay?: DebugOverlay;
 
   public constructor(
@@ -76,6 +78,7 @@ export class HouseScene extends Phaser.Scene {
       this.player = new Player(this, this.playerSprite, this.inputController, {
         tileSize: this.layout.tileSize,
       });
+      this.collisionSystem = new CollisionSystem(this, this.layout, this.playerSprite);
       this.cameras.main.startFollow(this.playerSprite, true);
 
       if (import.meta.env.DEV) {
@@ -96,6 +99,11 @@ export class HouseScene extends Phaser.Scene {
     if (this.player && this.debugOverlay) {
       this.debugOverlay.update(this.player.getState());
     }
+  }
+
+  public shutdown(): void {
+    this.collisionSystem?.destroy();
+    this.collisionSystem = undefined;
   }
 
   private assertPlaceholderTexturesLoaded(): void {

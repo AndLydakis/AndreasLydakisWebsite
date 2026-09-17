@@ -1329,6 +1329,8 @@ Type: Story
 Priority: Highest  
 Dependencies: `PORT-05`, `PORT-06C`  
 Milestone: M1
+Status: Done
+Completed: 2026-09-17
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
@@ -1355,6 +1357,23 @@ Make the rendered house physically navigable using the validated collision data.
 ### Verification
 
 Test walking against every room boundary, each perimeter edge, corridors, and doorway openings. Confirm clean teardown.
+
+The completed verification passes:
+
+- `npm test` passes with 10 test files and 73 tests.
+- `npm run typecheck` passes.
+- `npm run build` passes.
+- `git diff --check` passes.
+- Interactive browser automation was unavailable in this environment; pure collision geometry is covered by tests and the Phaser integration is ready for manual walking and teardown verification.
+
+### Completion record
+
+- Added `src/game/systems/collisionGeometry.ts` to flatten room-local collision rectangles and add four independent world-perimeter rectangles from the typed layout.
+- Added `src/game/systems/CollisionSystem.ts` to create invisible static Arcade bodies, attach one player-to-obstacle collider, and disable/destroy all bodies during scene shutdown.
+- Connected `CollisionSystem` to `HouseScene` after the player body is created, without adding proximity, prompt, content, keyboard, or mobile-pointer responsibilities.
+- Added pure geometry tests covering room conversion, passable corridor/opening gaps, perimeter construction, and total body geometry.
+- Decisions and evidence are recorded in `log.md` as `DEC-039` and `DEC-040`.
+- Implementation may proceed to `PORT-07B`.
 
 ---
 

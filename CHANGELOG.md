@@ -69,6 +69,14 @@ pushed.
 - Added a regression test that locks the requested default speed.
 - Verification: focused player-motion tests (7 tests) and `npm run typecheck` pass.
 
+### PORT-07A — Add room and perimeter collision
+
+- Added data-driven collision geometry for all room walls and four independent world-perimeter bodies.
+- Added a reusable `CollisionSystem` with static Arcade bodies, player collision wiring, and idempotent scene-shutdown teardown.
+- Kept corridors and doorway openings passable by creating bodies only from authored wall rectangles and the outer perimeter.
+- Added pure geometry tests for room conversion, openings, perimeter construction, and combined collision geometry.
+- Verification: `npm test` (10 files, 73 tests), `npm run typecheck`, `npm run build`, and `git diff --check`.
+
 ### Delivery workflow
 
 - Future story completion entries will include the story ID, a concise change summary, and the verification commands run.
