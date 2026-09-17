@@ -94,6 +94,13 @@ pushed.
 - Verification: `npm test` (12 files, 84 tests), `npm run typecheck`, `npm run build`, and `git diff --check`.
 - Follow-up: added `F` as an additional keyboard interaction key.
 
+### Preview corrections — PORT-06B, PORT-06C, and PORT-07C follow-ups
+
+- Updated the interaction tooltip to list `E`, `F`, `Enter`, `Space`, and the mobile `Interact` control.
+- Corrected camera bound initialization after zoom so the current full-house view is centered and follow limits remain valid for larger worlds.
+- Rendered each interactable with its registered furniture placeholder or the generic marker fallback, scaled to fit the room preview.
+- Verification: `npm test` (12 files, 84 tests), `npm run typecheck`, `npm run build`, and `git diff --check`.
+
 ### Delivery workflow
 
 - Future story completion entries will include the story ID, a concise change summary, and the verification commands run.

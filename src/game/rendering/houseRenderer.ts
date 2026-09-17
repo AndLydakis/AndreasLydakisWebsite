@@ -4,7 +4,9 @@ import {
   corridorToWorldRect,
   doorwayOpeningToWorld,
   roomRectToWorld,
+  roomTileToWorld,
   worldRectToWorldPixel,
+  worldTileToWorldPixel,
 } from '../data/coordinates';
 import type {
   DoorwayDefinition,
@@ -82,7 +84,7 @@ export function buildHouse(scene: Phaser.Scene, layout: HouseLayout): HouseRende
 
 /** Renders one room from its data without branching on room IDs. */
 export function buildRoom(
-  _scene: Phaser.Scene,
+  scene: Phaser.Scene,
   room: RoomDefinition,
   tileSize: number,
   layers: HouseRenderLayers,
@@ -133,6 +135,24 @@ export function buildRoom(
       collisionPixels.width,
       collisionPixels.height,
     );
+  });
+
+  room.interactables.forEach((interactable) => {
+    const position = worldTileToWorldPixel(
+      roomTileToWorld(room, interactable.position),
+      tileSize,
+    );
+    const textureKey =
+      interactable.assetId && scene.textures.exists(interactable.assetId)
+        ? interactable.assetId
+        : 'interactable-marker-placeholder';
+    const image = scene.add.image(position.x, position.y, textureKey).setDepth(5);
+    const maximumSize = tileSize * 3;
+    const sourceSize = Math.max(image.width, image.height);
+
+    if (sourceSize > maximumSize) {
+      image.setScale(maximumSize / sourceSize);
+    }
   });
 }
 

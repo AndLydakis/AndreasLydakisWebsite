@@ -67,12 +67,14 @@ export class HouseScene extends Phaser.Scene {
       const worldHeightPixels = this.layout.worldHeight * this.layout.tileSize;
 
       this.physics.world.setBounds(0, 0, worldWidthPixels, worldHeightPixels);
-      this.cameras.main.setBounds(0, 0, worldWidthPixels, worldHeightPixels);
       this.cameras.main.setRoundPixels(true);
       buildHouse(this, this.layout);
 
       const fitZoom = Math.min(GAME_WIDTH / worldWidthPixels, GAME_HEIGHT / worldHeightPixels);
       this.cameras.main.setZoom(fitZoom);
+      // Apply bounds after zoom so Phaser calculates its scroll limits from
+      // the effective world-space viewport rather than the unzoomed canvas.
+      this.cameras.main.setBounds(0, 0, worldWidthPixels, worldHeightPixels, true);
 
       const playerPosition = worldTileToWorldPixel(
         this.layout.initialSpawn,

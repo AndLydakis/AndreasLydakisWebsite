@@ -46,7 +46,7 @@ dom.gameStatus.textContent = 'Starting the interactive house...';
 const subscriptions = [
   bridge.on('interactionAvailable', ({ label }) => {
     dom.interactionPrompt.hidden = false;
-    dom.interactionPrompt.textContent = `Press E or Interact to interact with ${label}.`;
+    dom.interactionPrompt.textContent = `Press E, F, Enter, Space, or Interact to interact with ${label}.`;
     mobileControls.setInteractionAvailable(true, label);
   }),
   bridge.on('interactionUnavailable', () => {

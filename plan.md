@@ -1253,6 +1253,8 @@ The completed verification passes:
 - Updated `HouseScene` to load all five registered placeholder assets through base-path-aware URLs and fail clearly when a required texture is unavailable.
 - Added the placeholder player sprite at `HouseLayout.initialSpawn` using world-tile-to-pixel conversion.
 - Added camera follow while preserving the validated world bounds and initial fit zoom.
+- Follow-up: corrected camera-bound initialization to occur after zoom so the full-house overview is centered and effective scroll limits remain valid for larger-than-viewport worlds.
+- Follow-up: rendered each room interactable with its registered placeholder asset, falling back to the generic interactable marker.
 - Added the development-only `DebugOverlay` with room bounds, collision rectangles, interactable ranges, world outline, and live player position diagnostics.
 - Emitted the public `gameReady` event only from the scene-ready callback after asset checks and player creation succeed.
 - Corrected `assetUrl()` to resolve manifest paths beneath `/assets/`, preserving base-path support and adding regression tests for SVG and PDF asset paths.
@@ -1483,6 +1485,7 @@ The completed verification passes:
 - Exposed the typed content-request callback through `createGame()` without leaking Phaser internals or DOM nodes into the game systems.
 - Added bridge tests for typed availability/content routing, listener unsubscribe, and bridge teardown. Existing input tests cover repeated, disabled, and one-shot request behavior.
 - Follow-up: added `F` as an additional keyboard interaction key alongside `E`, `Enter`, `Space`, and the mobile `Interact` control.
+- Follow-up: updated the visible availability tooltip to name `E`, `F`, `Enter`, `Space`, and `Interact`.
 - Decisions and evidence are recorded in `log.md` as `DEC-043` and `DEC-044`.
 - Implementation may proceed to `PORT-07D`.
 
