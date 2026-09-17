@@ -40,3 +40,5 @@ npm run preview
 ## Project decisions
 
 See [`plan.md`](./plan.md) for the implementation stories and [`log.md`](./log.md) for approved technical decisions and future decisions.
+
+Project changes are tracked in [`CHANGELOG.md`](./CHANGELOG.md). Each remaining story adds a changelog entry, commits with its story ID, and pushes to the configured Git remote before it is marked complete.

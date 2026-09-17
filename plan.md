@@ -18,6 +18,22 @@
 
 This is an implementation plan, not an implementation task. The first implementation should use dummy content and placeholders until the owner supplies real content and final assets.
 
+### Story completion and delivery workflow
+
+This workflow applies to every remaining story, including optional stories when they are undertaken:
+
+1. Implement only the story’s approved scope.
+2. Run the story-specific verification plus `npm test`, `npm run typecheck`, and `npm run build` when applicable.
+3. Update the story’s status and completion record in this plan.
+4. Add a `CHANGELOG.md` entry containing the story ID, concise changes, and verification results.
+5. Record implementation decisions and evidence in `log.md`.
+6. Review `git diff`, run `git diff --check`, and confirm only intended files are included.
+7. Commit the completed story with a message beginning with its story ID, for example `PORT-04A: add coordinate conversion helpers`.
+8. Push that commit to the configured `origin` remote on the active branch.
+9. Do not mark the story `Done` until the commit succeeds and the push completes. If pushing is blocked by authentication, remote, or network state, document the blocker in `log.md` and leave the story incomplete.
+
+`CHANGELOG.md` is the project change history. The initial entry identifies work completed before this workflow was introduced; every later completed story must add its own entry before its story commit.
+
 ## 2. Delivery Epic
 
 ### EPIC-001 — Interactive Portfolio House
@@ -831,6 +847,7 @@ Type: Story
 Priority: Highest  
 Dependencies: `PORT-03A`  
 Milestone: M0
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -871,6 +888,7 @@ Type: Story
 Priority: Highest  
 Dependencies: `PORT-04A`  
 Milestone: M0
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -910,6 +928,7 @@ Type: Story
 Priority: Highest  
 Dependencies: `PORT-04B`  
 Milestone: M0
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -953,6 +972,7 @@ Type: Story
 Priority: High  
 Dependencies: `PORT-04C`  
 Milestone: M0
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -989,6 +1009,7 @@ Type: Story
 Priority: Highest  
 Dependencies: `PORT-02`, `PORT-02A`, `PORT-04D`  
 Milestone: M1
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1025,6 +1046,7 @@ Type: Story
 Priority: Highest  
 Dependencies: `PORT-06A`  
 Milestone: M1
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1060,6 +1082,7 @@ Type: Story
 Priority: Highest  
 Dependencies: `PORT-06B`  
 Milestone: M1
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1096,6 +1119,7 @@ Type: Story
 Priority: Highest  
 Dependencies: `PORT-02A`, `PORT-06C`  
 Milestone: M1
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1135,6 +1159,7 @@ Type: Story
 Priority: Highest  
 Dependencies: `PORT-05`, `PORT-06C`  
 Milestone: M1
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1169,6 +1194,7 @@ Type: Story
 Priority: Highest  
 Dependencies: `PORT-07A`  
 Milestone: M1
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1204,6 +1230,7 @@ Type: Story
 Priority: Highest  
 Dependencies: `PORT-07B`  
 Milestone: M1
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1238,6 +1265,7 @@ Type: Story
 Priority: High  
 Dependencies: `PORT-07C`  
 Milestone: M1
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1267,6 +1295,7 @@ Type: Story
 Priority: Highest  
 Dependencies: `PORT-07D`  
 Milestone: M1
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1300,6 +1329,7 @@ Type: Story
 Priority: Highest  
 Dependencies: `PORT-08A`  
 Milestone: M1
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1333,6 +1363,7 @@ Type: Story
 Priority: High  
 Dependencies: `PORT-08B`  
 Milestone: M2
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1364,6 +1395,7 @@ Type: Story
 Priority: High  
 Dependencies: `PORT-09A`  
 Milestone: M2
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1395,6 +1427,7 @@ Type: Story
 Priority: High  
 Dependencies: `PORT-09B`  
 Milestone: M2
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1426,6 +1459,7 @@ Type: Story
 Priority: High  
 Dependencies: `PORT-09C`  
 Milestone: M2
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1460,6 +1494,7 @@ Type: Story
 Priority: High  
 Dependencies: `PORT-09D`  
 Milestone: M2
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1492,6 +1527,7 @@ Type: Story
 Priority: High  
 Dependencies: `PORT-10A`  
 Milestone: M2
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1525,6 +1561,7 @@ Type: Story
 Priority: High  
 Dependencies: `PORT-08B`, `PORT-10B`  
 Milestone: M3
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1559,6 +1596,7 @@ Type: Story
 Priority: High  
 Dependencies: `PORT-11A`  
 Milestone: M3
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1594,6 +1632,7 @@ Type: Story
 Priority: Medium  
 Dependencies: `PORT-04D`, `PORT-09D`  
 Milestone: M4
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1625,6 +1664,7 @@ Type: Story
 Priority: Medium  
 Dependencies: `PORT-12A`  
 Milestone: M4
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1657,6 +1697,7 @@ Type: Story
 Priority: Medium  
 Dependencies: `PORT-12B`  
 Milestone: M4
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1689,6 +1730,7 @@ Type: Story
 Priority: High  
 Dependencies: `PORT-09D`, `PORT-10B`  
 Milestone: M2
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1724,6 +1766,7 @@ Type: Story
 Priority: High  
 Dependencies: `PORT-13A`  
 Milestone: M2
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1758,6 +1801,7 @@ Type: Story
 Priority: High  
 Dependencies: `PORT-05`, `PORT-09D`  
 Milestone: M4
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1790,6 +1834,7 @@ Type: Story
 Priority: Medium  
 Dependencies: `PORT-14`  
 Milestone: M4
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1821,6 +1866,7 @@ Type: Story
 Priority: Low  
 Dependencies: `PORT-09D`  
 Milestone: M4
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1854,6 +1900,7 @@ Type: Story
 Priority: Highest  
 Dependencies: `PORT-09D`, `PORT-10B`, `PORT-13B`, `PORT-14`  
 Milestone: M4
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1888,6 +1935,7 @@ Type: Story
 Priority: Highest  
 Dependencies: `PORT-15A`  
 Milestone: M4
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1922,6 +1970,7 @@ Type: Story
 Priority: Highest  
 Dependencies: `PORT-11B`, `PORT-15A`  
 Milestone: M4
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1956,6 +2005,7 @@ Type: Story
 Priority: Highest  
 Dependencies: `PORT-15B`, `PORT-15C`  
 Milestone: M4
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -1990,6 +2040,7 @@ Type: Story
 Priority: High  
 Dependencies: `PORT-15D`  
 Milestone: M5
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -2033,6 +2084,7 @@ Type: Story
 Priority: High  
 Dependencies: `PORT-16A`  
 Milestone: M5
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -2067,6 +2119,7 @@ Type: Story
 Priority: High  
 Dependencies: `PORT-16B`  
 Milestone: M5
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -2101,6 +2154,7 @@ Type: Story
 Priority: High  
 Dependencies: `PORT-16C`  
 Milestone: M5
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -2132,6 +2186,7 @@ Type: Story
 Priority: High  
 Dependencies: `PORT-17A`  
 Milestone: M5
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -2164,6 +2219,7 @@ Type: Story
 Priority: High  
 Dependencies: `PORT-17B`  
 Milestone: M5
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
@@ -2195,6 +2251,7 @@ Type: Story
 Priority: High  
 Dependencies: `PORT-17C`  
 Milestone: M5
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
 
