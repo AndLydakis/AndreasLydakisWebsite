@@ -1095,6 +1095,8 @@ Type: Story
 Priority: Highest  
 Dependencies: `PORT-02`, `PORT-02A`, `PORT-04D`  
 Milestone: M1
+Status: Done
+Completed: 2026-09-17
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
@@ -1123,6 +1125,25 @@ Create the Phaser runtime boundary and lifecycle without adding room rendering o
 ### Verification
 
 Run the app with valid configuration and an intentionally invalid startup condition. Check boot, error fallback, teardown, scale mode, and physics configuration.
+
+The completed verification passes:
+
+- `npm test` passes with 7 test files and 60 tests.
+- `npm run typecheck` passes.
+- `npm run build` passes.
+- The local Vite server responds successfully over HTTP; interactive browser automation was unavailable in this environment.
+
+### Completion record
+
+- Added `src/game/createGame.ts` as the single Phaser creation boundary with the approved 512×288 logical resolution, `Scale.FIT`, centered scaling, pixel-art rendering, and Arcade Physics zero gravity configuration.
+- Added `src/game/scenes/HouseScene.ts` with a typed scene-readiness/startup-error contract and validated world/camera bounds derived from `HouseLayout`.
+- Initialized Phaser only after the DOM shell, fallback UI, dialog manager, mobile controls, and shared input controller are ready.
+- Added startup error reporting that keeps the DOM content and dialog fallback usable and disables mobile gameplay controls on failure.
+- Added application teardown support that destroys the Phaser instance and existing subscriptions through the HMR cleanup path.
+- Kept room rendering, asset loading, player creation, movement, collisions, proximity detection, and public `gameReady` emission out of this story.
+- Exposed the Phaser mount layer through `DomShellElements` and added canvas sizing/pixel-rendering CSS.
+- Decisions and evidence are recorded in `log.md` as `DEC-030` and `DEC-031`.
+- Implementation may proceed to `PORT-06B`.
 
 ---
 

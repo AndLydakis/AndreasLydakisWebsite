@@ -33,6 +33,12 @@
   pointer-events: none;
 }
 
+.canvas-layer canvas {
+  display: block;
+  max-width: 100%;
+  image-rendering: pixelated;
+}
+
 .canvas-placeholder {
   padding: var(--space-3);
   color: var(--color-text-muted);

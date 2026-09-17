@@ -6,6 +6,8 @@ import './styles/mobile-controls.css';
 
 import { validatePlaceholderAssets } from './app/assetManifest';
 import { assertValidContentRegistry } from './content/contentRegistry';
+import { houseLayout } from './game/data/houseLayout';
+import { createGame } from './game/createGame';
 import { InputController } from './game/systems/InputController';
 import { ContentIndex } from './ui/ContentIndex';
 import { DialogManager } from './ui/DialogManager';
@@ -39,7 +41,7 @@ const contentIndex = new ContentIndex(dom.contentList, dialogManager);
 const bridge = new GameUiBridge();
 
 contentIndex.setEntries([]);
-dom.gameStatus.textContent = 'Game shell ready. Interactive gameplay will be added next.';
+dom.gameStatus.textContent = 'Starting the interactive house...';
 
 const subscriptions = [
   bridge.on('interactionAvailable', ({ label }) => {
@@ -71,6 +73,25 @@ const subscriptions = [
   }),
 ];
 
+const reportStartupError = (error: unknown): void => {
+  bridge.emit('gameStartupError', { error });
+};
+
+let game: ReturnType<typeof createGame> | undefined;
+
+try {
+  game = createGame({
+    parent: dom.canvasLayer,
+    layout: houseLayout,
+    onSceneReady: () => {
+      dom.gameStatus.textContent = 'House scene ready. Player movement will be added next.';
+    },
+    onStartupError: reportStartupError,
+  });
+} catch (error) {
+  reportStartupError(error);
+}
+
 app.dataset.foundationReady = 'true';
 
 void validatePlaceholderAssets().then((errors) => {
@@ -81,6 +102,7 @@ void validatePlaceholderAssets().then((errors) => {
 
 const teardown = (): void => {
   subscriptions.forEach((unsubscribe) => unsubscribe());
+  game?.destroy(true);
   bridge.destroy();
   contentIndex.destroy();
   dialogManager.destroy();

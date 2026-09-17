@@ -1,5 +1,6 @@
 export interface DomShellElements {
   gameShell: HTMLElement;
+  canvasLayer: HTMLElement;
   mobileControls: HTMLElement;
   contentList: HTMLElement;
   dialog: HTMLDialogElement;
@@ -136,6 +137,7 @@ export function renderDomShell(root: HTMLElement): DomShellElements {
 
   return {
     gameShell,
+    canvasLayer,
     mobileControls,
     contentList,
     dialog,

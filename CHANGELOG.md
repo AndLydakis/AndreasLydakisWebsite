@@ -35,6 +35,13 @@ pushed.
 - Added a dedicated pure layout-contract suite covering valid room/corridor/doorway/spawn data, invalid dimensions and origins, malformed geometry, duplicate and missing references, doorway failures, corridor spawns, required-room subsets, and the Phaser/DOM-free boundary.
 - Verification: `npm test` (7 files, 60 tests), `npm run typecheck`, and `npm run build`.
 
+### PORT-06A — Boot the Phaser runtime and lifecycle
+
+- Added the single Phaser creation boundary and `HouseScene` lifecycle with the approved fixed resolution, FIT scaling, pixel-art rendering, zero-gravity Arcade Physics, validated camera/world bounds, and typed startup-error handling.
+- Wired Phaser startup after the DOM fallback services and added teardown for the Phaser instance and application-owned subscriptions.
+- Kept room rendering, player creation, movement, collisions, and public `gameReady` emission deferred to later stories.
+- Verification: `npm test` (7 files, 60 tests), `npm run typecheck`, `npm run build`, and a successful local Vite HTTP smoke check.
+
 ### Delivery workflow
 
 - Future story completion entries will include the story ID, a concise change summary, and the verification commands run.
