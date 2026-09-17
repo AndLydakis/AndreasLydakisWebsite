@@ -77,6 +77,14 @@ pushed.
 - Added pure geometry tests for room conversion, openings, perimeter construction, and combined collision geometry.
 - Verification: `npm test` (10 files, 73 tests), `npm run typecheck`, `npm run build`, and `git diff --check`.
 
+### PORT-07B — Add proximity detection and target selection
+
+- Added a DOM-free `InteractionSystem` that converts room-local interactables into world-space targets and selects the closest valid target.
+- Added radius and optional rectangular-bounds checks, deterministic tie handling, typed target-change callbacks, gameplay gating, and teardown.
+- Exposed target changes through the Phaser scene/game creation boundary without leaking Phaser objects or DOM nodes.
+- Added pure tests for range limits, overlaps, ties, stable availability, disabled gameplay, world conversion, and cleanup.
+- Verification: `npm test` (11 files, 82 tests), `npm run typecheck`, `npm run build`, and `git diff --check`.
+
 ### Delivery workflow
 
 - Future story completion entries will include the story ID, a concise change summary, and the verification commands run.

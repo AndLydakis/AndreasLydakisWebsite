@@ -1383,6 +1383,8 @@ Type: Story
 Priority: Highest  
 Dependencies: `PORT-07A`  
 Milestone: M1
+Status: Done
+Completed: 2026-09-17
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
@@ -1410,6 +1412,23 @@ Identify the closest valid interactable and expose availability changes to the g
 ### Verification
 
 Test no target, range limits, multiple targets, ties, stable selection, movement across ranges, and disabled gameplay.
+
+The completed verification passes:
+
+- `npm test` passes with 11 test files and 82 tests.
+- `npm run typecheck` passes.
+- `npm run build` passes.
+- `git diff --check` passes.
+- Interactive browser automation was unavailable in this environment; the data-only target-selection contract is covered by pure tests and the Phaser scene wiring is ready for manual proximity verification.
+
+### Completion record
+
+- Added `src/game/systems/InteractionSystem.ts` with generic target creation, room-local to world-space conversion, distance and optional rectangular-bounds checks, deterministic closest-target selection, stable equal-distance tie handling, and typed availability callbacks.
+- Connected the system to `HouseScene` and exposed target-change callbacks through `createGame()` without exposing Phaser objects or DOM nodes.
+- Disabled target selection whenever the shared `InputController` reports gameplay disabled, and added idempotent cleanup of targets during scene shutdown.
+- Added pure tests for no-target and range boundaries, overlapping targets, deterministic and stable ties, rectangular bounds, world conversion, availability-change suppression, disabled gameplay, and teardown.
+- Decisions and evidence are recorded in `log.md` as `DEC-041` and `DEC-042`.
+- Implementation may proceed to `PORT-07C`.
 
 ---
 

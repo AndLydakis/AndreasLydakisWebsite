@@ -10,11 +10,14 @@ import { DebugOverlay } from '../debug/DebugOverlay';
 import { Player } from '../entities/Player';
 import { buildHouse } from '../rendering/houseRenderer';
 import { CollisionSystem } from '../systems/CollisionSystem';
+import { InteractionSystem } from '../systems/InteractionSystem';
+import type { InteractionTarget } from '../systems/InteractionSystem';
 import { InputController } from '../systems/InputController';
 
 export interface HouseSceneCallbacks {
   readonly onSceneReady?: () => void;
   readonly onStartupError?: (error: unknown) => void;
+  readonly onInteractionTargetChanged?: (target: InteractionTarget | null) => void;
 }
 
 /**
@@ -28,6 +31,7 @@ export class HouseScene extends Phaser.Scene {
   private playerSprite?: Phaser.GameObjects.Sprite;
   private player?: Player;
   private collisionSystem?: CollisionSystem;
+  private interactionSystem?: InteractionSystem;
   private debugOverlay?: DebugOverlay;
 
   public constructor(
@@ -79,6 +83,9 @@ export class HouseScene extends Phaser.Scene {
         tileSize: this.layout.tileSize,
       });
       this.collisionSystem = new CollisionSystem(this, this.layout, this.playerSprite);
+      this.interactionSystem = new InteractionSystem(this.layout, {
+        onTargetChanged: this.callbacks.onInteractionTargetChanged,
+      });
       this.cameras.main.startFollow(this.playerSprite, true);
 
       if (import.meta.env.DEV) {
@@ -96,12 +103,19 @@ export class HouseScene extends Phaser.Scene {
   public update(): void {
     this.player?.update();
 
+    if (this.player && this.interactionSystem) {
+      this.interactionSystem.setGameplayEnabled(this.inputController.isGameplayEnabled());
+      this.interactionSystem.update(this.player.getState());
+    }
+
     if (this.player && this.debugOverlay) {
       this.debugOverlay.update(this.player.getState());
     }
   }
 
   public shutdown(): void {
+    this.interactionSystem?.destroy();
+    this.interactionSystem = undefined;
     this.collisionSystem?.destroy();
     this.collisionSystem = undefined;
   }
