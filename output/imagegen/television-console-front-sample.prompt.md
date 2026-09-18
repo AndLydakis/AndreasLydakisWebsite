@@ -3,7 +3,7 @@
 - Date: 2026-09-18
 - Source brief: `style.md`.
 - Generator: built-in image generation tool.
-- Output: `public/assets/placeholders/television-console-front-sample.png`.
+- Output: `public/assets/sprites/television-console/front.png`.
 - Format: PNG, 1221 × 1288 pixels, with an alpha channel.
 - Status: AI-generated placeholder artwork used by the living-room television through the optional texture manifest. PORT-08A1 remains in progress while dedicated living-room backdrop art is pending.
 - Scope: the original approved front-view image. The complete front/back/left/right set and raster-backed SVG copies are documented in `television-console-directional-samples.prompt.md`. These SVG copies embed PNG artwork rather than editable vector paths.

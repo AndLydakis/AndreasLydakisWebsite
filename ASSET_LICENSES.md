@@ -6,14 +6,21 @@ Replace this document with a full attribution record if approved third-party ass
 
 ## Television and console directional samples
 
-- Files: `public/assets/placeholders/television-console-{front,back,left,right}-sample.png` and matching `.svg` copies.
+- Files: `public/assets/sprites/television-console/{front,back,left,right}.png` and matching `.svg` copies.
 - Provenance: AI-generated for this project using the built-in image generation tool on 2026-09-18, based on the owner's `style.md` brief. The approved front PNG was the design reference for the other three directions. No third-party reference images were supplied.
 - Status: the approved front PNG is used by the living-room television. Back/left/right views and SVG copies remain review assets. The SVG files embed the generated PNG artwork and are not hand-authored vector drawings.
 - Prompts and scope: `output/imagegen/television-console-front-sample.prompt.md` and `output/imagegen/television-console-directional-samples.prompt.md`.
 
 ## Record-player directional samples
 
-- Files: `public/assets/placeholders/record-player-{front,back,left,right}-sample.png` and matching `.svg` copies.
+- Files: `public/assets/sprites/record-player/{front,back,left,right}.png` and matching `.svg` copies.
 - Provenance: AI-generated with the built-in image generation tool on 2026-09-18 using the styling paragraphs from `style.md`. The project's TV sprite supplied the visual style reference; the generated record-player front supplied the reference for its remaining views.
 - Status: the front PNG is used by the living-room vinyl interactable. Other views remain available for future use. SVG copies embed raster PNG artwork; they are not editable vector drawings.
 - Prompts: `output/imagegen/record-player-directional-samples.prompt.md`.
+
+## Living-room background sample
+
+- File: `public/assets/backgrounds/living-room/sample.png` (1499 × 1049).
+- Provenance: AI-generated with the built-in image generation tool on 2026-09-18 from the owner's updated `style.md`, using this project's TV and record-player front sprites as style references.
+- Status: placeholder background used by the living room through its optional visual asset. Separate tile-grid collision rectangles approximate the pictured walls; bookcase-specific collision is omitted and table/couch collisions are temporarily disabled. Interactable sprites remain independent.
+- Prompt and review notes: `output/imagegen/living-room-background-sample.prompt.md`.

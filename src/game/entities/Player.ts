@@ -36,6 +36,10 @@ export class Player {
     }
 
     this.body = sprite.body;
+    // Only the ground-contact strip collides, so the torso can overlap painted
+    // walls while the sprite's bottom reaches the floor boundary (within 1px).
+    this.body.setSize(sprite.width / 2, 1, false);
+    this.body.setOffset(sprite.width / 4, sprite.height - 1);
     this.speed = options.speed ?? PLAYER_SPEED;
     this.body.setAllowGravity(false);
     this.body.setCollideWorldBounds(true);

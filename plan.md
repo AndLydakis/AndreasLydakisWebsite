@@ -29,7 +29,7 @@ This workflow applies to every remaining story, including optional stories when 
 5. Record implementation decisions and evidence in `log.md`.
 6. Review `git diff`, run `git diff --check`, and confirm only intended files are included.
 7. Commit the completed story with a message beginning with its story ID, for example `PORT-04A: add coordinate conversion helpers`.
-8. Push that commit to the configured `origin` remote on the active branch.
+8. Push that commit to the configured `origin` remote on the active branch only when the entire story's implementation and verification are complete. Keep partial/in-progress story work local; do not push intermediate samples or partial deliveries.
 9. Do not mark the story `Done` until the commit succeeds and the push completes. If pushing is blocked by authentication, remote, or network state, document the blocker in `log.md` and leave the story incomplete.
 
 `CHANGELOG.md` is the project change history. The initial entry identifies work completed before this workflow was introduced; every later completed story must add its own entry before its story commit.
@@ -121,10 +121,15 @@ public/
   _redirects
   assets/
     audio/
+    backgrounds/
+      living-room/
     cv.pdf
     fonts/
     placeholders/
     sprites/
+      player/
+      television-console/
+      record-player/
     tiles/
 
   src/
@@ -1768,7 +1773,15 @@ Run the full unit suite, typecheck, and production build. Inspect the desktop pr
 - Missing dedicated art uses the generic furniture placeholder with its original sizing/anchor. Other interactables retain their current artwork.
 - Verified the TV in the desktop living room, `F` opening Games and movies, and the closed dialog returning focus to the game shell. `npm test` passes (15 files, 100 tests); typecheck and production build pass.
 - Recorded artwork provenance and implementation decisions in `ASSET_LICENSES.md` and `log.md` (DEC-058 through DEC-061).
-- Remaining: dedicated living-room surface/backdrop art and its integration, followed by the complete story verification. Keep this story open until those requirements are delivered.
+- Generated a review-only living-room background at `public/assets/backgrounds/living-room/sample.png` from the updated style brief. Follow an art-first workflow: approve the background, then map room bounds, collision shapes, entrances/exits and connecting corridors to it. Keep interactables as separate sprites.
+- Grouped sprite PNGs/SVGs under `public/assets/sprites/{player,television-console,record-player}/` and updated runtime paths, packaging and provenance records. All 17 moved assets retain their original bytes; all 7 manifest paths resolve. Unit tests (100), typecheck and build pass.
+- Integrated the sample at the owner's request using `visualAssetId` and the optional texture manifest. Room artwork fills the 20×14-tile room footprint; collision rectangles remain independent and do not paint over the background. Missing artwork retains generic floor/obstacle rendering.
+- Mapped approximate tile-grid solids for the upper wall, bookcase, coffee table, couch and lower walls. Kept the rug walkable, moved the gym doorway pair/corridor down one tile to match the artwork, and moved the record player onto open floor on the right. Preserved interaction IDs, content, TV position and spawn.
+- Verification: 103 tests in 15 files, typecheck, build and asset HTTP 200 pass. Added background/fallback renderer checks and a room flood-fill regression covering exits/interactables around furniture.
+- Collision follow-up: use a bottom-anchored, one-pixel-high player foot strip (half the sprite width) rather than the full sprite body, so its bottom reaches the wall/floor boundary. Removed the bookcase-specific rectangle and temporarily disabled table/couch collisions; perimeter walls and doorway openings remain. All 105 tests in 16 files, typecheck and build pass; added constructor-level foot-body regressions and walkable-furniture checks.
+- Increased default camera zoom to 1.25 at the owner's request for 25% larger artwork, retaining world geometry and player follow. All 106 tests in 16 files, typecheck and build pass. Story remains in progress and local pending final preview verification.
+- Acceptance: the owner confirmed the preview looks good and explicitly requested story closure and push on 2026-09-18. This is owner acceptance, not a claim that the agent independently repeated every browser check. No implementation work remains in PORT-08A1; mobile parity belongs to PORT-08B.
+- Delivery: approved for commit and push; mark Done after successful delivery per the story workflow.
 
 ---
 

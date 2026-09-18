@@ -8,14 +8,14 @@ describe('collision geometry', () => {
     const roomRects = getRoomCollisionRects(houseLayout);
 
     expect(roomRects).toHaveLength(22);
-    expect(roomRects).toContainEqual({ x: 2, y: 4, width: 20, height: 1 });
-    expect(roomRects).toContainEqual({ x: 21, y: 5, width: 1, height: 5 });
+    expect(roomRects).toContainEqual({ x: 2, y: 4, width: 20, height: 4 });
+    expect(roomRects).toContainEqual({ x: 21, y: 5, width: 1, height: 6 });
   });
 
   it('keeps doorway and corridor openings out of authored wall rectangles', () => {
     const roomRects = getRoomCollisionRects(houseLayout);
 
-    expect(roomRects).not.toContainEqual({ x: 21, y: 10, width: 1, height: 2 });
+    expect(roomRects).not.toContainEqual({ x: 21, y: 11, width: 1, height: 2 });
     expect(roomRects).not.toContainEqual({ x: 10, y: 17, width: 4, height: 1 });
     expect(roomRects).not.toContainEqual({ x: 35, y: 17, width: 4, height: 1 });
   });

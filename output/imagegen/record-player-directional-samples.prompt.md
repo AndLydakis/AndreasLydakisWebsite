@@ -3,7 +3,7 @@
 - Date: 2026-09-18.
 - Generator: built-in image generation tool.
 - Style: unchanged style paragraphs from `style.md`; the approved TV front image was used only as a visual style reference for the record-player front. The record-player front then served as the design reference for the other directions.
-- Files: `public/assets/placeholders/record-player-{front,back,left,right}-sample.png` and matching `.svg` copies.
+- Files: `public/assets/sprites/record-player/{front,back,left,right}.png` and matching `.svg` copies.
 - Front faces the viewer; back faces away; left/right indicate the direction the turntable's front controls face.
 - All views are original AI-generated placeholder artwork. SVG copies embed the PNG bytes and are not editable vector drawings.
 - Reproduce SVG copies with `node output/imagegen/package-television-samples.mjs record-player` (refuses to overwrite existing files).

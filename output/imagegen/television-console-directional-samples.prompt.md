@@ -4,16 +4,16 @@
 - Brief: `style.md`.
 - Generator: built-in image generation tool, one call per new direction, using the approved front PNG as the design reference.
 - Status: the approved front PNG is used by the living-room television. The other directions and SVG copies remain review assets. PORT-08A1 remains in progress for dedicated living-room backdrop art.
-- Directory: `public/assets/placeholders/`.
+- Directory: `public/assets/sprites/television-console/`.
 
 ## Files and orientation
 
 | Direction | PNG | SVG | Meaning |
 | --- | --- | --- | --- |
-| Front | television-console-front-sample.png | television-console-front-sample.svg | Screen faces the viewer; original approved image preserved. |
-| Back | television-console-back-sample.png | television-console-back-sample.svg | Screen faces away; rear casing and connections visible. |
-| Left | television-console-left-sample.png | television-console-left-sample.svg | Screen points toward the left edge of the image. |
-| Right | television-console-right-sample.png | television-console-right-sample.svg | Screen points toward the right edge of the image. |
+| Front | front.png | front.svg | Screen faces the viewer; original approved image preserved. |
+| Back | back.png | back.svg | Screen faces away; rear casing and connections visible. |
+| Left | left.png | left.svg | Screen points toward the left edge of the image. |
+| Right | right.png | right.svg | Screen points toward the right edge of the image. |
 
 The PNG files retain their generated alpha channels. The original front is 1221 × 1288 pixels; the three new directions are 1221 × 1289 pixels. All SVG copies use a shared 1221 × 1289 viewBox, adding one transparent row of space below the front image without resampling it.
 
@@ -23,7 +23,7 @@ The set preserves the overall design and style; generated details are not guaran
 
 ## Reference
 
-`public/assets/placeholders/television-console-front-sample.png`
+`public/assets/sprites/television-console/front.png`
 
 The original front prompt is recorded in `television-console-front-sample.prompt.md`.
 

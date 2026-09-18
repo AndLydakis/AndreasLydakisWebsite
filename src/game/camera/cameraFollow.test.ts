@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { DEFAULT_CAMERA_ZOOM } from '../config';
 
 import {
   getCameraConstraintBounds,
@@ -23,6 +24,17 @@ const houseBounds = {
 };
 
 describe('camera follow math', () => {
+  it('defaults to 25% larger artwork without changing world dimensions', () => {
+    expect(DEFAULT_CAMERA_ZOOM).toBe(1.25);
+    const viewport = {
+      ...logicalViewport, zoomX: DEFAULT_CAMERA_ZOOM, zoomY: DEFAULT_CAMERA_ZOOM,
+    };
+    expect(getEffectiveCameraViewport(viewport)).toEqual({ width: 409.6, height: 230.4 });
+    expect(getCameraScrollForTarget({ x: 512, y: 288 }, viewport, houseBounds)).toEqual({
+      x: 256, y: 144,
+    });
+  });
+
   it('derives the effective world viewport from independent zoom values', () => {
     expect(
       getEffectiveCameraViewport({

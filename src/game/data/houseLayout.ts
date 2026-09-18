@@ -11,12 +11,14 @@ const livingRoom: RoomDefinition = {
   widthTiles: 20,
   heightTiles: 14,
   collisionRects: [
-    { x: 0, y: 0, width: 20, height: 1 },
-    { x: 0, y: 13, width: 8, height: 1 },
-    { x: 12, y: 13, width: 8, height: 1 },
+    // Wall boundaries follow the backdrop's floor edges, not the player's torso.
+    // No bookcase-specific body; table and couch collisions are disabled for now.
+    { x: 0, y: 0, width: 20, height: 4 },
+    { x: 0, y: 12, width: 8, height: 2 },
+    { x: 12, y: 12, width: 8, height: 2 },
     { x: 0, y: 1, width: 1, height: 12 },
-    { x: 19, y: 1, width: 1, height: 5 },
-    { x: 19, y: 8, width: 1, height: 5 },
+    { x: 19, y: 1, width: 1, height: 6 },
+    { x: 19, y: 9, width: 1, height: 4 },
   ],
   interactables: [
     {
@@ -33,7 +35,7 @@ const livingRoom: RoomDefinition = {
     {
       id: 'living-room-record-player',
       roomId: 'living-room',
-      position: { x: 13, y: 5 },
+      position: { x: 16, y: 6 },
       label: 'Vinyl and record player',
       promptLabel: 'vinyl and record player',
       contentId: 'livingroom-vinyl',
@@ -42,7 +44,7 @@ const livingRoom: RoomDefinition = {
       displayHeightTiles: 4,
     },
   ],
-  visualAssetId: 'room-placeholder',
+  visualAssetId: 'living-room-background',
 };
 
 const gym: RoomDefinition = {
@@ -55,8 +57,8 @@ const gym: RoomDefinition = {
     { x: 0, y: 0, width: 16, height: 1 },
     { x: 0, y: 13, width: 7, height: 1 },
     { x: 11, y: 13, width: 5, height: 1 },
-    { x: 0, y: 1, width: 1, height: 5 },
-    { x: 0, y: 8, width: 1, height: 5 },
+    { x: 0, y: 1, width: 1, height: 6 },
+    { x: 0, y: 9, width: 1, height: 4 },
     { x: 15, y: 1, width: 1, height: 12 },
   ],
   interactables: [
@@ -135,7 +137,7 @@ export const houseRooms = [livingRoom, gym, office, kitchen] as const;
 export const houseCorridors = [
   {
     id: 'living-room-gym-corridor',
-    origin: { x: 22, y: 10 },
+    origin: { x: 22, y: 11 },
     widthTiles: 5,
     heightTiles: 2,
   },
@@ -158,13 +160,13 @@ export const houseDoorways: readonly DoorwayDefinition[] = [
     id: 'living-room-to-gym',
     fromRoomId: 'living-room',
     toRoomId: 'gym',
-    opening: { x: 19, y: 6, width: 1, height: 2 },
+    opening: { x: 19, y: 7, width: 1, height: 2 },
   },
   {
     id: 'gym-to-living-room',
     fromRoomId: 'gym',
     toRoomId: 'living-room',
-    opening: { x: 0, y: 6, width: 1, height: 2 },
+    opening: { x: 0, y: 7, width: 1, height: 2 },
   },
   {
     id: 'living-room-to-office',

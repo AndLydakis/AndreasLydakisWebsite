@@ -130,14 +130,19 @@ pushed.
 - Added adapter tests for television content and future base-path-aware dialog actions.
 - Verification: `npm test` (14 files, 97 tests), `npm run typecheck`, `npm run build`, and `git diff --check`.
 
-### PORT-08A1 — Integrate front-facing television artwork (in progress)
+### PORT-08A1 — Living-room and television placeholder art
 
+- Increased default camera zoom from 1 to 1.25 for 25% larger game artwork without changing world geometry or DOM UI. Verification: 106 tests, typecheck and build pass.
 - Added the approved front/back/left/right television sprite samples and their generation/provenance records; SVG copies embed the PNG sources.
 - Replaced the living-room television's generic artwork with its front-facing PNG through the optional texture manifest and existing loader.
 - Added data-defined artwork height, keeping the TV at 64 world pixels tall without changing its interaction point, range, dialog, or collision data.
 - Follow-up: centered the TV artwork on its interaction circle and removed the bottom-anchor override; regression coverage checks the shared center.
 - Preserved generic furniture fallback if dedicated art is missing.
-- Verification: 100 tests in 15 files, typecheck, production build, and desktop preview of the TV and its F-triggered dialog. Living-room backdrop artwork remains pending.
+- Generated the living-room background sample and exact prompt, then integrated it at the owner's request using generic `visualAssetId` rendering and the optional texture manifest.
+- Separated background rendering from collision previews/physics; retained generic room fallback when artwork is missing. Mapped pictured wall/furniture obstacles, aligned the gym connection and moved the record player onto open floor.
+- Collision refinement: replaced the full-sprite player body with a bottom-anchored foot strip, removed the bookcase-specific obstacle, and temporarily disabled table/couch collisions. Walls and exits remain intact. Verification: 105 tests in 16 files, typecheck and production build pass; visual movement check remains pending.
+- Grouped player, television and record-player art into separate sprite folders; updated loader paths, URL tests, packaging script and provenance documentation without altering existing artwork bytes.
+- Final verification: 106 tests in 16 files, typecheck and production build pass; asset serving was checked successfully. The owner approved the preview and requested story closure and push on 2026-09-18. The prior folder refactor preserved all 17 moved files byte-for-byte.
 
 ### PORT-09A — Record-player artwork and content registration (in progress)
 

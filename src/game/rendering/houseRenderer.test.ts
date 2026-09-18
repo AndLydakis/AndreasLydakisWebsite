@@ -31,7 +31,7 @@ function renderInteractable(
 
   buildRoom(
     scene as unknown as Phaser.Scene,
-    { ...houseLayout.rooms[0], interactables: [interactable] },
+    { ...houseLayout.rooms[0], visualAssetId: undefined, interactables: [interactable] },
     houseLayout.tileSize,
     layers as unknown as HouseRenderLayers,
   );
@@ -65,5 +65,38 @@ describe('interactable artwork rendering', () => {
 
     expect(image.setOrigin).toHaveBeenCalledWith(0.5, 0.5);
     expect(image.setScale).toHaveBeenCalledWith(1);
+  });
+});
+
+describe('room backdrop rendering', () => {
+  it.each([true, false])('keeps physics previews independent of optional artwork (available=%s)', (available) => {
+    const graphic = () => ({
+      fillStyle: vi.fn(), fillRect: vi.fn(), lineStyle: vi.fn(), strokeRect: vi.fn(),
+    });
+    const layers = { floor: graphic(), walls: graphic(), collisionPreview: graphic() };
+    const image = {
+      setOrigin: vi.fn().mockReturnThis(),
+      setDisplaySize: vi.fn().mockReturnThis(),
+      setDepth: vi.fn().mockReturnThis(),
+    };
+    const scene = {
+      textures: { exists: vi.fn(() => available) },
+      add: { image: vi.fn(() => image) },
+    };
+    const room = { ...houseLayout.rooms[0], interactables: [] };
+    buildRoom(scene as unknown as Phaser.Scene, room, 16, layers as unknown as HouseRenderLayers);
+
+    expect(layers.collisionPreview.strokeRect).toHaveBeenCalledTimes(room.collisionRects.length);
+    if (available) {
+      expect(scene.add.image).toHaveBeenCalledWith(32, 64, 'living-room-background');
+      expect(image.setOrigin).toHaveBeenCalledWith(0, 0);
+      expect(image.setDisplaySize).toHaveBeenCalledWith(320, 224);
+      expect(image.setDepth).toHaveBeenCalledWith(1);
+      expect(layers.walls.fillRect).not.toHaveBeenCalled();
+    } else {
+      expect(scene.add.image).not.toHaveBeenCalled();
+      expect(layers.floor.fillRect).toHaveBeenCalled();
+      expect(layers.walls.fillRect).toHaveBeenCalledTimes(room.collisionRects.length);
+    }
   });
 });

@@ -4,8 +4,8 @@ import { assetUrl } from './assetUrl';
 
 describe('assetUrl', () => {
   it('resolves manifest paths beneath the public assets directory', () => {
-    expect(assetUrl('sprites/player-placeholder.svg')).toBe(
-      '/assets/sprites/player-placeholder.svg',
+    expect(assetUrl('sprites/player/placeholder.svg')).toBe(
+      '/assets/sprites/player/placeholder.svg',
     );
   });
 

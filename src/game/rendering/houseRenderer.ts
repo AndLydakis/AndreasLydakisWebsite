@@ -114,19 +114,31 @@ export function buildRoom(
     roomPixels.height,
   );
 
+  // Scenery is independent of physics: never paint collision blocks over room art.
+  // Missing optional textures retain the generic floor and visible obstacle fallback.
+  const hasBackground = Boolean(room.visualAssetId && scene.textures.exists(room.visualAssetId));
+  if (hasBackground && room.visualAssetId) {
+    scene.add.image(roomPixels.x, roomPixels.y, room.visualAssetId)
+      .setOrigin(0, 0)
+      .setDisplaySize(roomPixels.width, roomPixels.height)
+      .setDepth(1);
+  }
+
   room.collisionRects.forEach((collisionRect) => {
     const collisionPixels = worldRectToWorldPixel(
       roomRectToWorld(room, collisionRect),
       tileSize,
     );
 
-    layers.walls.fillStyle(COLORS.wall, 1);
-    layers.walls.fillRect(
-      collisionPixels.x,
-      collisionPixels.y,
-      collisionPixels.width,
-      collisionPixels.height,
-    );
+    if (!hasBackground) {
+      layers.walls.fillStyle(COLORS.wall, 1);
+      layers.walls.fillRect(
+        collisionPixels.x,
+        collisionPixels.y,
+        collisionPixels.width,
+        collisionPixels.height,
+      );
+    }
 
     layers.collisionPreview.lineStyle(1, COLORS.wallOutline, 0.8);
     layers.collisionPreview.strokeRect(

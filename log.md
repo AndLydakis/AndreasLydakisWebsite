@@ -520,3 +520,57 @@ This file is the project decision record. New implementation decisions, approved
 - Decision: Register the already-authored livingroom-vinyl dummy content so the new artwork has a content destination through the shared dialog manager.
 - Evidence: All 100 tests in 15 files, typecheck and production build pass. The front PNG returns HTTP 200. Desktop preview visibly shows the TV and record player centered within their interaction circles. Further keyboard interaction checks were interrupted by concurrent user activity.
 - Decision: Bring forward this portion of PORT-09A at the owner's request; leave the story in progress pending full desktop/mobile verification. Existing PORT-08A1 and PORT-08B remaining work is unchanged.
+
+## DEC-063 — Art-first living-room sample and per-sprite folders
+
+- Date: 2026-09-18
+- Status: Accepted for sample generation and asset organization; background approval/integration pending.
+- Decision: Generate one living-room background from the revised `style.md`, using the existing TV and record-player fronts only as style references. Interpret library as bookshelf, put the north-facing couch below the rug, and place the coffee table between the couch and rug center. Leave interactables out of the background.
+- Decision: Preserve the generated 1499 × 1049 PNG at `public/assets/backgrounds/living-room/sample.png` and its exact prompt in `output/imagegen/living-room-background-sample.prompt.md`. Do not wire this review sample into the runtime yet. Once art is approved, map bounds, collisions, doorway regions and adjoining corridors to it rather than forcing it onto the existing placeholder geometry.
+- Review: The sample captures the requested composition but adds a plant and landscape picture, includes a bottom wall around the entrance, and shows slight side-wall convergence. These are review points, not approved changes to the level contract.
+- Decision: Move player art into `public/assets/sprites/player/`; move television-console and record-player PNG/SVG directions into their own named sprite folders, using `front`, `back`, `left`, and `right` filenames. Retain shared generic fallbacks in `placeholders/`. Update manifest paths and packaging/provenance documentation; keep runtime texture keys unchanged. Earlier log paths are historical and superseded by this organization.
+- Evidence: All 17 moved files are byte-identical to their committed originals, all 7 manifest paths exist, and no obsolete asset paths remain in source/current asset documentation. All 100 tests in 15 files, typecheck, production build and packaging-script syntax check pass. The build retains its existing large-chunk warning.
+- Decision: Keep PORT-08A1 in progress; the sample does not satisfy runtime backdrop integration or full story verification.
+
+## DEC-064 — Push completed stories only
+
+- Date: 2026-09-18
+- Status: Accepted; owner clarification.
+- Decision: Push only after an entire story's implementation and verification are complete. Do not push intermediate samples or partial story deliveries. Retain story-ID commit messages, changelog updates, and decision records for completed-story delivery.
+- Decision: Leave this turn's PORT-08A1 sample and sprite-folder changes local and uncommitted. Preserve the owner's pre-existing edits to `style.md` and the reviewer description in `plan.md`.
+
+## DEC-065 — Integrate the living-room sample with separate collision data
+
+- Date: 2026-09-18
+- Status: Accepted for implementation at the owner's request; final preview verification pending.
+- Decision: Register the existing PNG as the optional `living-room-background` texture and render any available room `visualAssetId` at the room's origin and bounds. The sample's near-10:7 aspect ratio fits the existing 20×14-tile footprint. Keep the background below interactables and player, with no room-ID conditionals.
+- Decision: Do not render opaque collision blocks over available room artwork. Retain the collision-preview layer and unchanged physics pipeline; missing artwork falls back to the generic floor and obstacle blocks.
+- Decision: Approximate the painted top wall, bookcase, coffee table, couch and lower walls with integer tile-grid collision rectangles. Leave the rug and surrounding floor walkable. Shift both gym-facing doorway definitions and their corridor down one tile to match the side entrance. Preserve the lower entrance, room bounds, spawn and TV position; move the record player to local tile (16, 6) to avoid the bookcase.
+- Limitation: The sample is one flattened image, so furniture has collision but no foreground occlusion layer. Collision rectangles approximate its silhouettes rather than following every painted edge. Fine alignment and player clearance still need a live preview check.
+- Evidence: 103 tests in 15 files, typecheck, production build, and background HTTP 200 pass. New regressions cover backdrop placement/depth, missing-art fallback, collision preview independence and reachable exits/interactables around furniture. The existing build chunk-size warning remains.
+- Decision: Keep PORT-08A1 in progress and unpushed because final browser visual/movement/dialog verification was interrupted by concurrent user activity. Stop the extra temporary preview server; leave the existing preview on port 5173 running. Preserve all prior local work and user edits.
+
+## DEC-066 — Ground-contact player body and temporarily walkable furniture
+
+- Date: 2026-09-18
+- Status: Accepted at the owner's request; supersedes DEC-065 furniture collision choices.
+- Decision: Replace the player's full-sprite Arcade Physics body with a centered half-width, one-pixel-high strip at the sprite's bottom. This lets its torso overlap painted wall faces while the feet reach the floor boundary within one world pixel. Apply this consistently across the house; retain sprite origin, interaction/camera position, movement speed and world-bound enforcement.
+- Decision: Keep wall coordinates at the background floor boundaries, removing the artificial gap caused by the old full-height player body rather than shifting the walls into the art. Remove the bookcase-specific collision rectangle entirely and temporarily omit table/couch rectangles. Keep their artwork, all perimeter walls and both living-room exits unchanged.
+- Evidence: 105 tests in 16 files, typecheck, build and whitespace checks pass. Constructor-level tests verify body size and bottom offset for 32px and 48px sprite heights. Layout tests verify bookcase/table/couch floor positions are walkable, walls remain solid and exits/interactables remain reachable. The pre-existing build chunk-size warning remains.
+- Decision: Leave PORT-08A1 in progress with final live movement/visual verification still pending. No commit or push for partial work.
+
+## DEC-067 — Increase displayed game scale by 25 percent
+
+- Date: 2026-09-18
+- Status: Accepted at the owner's request.
+- Decision: Increase `DEFAULT_CAMERA_ZOOM` from 1 to 1.25 so room art, interactables and player appear 25% larger. Keep world coordinates, movement speed, collision shapes, canvas dimensions and DOM controls/dialog sizing unchanged. The visible world area decreases and the existing player-follow camera remains responsible for navigation.
+- Evidence: Added a regression for the default zoom, effective viewport (409.6 × 230.4 world pixels) and centered player follow. All 106 tests in 16 files, typecheck and production build pass; the existing chunk-size warning remains.
+- Decision: Keep this refinement local with the other in-progress PORT-08A1 work; no commit or push.
+
+## DEC-068 — Owner acceptance and PORT-08A1 delivery
+
+- Date: 2026-09-18
+- Status: Accepted; owner requested story closure and push.
+- Decision: Accept the owner's preview approval as the final manual acceptance of the placeholder-art story. Do not describe it as independently repeated agent browser verification. Include the background integration, per-sprite folders, collision refinements and 125% camera zoom in the PORT-08A1 delivery; leave PORT-08B mobile parity and PORT-09A outstanding work unchanged.
+- Decision: Preserve and exclude the pre-existing reviewer-description edit in plan.md and the owner's style.md working changes. The exact room-generation prompt is already preserved in the story's provenance file.
+- Delivery: commit and push the completed implementation with a PORT-08A1-prefixed message, then record Done after the delivery succeeds.

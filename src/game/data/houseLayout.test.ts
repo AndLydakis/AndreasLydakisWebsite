@@ -25,7 +25,7 @@ describe('initial house layout', () => {
       expect(room.widthTiles).toBeGreaterThan(0);
       expect(room.heightTiles).toBeGreaterThan(0);
       expect(room.collisionRects.length).toBeGreaterThan(0);
-      expect(room.visualAssetId).toBe('room-placeholder');
+      expect(room.visualAssetId).toBeTruthy();
     });
   });
 
@@ -94,6 +94,40 @@ describe('initial house layout', () => {
     expect(houseLayout.initialSpawn.x).toBeLessThan(livingRoomRightWallX());
     expect(houseLayout.initialSpawn.y).toBeGreaterThan(livingRoomTopWallY());
     expect(houseLayout.initialSpawn.y).toBeLessThan(livingRoomBottomWallY());
+  });
+
+  it('keeps furniture walkable and both backdrop exits and interactables reachable', () => {
+    const room = houseRooms[0];
+    const blocked = (x: number, y: number) => room.collisionRects.some((rect) =>
+      x >= rect.x && x < rect.x + rect.width && y >= rect.y && y < rect.y + rect.height,
+    );
+    expect(room.visualAssetId).toBe('living-room-background');
+    expect(blocked(15, 4)).toBe(false); // No bookcase-specific collision.
+    expect(blocked(9, 7)).toBe(false); // Coffee table temporarily walkable.
+    expect(blocked(9, 10)).toBe(false); // Couch temporarily walkable.
+    expect(blocked(9, 3)).toBe(true); // Upper wall remains solid.
+    expect(blocked(3, 12)).toBe(true); // Lower wall remains solid.
+    expect(blocked(7, 7)).toBe(false); // Exposed rug stays walkable.
+
+    // Flood-fill cell centers, accounting for every newly authored obstacle.
+    const queue = [{ x: houseLayout.initialSpawn.x - room.origin.x, y: houseLayout.initialSpawn.y - room.origin.y }];
+    const reached = new Set<string>();
+    for (let index = 0; index < queue.length; index++) {
+      const { x, y } = queue[index]!;
+      const key = `${x},${y}`;
+      if (reached.has(key) || x < 0 || y < 0 || x >= room.widthTiles || y >= room.heightTiles || blocked(x, y)) continue;
+      reached.add(key);
+      queue.push({ x: x + 1, y }, { x: x - 1, y }, { x, y: y + 1 }, { x, y: y - 1 });
+    }
+    for (const doorway of houseDoorways.filter((door) => door.fromRoomId === room.id)) {
+      const { x, y, width, height } = doorway.opening;
+      for (let dx = 0; dx < width; dx++) {
+        for (let dy = 0; dy < height; dy++) expect(reached.has(`${x + dx},${y + dy}`)).toBe(true);
+      }
+    }
+    for (const interactable of room.interactables) {
+      expect(reached.has(`${interactable.position.x},${interactable.position.y}`)).toBe(true);
+    }
   });
 });
 
