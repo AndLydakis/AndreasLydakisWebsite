@@ -1,4 +1,4 @@
-import Phaser from 'phaser';
+import type Phaser from 'phaser';
 
 import {
   corridorToWorldRect,
@@ -145,13 +145,16 @@ export function buildRoom(
     const textureKey =
       interactable.assetId && scene.textures.exists(interactable.assetId)
         ? interactable.assetId
-        : 'interactable-marker-placeholder';
+        : 'furniture-placeholder';
+    const hasArtwork = textureKey === interactable.assetId;
     const image = scene.add.image(position.x, position.y, textureKey).setDepth(5);
-    const maximumSize = tileSize * 3;
-    const sourceSize = Math.max(image.width, image.height);
 
-    if (sourceSize > maximumSize) {
-      image.setScale(maximumSize / sourceSize);
+    // Keep fallback furniture at its familiar size/anchor if dedicated art is unavailable.
+    image.setOrigin(0.5, hasArtwork ? interactable.originY ?? 0.5 : 0.5);
+    if (hasArtwork && interactable.displayHeightTiles !== undefined) {
+      image.setScale((interactable.displayHeightTiles * tileSize) / image.height);
+    } else {
+      image.setScale(Math.min(1, (tileSize * 3) / Math.max(image.width, image.height)));
     }
   });
 }

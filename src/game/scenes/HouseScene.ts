@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 
 import { assetUrl } from '../../app/assetUrl';
-import { placeholderAssetPaths } from '../../app/assetManifest';
+import { optionalTexturePaths, placeholderAssetPaths } from '../../app/assetManifest';
 import { DEFAULT_CAMERA_ZOOM } from '../config';
 import {
   getCameraConstraintBounds,
@@ -70,6 +70,10 @@ export class HouseScene extends Phaser.Scene {
       'interactable-marker-placeholder',
       assetUrl(placeholderAssetPaths.interactableMarker),
     );
+
+    Object.entries(optionalTexturePaths).forEach(([key, path]) => {
+      this.load.image(key, assetUrl(path));
+    });
   }
 
   public create(): void {

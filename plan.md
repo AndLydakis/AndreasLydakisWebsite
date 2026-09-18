@@ -1731,6 +1731,7 @@ Type: Story<br>
 Priority: High<br>
 Dependencies: `PORT-08A`<br>
 Milestone: M1<br>
+Status: In progress<br>
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
@@ -1758,6 +1759,16 @@ Replace the generic room and furniture placeholders in the living-room televisio
 ### Verification
 
 Run the full unit suite, typecheck, and production build. Inspect the desktop preview at the initial spawn and after camera movement, confirm the living-room and television art are visible, check asset requests for 404s, and repeat the television dialog flow once.
+
+### Progress record — 2026-09-18
+
+- Created the four requested television/console artwork directions; selected the approved front PNG for runtime use.
+- Registered the front image through the optional texture manifest and base-path-aware loader.
+- Added generic per-interactable artwork height and vertical anchor metadata. The TV displays 4 tiles (64 world pixels) tall with its base at the existing interaction point, preserving its aspect ratio.
+- Missing dedicated art uses the generic furniture placeholder with its original sizing/anchor. Other interactables retain their current artwork.
+- Verified the TV in the desktop living room, `F` opening Games and movies, and the closed dialog returning focus to the game shell. `npm test` passes (15 files, 100 tests); typecheck and production build pass.
+- Recorded artwork provenance and implementation decisions in `ASSET_LICENSES.md` and `log.md` (DEC-058 through DEC-060).
+- Remaining: dedicated living-room surface/backdrop art and its integration, followed by the complete story verification. Keep this story open until those requirements are delivered.
 
 ---
 

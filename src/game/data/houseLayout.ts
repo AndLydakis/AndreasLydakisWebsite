@@ -27,7 +27,9 @@ const livingRoom: RoomDefinition = {
       promptLabel: 'television and game console',
       contentId: 'livingroom-media',
       interactionRadiusTiles: 2,
-      assetId: 'furniture-placeholder',
+      assetId: 'television-console-front',
+      displayHeightTiles: 4,
+      originY: 1,
     },
     {
       id: 'living-room-record-player',

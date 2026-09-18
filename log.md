@@ -472,3 +472,32 @@ This file is the project decision record. New implementation decisions, approved
 - Decision: Insert `PORT-08A1` between the completed desktop television slice and mobile television parity.
 - Decision: Scope the story to original, clearly labeled living-room and television/console placeholder art, manifest/loader registration, data-driven renderer selection, fallback behavior, and licensing records.
 - Rationale: The current implementation uses generic room and furniture placeholders. Dedicated art can improve the television slice without changing interaction IDs, dialog behavior, or Phaser/DOM boundaries.
+
+## DEC-058 — Generate a television sprite sample from style.md
+
+- Date: 2026-09-18
+- Status: Accepted
+- Decision: Use the owner's style.md brief to generate one front-view CRT television, retro console, wooden stand, and two-controller sample with the built-in image generation tool.
+- Decision: Preserve the generated PNG with its alpha channel at public/assets/placeholders/television-console-front-sample.png. The tool produces raster artwork; editable SVG output and the remaining views from the brief are outside this single-sample delivery.
+- Decision: Keep PORT-08A1 open for asset integration and display-size verification. No manifest, renderer, interaction, or story-completion changes are included in this sample.
+- Evidence: The image was visually inspected for the requested subject and style. Its saved dimensions are 1221 × 1288 pixels, with an alpha channel. The exact prompt and provenance are recorded in output/imagegen/television-console-front-sample.prompt.md.
+
+## DEC-059 — Complete all four television sprite directions
+
+- Date: 2026-09-18
+- Status: Accepted; supersedes the single-view scope recorded in DEC-058.
+- Decision: Correct the incomplete delivery to include front, back, left-facing and right-facing television sprites as required by style.md and clarified by the owner.
+- Decision: Preserve the approved front PNG and use it as the design reference for three separate image-generation calls. Define left/right by the direction the screen points within the image.
+- Decision: Save all four PNG sources and self-contained SVG copies in public/assets/placeholders/. The SVG files embed PNG artwork; they are not editable vector drawings. Use a common 1221 × 1289 SVG canvas without resampling the generated pixels.
+- Evidence: Visually inspected all three generated directions against the front reference. All four PNGs have alpha channels; front is 1221 × 1288 and the new directions are 1221 × 1289. Generation prompts and the reproducible SVG packaging script are saved in output/imagegen/.
+- Decision: Keep PORT-08A1 open for runtime integration and size/anchor verification.
+
+## DEC-060 — Use the front-facing television sprite in the living room
+
+- Date: 2026-09-18
+- Status: Accepted
+- Decision: Load the approved front PNG through a generic optional-texture manifest and select it with the existing living-room television's assetId. Use PNG directly to avoid the embedded-image overhead of its SVG wrapper.
+- Decision: Add optional displayHeightTiles and originY metadata to interactables. Display the TV at 4 tiles (64 world pixels) high, preserving aspect ratio and anchoring its base at the unchanged interaction point. Art size does not change interaction range or collision geometry.
+- Decision: If dedicated artwork is unavailable, render the required generic furniture placeholder at its existing size and center anchor. Optional-art failure must not prevent scene startup.
+- Evidence: All 100 tests in 15 files pass, including artwork size/anchor and missing-texture regression checks. Typecheck, production build, and diff whitespace checks pass. Desktop Chrome visibly rendered the TV and opened Games and movies via F; the closed dialog returned focus to the game shell. Further movement automation was interrupted by concurrent user activity.
+- Decision: Record this as partial PORT-08A1 delivery. Dedicated living-room backdrop/surface art remains outstanding; do not mark the entire story complete.

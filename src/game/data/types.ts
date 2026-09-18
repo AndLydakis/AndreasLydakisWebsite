@@ -32,6 +32,10 @@ export interface InteractableDefinition {
   interactionRadiusTiles?: number;
   bounds?: RoomTileRect;
   assetId?: string;
+  /** Explicit artwork height in tiles, preserving its aspect ratio regardless of source size. */
+  displayHeightTiles?: number;
+  /** Vertical artwork anchor: 0 = top, 0.5 = center (default), 1 = base. */
+  originY?: number;
 }
 
 export interface RoomDefinition {

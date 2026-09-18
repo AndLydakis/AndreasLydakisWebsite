@@ -130,6 +130,14 @@ pushed.
 - Added adapter tests for television content and future base-path-aware dialog actions.
 - Verification: `npm test` (14 files, 97 tests), `npm run typecheck`, `npm run build`, and `git diff --check`.
 
+### PORT-08A1 — Integrate front-facing television artwork (in progress)
+
+- Added the approved front/back/left/right television sprite samples and their generation/provenance records; SVG copies embed the PNG sources.
+- Replaced the living-room television's generic artwork with its front-facing PNG through the optional texture manifest and existing loader.
+- Added data-defined artwork height and base anchoring, keeping the TV at 64 world pixels tall without changing its interaction point, range, dialog, or collision data.
+- Preserved generic furniture fallback if dedicated art is missing.
+- Verification: 100 tests in 15 files, typecheck, production build, and desktop preview of the TV and its F-triggered dialog. Living-room backdrop artwork remains pending.
+
 ### Preview corrections — PORT-06B, PORT-06C, and PORT-07C follow-ups
 
 - Updated the interaction tooltip to list `E`, `F`, `Enter`, `Space`, and the mobile `Interact` control.
