@@ -1847,7 +1847,7 @@ Type: Story
 Priority: High  
 Dependencies: `PORT-08B`  
 Milestone: M2
-Status: In progress (artwork brought forward at the owner's request)
+Status: Verification complete — final browser evidence ready for delivery; mark Done after successful push.
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
@@ -1880,7 +1880,10 @@ Walk to the record player from multiple directions, open and close the dialog re
 - Desktop preview confirmed both living-room sprites are visible and centered on their circles. The front asset returns HTTP 200; all 100 tests, typecheck and build pass.
 - PORT-08A1 and PORT-08B are now complete. Audited existing vinyl content: Recently listened and Personal comments remain clearly labeled dummy content; no extra runtime branches or fabricated personal reviews are needed.
 - Added four-direction record-player proximity regressions, out-of-range clearing and TV target recovery. Extended the shared control/dialog regression to run repeated mobile/keyboard cycles for both television and vinyl content.
-- Verification: 144 tests in 19 files, typecheck and production build pass on 2026-09-18. The owner explicitly authorized pushing the tested changes. Remaining: dedicated live record-player keyboard/mobile repeated dialog and approach checks. Keep the story In progress until those checks are recorded; automated DOM/event tests do not substitute for browser verification.
+- Final verification: 144 tests in 19 files, typecheck, production build and whitespace checks pass on 2026-09-18. Regression implementation was pushed in `52fda6f`.
+- Dedicated Chrome checks passed: record-player approach from left/right/above/below, out-of-range prompt clearing, repeated Music collection open/close with keyboard and mobile Interact, focus return, and TV-to-vinyl target recovery. Native F opened the TV's Games and movies after walking away from vinyl.
+- Mobile emulation: 390×844 portrait and 844×390 landscape displayed the dummy music content correctly. Native pointer activation of Interact passed in both orientations; repeated landscape cycles and a short native D-pad drag verified movement recovery and release. Final inspection confirmed no open dialog, game-shell focus, zero pressed buttons and enabled direction controls.
+- Evidence boundary: sustained movement used bounded console-dispatched keyboard events; dialog keys, Interact taps and the D-pad drag used native UI automation. This is emulation, not physical-device/OS-interruption certification. Automation coordinate mismatch was diagnosed with temporary pointer-event logging; no app change was needed. Reload removed test helpers; device mode was disabled and original 110% browser zoom restored. A favicon 404 and the existing bundle-size warning remain non-blocking observations.
 
 ---
 

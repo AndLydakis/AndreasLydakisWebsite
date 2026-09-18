@@ -153,7 +153,8 @@ pushed.
 
 ### PORT-09A — Record-player artwork and content registration (in progress)
 
-- Added four-direction vinyl proximity and TV-target recovery regressions; expanded repeated keyboard/mobile dialog-cycle coverage to the music content. Delivery checks: 144 tests in 19 files, typecheck, build and whitespace checks pass. Owner authorized pushing the tested changes; dedicated live vinyl browser verification remains pending, so the story is not marked Done.
+- Added four-direction vinyl proximity and TV-target recovery regressions; expanded repeated keyboard/mobile dialog-cycle coverage to the music content. Delivery checks: 144 tests in 19 files, typecheck, build and whitespace checks pass.
+- Completed dedicated desktop and 390×844/844×390 Chrome-emulation checks: four approach directions, range clearing, repeated keyboard/mobile music dialogs, focus/control recovery, D-pad movement/release and TV/vinyl switching. No application errors observed; favicon 404 and existing bundle-size warning noted. Browser settings restored; no physical-device certification claimed.
 - Generated four matching views of an 1980s turntable on a wooden table with vinyl records underneath; saved PNG originals, raster-backed SVG copies, prompts and provenance.
 - Integrated the front sprite through the existing optional texture manifest and generic renderer, centered on the vinyl interaction circle at 64 world pixels high.
 - Connected the existing Music collection dummy content through the shared dialog adapter.
