@@ -46,7 +46,15 @@ describe('interactable artwork rendering', () => {
 
     expect(scene.add.image).toHaveBeenCalledWith(120, 152, 'television-console-front');
     expect(image.setOrigin).toHaveBeenCalledWith(0.5, 0.5);
-    expect(image.setScale).toHaveBeenCalledWith(64 / 1288);
+    expect(image.setScale).toHaveBeenCalledWith(44.8 / 1288);
+  });
+
+  it.each(houseLayout.rooms[0].interactables)('reduces $id artwork by 30% without moving its interaction point', (interactable) => {
+    const { image } = renderInteractable(interactable, true, 1000, 1000);
+    expect(interactable.displayHeightTiles).toBe(4 * 0.7);
+    expect(interactable.interactionRadiusTiles).toBe(2);
+    expect(image.setScale).toHaveBeenCalledWith(44.8 / 1000);
+    expect(image.setOrigin).toHaveBeenCalledWith(0.5, 0.5);
   });
 
   it('keeps a missing artwork fallback visible at the original generic size and anchor', () => {

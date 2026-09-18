@@ -14,6 +14,8 @@ import { worldTileToWorldPixel } from '../data/coordinates';
 import type { HouseLayout } from '../data/types';
 import { DebugOverlay } from '../debug/DebugOverlay';
 import { Player } from '../entities/Player';
+import { PlayerVisual } from '../entities/PlayerVisual';
+import { playerAnimationAssets, PLAYER_FRAME_SIZE, PLAYER_WALK_REPAIRS } from '../entities/playerAnimation';
 import { buildHouse } from '../rendering/houseRenderer';
 import { CollisionSystem } from '../systems/CollisionSystem';
 import { InteractionSystem } from '../systems/InteractionSystem';
@@ -74,6 +76,20 @@ export class HouseScene extends Phaser.Scene {
     Object.entries(optionalTexturePaths).forEach(([key, path]) => {
       this.load.image(key, assetUrl(path));
     });
+    Object.entries(playerAnimationAssets).forEach(([key, path]) => {
+      this.load.spritesheet(key, assetUrl(path), {
+        frameWidth: PLAYER_FRAME_SIZE,
+        frameHeight: PLAYER_FRAME_SIZE,
+        endFrame: 11,
+      });
+    });
+    Object.values(PLAYER_WALK_REPAIRS).forEach((repair) => {
+      this.load.spritesheet(repair.textureKey, assetUrl(repair.path), {
+        frameWidth: repair.frameWidth,
+        frameHeight: repair.frameHeight,
+        endFrame: 11,
+      });
+    });
   }
 
   public create(): void {
@@ -120,6 +136,7 @@ export class HouseScene extends Phaser.Scene {
         .setDepth(6);
       this.player = new Player(this, this.playerSprite, this.inputController, {
         tileSize: this.layout.tileSize,
+        visual: PlayerVisual.create(this, this.playerSprite),
       });
       this.collisionSystem = new CollisionSystem(this, this.layout, this.playerSprite);
       this.interactionSystem = new InteractionSystem(this.layout, {

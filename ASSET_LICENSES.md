@@ -24,3 +24,26 @@ Replace this document with a full attribution record if approved third-party ass
 - Provenance: AI-generated with the built-in image generation tool on 2026-09-18 from the owner's updated `style.md`, using this project's TV and record-player front sprites as style references.
 - Status: placeholder background used by the living room through its optional visual asset. Separate tile-grid collision rectangles approximate the pictured walls; bookcase-specific collision is omitted and table/couch collisions are temporarily disabled. Interactable sprites remain independent.
 - Prompt and review notes: `output/imagegen/living-room-background-sample.prompt.md`.
+
+## Player neutral front sample
+
+- File: `public/assets/sprites/player/idle-down-sample.png`.
+- Provenance: AI-generated using the built-in image generation tool on 2026-09-18 from the owner's character description in `utils/style_player.md`. Project-generated room, TV and record-player assets supplied the style references.
+- Status: original avatar design sample retained for provenance. No supplied real-person likeness or third-party reference artwork.
+- Design intent and missing-transcript notice: `output/imagegen/player-idle-down-sample.prompt.md`.
+- Revision 2: `public/assets/sprites/player/idle-down-sample-v2.png`, edited with the built-in image tool from the original sample at the owner's request for slightly lighter hair and a slimmer build. Approved as the identity reference for PORT-14. Edit intent and missing-transcript notice: `output/imagegen/player-idle-down-sample-v2.prompt.md`.
+
+## Player directional animation sheets — PORT-14
+
+- Files: `public/assets/sprites/player/animations/{down,left,right,up}.png`.
+- Provenance: generated with the built-in image tool on 2026-09-18, using the approved v2 character reference and the shared project styling. No third-party artwork was supplied.
+- Format: four original, unmodified 1448×1086 RGBA PNGs, 4×3 cells per sheet. First row: four idle frames. Remaining rows: eight walk frames.
+- Runtime: eight directional animation states; measured frame-origin metadata aligns artwork to the existing physics foot position without rewriting image pixels.
+- Prompt set: `output/imagegen/player-animation-sheets.prompt.md`; editable art brief: `utils/style_player.md`.
+
+### Right/down walking corrections
+
+- Runtime files: `public/assets/sprites/player/animations/right-walk-v2.png` (1447×1087) and `down-walk-v3.png` (1448×1086).
+- Generated using the built-in image tool on 2026-09-18. Right uses the project's working left sequence as a gait reference; down is a targeted refinement of the project's original down sheet. No third-party references.
+- Only walking frames are consumed. Original idle sources and working left/up artwork are preserved unchanged. Per-sheet dimensions and measured origins are explicit in `playerAnimation.ts`.
+- Exact prompts, rejected iteration notes and provenance: `output/imagegen/player-walking-repair.prompt.md`.

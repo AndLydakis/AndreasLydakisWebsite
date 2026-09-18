@@ -30,7 +30,7 @@ const livingRoom: RoomDefinition = {
       contentId: 'livingroom-media',
       interactionRadiusTiles: 2,
       assetId: 'television-console-front',
-      displayHeightTiles: 4,
+      displayHeightTiles: 2.8,
     },
     {
       id: 'living-room-record-player',
@@ -41,7 +41,7 @@ const livingRoom: RoomDefinition = {
       contentId: 'livingroom-vinyl',
       interactionRadiusTiles: 2,
       assetId: 'record-player-front',
-      displayHeightTiles: 4,
+      displayHeightTiles: 2.8,
     },
   ],
   visualAssetId: 'living-room-background',

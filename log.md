@@ -597,3 +597,93 @@ This file is the project decision record. New implementation decisions, approved
 - Test boundary: Native pointer cancellation/lost capture, multiple fingers, blur and visibility resets have event-level automated coverage. Short emulated drags are not a prolonged physical-device hold test; no claim of native OS interruption or real-device certification.
 - Decision: Browser and automated evidence satisfy this story's emulation checkpoint. Deliver PORT-08B and then mark Done after successful push. Preserve unrelated working-tree edits.
 - Delivery result: `d89a2d8` (`PORT-08B: verify mobile TV parity and separate touch controls`) pushed successfully to `origin/master`. Marked PORT-08B Done. Final suite: 115 tests in 17 files; typecheck, build and whitespace checks pass, with the existing large-bundle warning unchanged.
+
+## DEC-072 — Prepare player artwork before PORT-14 implementation
+
+- Date: 2026-09-18
+- Status: Draft prompt; character appearance awaiting owner input.
+- Decision: At the owner's request, prioritize player-animation preparation instead of continuing PORT-09A verification. Create `utils/style_player.md` from the shared style paragraphs in `utils/style.md`, adapting material details for a character and using existing room/TV/record-player art as style references.
+- Proposed asset contract: four screen-facing directions, each with four subtle idle frames and eight walking frames (48 frames total). Specify consistent 128px cells, a fixed foot anchor, transparent PNG export and a documented 12×4 sheet layout. These are draft production choices, not runtime changes.
+- Decision: Leave character appearance unresolved rather than inventing an approved likeness or outfit. Require an approved neutral reference before animation generation, and explicitly validate generated grid/anchors/loop consistency rather than assuming exact output.
+- Decision: No image generation, runtime implementation, story closure, commit or push in this prompt-only step. Preserve the original style brief and existing local changes. PORT-09A remains unfinished; PORT-14's runtime scheduling/dependency update can follow prompt approval.
+
+## DEC-073 — Generate the neutral player design sample
+
+- Date: 2026-09-18
+- Status: Generated for owner review; runtime integration and animation generation deferred.
+- Decision: Follow the owner's newly supplied character description and explicit generation request, superseding the prompt document's earlier no-generation drafting notice for this single sample only. Generate one neutral down/front pose before the remaining views and animation sequences.
+- Interpretation: short blonde/brown hair stubble becomes a sandy-brown buzz cut. Preserve light skin, green eyes, moderately muscular build, large beard, black hoodie, cargo shorts and unbranded canvas high-top shoes.
+- Decision: Use the built-in image tool with project room/TV/record-player style references. Preserve the generated PNG at `public/assets/sprites/player/idle-down-sample.png`; record exact prompt and provenance separately. No game assets are replaced or loaded by the runtime.
+- Review: The generated sample visibly includes the requested outfit, full beard, short hair, green eyes and neutral front pose. Exact 128px frame geometry and foot anchoring remain export/implementation tasks after design approval. No claim that this preview is animation-ready; no commit or push.
+
+## DEC-074 — Refine player hair and build
+
+- Date: 2026-09-18
+- Status: Revised sample for owner review.
+- Decision: Use the original front sample as an edit target; slightly lighten the buzz-cut hair toward sandy blonde and reduce body bulk while retaining the outfit, beard, face, pose, camera and arcade pixel-art styling.
+- Decision: Preserve the original and save the edited PNG as `public/assets/sprites/player/idle-down-sample-v2.png`. Record the exact built-in tool edit prompt in `output/imagegen/player-idle-down-sample-v2.prompt.md` and update provenance.
+- Review: The edited character has a visibly slimmer silhouette and subtly lighter hair with the same clothing and front pose. No runtime integration, remaining-direction generation, story completion, commit or push.
+
+## DEC-075 — Approve the player design and bring PORT-14 forward
+
+- Date: 2026-09-18
+- Status: Implementation and automated verification complete; browser verification and story delivery pending.
+- Authorization: The owner approved v2 and requested all remaining sprites, implementation and testing. This supersedes the earlier prompt-only restriction. PORT-09A remains unfinished.
+- Decision: Generate four separate directional sheets with the built-in image tool, each containing four idle and eight walking frames. The actual outputs are 1448×1086 with 362px cells, not the draft 128px export. Preserve original PNGs rather than resampling; record measured origin metadata and render at 34 world pixels high.
+- Decision: Keep a separate visual sprite following the existing invisible 32px physics/camera anchor after physics updates. This preserves the 16×1 foot collider, initial spawn, 144px/s speed and interaction coordinates across all animation frames.
+- Decision: Use eight looping Phaser animations, 4fps idle and 8fps walk, with ignore-if-playing transitions from requested velocity. Walking into a wall shows a walking attempt. Artwork is optional with the original placeholder fallback; scene shutdown removes visual listeners.
+- Decision: Replace PORT-14's room-content dependency with the completed player/scene foundations (PORT-05 and PORT-06C); no room-specific branches are needed. Environmental effects, audio and unrelated content remain out of scope.
+- Evidence: 135 tests in 19 files pass; typecheck and production build pass. Existing bundle-size warning remains. A live desktop screenshot confirms the avatar renders in the house; further movement/mobile checks are pending because Chrome first changed concurrently, then its visible window became unavailable. No commit or push while verification is incomplete.
+
+## DEC-076 — Hold PORT-14 delivery for player-size review
+
+- Date: 2026-09-18
+- Status: Awaiting the owner's requested sprite-size adjustment; all changes remain local.
+- Decision: The owner explicitly requested no push yet, because they want to change the player sprite size. Do not close or push PORT-14 until the size revision and remaining verification are complete and the owner authorizes delivery.
+- Evidence: Chrome reconnected and the local preview loaded, but sustained movement testing was interrupted when the active browser window changed. No additional live movement/mobile checks are claimed. The current visual height is 34 world pixels in `src/game/entities/playerAnimation.ts`; physics remains independent of this setting.
+
+## DEC-077 — Rebalance player and living-room artwork sizes
+
+- Date: 2026-09-18
+- Status: Implemented and verified locally. Delivery hold remains in effect.
+- Decision: Apply the owner's requested linear scaling: television and record-player artwork each decrease by 30%, from 64 to 44.8 world pixels high (4 to 2.8 tiles); player artwork increases by 50%, from 34 to 51 world pixels high.
+- Decision: Change display settings only. Preserve source PNGs, aspect ratios, foot anchoring, camera zoom, movement speed, 16×1 player collider, interactable centers and two-tile interaction radii. No image regeneration is needed.
+- Automated verification: 138 tests in 19 files pass, including explicit size regressions; typecheck and production build pass. The existing large-bundle warning remains.
+- Browser verification: Chrome desktop confirmed the new proportions, sustained right/up/down/left movement, stopping, top-wall foot contact and F opening the television dialog. Controlled sustained-key checks used console-dispatched keyboard events; F was pressed through native UI automation. Camera scrolling kept the player visible on the route through the living-room/gym corridor.
+- Mobile verification: Chrome 390×844 portrait and 844×390 landscape emulation confirmed artwork rendering and separate D-pad controls. Short native pointer drags moved the player and released; portrait Interact opened television content, close restored gameplay, and landscape Interact opened Music collection after approaching the record player. These are emulation checks, not physical-device certification.
+- Slow-device check: At 4× CPU slowdown, sustained walking/camera follow and rapid directional input recovered to idle without visible failure or default-level console application errors. Restored CPU to No throttling, disabled device emulation, closed DevTools and reloaded the desktop preview at spawn.
+- Delivery: No commit, push or story closure. Await the owner's approval of the revised proportions and delivery.
+
+## DEC-078 — Reopen directional animation quality verification
+
+- Date: 2026-09-18
+- Status: Owner reports broken right/down walking; correction pending. Left/up should be preserved.
+- Findings: Static inspection of the generated right/down sheets shows inconsistent gait progression. Right-facing walking cells mostly repeat wide-stride poses rather than including a clear passing-leg phase; down-facing cells repeat the same leading-leg pose across much of the sequence. The shared loader selects the expected 362px grid and frames 4–11 for every direction. This establishes an artwork defect, but does not rule out additional playback/alignment issues without isolated loop inspection.
+- Decision: Withdraw the earlier implication that browser smoke checks established animation-art quality. Automated tests validate frame availability, dimensions and state transitions, not anatomical continuity or smooth loop seams. Keep PORT-14 open, preserve left/up and the approved display sizes, and do not push. Recommend correcting only right/down artwork and reviewing full loops at slow and normal speeds before accepting them.
+
+## DEC-079 — Replace only right/down walking artwork
+
+- Date: 2026-09-18
+- Status: Local replacement implemented; automated checks pass; isolated browser loop review pending.
+- Authorization: The owner approved the proposed right/down correction. The no-push and no-closure hold remains active.
+- Decision: Use the built-in image tool for all raster changes. Reject the first repair attempt's inconsistent gait; derive the right-facing replacement from the working left gait, and refine down-facing leg positions to include near-level passing poses between alternating leading feet. Save selected replacements as `right-walk-v2.png` and `down-walk-v3.png`, preserving the original sheets.
+- Decision: Load replacements under separate texture keys and use them only for walking. All four original idle animations, left/up walking textures, display sizes, speed, camera and collision geometry remain unchanged. SHA-256 regressions lock the working left/up PNGs byte-for-byte.
+- Decision: Use actual measured source geometry (right 1447×1087 with 361×362 cells; down 1448×1086 with 362×362 cells), not the requested image dimensions. Remeasure per-frame anchors and use source-specific origins. The right image's leftover transparent edge pixels are outside the 4×3 frame grid; no raster resampling is performed.
+- Verification: 143 tests in 19 files pass; typecheck and production build pass, with the existing large-bundle warning. A development-only loop review page supports 2fps/8fps, pause, next-frame stepping and ordered contact sheets. Chrome currently reports `cgWindowNotFound`; do not claim completed visual verification until that page and runtime are inspected.
+- Art provenance and exact iteration prompts: `output/imagegen/player-walking-repair.prompt.md`. The unselected down intermediate is retained outside public assets in `output/imagegen/player-down-walk-intermediate.png`.
+
+## DEC-080 — Owner accepts the corrected walking animations
+
+- Date: 2026-09-18
+- Status: Owner visually approved the correction: "looks ok now".
+- Decision: Retain the current right/down replacements and unchanged left/up, idle animations and display sizes. This records owner acceptance, not an agent-performed isolated browser loop check; that check was interrupted by an unavailable Chrome window.
+- Delivery: Approval of appearance does not override the explicit no-push hold. Keep PORT-14 open and all changes local until the owner authorizes story closure and delivery.
+
+## DEC-081 — Authorize PORT-14 delivery
+
+- Date: 2026-09-18
+- Authorization: The owner said "loooks good you can push", lifting the prior delivery hold after visually accepting the repaired animations.
+- Decision: Deliver PORT-14, including approved sprite sizes, artwork, runtime, tests and provenance. Preserve unfinished PORT-09A tests/notes and unrelated owner edits outside the commit. Verify the staged snapshot before pushing; mark Done only after successful delivery.
+- Provenance correction: Two initial sample prompt records contained `undefined`. Replace those placeholders with an explicit missing-transcript notice; do not fabricate exact prompts.
+- Verification boundary: Prior desktop/mobile/slowdown smoke checks and the owner's post-repair visual acceptance remain the visual evidence. No new agent-performed isolated browser check is claimed.
+- Final scoped verification: 138 tests in 19 files, typecheck and production build pass in `/private/tmp/port14-verify.uc9LnX`, copied from the staged index. Five pending PORT-09A regressions are intentionally excluded. Existing bundle-size warning remains.

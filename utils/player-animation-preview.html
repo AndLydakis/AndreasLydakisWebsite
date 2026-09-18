@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Player walking loop review</title>
+<style>
+  body { background:#211c30; color:#fff0c9; font:16px system-ui; margin:24px; }
+  button, select, input { font:inherit; margin:8px; }
+  canvas { image-rendering:pixelated; max-width:100%; background:#40364c; }
+  .directions { display:flex; gap:28px; flex-wrap:wrap; }
+  h2 { margin-bottom:8px; }
+</style>
+<h1>Walking loop review — right / down</h1>
+<p>Development-only preview. Uses the runtime frame dimensions and anchors. Line = fixed foot anchor.</p>
+<label>Speed <select id="speed"><option value="2">2 fps (slow)</option><option value="8">8 fps (game)</option></select></label>
+<button id="pause">Pause</button><button id="next">Next frame</button>
+<label>Frame <input id="frame" type="range" min="0" max="7" value="0"><output id="number">1 / 8</output></label>
+<div class="directions">
+  <section><h2>Right</h2><canvas id="right" width="300" height="330"></canvas></section>
+  <section><h2>Down</h2><canvas id="down" width="300" height="330"></canvas></section>
+</div>
+<h2>Ordered contact sheets</h2>
+<p>All eight walking frames, left to right, with the same ground anchor.</p>
+<canvas id="strip" width="1120" height="330"></canvas>
+<script type="module">
+  import { playerAnimationSource } from '/src/game/entities/playerAnimation.ts';
+  const directions = ['right', 'down'];
+  const sheets = await Promise.all(directions.map(async direction => {
+    const source = playerAnimationSource(direction, 'walk');
+    const image = new Image(); image.src = '/assets/' + source.path;
+    await image.decode();
+    return { direction, source, image };
+  }));
+  let frame = 0, playing = true, last = 0;
+  const slider = document.querySelector('#frame'), number = document.querySelector('#number');
+  const pause = document.querySelector('#pause'), speed = document.querySelector('#speed');
+  function draw(ctx, sheet, index, x, y, scale) {
+    const { source, image } = sheet;
+    const cell = index + 4, [ax, ay] = source.anchors[cell];
+    ctx.imageSmoothingEnabled = false;
+    ctx.strokeStyle = '#71ddd0'; ctx.beginPath(); ctx.moveTo(x-42,y); ctx.lineTo(x+42,y); ctx.stroke();
+    ctx.drawImage(image, (cell%4)*source.frameWidth, Math.floor(cell/4)*source.frameHeight,
+      source.frameWidth, source.frameHeight, x-ax*scale, y-ay*scale,
+      source.frameWidth*scale, source.frameHeight*scale);
+  }
+  function render() {
+    sheets.forEach(sheet => {
+      const ctx = document.getElementById(sheet.direction).getContext('2d');
+      ctx.clearRect(0,0,300,330); draw(ctx,sheet,frame,150,310,0.8);
+    });
+    slider.value=frame; number.value=`${frame+1} / 8 (source ${frame+4})`;
+  }
+  const strip = document.querySelector('#strip').getContext('2d');
+  sheets.forEach((sheet,row)=> {
+    for(let i=0;i<8;i++) draw(strip,sheet,i,70+i*140,155+row*165,0.4);
+  });
+  function stop() { playing=false; pause.textContent='Play'; }
+  pause.onclick=()=>{playing=!playing;pause.textContent=playing?'Pause':'Play';last=performance.now();};
+  document.querySelector('#next').onclick=()=>{stop();frame=(frame+1)%8;render();};
+  slider.oninput=()=>{stop();frame=Number(slider.value);render();};
+  function tick(time) { if(playing && time-last>=1000/Number(speed.value)) {frame=(frame+1)%8;last=time;render();} requestAnimationFrame(tick); }
+  render();requestAnimationFrame(tick);
+</script>
+</html>

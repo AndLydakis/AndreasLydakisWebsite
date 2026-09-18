@@ -463,7 +463,7 @@ PORT-08B ── PORT-09A ── PORT-09B ── PORT-09C ── PORT-09D
 PORT-09D ── PORT-10A ── PORT-10B
 PORT-08B + PORT-10B ── PORT-11A ── PORT-11B
 PORT-09D + PORT-10B ── PORT-13A ── PORT-13B
-PORT-05 + PORT-09D ── PORT-14
+PORT-05 + PORT-06C ── PORT-14 (brought forward by owner; independent of room content)
 PORT-09D + PORT-10B + PORT-13B + PORT-14 ── PORT-15A ── PORT-15B
 PORT-11B + PORT-15A ── PORT-15C
 PORT-15B + PORT-15C ── PORT-15D
@@ -2282,9 +2282,10 @@ Activate the link by keyboard and mobile controls, verify the PDF response and c
 
 Type: Story  
 Priority: High  
-Dependencies: `PORT-05`, `PORT-09D`  
+Dependencies: `PORT-05`, `PORT-06C`\
 Milestone: M4
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
+Status: Ready for delivery — the owner approved the corrected artwork and authorized closure and push on 2026-09-18. Working left/up, idle sequences and approved sizes are preserved. Scoped verification passed; delivery pending.
 
 ### Goal
 
@@ -2308,6 +2309,16 @@ Add the required player’s basic visual state machine using placeholder or appr
 ### Verification
 
 Test idle, each direction, rapid direction changes, stopping, camera movement, desktop scaling, mobile scaling, and slow-device throttling.
+
+### Implementation notes
+
+- Owner brought this story forward after approving the slimmer/lighter-haired player sample. Room-content completion is not a technical prerequisite; PORT-09A remains unfinished.
+- Four directional RGBA sheets, each 4×3 cells of 362px, supply four idle frames and eight walk frames. Original generated pixels are retained; per-frame origin metadata aligns the soles and torso.
+- Presentation is a separate 51-world-pixel sprite following the unchanged physics anchor after simulation (increased 50% from 34 at the owner's request). TV and record-player artwork were reduced 30%, from 64 to 44.8 world pixels high. Camera targeting, the 16×1 foot collider, speed and interaction coordinates are unchanged.
+- Eight Phaser loops use 4fps idle / 8fps walk; transitions use normalized requested velocity and retained facing. Holding movement against a wall still plays the walking attempt. Missing optional artwork retains the placeholder.
+- Right/down repair: dedicated walking-only textures, actual per-sheet cell dimensions and remeasured origins. Original idle sources and left/up bytes remain unchanged. Use `/utils/player-animation-preview.html` for isolated 2fps/8fps loops, frame stepping and contact-sheet review before accepting the correction.
+- Automated verification: 138 tests in 19 files, typecheck and production build pass against a PORT-14-only staged snapshot, excluding the five pending PORT-09A regressions. The existing bundle-size warning remains. The asset inspector validates source dimensions/format and measures frame anchors.
+- Browser verification: desktop directional movement/stopping, top-wall foot anchoring, camera follow through the gym corridor and F television interaction passed. Chrome 390×844 portrait / 844×390 landscape emulation checked rendering, D-pad release, television/music dialogs and return to gameplay. A 4× CPU-slowdown smoke check passed walking, camera follow and rapid direction/idle recovery. Sustained input was console-dispatched; short D-pad gestures and F used native automation. No physical-device certification is claimed. Normal desktop browser settings were restored.
 
 ---
 

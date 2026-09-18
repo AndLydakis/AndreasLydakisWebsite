@@ -169,3 +169,13 @@ pushed.
 ### Delivery workflow
 
 - Future story completion entries will include the story ID, a concise change summary, and the verification commands run.
+
+### PORT-14 — Player artwork and directional animation (in progress)
+
+- Generated four 12-frame directional sheets from the approved slimmer, lighter-haired player design, with prompts and provenance retained.
+- Applied requested size balancing: player artwork 34→51 world pixels high (+50%); television and record player 64→44.8 each (−30%). Physics and interaction geometry remain unchanged.
+- Added eight idle/walk animation states and measured per-frame origins; kept artwork separate from physics, interaction and camera coordinates.
+- Added missing-art fallback, scene-shutdown cleanup, animation reuse on restart, and regression tests for transitions, anchoring and source-asset geometry.
+- Corrected owner-reported right/down walking artwork with dedicated replacement textures and remeasured source-specific origins. Preserved all idle sources and byte-identical left/up sheets. Added a development-only slow/normal-speed loop preview with frame stepping. The owner visually accepted the correction and authorized delivery on 2026-09-18; the agent's isolated post-repair browser check was unavailable.
+- Earlier Chrome desktop and portrait/landscape emulation checks passed movement, foot anchoring, camera follow and TV/music interaction; 4× CPU slowdown passed movement/transition smoke checks. These preceded the artwork repair. Normal browser settings restored. Final automated delivery verification uses a scoped snapshot without unfinished PORT-09A changes.
+- Delivery verification: 138 tests in 19 files, typecheck and production build pass in the scoped snapshot. Existing bundle-size warning remains.

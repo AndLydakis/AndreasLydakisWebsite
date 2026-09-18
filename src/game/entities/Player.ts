@@ -4,6 +4,7 @@ import type { WorldTilePoint } from '../data/types';
 import { InputController } from '../systems/InputController';
 import type { Direction } from '../systems/InputController';
 import { PLAYER_SPEED, facingFromMovement, movementSnapshotToVelocity } from './playerMotion';
+import type { PlayerVisual } from './PlayerVisual';
 
 export { PLAYER_SPEED } from './playerMotion';
 
@@ -15,6 +16,7 @@ export interface PlayerState {
 export interface PlayerOptions {
   readonly tileSize: number;
   readonly speed?: number;
+  readonly visual?: PlayerVisual;
 }
 
 /** Wraps the player sprite and exposes only the state later game systems need. */
@@ -52,6 +54,7 @@ export class Player {
 
     const velocity = movementSnapshotToVelocity(movement, this.speed);
     this.body.setVelocity(velocity.x, velocity.y);
+    this.options.visual?.update(this.facing, velocity);
   }
 
   public getState(): PlayerState {
