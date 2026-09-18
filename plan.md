@@ -1736,7 +1736,7 @@ Type: Story<br>
 Priority: High<br>
 Dependencies: `PORT-08A`<br>
 Milestone: M1<br>
-Status: In progress<br>
+Status: Done<br>
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
@@ -1781,7 +1781,7 @@ Run the full unit suite, typecheck, and production build. Inspect the desktop pr
 - Collision follow-up: use a bottom-anchored, one-pixel-high player foot strip (half the sprite width) rather than the full sprite body, so its bottom reaches the wall/floor boundary. Removed the bookcase-specific rectangle and temporarily disabled table/couch collisions; perimeter walls and doorway openings remain. All 105 tests in 16 files, typecheck and build pass; added constructor-level foot-body regressions and walkable-furniture checks.
 - Increased default camera zoom to 1.25 at the owner's request for 25% larger artwork, retaining world geometry and player follow. All 106 tests in 16 files, typecheck and build pass. Story remains in progress and local pending final preview verification.
 - Acceptance: the owner confirmed the preview looks good and explicitly requested story closure and push on 2026-09-18. This is owner acceptance, not a claim that the agent independently repeated every browser check. No implementation work remains in PORT-08A1; mobile parity belongs to PORT-08B.
-- Delivery: approved for commit and push; mark Done after successful delivery per the story workflow.
+- Delivery: completed implementation committed as `d9bb826` (`PORT-08A1: integrate living-room art and refine presentation`) and pushed to `origin/master`. Remote commit verified on 2026-09-18. Story closed after owner acceptance and successful delivery; next story is PORT-08B.
 
 ---
 
