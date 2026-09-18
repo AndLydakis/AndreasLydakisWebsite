@@ -169,11 +169,11 @@ pushed.
 - Rendered each interactable with its registered furniture placeholder or the generic marker fallback, scaled to fit the room preview.
 - Verification: `npm test` (12 files, 84 tests), `npm run typecheck`, `npm run build`, and `git diff --check`.
 
-### PORT-09A1 — Bookcase recent reading (in progress)
+### PORT-09A1 — Bookcase recent reading
 
 - Added the painted bookcase as a recent-reading hotspot, with shared keyboard/mobile dialog handling and clearly labeled replaceable book/author/notes content.
 - Added generic backdrop-art reuse with missing-background placeholder fallback; no duplicate bookcase sprite or collision changes.
-- Verified target switching, reachability, content, repeated dialog cycles and rendering fallback: 149 tests, typecheck and build pass. Chrome smoke checks passed bookcase F/mobile Interact dialogs, close/focus recovery and switching to vinyl; delivery pending.
+- Verified target switching, reachability, content, repeated dialog cycles and rendering fallback: 149 tests, typecheck and build pass. Chrome smoke checks passed bookcase F/mobile Interact dialogs, close/focus recovery and switching to vinyl. Completed 2026-09-18 after implementation commit `158ec6e` was pushed successfully.
 
 ### Delivery workflow
 

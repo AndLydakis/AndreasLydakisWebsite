@@ -1893,7 +1893,7 @@ Type: Story
 Priority: High — owner-requested addition
 Dependencies: `PORT-09A`
 Milestone: M2
-Status: Verified — 149 tests, typecheck, build and browser smoke checks pass; delivery pending.
+Status: Done — 2026-09-18. Implementation and verification pushed to `origin/master` as `158ec6e`; 149 tests, typecheck, build and browser smoke checks pass.
 Delivery: Follow the Story completion and delivery workflow before marking Done.
 
 ### Goal
