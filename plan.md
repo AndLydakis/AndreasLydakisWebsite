@@ -2285,7 +2285,7 @@ Priority: High
 Dependencies: `PORT-05`, `PORT-06C`\
 Milestone: M4
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
-Status: Ready for delivery — the owner approved the corrected artwork and authorized closure and push on 2026-09-18. Working left/up, idle sequences and approved sizes are preserved. Scoped verification passed; delivery pending.
+Status: Done — 2026-09-18. Owner approved the corrected artwork; implementation commit `f0b1967` pushed to `origin/master`. Scoped verification: 138 tests, typecheck and build pass. Working left/up, idle sequences and approved sizes are preserved.
 
 ### Goal
 
