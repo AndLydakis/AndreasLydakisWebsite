@@ -75,7 +75,7 @@ describe('InteractionSystem', () => {
     expect(target).toBeNull();
     expect(system.createInteractable(houseLayout.rooms[0]!.interactables[0]!)).toMatchObject({
       id: 'living-room-television',
-      position: { x: 7, y: 9 },
+      position: { x: 11.5, y: 8 },
     });
   });
 
@@ -85,9 +85,9 @@ describe('InteractionSystem', () => {
       onTargetChanged: (nextTarget) => changes.push(nextTarget?.id ?? null),
     });
 
-    system.update(playerState(7, 9));
-    system.update(playerState(7.5, 9));
-    system.update(playerState(10, 9));
+    system.update(playerState(11.5, 8));
+    system.update(playerState(12, 8));
+    system.update(playerState(14, 8));
 
     expect(changes).toEqual(['living-room-television', null]);
   });
@@ -98,11 +98,11 @@ describe('InteractionSystem', () => {
       onTargetChanged: (nextTarget) => changes.push(nextTarget?.id ?? null),
     });
 
-    system.update(playerState(7, 9));
+    system.update(playerState(11.5, 8));
     system.setGameplayEnabled(false);
-    system.update(playerState(7, 9));
+    system.update(playerState(11.5, 8));
     system.setGameplayEnabled(true);
-    system.update(playerState(7, 9));
+    system.update(playerState(11.5, 8));
 
     expect(changes).toEqual(['living-room-television', null, 'living-room-television']);
   });

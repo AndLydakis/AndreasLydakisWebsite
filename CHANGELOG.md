@@ -180,3 +180,10 @@ pushed.
 - Earlier Chrome desktop and portrait/landscape emulation checks passed movement, foot anchoring, camera follow and TV/music interaction; 4× CPU slowdown passed movement/transition smoke checks. These preceded the artwork repair. Normal browser settings restored. Final automated delivery verification uses a scoped snapshot without unfinished PORT-09A changes.
 - Delivery verification: 138 tests in 19 files, typecheck and production build pass in the scoped snapshot. Existing bundle-size warning remains.
 - Completed 2026-09-18: implementation commit `f0b1967` pushed successfully to `origin/master`; plan and decision log updated after delivery.
+
+### PORT-08A1 follow-up — TV placement and deferred layering plan
+
+- Centered the television between the window and coffee table, moving its interaction target with its artwork and preserving size/range.
+- Added front/back floor-clearance coverage and updated rendering/proximity regressions. No new collision or occlusion behavior.
+- Added nine deferred layering stories (PORT-18A–18D and PORT-19A–19E), scheduled after the existing backlog, with acceptance criteria and independent review gates. These stories remain unimplemented.
+- Verification: 139 tests in the scoped delivery snapshot, typecheck and build pass; existing bundle-size warning remains. Updated the mobile TV test to approach its new position instead of assuming proximity to spawn. Owner authorized commit and push; unfinished PORT-09A work is excluded.

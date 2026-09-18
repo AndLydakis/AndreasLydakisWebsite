@@ -136,7 +136,9 @@ describe('mobile controls and television dialog contract', () => {
     } as unknown as ConstructorParameters<typeof DialogManager>[0]);
     manager.registerContent(toDialogContent(televisionContent));
     const interaction = new InteractionSystem(houseLayout);
-    interaction.update({ position: houseLayout.initialSpawn });
+    const room = houseLayout.rooms[0]!;
+    const television = room.interactables.find((item) => item.contentId === 'livingroom-media')!;
+    interaction.update({ position: { x: room.origin.x + television.position.x, y: room.origin.y + television.position.y } });
     const target = interaction.getCurrentTarget()!;
     expect(target.contentId).toBe('livingroom-media');
     controls.setInteractionAvailable(true, target.promptLabel);

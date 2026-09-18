@@ -126,7 +126,26 @@ describe('initial house layout', () => {
       }
     }
     for (const interactable of room.interactables) {
-      expect(reached.has(`${interactable.position.x},${interactable.position.y}`)).toBe(true);
+      expect(reached.has(`${Math.floor(interactable.position.x)},${Math.floor(interactable.position.y)}`)).toBe(true);
+    }
+  });
+  it('centers the television below the window with clear foot paths behind and in front', () => {
+    const room = houseRooms[0];
+    const tv = room.interactables.find((item) => item.id === 'living-room-television')!;
+    expect(tv.position.x + 0.5).toBe(room.widthTiles / 2);
+    expect(tv.position.y).toBe(4);
+    expect(tv.displayHeightTiles).toBe(2.8);
+
+    // Sample 16px-wide, 1px-high player foot strips across both approach lanes.
+    // These are floor-contact lanes, not full-character bounding boxes.
+    for (const feetY of [4.5, 6.25]) {
+      for (let centerX = 8; centerX <= 12; centerX += 0.25) {
+        const overlapsWall = room.collisionRects.some((rect) =>
+          centerX + 0.5 > rect.x && centerX - 0.5 < rect.x + rect.width &&
+          feetY > rect.y && feetY - 1 / houseLayout.tileSize < rect.y + rect.height,
+        );
+        expect(overlapsWall).toBe(false);
+      }
     }
   });
 });

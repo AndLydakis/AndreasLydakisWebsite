@@ -476,6 +476,16 @@ PORT-15D ── PORT-16A ── PORT-16B ── PORT-16C ── PORT-17A ── 
 
 All stories belong to `EPIC-001`.
 
+Deferred extension: `PORT-18A` through `PORT-19E` below are scheduled strictly after every story that existed before this extension, including optional stories. They do not block the initial M5 release. Their sequence is:
+
+```text
+All pre-existing stories Done (including optional stories) + PORT-17D
+  → PORT-18A → PORT-18B → PORT-18C → PORT-18D
+  → PORT-19A → PORT-19B → PORT-19C → PORT-19D → PORT-19E
+```
+
+Milestone M6 is a deferred post-backlog enhancement, not an expansion of the initial release. An omitted optional story does not silently satisfy this scheduling gate; changing the gate requires an explicit owner decision in `log.md`.
+
 ---
 
 ## PORT-00 — Review and approve the implementation plan
@@ -2769,6 +2779,329 @@ Verify the complete maintainer workflow from a clean project state and identify 
 ### Verification
 
 Perform the full documented workflow from a clean clone and record the final release-handoff result.
+
+---
+
+### M6 extension — Object occlusion and independent floor footprints
+
+Scope: allow the player to walk on clear floor behind furniture and be partially obscured by its artwork, while solid floor footprints remain blocked. Start with separate TV/record-player sprites, then migrate the living-room couch, table and bookcase one at a time. Do not disable collisions based on drawing order. No transparency/fade effect, shaders, pixel-perfect physics, new engine, map editor, new rooms or new interactions are included.
+
+#### Mandatory review and delivery gates for every M6 story
+
+- Status starts as `Deferred — not started`. No implementation or asset generation is authorized by adding these stories.
+- Before work: confirm dependencies, identify exact files/assets in scope and map every acceptance criterion to a test or inspection. Target one focused change per story; if the estimate exceeds two focused engineering days excluding review/owner wait, split the story before implementation. Asset uncertainty is not permission to enlarge scope.
+- Architecture gate: an experienced software architect and senior game developer review PORT-18A independently of its author. Later stories must follow that contract; contract changes require renewed architecture review before coding.
+- Implementation gate: a senior software engineer other than the implementer reviews the actual diff for correctness, minimal modular code, clear types/comments, regressions, test quality, optional-asset fallback and lifecycle cleanup. Rendering/physics changes also require a senior game developer review; art changes require visual review against the approved scene.
+- Review evidence: record reviewer identity/role, reviewed commit or diff snapshot, findings with severity, fixes, re-review outcome and criterion-by-criterion evidence in `log.md`. An unavailable reviewer is an unmet gate, not implied approval. Never describe an unperformed review as completed.
+- Iterate until all acceptance criteria pass and both required reviewers explicitly approve. Resolve all blocking/high/medium findings; record any low-priority deferral with reason and explicit reviewer/owner acceptance. Owner approval of visible changes is required before closure.
+- Automated verification: run story-specific tests plus `npm test`, `npm run typecheck`, `npm run build` and `git diff --check` for runtime/data changes. For art/docs-only stories, run applicable validation/build checks and explain any omitted commands. Preserve unrelated working-tree changes.
+- Delivery: follow the global story workflow: update `plan.md`, `CHANGELOG.md` and `log.md`; commit with the story ID and push only a fully reviewed, verified story. Mark Done only after successful push. No batch closure that hides an incomplete predecessor.
+
+## PORT-18A — Review the occlusion contract and baseline
+
+Type: Story
+Priority: Low — deferred
+Dependencies: All pre-existing stories Done, including optional stories; `PORT-17D`
+Milestone: M6
+Status: Deferred — not started
+Delivery: Global story workflow and all M6 review gates apply.
+
+### Goal
+
+Approve the smallest data-driven design before changing runtime behavior or artwork.
+
+### Subtasks
+
+1. Audit the then-current renderer, player visual/physics anchor, room schema, asset loading, debug overlays and interaction feedback; do not assume today's fixed depth values still apply.
+2. Capture baseline screenshots and routes around TV, record player, couch, table and bookcase; record existing disabled furniture collisions and inaccessible space behind objects.
+3. Specify separate visual placement, room-local ground/depth anchor and optional rectangular floor footprint. Define units, coordinate conversion, stable equal-depth ordering and reserved background/world/overlay bands.
+4. Specify backward-compatible defaults, decorative objects without content IDs, missing-art behavior and scene teardown/restart behavior. Preserve interaction centers, radii, camera target and player collider unless separately approved.
+5. Inventory which furniture is baked into the backdrop; plan registered foreground cutouts and an unobstructed floor/backdrop, including baked shadows and transparent padding.
+6. Have the architect and senior game developer review the design; have a scrum master review the remaining story sizes/dependencies. Split or clarify stories until all three approve.
+
+### Acceptance criteria
+
+- A versioned design note defines the schema, depth formula/tie rule, collision geometry and asset coordinate contract with front/behind/side examples.
+- Walking behind is allowed only where floor is clear; visual overlap alone never creates a collision and rendering order never disables a footprint.
+- The floor/objects/player/feedback ordering cannot interleave incorrectly as rooms expand. Feet, not animated head height, control player sorting.
+- Exact pilot placements and reachable front/behind routes are agreed; any required object relocation is owner-approved and does not silently alter wall geometry.
+- Architect, game developer and scrum master approvals and resolved findings are recorded. No runtime or image changes are included.
+
+### Verification
+
+Walk through overlap, equal-depth, missing-art, restart and future-room examples against the design. Trace each later story to this contract and confirm no dependency on unplanned art or behavior.
+
+---
+
+## PORT-18B — Add and validate object spatial metadata
+
+Type: Story
+Priority: Low — deferred
+Dependencies: `PORT-18A`
+Milestone: M6
+Status: Deferred — not started
+Delivery: Global story workflow and all M6 review gates apply.
+
+### Goal
+
+Represent visual anchors and optional solid footprints independently, without changing the live scene yet.
+
+### Subtasks
+
+1. Implement the approved minimal types and coordinate helpers, including decorative objects with no dialog registration.
+2. Validate unique IDs, finite anchors, positive footprint dimensions and room placement according to the approved contract.
+3. Define compatibility defaults for existing records; add synthetic fixtures, not live furniture placement changes.
+4. Document units and the distinction between visual bounds, depth anchors, collision footprints and interaction centers.
+
+### Acceptance criteria
+
+- Existing room data loads unchanged and produces the same live rendering/collision behavior.
+- Tests reject duplicate IDs, NaN/infinite coordinates and invalid footprint sizes; valid omitted footprints and decorative objects are accepted.
+- Non-zero room origins convert anchors/footprints correctly; visual scaling cannot scale collision or interaction geometry implicitly.
+- No new room-specific branches, duplicate content registration or additional physics engine are introduced.
+
+### Verification
+
+Run schema/coordinate regression tests and the full quality checks. Reviewer verifies backward compatibility against all existing rooms.
+
+---
+
+## PORT-18C — Depth-sort the player and separate furniture sprites
+
+Type: Story
+Priority: Low — deferred
+Dependencies: `PORT-18B`
+Milestone: M6
+Status: Deferred — not started
+Delivery: Global story workflow and all M6 review gates apply.
+
+### Goal
+
+Demonstrate correct partial occlusion with the existing TV and record-player artwork, without adding furniture collisions.
+
+### Subtasks
+
+1. Implement the shared depth calculation and apply static object anchors plus the player's post-physics foot position.
+2. Keep backgrounds below sortable objects and interaction/debug feedback in their documented bands.
+3. Author pilot anchors using the measured artwork, not the bottom of transparent image padding; use only placements approved in PORT-18A.
+4. Add sorting, equality, movement and scene lifecycle regressions; capture live front/behind/side comparisons for both pilot objects.
+
+### Acceptance criteria
+
+- Walking behind each pilot hides only pixels actually covered by its opaque artwork; walking in front renders the player over it.
+- Side approaches, equal anchors, rapid reversals and idle/walk frame changes do not cause flicker or depth jitter.
+- Physics, player size/speed, camera tracking, interaction centers/ranges and dialog controls remain unchanged.
+- Existing placeholder fallback receives the same sorting behavior; scene restart does not accumulate listeners or duplicate visuals.
+- Desktop and portrait/landscape emulation evidence is recorded and the owner approves the visible result.
+
+### Verification
+
+Unit-test relative and equal-depth ordering, world offsets and overlay isolation. Review runtime recordings at normal and slow movement around each pilot; inspect animation transitions, restart, console and missing-texture fallback. Automated state tests alone do not establish visual correctness.
+
+---
+
+## PORT-18D — Add pilot floor footprints independently of artwork
+
+Type: Story
+Priority: Low — deferred
+Dependencies: `PORT-18C`
+Milestone: M6
+Status: Deferred — not started
+Delivery: Global story workflow and all M6 review gates apply.
+
+### Goal
+
+Block the solid bases of the TV and record player while keeping their surrounding clear floor walkable.
+
+### Subtasks
+
+1. Feed optional object footprints into the existing static Arcade collision builder exactly once per object.
+2. Author the two pilot footprints and show their rectangles/anchors in development diagnostics only.
+3. Add regression tests for solid footprint collection, omitted footprints, room offsets and cleanup/rebuild.
+4. Verify movement and interaction from all reachable sides at the normal configured speed and the agreed throttled test setting.
+
+### Acceptance criteria
+
+- The player's existing feet collider cannot cross a pilot's solid base from any reachable side, including diagonal corner approaches.
+- Clear floor behind and beside the object remains traversable even where player artwork overlaps the object's image.
+- Front/behind depth changes never toggle a collider; changing image scale or animation does not move the footprint.
+- Footprints are not duplicated by pre-existing room rectangles. Walls, doors and routes to all content remain usable.
+- Both dialogs still open and close using keyboard and mobile controls from valid in-range locations; the owner approves footprint placement.
+
+### Verification
+
+Run geometry and physics integration regressions, then inspect four-sided/corner approaches, narrow routes, stopping and scene restart. Record desktop and mobile-emulation interaction checks with debug geometry both visible and disabled.
+
+---
+
+## PORT-19A — Prepare registered couch foreground artwork
+
+Type: Story
+Priority: Low — deferred
+Dependencies: `PORT-18D`
+Milestone: M6
+Status: Deferred — not started
+Delivery: Global story workflow and all M6 review gates apply.
+
+### Goal
+
+Produce one reviewed art package that separates the couch from the living-room backdrop; do not switch live assets yet.
+
+### Subtasks
+
+1. Preserve the original background and record dimensions, source, placement and licensing/provenance.
+2. Prepare an alpha couch foreground and a matching background with the couch removed and exposed floor restored; agree where its shadows belong.
+3. Supply registration coordinates, depth anchor and proposed floor footprint in room/world units.
+4. Review the reconstructed scene and overlap samples at native size and current game zoom with the owner and visual reviewer.
+
+### Acceptance criteria
+
+- Compositing the new package recreates the approved couch placement without duplicate edges, halos, seams or displaced adjacent furniture.
+- Floor revealed around/behind the couch is coherent; shadows are neither duplicated nor attached to the wrong layer.
+- Dimensions, alpha, manifest-ready paths, provenance and coordinate metadata are documented; original art remains recoverable.
+- Owner accepts the art package. No runtime switch, table/bookcase editing or collision changes are included.
+
+### Verification
+
+Inspect alpha against contrasting backgrounds and compare registered composites at desktop/mobile presentation sizes. Review front/behind player mockups; validate file dimensions and retained originals.
+
+---
+
+## PORT-19B — Integrate couch occlusion and footprint
+
+Type: Story
+Priority: Low — deferred
+Dependencies: `PORT-19A`
+Milestone: M6
+Status: Deferred — not started
+Delivery: Global story workflow and all M6 review gates apply.
+
+### Goal
+
+Migrate only the couch to the approved generic object pipeline.
+
+### Subtasks
+
+1. Register and activate the reviewed backdrop/foreground pair through base-path-aware asset loading.
+2. Add the couch as decorative object data with its approved anchor and floor footprint; do not invent a content interaction.
+3. Implement the reviewed coherent asset-failure fallback, preventing a couch being both baked and separately drawn or absent above an invisible new collider.
+4. Verify approaches, occlusion and all living-room routes; document how the one-object migration was performed.
+
+### Acceptance criteria
+
+- The couch appears once, obscures the player correctly from behind and blocks only its floor footprint.
+- TV/record-player rendering and interactions, walls and doorways remain correct; table/bookcase behavior is unchanged.
+- Missing foreground, missing backdrop and both missing follow the approved fallback without duplicate art or unintended invisible blockers.
+- No couch-specific conditionals are added to core rendering, input or interaction systems.
+- Automated regressions, live desktop/mobile checks and owner visual approval are recorded.
+
+### Verification
+
+Test each asset-failure combination, room offsets and generic decorative rendering. Inspect all reachable couch sides, corners and paths between doors and existing interactables using production preview as well as development mode.
+
+---
+
+## PORT-19C — Migrate the living-room table as one independent object
+
+Type: Story
+Priority: Low — deferred
+Dependencies: `PORT-19B`
+Milestone: M6
+Status: Deferred — not started
+Delivery: Global story workflow and all M6 review gates apply.
+
+### Goal
+
+Repeat the approved migration for the table only, without redesigning the object system.
+
+### Subtasks
+
+1. Prepare and visually approve the table foreground plus updated backdrop using the registration/provenance checklist from PORT-19A; preserve the accepted couch layer.
+2. Define a conservative solid floor footprint; explicitly document that under-table traversal between individual legs is outside this rectangular-footprint story.
+3. Add decorative object data and generic asset fallback; enable the approved table footprint, replacing any duplicate legacy rectangle.
+4. Verify table/couch/player overlap and remaining navigation space; obtain engineering, game developer and owner approvals.
+
+### Acceptance criteria
+
+- Table artwork appears exactly once with no visible cutout seams or changes to the approved couch/TV/record-player appearance.
+- Behind/front/side overlap obeys the shared anchor rules; solid floor is blocked and agreed clear paths remain open.
+- Table collision activation is explicit and documented, superseding the earlier temporary disabled collision only for this object.
+- Missing-art fallback, all existing content interactions and room exits pass regression checks.
+- If this one-object art-plus-data migration exceeds the M6 size limit, it is split into art preparation and integration stories before implementation.
+
+### Verification
+
+Repeat the PORT-19A art checks and PORT-19B runtime/failure checks for the table. Include the route between table and couch, diagonal corners and overlapping object silhouettes at desktop/mobile sizes.
+
+---
+
+## PORT-19D — Migrate the living-room bookcase as one independent object
+
+Type: Story
+Priority: Low — deferred
+Dependencies: `PORT-19C`
+Milestone: M6
+Status: Deferred — not started
+Delivery: Global story workflow and all M6 review gates apply.
+
+### Goal
+
+Separate the bookcase while preserving the wall boundary and previously accepted furniture.
+
+### Subtasks
+
+1. Prepare and approve a registered bookcase foreground and repaired backdrop using PORT-19A's art checklist.
+2. Review its position against existing wall collision. Add a floor footprint only for solid area not already represented by the wall; do not create a false walkable route through the wall.
+3. Integrate via decorative data and the existing fallback; leave other objects and their anchors unchanged.
+4. Review reachable approaches and combined wall/bookcase/player overlap with engineering, game developer and owner reviewers.
+
+### Acceptance criteria
+
+- Bookcase art appears once with approved registration, restored background and no changes to other furniture.
+- Occlusion is correct on all physically reachable approaches; a behind-bookcase route is not required if the approved wall blocks it.
+- Wall boundaries remain intact and footprints do not introduce duplicate bodies or unreachable content.
+- Decorative behavior, asset failure and scene restart use the generic implementation, not a bookcase-specific branch.
+- Apply the M6 size limit: split art preparation from integration before work if necessary.
+
+### Verification
+
+Repeat the art and asset-failure matrix, then inspect wall contact, side approaches, sorting and every room exit. Compare against the pre-migration baseline and record owner acceptance.
+
+---
+
+## PORT-19E — Review, document and verify the layered scene release
+
+Type: Story
+Priority: Low — deferred
+Dependencies: `PORT-19D`
+Milestone: M6
+Status: Deferred — not started
+Delivery: Global story workflow and all M6 review gates apply.
+
+### Goal
+
+Close the extension with independent end-to-end evidence and a repeatable maintainer workflow, not additional features.
+
+### Subtasks
+
+1. Document adding a decorative or interactive object, measuring its anchor/footprint, extracting foreground art, avoiding duplicate backdrop objects, validating fallback and reverting an asset migration.
+2. Run a clean-checkout test/typecheck/build and production-preview check; verify a Netlify deploy preview, asset URLs and absence of development diagnostics.
+3. Exercise the complete overlap/navigation/interaction matrix on desktop and portrait/landscape mobile emulation, including a recorded CPU-throttled run.
+4. Compare frame-time observations and asset transfer sizes against the PORT-18A baseline on the same viewport/device/settings; investigate regressions before acceptance. Distinguish emulation from physical-device evidence.
+5. Obtain final independent architect/game developer review of the delivered design and senior engineer review of tests/maintenance guidance. Re-review fixes and obtain owner visual sign-off.
+
+### Acceptance criteria
+
+- All five migrated objects pass applicable front/behind/side/corner checks, stable animation/idle ordering, missing-art fallback and restart checks without flicker or invisible unintended blockers.
+- All portfolio interactions and accessible DOM paths remain available; camera movement, keyboard controls, mobile press/release/cancellation and dialog focus show no regressions.
+- An independent maintainer can add one hypothetical object using the documented fields without core-system edits; debug overlays are absent from production.
+- Evidence includes commands/results, screenshots or recordings, environment/viewport settings, performance comparison and deploy-preview URL. Performance regressions are resolved or explicitly accepted by owner and reviewers with rationale.
+- All M6 stories have completed review records; no blocking/high/medium findings remain. Low-priority exceptions are explicitly accepted and tracked.
+- Completion updates, changelog, story-ID commit and successful push are recorded before marking this story Done.
+
+### Verification
+
+Use a fresh checkout and the documented workflow. Have reviewers reproduce representative overlap, collision, asset-failure and interaction checks; repeat affected checks after any fix rather than relying on earlier evidence.
 
 ## 6. Beginner Maintenance Workflow
 

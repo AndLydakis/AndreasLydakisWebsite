@@ -44,7 +44,7 @@ describe('interactable artwork rendering', () => {
   it('centers the front artwork on the interaction point without changing its aspect ratio', () => {
     const { scene, image } = renderInteractable(television, true, 1221, 1288);
 
-    expect(scene.add.image).toHaveBeenCalledWith(120, 152, 'television-console-front');
+    expect(scene.add.image).toHaveBeenCalledWith(192, 136, 'television-console-front');
     expect(image.setOrigin).toHaveBeenCalledWith(0.5, 0.5);
     expect(image.setScale).toHaveBeenCalledWith(44.8 / 1288);
   });
@@ -60,7 +60,7 @@ describe('interactable artwork rendering', () => {
   it('keeps a missing artwork fallback visible at the original generic size and anchor', () => {
     const { scene, image } = renderInteractable(television, false, 64, 64);
 
-    expect(scene.add.image).toHaveBeenCalledWith(120, 152, 'furniture-placeholder');
+    expect(scene.add.image).toHaveBeenCalledWith(192, 136, 'furniture-placeholder');
     expect(image.setOrigin).toHaveBeenCalledWith(0.5, 0.5);
     expect(image.setScale).toHaveBeenCalledWith(48 / 64);
   });

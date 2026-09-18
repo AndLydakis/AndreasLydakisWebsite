@@ -688,3 +688,30 @@ This file is the project decision record. New implementation decisions, approved
 - Verification boundary: Prior desktop/mobile/slowdown smoke checks and the owner's post-repair visual acceptance remain the visual evidence. No new agent-performed isolated browser check is claimed.
 - Final scoped verification: 138 tests in 19 files, typecheck and production build pass in `/private/tmp/port14-verify.uc9LnX`, copied from the staged index. Five pending PORT-09A regressions are intentionally excluded. Existing bundle-size warning remains.
 - Delivery result: `f0b1967` (`PORT-14: add player sprites and directional animations`) pushed successfully to `origin/master`. Mark PORT-14 Done and deliver this closure record separately; unfinished PORT-09A work and unrelated owner edits remain local.
+
+## DEC-082 — Defer object occlusion until the existing backlog is complete
+
+- Date: 2026-09-18
+- Authorization: The owner requested future stories for object layering/partial player occlusion, broken down with specific acceptance criteria and thorough review. This is planning authorization only.
+- Decision: Add M6 stories PORT-18A–18D and PORT-19A–19E after PORT-17D, gated on all pre-existing stories being Done, including optional stories. They do not block the initial release. Changing this ordering requires an explicit owner decision.
+- Scope: Review contract, add independent spatial metadata, sort the player and separate furniture by ground anchors, then add pilot floor footprints. Separate backdrop furniture through one-object couch/table/bookcase migrations; finish with independent release verification and maintenance documentation.
+- Guardrails: Keep solid floor collision independent of draw order; do not disable collision merely because the player is behind an object. Preserve interaction geometry and wall boundaries. No new engine, shader/fade effect, map editor or under-table leg traversal is included.
+- Review process: Require independent architecture/game-development approval, senior engineer diff review, concrete automated/live evidence, owner visual acceptance and fix/re-review cycles. Require scrum-master size review at PORT-18A and split any story exceeding two focused engineering days before implementation. Reviews are future acceptance gates, not reviews claimed to have happened now.
+- Delivery: Planning changes only in plan.md and this log. No runtime or art changes, story completion, commit or push are authorized by this request; preserve unrelated local work.
+
+## DEC-083 — Center the television between the window and coffee table
+
+- Date: 2026-09-18
+- Authorization: The owner requested a presentation adjustment, with enough floor space to move in front of and behind the television.
+- Decision: Move the TV's room-local interaction/art center from (5, 5) to (9.5, 4). The tile-point half-cell offset puts its rendered center exactly at the horizontal midpoint of the 20-tile room; its world-pixel center is now (192, 136). The current backdrop was visually inspected to choose the window/table gap.
+- Decision: Preserve the 44.8px artwork height, interaction radius, record-player position, walls, player collider and temporarily disabled table/couch collisions. The interaction target moves with the image. Do not implement deferred depth sorting or new furniture footprints in this presentation change.
+- Verification: 144 working-tree tests in 19 files, typecheck, production build and whitespace checks pass. Regressions cover the new rendered/interaction coordinates and 16px-wide foot-strip clearance across floor lanes at room-local y=4.5 and y=6.25. Fractional interactable placement is handled by the existing grid reachability test. Existing bundle-size warning remains.
+- Review boundary: Asset/layout inspection and automated checks completed; no new live-browser visual approval is claimed. Keep the presentation adjustment local for owner review; no commit or push performed. Unfinished PORT-09A changes and deferred planning remain preserved.
+
+## DEC-084 — Deliver TV placement and deferred layering plan
+
+- Date: 2026-09-18
+- Authorization: The owner requested "push the changes", authorizing delivery of the TV placement follow-up and deferred layering plan.
+- Decision: Commit the approved presentation changes, their regressions and planning records. Exclude unfinished PORT-09A tests/notes and unrelated style-file edits. The nine future layering stories remain Deferred; this delivery does not implement or complete them.
+- Verification: Run tests, typecheck and build against a scoped staged snapshot before pushing. No additional live-browser verification is claimed.
+- Result: Scoped verification caught the original mobile TV test assuming spawn remained in range. Updated its fixture to use the current data-defined TV location without including the pending vinyl tests. All 139 scoped tests in 19 files, typecheck and build now pass; existing bundle-size warning remains.

@@ -24,7 +24,9 @@ const livingRoom: RoomDefinition = {
     {
       id: 'living-room-television',
       roomId: 'living-room',
-      position: { x: 5, y: 5 },
+      // Tile points render at +0.5: x=9.5 centers the TV in this 20-tile room.
+      // Keep its base between the window wall and coffee table, with floor on both sides.
+      position: { x: 9.5, y: 4 },
       label: 'Television and game console',
       promptLabel: 'television and game console',
       contentId: 'livingroom-media',
