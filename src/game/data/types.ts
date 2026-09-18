@@ -32,6 +32,8 @@ export interface InteractableDefinition {
   interactionRadiusTiles?: number;
   bounds?: RoomTileRect;
   assetId?: string;
+  /** Reuse artwork painted into the room; show a placeholder if that backdrop fails. */
+  artworkInBackground?: boolean;
   /** Explicit artwork height in tiles, preserving its aspect ratio regardless of source size. */
   displayHeightTiles?: number;
 }

@@ -743,3 +743,14 @@ This file is the project decision record. New implementation decisions, approved
 - Cleanup: removed diagnostic listeners, disabled device emulation, restored Fit to window emulation scale and the original 110% browser zoom, closed DevTools and reloaded the desktop preview to clear helpers and reset spawn.
 - Final automated verification: all 144 tests in 19 files, typecheck, production build and whitespace checks pass. Deliver the evidence, then mark PORT-09A Done after successful push. Preserve unrelated plan wording and style-file changes.
 - Delivery result: browser evidence commit `3e1919a` pushed successfully to `origin/master`, following implementation/test commit `52fda6f`. Marked PORT-09A Done; next required story is PORT-09B.
+
+## DEC-087 — Add bookcase reading interaction
+
+- Date: 2026-09-18
+- Authorization: The owner requested an interactable bookcase for recently read books. Add PORT-09A1 before gym work to track this explicit scope addition; do not start the deferred object-layering stories.
+- Content: Add data-only `src/content/books.ts` with stable ID livingroom-books and clearly labeled title/author and reading-note placeholders. Do not invent personal books or reading history.
+- Placement: Room-local (14.5, 4), 1.5-tile range, on the front-left edge of the painted bookcase. Keep the existing vinyl approach from above selectable; retain nearest-target behavior and unchanged TV/vinyl positions.
+- Rendering: Add optional generic artworkInBackground metadata. Skip a duplicate sprite only when the room background is loaded; otherwise draw the standard furniture placeholder. No new image, collision body, occlusion or bookcase-specific core logic.
+- Verification: 149 tests in 19 files, typecheck and production build pass, including bookcase/TV/vinyl selection, repeated keyboard/mobile dialog contracts, data-only content and background/fallback rendering. Existing bundle-size warning remains. Browser verification requested while preserving unrelated local edits.
+- Browser result: owner made Chrome available. The preview at 127.0.0.1:5173 showed the bookcase prompt at player position approximately (16.5, 8.0), with the original painted shelf and no duplicate object. Native F and on-screen Interact opened Recently read books; both placeholder sections were visible. Escape and Close restored game-shell focus. Movement to vinyl changed the prompt and native E opened Music collection. Sustained walking used bounded console-dispatched keyboard events; dialog actions used native UI automation in the existing narrow responsive browser window. Reload cleared helpers and reset spawn; no physical-device certification claimed.
+- Delivery decision: Verification satisfies PORT-09A1. Follow the standing completed-story commit/push workflow, preserving unrelated plan-review wording and style-file changes. Mark Done only after successful push.

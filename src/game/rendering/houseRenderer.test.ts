@@ -49,7 +49,7 @@ describe('interactable artwork rendering', () => {
     expect(image.setScale).toHaveBeenCalledWith(44.8 / 1288);
   });
 
-  it.each(houseLayout.rooms[0].interactables)('reduces $id artwork by 30% without moving its interaction point', (interactable) => {
+  it.each(houseLayout.rooms[0].interactables.filter((item) => item.displayHeightTiles !== undefined))('reduces $id artwork by 30% without moving its interaction point', (interactable) => {
     const { image } = renderInteractable(interactable, true, 1000, 1000);
     expect(interactable.displayHeightTiles).toBe(4 * 0.7);
     expect(interactable.interactionRadiusTiles).toBe(2);
@@ -77,6 +77,27 @@ describe('interactable artwork rendering', () => {
 });
 
 describe('room backdrop rendering', () => {
+  it.each([true, false])('reuses painted bookcase art, with fallback when the backdrop is missing (%s)', (available) => {
+    const graphics = { fillStyle: vi.fn(), fillRect: vi.fn(), lineStyle: vi.fn(), strokeRect: vi.fn() };
+    const image = {
+      width: 64, height: 64,
+      setOrigin: vi.fn().mockReturnThis(), setDisplaySize: vi.fn().mockReturnThis(),
+      setDepth: vi.fn().mockReturnThis(), setScale: vi.fn().mockReturnThis(),
+    };
+    const scene = {
+      textures: { exists: vi.fn(() => available) },
+      add: { image: vi.fn(() => image) },
+    };
+    const room = houseLayout.rooms[0];
+    const bookcase = room.interactables.find((item) => item.contentId === 'livingroom-books')!;
+    buildRoom(scene as unknown as Phaser.Scene, { ...room, interactables: [bookcase] }, 16,
+      { floor: graphics, walls: graphics, collisionPreview: graphics } as unknown as HouseRenderLayers);
+    expect(scene.add.image).toHaveBeenCalledTimes(1);
+    expect(scene.add.image).toHaveBeenCalledWith(...(available
+      ? [32, 64, 'living-room-background']
+      : [272, 136, 'furniture-placeholder']));
+  });
+
   it.each([true, false])('keeps physics previews independent of optional artwork (available=%s)', (available) => {
     const graphic = () => ({
       fillStyle: vi.fn(), fillRect: vi.fn(), lineStyle: vi.fn(), strokeRect: vi.fn(),

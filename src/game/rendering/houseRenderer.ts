@@ -150,6 +150,9 @@ export function buildRoom(
   });
 
   room.interactables.forEach((interactable) => {
+    // Painted furniture still has a normal interaction target, but needs no duplicate sprite.
+    if (interactable.artworkInBackground && hasBackground) return;
+
     const position = worldTileToWorldPixel(
       roomTileToWorld(room, interactable.position),
       tileSize,

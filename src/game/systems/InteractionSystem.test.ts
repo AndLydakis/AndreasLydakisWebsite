@@ -68,6 +68,22 @@ describe('selectInteractionTarget', () => {
 });
 
 describe('InteractionSystem', () => {
+  it('selects the bookcase from clear floor and switches cleanly to vinyl and TV', () => {
+    const system = new InteractionSystem(houseLayout);
+    for (const [x, y, expected] of [
+      [16.5, 8, 'livingroom-books'],
+      [16.5, 8.75, 'livingroom-books'],
+      [18, 8.5, 'livingroom-vinyl'],
+      [18, 10, 'livingroom-vinyl'],
+      [11.5, 8, 'livingroom-media'],
+      [13, 11, null],
+    ] as const) {
+      system.update(playerState(x, y));
+      expect(system.getCurrentTarget()?.contentId ?? null).toBe(expected);
+    }
+    system.destroy();
+  });
+
   it.each([[1.5, 0], [-1.5, 0], [0, 1.5], [0, -1.5]])('selects vinyl when approached with offset (%s, %s), without changing TV selection', (dx, dy) => {
     const system = new InteractionSystem(houseLayout);
     const room = houseLayout.rooms[0]!;

@@ -100,7 +100,7 @@ describe('content and room registries', () => {
 });
 
 describe('data-only content modules', () => {
-  const contentModuleNames = ['gym.ts', 'kitchen.ts', 'office.ts', 'television.ts', 'vinyl.ts'];
+  const contentModuleNames = ['books.ts', 'gym.ts', 'kitchen.ts', 'office.ts', 'television.ts', 'vinyl.ts'];
 
   it.each(contentModuleNames)('%s has no Phaser or DOM imports', (moduleName) => {
     const source = contentSourceModules[`./${moduleName}`];

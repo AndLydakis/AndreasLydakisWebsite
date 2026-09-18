@@ -459,7 +459,7 @@ PORT-02 + PORT-02A + PORT-04D ── PORT-06A ── PORT-06B ── PORT-06C
 PORT-02A + PORT-06C ── PORT-05
 PORT-05 ── PORT-07A ── PORT-07B ── PORT-07C ── PORT-07CA ── PORT-07CB ── PORT-07CC ── PORT-07D
 PORT-07D ── PORT-08A ── PORT-08A1 ── PORT-08B
-PORT-08B ── PORT-09A ── PORT-09B ── PORT-09C ── PORT-09D
+PORT-08B ── PORT-09A ── PORT-09A1 ── PORT-09B ── PORT-09C ── PORT-09D
 PORT-09D ── PORT-10A ── PORT-10B
 PORT-08B + PORT-10B ── PORT-11A ── PORT-11B
 PORT-09D + PORT-10B ── PORT-13A ── PORT-13B
@@ -1887,11 +1887,53 @@ Walk to the record player from multiple directions, open and close the dialog re
 
 ---
 
+## PORT-09A1 — Add recent reading to the living-room bookcase
+
+Type: Story
+Priority: High — owner-requested addition
+Dependencies: `PORT-09A`
+Milestone: M2
+Status: Verified — 149 tests, typecheck, build and browser smoke checks pass; delivery pending.
+Delivery: Follow the Story completion and delivery workflow before marking Done.
+
+### Goal
+
+Open recent reading and book notes from the existing painted bookcase using the shared interaction/dialog path.
+
+### Subtasks
+
+1. Add `livingroom-books` as a typed content record, with unmistakable placeholder title/author and reading notes until real content is supplied.
+2. Place a reachable bookcase hotspot on the front-left floor edge, with a range that preserves the nearby record-player approach.
+3. Register its content with the existing dialog manager and support the same keyboard/mobile controls and focus/reset behavior.
+4. Reuse background artwork without drawing a duplicate object; use a generic placeholder if the room backdrop is missing.
+5. Test target switching, content registration, shared dialog cycles, reachability and rendering fallback; verify the preview and deliver the story.
+
+### Acceptance criteria
+
+- Approaching the bookcase shows the recent-reading prompt; keyboard and mobile Interact open Recently read books with Recent reading and Reading notes sections.
+- All dummy entries are labeled; no actual reading history is invented.
+- TV, record-player selection and dialogs continue to work, including the vinyl approach from above.
+- The bookcase is not drawn twice. Missing backdrop retains a visible generic object; collision geometry, player size and movement remain unchanged.
+- Dialog close restores gameplay/focus and repeated cycles work through the shared systems; no bookcase-specific runtime branch is added.
+
+### Verification
+
+Run content/schema, renderer/fallback, proximity and keyboard/mobile dialog regressions plus the full test/typecheck/build suite. In the browser, approach from open floor, open/close the book dialog, then switch to vinyl and confirm the correct content. Check mobile Interact and record evidence before closure.
+
+### Implementation notes
+
+- `src/content/books.ts` owns replaceable reading content; `living-room-bookcase` is at room-local (14.5, 4), with a 1.5-tile radius.
+- Optional `artworkInBackground` metadata suppresses only duplicate artwork when the backdrop loaded; interaction and missing-backdrop fallback remain generic.
+- Automated verification: 149 tests in 19 files, typecheck and build pass; existing bundle-size warning remains. No image or collision changes.
+- Browser verification: in Chrome's narrow responsive window, walking to the bookcase displayed its prompt; native F and on-screen Interact each opened Recently read books with both placeholder sections visible. Escape/Close restored game-shell focus; walking to vinyl and pressing E opened Music collection. No duplicate bookcase sprite appeared. Sustained walking used bounded console-dispatched key events; dialog input used native automation. Reloaded the preview to clear test helpers. This is a responsive browser smoke check, not physical-device certification.
+
+---
+
 ## PORT-09B — Add gym and personal-records content
 
 Type: Story  
 Priority: High  
-Dependencies: `PORT-09A`  
+Dependencies: `PORT-09A1`\
 Milestone: M2
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 

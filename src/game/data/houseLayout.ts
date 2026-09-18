@@ -45,6 +45,17 @@ const livingRoom: RoomDefinition = {
       assetId: 'record-player-front',
       displayHeightTiles: 2.8,
     },
+    {
+      id: 'living-room-bookcase',
+      roomId: 'living-room',
+      // Front-left of the painted bookcase, separated from the vinyl approach.
+      position: { x: 14.5, y: 4 },
+      label: 'Bookcase and recent reading',
+      promptLabel: 'bookcase and recent reading',
+      contentId: 'livingroom-books',
+      interactionRadiusTiles: 1.5,
+      artworkInBackground: true,
+    },
   ],
   visualAssetId: 'living-room-background',
 };

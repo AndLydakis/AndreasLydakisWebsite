@@ -2,6 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { televisionContent } from '../content/television';
 import { vinylContent } from '../content/vinyl';
+import { booksContent } from '../content/books';
 import { houseLayout } from '../game/data/houseLayout';
 import { InputController } from '../game/systems/InputController';
 import { InteractionSystem } from '../game/systems/InteractionSystem';
@@ -124,7 +125,7 @@ describe('mobile controls and living-room dialog contract', () => {
     expect(input.consumeInteractionRequest()).toBeNull();
   });
 
-  it.each([televisionContent, vinylContent])('opens $id via mobile and keyboard across repeated dialog cycles', (content) => {
+  it.each([televisionContent, vinylContent, booksContent])('opens $id via mobile and keyboard across repeated dialog cycles', (content) => {
     const dialog = new ElementDouble();
     const title = new ElementDouble();
     const close = new ElementDouble();

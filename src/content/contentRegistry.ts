@@ -1,4 +1,5 @@
 import { gymContent } from './gym';
+import { booksContent } from './books';
 import { kitchenContent } from './kitchen';
 import { officeContent } from './office';
 import { televisionContent } from './television';
@@ -10,6 +11,7 @@ import type { InteractableDefinition } from '../game/data/types';
 export const contentRegistry = [
   televisionContent,
   vinylContent,
+  booksContent,
   gymContent,
   officeContent,
   kitchenContent,
