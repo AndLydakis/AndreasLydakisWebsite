@@ -464,3 +464,11 @@ This file is the project decision record. New implementation decisions, approved
 - Decision: Keep the television interaction data-driven and leave all other room content registration for their later vertical-slice stories.
 - Rationale: This completes the first desktop interaction without adding room-specific branches to Phaser systems or prematurely completing the hidden semantic content index.
 - Evidence: The local desktop preview showed the television prompt at spawn, opened `Games and movies` with all three dummy sections via `E`, and returned focus to the game shell after Escape. `npm test` passes with 14 test files and 97 tests; `npm run typecheck`, `npm run build`, and `git diff --check` pass.
+
+## DEC-057 — Add PORT-08A1 placeholder-art story
+
+- Date: 2026-09-18
+- Status: Accepted
+- Decision: Insert `PORT-08A1` between the completed desktop television slice and mobile television parity.
+- Decision: Scope the story to original, clearly labeled living-room and television/console placeholder art, manifest/loader registration, data-driven renderer selection, fallback behavior, and licensing records.
+- Rationale: The current implementation uses generic room and furniture placeholders. Dedicated art can improve the television slice without changing interaction IDs, dialog behavior, or Phaser/DOM boundaries.

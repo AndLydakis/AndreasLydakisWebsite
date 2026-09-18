@@ -453,7 +453,7 @@ PORT-00
 PORT-02 + PORT-02A + PORT-04D ── PORT-06A ── PORT-06B ── PORT-06C
 PORT-02A + PORT-06C ── PORT-05
 PORT-05 ── PORT-07A ── PORT-07B ── PORT-07C ── PORT-07CA ── PORT-07CB ── PORT-07CC ── PORT-07D
-PORT-07D ── PORT-08A ── PORT-08B
+PORT-07D ── PORT-08A ── PORT-08A1 ── PORT-08B
 PORT-08B ── PORT-09A ── PORT-09B ── PORT-09C ── PORT-09D
 PORT-09D ── PORT-10A ── PORT-10B
 PORT-08B + PORT-10B ── PORT-11A ── PORT-11B
@@ -1721,7 +1721,43 @@ Test all desktop movement directions, approach the television from multiple side
 - Added pure adapter tests for television content and future base-path-aware dialog actions.
 - Verification passed: `npm test` (14 files, 97 tests), `npm run typecheck`, `npm run build`, and `git diff --check`.
 - Decisions and evidence are recorded in `log.md` as `DEC-056`.
-- Implementation may proceed to `PORT-08B`.
+- Implementation may proceed to `PORT-08A1`.
+
+---
+
+## PORT-08A1 — Add living-room and television placeholder art
+
+Type: Story<br>
+Priority: High<br>
+Dependencies: `PORT-08A`<br>
+Milestone: M1<br>
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
+
+### Goal
+
+Replace the generic room and furniture placeholders in the living-room television slice with clearly identified, original placeholder art while preserving the existing data-driven game and interaction contracts.
+
+### Subtasks
+
+1. Create clearly labeled living-room visual placeholder art for the room surfaces or backdrop.
+2. Create clearly labeled television and console placeholder art sized for the current tile scale.
+3. Register the new assets through the existing manifest and base-path-aware loader.
+4. Update only room/interactable data and generic rendering hooks to select the new assets, retaining generic fallbacks.
+5. Keep the living-room and television art independent of `HouseScene`, `InteractionSystem`, and dialog behavior.
+6. Record the new placeholder assets in `ASSET_LICENSES.md` as original project assets.
+
+### Acceptance criteria
+
+- The living room visibly uses dedicated placeholder art rather than the generic furniture/room treatment.
+- The television and console are visually distinguishable from other interactables.
+- The existing `living-room-television` ID, `livingroom-media` content ID, prompt, dialog, and mobile-ready interaction path remain unchanged.
+- Asset loading remains base-path-aware and missing dedicated assets fall back cleanly to the generic placeholders.
+- No room-specific conditionals are added to `HouseScene` or `InteractionSystem`.
+- The new assets are clearly labeled as placeholders and have an explicit license record.
+
+### Verification
+
+Run the full unit suite, typecheck, and production build. Inspect the desktop preview at the initial spawn and after camera movement, confirm the living-room and television art are visible, check asset requests for 404s, and repeat the television dialog flow once.
 
 ---
 
@@ -1729,7 +1765,7 @@ Test all desktop movement directions, approach the television from multiple side
 
 Type: Story  
 Priority: Highest  
-Dependencies: `PORT-08A`  
+Dependencies: `PORT-08A1`<br>
 Milestone: M1
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
