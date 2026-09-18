@@ -240,8 +240,9 @@ function validateRoom(
   };
 
   room.collisionRects.forEach((rect) => {
-    if (!positiveIntegerRect(rect)) {
-      errors.push(`Collision rect in room ${roomLabel} must have positive integer dimensions.`);
+    // Art-aligned floor footprints can be smaller than a tile; rooms/doors stay grid-aligned.
+    if (!isPositiveFinite(rect.width) || !isPositiveFinite(rect.height)) {
+      errors.push(`Collision rect in room ${roomLabel} must have positive finite dimensions.`);
     }
 
     if (!rectWithinBounds(rect, roomBounds)) {

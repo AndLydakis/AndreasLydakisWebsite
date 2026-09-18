@@ -96,28 +96,34 @@ describe('initial house layout', () => {
     expect(houseLayout.initialSpawn.y).toBeLessThan(livingRoomBottomWallY());
   });
 
-  it('keeps furniture walkable and both backdrop exits and interactables reachable', () => {
+  it('keeps table/couch walkable and both backdrop exits and interaction ranges reachable', () => {
     const room = houseRooms[0];
     const blocked = (x: number, y: number) => room.collisionRects.some((rect) =>
       x >= rect.x && x < rect.x + rect.width && y >= rect.y && y < rect.y + rect.height,
     );
     expect(room.visualAssetId).toBe('living-room-background');
-    expect(blocked(15, 4)).toBe(false); // No bookcase-specific collision.
+    expect(blocked(15, 4)).toBe(true); // Tight bookcase base extends the wall.
+    expect(blocked(15, 4.625)).toBe(false); // Floor immediately below stays clear.
     expect(blocked(9, 7)).toBe(false); // Coffee table temporarily walkable.
     expect(blocked(9, 10)).toBe(false); // Couch temporarily walkable.
     expect(blocked(9, 3)).toBe(true); // Upper wall remains solid.
     expect(blocked(3, 12)).toBe(true); // Lower wall remains solid.
     expect(blocked(7, 7)).toBe(false); // Exposed rug stays walkable.
 
-    // Flood-fill cell centers, accounting for every newly authored obstacle.
-    const queue = [{ x: houseLayout.initialSpawn.x - room.origin.x, y: houseLayout.initialSpawn.y - room.origin.y }];
+    // Flood-fill foot-strip cell centers; interaction centers may sit over wall artwork.
+    const footBlocked = (x: number, y: number) => room.collisionRects.some((rect) =>
+      x + 1 > rect.x && x < rect.x + rect.width &&
+      y + 0.5 > rect.y && y + 0.5 - 1 / houseLayout.tileSize < rect.y + rect.height,
+    );
+    const queue = [{ x: houseLayout.initialSpawn.x - room.origin.x, y: houseLayout.initialSpawn.y - room.origin.y + 1 }];
     const reached = new Set<string>();
     for (let index = 0; index < queue.length; index++) {
       const { x, y } = queue[index]!;
       const key = `${x},${y}`;
-      if (reached.has(key) || x < 0 || y < 0 || x >= room.widthTiles || y >= room.heightTiles || blocked(x, y)) continue;
+      if (reached.has(key) || x < 0 || y < 0 || x >= room.widthTiles || y >= room.heightTiles || footBlocked(x, y)) continue;
       reached.add(key);
-      queue.push({ x: x + 1, y }, { x: x - 1, y }, { x, y: y + 1 }, { x, y: y - 1 });
+      // Quarter-tile samples can reach the narrow floor strip below the bookcase.
+      queue.push({ x: x + 0.25, y }, { x: x - 0.25, y }, { x, y: y + 0.25 }, { x, y: y - 0.25 });
     }
     for (const doorway of houseDoorways.filter((door) => door.fromRoomId === room.id)) {
       const { x, y, width, height } = doorway.opening;
@@ -126,7 +132,12 @@ describe('initial house layout', () => {
       }
     }
     for (const interactable of room.interactables) {
-      expect(reached.has(`${Math.floor(interactable.position.x)},${Math.floor(interactable.position.y)}`)).toBe(true);
+      expect([...reached].some((key) => {
+        const [x, y] = key.split(',').map(Number);
+        // Feet are one tile below the physics anchor's cell-center coordinate.
+        return Math.hypot(x! - interactable.position.x, y! - 1 - interactable.position.y)
+          <= (interactable.interactionRadiusTiles ?? 2);
+      })).toBe(true);
     }
   });
   it('centers the television below the window with clear foot paths behind and in front', () => {
@@ -147,6 +158,33 @@ describe('initial house layout', () => {
         expect(overlapsWall).toBe(false);
       }
     }
+  });
+
+  it('keeps the vinyl and bookcase interaction circles separate', () => {
+    const room = houseRooms[0];
+    const vinyl = room.interactables.find((item) => item.contentId === 'livingroom-vinyl')!;
+    const books = room.interactables.find((item) => item.contentId === 'livingroom-books')!;
+    expect(vinyl.position).toEqual({ x: 17, y: 6 });
+    expect(vinyl.interactionRadiusTiles).toBe(1.5);
+    const separation = Math.hypot(vinyl.position.x - books.position.x, vinyl.position.y - books.position.y);
+    expect(separation).toBeGreaterThan(vinyl.interactionRadiusTiles! + books.interactionRadiusTiles!);
+    expect(vinyl.displayHeightTiles).toBe(2.8);
+  });
+
+  it('fits the bookcase base tightly and keeps its centered interaction reachable at contact', () => {
+    const room = houseRooms[0];
+    const base = room.collisionRects.find((rect) => rect.x === 13.5625)!;
+    const books = room.interactables.find((item) => item.contentId === 'livingroom-books')!;
+    expect(base).toEqual({ x: 13.5625, y: 4, width: 4.375, height: 0.5625 });
+    expect(books.position).toEqual({ x: 15.25, y: 2.25 });
+    expect((books.position.x + 0.5) * 16).toBe(252);
+    expect((books.position.y + 0.5) * 16).toBe(44);
+    const bottom = base.y + base.height;
+    const feetAtContact = bottom + 1 / houseLayout.tileSize;
+    // The foot strip's top stops at the shelf edge; the soles remain only 1px below it.
+    expect(feetAtContact * 16).toBe(74);
+    expect(Math.abs(feetAtContact - 1.5 - books.position.y)).toBeLessThan(books.interactionRadiusTiles!);
+    expect(bottom * 16).toBe(73);
   });
 });
 

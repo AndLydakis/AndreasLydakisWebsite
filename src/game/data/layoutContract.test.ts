@@ -46,12 +46,26 @@ describe('complete layout contract', () => {
     );
   });
 
+  it.each([0, -0.5, NaN, Infinity])('rejects invalid collision width %s', (width) => {
+    const invalid = replaceRoom(houseLayout, 'office', {
+      collisionRects: [{ x: 1.25, y: 1.5, width, height: 0.5625 }],
+    });
+    expect(validateHouseLayout(invalid)).toContain('Collision rect in room office must have positive finite dimensions.');
+  });
+
+  it('accepts finite fractional collision geometry without relaxing room alignment', () => {
+    const precise = replaceRoom(houseLayout, 'office', {
+      collisionRects: [{ x: 1.25, y: 1.5, width: 4.375, height: 0.5625 }],
+    });
+    expect(validateHouseLayout(precise)).toEqual([]);
+  });
+
   it('rejects malformed collision rectangles and interactable geometry', () => {
     const malformedCollision = replaceRoom(houseLayout, 'office', {
       collisionRects: [{ x: 0, y: 0, width: 0, height: 1 }],
     });
     expect(validateHouseLayout(malformedCollision)).toContain(
-      'Collision rect in room office must have positive integer dimensions.',
+      'Collision rect in room office must have positive finite dimensions.',
     );
 
     const malformedInteractable = replaceRoom(houseLayout, 'gym', {

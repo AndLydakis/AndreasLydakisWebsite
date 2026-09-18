@@ -755,3 +755,29 @@ This file is the project decision record. New implementation decisions, approved
 - Browser result: owner made Chrome available. The preview at 127.0.0.1:5173 showed the bookcase prompt at player position approximately (16.5, 8.0), with the original painted shelf and no duplicate object. Native F and on-screen Interact opened Recently read books; both placeholder sections were visible. Escape and Close restored game-shell focus. Movement to vinyl changed the prompt and native E opened Music collection. Sustained walking used bounded console-dispatched keyboard events; dialog actions used native UI automation in the existing narrow responsive browser window. Reload cleared helpers and reset spawn; no physical-device certification claimed.
 - Delivery decision: Verification satisfies PORT-09A1. Follow the standing completed-story commit/push workflow, preserving unrelated plan-review wording and style-file changes. Mark Done only after successful push.
 - Delivery result: `158ec6e` (`PORT-09A1: add bookcase recent-reading interaction`) pushed successfully to `origin/master`. Marked PORT-09A1 Done; PORT-09B remains next.
+
+## DEC-088 — Separate vinyl and bookcase interaction ranges
+
+- Date: 2026-09-18
+- Authorization: The owner requested moving the record player farther right and slightly reducing its interaction radius to avoid intersecting the bookcase range.
+- Decision: Move vinyl from room-local (16, 6) to (17, 6), one tile / 16 world pixels right. Reduce its radius from 2 to 1.5 tiles (32px to 24px, a 25% reduction). Leave the bookcase, sprite sizes and collision geometry unchanged.
+- Geometry: Center separation is sqrt(2.5² + 2²), approximately 3.202 tiles, greater than the combined 3-tile radii; the circles have a positive gap of approximately 3.225 world pixels.
+- Verification: Add a no-overlap regression and update vinyl approach/boundary checks for its new position and 1.5-tile radius. Keep this presentation follow-up local for owner preview; no additional live-browser check, commit or push is claimed.
+- Results: 150 tests in 19 files, typecheck, production build and whitespace checks pass. Existing bundle-size warning remains.
+
+## DEC-089 — Fit the bookcase collision and center its hotspot
+
+- Date: 2026-09-18
+- Authorization: The owner requested tight collision at the bookcase bottom and an interaction circle centered horizontally and vertically on its artwork.
+- Artwork mapping: Inspected the 1499×1049 room background rendered at 320×224 world pixels. Approximate shelf bounds map to x=217..287px and bottom y=73px; the visual center is approximately (252, 44).
+- Collision: Keep the existing upper wall ending at room y=64px. Add only the 70×9px extension below it, room-local rectangle (13.5625, 4, 4.375, 0.5625), so the player's 1px foot strip stops with its soles approximately 1px below the painted shelf feet. Table/couch collisions remain disabled; no full-sprite collision or rendering-layer change.
+- Hotspot: Move bookcase interaction from (14.5, 4) to (15.25, 2.25), accounting for the tile-center offset. Its 1.5-tile radius remains reachable from the floor at the base and stays separate from the vinyl range. Do not require an artwork-centered target itself to occupy walkable floor.
+- Validation: Permit positive finite fractional collision dimensions while preserving integer room/doorway constraints and finite in-bounds coordinates. The previous integer-only collision rule would reject pixel-aligned bases; add explicit fractional acceptance and zero/negative/NaN/infinite rejection tests.
+- Verification: Update reachability checks to sample quarter-tile foot-strip paths and reachable interaction ranges instead of requiring the target center to be traversable. Add base/contact geometry, centered-circle and boundary regressions. Browser focus was on an unrelated page, so no new live-browser collision result is claimed. Keep this and the vinyl adjustment local for preview; no commit or push.
+- Results: 156 tests in 19 files, typecheck, production build and whitespace checks pass. Existing bundle-size warning remains.
+
+## DEC-090 — Approve and deliver bookcase/vinyl refinements
+
+- Date: 2026-09-18
+- Authorization: The owner said "looks good, push the changes", accepting the placement/collision preview and authorizing delivery of DEC-088/089.
+- Decision: Commit the approved geometry, validation and regression changes with their plan/changelog records under PORT-09A1. Preserve unrelated plan-review wording and style-file edits. Owner visual acceptance completes the pending review; no additional agent-performed live-browser check is claimed.

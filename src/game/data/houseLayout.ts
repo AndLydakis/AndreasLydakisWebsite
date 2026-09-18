@@ -12,13 +12,16 @@ const livingRoom: RoomDefinition = {
   heightTiles: 14,
   collisionRects: [
     // Wall boundaries follow the backdrop's floor edges, not the player's torso.
-    // No bookcase-specific body; table and couch collisions are disabled for now.
+    // Table and couch collisions remain disabled for now.
     { x: 0, y: 0, width: 20, height: 4 },
     { x: 0, y: 12, width: 8, height: 2 },
     { x: 12, y: 12, width: 8, height: 2 },
     { x: 0, y: 1, width: 1, height: 12 },
     { x: 19, y: 1, width: 1, height: 6 },
     { x: 19, y: 9, width: 1, height: 4 },
+    // Painted bookcase base: x=217..287px, bottom=73px in the 320×224 room.
+    // Join the existing wall at y=64px; only extend it to the shelf's feet.
+    { x: 13.5625, y: 4, width: 4.375, height: 0.5625 },
   ],
   interactables: [
     {
@@ -37,19 +40,20 @@ const livingRoom: RoomDefinition = {
     {
       id: 'living-room-record-player',
       roomId: 'living-room',
-      position: { x: 16, y: 6 },
+      position: { x: 17, y: 6 },
       label: 'Vinyl and record player',
       promptLabel: 'vinyl and record player',
       contentId: 'livingroom-vinyl',
-      interactionRadiusTiles: 2,
+      interactionRadiusTiles: 1.5,
       assetId: 'record-player-front',
       displayHeightTiles: 2.8,
     },
     {
       id: 'living-room-bookcase',
       roomId: 'living-room',
-      // Front-left of the painted bookcase, separated from the vinyl approach.
-      position: { x: 14.5, y: 4 },
+      // Artwork center at room pixel (252, 44), including the +0.5 tile offset.
+      // The center sits over the wall art; its radius reaches the clear floor below.
+      position: { x: 15.25, y: 2.25 },
       label: 'Bookcase and recent reading',
       promptLabel: 'bookcase and recent reading',
       contentId: 'livingroom-books',

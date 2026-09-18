@@ -71,10 +71,11 @@ describe('InteractionSystem', () => {
   it('selects the bookcase from clear floor and switches cleanly to vinyl and TV', () => {
     const system = new InteractionSystem(houseLayout);
     for (const [x, y, expected] of [
-      [16.5, 8, 'livingroom-books'],
-      [16.5, 8.75, 'livingroom-books'],
-      [18, 8.5, 'livingroom-vinyl'],
-      [18, 10, 'livingroom-vinyl'],
+      [17.25, 7.125, 'livingroom-books'],
+      [17.25, 7.7, 'livingroom-books'],
+      [17.25, 7.76, null],
+      [19, 8.5, 'livingroom-vinyl'],
+      [19, 10, 'livingroom-vinyl'],
       [11.5, 8, 'livingroom-media'],
       [13, 11, null],
     ] as const) {
@@ -94,7 +95,7 @@ describe('InteractionSystem', () => {
     expect(system.getCurrentTarget()).toMatchObject({
       id: 'living-room-record-player', contentId: 'livingroom-vinyl', promptLabel: 'vinyl and record player',
     });
-    system.update(playerState(x, y + 2.1));
+    system.update(playerState(x, y + 1.51));
     expect(system.getCurrentTarget()).toBeNull();
     system.update(playerState(11.5, 8));
     expect(system.getCurrentTarget()?.contentId).toBe('livingroom-media');

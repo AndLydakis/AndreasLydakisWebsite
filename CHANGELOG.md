@@ -172,6 +172,8 @@ pushed.
 ### PORT-09A1 — Bookcase recent reading
 
 - Added the painted bookcase as a recent-reading hotspot, with shared keyboard/mobile dialog handling and clearly labeled replaceable book/author/notes content.
+- Owner-approved presentation follow-up: moved vinyl one tile right and reduced its interaction radius 25% (2→1.5 tiles), leaving a positive gap from the bookcase range. Added separation and updated boundary regressions.
+- Centered the bookcase interaction circle over the shelf, added a tight 70×9px base collision extension below the wall, and enabled validated sub-tile collision dimensions. Updated reachability to check accessible interaction ranges and foot-strip geometry. Owner approved the preview and requested push; 156 tests, typecheck and build pass.
 - Added generic backdrop-art reuse with missing-background placeholder fallback; no duplicate bookcase sprite or collision changes.
 - Verified target switching, reachability, content, repeated dialog cycles and rendering fallback: 149 tests, typecheck and build pass. Chrome smoke checks passed bookcase F/mobile Interact dialogs, close/focus recovery and switching to vinyl. Completed 2026-09-18 after implementation commit `158ec6e` was pushed successfully.
 

@@ -1924,6 +1924,7 @@ Run content/schema, renderer/fallback, proximity and keyboard/mobile dialog regr
 
 - `src/content/books.ts` owns replaceable reading content; `living-room-bookcase` is at room-local (14.5, 4), with a 1.5-tile radius.
 - Optional `artworkInBackground` metadata suppresses only duplicate artwork when the backdrop loaded; interaction and missing-backdrop fallback remain generic.
+- Owner-approved follow-up (DEC-088/089/090): vinyl is at (17, 6) with radius 1.5; the bookcase hotspot is centered at (15.25, 2.25), radius 1.5, with a tight 70×9px wall-extension collision beneath its artwork. Collision dimensions now allow finite sub-tile precision. These settings supersede the original hotspot placement above; owner visually approved and authorized delivery. Follow-up verification: 156 tests, typecheck and build pass.
 - Automated verification: 149 tests in 19 files, typecheck and build pass; existing bundle-size warning remains. No image or collision changes.
 - Browser verification: in Chrome's narrow responsive window, walking to the bookcase displayed its prompt; native F and on-screen Interact each opened Recently read books with both placeholder sections visible. Escape/Close restored game-shell focus; walking to vinyl and pressing E opened Music collection. No duplicate bookcase sprite appeared. Sustained walking used bounded console-dispatched key events; dialog input used native automation. Reloaded the preview to clear test helpers. This is a responsive browser smoke check, not physical-device certification.
 
