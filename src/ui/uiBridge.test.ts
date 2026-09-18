@@ -50,4 +50,31 @@ describe('GameUiBridge', () => {
 
     expect(calls).toEqual(['ready']);
   });
+
+  it('forwards keyboard and mobile trigger sources without replay after unsubscribe', () => {
+    const bridge = new GameUiBridge();
+    const requests: Array<{ contentId: string; triggerSource: string }> = [];
+    const unsubscribe = bridge.on('contentRequested', (request) => {
+      requests.push(request);
+    });
+
+    bridge.emit('contentRequested', {
+      contentId: 'livingroom-media',
+      triggerSource: 'keyboard',
+    });
+    bridge.emit('contentRequested', {
+      contentId: 'livingroom-media',
+      triggerSource: 'mobile',
+    });
+    unsubscribe();
+    bridge.emit('contentRequested', {
+      contentId: 'livingroom-media',
+      triggerSource: 'keyboard',
+    });
+
+    expect(requests).toEqual([
+      { contentId: 'livingroom-media', triggerSource: 'keyboard' },
+      { contentId: 'livingroom-media', triggerSource: 'mobile' },
+    ]);
+  });
 });

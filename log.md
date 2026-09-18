@@ -447,3 +447,11 @@ This file is the project decision record. New implementation decisions, approved
 - Status: Accepted
 - Decision: Mark `PORT-07CC` complete and proceed to `PORT-07D`.
 - Evidence: `npm test` passes with 13 test files and 93 tests; `npm run typecheck`, `npm run build`, and `git diff --check` pass. Native Chrome preview confirmed the content index is hidden and the game shell uses the available experience width.
+
+## DEC-055 — PORT-07D completion
+
+- Date: 2026-09-18
+- Status: Accepted
+- Decision: Mark `PORT-07D` complete and proceed to `PORT-08A`.
+- Decision: Keep the story test-only; the existing runtime contracts already expose the needed pure proximity, input, and bridge seams without requiring Phaser or browser rendering.
+- Evidence: `npm test` passes with 13 test files and 95 tests; `npm run typecheck`, `npm run build`, and `git diff --check` pass.

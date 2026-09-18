@@ -115,6 +115,13 @@ pushed.
 - Updated the skip link to target the interactive house while the content index is hidden.
 - Verification: `npm test` (13 files, 93 tests), `npm run typecheck`, `npm run build`, and `git diff --check`.
 
+### PORT-07D — Add pure proximity and bridge tests
+
+- Confirmed focused proximity coverage for range boundaries, overlapping targets, deterministic ties, stable selection, rectangular bounds, gameplay disablement, and teardown.
+- Added one-shot interaction-trigger coverage and verified keyboard/mobile trigger-source forwarding through the UI bridge.
+- Verified unsubscribe behavior prevents later event replay.
+- Verification: `npm test` (13 files, 95 tests), `npm run typecheck`, `npm run build`, and `git diff --check`.
+
 ### Preview corrections — PORT-06B, PORT-06C, and PORT-07C follow-ups
 
 - Updated the interaction tooltip to list `E`, `F`, `Enter`, `Space`, and the mobile `Interact` control.

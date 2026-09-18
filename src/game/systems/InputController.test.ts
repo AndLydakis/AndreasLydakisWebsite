@@ -101,6 +101,19 @@ describe('InputController', () => {
     });
   });
 
+  it('keeps the first pending trigger as a one-shot request', () => {
+    const { controller } = createController();
+    controllers.push(controller);
+
+    controller.requestInteraction('mobile');
+    controller.requestInteraction('keyboard');
+
+    expect(controller.consumeInteractionRequest()).toEqual<InteractionRequest>({
+      triggerSource: 'mobile',
+    });
+    expect(controller.consumeInteractionRequest()).toBeNull();
+  });
+
   it('tracks multiple mobile pointers and releases each direction safely', () => {
     const { controller } = createController();
     controllers.push(controller);

@@ -1643,6 +1643,8 @@ Type: Story<br>
 Priority: High<br>
 Dependencies: `PORT-07CC`<br>
 Milestone: M1
+Status: Done
+Completed: 2026-09-18
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
@@ -1666,6 +1668,15 @@ Protect the generic interaction rules before the television vertical slice is bu
 ### Verification
 
 Run the pure interaction test suite, the full unit suite, typecheck, and the production build.
+
+### Completion record
+
+- Confirmed the existing pure proximity suite covers no-target cases, range boundaries, overlapping targets, deterministic ties, stable selection, rectangular bounds, gameplay enable/disable, and teardown.
+- Added focused input coverage proving the first pending interaction trigger is preserved as a one-shot request.
+- Added bridge coverage for keyboard and mobile trigger sources, including unsubscribe behavior without replay.
+- Verification passed: `npm test` (13 files, 95 tests), `npm run typecheck`, `npm run build`, and `git diff --check`.
+- Decisions and evidence are recorded in `log.md` as `DEC-055`.
+- Implementation may proceed to `PORT-08A`.
 
 ## PORT-08A — Complete the desktop television slice
 
