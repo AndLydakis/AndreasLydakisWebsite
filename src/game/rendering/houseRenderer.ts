@@ -149,8 +149,8 @@ export function buildRoom(
     const hasArtwork = textureKey === interactable.assetId;
     const image = scene.add.image(position.x, position.y, textureKey).setDepth(5);
 
-    // Keep fallback furniture at its familiar size/anchor if dedicated art is unavailable.
-    image.setOrigin(0.5, hasArtwork ? interactable.originY ?? 0.5 : 0.5);
+    // Artwork and proximity feedback share the same center in world space.
+    image.setOrigin(0.5, 0.5);
     if (hasArtwork && interactable.displayHeightTiles !== undefined) {
       image.setScale((interactable.displayHeightTiles * tileSize) / image.height);
     } else {

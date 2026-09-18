@@ -7,7 +7,7 @@
 - Format: PNG, 1221 × 1288 pixels, with an alpha channel.
 - Status: AI-generated placeholder artwork used by the living-room television through the optional texture manifest. PORT-08A1 remains in progress while dedicated living-room backdrop art is pending.
 - Scope: the original approved front-view image. The complete front/back/left/right set and raster-backed SVG copies are documented in `television-console-directional-samples.prompt.md`. These SVG copies embed PNG artwork rather than editable vector paths.
-- Integration note: source resolution is independent of in-game display dimensions. The front sprite displays at 64 world pixels high with its base at the interaction point, preserving aspect ratio. Other furniture retains the generic 48-pixel cap.
+- Integration note: source resolution is independent of in-game display dimensions. The front sprite displays at 64 world pixels high, centered on the interaction point and circle, preserving aspect ratio. Other furniture retains the generic 48-pixel cap.
 
 ## Generation prompt
 

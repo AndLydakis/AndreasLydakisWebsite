@@ -29,7 +29,6 @@ const livingRoom: RoomDefinition = {
       interactionRadiusTiles: 2,
       assetId: 'television-console-front',
       displayHeightTiles: 4,
-      originY: 1,
     },
     {
       id: 'living-room-record-player',

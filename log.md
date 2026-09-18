@@ -501,3 +501,11 @@ This file is the project decision record. New implementation decisions, approved
 - Decision: If dedicated artwork is unavailable, render the required generic furniture placeholder at its existing size and center anchor. Optional-art failure must not prevent scene startup.
 - Evidence: All 100 tests in 15 files pass, including artwork size/anchor and missing-texture regression checks. Typecheck, production build, and diff whitespace checks pass. Desktop Chrome visibly rendered the TV and opened Games and movies via F; the closed dialog returned focus to the game shell. Further movement automation was interrupted by concurrent user activity.
 - Decision: Record this as partial PORT-08A1 delivery. Dedicated living-room backdrop/surface art remains outstanding; do not mark the entire story complete.
+
+## DEC-061 — Center television artwork on its interaction circle
+
+- Date: 2026-09-18
+- Status: Accepted; supersedes the base-anchor choice in DEC-060.
+- Decision: Use a center origin (0.5, 0.5) so the rendered TV and its interaction circle share the same world-space center. Remove the unused originY override from the layout and type contract; keep the configured height at 64 pixels.
+- Rationale: Anchoring the TV's base at the interaction point displaced its visual center 32 pixels above the circle, as reported by the owner.
+- Evidence: The renderer regression checks the center origin and unchanged world position (120, 152), alongside scale and fallback behavior. All 100 tests in 15 files, typecheck, production build, and whitespace checks pass. A post-correction browser visual check remains unconfirmed because the browser was in concurrent use.

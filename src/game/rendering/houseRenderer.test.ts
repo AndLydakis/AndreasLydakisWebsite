@@ -41,11 +41,11 @@ function renderInteractable(
 describe('interactable artwork rendering', () => {
   const television = houseLayout.rooms[0].interactables[0];
 
-  it('fits the front artwork at its base without changing the interaction position or aspect ratio', () => {
+  it('centers the front artwork on the interaction point without changing its aspect ratio', () => {
     const { scene, image } = renderInteractable(television, true, 1221, 1288);
 
     expect(scene.add.image).toHaveBeenCalledWith(120, 152, 'television-console-front');
-    expect(image.setOrigin).toHaveBeenCalledWith(0.5, 1);
+    expect(image.setOrigin).toHaveBeenCalledWith(0.5, 0.5);
     expect(image.setScale).toHaveBeenCalledWith(64 / 1288);
   });
 

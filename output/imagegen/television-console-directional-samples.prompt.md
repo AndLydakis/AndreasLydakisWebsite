@@ -19,7 +19,7 @@ The PNG files retain their generated alpha channels. The original front is 1221 
 
 These SVGs embed the complete PNG bytes and preserve their transparency. They are self-contained raster-backed SVGs, not traced or hand-editable vector artwork. They contain no external image links, scripts, or fonts. Use the PNG originals for pixel editing. `package-television-samples.mjs` reproduces the SVG packaging and refuses to overwrite existing files.
 
-The set preserves the overall design and style; generated details are not guaranteed to be geometrically identical across views. The front PNG displays at 64 world pixels high with a bottom-center anchor. Other directions are not currently loaded by the game; their display scale and anchoring remain subject to integration.
+The set preserves the overall design and style; generated details are not guaranteed to be geometrically identical across views. The front PNG displays at 64 world pixels high, centered on the interaction point and circle. Other directions are not currently loaded by the game; their display scale and anchoring remain subject to integration.
 
 ## Reference
 

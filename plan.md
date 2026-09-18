@@ -1764,10 +1764,10 @@ Run the full unit suite, typecheck, and production build. Inspect the desktop pr
 
 - Created the four requested television/console artwork directions; selected the approved front PNG for runtime use.
 - Registered the front image through the optional texture manifest and base-path-aware loader.
-- Added generic per-interactable artwork height and vertical anchor metadata. The TV displays 4 tiles (64 world pixels) tall with its base at the existing interaction point, preserving its aspect ratio.
+- Added generic per-interactable artwork height metadata. The TV displays 4 tiles (64 world pixels) tall, centered on the existing interaction point and circle, preserving its aspect ratio.
 - Missing dedicated art uses the generic furniture placeholder with its original sizing/anchor. Other interactables retain their current artwork.
 - Verified the TV in the desktop living room, `F` opening Games and movies, and the closed dialog returning focus to the game shell. `npm test` passes (15 files, 100 tests); typecheck and production build pass.
-- Recorded artwork provenance and implementation decisions in `ASSET_LICENSES.md` and `log.md` (DEC-058 through DEC-060).
+- Recorded artwork provenance and implementation decisions in `ASSET_LICENSES.md` and `log.md` (DEC-058 through DEC-061).
 - Remaining: dedicated living-room surface/backdrop art and its integration, followed by the complete story verification. Keep this story open until those requirements are delivered.
 
 ---

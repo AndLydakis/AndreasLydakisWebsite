@@ -134,7 +134,8 @@ pushed.
 
 - Added the approved front/back/left/right television sprite samples and their generation/provenance records; SVG copies embed the PNG sources.
 - Replaced the living-room television's generic artwork with its front-facing PNG through the optional texture manifest and existing loader.
-- Added data-defined artwork height and base anchoring, keeping the TV at 64 world pixels tall without changing its interaction point, range, dialog, or collision data.
+- Added data-defined artwork height, keeping the TV at 64 world pixels tall without changing its interaction point, range, dialog, or collision data.
+- Follow-up: centered the TV artwork on its interaction circle and removed the bottom-anchor override; regression coverage checks the shared center.
 - Preserved generic furniture fallback if dedicated art is missing.
 - Verification: 100 tests in 15 files, typecheck, production build, and desktop preview of the TV and its F-triggered dialog. Living-room backdrop artwork remains pending.
 
