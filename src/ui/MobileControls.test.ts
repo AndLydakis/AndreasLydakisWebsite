@@ -1,6 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { televisionContent } from '../content/television';
+import { vinylContent } from '../content/vinyl';
 import { houseLayout } from '../game/data/houseLayout';
 import { InputController } from '../game/systems/InputController';
 import { InteractionSystem } from '../game/systems/InteractionSystem';
@@ -45,7 +46,7 @@ function pointer(button: ElementDouble, type: string, pointerId = 1): void {
 
 const stopped = { up: false, down: false, left: false, right: false };
 
-describe('mobile controls and television dialog contract', () => {
+describe('mobile controls and living-room dialog contract', () => {
   let root: ElementDouble;
   let keyboard: EventTarget;
   let visibility: EventTarget & { visibilityState: string };
@@ -123,7 +124,7 @@ describe('mobile controls and television dialog contract', () => {
     expect(input.consumeInteractionRequest()).toBeNull();
   });
 
-  it('opens identical television content via mobile and E across repeated dialog cycles', () => {
+  it.each([televisionContent, vinylContent])('opens $id via mobile and keyboard across repeated dialog cycles', (content) => {
     const dialog = new ElementDouble();
     const title = new ElementDouble();
     const close = new ElementDouble();
@@ -134,13 +135,13 @@ describe('mobile controls and television dialog contract', () => {
       inputController: input,
       onGameplayEnabledChange: (enabled: boolean) => controls.setGameplayEnabled(enabled),
     } as unknown as ConstructorParameters<typeof DialogManager>[0]);
-    manager.registerContent(toDialogContent(televisionContent));
+    manager.registerContent(toDialogContent(content));
     const interaction = new InteractionSystem(houseLayout);
-    const room = houseLayout.rooms[0]!;
-    const television = room.interactables.find((item) => item.contentId === 'livingroom-media')!;
-    interaction.update({ position: { x: room.origin.x + television.position.x, y: room.origin.y + television.position.y } });
+    const room = houseLayout.rooms.find((room) => room.id === content.roomId)!;
+    const object = room.interactables.find((object) => object.contentId === content.id)!;
+    interaction.update({ position: { x: room.origin.x + object.position.x, y: room.origin.y + object.position.y } });
     const target = interaction.getCurrentTarget()!;
-    expect(target.contentId).toBe('livingroom-media');
+    expect(target.contentId).toBe(content.id);
     controls.setInteractionAvailable(true, target.promptLabel);
 
     for (const source of ['mobile', 'keyboard', 'mobile']) {
@@ -154,7 +155,7 @@ describe('mobile controls and television dialog contract', () => {
       expect(input.consumeInteractionRequest()).toEqual({ triggerSource: source });
       expect(manager.openContent(target.contentId, shell as unknown as HTMLElement)).toBe(true);
       expect(dialog.open).toBe(true);
-      expect(title.textContent).toBe(televisionContent.title);
+      expect(title.textContent).toBe(content.title);
       expect(input.isGameplayEnabled()).toBe(false);
       expect(input.getMovementSnapshot()).toEqual(stopped);
       expect(direction('right').disabled).toBe(true);

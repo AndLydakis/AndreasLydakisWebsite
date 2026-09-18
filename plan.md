@@ -1878,7 +1878,9 @@ Walk to the record player from multiple directions, open and close the dialog re
 - Selected the front PNG through the optional texture manifest and existing data-driven renderer, at 4 tiles high and centered on the unchanged vinyl interaction circle.
 - Registered the existing `livingroom-vinyl` dummy content with the shared dialog adapter.
 - Desktop preview confirmed both living-room sprites are visible and centered on their circles. The front asset returns HTTP 200; all 100 tests, typecheck and build pass.
-- Full keyboard/mobile dialog cycles remain to be verified; browser interaction checks were interrupted by concurrent user activity. PORT-08A1 backdrop work and PORT-08B mobile parity also remain outstanding. Do not mark this story complete yet.
+- PORT-08A1 and PORT-08B are now complete. Audited existing vinyl content: Recently listened and Personal comments remain clearly labeled dummy content; no extra runtime branches or fabricated personal reviews are needed.
+- Added four-direction record-player proximity regressions, out-of-range clearing and TV target recovery. Extended the shared control/dialog regression to run repeated mobile/keyboard cycles for both television and vinyl content.
+- Verification: 144 tests in 19 files, typecheck and production build pass on 2026-09-18. The owner explicitly authorized pushing the tested changes. Remaining: dedicated live record-player keyboard/mobile repeated dialog and approach checks. Keep the story In progress until those checks are recorded; automated DOM/event tests do not substitute for browser verification.
 
 ---
 

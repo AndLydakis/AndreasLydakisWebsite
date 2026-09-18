@@ -598,6 +598,14 @@ This file is the project decision record. New implementation decisions, approved
 - Decision: Browser and automated evidence satisfy this story's emulation checkpoint. Deliver PORT-08B and then mark Done after successful push. Preserve unrelated working-tree edits.
 - Delivery result: `d89a2d8` (`PORT-08B: verify mobile TV parity and separate touch controls`) pushed successfully to `origin/master`. Marked PORT-08B Done. Final suite: 115 tests in 17 files; typecheck, build and whitespace checks pass, with the existing large-bundle warning unchanged.
 
+## DEC-071 — Finish the record-player vertical slice
+
+- Date: 2026-09-18
+- Status: Verification in progress.
+- Decision: Retain the existing separate record-player front sprite, stable livingroom-vinyl content ID and shared dialog registration. Existing Recently listened and Personal comments placeholders satisfy the dummy-content scope; do not invent personal listening history or add a room-specific runtime branch.
+- Decision: Extend existing tests rather than duplicate mobile controls or dialog implementations. Four-direction proximity tests cover vinyl selection, out-of-range clearing and TV recovery; shared repeated keyboard/mobile dialog-cycle tests now exercise both living-room content records.
+- Evidence: 120 tests in 17 files, typecheck and build pass. The initial live-browser attempt was diverted by concurrent browser use; live vinyl checks are still pending. Preserve unrelated local edits and do not push an unfinished story.
+
 ## DEC-072 — Prepare player artwork before PORT-14 implementation
 
 - Date: 2026-09-18
@@ -715,3 +723,10 @@ This file is the project decision record. New implementation decisions, approved
 - Decision: Commit the approved presentation changes, their regressions and planning records. Exclude unfinished PORT-09A tests/notes and unrelated style-file edits. The nine future layering stories remain Deferred; this delivery does not implement or complete them.
 - Verification: Run tests, typecheck and build against a scoped staged snapshot before pushing. No additional live-browser verification is claimed.
 - Result: Scoped verification caught the original mobile TV test assuming spawn remained in range. Updated its fixture to use the current data-defined TV location without including the pending vinyl tests. All 139 scoped tests in 19 files, typecheck and build now pass; existing bundle-size warning remains.
+
+## DEC-085 — Verify and deliver pending PORT-09A regressions
+
+- Date: 2026-09-18
+- Authorization: The owner requested running the tests and pushing changes when successful. This explicitly authorizes delivery of the pending tested PORT-09A changes before dedicated live-browser verification is finished; it does not establish that verification or story completion.
+- Verification: `npm test` passes all 144 tests in 19 files; `npm run typecheck`, `npm run build` and `git diff --check` pass. The existing Vite large-bundle warning remains unchanged.
+- Decision: Deliver only PORT-09A proximity/dialog tests and associated plan/changelog/decision records. Preserve unrelated plan-review wording and style-file relocation locally. Keep PORT-09A In progress pending the dedicated live browser approach/dialog-cycle checks; no new browser results are claimed.

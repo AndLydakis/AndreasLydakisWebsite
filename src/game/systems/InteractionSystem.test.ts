@@ -68,6 +68,23 @@ describe('selectInteractionTarget', () => {
 });
 
 describe('InteractionSystem', () => {
+  it.each([[1.5, 0], [-1.5, 0], [0, 1.5], [0, -1.5]])('selects vinyl when approached with offset (%s, %s), without changing TV selection', (dx, dy) => {
+    const system = new InteractionSystem(houseLayout);
+    const room = houseLayout.rooms[0]!;
+    const vinyl = room.interactables.find((item) => item.contentId === 'livingroom-vinyl')!;
+    const x = room.origin.x + vinyl.position.x;
+    const y = room.origin.y + vinyl.position.y;
+    system.update(playerState(x + dx, y + dy));
+    expect(system.getCurrentTarget()).toMatchObject({
+      id: 'living-room-record-player', contentId: 'livingroom-vinyl', promptLabel: 'vinyl and record player',
+    });
+    system.update(playerState(x, y + 2.1));
+    expect(system.getCurrentTarget()).toBeNull();
+    system.update(playerState(11.5, 8));
+    expect(system.getCurrentTarget()?.contentId).toBe('livingroom-media');
+    system.destroy();
+  });
+
   it('creates generic world-space targets from all room-local interactables', () => {
     const system = new InteractionSystem(houseLayout);
     const target = system.getCurrentTarget();
