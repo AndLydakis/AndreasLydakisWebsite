@@ -151,10 +151,11 @@ pushed.
 - Moved mobile controls off the game canvas: a separate row in portrait and a side rail on short landscape screens; retained desktop layout and touch-target sizes.
 - Verification: 115 tests in 17 files, typecheck and build pass. Chrome 390×844/844×390 checks confirmed D-pad movement/release, repeated Interact/dialog cycles, restored game focus, keyboard E parity and scrollable landscape content, with no application errors in the default-level console. Native OS cancellation and prolonged physical-device sessions remain outside this emulation check; cancellation/reset contracts have automated coverage.
 
-### PORT-09A — Record-player artwork and content registration (in progress)
+### PORT-09A — Record-player artwork and content registration
 
 - Added four-direction vinyl proximity and TV-target recovery regressions; expanded repeated keyboard/mobile dialog-cycle coverage to the music content. Delivery checks: 144 tests in 19 files, typecheck, build and whitespace checks pass.
 - Completed dedicated desktop and 390×844/844×390 Chrome-emulation checks: four approach directions, range clearing, repeated keyboard/mobile music dialogs, focus/control recovery, D-pad movement/release and TV/vinyl switching. No application errors observed; favicon 404 and existing bundle-size warning noted. Browser settings restored; no physical-device certification claimed.
+- Completed 2026-09-18 after successful pushes of regression commit `52fda6f` and browser-verification record `3e1919a`; PORT-09A is Done.
 - Generated four matching views of an 1980s turntable on a wooden table with vinyl records underneath; saved PNG originals, raster-backed SVG copies, prompts and provenance.
 - Integrated the front sprite through the existing optional texture manifest and generic renderer, centered on the vinyl interaction circle at 64 world pixels high.
 - Connected the existing Music collection dummy content through the shared dialog adapter.

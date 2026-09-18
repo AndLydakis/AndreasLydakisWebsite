@@ -1847,7 +1847,7 @@ Type: Story
 Priority: High  
 Dependencies: `PORT-08B`  
 Milestone: M2
-Status: Verification complete — final browser evidence ready for delivery; mark Done after successful push.
+Status: Done — 2026-09-18. Implementation/tests delivered in `52fda6f`; completed desktop/mobile-emulation verification delivered in `3e1919a`, both pushed to `origin/master`.
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
