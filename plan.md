@@ -1791,7 +1791,7 @@ Type: Story
 Priority: Highest  
 Dependencies: `PORT-08A1`<br>
 Milestone: M1<br>
-Status: In progress<br>
+Status: Done<br>
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
@@ -1827,7 +1827,7 @@ Test mobile emulation in portrait and landscape, press-and-hold movement, cancel
 - Browser verification completed in Chrome emulation at 390×844 portrait and 844×390 landscape: on-screen D-pad press/drag/release moved the player, release stopped movement without drift, and Interact opened Games and movies. Repeated close/reopen cycles restored focus to the game shell; E opened the same content. All three sections were readable, including by scrolling the landscape dialog. No application errors appeared in the default-level console.
 - Fixed the layout issue exposed by emulation: touch controls now occupy a separate row beneath the portrait canvas and a side rail in short landscape viewports. This avoids covering the room/prompt and retains the 16:9 canvas and 44px touch targets. Desktop layout is unchanged.
 - Cancellation, lost capture, multi-touch and focus-loss reset are covered by event-level tests; native OS interruptions and prolonged physical-device touch sessions were not independently exercised. Browser checks used short emulated pointer holds/drags, not physical-device certification.
-- Delivery: implementation and story verification complete; ready for PORT-08B commit/push. Mark Done after delivery succeeds. PORT-09A is next.
+- Delivery: implementation and verification committed as `d89a2d8` and successfully pushed to `origin/master` on 2026-09-18. Story Done; PORT-09A is next.
 
 ---
 
