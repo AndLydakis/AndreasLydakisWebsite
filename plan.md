@@ -1812,6 +1812,7 @@ Type: Story
 Priority: High  
 Dependencies: `PORT-08B`  
 Milestone: M2
+Status: In progress (artwork brought forward at the owner's request)
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
@@ -1835,6 +1836,14 @@ Complete the living-room vinyl interaction through the existing generic data and
 ### Verification
 
 Walk to the record player from multiple directions, open and close the dialog repeatedly, and test keyboard and mobile controls.
+
+### Progress record — 2026-09-18
+
+- Generated front, back, left-facing and right-facing 1980s record-player/table/vinyl-stack artwork using the same style as the TV. Preserved PNG sources and raster-backed SVG copies.
+- Selected the front PNG through the optional texture manifest and existing data-driven renderer, at 4 tiles high and centered on the unchanged vinyl interaction circle.
+- Registered the existing `livingroom-vinyl` dummy content with the shared dialog adapter.
+- Desktop preview confirmed both living-room sprites are visible and centered on their circles. The front asset returns HTTP 200; all 100 tests, typecheck and build pass.
+- Full keyboard/mobile dialog cycles remain to be verified; browser interaction checks were interrupted by concurrent user activity. PORT-08A1 backdrop work and PORT-08B mobile parity also remain outstanding. Do not mark this story complete yet.
 
 ---
 

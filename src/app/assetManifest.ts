@@ -13,6 +13,7 @@ export const requiredPlaceholderAssetPaths = Object.values(placeholderAssetPaths
 /** Optional artwork can fail to load without preventing the generic house from starting. */
 export const optionalTexturePaths = {
   'television-console-front': 'placeholders/television-console-front-sample.png',
+  'record-player-front': 'placeholders/record-player-front-sample.png',
 } as const;
 
 export async function validatePlaceholderAssets(): Promise<string[]> {

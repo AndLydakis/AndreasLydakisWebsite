@@ -58,8 +58,10 @@ describe('interactable artwork rendering', () => {
   });
 
   it('leaves small generic furniture at native size when no artwork dimensions are provided', () => {
-    const recordPlayer = houseLayout.rooms[0].interactables[1];
-    const { image } = renderInteractable(recordPlayer, true, 32, 24);
+    const genericFurniture = {
+      ...television, assetId: 'furniture-placeholder', displayHeightTiles: undefined,
+    };
+    const { image } = renderInteractable(genericFurniture, true, 32, 24);
 
     expect(image.setOrigin).toHaveBeenCalledWith(0.5, 0.5);
     expect(image.setScale).toHaveBeenCalledWith(1);

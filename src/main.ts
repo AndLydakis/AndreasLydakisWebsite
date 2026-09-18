@@ -7,6 +7,7 @@ import './styles/mobile-controls.css';
 import { validatePlaceholderAssets } from './app/assetManifest';
 import { assertValidContentRegistry } from './content/contentRegistry';
 import { televisionContent } from './content/television';
+import { vinylContent } from './content/vinyl';
 import { houseLayout } from './game/data/houseLayout';
 import { createGame } from './game/createGame';
 import { InputController } from './game/systems/InputController';
@@ -43,6 +44,7 @@ const contentIndex = new ContentIndex(dom.contentList, dialogManager);
 const bridge = new GameUiBridge();
 
 dialogManager.registerContent(toDialogContent(televisionContent));
+dialogManager.registerContent(toDialogContent(vinylContent));
 contentIndex.setEntries([]);
 dom.gameStatus.textContent = 'Starting the interactive house...';
 

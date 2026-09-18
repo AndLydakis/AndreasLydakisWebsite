@@ -139,6 +139,13 @@ pushed.
 - Preserved generic furniture fallback if dedicated art is missing.
 - Verification: 100 tests in 15 files, typecheck, production build, and desktop preview of the TV and its F-triggered dialog. Living-room backdrop artwork remains pending.
 
+### PORT-09A — Record-player artwork and content registration (in progress)
+
+- Generated four matching views of an 1980s turntable on a wooden table with vinyl records underneath; saved PNG originals, raster-backed SVG copies, prompts and provenance.
+- Integrated the front sprite through the existing optional texture manifest and generic renderer, centered on the vinyl interaction circle at 64 world pixels high.
+- Connected the existing Music collection dummy content through the shared dialog adapter.
+- Verification: 100 tests, typecheck, production build, successful front-asset HTTP response, and visual confirmation in the room. Full desktop/mobile interaction verification remains pending.
+
 ### Preview corrections — PORT-06B, PORT-06C, and PORT-07C follow-ups
 
 - Updated the interaction tooltip to list `E`, `F`, `Enter`, `Space`, and the mobile `Interact` control.

@@ -509,3 +509,14 @@ This file is the project decision record. New implementation decisions, approved
 - Decision: Use a center origin (0.5, 0.5) so the rendered TV and its interaction circle share the same world-space center. Remove the unused originY override from the layout and type contract; keep the configured height at 64 pixels.
 - Rationale: Anchoring the TV's base at the interaction point displaced its visual center 32 pixels above the circle, as reported by the owner.
 - Evidence: The renderer regression checks the center origin and unchanged world position (120, 152), alongside scale and fallback behavior. All 100 tests in 15 files, typecheck, production build, and whitespace checks pass. A post-correction browser visual check remains unconfirmed because the browser was in concurrent use.
+
+## DEC-062 — Generate and integrate the record-player artwork
+
+- Date: 2026-09-18
+- Status: Accepted
+- Decision: Follow the owner's agreed hybrid approach: separate interactable artwork over room scenery. Generate four views of an 1980s turntable on a small wooden table with vinyl records on its lower shelf.
+- Decision: Reuse the unchanged styling paragraphs from style.md. Use the TV front sprite as a style reference and the new record-player front as the identity reference for the back/left/right views. Preserve transparent PNGs and self-contained raster-backed SVG copies, with exact prompts in output/imagegen/record-player-directional-samples.prompt.md.
+- Decision: Load only the record-player front PNG through optionalTexturePaths. Keep its existing ID, position, radius and centered origin, with displayHeightTiles set to 4. Reuse the renderer and missing-art fallback without new room-specific code.
+- Decision: Register the already-authored livingroom-vinyl dummy content so the new artwork has a content destination through the shared dialog manager.
+- Evidence: All 100 tests in 15 files, typecheck and production build pass. The front PNG returns HTTP 200. Desktop preview visibly shows the TV and record player centered within their interaction circles. Further keyboard interaction checks were interrupted by concurrent user activity.
+- Decision: Bring forward this portion of PORT-09A at the owner's request; leave the story in progress pending full desktop/mobile verification. Existing PORT-08A1 and PORT-08B remaining work is unchanged.
