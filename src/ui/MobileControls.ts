@@ -74,7 +74,10 @@ export class MobileControls {
         event.preventDefault();
         this.inputController.releasePointer(event.pointerId);
         this.pointerButtons.delete(event.pointerId);
-        button.classList.remove('is-pressed');
+        // A second finger can still hold the same direction after one releases.
+        if (![...this.pointerButtons.values()].includes(button)) {
+          button.classList.remove('is-pressed');
+        }
 
         if (button.hasPointerCapture(event.pointerId)) {
           button.releasePointerCapture(event.pointerId);

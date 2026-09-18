@@ -575,3 +575,24 @@ This file is the project decision record. New implementation decisions, approved
 - Decision: Preserve and exclude the pre-existing reviewer-description edit in plan.md and the owner's style.md working changes. The exact room-generation prompt is already preserved in the story's provenance file.
 - Delivery: commit and push the completed implementation with a PORT-08A1-prefixed message, then record Done after the delivery succeeds.
 - Delivery result: implementation commit `d9bb826` successfully pushed to `origin/master`; confirmed directly against the remote after the interrupted turn. Marked PORT-08A1 Done following owner acceptance. All 106 tests, typecheck, production build and whitespace checks passed before the implementation commit. The user's unrelated plan reviewer-description and style.md edits remain local and excluded.
+
+## DEC-069 — PORT-08B mobile parity regression coverage
+
+- Date: 2026-09-18
+- Status: Implemented locally; browser acceptance pending.
+- Decision: Keep the existing on-screen D-pad and Interact button, shared InputController, InteractionSystem and DialogManager path. Do not add mobile-specific content registration or Phaser room branches.
+- Decision: Preserve pressed styling while any tracked pointer still holds a direction button; previously the first finger release removed styling while another finger continued movement.
+- Decision: Test real control/input/dialog service code with small event/element doubles without new dependencies. These tests cover logical event contracts, not browser rendering, native capture or native modal behavior.
+- Evidence: Nine new tests cover pointerup, pointercancel, lostpointercapture, multi-touch, blur, visibility loss, availability/disabled gating, repeated E/mobile television dialog parity and teardown. All 115 tests in 17 files, typecheck and production build pass. Existing bundle-size warning remains.
+- Browser evidence: Opened the local preview and observed the ready state and television interaction prompt. Attempts to enter device emulation were repeatedly interrupted by concurrent Chrome activity, including after the owner offered an idle testing interval. Portrait/landscape, actual held touch movement and console inspection are not verified.
+- Decision: Keep PORT-08B in progress and unpushed until its browser checks can be completed. Preserve the user's unrelated plan edit, style.md deletion and new utils/ directory.
+
+## DEC-070 — Mobile viewport layout and PORT-08B acceptance
+
+- Date: 2026-09-18
+- Status: Verified; ready for completed-story delivery.
+- Finding: At 390×844 the absolutely positioned D-pad/Interact controls obscured the artwork and overlapped the prompt. Separate controls from the canvas instead of shrinking touch targets.
+- Decision: Use an in-flow control row beneath the 16:9 canvas on touch/narrow screens; use a 10rem side rail for landscape viewports no wider than 56rem and no taller than 32rem. Keep desktop layout, camera scale, input services and content path unchanged.
+- Browser evidence: Chrome emulation at 390×844 and 844×390 displayed the controls clear of the scene. D-pad short press/drag/release moved the player and stopped without subsequent drift. Interact repeatedly opened Games and movies; close restored game-shell focus. E opened the same dialog. Landscape content scrolled to the final section. The default-level console showed Phaser startup logging and no application errors. Restored desktop mode and closed DevTools afterward.
+- Test boundary: Native pointer cancellation/lost capture, multiple fingers, blur and visibility resets have event-level automated coverage. Short emulated drags are not a prolonged physical-device hold test; no claim of native OS interruption or real-device certification.
+- Decision: Browser and automated evidence satisfy this story's emulation checkpoint. Deliver PORT-08B and then mark Done after successful push. Preserve unrelated working-tree edits.

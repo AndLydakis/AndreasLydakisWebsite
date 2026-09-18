@@ -144,6 +144,13 @@ pushed.
 - Grouped player, television and record-player art into separate sprite folders; updated loader paths, URL tests, packaging script and provenance documentation without altering existing artwork bytes.
 - Final verification: 106 tests in 16 files, typecheck and production build pass; asset serving was checked successfully. The owner approved the preview and requested story closure and push on 2026-09-18. The prior folder refactor preserved all 17 moved files byte-for-byte.
 
+### PORT-08B — Mobile television parity
+
+- Fixed pressed-button feedback when multiple fingers hold the same D-pad direction.
+- Added nine event-level control/dialog regressions for touch release/cancellation, focus resets, interaction gating, keyboard/mobile television parity, repeated dialog cycles and teardown.
+- Moved mobile controls off the game canvas: a separate row in portrait and a side rail on short landscape screens; retained desktop layout and touch-target sizes.
+- Verification: 115 tests in 17 files, typecheck and build pass. Chrome 390×844/844×390 checks confirmed D-pad movement/release, repeated Interact/dialog cycles, restored game focus, keyboard E parity and scrollable landscape content, with no application errors in the default-level console. Native OS cancellation and prolonged physical-device sessions remain outside this emulation check; cancellation/reset contracts have automated coverage.
+
 ### PORT-09A — Record-player artwork and content registration (in progress)
 
 - Generated four matching views of an 1980s turntable on a wooden table with vinyl records underneath; saved PNG originals, raster-backed SVG copies, prompts and provenance.

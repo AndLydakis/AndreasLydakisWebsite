@@ -1790,7 +1790,8 @@ Run the full unit suite, typecheck, and production build. Inspect the desktop pr
 Type: Story  
 Priority: Highest  
 Dependencies: `PORT-08A1`<br>
-Milestone: M1
+Milestone: M1<br>
+Status: In progress<br>
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
@@ -1816,6 +1817,17 @@ Prove that mobile controls provide the same television interaction outcome as de
 ### Verification
 
 Test mobile emulation in portrait and landscape, press-and-hold movement, cancellation, repeated dialog cycles, and parity with the desktop flow before starting PORT-09A.
+
+### Progress record — 2026-09-18
+
+- Audited the existing D-pad → InputController → shared television interaction/dialog path; no separate mobile content or room-specific behavior is needed.
+- Corrected multi-touch pressed feedback: releasing one finger no longer clears a direction button's pressed appearance while another finger holds it.
+- Added nine event-level regression tests covering pointer release/cancel/lost capture, multiple fingers, window blur/document hiding, interaction availability, repeated television dialog cycles through mobile and E, disabled controls and movement reset, restored focus, and teardown.
+- Verification: 115 tests in 17 files, typecheck and build pass. Tests use small DOM/event doubles and do not establish native touch, layout or browser modal correctness.
+- Browser verification completed in Chrome emulation at 390×844 portrait and 844×390 landscape: on-screen D-pad press/drag/release moved the player, release stopped movement without drift, and Interact opened Games and movies. Repeated close/reopen cycles restored focus to the game shell; E opened the same content. All three sections were readable, including by scrolling the landscape dialog. No application errors appeared in the default-level console.
+- Fixed the layout issue exposed by emulation: touch controls now occupy a separate row beneath the portrait canvas and a side rail in short landscape viewports. This avoids covering the room/prompt and retains the 16:9 canvas and 44px touch targets. Desktop layout is unchanged.
+- Cancellation, lost capture, multi-touch and focus-loss reset are covered by event-level tests; native OS interruptions and prolonged physical-device touch sessions were not independently exercised. Browser checks used short emulated pointer holds/drags, not physical-device certification.
+- Delivery: implementation and story verification complete; ready for PORT-08B commit/push. Mark Done after delivery succeeds. PORT-09A is next.
 
 ---
 
