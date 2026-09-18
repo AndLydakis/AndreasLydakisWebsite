@@ -122,6 +122,14 @@ pushed.
 - Verified unsubscribe behavior prevents later event replay.
 - Verification: `npm test` (13 files, 95 tests), `npm run typecheck`, `npm run build`, and `git diff --check`.
 
+### PORT-08A — Complete the desktop television slice
+
+- Registered the `livingroom-media` television content with the shared dialog manager through a generic content adapter.
+- Kept the television interactable and furniture placeholder data-driven, with no room-specific game-system branches.
+- Verified the prompt, `E` dialog opening, dummy game/movie/future-list content, Escape close, and focus return in the local desktop preview.
+- Added adapter tests for television content and future base-path-aware dialog actions.
+- Verification: `npm test` (14 files, 97 tests), `npm run typecheck`, `npm run build`, and `git diff --check`.
+
 ### Preview corrections — PORT-06B, PORT-06C, and PORT-07C follow-ups
 
 - Updated the interaction tooltip to list `E`, `F`, `Enter`, `Space`, and the mobile `Interact` control.

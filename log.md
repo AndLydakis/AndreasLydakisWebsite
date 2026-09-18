@@ -455,3 +455,12 @@ This file is the project decision record. New implementation decisions, approved
 - Decision: Mark `PORT-07D` complete and proceed to `PORT-08A`.
 - Decision: Keep the story test-only; the existing runtime contracts already expose the needed pure proximity, input, and bridge seams without requiring Phaser or browser rendering.
 - Evidence: `npm test` passes with 13 test files and 95 tests; `npm run typecheck`, `npm run build`, and `git diff --check` pass.
+
+## DEC-056 — PORT-08A completion
+
+- Date: 2026-09-18
+- Status: Accepted
+- Decision: Register the television content record with the shared dialog through a generic adapter from data-only content to UI dialog content.
+- Decision: Keep the television interaction data-driven and leave all other room content registration for their later vertical-slice stories.
+- Rationale: This completes the first desktop interaction without adding room-specific branches to Phaser systems or prematurely completing the hidden semantic content index.
+- Evidence: The local desktop preview showed the television prompt at spawn, opened `Games and movies` with all three dummy sections via `E`, and returned focus to the game shell after Escape. `npm test` passes with 14 test files and 97 tests; `npm run typecheck`, `npm run build`, and `git diff --check` pass.

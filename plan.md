@@ -1684,6 +1684,8 @@ Type: Story
 Priority: Highest  
 Dependencies: `PORT-07D`  
 Milestone: M1
+Status: Done
+Completed: 2026-09-18
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
@@ -1709,6 +1711,17 @@ Prove the complete desktop architecture with one generic television interaction 
 ### Verification
 
 Test all desktop movement directions, approach the television from multiple sides, open and close the dialog repeatedly, and check the console.
+
+### Completion record
+
+- Registered the existing `livingroom-media` television record with the shared `DialogManager` through a generic content-to-dialog adapter.
+- Preserved the data-driven `living-room-television` interactable and `furniture-placeholder` visual without adding room-specific branches to `HouseScene` or `InteractionSystem`.
+- Confirmed the dummy game reviews, movie reviews, and future watch/play items render in the reusable dialog.
+- Verified in the local desktop preview that the television prompt appears at the initial spawn, `E` opens the dialog, Escape closes it, and focus returns to the game shell.
+- Added pure adapter tests for television content and future base-path-aware dialog actions.
+- Verification passed: `npm test` (14 files, 97 tests), `npm run typecheck`, `npm run build`, and `git diff --check`.
+- Decisions and evidence are recorded in `log.md` as `DEC-056`.
+- Implementation may proceed to `PORT-08B`.
 
 ---
 
