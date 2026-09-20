@@ -13,6 +13,8 @@ pushed.
 
 ### PORT-09B — Gym artwork and personal records
 
+- Completed 2026-09-20; implementation commit `9b1428a` pushed to `origin/master` after all required checks passed.
+
 - Final acceptance: owner approved visuals; desktop and touch-emulated portrait/landscape Chrome checks pass against development and production previews. All 256 tests, typecheck and build pass. Repeatable browser driver and production screenshots recorded under `scripts/verify-port09b-browser.mjs` and `output/qa/port09b/`. Earlier pending-review notes below are historical.
 
 - Added a separate 1980s wooden gym backdrop with DIY rubber mats, window and posters, plus individually stored equipment sprites based on `utils/style_gym.md`.

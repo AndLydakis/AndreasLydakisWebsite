@@ -1938,7 +1938,7 @@ Dependencies: `PORT-09A1`\
 Milestone: M2
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
-Status: Implementation and verification complete; authorized commit/push in progress. Owner approved final visuals on 2026-09-20. Desktop and touch-emulated portrait/landscape Chrome checks pass against both development and production builds; 256 automated tests, typecheck and build pass. Evidence: `output/qa/port09b/verification.md`. The progress notes below are historical; rejected alternate dumbbell views remain parked and are not required for this selected-view delivery.
+Status: Done — completed 2026-09-20. Implementation commit `9b1428a` successfully pushed to `origin/master` after owner visual approval. Desktop and touch-emulated portrait/landscape Chrome checks pass against both development and production builds; 256 automated tests, typecheck and build pass. Evidence: `output/qa/port09b/verification.md`. The progress notes below are historical; rejected alternate dumbbell views remain parked and are not required for this selected-view delivery.
 
 Owner-requested local follow-up (DEC-094): added bottom-only collisions for the living-room vinyl stand, sofa, coffee table and TV cabinet. Automated base-contact, doorway/interaction reachability and TV approach-lane checks pass; include these four objects in the pending visual preview review. This does not implement the deferred layering stories.
 
