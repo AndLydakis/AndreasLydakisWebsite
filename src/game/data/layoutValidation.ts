@@ -249,6 +249,25 @@ function validateRoom(
       errors.push(`Collision rect in room ${roomLabel} is outside room bounds.`);
     }
   });
+
+  // Art metadata is checked independently of interaction/content metadata.
+  const spriteIds = new Set<string>();
+  [...room.interactables, ...(room.decorations ?? [])].forEach((sprite) => {
+    if (!sprite.id.trim() || spriteIds.has(sprite.id)) {
+      errors.push(`Room ${roomLabel} artwork IDs must be non-empty and unique: ${sprite.id}`);
+    }
+    spriteIds.add(sprite.id);
+    if (!pointInRect(sprite.position, roomBounds)) {
+      errors.push(`Artwork ${sprite.id} is outside room ${roomLabel} bounds.`);
+    }
+    if (sprite.displayHeightTiles !== undefined && !isPositiveFinite(sprite.displayHeightTiles)) {
+      errors.push(`Artwork ${sprite.id} must have a positive finite display height.`);
+    }
+    if (sprite.displayWidthTiles !== undefined &&
+      (!isPositiveFinite(sprite.displayWidthTiles) || sprite.displayHeightTiles === undefined)) {
+      errors.push(`Artwork ${sprite.id} must have a positive finite display width and an explicit height.`);
+    }
+  });
 }
 
 function validateRoomOverlaps(rooms: readonly RoomGeometry[], errors: string[]): void {

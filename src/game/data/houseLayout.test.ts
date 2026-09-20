@@ -32,8 +32,9 @@ describe('initial house layout', () => {
   it('represents all six content areas with stable interactables', () => {
     const interactables = houseRooms.flatMap((room) => room.interactables);
 
-    expect(interactables).toHaveLength(6);
-    expect(new Set(interactables.map((interactable) => interactable.id)).size).toBe(6);
+    expect(interactables).toHaveLength(7);
+    expect(new Set(interactables.map((interactable) => interactable.id)).size).toBe(7);
+    expect(new Set(interactables.map((interactable) => interactable.contentId)).size).toBe(6);
     expect(validateInteractableReferences(interactables, contentRegistry, roomRegistry)).toEqual([]);
   });
 
@@ -96,7 +97,7 @@ describe('initial house layout', () => {
     expect(houseLayout.initialSpawn.y).toBeLessThan(livingRoomBottomWallY());
   });
 
-  it('keeps table/couch walkable and both backdrop exits and interaction ranges reachable', () => {
+  it('keeps both backdrop exits and interaction ranges reachable around furniture bases', () => {
     const room = houseRooms[0];
     const blocked = (x: number, y: number) => room.collisionRects.some((rect) =>
       x >= rect.x && x < rect.x + rect.width && y >= rect.y && y < rect.y + rect.height,
@@ -104,8 +105,10 @@ describe('initial house layout', () => {
     expect(room.visualAssetId).toBe('living-room-background');
     expect(blocked(15, 4)).toBe(true); // Tight bookcase base extends the wall.
     expect(blocked(15, 4.625)).toBe(false); // Floor immediately below stays clear.
-    expect(blocked(9, 7)).toBe(false); // Coffee table temporarily walkable.
-    expect(blocked(9, 10)).toBe(false); // Couch temporarily walkable.
+    expect(blocked(9, 7)).toBe(false); // Upper table artwork is not a floor obstacle.
+    expect(blocked(9, 10)).toBe(false); // Upper sofa artwork is not a floor obstacle.
+    expect(blocked(9, 8.25)).toBe(true); // Coffee table base.
+    expect(blocked(9, 11)).toBe(true); // Sofa base.
     expect(blocked(9, 3)).toBe(true); // Upper wall remains solid.
     expect(blocked(3, 12)).toBe(true); // Lower wall remains solid.
     expect(blocked(7, 7)).toBe(false); // Exposed rug stays walkable.
@@ -140,6 +143,26 @@ describe('initial house layout', () => {
       })).toBe(true);
     }
   });
+  it.each([
+    ['table', 8, 7.9375, 3.75, 0.5, 630 / 1049 * 224],
+    ['sofa', 6.625, 10.6875, 6.5, 0.4375, 833 / 1049 * 224],
+    ['TV', 9, 5.25, 2, 0.3125, (4.5 + 2.8 * (1120 / 1288 - 0.5)) * 16],
+    ['vinyl', 16.375, 7.4375, 2.25, 0.3125, (6.5 + 2.8 * (1226 / 1289 - 0.5)) * 16],
+  ] as const)('fits the %s bottom and leaves floor clear immediately below it', (_name, x, y, width, height, artBottomPx) => {
+    const room = houseRooms[0];
+    expect(room.collisionRects).toContainEqual({ x, y, width, height });
+    const bottom = y + height;
+    expect(Math.abs(bottom * 16 - artBottomPx)).toBeLessThanOrEqual(1);
+    // Model the actual 16px-wide, 1px-high foot strip at and just below the base.
+    const centerX = x + width / 2;
+    const blockedAt = (soleY: number) => room.collisionRects.some((rect) =>
+      centerX + 0.5 > rect.x && centerX - 0.5 < rect.x + rect.width &&
+      soleY > rect.y && soleY - 1 / 16 < rect.y + rect.height,
+    );
+    expect(blockedAt(bottom)).toBe(true);
+    expect(blockedAt(bottom + 1 / 16)).toBe(false);
+  });
+
   it('centers the television below the window with clear foot paths behind and in front', () => {
     const room = houseRooms[0];
     const tv = room.interactables.find((item) => item.id === 'living-room-television')!;

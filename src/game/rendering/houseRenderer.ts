@@ -149,7 +149,8 @@ export function buildRoom(
     );
   });
 
-  room.interactables.forEach((interactable) => {
+  // Decorations use the same rendering contract, but are absent from interaction selection.
+  [...room.interactables, ...(room.decorations ?? [])].forEach((interactable) => {
     // Painted furniture still has a normal interaction target, but needs no duplicate sprite.
     if (interactable.artworkInBackground && hasBackground) return;
 
@@ -167,7 +168,11 @@ export function buildRoom(
     // Artwork and proximity feedback share the same center in world space.
     image.setOrigin(0.5, 0.5);
     if (hasArtwork && interactable.displayHeightTiles !== undefined) {
-      image.setScale((interactable.displayHeightTiles * tileSize) / image.height);
+      if (interactable.displayWidthTiles !== undefined) {
+        image.setDisplaySize(interactable.displayWidthTiles * tileSize, interactable.displayHeightTiles * tileSize);
+      } else {
+        image.setScale((interactable.displayHeightTiles * tileSize) / image.height);
+      }
     } else {
       image.setScale(Math.min(1, (tileSize * 3) / Math.max(image.width, image.height)));
     }

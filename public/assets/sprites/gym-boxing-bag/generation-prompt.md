@@ -1,0 +1,14 @@
+# Boxing bag — front three-quarter sample
+
+Generated 2026-09-20 using the built-in image generation tool, based on `utils/style_bbag.md`. Asset-only request: not yet placed in the room or assigned collisions/interaction. Output: `front-three-quarter.png`, 1024×1536 PNG; alpha inspection confirms transparent pixels. Original retained in the generator output directory.
+
+## Exact generation prompt
+
+Use case: stylized-concept.
+Asset type: standalone gym equipment sprite for an orthographic RPG portfolio game.
+Create an extremely detailed, hand-pixelled 32-bit arcade game sprite. Use the visual language of richly animated 1990s run-and-gun arcade games, like Metal Slug: complex silhouettes, layered construction, irregular organic pixel clusters, dense material rendering, and many small readable secondary forms.
+Build the object from distinct appropriate parts such as seams, screws, joints, chain links, bevels, ridges, recesses, damage marks, surface wear, reflections and overlapping components. Give every material its own treatment: hard specular highlights for metal, rough texture for rubber, subtle color variation for painted surfaces, worn creased leather for the bag.
+Use multiple shades per material, including reflected light, contact shadows, occlusion shadows, rim highlights, midtone transitions and tiny accent pixels. Break up large flat areas with texture, scratches, dents, dirt, highlights and functional details. Prefer asymmetry and believable construction over simple geometric shapes.
+The result should feel like a production game asset carefully hand-pixelled by an expert, not a logo, vector illustration, flat icon, emoji or minimalist pixel-art symbol. Crisp hard-edged pixels, no anti-aliasing, no blur, no smooth vector curves, no excessive empty space, no large unbroken areas of flat color.
+Subject: a rickety black boxing heavy bag hanging from a freestanding worn steel stand with a chain. The bag is black with red top and bottom sections, battered and patched in several places. The stand has an X-shaped bottom part. Show mechanically plausible suspension, a complete chain connecting bag to overhead stand arm, sturdy enough construction despite worn finish, four distinct base arms forming a readable X on the floor plane.
+Composition: ONE complete standalone asset, front three-quarter orthographic RPG view from slightly above, no vanishing-point perspective. Entire stand, suspension chain, bag and X-shaped base visible, centered with a small transparent margin and no cropping. Match the existing 1980s home/garage gym equipment's dense arcade pixel detail, muted worn metal, charcoal blacks, deep reds, warm upper-left highlights and cool dark shadows. No room, floor tile, scenery, text, labels, logo, watermark or alternate-view sheet. Genuinely transparent background with alpha, no baked checkerboard. Shadows restricted to the object itself. Do not add other gym equipment.

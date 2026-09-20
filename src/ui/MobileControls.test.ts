@@ -3,6 +3,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { televisionContent } from '../content/television';
 import { vinylContent } from '../content/vinyl';
 import { booksContent } from '../content/books';
+import { gymContent } from '../content/gym';
 import { houseLayout } from '../game/data/houseLayout';
 import { InputController } from '../game/systems/InputController';
 import { InteractionSystem } from '../game/systems/InteractionSystem';
@@ -47,7 +48,7 @@ function pointer(button: ElementDouble, type: string, pointerId = 1): void {
 
 const stopped = { up: false, down: false, left: false, right: false };
 
-describe('mobile controls and living-room dialog contract', () => {
+describe('mobile controls and room dialog contract', () => {
   let root: ElementDouble;
   let keyboard: EventTarget;
   let visibility: EventTarget & { visibilityState: string };
@@ -125,7 +126,10 @@ describe('mobile controls and living-room dialog contract', () => {
     expect(input.consumeInteractionRequest()).toBeNull();
   });
 
-  it.each([televisionContent, vinylContent, booksContent])('opens $id via mobile and keyboard across repeated dialog cycles', (content) => {
+  it.each([
+    ...[televisionContent, vinylContent, booksContent, gymContent].map((content) => ({ content, roomId: content.roomId })),
+    { content: vinylContent, roomId: 'gym' },
+  ])('opens $content.id in $roomId via mobile and keyboard across repeated dialog cycles', ({ content, roomId }) => {
     const dialog = new ElementDouble();
     const title = new ElementDouble();
     const close = new ElementDouble();
@@ -138,7 +142,7 @@ describe('mobile controls and living-room dialog contract', () => {
     } as unknown as ConstructorParameters<typeof DialogManager>[0]);
     manager.registerContent(toDialogContent(content));
     const interaction = new InteractionSystem(houseLayout);
-    const room = houseLayout.rooms.find((room) => room.id === content.roomId)!;
+    const room = houseLayout.rooms.find((room) => room.id === roomId)!;
     const object = room.interactables.find((object) => object.contentId === content.id)!;
     interaction.update({ position: { x: room.origin.x + object.position.x, y: room.origin.y + object.position.y } });
     const target = interaction.getCurrentTarget()!;

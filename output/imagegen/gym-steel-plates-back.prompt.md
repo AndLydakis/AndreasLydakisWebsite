@@ -1,0 +1,11 @@
+Use case: stylized-concept. Asset type: standalone back equipment sprite.
+Create an extremely detailed, hand-pixelled 32-bit arcade game sprite. Use the visual language of richly animated 1990s run-and-gun arcade games, like metal slug: complex silhouettes, layered construction, irregular organic pixel clusters, dense material rendering, and many small readable secondary forms.
+
+Build the object from distinct parts such as panels, seams, handles, screws, vents, joints, cables, bevels, ridges, recesses, damage marks, surface wear, reflections, and overlapping components. Give every material its own treatment: hard specular highlights for metal, grain and uneven shading for wood, rough texture for rubber, and subtle color variation for painted surfaces.
+
+Use multiple shades per material, including reflected light, contact shadows, occlusion shadows, rim highlights, midtone transitions, and tiny accent pixels. Break up large flat areas with texture, panel lines, scratches, dents, dirt, highlights, and small functional details. Prefer asymmetry and believable construction over simple geometric shapes.
+
+The result should feel like a production game asset carefully animated and hand-pixelled by an expert, not a logo, vector illustration, flat icon, emoji, or minimalist pixel-art symbol. Use crisp hard-edged pixels, no anti-aliasing, no blur, no smooth vector curves, no excessive empty space, and no large unbroken areas of flat color. Maintain consistent scale, lighting, palette, and detail density across all views.
+Image1: identity and style reference (front sprite), NOT background. Subject: One low pile of stacked round steel weight plates, chipped dark iron, bright worn machined center holes. No rack.
+
+View: BACK view: rotate object180degrees around vertical axis, rear facing screen bottom. Show rear construction, not a repeat of front. Keep SAME object construction, parts, palette, wear, proportions and elevated orthographic camera. Fixed upper-left world light, no perspective vanishing point. Only change viewing direction. One full object centered, tight5%padding, no clipping. GENUINELY TRANSPARENT RGBA everywhere outside object and inside openings. No backdrop, halo, room, floor, shadows, labels, checkerboard. ONE image ONE view, not contact sheet.

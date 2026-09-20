@@ -7,7 +7,7 @@ describe('collision geometry', () => {
   it('flattens room-local collision data into world-tile rectangles', () => {
     const roomRects = getRoomCollisionRects(houseLayout);
 
-    expect(roomRects).toHaveLength(23);
+    expect(roomRects).toHaveLength(43);
     expect(roomRects).toContainEqual({ x: 15.5625, y: 8, width: 4.375, height: 0.5625 });
     expect(roomRects).toContainEqual({ x: 2, y: 4, width: 20, height: 4 });
     expect(roomRects).toContainEqual({ x: 21, y: 5, width: 1, height: 6 });
@@ -31,6 +31,6 @@ describe('collision geometry', () => {
   });
 
   it('combines room walls and perimeter bodies without room-specific branches', () => {
-    expect(getAllCollisionRects(houseLayout)).toHaveLength(27);
+    expect(getAllCollisionRects(houseLayout)).toHaveLength(47);
   });
 });

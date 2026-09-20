@@ -1,0 +1,2 @@
+Use case: precise-object-edit. Image1: edit target. Remove the entire dark background and glow/halo, replace with genuine transparent alpha, including the opening inside the carry handle. Preserve boombox shape, antenna, details, materials, camera, lighting and crisp pixels unchanged. No floor, no shadow, no backdrop, no painted checkerboard.
+All blank background regions must be genuinely transparent RGBA, including holes between parts. Output one complete front-facing sprite, not a sheet.

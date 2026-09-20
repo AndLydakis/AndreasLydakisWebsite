@@ -781,3 +781,111 @@ This file is the project decision record. New implementation decisions, approved
 - Date: 2026-09-18
 - Authorization: The owner said "looks good, push the changes", accepting the placement/collision preview and authorizing delivery of DEC-088/089.
 - Decision: Commit the approved geometry, validation and regression changes with their plan/changelog records under PORT-09A1. Preserve unrelated plan-review wording and style-file edits. Owner visual acceptance completes the pending review; no additional agent-performed live-browser check is claimed.
+
+## DEC-091 — Separate gym artwork and equipment under PORT-09B
+
+- Date: 2026-09-20
+- Authorization: Owner requested gym artwork from utils/style_gym.md, separate front/back/left/right equipment views, room integration, and explicitly no push. Owner confirmed only the squat rack is interactive and approved tight floor-contact collisions for equipment.
+- Scope: One architectural background with window, posters and mats; six separate equipment assets (squat rack with barbell, bench, dumbbell rack, steel plates, coloured bumper plates, boombox), four views each. Reuse current door connections; preserve an open central path. Other equipment is decorative, with no fabricated content or controls.
+- Implementation direction: Extend generic room data with optional decorative sprites; keep physics rectangles separate from artwork, use the existing personal-records dialog, and leave deferred depth-sorting/occlusion stories untouched. Expand PORT-09B presentation scope to include requested artwork.
+- Delivery: Keep all changes local, preserve unrelated owner edits, and do not mark the story Done until verification and owner acceptance. No commit or push authorized in this work session.
+- Artwork revision: Owner clarified that mats should cover most of the central floor as well as the equipment areas. Use a contiguous rubber-mat field with a narrow wooden perimeter/thresholds; correct the generated left passage and bottom opening before integration.
+- Follow-up art direction: Owner requested some uncovered spots and an amateur DIY installation. Keep majority mat coverage but use uneven/staggered sections, mismatched wear and scattered exposed wooden patches; these remain cosmetic, not new obstacles.
+- Equipment revisions: Owner clarified that the bench should stay approximately human-length but be lower to the ground: shorten the legs/frame height, not the seat length. Owner also requested different dumbbell sizes representing different weights, with matched pairs sharing one consistent design. Apply those revisions before generating the other views. Remove the boombox's generated backdrop so equipment can overlay the floor cleanly.
+- Dumbbell correction: Owner identified mismatched plate counts on the largest pair. Require three matching plates at both ends of each largest dumbbell, and identical construction within the pair; recheck dependent directional views.
+- Steel plate correction: Owner requested simpler plain cast-iron plates without grip cutouts; retain central barbell holes, raised rims and worn cast-metal finish.
+- Plate reference: Owner supplied a photograph of a classic ribbed BARBELL 20KGS/44LBS cast-iron plate. Use its solid disc, hub, rim, ribs and cast markings as shape inspiration, not photographic texture. Update all four views to this design.
+- Squat rack views: Owner clarified that the squat rack needs four additional diagonal views and noted broken side-view bar perspective. Keep cardinal views, repair the side projections and add front-left/front-right/back-left/back-right. No additional dumbbell-rack views requested.
+- Plate-view scope reduction: Owner requested front only for plates. Keep one front view each for cast-iron and bumper stacks; superseded side/rear drafts are not runtime assets. Final target is25images: room1, squat rack8, bench4, dumbbell rack4, boombox4, plate stacks2.
+- Cast-iron quantity: Owner requested four plates instead of three. Retain the reference-inspired ribbed design and front-only deliverable, with four countable stacked rims.
+- Dumbbell side-view consistency: Owner explicitly requested correcting side views to match front plate counts, without changing the front. Treat the current front as immutable reference, retain eight dumbbells/four per tier with the same matched pairs, sizes and balanced plate counts, and verify its checksum after side-only regeneration.
+- Rejected side iterations: Side edits and front-referenced oblique rebuilds still fail exact dumbbell consistency; owner rejected them. Current left/right images are unapproved drafts and are not loaded by the room. Do not describe these views as verified or the story as complete. The front remains byte-for-byte unchanged, SHA-256 `45ef01e457c2f84effbd0e0992efac23ea26e7f1d82229f829e1418c6429bb7e`.
+- Revised owner request: Keep the front, generate four additional dumbbell-rack diagonal POVs first, then left/right, with exact consistency. Independent image generation has repeatedly changed counts/geometry. Pause additional generations and request approval for a shared-geometry modelling/rendering approach instead of claiming a 100% consistency guarantee from another independent image attempt.
+- Verification boundary: Local room integration has passed 175 tests in21files, typecheck and production build (existing bundle warning). Subsequent alternate-image revisions still require final inventory/build recheck. No live browser verification or owner acceptance of the gym is claimed. No commit or push.
+
+## DEC-092 — Use the selected gym composition
+
+- Date: 2026-09-20
+- Authorization: Owner selected the "clumsy" gym floor, two coloured plate piles, one plain/cast-iron pile, front dumbbell rack, front boombox and front-right squat rack. Proceed with this existing artwork; no new generation or 3D modelling. Park the alternate dumbbell-view work without treating the rejected views as accepted.
+- Composition: Retain the current uneven DIY-mat background and low bench. Add a second coloured-stack instance two tiles left of the first, sharing its texture and scale with a distinct decoration ID and footprint. Keep one four-plate cast-iron stack. The existing front dumbbell image remains untouched.
+- Physics: Replace the front squat-rack footprints with nine small stepped rectangles approximating the front-right artwork's diagonal feet and lower crossmember. Preserve its interaction centre, size, personal-records content and open foot space, and keep both door routes reachable. Other equipment stays decorative.
+- Delivery: Update PORT-09B progress and changelog. No commit/push and no claim of completed browser/owner acceptance.
+- Verification: 176 tests in21files, typecheck, production build and whitespace checks pass. Coverage includes exact selected assets/counts, decorative fallback rendering, both-door foot-width reachability, rack interaction access and base alignment. Existing bundle-size warning remains. The front dumbbell SHA-256 is unchanged from DEC-091. Live visual/mobile preview remains pending.
+
+## DEC-093 — Rearrange gym racks and share music through the boombox
+
+- Date: 2026-09-20
+- Authorization: Owner requested swapping rack positions, reducing the dumbbell rack by 50%, placing the boombox under the window and giving it the vinyl player's interaction.
+- Placement: Swap rack centers exactly (dumbbells left, squat rack right). Interpret 50% smaller as half the rendered width and height, preserving aspect ratio and the original image. Center the boombox on the floor beneath the window at room-local (7.5, 4).
+- Physics: Translate squat-rack footprints with its artwork, scale the dumbbell footprint about its artwork center and translate the boombox base. Preserve both doorway routes and walkable space between squat-rack feet.
+- Interaction: Promote the existing boombox sprite from decoration to interactable. Reuse livingroom-vinyl content and the generic dialog/input lifecycle, with a boombox-specific prompt and the vinyl player's 1.5-tile radius. No duplicate content, audio behavior or room-specific handler is introduced. This supersedes the earlier squat-rack-only interaction scope.
+- Verification: 178 tests across 21 files, typecheck, production build and whitespace checks pass. Tests cover placement/scale, base alignment, reachable rack/boombox approaches, shared content references and repeated keyboard/mobile dialog cycles. Existing bundle-size warning remains. Live browser visual acceptance is pending, not claimed.
+- Delivery: PORT-09B remains in progress. Updated plan and changelog; no commit or push.
+
+## DEC-094 — Enable living-room furniture bottom collisions
+
+- Date: 2026-09-20
+- Authorization: Owner requested bottom collisions for the vinyl player, sofa, coffee table and TV after the gym rearrangement. This supersedes the temporary disabled sofa/table collision decision.
+- Implementation: Add four thin room-local floor-contact bands. Match the painted sofa/table feet in the 1499×1049 backdrop stretched to 320×224 world pixels. Match the standalone TV cabinet and vinyl stand bases at their existing 2.8-tile display height, accounting for transparent padding. TV controllers remain cosmetic; do not block the full sprite bounds or introduce deferred depth sorting.
+- Verification: 182 tests across 21 files, typecheck and production build pass. New foot-strip checks cover solid contact, clear floor immediately below each base and base alignment within one world pixel. Existing flood-fill checks verify spawn-to-door and interaction reachability; both TV approach lanes remain clear. Existing build chunk-size warning remains. Live browser visual acceptance is pending.
+- Delivery: Record this requested follow-up with the current local PORT-09B work. No artwork changes, commit or push; the story remains in progress pending preview acceptance.
+
+## DEC-095 — Move dumbbells and boombox closer to the gym wall
+
+- Date: 2026-09-20
+- Authorization: Owner requested moving the dumbbell rack farther left and nearer the wall, moving the boombox nearer the wall, and verifying both collisions.
+- Placement: Move dumbbells 1.5 tiles left and one tile up to (2, 2.5); move boombox one tile up to (7.5, 3). Keep artwork, scale and music content unchanged. Translate each bottom footprint by the same offset; both bases remain below the back-wall floor line. The rack's narrow left-wall gap is not a player passage; its front and right remain accessible.
+- Verification: 184 tests across 21 files, typecheck and production build pass. Coverage includes moved base contact, clear floor immediately below, right-side clearance, expected left-wall restriction, both-door navigation, reachable approaches and boombox selection at collision contact. Existing chunk-size warning remains. Live visual/browser acceptance is pending.
+- Delivery: Update plan and changelog; keep PORT-09B in progress and all changes local without committing or pushing.
+
+## DEC-096 — Resize the gym bench independently on both axes
+
+- Date: 2026-09-20
+- Authorization: Owner requested half the current bench height and two-thirds its length.
+- Decision: Interpret this as displayed sprite dimensions: height 3.75 → 1.875 tiles, width two-thirds of the original 1330:1182 image's displayed width. Preserve its center and original image. Add optional validated displayWidthTiles alongside displayHeightTiles so the generic renderer supports independent dimensions; all other artwork retains proportional scaling and missing-art fallbacks remain unchanged.
+- Collision: Apply the same horizontal two-thirds and vertical one-half transform to the bench base about its existing center. The new bottom is y=9.6875 tiles, within one world pixel of the visible feet; remove blocking at the old base.
+- Verification: 190 tests across 21 files, typecheck and production build pass. Coverage includes exact dimensions, rendering/fallback, width validation, base contact and navigation. Existing chunk-size warning remains. Live preview acceptance is pending.
+- Delivery: Update plan/changelog; no commit or push, PORT-09B remains in progress.
+
+## DEC-097 — Triple dumbbell and boombox collision heights
+
+- Date: 2026-09-20
+- Authorization: Owner requested three times the collision height for the dumbbell rack and boombox.
+- Decision: Expand both rectangles upward, preserving widths and bottom edges aligned with the feet. Dumbbells: height 0.15625 → 0.46875 tiles, top y=3.5. Boombox: height 0.1875 → 0.5625 tiles, top y=3.625. Artwork, positions, scales and interaction settings remain unchanged.
+- Verification: 190 tests across 21 files, typecheck and production build pass. Tests check the expanded upper area blocks, bottom contact stays aligned, approaches/doorways stay reachable and boombox activation still works. Existing bundle-size warning remains; live preview acceptance pending.
+- Delivery: Updated plan/changelog. No commit or push; PORT-09B remains in progress.
+
+## DEC-098 — Verify gym blockers with the real Arcade solver
+
+- Date: 2026-09-20
+- Authorization: Owner requested checking dumbbell rack, boombox and bench collisions and preventing walking through them.
+- Evidence: Added headless tests using the installed Phaser Arcade World, Body and StaticBody implementations, actual authored rectangles, the player's 16×1px foot body and current 144px/s speed. Sustained movement from four directions at 15/30/60/120 render FPS reproduced bench penetration in eight vertical cases; dumbbell rack and boombox passed all 32 cases. Earlier geometry-only checks did not exercise separation and missed this defect.
+- Fix: Increase only the bench collision depth from 3px to 6px upward (top y=9.3125, height=0.375 tiles). Preserve its bottom, width and artwork. No changes needed to the other two footprints. Upper artwork overlap remains intentional under bottom-only collision semantics; this is not an occlusion implementation.
+- Verification: All 48 real-solver cases now reach contact and remain on the approach side during sustained movement. Full suite: 238 tests across 22 files; typecheck and build pass, existing chunk-size warning remains. Navigation/contact regressions still pass. These are headless engine tests, not live browser acceptance.
+- Delivery: Update plan/changelog, leave PORT-09B in progress pending visual acceptance. No commit or push.
+
+## DEC-099 — Generate a boxing-bag sprite from the owner prompt
+
+- Date: 2026-09-20
+- Authorization: Owner requested generating a gym boxing bag using utils/style_bbag.md in the established style; no placement or interaction requested.
+- Direction: One standalone front three-quarter orthographic sprite: battered black bag with red ends and patches, chain suspension, worn steel stand with X-shaped base, dense 1990s arcade pixel rendering. Used the imagegen skill and built-in generator; preserved the source prompt and saved the exact normalized generation prompt alongside the asset.
+- Delivery: Saved public/assets/sprites/gym-boxing-bag/front-three-quarter.png (1024×1536). Inspected the generated design and confirmed transparent pixels through read-only PNG alpha inspection. Pending owner visual approval; not preloaded, placed or given collisions. No code changes, commit or push.
+
+## DEC-100 — Place the boxing bag and relocate the bench
+
+- Date: 2026-09-20
+- Authorization: Owner requested bench placement next to steel plates and the boxing bag in the bottom-left corner, at 125% of the player sprite height.
+- Placement: Move bench to (9, 7.125), left of the cast-iron pile at (12.125, 7.125), retaining its reduced dimensions and moving its verified 6px collision base with it. Add boxing bag as decoration at (2.5, 9.25). Reuse the optional texture pipeline and fallback; no new interaction.
+- Scale: Use PLAYER_DISPLAY_HEIGHT (51px), not the 32px physics anchor, giving the bag a 63.75px full-image height (3.984375 tiles), preserving its aspect ratio. Transparent image padding remains intact.
+- Collision: Add a 7px-deep stand-base band ending at y=11.6875 tiles, within one world pixel of its visible bottom. Leave bottom doorway and central route clear; retain existing bottom-only collision semantics rather than blocking the entire hanging bag image.
+- Verification: 256 tests across 22 files, typecheck and production build pass. Includes asset inventory, exact scale/placement, base alignment, foot-width navigation and 64 real Arcade collision cases including the moved bench and new stand. Existing bundle-size warning remains; live browser visual acceptance pending.
+- Delivery: Updated plan/changelog/provenance. No commit or push; PORT-09B remains in progress.
+
+## DEC-101 — PORT-09B acceptance and authorized delivery
+
+- Date: 2026-09-20
+- Authorization: Owner approved the final visuals and requested browser checks followed by push if tests pass, superseding earlier no-push instructions for this story.
+- Verification: All 256 tests, typecheck, production build and whitespace checks pass. Separate headless Chrome development/production runs pass desktop 1280×900 and touch-emulated portrait 390×844 / landscape 844×390 checks. Real keyboard/touch navigation, four equipment bases, repeated five-object dialogs, exact dialog titles, input reset and zero uncaught runtime exceptions verified. Production screenshots inspected. Evidence and method limitations: output/qa/port09b/verification.md.
+- Driver corrections: Native Escape key codes and scrolling rotated mobile controls into view were necessary for reliable browser automation; corrected driver and reran both complete suites. No app changes were needed for these harness issues. Physical-device testing is not claimed.
+- Scope: Reconcile story wording with selected runtime art; park unapproved alternate dumbbell generation. Preserve unrelated owner's plan-review wording and style-file reorganization outside the story commit. Include gym/boxing-bag prompts needed for provenance.
+- Delivery: Ready for story-ID commit and authorized push. Mark Done only after successful delivery; record the resulting commit below.

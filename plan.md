@@ -1938,6 +1938,20 @@ Dependencies: `PORT-09A1`\
 Milestone: M2
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
+Status: Implementation and verification complete; authorized commit/push in progress. Owner approved final visuals on 2026-09-20. Desktop and touch-emulated portrait/landscape Chrome checks pass against both development and production builds; 256 automated tests, typecheck and build pass. Evidence: `output/qa/port09b/verification.md`. The progress notes below are historical; rejected alternate dumbbell views remain parked and are not required for this selected-view delivery.
+
+Owner-requested local follow-up (DEC-094): added bottom-only collisions for the living-room vinyl stand, sofa, coffee table and TV cabinet. Automated base-contact, doorway/interaction reachability and TV approach-lane checks pass; include these four objects in the pending visual preview review. This does not implement the deferred layering stories.
+
+Placement follow-up (DEC-095): move the half-size dumbbell rack farther left/closer to the back wall and the boombox closer to the back wall. Translate both footprints with the artwork. Contact, clear front/right approaches, doorway navigation and boombox activation tests pass; visual acceptance remains pending.
+
+Bench follow-up (DEC-096): render the bench at half its prior height and two-thirds its prior length, preserving its center and source image. Support optional independent width through the generic artwork renderer and resize the floor-contact base consistently. Sizing, validation, fallback, contact and navigation tests pass; include the new proportions in the pending visual review.
+
+Collision follow-up (DEC-097): triple dumbbell rack and boombox collision heights upward, keeping their widths and bottom edges unchanged. Expanded-area blocking, contact, navigation and interaction checks pass; include these footprints in pending visual acceptance.
+
+Physics verification (DEC-098): actual installed Arcade solver tests reproduced vertical penetration of the resized bench's 3px base. Increased its depth upward to 6px without shifting its bottom or artwork. All three requested objects now pass 48 sustained cardinal-movement cases at 15/30/60/120 render FPS, including reaching contact and not crossing. Full suite is 238 passing tests; live browser acceptance remains pending.
+
+Boxing-bag integration (DEC-099/100): generated the owner-requested black/red bag and X-base stand, then placed it as decoration in the bottom-left at 125% of the player's 51px display height. Moved the bench beside the cast-iron plates and translated its collision. Added stand-base collision and real-solver coverage; 256 tests pass, including navigation. Final placement/scale visual review remains pending; no push.
+
 ### Goal
 
 Complete the gym presentation and personal-records interaction using the generic systems.
@@ -1945,20 +1959,30 @@ Complete the gym presentation and personal-records interaction using the generic
 ### Subtasks
 
 1. Integrate the predefined gym interactable and `gym-personal-records` content record.
-2. Add the squat rack, bench, and free-weight placeholder visuals.
-3. Complete dummy recent personal-record content.
-4. Confirm the squat rack opens the correct dialog and prompt.
-5. Keep gym behavior in data and content modules, not room-specific conditionals.
+2. Generate the separate gym background from `utils/style_gym.md`: wood walls/window/posters and DIY rubber mats covering most floor/equipment areas, with uneven seams and exposed wood patches.
+3. Deliver separate equipment sprites: squat rack (four cardinal + four diagonal views), bench (four views), approved front dumbbell rack, boombox (four views), four cast-iron plates (front only), coloured bumper stack (front only), and boxing bag (front three-quarter). Preserve alternate drafts as documented review assets. Further dumbbell diagonals/side corrections are parked, not part of this delivery.
+4. Integrate the selected "clumsy" DIY mat background, front-right squat rack, front dumbbell rack/boombox, two copies of coloured plates and one cast-iron pile through generic room artwork/decorations. Retain the low bench. Place the squat rack on the right and the half-size dumbbell rack on the left; center the boombox beneath the window and reuse the vinyl player's music content for its interaction. Give equipment tight floor-contact footprints and retain unobstructed left/bottom door routes.
+5. Complete clearly labelled dummy recent personal-record content without inventing owner records.
+6. Confirm the squat rack opens the correct dialog and prompt.
+7. Keep gym behavior in data and content modules, not room-specific conditionals; do not implement deferred depth sorting/occlusion.
+8. Review direction consistency, barbell projection, matched dumbbell ends, plate count, transparent backgrounds, source dimensions and asset provenance. Save exact generation prompts.
 
 ### Acceptance criteria
 
 - The gym is reachable and visually distinguishable from other rooms.
 - The squat rack opens the personal-records content from keyboard and mobile controls.
+- The boombox beneath the window opens the same music content as the living-room vinyl player, using keyboard and mobile controls; its prompt identifies the boombox.
 - Existing television and vinyl interactions continue to work.
+- All equipment remains separate from the background; decorative objects have no prompts or content handlers.
+- Floor-contact collisions fit the equipment bases, and the squat-rack space between its feet remains accessible.
+- Assets are saved in per-object folders; only selected runtime views are preloaded (front-right squat rack, front three-quarter boxing bag, and front views for other equipment). Unapproved alternate-view work is parked, not represented as complete.
+- Owner art revisions are reflected in the room and sprite set; no changes are pushed without renewed authorization.
 
 ### Verification
 
 Walk from the living room into the gym, approach the squat rack from multiple directions, and repeat dialog open/close cycles.
+
+Add automated checks for decorative rendering/fallback, data validation, foot-width navigation between doors and rack approaches, keyboard/mobile dialog reset, and the asset inventory. Review the final room in desktop and portrait/landscape previews; check all equipment footprints and return to TV/vinyl/bookcase content. Record verified evidence separately from pending owner/browser checks before closing the story.
 
 ---
 

@@ -9,6 +9,7 @@ import { assertValidContentRegistry } from './content/contentRegistry';
 import { televisionContent } from './content/television';
 import { vinylContent } from './content/vinyl';
 import { booksContent } from './content/books';
+import { gymContent } from './content/gym';
 import { houseLayout } from './game/data/houseLayout';
 import { createGame } from './game/createGame';
 import { InputController } from './game/systems/InputController';
@@ -47,6 +48,7 @@ const bridge = new GameUiBridge();
 dialogManager.registerContent(toDialogContent(televisionContent));
 dialogManager.registerContent(toDialogContent(vinylContent));
 dialogManager.registerContent(toDialogContent(booksContent));
+dialogManager.registerContent(toDialogContent(gymContent));
 contentIndex.setEntries([]);
 dom.gameStatus.textContent = 'Starting the interactive house...';
 

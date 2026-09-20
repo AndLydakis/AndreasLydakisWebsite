@@ -22,20 +22,26 @@ export interface RoomTileRect {
   height: number;
 }
 
-export interface InteractableDefinition {
+/** Optional room art. Position is a room-local tile-center anchor; physics is authored separately. */
+export interface RoomSpriteDefinition {
   id: string;
-  roomId: string;
   position: RoomTilePoint;
+  assetId?: string;
+  /** Reuse artwork painted into the room; show a placeholder if that backdrop fails. */
+  artworkInBackground?: boolean;
+  /** Artwork height in tiles, preserving aspect ratio unless an explicit width is provided. */
+  displayHeightTiles?: number;
+  /** Optional independent artwork width in tiles; requires an explicit height. */
+  displayWidthTiles?: number;
+}
+
+export interface InteractableDefinition extends RoomSpriteDefinition {
+  roomId: string;
   label: string;
   promptLabel: string;
   contentId: string;
   interactionRadiusTiles?: number;
   bounds?: RoomTileRect;
-  assetId?: string;
-  /** Reuse artwork painted into the room; show a placeholder if that backdrop fails. */
-  artworkInBackground?: boolean;
-  /** Explicit artwork height in tiles, preserving its aspect ratio regardless of source size. */
-  displayHeightTiles?: number;
 }
 
 export interface RoomDefinition {
@@ -46,6 +52,8 @@ export interface RoomDefinition {
   heightTiles: number;
   collisionRects: readonly RoomTileRect[];
   interactables: readonly InteractableDefinition[];
+  /** Decorative objects never register prompts or content; they share the generic art renderer. */
+  decorations?: readonly RoomSpriteDefinition[];
   visualAssetId?: string;
 }
 

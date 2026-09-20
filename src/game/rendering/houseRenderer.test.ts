@@ -76,6 +76,41 @@ describe('interactable artwork rendering', () => {
 });
 
 describe('room backdrop rendering', () => {
+  it.each([true, false])('renders gym equipment independently with safe missing-art fallbacks (%s)', (available) => {
+    const graphics = { fillStyle: vi.fn(), fillRect: vi.fn(), lineStyle: vi.fn(), strokeRect: vi.fn() };
+    const images: Array<{ setScale: ReturnType<typeof vi.fn>; setDisplaySize: ReturnType<typeof vi.fn> }> = [];
+    const addImage = vi.fn(() => {
+      const image = {
+        width: 1000, height: 1000,
+        setOrigin: vi.fn().mockReturnThis(), setDisplaySize: vi.fn().mockReturnThis(),
+        setDepth: vi.fn().mockReturnThis(), setScale: vi.fn().mockReturnThis(),
+      };
+      images.push(image);
+      return image;
+    });
+    const scene = { textures: { exists: vi.fn(() => available) }, add: { image: addImage } };
+    const room = houseLayout.rooms.find((item) => item.id === 'gym')!;
+    buildRoom(scene as unknown as Phaser.Scene, room, 16,
+      { floor: graphics, walls: graphics, collisionPreview: graphics } as unknown as HouseRenderLayers);
+    const sprites = [...room.interactables, ...room.decorations!];
+    expect(addImage).toHaveBeenCalledTimes(sprites.length + (available ? 1 : 0));
+    sprites.forEach((sprite, index) => {
+      const callIndex = index + (available ? 1 : 0);
+      expect(addImage.mock.calls[callIndex]).toEqual([
+        (room.origin.x + sprite.position.x + 0.5) * 16,
+        (room.origin.y + sprite.position.y + 0.5) * 16,
+        available ? sprite.assetId : 'furniture-placeholder',
+      ]);
+      if (available && sprite.displayWidthTiles !== undefined) {
+        expect(images[callIndex]!.setDisplaySize).toHaveBeenCalledWith(sprite.displayWidthTiles * 16, sprite.displayHeightTiles! * 16);
+        expect(images[callIndex]!.setScale).not.toHaveBeenCalled();
+      } else {
+        expect(images[callIndex]!.setScale).toHaveBeenCalledWith(available ? sprite.displayHeightTiles! * 16 / 1000 : 48 / 1000);
+      }
+    });
+    expect(graphics.strokeRect).toHaveBeenCalled();
+  });
+
   it.each([true, false])('reuses painted bookcase art, with fallback when the backdrop is missing (%s)', (available) => {
     const graphics = { fillStyle: vi.fn(), fillRect: vi.fn(), lineStyle: vi.fn(), strokeRect: vi.fn() };
     const image = {

@@ -6,6 +6,30 @@ pushed.
 
 ## [Unreleased]
 
+### Gym boxing-bag artwork — PORT-09B
+
+- DEC-099: generated a separate black/red patched boxing bag, chain and X-base stand from utils/style_bbag.md. Saved the PNG and exact generation prompt under public/assets/sprites/gym-boxing-bag/. Not integrated into the room; no commit/push.
+- DEC-100: integrated the bag in the gym's bottom-left at 63.75px height (125% of player display height), with a stand-base collision. Moved the bench beside the steel plates with its collision. All 256 tests, typecheck and build pass; visual acceptance pending, no commit/push.
+
+### PORT-09B — Gym artwork and personal records
+
+- Final acceptance: owner approved visuals; desktop and touch-emulated portrait/landscape Chrome checks pass against development and production previews. All 256 tests, typecheck and build pass. Repeatable browser driver and production screenshots recorded under `scripts/verify-port09b-browser.mjs` and `output/qa/port09b/`. Earlier pending-review notes below are historical.
+
+- Added a separate 1980s wooden gym backdrop with DIY rubber mats, window and posters, plus individually stored equipment sprites based on `utils/style_gym.md`.
+- Added optional generic decorative room sprites without adding interaction targets or room-specific rendering logic. Front artwork is preloaded; alternate views are review/future-layout assets.
+- Wired the squat rack to the existing personal-records dialog with explicitly labelled squat/bench/deadlift placeholders and the boombox to the vinyl player's shared music content; remaining equipment is decorative.
+- Added tight equipment floor-contact rectangles, preserved both door connections and left an open space between the squat rack feet.
+- Recorded owner revisions and no-push instruction in DEC-091. Artwork/browser acceptance is pending; this story is not Done.
+- DEC-092: selected the uneven "clumsy" mat floor, front-right squat rack, front dumbbell rack/boombox, two coloured plate stacks and one cast-iron pile; retained the low bench. Updated angled rack collision footprints and added composition/navigation regressions. Alternate dumbbell view generation is parked; no new images or pushes.
+- DEC-092 verification: 176 tests, typecheck, build and whitespace checks pass; existing bundle-size warning remains. Live preview/owner acceptance is still pending.
+- DEC-093: swapped the rack positions, halved the dumbbell rack's rendered width/height, moved the boombox beneath the window and enabled its shared music dialog. Realigned floor-contact collisions and extended route, content-reuse and keyboard/mobile dialog tests. Changes remain local pending visual acceptance.
+- DEC-093 verification: 178 tests across 21 files, typecheck, production build and whitespace checks pass. Existing bundle-size warning remains; live browser visual acceptance is pending.
+- DEC-094: added tight bottom collisions for the living-room vinyl stand, sofa, coffee table and TV cabinet. Preserved doorway and interaction reachability and both TV approach lanes. All 182 tests, typecheck and build pass; visual preview acceptance remains pending. No commit/push.
+- DEC-095: moved dumbbells left and toward the back wall, and the boombox toward the back wall; translated both collision bases. Added contact/clearance checks and boombox activation at contact. All 184 tests, typecheck and build pass; visual acceptance pending, no commit/push.
+- DEC-096: resized the bench to half its displayed height and two-thirds its length without changing its center or source artwork. Added optional validated independent artwork width and resized the bench base. All 190 tests, typecheck and build pass; visual acceptance pending, no commit/push.
+- DEC-097: tripled dumbbell rack and boombox collision heights upward while preserving bottom alignment and widths. All 190 tests, typecheck and build pass; no commit/push.
+- DEC-098: reproduced bench penetration with actual Arcade physics tests and fixed it by increasing the base depth upward from 3px to 6px. Dumbbell rack and boombox already passed. Added 48 sustained-movement checks across four directions and four render rates; all 238 tests, typecheck and build pass. Live visual acceptance pending; no commit/push.
+
 ### Historical baseline
 
 - `PORT-00` through `PORT-03A` were completed before the per-story commit and push workflow was introduced.

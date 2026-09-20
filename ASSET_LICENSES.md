@@ -1,8 +1,20 @@
 # Asset Licenses
 
-All current assets in `public/assets/` are original placeholder assets created for this project. They contain no third-party artwork, fonts, music, or sound effects.
+Current assets in `public/assets/` are project-created placeholders or AI-generated artwork. The owner-supplied cast-iron plate photograph described below was used as design inspiration, not included as a runtime image. No third-party fonts, music or sound effects have been added.
 
 Replace this document with a full attribution record if approved third-party assets are added later.
+
+## Gym background and equipment — PORT-09B
+
+- Background: `public/assets/backgrounds/gym/background.png`, generated from `utils/style_gym.md` using the project living room as style/camera reference. Wood architecture, posters, no-curtain window and owner-requested uneven DIY matting are painted into the background; equipment is not.
+- Equipment: `public/assets/sprites/gym-{squat-rack,bench,dumbbell-rack,boombox,steel-plates,bumper-plates}/`. Squat rack has eight directions, bench/dumbbell rack/boombox four each, and each plate pile front only. Runtime loads the selected front-right squat rack and other front views, plus the separately documented boxing bag; unused directions are review/future-layout assets, not an animation sequence.
+- Provenance: built-in image-generation tool, 2026-09-20. The project record-player sprite provided the initial equipment style reference; revised front sprites provided identity references for directional views. Exact initial and revision prompts are saved under `output/imagegen/gym-*.prompt.md`.
+- Owner-provided reference: photograph of a traditional BARBELL 20KGS/44LBS cast-iron plate, supplied in conversation. Used for solid-disc/rim/hub/rib/embossed-marking design inspiration. Its original photographer/source/license was not supplied; no redistribution rights to that photograph are claimed and the photograph is not shipped. The generated pile contains four plates and no grip cutouts.
+- Owner revisions: low bench without shortening its human-length seat; graduated matched dumbbell pairs with balanced plate ends; front-only plate piles; repaired squat-rack side geometry and additional diagonal views. Review notes are in `log.md` DEC-091.
+- Preservation: generated PNGs are copied without pixel rewriting; generated transparency is retained. Superseded plate side/rear drafts were moved outside `public/` to `output/imagegen/superseded-plate-views/` and are not runtime assets.
+- Acceptance boundary: owner approved the final rendered composition on 2026-09-20 and authorized delivery after verification. Generated alternate views are not asserted to be pixel-exact 3D rotations; unused rejected drafts are not accepted runtime artwork.
+- Rejected dumbbell views: current left/right PNGs are unapproved drafts; repeated generated versions have inconsistent dumbbell geometry. Only the unchanged front is loaded at runtime. Additional diagonals and side-view rebuilding are parked outside the current delivery.
+- Runtime selection (DEC-092): owner selected the existing DIY/"clumsy" background, front-right squat rack and front-facing remaining equipment. Two coloured plate instances share one PNG; the cast-iron stack has one instance. Low bench retained. Alternate dumbbell-view work is parked, not approved or used. No images were regenerated for this selection.
 
 ## Television and console directional samples
 
@@ -47,3 +59,10 @@ Replace this document with a full attribution record if approved third-party ass
 - Generated using the built-in image tool on 2026-09-18. Right uses the project's working left sequence as a gait reference; down is a targeted refinement of the project's original down sheet. No third-party references.
 - Only walking frames are consumed. Original idle sources and working left/up artwork are preserved unchanged. Per-sheet dimensions and measured origins are explicit in `playerAnimation.ts`.
 - Exact prompts, rejected iteration notes and provenance: `output/imagegen/player-walking-repair.prompt.md`.
+
+### Gym boxing-bag sprite
+
+- File: `public/assets/sprites/gym-boxing-bag/front-three-quarter.png`.
+- Generated with the built-in image tool on 2026-09-20 from the owner's `utils/style_bbag.md`; no external reference image used.
+- Exact prompt: `public/assets/sprites/gym-boxing-bag/generation-prompt.md`. Original generated PNG preserved, with alpha transparency; included in the owner's 2026-09-20 visual approval.
+- DEC-100: owner requested runtime placement; preloaded as optional artwork and displayed at 63.75px height in the gym's bottom-left. Original image remains unchanged; final placement review pending.

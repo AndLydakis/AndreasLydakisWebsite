@@ -11,7 +11,11 @@ export const gymContent: ContentRecord = {
   sections: [
     {
       heading: 'Recent PRs',
-      items: ['PLACEHOLDER LIFT - replace with a real record.'],
+      items: [
+        'Squat — PLACEHOLDER: add weight, repetitions and date.',
+        'Bench press — PLACEHOLDER: add weight, repetitions and date.',
+        'Deadlift — PLACEHOLDER: add weight, repetitions and date.',
+      ],
     },
     {
       heading: 'Training note',
