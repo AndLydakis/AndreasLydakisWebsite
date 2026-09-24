@@ -18,6 +18,7 @@ export interface DialogContent {
   sections: readonly DialogSection[];
   actions?: readonly DialogAction[];
   image?: { src: string; alt: string };
+  gallery?: readonly { src: string; alt: string; caption?: string }[];
 }
 
 export interface ContentIndexEntry {

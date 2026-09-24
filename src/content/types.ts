@@ -1,5 +1,12 @@
 export type ContentId = string;
 
+export interface GalleryPicture {
+  /** Relative to public/assets; add as many entries as needed, in display order. */
+  assetPath: string;
+  alt: string;
+  caption?: string;
+}
+
 export interface ContentSection {
   heading: string;
   paragraphs?: readonly string[];
@@ -24,4 +31,5 @@ export interface ContentRecord {
   actions?: readonly ContentAction[];
   /** Optional standalone picture; paths stay relative to public/assets. */
   image?: { assetPath: string; alt: string };
+  gallery?: readonly GalleryPicture[];
 }

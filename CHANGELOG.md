@@ -6,6 +6,12 @@ pushed.
 
 ## [Unreleased]
 
+### PORT-09D-G — Globe and travel gallery
+
+- Added a generated globe stand to the left living-room floor, with a normal gallery interaction and independent base collision.
+- Added reusable scrollable photo-array content, captions/alt text, lazy loading and empty/error states; no fixed gallery count. Included three labelled AI-generated world-photo placeholders and authoring instructions.
+- Owner authorized delivery. Validation: 760 tests, typecheck/build and development/production desktop/portrait/landscape browser checks passed.
+
 ### PORT-18A — Perspective design and baseline (in progress)
 
 - Owner authorized documentation-only delivery of the reviewed generic perspective plan/contract. Baseline scripts and captures remain local; this is not full story closure or runtime delivery.

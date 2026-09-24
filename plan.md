@@ -2944,7 +2944,43 @@ Scope: one generic metadata-driven sorting/footprint system for every non-backgr
 - Automated verification: run story-specific tests plus `npm test`, `npm run typecheck`, `npm run build` and `git diff --check` for runtime/data changes. For art/docs-only stories, run applicable validation/build checks and explain any omitted commands. Preserve unrelated working-tree changes.
 - Delivery: follow the global story workflow: update `plan.md`, `CHANGELOG.md` and `log.md`; commit with the story ID and push only a fully reviewed, verified story. Mark Done only after successful push. No batch closure that hides an incomplete predecessor.
 
+## PORT-09D-G — Add globe and expandable travel-photo gallery
+
+Type: Story
+Priority: High — owner side quest before perspective
+Dependencies: Delivered PORT-09D and existing dialog/content infrastructure
+Status: Accepted — owner authorized delivery; awaiting successful push before Done. 760 tests, build and development/production desktop/portrait/landscape browser checks pass. Evidence: output/qa/globe-gallery/verification.md.
+Delivery: Follow global story workflow; owner visual approval before completion/push.
+
+### Goal
+
+Fill the clear left side of the living room with a globe on a stand opening a data-driven scrollable travel gallery.
+
+### Subtasks
+
+1. Generate a separate transparent globe/stand matching the room and three clearly labelled fictional travel placeholders; retain prompts/provenance and original files.
+2. Register globe art, a normal content-linked interactable and tight bottom-only collision; preserve all other room geometry and navigation.
+3. Extend the reusable DOM dialog with an optional picture array, alt text/captions, native scrolling, lazy loading and empty/missing-image states.
+4. Document adding/reordering/removing arbitrary picture entries without game/UI code changes.
+5. Verify keyboard/touch interaction, scrolling through all photos, close/reopen focus/movement behavior, large-list and error cases, globe collision and existing dialogs at desktop/portrait/landscape sizes.
+
+### Acceptance criteria
+
+- Globe is visible on the left clear floor, centered on its interaction target, without blocking existing routes.
+- E/F/Enter/Space and mobile Interact open the existing FF7-style dialog with all gallery entries in authored order.
+- No hard-coded picture-count limit; adding entries changes the rendered list and counts automatically. Photos retain their composition and meaningful alt text.
+- Empty and broken-image states are readable; scroll is keyboard/touch usable without moving the player or overflowing the viewport. Close/reopen resets scroll and restores gameplay/focus.
+- Existing single-picture dog dialog, media/CV dialogs and room collision behavior remain intact. Tests, build, browser evidence and owner visible acceptance are recorded.
+
+### Verification
+
+Unit tests cover 0/1/3/150 entries, adapter paths/captions, lazy loading and image failures. Real-browser checks cover globe loading/placement/base collisions and gallery scroll/lifecycle in development and production previews. No physical-device or deployment claim without evidence.
+
+---
+
 ## PORT-18A — Review the occlusion contract and baseline
+
+Side quest queued ahead of resuming this story: PORT-09D-G above. Its globe becomes a third generic living-room adoption fixture in PORT-18C/18D; refresh inventory from current room data (19 separate objects after this addition), not the older 18-object baseline.
 
 Type: Story
 Priority: High — owner-prioritized before PORT-10A (DEC-129)

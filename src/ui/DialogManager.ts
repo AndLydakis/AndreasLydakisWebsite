@@ -1,6 +1,7 @@
 import type { InputController } from '../game/systems/InputController';
 import type { DialogContent } from './uiTypes';
 import { DialogTypewriter } from './DialogTypewriter';
+import { createPhotoGallery } from './PhotoGallery';
 
 export interface DialogManagerOptions {
   dialog: HTMLDialogElement;
@@ -163,6 +164,8 @@ export class DialogManager {
     this.options.description.textContent = content.description ?? '';
     this.options.description.hidden = !content.description;
     this.options.content.replaceChildren();
+
+    if (content.gallery) this.options.content.append(createPhotoGallery(content.gallery));
 
     if (content.image) {
       const image = document.createElement('img');

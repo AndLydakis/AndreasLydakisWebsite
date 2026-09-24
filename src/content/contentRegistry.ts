@@ -5,6 +5,7 @@ import { officeContent } from './office';
 import { dogContent } from './dog';
 import { televisionContent } from './television';
 import { vinylContent } from './vinyl';
+import { travelContent } from './travel';
 import type { ContentRecord } from './types';
 import { roomRegistry, type RoomReference } from '../game/data/rooms';
 import type { InteractableDefinition } from '../game/data/types';
@@ -18,6 +19,7 @@ export const contentRegistry = [
   dogContent,
   kitchenContent,
   kitchenShoppingContent,
+  travelContent,
 ] as const satisfies readonly ContentRecord[];
 
 // Beginner workflow: add a typed content module, import it above, and include it

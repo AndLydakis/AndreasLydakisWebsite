@@ -26,6 +26,7 @@ export const optionalTexturePaths = {
   'living-room-background': 'backgrounds/living-room/sample.png',
   'television-console-front': 'sprites/television-console/front.png',
   'record-player-front': 'sprites/record-player/front.png',
+  'globe-stand-front': 'sprites/globe-stand/front-v1.png',
   'gym-background': 'backgrounds/gym/background.png',
   'gym-squat-rack-front-right': 'sprites/gym-squat-rack/front-right.png',
   'gym-bench-front': 'sprites/gym-bench/front.png',

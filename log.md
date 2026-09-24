@@ -2,6 +2,16 @@
 
 This file is the project decision record. New implementation decisions, approved changes, deferred choices, and story-completion decisions must be added here before or alongside changes to `plan.md` or source files.
 
+## DEC-130 — Globe and expandable travel gallery side quest
+
+- Owner requests a globe on a stand on the empty left side of the living room, opening a scrollable list of pictures from around the world with no fixed item limit.
+- Implement as PORT-09D-G before resuming perspective. Reuse normal interactable/content/DialogManager flow and existing FF7-style dialog. Add a generic optional gallery array with local paths, alt text and optional captions; native vertical scrolling and lazy image loading, not a hard-coded carousel or new library. Empty/error states remain readable.
+- Generate one transparent globe/stand sprite matching the room and three fictional travel placeholders (Japan, Iceland, Peru) using built-in imagegen. Retain originals and prompts. No uploads, remote photo service, persistence or claim these depict the owner's travels.
+- Place on left clear floor, with a tight base collision independent of artwork. Keep other objects, corridors and interactions unchanged. Document unlimited authored-list workflow (practical browser limits still apply). Add globe to future generic perspective coverage; no perspective implementation in this side quest.
+- Delivery: local implementation and verification first; owner visual review before story closure/push. Preserve unrelated owner style edits and local PORT-18A evidence.
+- Results: generated assets inspected and integrated; 760 tests, typecheck/build and scoped diff checks pass. Development/production desktop/portrait/landscape gallery suites pass interaction, native scroll, images, focus/movement gating, dog/media/CV regression and four-sided stand collisions. Development 0/1/150/error fixtures pass. Evidence: output/qa/globe-gallery/verification.md.
+- Acceptance: owner requested pushing the changes. Deliver only PORT-09D-G; preserve unrelated style edits, plan-review wording and local PORT-18A evidence. Mark Done after successful push.
+
 ## DEC-129 — Prioritize perspective design (PORT-18A)
 
 - Delivery authorization: owner requested pushing the plan changes. Publish plan.md, this decision/review record, CHANGELOG.md and docs/occlusion-contract-v1.md as a documentation-only PORT-18A commit. Baseline scripts/captures remain local and are not part of this delivery; referenced QA evidence is not yet reproducible from a clean clone. This partial planning delivery does not mark PORT-18A Done or authorize runtime implementation.

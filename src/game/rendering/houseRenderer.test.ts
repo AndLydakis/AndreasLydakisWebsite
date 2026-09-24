@@ -88,7 +88,7 @@ describe('interactable artwork rendering', () => {
     expect(image.setScale).toHaveBeenCalledWith(44.8 / 1288);
   });
 
-  it.each(houseLayout.rooms[0].interactables.filter((item) => item.displayHeightTiles !== undefined))('reduces $id artwork by 30% without moving its interaction point', (interactable) => {
+  it.each(houseLayout.rooms[0].interactables.filter((item) => ['living-room-television', 'living-room-record-player'].includes(item.id)))('reduces $id artwork by 30% without moving its interaction point', (interactable) => {
     const { image } = renderInteractable(interactable, true, 1000, 1000);
     expect(interactable.displayHeightTiles).toBe(4 * 0.7);
     expect(image.setScale).toHaveBeenCalledWith(44.8 / 1000);

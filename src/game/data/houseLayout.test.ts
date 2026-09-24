@@ -29,12 +29,12 @@ describe('initial house layout', () => {
     });
   });
 
-  it('represents all seven content areas with stable interactables', () => {
+  it('represents all registered content areas with stable interactables', () => {
     const interactables = houseRooms.flatMap((room) => room.interactables);
 
-    expect(interactables).toHaveLength(10);
-    expect(new Set(interactables.map((interactable) => interactable.id)).size).toBe(10);
-    expect(new Set(interactables.map((interactable) => interactable.contentId)).size).toBe(8);
+    expect(interactables).toHaveLength(11);
+    expect(new Set(interactables.map((interactable) => interactable.id)).size).toBe(11);
+    expect(new Set(interactables.map((interactable) => interactable.contentId)).size).toBe(contentRegistry.length);
     expect(validateInteractableReferences(interactables, contentRegistry, roomRegistry)).toEqual([]);
   });
 

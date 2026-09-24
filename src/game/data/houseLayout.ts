@@ -31,6 +31,7 @@ const livingRoom: RoomDefinition = {
     // Sprite bases account for transparent padding and the current 2.8-tile height.
     { x: 9, y: 5.25, width: 2, height: 0.3125 }, // TV cabinet feet (controllers are cosmetic).
     { x: 16.375, y: 7.4375, width: 2.25, height: 0.3125 }, // Vinyl stand feet.
+    { x: 3.375, y: 7.75, width: 1.25, height: 0.375 }, // Globe stand's lower feet; artwork independent.
   ],
   interactables: [
     {
@@ -68,6 +69,13 @@ const livingRoom: RoomDefinition = {
       contentId: 'livingroom-books',
       interactionRadiusTiles: 1.5,
       artworkInBackground: true,
+    },
+    {
+      id: 'living-room-globe', roomId: 'living-room',
+      position: { x: 3.5, y: 6 },
+      label: 'Globe and travel pictures', promptLabel: 'globe and travel pictures',
+      contentId: 'livingroom-travel', interactionRadiusTiles: 1.75,
+      assetId: 'globe-stand-front', displayHeightTiles: 3.5,
     },
   ],
   visualAssetId: 'living-room-background',
