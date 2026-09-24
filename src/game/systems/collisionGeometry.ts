@@ -1,4 +1,4 @@
-import { roomRectToWorld } from '../data/coordinates';
+import { corridorToWorldRect, roomRectToWorld } from '../data/coordinates';
 import type { HouseLayout, WorldTileRect } from '../data/types';
 
 /**
@@ -28,5 +28,42 @@ export function getWorldPerimeterRects(layout: HouseLayout): WorldTileRect[] {
 }
 
 export function getAllCollisionRects(layout: HouseLayout): WorldTileRect[] {
-  return [...getRoomCollisionRects(layout), ...getWorldPerimeterRects(layout)];
+  return [...getRoomCollisionRects(layout), ...getCorridorCollisionRects(layout), ...getWorldPerimeterRects(layout)];
+}
+
+/** Remove a floor intersection from a wall, retaining at most four solid pieces. */
+function subtractFloor(wall: WorldTileRect, floor: WorldTileRect): WorldTileRect[] {
+  const left = Math.max(wall.x, floor.x), top = Math.max(wall.y, floor.y);
+  const right = Math.min(wall.x + wall.width, floor.x + floor.width);
+  const bottom = Math.min(wall.y + wall.height, floor.y + floor.height);
+  if (left >= right || top >= bottom) return [wall];
+  return [
+    { x: wall.x, y: wall.y, width: wall.width, height: top - wall.y },
+    { x: wall.x, y: bottom, width: wall.width, height: wall.y + wall.height - bottom },
+    { x: wall.x, y: top, width: left - wall.x, height: bottom - top },
+    { x: right, y: top, width: wall.x + wall.width - right, height: bottom - top },
+  ].filter(rect => rect.width > 0 && rect.height > 0);
+}
+
+/** One-tile-thick walls OUTSIDE corridor floors, including corner coverage.
+ * Subtract every room/corridor floor so entrances, bends and junctions stay open.
+ * Exact rectangle subtraction preserves fractional artwork-aligned room origins.
+ */
+export function getCorridorCollisionRects(layout: HouseLayout): WorldTileRect[] {
+  const corridors = layout.corridors.map(corridorToWorldRect);
+  const floors = [
+    ...layout.rooms.map(room => ({ x: room.origin.x, y: room.origin.y,
+      width: room.widthTiles, height: room.heightTiles })),
+    ...corridors,
+  ];
+  return corridors.flatMap(({ x, y, width, height }) => {
+    let walls: WorldTileRect[] = [
+      { x: x - 1, y: y - 1, width: width + 2, height: 1 },
+      { x: x - 1, y: y + height, width: width + 2, height: 1 },
+      { x: x - 1, y, width: 1, height },
+      { x: x + width, y, width: 1, height },
+    ];
+    for (const floor of floors) walls = walls.flatMap(wall => subtractFloor(wall, floor));
+    return walls;
+  });
 }

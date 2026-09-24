@@ -2084,6 +2084,10 @@ Run DialogTypewriter unit tests and the extended scripts/verify-port09c-browser.
 
 ## PORT-09D — Add kitchen and meal content
 
+Latest revision (DEC-121): owner selected the new fitted kitchen. Runtime now uses sample-v3 (including cutting board/knife block) and the single front-v1 dining set. Stove/fridge use painted hotspots; wall, fitted-cabinet and dining collisions are re-authored. Painted entrance is centered on the gym corridor. Superseded public assets and unused sheet-frame code removed. Prompts: output/imagegen/kitchen-fitted-layout.prompt.md.
+
+Status: Implemented locally for owner visual review (DEC-121/122/123). Table collision extended upward by half a tile, preserving its bottom edge. Missing corridor side collisions fixed with generated exterior walls that preserve room entrances and junctions. Stove recipes and display-only fridge shopping list use the shared dialog. All 738 tests and production build pass. Final development/production browser checks pass at desktop, portrait and landscape sizes, including both exposed sides and both end seams of every corridor, kitchen interactions, furniture and mobile controls (output/qa/port09d/verification.md). Next: owner acceptance and story delivery. No commit/push; not Done. Earlier DEC-118/119 artwork/layout and QA are superseded.
+
 Type: Story  
 Priority: High  
 Dependencies: `PORT-09C`  
@@ -2096,10 +2100,10 @@ Complete the kitchen presentation and meal interaction, finishing the initial ro
 
 ### Subtasks
 
-1. Integrate the predefined kitchen interactable and `kitchen-meals` content record.
-2. Add the kitchen and stove placeholder visuals.
+1. Integrate the stove with `kitchen-meals` and add a fridge with a display-only shopping-list record (no editing or persistence).
+2. Integrate the approved fitted kitchen background and one combined table/four-chair sprite; reconcile painted doorway with the gym corridor and size assets against the player. Fixed fixtures remain in the backdrop with separate collision/interaction data.
 3. Complete dummy recently-cooked meals and comments.
-4. Confirm the stove opens the correct reusable dialog.
+4. Confirm stove and fridge open the correct reusable dialogs.
 5. Add room labels or visual cues where useful.
 6. Confirm every object uses the generic interaction system.
 7. Do not add room-specific conditionals to `HouseScene` or `InteractionSystem`.
@@ -2107,7 +2111,7 @@ Complete the kitchen presentation and meal interaction, finishing the initial ro
 ### Acceptance criteria
 
 - All four rooms are reachable and visually distinguishable.
-- The stove opens the meal content from keyboard and mobile controls.
+- The stove opens recipes/recent meals and the fridge opens a display-only shopping list from keyboard and mobile controls.
 - All five required content areas are interactable through data-driven definitions.
 - Adding or removing an item requires changes only to data/content modules and, if needed, assets.
 

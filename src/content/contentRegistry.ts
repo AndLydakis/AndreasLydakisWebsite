@@ -1,6 +1,6 @@
 import { gymContent } from './gym';
 import { booksContent } from './books';
-import { kitchenContent } from './kitchen';
+import { kitchenContent, kitchenShoppingContent } from './kitchen';
 import { officeContent } from './office';
 import { dogContent } from './dog';
 import { televisionContent } from './television';
@@ -17,6 +17,7 @@ export const contentRegistry = [
   officeContent,
   dogContent,
   kitchenContent,
+  kitchenShoppingContent,
 ] as const satisfies readonly ContentRecord[];
 
 // Beginner workflow: add a typed content module, import it above, and include it

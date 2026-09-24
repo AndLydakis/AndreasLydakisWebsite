@@ -5,13 +5,7 @@ import './styles/dialogs.css';
 import './styles/mobile-controls.css';
 
 import { validatePlaceholderAssets } from './app/assetManifest';
-import { assertValidContentRegistry } from './content/contentRegistry';
-import { televisionContent } from './content/television';
-import { vinylContent } from './content/vinyl';
-import { booksContent } from './content/books';
-import { gymContent } from './content/gym';
-import { officeContent } from './content/office';
-import { dogContent } from './content/dog';
+import { assertValidContentRegistry, contentRegistry } from './content/contentRegistry';
 import { houseLayout } from './game/data/houseLayout';
 import { createGame } from './game/createGame';
 import { InputController } from './game/systems/InputController';
@@ -47,12 +41,8 @@ const dialogManager = new DialogManager({
 const contentIndex = new ContentIndex(dom.contentList, dialogManager);
 const bridge = new GameUiBridge();
 
-dialogManager.registerContent(toDialogContent(televisionContent));
-dialogManager.registerContent(toDialogContent(vinylContent));
-dialogManager.registerContent(toDialogContent(booksContent));
-dialogManager.registerContent(toDialogContent(gymContent));
-dialogManager.registerContent(toDialogContent(officeContent));
-dialogManager.registerContent(toDialogContent(dogContent));
+// All rooms are now implemented: the content registry is the single source of truth.
+dialogManager.registerContents(contentRegistry.map(toDialogContent));
 contentIndex.setEntries([]);
 dom.gameStatus.textContent = 'Starting the interactive house...';
 

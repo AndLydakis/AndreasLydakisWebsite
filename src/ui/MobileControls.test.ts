@@ -4,6 +4,7 @@ import { televisionContent } from '../content/television';
 import { vinylContent } from '../content/vinyl';
 import { booksContent } from '../content/books';
 import { gymContent } from '../content/gym';
+import { kitchenContent, kitchenShoppingContent } from '../content/kitchen';
 import { houseLayout } from '../game/data/houseLayout';
 import { InputController } from '../game/systems/InputController';
 import { InteractionSystem } from '../game/systems/InteractionSystem';
@@ -132,7 +133,7 @@ describe('mobile controls and room dialog contract', () => {
   });
 
   it.each([
-    ...[televisionContent, vinylContent, booksContent, gymContent].map((content) => ({ content, roomId: content.roomId })),
+    ...[televisionContent, vinylContent, booksContent, gymContent, kitchenContent, kitchenShoppingContent].map((content) => ({ content, roomId: content.roomId })),
     { content: vinylContent, roomId: 'gym' },
   ])('opens $content.id in $roomId via mobile and keyboard across repeated dialog cycles', ({ content, roomId }) => {
     const dialog = new ElementDouble();

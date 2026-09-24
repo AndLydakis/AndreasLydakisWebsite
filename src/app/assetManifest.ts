@@ -12,6 +12,8 @@ export const requiredPlaceholderAssetPaths = Object.values(placeholderAssetPaths
 
 /** Optional artwork can fail to load without preventing the generic house from starting. */
 export const optionalTexturePaths = {
+  'kitchen-background': 'backgrounds/kitchen/sample-v3.png',
+  'kitchen-dining-set': 'sprites/kitchen-dining-set/front-v1.png',
   'office-background': 'backgrounds/office/sample-v5.png',
   // Source names denote camera viewpoint: this view's working side faces screen-right.
   'office-workstation-right-facing': 'sprites/office-workstation/left-review.png',

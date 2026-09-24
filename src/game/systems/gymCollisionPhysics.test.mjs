@@ -3,6 +3,8 @@ import { describe, expect, it } from 'vitest';
 import { houseLayout } from '../data/houseLayout';
 import { PLAYER_SPEED } from '../entities/playerMotion';
 import { officeWorkstationOutline } from '../data/office';
+import { kitchen, kitchenFurnitureCollisions } from '../data/kitchen';
+import { getCorridorCollisionRects } from './collisionGeometry';
 
 // Exercise the installed Arcade solver, not a mocked overlap predicate or renderer.
 const require = createRequire(import.meta.url);
@@ -18,12 +20,14 @@ const objects = [
   ['boxing stand', 2],
 ];
 const cases = [
+  ...getCorridorCollisionRects(houseLayout).map((rect, index) => ({ room: { origin: { x: 0, y: 0 } }, name: `corridor wall ${index}`, rect })),
+  ...kitchenFurnitureCollisions.map((rect, index) => ({ room: kitchen, name: `kitchen object ${index}`, rect })),
   ...objects.map(([name, rectX]) => ({ room: gym, name, rect: gym.collisionRects.find(item => item.x === rectX) })),
   ...office.collisionRects.slice(5, 12).map((rect, index) => ({ room: office, name: `office object ${index}`, rect })),
   ...officeWorkstationOutline.map((rect, index) => ({ room: office, name: `workstation outline ${index}`, rect })),
 ];
 
-describe('gym and office equipment actual Arcade collisions', () => {
+describe('house equipment and corridor walls actual Arcade collisions', () => {
   for (const { room, name, rect } of cases) {
     for (const direction of ['up', 'down', 'left', 'right']) {
       it.each([15, 30, 60, 120])(`${name} stops sustained ${direction} movement at %s render FPS`, (fps) => {

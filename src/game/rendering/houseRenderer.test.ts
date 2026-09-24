@@ -76,7 +76,7 @@ describe('interactable artwork rendering', () => {
 });
 
 describe('room backdrop rendering', () => {
-  it.each([['gym', true], ['gym', false], ['office', true], ['office', false]] as const)('renders %s equipment independently with safe missing-art fallbacks (%s)', (roomId, available) => {
+  it.each([['gym', true], ['gym', false], ['office', true], ['office', false], ['kitchen', true], ['kitchen', false]] as const)('renders %s equipment independently with safe missing-art fallbacks (%s)', (roomId, available) => {
     const graphics = { fillStyle: vi.fn(), fillRect: vi.fn(), lineStyle: vi.fn(), strokeRect: vi.fn() };
     const images: Array<{ setScale: ReturnType<typeof vi.fn>; setDisplaySize: ReturnType<typeof vi.fn> }> = [];
     const addImage = vi.fn(() => {
@@ -92,7 +92,8 @@ describe('room backdrop rendering', () => {
     const room = houseLayout.rooms.find((item) => item.id === roomId)!;
     buildRoom(scene as unknown as Phaser.Scene, room, 16,
       { floor: graphics, walls: graphics, collisionPreview: graphics } as unknown as HouseRenderLayers);
-    const sprites = [...room.interactables, ...room.decorations!];
+    const sprites = [...room.interactables, ...room.decorations!]
+      .filter(sprite => !available || !sprite.artworkInBackground);
     expect(addImage).toHaveBeenCalledTimes(sprites.length + (available ? 1 : 0));
     sprites.forEach((sprite, index) => {
       const callIndex = index + (available ? 1 : 0);

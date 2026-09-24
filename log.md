@@ -2,6 +2,68 @@
 
 This file is the project decision record. New implementation decisions, approved changes, deferred choices, and story-completion decisions must be added here before or alongside changes to `plan.md` or source files.
 
+## DEC-124 — Deliver PORT-09D
+
+- Date: 2026-09-24
+- Authorization: Owner requested pushing the completed kitchen and corridor fixes.
+- Scope: DEC-118 through DEC-123, selected fitted kitchen/dining artwork, stove/fridge content, generic corridor walls, tests and QA evidence. Include the kitchen-specific style prompt; preserve unrelated root/style-folder reorganization and earlier plan-review wording outside the commit.
+- Verification: 738 automated tests and build pass; final development/production desktop, portrait and landscape browser checks passed in DEC-123. No physical-device or independent-review claim.
+- Delivery: Ready for scoped commit and push on master. Mark Done only after successful push.
+
+## DEC-123 — Block exposed corridor edges
+
+- Date: 2026-09-24
+- Issue: Owner could walk from corridors into the void. getAllCollisionRects included room-authored walls and the world perimeter, but omitted corridor boundaries entirely.
+- Fix: Generate one-tile-thick exterior wall strips around each corridor, subtracting all room/corridor floor rectangles. This blocks exposed edges without narrowing floors or sealing room entrances, bends or junctions. Exact rectangle subtraction supports existing fractional room origins. Reuse the existing CollisionSystem lifecycle; no layout, artwork, movement-speed or input changes.
+- Verification: 738 tests, typecheck and production build pass, including six current corridor walls at four approach directions/four frame rates, floor non-overlap, junction and fractional-origin tests. Development and production browser checks PASS at desktop/portrait/landscape sizes: both exposed sides and both end seams of all three corridors, plus kitchen dialogs, furniture and mobile controls. No uncaught exceptions. Results recorded in output/qa/port09d/verification.md.
+- Delivery: PORT-09D remains in progress pending owner acceptance. No commit/push.
+
+## DEC-122 — Extend kitchen table collision by half a tile
+
+- Date: 2026-09-24
+- Authorization: Owner revised the requested increase from one tile to half a tile before any edit was made.
+- Direction: Extend the main dining collision upward by 0.5 layout tiles (8 world pixels): y=6.5 to 6, height=1.0625 to 1.5625. Preserve bottom y=7.5625, width, lower chair bands, sprite placement and all other collisions. No commit/push.
+- Verification: All 640 tests, typecheck, production build and diff whitespace check pass, including the new blocked-strip/clear-floor/unchanged-bottom regression and actual Arcade collision tests. Browser checks not repeated; prior browser evidence is for DEC-121.
+
+## DEC-121 — Integrate fitted kitchen and center its painted entrance
+
+- Date: 2026-09-24
+- Authorization: Owner selected the new kitchen and confirmed the old assets are no longer needed. No push authorized.
+- Direction: Use sample-v3 background and one front-v1 combined dining sprite. Remove duplicate fixture/chair sprites and unused named-frame infrastructure. Stove and fridge remain ordinary background hotspots with existing recipes and display-only shopping-list dialogs.
+- Alignment: Painted jambs are local x=7.5625..9.875. Shift kitchen origin to x=27.28125 so the visible passage center equals the gym corridor center x=36. Preserve the four-tile corridor; its centered doorway is intentionally narrower. Integer doorway metadata x=7..10 contains the painted opening; precise collision jambs govern passage. No global layout-validation relaxation or room-specific rendering code.
+- Collision: Re-author fixed cabinet/fridge footprints from new artwork and a stepped lower dining footprint. Keep routes around the table, to both hotspots, and through the entrance at the full player-foot width.
+- Cleanup: Ten obsolete kitchen PNGs (two backgrounds and eight object sheets) moved out of public assets to /private/tmp/port09d-superseded-assets.mY1jk8 for temporary recovery. Original generator outputs also remain outside the repo. Historical prompt/decision records retained.
+- Verification: Automated tests and production build pass; final browser verification and owner review recorded in output/qa/port09d/verification.md. Story remains in progress; no commit/push.
+
+## DEC-120 — Regenerate fitted kitchen background and combined dining set
+
+- Date: 2026-09-24
+- Authorization: Owner rejected the freestanding arrangement and approved baking fitted wall runs into the background, with a separate single-view table-and-four-tucked-chairs asset.
+- Direction: Left-wall continuous counter/sink/stove, upper and lower cupboards, sunny window above sink, dog bowl directly beneath sink. Right-wall fridge with adjacent cupboards, facing inward. Preserve decorated two-door mint fridge and horizontal handles. Central dining set remains one independently placeable sprite.
+- Scope: Regenerate and review artwork first, preserving older files and current runtime until visual approval. Subsequent integration must remove duplicate fixed-object sprites, use background interaction hotspots and re-author collisions. Prior DEC-119 tests apply only to the old arrangement. No commit/push.
+- Tool: Built-in image generation through imagegen skill; exact prompts saved with versioned outputs.
+- Owner follow-up: add one cutting board and one knife block on the left countertop, preserving the regenerated fitted layout and all other details.
+
+## DEC-119 — Integrate the owner's kitchen arrangement
+
+- Date: 2026-09-24
+- Authorization: Owner placed sink, stove and dog bowl on the left wall, front-facing fridge and cupboards on the right, and table in the center. Retain four wooden chairs from DEC-118.
+- Implementation: New data-only kitchen module, separate cupboard decoration, left-camera counter/stove views (working fronts face right), fridge v2 front, central table and four inward-facing chair instances. Use named Phaser texture frames to select tight sprite regions without modifying generated PNGs. A small generic frame-registration helper and optional sprite frame field support reuse; no kitchen-specific scene logic.
+- Content: Stove opens dummy recent recipes/meals; fridge opens dummy display-only shopping list through the existing shared dialog. Startup now registers the central content registry rather than a hand-maintained room list; browser testing caught and resolved the initially missing kitchen registration. No editable state, persistence or backend.
+- Physics: Author independent furniture ground footprints and painted wall/jamb collisions. Keep world x=36 corridor centerline open despite narrower painted doorway. Increase bowl footprint from 3px to 6px after actual Arcade tests reproduced vertical tunneling; no movement-speed or global physics change.
+- Verification: 672 tests pass, including nine furniture rectangles in four directions at 15/30/60/120 FPS, foot-width route flood-fill, atlas bounds/restart/missing-texture behavior, renderer fallbacks and kitchen keyboard/touch dialog cycles. Typecheck/build pass with existing bundle-size warning. Browser evidence: output/qa/port09d/verification.md.
+- Delivery: Local implementation and owner visual review; no commit or push. Depth sorting remains deferred.
+
+## DEC-118 — Kitchen artwork and interaction scope
+
+- Date: 2026-09-24
+- Authorization: Generate the kitchen using utils/style_kitchen.md and the established room/sprite approach. Owner confirmed a display-only fridge shopping list and exactly four old-style wooden chairs.
+- Direction: Separate architectural background, fridge, gas stove, counter/sink with two-slot toaster and drying rack, upper cupboards, round red/white-checkered table with flower vase, wooden chair and dog bowl. One reusable chair design supplies four placed chairs later. Front/back/left/right object turnaround sheets are artwork-review assets; extraction, placement and collisions are implementation work, not part of this generation pass.
+- Constraints: Match existing warm textured arcade art and elevated orthographic camera; preserve the kitchen's 16x10 room ratio and top opening at local x=7..11. Window positioned above the future sink area, clear passage and player-relative furniture proportions. Reference artwork is style guidance only, not an edit target.
+- Interaction intent: Fridge opens a read-only shopping-list dialog; stove opens recipes and recently eaten meals. No editing/persistence/backend. Runtime implementation and push remain deferred.
+- Owner revision during generation: fridge has a separate top freezer, horizontal handles on both doors, and front-door stickers/notes/magnets. Preserve original single-door sample as v1; generate v2 with the revision consistent across views. Notes are visual decoration, not the shopping-list content itself.
+- Generation: Built-in image tool via imagegen skill; versioned assets and exact prompts saved in the workspace. Review results recorded with the prompt set.
+
 ## DEC-117 — Deliver dialogs and office follow-ups
 
 - Date: 2026-09-24

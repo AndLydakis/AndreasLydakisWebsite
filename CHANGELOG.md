@@ -6,6 +6,23 @@ pushed.
 
 ## [Unreleased]
 
+### PORT-09D — Fitted kitchen and corridor boundaries
+
+Owner approved delivery on 2026-09-24. Final scope: fitted kitchen, combined dining sprite, stove recipes, read-only fridge shopping list, aligned entry and corridor side walls. 738 tests, typecheck/build and development/production desktop/mobile-emulated browser checks pass. Entries below preserve the implementation history; earlier no-push notes are superseded by this authorization.
+
+- DEC-123: fixed missing corridor collisions by generating walls only along exposed corridor edges, keeping entrances and junctions open. Added geometry, real Arcade physics and browser regressions for all three corridors. No push.
+
+- DEC-122: extended the kitchen table collision upward by half a tile (8 world pixels), preserving its bottom edge and chair-foot bands. No artwork changes or push.
+
+- DEC-121: integrated fitted kitchen v3 and combined table/four-chair sprite; centered painted entrance on gym corridor; replaced fixed-object hotspots/collisions. Removed superseded public assets and unused sheet-frame code. Tests/build pass; owner review pending, no push.
+
+- DEC-120: regenerated fitted kitchen background with fixed fixtures baked in; latest v3 adds cutting board and knife block to left counter. Separate single-view dining-set asset combines round table with four tucked-in chairs. Prior runtime layout not replaced yet; integration/retesting pending. No push.
+
+- DEC-119: integrated owner-directed layout, four chairs, named texture frames, furniture/wall collisions, stove recipes and read-only fridge shopping list. Added frame/fallback/navigation tests and real Arcade collision coverage; no push.
+
+- DEC-118: generated architectural background and separate four-view fridge, stove, counter/sink, wall-cupboard, table, wooden-chair and dog-bowl review sheets. Counter includes toaster and drying rack; table includes checkered cloth and flower vase; four chair instances planned.
+- Fridge v2 adds top freezer, horizontal handles, stickers/magnets/notes; read-only shopping-list interaction confirmed. Exact prompts and integration caveats recorded in output/imagegen/kitchen-assets.prompt.md. No runtime integration or push.
+
 Delivery 2026-09-24: PORT-09C-B and office follow-ups DEC-114/115/116 committed as e7f6840 and successfully pushed to origin/master. 520 tests, build and final development/production desktop/mobile-emulated browser suites pass.
 
 ### PORT-09C follow-up — Office starting point

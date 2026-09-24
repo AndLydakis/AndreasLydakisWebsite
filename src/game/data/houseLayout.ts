@@ -5,6 +5,7 @@ import type {
 } from './types';
 import { PLAYER_DISPLAY_HEIGHT } from '../entities/playerAnimation';
 import { office } from './office';
+import { kitchen } from './kitchen';
 
 const livingRoom: RoomDefinition = {
   id: 'living-room',
@@ -145,34 +146,6 @@ const gym: RoomDefinition = {
   visualAssetId: 'gym-background',
 };
 
-const kitchen: RoomDefinition = {
-  id: 'kitchen',
-  name: 'Kitchen',
-  origin: { x: 27, y: 22 },
-  widthTiles: 16,
-  heightTiles: 10,
-  collisionRects: [
-    { x: 0, y: 0, width: 7, height: 1 },
-    { x: 11, y: 0, width: 5, height: 1 },
-    { x: 0, y: 9, width: 16, height: 1 },
-    { x: 0, y: 1, width: 1, height: 8 },
-    { x: 15, y: 1, width: 1, height: 8 },
-  ],
-  interactables: [
-    {
-      id: 'kitchen-stove',
-      roomId: 'kitchen',
-      position: { x: 7, y: 4 },
-      label: 'Kitchen stove',
-      promptLabel: 'kitchen stove',
-      contentId: 'kitchen-meals',
-      interactionRadiusTiles: 2,
-      assetId: 'furniture-placeholder',
-    },
-  ],
-  visualAssetId: 'room-placeholder',
-};
-
 export const houseRooms = [livingRoom, gym, office, kitchen] as const;
 
 export const houseCorridors = [
@@ -231,7 +204,8 @@ export const houseDoorways: readonly DoorwayDefinition[] = [
     id: 'kitchen-to-gym',
     fromRoomId: 'kitchen',
     toRoomId: 'gym',
-    opening: { x: 7, y: 0, width: 4, height: 1 },
+    // Tile envelope contains the sub-tile painted entrance; jambs define its exact width.
+    opening: { x: 7, y: 0, width: 3, height: 1 },
   },
 ];
 
