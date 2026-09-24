@@ -2,6 +2,13 @@
 
 This file is the project decision record. New implementation decisions, approved changes, deferred choices, and story-completion decisions must be added here before or alongside changes to `plan.md` or source files.
 
+## DEC-125 — Trial higher-resolution rendering without larger objects
+
+- Date: 2026-09-24
+- Authorization: Owner requested the rendering trial and subsequently approved pushing this resolution change before any jitter-fix work.
+- Direction: RENDER_SCALE=2 gives a 1024x576 canvas and 2.5 camera zoom. FIT retains the same CSS aspect/size, while proportional zoom retains the same 409.6x230.4 world viewport. No asset regeneration, world coordinates, collider, speed or filtering changes. Rendering uses four times as many pixels; physical-mobile performance is not established.
+- Verification: 738 tests, typecheck/build and development/production desktop/portrait/landscape browser checks pass. Exact runtime canvas/zoom/world-coverage assertions and existing corridor, dialog, collision and mobile-control checks pass without uncaught exceptions. Desktop/portrait screenshots inspected. Evidence in output/qa/render-resolution/verification.md; physical-device performance remains unverified.
+
 ## DEC-124 — Deliver PORT-09D
 
 - Date: 2026-09-24

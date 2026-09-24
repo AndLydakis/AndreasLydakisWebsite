@@ -3,7 +3,7 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
 
-const output = `output/qa/port09d/${process.argv[2]?.includes(':4173') ? 'production' : 'development'}`;
+const output = process.env.QA_OUTPUT_DIR ?? `output/qa/port09d/${process.argv[2]?.includes(':4173') ? 'production' : 'development'}`;
 mkdirSync(output, { recursive: true });
 const targets = await (await fetch(`http://127.0.0.1:${process.argv[3] ?? 9333}/json`)).json();
 const ws = new WebSocket(targets.find(t => t.type === 'page').webSocketDebuggerUrl);
@@ -66,6 +66,13 @@ try {
     await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile });
     await send('Emulation.setTouchEmulationEnabled', { enabled: mobile, maxTouchPoints: 5 });
     await pause(400);
+    if (process.env.QA_RENDER_SCALE) {
+      const scale = Number(process.env.QA_RENDER_SCALE);
+      const render = await evaluate(`(()=>{const c=testScene.cameras.main, canvas=testScene.game.canvas;
+        return {width:canvas.width,height:canvas.height,zoom:c.zoom,visibleWidth:c.width/c.zoom,visibleHeight:c.height/c.zoom}})()`);
+      assert.deepEqual(render, {width:512*scale,height:288*scale,zoom:1.25*scale,visibleWidth:409.6,visibleHeight:230.4});
+      console.log(`PASS ${name}: ${render.width}x${render.height} rendering, unchanged world framing`);
+    }
     const corridors = await evaluate('testScene.layout.corridors');
     for (const corridor of corridors) {
       const { x, y } = corridor.origin, w = corridor.widthTiles, h = corridor.heightTiles;

@@ -6,6 +6,10 @@ pushed.
 
 ## [Unreleased]
 
+### Presentation follow-up — Higher-resolution rendering trial
+
+- DEC-125: doubled canvas resolution to 1024x576 and scaled camera zoom proportionally, preserving on-screen object size and framing. Existing artwork and physics unchanged. Owner approved delivery; 738 tests, build and development/production browser checks pass. Jitter fixes are excluded from this delivery.
+
 ### PORT-09D — Fitted kitchen and corridor boundaries
 
 Delivered 2026-09-24: implementation commit 0544ce7 successfully pushed to origin/master; PORT-09D marked Done.

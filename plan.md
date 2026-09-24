@@ -2123,6 +2123,8 @@ Walk the entire house and test every interaction from multiple approach directio
 
 ## PORT-10A — Complete the semantic content index
 
+Pre-story presentation trial (DEC-125, in review): 1024x576 rendering with proportional camera zoom preserves object sizes and visible world area. All 738 tests, build and development/production desktop/portrait/landscape browser checks pass, including rendering dimensions, traversal, collisions and controls. Desktop/portrait visuals inspected; owner acceptance and physical-mobile performance review pending. Local only; does not reopen completed PORT-09D or start PORT-10A. Evidence: output/qa/render-resolution/verification.md.
+
 Type: Story  
 Priority: High  
 Dependencies: `PORT-09D`  
