@@ -1,6 +1,6 @@
 # Dog picture dialog — DEC-111
 
-Owner-approved follow-up to completed PORT-09C; commit and push authorized on 2026-09-24.
+Done: owner-approved follow-up delivered in b1e5841, successfully pushed to origin/master on 2026-09-24.
 
 - 385 tests across 24 files pass; typecheck and production build pass. Existing bundle warning unchanged.
 - Dog remains at the same position/size with the same floor collision. Its new interaction radius is 1.25 tiles, reachable from clear floor below the bed.

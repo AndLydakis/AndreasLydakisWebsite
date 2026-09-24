@@ -918,6 +918,7 @@ This file is the project decision record. New implementation decisions, approved
 - Delivery: Local PORT-09C follow-up pending owner review; no commit or push. Original PORT-09C delivery remains Done.
 - Final verification: development and production desktop/portrait/landscape suites passed, including photo load/fallback/cleanup and all existing office checks; screenshots visually inspected. Evidence: output/qa/port09c/dog-followup.md.
 - Follow-up delivery authorization: Owner requested pushing these changes. Repeat final tests/build/diff checks, commit only the dog follow-up and QA evidence, and preserve unrelated owner edits. Record successful delivery below.
+- Delivered: b1e5841 successfully pushed to origin/master on 2026-09-24. Dog follow-up complete; final 385 tests/typecheck/build/whitespace checks passed. Unrelated plan wording and style reorganization remain local.
 
 ## DEC-110 — Accept and deliver PORT-09C
 
