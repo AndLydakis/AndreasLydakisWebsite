@@ -1,5 +1,7 @@
 # PORT-09D fitted kitchen — DEC-121 local review
 
+Delivery update (2026-09-24): owner approved delivery; implementation commit 0544ce7 successfully pushed to origin/master and PORT-09D marked Done. Earlier local-review/no-push statements below are historical. Physical-device and independent-review limitations remain.
+
 ## DEC-123 corridor boundary fix
 
 - Root cause: getAllCollisionRects omitted corridors entirely. Only room walls and the distant world perimeter were solid.

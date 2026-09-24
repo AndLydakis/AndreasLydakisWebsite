@@ -8,6 +8,8 @@ pushed.
 
 ### PORT-09D — Fitted kitchen and corridor boundaries
 
+Delivered 2026-09-24: implementation commit 0544ce7 successfully pushed to origin/master; PORT-09D marked Done.
+
 Owner approved delivery on 2026-09-24. Final scope: fitted kitchen, combined dining sprite, stove recipes, read-only fridge shopping list, aligned entry and corridor side walls. 738 tests, typecheck/build and development/production desktop/mobile-emulated browser checks pass. Entries below preserve the implementation history; earlier no-push notes are superseded by this authorization.
 
 - DEC-123: fixed missing corridor collisions by generating walls only along exposed corridor edges, keeping entrances and junctions open. Added geometry, real Arcade physics and browser regressions for all three corridors. No push.

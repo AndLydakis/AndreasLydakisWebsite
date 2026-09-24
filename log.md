@@ -8,7 +8,7 @@ This file is the project decision record. New implementation decisions, approved
 - Authorization: Owner requested pushing the completed kitchen and corridor fixes.
 - Scope: DEC-118 through DEC-123, selected fitted kitchen/dining artwork, stove/fridge content, generic corridor walls, tests and QA evidence. Include the kitchen-specific style prompt; preserve unrelated root/style-folder reorganization and earlier plan-review wording outside the commit.
 - Verification: 738 automated tests and build pass; final development/production desktop, portrait and landscape browser checks passed in DEC-123. No physical-device or independent-review claim.
-- Delivery: Ready for scoped commit and push on master. Mark Done only after successful push.
+- Delivery: Implementation commit 0544ce7 successfully pushed to origin/master on 2026-09-24. Mark PORT-09D Done and publish this completion record. Unrelated plan wording and style-file reorganization remain local.
 
 ## DEC-123 — Block exposed corridor edges
 
