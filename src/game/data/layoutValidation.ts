@@ -213,8 +213,10 @@ function validateRoom(
   }
   roomIds.add(room.id);
 
-  if (!isNonNegativeInteger(room.origin.x) || !isNonNegativeInteger(room.origin.y)) {
-    errors.push(`Room ${roomLabel} origin must use non-negative integer world coordinates.`);
+  // Fractional room origins let odd-width artwork align with even-width corridors.
+  if (!Number.isFinite(room.origin.x) || room.origin.x < 0 ||
+      !Number.isFinite(room.origin.y) || room.origin.y < 0) {
+    errors.push(`Room ${roomLabel} origin must use non-negative finite world coordinates.`);
   }
 
   if (!isPositiveInteger(room.widthTiles) || !isPositiveInteger(room.heightTiles)) {

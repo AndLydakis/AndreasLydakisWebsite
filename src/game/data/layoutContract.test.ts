@@ -30,20 +30,23 @@ describe('complete layout contract', () => {
     expect(validateHouseLayout(invalidLayout)).toContain(expectedError);
   });
 
-  it('rejects negative or fractional room origins', () => {
+  it('rejects negative or non-finite room origins but accepts precise alignment', () => {
     const negativeOrigin = replaceRoom(houseLayout, 'office', {
       origin: { x: -1, y: 22 },
     });
     expect(validateHouseLayout(negativeOrigin)).toContain(
-      'Room office origin must use non-negative integer world coordinates.',
+      'Room office origin must use non-negative finite world coordinates.',
     );
 
     const fractionalOrigin = replaceRoom(houseLayout, 'office', {
-      origin: { x: 2.5, y: 22 },
+      origin: { x: 3.5, y: 22 },
     });
-    expect(validateHouseLayout(fractionalOrigin)).toContain(
-      'Room office origin must use non-negative integer world coordinates.',
-    );
+    expect(validateHouseLayout(fractionalOrigin)).toEqual([]);
+    for (const value of [NaN, Infinity, -Infinity]) {
+      expect(validateHouseLayout(replaceRoom(houseLayout, 'office', {
+        origin: { x: value, y: 22 },
+      }))).toContain('Room office origin must use non-negative finite world coordinates.');
+    }
   });
 
   it.each([0, -0.5, NaN, Infinity])('rejects invalid collision width %s', (width) => {

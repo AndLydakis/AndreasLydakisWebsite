@@ -6,6 +6,26 @@ pushed.
 
 ## [Unreleased]
 
+- DEC-104: office background v3 adds two plants, including a large monstera; previous artwork preserved. Not integrated or pushed.
+
+### PORT-09C — Office artwork, interactions and aligned navigation
+
+- Owner approved delivery (DEC-110). Seven selected sprites, narrower office background, shared reading and dummy CV interactions, floor-contact collisions and aligned corridor verified. 384 tests, typecheck/build and desktop/touch-emulated development/production browser checks pass. Dog remains decorative; CV/PDF and depth layering stay in later stories. Earlier no-push notes below describe historical iterations.
+
+- DEC-109: fixed the half-tile office/corridor offset by shifting the office left 8 world pixels. Added centerline alignment regression coverage; furniture stays unchanged relative to the room.
+
+- DEC-108: integrated the shorter office backdrop and seven independent furniture/character sprites in the requested arrangement. Added floor-contact collisions, shared reading interaction and registered the dummy CV dialog. Added office navigation, artwork, fallback and actual Arcade collision tests plus an isolated desktop/mobile browser driver. Dog remains decorative pending the placeholder-dialog choice. No commit/push.
+
+- DEC-107: office background v5 shortens the horizontal room proportion to approximately 1.7:1. Prior versions and furniture retained; runtime footprint reconciliation pending.
+
+- DEC-106: office background v4 replaces the formal rug with two casual overlapping rugs covering most of the floor. Previous background versions preserved; not integrated.
+
+- DEC-105: generated separate left-facing olive sofa and low wooden coffee-table artwork matching the office style. Saved prompts; runtime placement and sizing pending.
+
+- DEC-103: revised room to two plants with avatar-scale guidance; generated directional candidates, seated robot and corrected rear desk chair placement. Preserved all original fronts. Saved explicit consistency limitations; side drafts are not approved final rotations. No integration/push.
+
+- DEC-102: generated a separate office background and four object sprites from utils/style_office.md in the established arcade-pixel style. Saved exact generation prompts. No runtime integration, collisions, interactions, commit or push yet.
+
 ### Gym boxing-bag artwork — PORT-09B
 
 - DEC-099: generated a separate black/red patched boxing bag, chain and X-base stand from utils/style_bbag.md. Saved the PNG and exact generation prompt under public/assets/sprites/gym-boxing-bag/. Not integrated into the room; no commit/push.

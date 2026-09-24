@@ -890,3 +890,75 @@ This file is the project decision record. New implementation decisions, approved
 - Scope: Reconcile story wording with selected runtime art; park unapproved alternate dumbbell generation. Preserve unrelated owner's plan-review wording and style-file reorganization outside the story commit. Include gym/boxing-bag prompts needed for provenance.
 - Delivery: Ready for story-ID commit and authorized push. Mark Done only after successful delivery; record the resulting commit below.
 - Delivered: `9b1428a` (`PORT-09B: deliver gym artwork, interactions and verified collisions`) successfully pushed to origin/master on 2026-09-20. Mark PORT-09B Done and publish the completion record. Unrelated owner plan wording and style reorganization remain unstaged in the working tree.
+
+## DEC-102 — Office artwork samples from style_office.md
+
+- Date: 2026-09-24
+- Authorization: Owner requested office artwork from utils/style_office.md, matching previous styling. This is generation/review scope, not authorization to implement or close PORT-09C.
+- Direction: Use the imagegen skill and built-in generator for five separate assets: architectural background with rug/framed degree; standing desk with laptop, two additional monitors, keyboard, mouse and chair; bookcase; sleeping generic border collie with bed; toy-sized humanoid robot. Preserve existing 20×10 office ratio and top-centre doorway. Warm plaster/wood office palette and elevated orthographic arcade-pixel style. One view per object at this review stage; source prompt unchanged.
+- Scope boundary: Record prompt intent for workstation CV and shared bookcase reading dialog; do not wire them yet. Dog-photo interaction is explicitly future work. No invented degree credentials or real-pet likeness. Robot remains art-only with no assumed interaction.
+- Delivery: Room sample in public/assets/backgrounds/office/; object PNGs in per-object public/assets/sprites/office-* folders. Exact prompts saved in output/imagegen/office-assets.prompt.md. Original generated files retained. Visually inspected five outputs; final room arrangement, sprite scaling, collisions and alpha-edge appearance require integration review. No code changes, commit or push.
+
+## DEC-103 — Office scale, fewer plants and multi-view art review
+
+- Date: 2026-09-24
+- Authorization: Owner requested avatar-proportional room details, fewer plants, multiple consistent object viewpoints, an additional seated robot and correction of the rear desk's chair placement.
+- Room: Save sample-v2.png with exactly two plants; preserve initial sample. Prompt relates 320×160 room to the player's 51px displayed frame height, not its 32px physics anchor. Runtime proportionality still needs integration review.
+- Views: Generate rear/left/right candidates for workstation, bookcase, dog bed and standing robot, each conditioned on its unchanged original image. Add seated robot as a separate pose. Correct rear desk camera/occlusion: chair remains on far user-facing side behind the desk from the rear viewpoint, never moves toward camera merely to remain visible.
+- QA: Reject initial rear desk image for near-side chair; corrected candidate saved as back.png. Dog-bed side angles/fabric and workstation side geometry fail strict consistency and are saved explicitly as review candidates, not approved rotations. Other views preserve broad identities but fine geometry/detail is not certified exact. Record limitations and reference hashes in output/imagegen/office-views-review.md. All four reference hashes unchanged.
+- Delivery: Exact prompts and all chosen/review candidates saved in workspace object folders. PORT-09C remains artwork review only; no integration, commit or push.
+
+## DEC-110 — Accept and deliver PORT-09C
+
+- Date: 2026-09-24
+- Authorization: Owner approved pushing the completed story after the remaining-work summary. Treat this as visual acceptance and retain the dog as decoration, within the existing scope; no new dog dialog or photograph.
+- Verification: 384 automated tests, TypeScript/build and development/production desktop and touch-emulated portrait/landscape checks passed, including the aligned corridor. Final test/build/diff review repeated before commit. Existing bundle-size warning and generic diagnostic outlines remain unchanged.
+- Scope: Include office art iterations, prompts, source office brief, implementation, tests and QA evidence. Preserve unrelated owner plan-review wording and style-file reorganization unstaged. No independent-review claim.
+- Delivery: Authorized PORT-09C commit and push to origin/master; record successful delivery before marking Done.
+
+## DEC-109 — Center the office entrance on the living-room corridor
+
+- Date: 2026-09-24
+- Issue: The corridor and living-room exit were centered at world x=12, but the narrowed office and its doorway were centered at x=12.5.
+- Fix: Shift the entire office origin from x=4 to x=3.5 (8 world pixels left). Keep artwork, local furniture positions, collision bands and corridor unchanged. The narrower office entrance now has symmetric shoulders beneath the wider corridor.
+- Contract: Allow finite non-negative fractional room origins for precise placement; integer room dimensions, corridor geometry and local doorway metadata remain enforced. Reject negative/non-finite origins as before.
+- Verification: Add regression assertions that both doorway centers and the office collision passage center equal the corridor center. Update browser fixtures for the shifted room and rerun checks. No commit/push; PORT-09C remains in progress.
+
+## DEC-108 — Integrate office layout and existing content interactions
+
+- Date: 2026-09-24
+- Authorization: Owner requested furniture placement and interactables: right-facing desk on left wall, front dog below, adjacent bookcase, sofa/table center-right and both robots south of sofa. No push authorization.
+- Layout: Use background v5 in a 17×10 room at (4,22). Preserve the existing corridor and narrow the office doorway metadata to local x=7..10, with painted jamb collisions x=7.125..9.875. Use a separate typed office data module; no office branches added to rendering, physics or interaction systems.
+- Art: Use workstation left-review.png because its working side faces screen-right; filenames refer to camera viewpoints. Other selected art is unchanged. Prior directional consistency limitations remain, pending owner acceptance. Seven sprites use the generic optional asset/fallback pipeline and independent floor-contact collision bands, including small plant-pot bands in the backdrop.
+- Content: Register dummy CV with DialogManager; office bookcase reuses livingroom-books. Sofa, table and robots decorative. Asked whether the dog should open a placeholder dialog; retain decoration while awaiting the answer and defer real-photo behavior. No PDF feature added.
+- QA: Automated office navigation, ordering, assets and fallback tests added. Existing Arcade solver tests now also cover all seven office bases from four directions at 15/30/60/120 FPS. Browser tests caught and fixed missing CV dialog registration. Test details and remaining limitations are in output/qa/port09c/verification.md.
+- Delivery: Update plan and changelog; keep PORT-09C in progress pending owner visual acceptance. No commit or push; preserve unrelated owner edits.
+
+## DEC-107 — Shorten office horizontally
+
+- Date: 2026-09-24
+- Authorization: Owner requested a room a bit smaller lengthwise. Interpret length as the long horizontal axis; choose approximately 15% reduction for review.
+- Direction: Generate sample-v5 with about 1.7:1 proportions instead of 2:1, maintaining vertical extent and avoiding global horizontal squashing. Retain four plants, two overlapping rugs and central entrance. Existing separate furniture assets unchanged.
+- Verification: Visually inspected full room, retained plants and overlapping rugs. Exact world scale and entrance width remain integration checks, not guarantees from image generation.
+- Delivery: Preserve v4; save exact prompt in output/imagegen/office-background-v5.prompt.md. During implementation, reconcile room footprint, corridor connection and collisions with the narrower art rather than stretching it to 20x10 tiles. No runtime changes, commit or push.
+
+## DEC-106 — Casual overlapping office rugs
+
+- Date: 2026-09-24
+- Authorization: Owner requested replacing the single carpet with two casual carpets overlapping centrally and covering most of the floor.
+- Direction: Edit background v3 with a large cream striped rug and a sage/ochre woven rug, slightly angled and overlapping in the middle. Keep narrow wood borders, existing architecture and all four plants. These are two distinct carpets within the background, not separate movable sprites.
+- Delivery: Built-in image generation; visually inspected sample-v4.png for two rugs, central overlap and broad floor coverage. Previous versions preserved; exact prompt in output/imagegen/office-background-v4.prompt.md. No runtime integration, commit or push.
+
+## DEC-105 — Separate office sofa and coffee table artwork
+
+- Date: 2026-09-24
+- Authorization: Owner requested a left-facing sofa and coffee table for the office.
+- Direction: Generate a compact olive fabric two-seat sofa, backrest screen-right and open seating front screen-left, plus a separate low walnut coffee table aligned with its length. Use office sample-v3 as style reference, not a background to modify. Preserve existing artwork.
+- Delivery: Built-in image generation; visually inspected left-facing silhouette and separate table. Saved per-object PNGs and exact prompts in output/imagegen/office-seating.prompt.md. Runtime sizing, alpha-edge appearance, placement and collision review remain for implementation. No interactions assumed; no integration, commit or push.
+
+## DEC-104 — Add two plants to the office background
+
+- Date: 2026-09-24
+- Authorization: Owner requested a couple more plants, suggesting a large monstera.
+- Direction: Add a large monstera at the upper-left wall and a smaller potted plant at bottom-right, retaining the existing two plants. Keep the central doorway and furniture space clear.
+- Delivery: Generated and visually inspected sample-v3.png using the built-in image generator; four plants total. Previous versions preserved. Exact prompt in output/imagegen/office-background-v3.prompt.md. Artwork review only; no runtime changes, commit or push.

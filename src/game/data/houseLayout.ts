@@ -4,6 +4,7 @@ import type {
   RoomDefinition,
 } from './types';
 import { PLAYER_DISPLAY_HEIGHT } from '../entities/playerAnimation';
+import { office } from './office';
 
 const livingRoom: RoomDefinition = {
   id: 'living-room',
@@ -144,34 +145,6 @@ const gym: RoomDefinition = {
   visualAssetId: 'gym-background',
 };
 
-const office: RoomDefinition = {
-  id: 'office',
-  name: 'Office',
-  origin: { x: 2, y: 22 },
-  widthTiles: 20,
-  heightTiles: 10,
-  collisionRects: [
-    { x: 0, y: 0, width: 8, height: 1 },
-    { x: 12, y: 0, width: 8, height: 1 },
-    { x: 0, y: 9, width: 20, height: 1 },
-    { x: 0, y: 1, width: 1, height: 8 },
-    { x: 19, y: 1, width: 1, height: 8 },
-  ],
-  interactables: [
-    {
-      id: 'office-workstation',
-      roomId: 'office',
-      position: { x: 8, y: 4 },
-      label: 'Office workstation',
-      promptLabel: 'office workstation',
-      contentId: 'office-cv',
-      interactionRadiusTiles: 2,
-      assetId: 'furniture-placeholder',
-    },
-  ],
-  visualAssetId: 'room-placeholder',
-};
-
 const kitchen: RoomDefinition = {
   id: 'kitchen',
   name: 'Kitchen',
@@ -246,7 +219,7 @@ export const houseDoorways: readonly DoorwayDefinition[] = [
     id: 'office-to-living-room',
     fromRoomId: 'office',
     toRoomId: 'living-room',
-    opening: { x: 8, y: 0, width: 4, height: 1 },
+    opening: { x: 7, y: 0, width: 3, height: 1 },
   },
   {
     id: 'gym-to-kitchen',

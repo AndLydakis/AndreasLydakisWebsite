@@ -9,19 +9,23 @@ const World = require('phaser/src/physics/arcade/World');
 const Body = require('phaser/src/physics/arcade/Body');
 const StaticBody = require('phaser/src/physics/arcade/StaticBody');
 const gym = houseLayout.rooms.find((room) => room.id === 'gym');
+const office = houseLayout.rooms.find((room) => room.id === 'office');
 const objects = [
   ['dumbbell rack', 1.625],
   ['boombox', 7.25],
   ['bench', 9.5 - 1.625 * 2 / 3],
   ['boxing stand', 2],
 ];
+const cases = [
+  ...objects.map(([name, rectX]) => ({ room: gym, name, rect: gym.collisionRects.find(item => item.x === rectX) })),
+  ...office.collisionRects.slice(5, 12).map((rect, index) => ({ room: office, name: `office object ${index}`, rect })),
+];
 
-describe('gym equipment actual Arcade collisions', () => {
-  for (const [name, rectX] of objects) {
+describe('gym and office equipment actual Arcade collisions', () => {
+  for (const { room, name, rect } of cases) {
     for (const direction of ['up', 'down', 'left', 'right']) {
       it.each([15, 30, 60, 120])(`${name} stops sustained ${direction} movement at %s render FPS`, (fps) => {
-        const rect = gym.collisionRects.find((item) => item.x === rectX);
-        const x = (gym.origin.x + rect.x) * 16, y = (gym.origin.y + rect.y) * 16;
+        const x = (room.origin.x + rect.x) * 16, y = (room.origin.y + rect.y) * 16;
         const width = rect.width * 16, height = rect.height * 16;
         const world = new World({ sys: { scale: { width: 1024, height: 768 } } }, { gravity: { x: 0, y: 0 } });
         const player = new Body(world);

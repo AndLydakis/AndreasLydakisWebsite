@@ -1,0 +1,9 @@
+# Office background v5 — shorter horizontal span
+
+Built-in image generator, 2026-09-24.
+Reference: public/assets/backgrounds/office/sample-v4.png
+Output: public/assets/backgrounds/office/sample-v5.png
+Target: approximately 15% less width at equal displayed height (1.7:1 instead of 2:1).
+Runtime office footprint, doorway alignment and collisions must be reconciled during implementation; do not stretch this image back to the old 2:1 footprint.
+
+Use case: precise-object-edit. The reference is the office background to edit. Make the ROOM'S HORIZONTAL LENGTH approximately 15 percent shorter while keeping its vertical extent/depth and the sizes and proportions of architectural details and plants unchanged. Target full room aspect ratio about 1.7:1 instead of 2:1. Bring left and right walls inward, remove excess horizontal floor/wall span and recompose rather than squashing or stretching the whole picture. Output a narrower landscape canvas tightly framing the complete room (about 1536x904 or equivalent ratio); no padding to restore a 2:1 shape. Preserve elevated orthographic RPG camera, rear wall height, centered top doorway with its original physical width, four plants including big upper-left monstera, framed degree, pictures, windows, wall light and warm wooden trim. Reposition decorations slightly as necessary to fit without changing their shapes. Keep exactly two casual rugs, cream striped left and muted sage/ochre right, slightly angled and overlapping at center, covering most of the floor with only narrow wood strips; adapt their footprint to the shorter room. Keep all four plants fully visible and the doorway open. No furniture added. Preserve rich hand-pixelled 32-bit arcade style, crisp irregular pixel clusters, warm upper-left lighting and texture. This is a modest horizontal room-size reduction, not a camera zoom, crop that cuts off walls, vertical enlargement, or global anisotropic scaling.

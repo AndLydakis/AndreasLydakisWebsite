@@ -76,7 +76,7 @@ describe('interactable artwork rendering', () => {
 });
 
 describe('room backdrop rendering', () => {
-  it.each([true, false])('renders gym equipment independently with safe missing-art fallbacks (%s)', (available) => {
+  it.each([['gym', true], ['gym', false], ['office', true], ['office', false]] as const)('renders %s equipment independently with safe missing-art fallbacks (%s)', (roomId, available) => {
     const graphics = { fillStyle: vi.fn(), fillRect: vi.fn(), lineStyle: vi.fn(), strokeRect: vi.fn() };
     const images: Array<{ setScale: ReturnType<typeof vi.fn>; setDisplaySize: ReturnType<typeof vi.fn> }> = [];
     const addImage = vi.fn(() => {
@@ -89,7 +89,7 @@ describe('room backdrop rendering', () => {
       return image;
     });
     const scene = { textures: { exists: vi.fn(() => available) }, add: { image: addImage } };
-    const room = houseLayout.rooms.find((item) => item.id === 'gym')!;
+    const room = houseLayout.rooms.find((item) => item.id === roomId)!;
     buildRoom(scene as unknown as Phaser.Scene, room, 16,
       { floor: graphics, walls: graphics, collisionPreview: graphics } as unknown as HouseRenderLayers);
     const sprites = [...room.interactables, ...room.decorations!];

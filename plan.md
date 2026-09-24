@@ -1994,27 +1994,47 @@ Dependencies: `PORT-09B`
 Milestone: M2
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
+Status: Verified and owner-approved; authorized delivery in progress (DEC-110). Seven sprites, background v5, aligned corridor and workstation/shared reading interactions are integrated. Dog, sofa, table and robots remain decorative. All 384 tests and development/production browser checks pass; evidence: output/qa/port09c/verification.md. Mark Done after successful commit and push.
+
+The following art notes are historical iteration records, superseded by the integrated and approved DEC-108/109 layout. Unused alternate-view consistency refinements are not required for this story.
+
+Art follow-up (DEC-103): two-plant room revision with player-scale guidance, rear/left/right object candidates, separate seated robot and corrected far-side chair in rear desk view. Strict multiview consistency remains incomplete, notably dog-bed and workstation side drafts; see output/imagegen/office-views-review.md. Original front views preserved unchanged. No runtime integration or push.
+
+Background follow-up (DEC-104): sample-v3 adds a large upper-left monstera and a smaller bottom-right plant, bringing the total to four while keeping the doorway clear. Previous versions retained; artwork review only.
+
+Furniture follow-up (DEC-105): separate left-facing sofa and low coffee-table sprites generated for review. Placement, avatar-relative display sizing, alpha-edge review and collision decisions remain for implementation; no new interactions assumed.
+
+Background follow-up (DEC-106): sample-v4 replaces the single formal rug with two casual, slightly angled rugs overlapping centrally and covering most of the floor. Rugs are baked into this background; prior versions retained. Runtime integration remains pending.
+
+Proportions follow-up (DEC-107): sample-v5 targets about 15% less horizontal length, approximately 1.7:1 instead of 2:1. On integration, adjust the office footprint and verify corridor/doorway alignment, object scale, navigation and collisions; do not stretch the new artwork into the old 20x10 footprint. Artwork remains pending owner review.
+
 ### Goal
 
 Complete the office presentation and wire its workstation to the existing dummy CV content.
 
+Alignment follow-up (DEC-109): office origin is now (3.5,22), placing its doorway on the living-room corridor's x=12 centerline. Local artwork, furniture and collision positions unchanged; fractional room origins supported and regression-tested.
+
 ### Subtasks
 
-1. Integrate the predefined office interactable and `office-cv` content record.
-2. Add the stand-up desk, laptop, and two-monitor placeholder visuals.
-3. Complete or clearly label the dummy CV data needed by the content record.
-4. Confirm the workstation opens the reusable dialog.
-5. Leave CV-specific HTML rendering and PDF behavior to PORT-13A and PORT-13B.
+1. Integrate the office workstation and register the existing labelled `office-cv` record with the reusable dialog.
+2. Match the shorter v5 backdrop with a 17×10 tile footprint and an aligned, passable corridor entrance.
+3. Place the right-facing workstation on the left, front dog below it, bookcase on the upper wall beside it, sofa/table center-right, and both robot poses south of the sofa.
+4. Reuse `livingroom-books` for the office bookcase; keep the other objects decorative unless separately authorized. Do not invent a real dog photo.
+5. Author floor-contact collisions and verify foot-width paths, safe missing-art fallbacks, avatar-relative scale and mobile controls.
+6. Leave CV-specific HTML rendering and PDF behavior to PORT-13A and PORT-13B.
 
 ### Acceptance criteria
 
 - The office is reachable and visually distinguishable.
 - The workstation opens the labelled dummy CV content.
+- The office bookcase opens the same reading content as the living-room bookcase.
+- All seven selected sprites load independently, match the requested placement, and have reachable floor paths around their bases.
+- The shortened room's entrance remains traversable in both directions; no backdrop stretching back to the old 20×10 footprint.
 - No PDF or CV-specific dialog implementation is duplicated here.
 
 ### Verification
 
-Walk to the workstation from multiple directions, open it from keyboard and mobile controls, and confirm the generic dialog flow.
+Run unit/asset/fallback tests and actual Arcade collision tests at 15/30/60/120 FPS. Use scripts/verify-port09c-browser.mjs against development and production previews for corridor travel, seven object bases, repeated E/F and touch dialog cycles, input reset and desktop/portrait/landscape screenshots. Owner visual approval and authorized delivery are required before marking Done. Touch emulation is not physical-device testing.
 
 ---
 

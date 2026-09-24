@@ -10,6 +10,7 @@ import { televisionContent } from './content/television';
 import { vinylContent } from './content/vinyl';
 import { booksContent } from './content/books';
 import { gymContent } from './content/gym';
+import { officeContent } from './content/office';
 import { houseLayout } from './game/data/houseLayout';
 import { createGame } from './game/createGame';
 import { InputController } from './game/systems/InputController';
@@ -49,6 +50,7 @@ dialogManager.registerContent(toDialogContent(televisionContent));
 dialogManager.registerContent(toDialogContent(vinylContent));
 dialogManager.registerContent(toDialogContent(booksContent));
 dialogManager.registerContent(toDialogContent(gymContent));
+dialogManager.registerContent(toDialogContent(officeContent));
 contentIndex.setEntries([]);
 dom.gameStatus.textContent = 'Starting the interactive house...';
 

@@ -12,6 +12,15 @@ export const requiredPlaceholderAssetPaths = Object.values(placeholderAssetPaths
 
 /** Optional artwork can fail to load without preventing the generic house from starting. */
 export const optionalTexturePaths = {
+  'office-background': 'backgrounds/office/sample-v5.png',
+  // Source names denote camera viewpoint: this view's working side faces screen-right.
+  'office-workstation-right-facing': 'sprites/office-workstation/left-review.png',
+  'office-bookcase-front': 'sprites/office-bookcase/front.png',
+  'office-dog-bed-front': 'sprites/office-dog-bed/front-three-quarter.png',
+  'office-sofa-left': 'sprites/office-sofa/left.png',
+  'office-coffee-table-front': 'sprites/office-coffee-table/front.png',
+  'office-robot-standing': 'sprites/office-robot/front-three-quarter.png',
+  'office-robot-seated': 'sprites/office-robot/seated-front-three-quarter.png',
   'living-room-background': 'backgrounds/living-room/sample.png',
   'television-console-front': 'sprites/television-console/front.png',
   'record-player-front': 'sprites/record-player/front.png',

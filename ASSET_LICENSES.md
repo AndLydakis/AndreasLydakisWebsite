@@ -4,6 +4,24 @@ Current assets in `public/assets/` are project-created placeholders or AI-genera
 
 Replace this document with a full attribution record if approved third-party assets are added later.
 
+## Office samples — PORT-09C (artwork review)
+
+- DEC-108 runtime selection: background sample-v5; workstation left-review.png (camera-view filename, screens/working side face screen-right); bookcase front; dog-bed front-three-quarter; sofa left; coffee-table front; standing and seated robots front-three-quarter. Existing generated originals preserved. The desk uses a previously labelled review candidate, not a claim that all directional variants are geometrically consistent. Runtime IDs/paths are in src/app/assetManifest.ts; placement/collisions in src/game/data/office.ts.
+
+- DEC-107: public/assets/backgrounds/office/sample-v5.png generated on 2026-09-24 with the built-in image generator from sample-v4, shortening room proportions. Exact prompt: output/imagegen/office-background-v5.prompt.md. Artwork review only.
+
+- DEC-106: public/assets/backgrounds/office/sample-v4.png generated on 2026-09-24 with the built-in image generator as a rug-only edit of sample-v3.png. Exact prompt: output/imagegen/office-background-v4.prompt.md. Artwork review only.
+
+- DEC-105: public/assets/sprites/office-sofa/left.png and office-coffee-table/front.png generated on 2026-09-24 with the built-in image generator, using office sample-v3 as style reference. Exact prompts: output/imagegen/office-seating.prompt.md. Not runtime-integrated.
+
+- DEC-104: sample-v3.png generated on 2026-09-24 with the built-in image generator as an edit of sample-v2.png, adding two plants. Exact prompt: output/imagegen/office-background-v3.prompt.md. Artwork review only.
+
+- DEC-103: background sample-v2, rear/side object candidates and seated robot generated as reference-based edits on 2026-09-24. Prompt and QA records are output/imagegen/office-background-v2.prompt.md, office-directional-views.prompt.md, office-followup-poses.prompt.md and office-views-review.md. Review-labelled variants have known geometry/detail inconsistencies and are not runtime-approved assets.
+
+- Files: `public/assets/backgrounds/office/sample.png` and per-object PNGs under `public/assets/sprites/office-{workstation,bookcase,dog-bed,robot}/`.
+- Generated with the built-in image tool on 2026-09-24 from the owner's `utils/style_office.md` and existing project style descriptions. No third-party images supplied to these calls. Generic degree decoration and generic border collie, not verified personal credentials or a real-pet portrait.
+- Exact prompts: `output/imagegen/office-assets.prompt.md`. Generated images retained unchanged with alpha channels. Awaiting owner review; not loaded by the running game.
+
 ## Gym background and equipment — PORT-09B
 
 - Background: `public/assets/backgrounds/gym/background.png`, generated from `utils/style_gym.md` using the project living room as style/camera reference. Wood architecture, posters, no-curtain window and owner-requested uneven DIY matting are painted into the background; equipment is not.

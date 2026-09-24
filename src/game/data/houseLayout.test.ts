@@ -32,8 +32,8 @@ describe('initial house layout', () => {
   it('represents all six content areas with stable interactables', () => {
     const interactables = houseRooms.flatMap((room) => room.interactables);
 
-    expect(interactables).toHaveLength(7);
-    expect(new Set(interactables.map((interactable) => interactable.id)).size).toBe(7);
+    expect(interactables).toHaveLength(8);
+    expect(new Set(interactables.map((interactable) => interactable.id)).size).toBe(8);
     expect(new Set(interactables.map((interactable) => interactable.contentId)).size).toBe(6);
     expect(validateInteractableReferences(interactables, contentRegistry, roomRegistry)).toEqual([]);
   });
