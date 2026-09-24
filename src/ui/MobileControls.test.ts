@@ -21,6 +21,10 @@ class ElementDouble extends EventTarget {
   open = false;
   isConnected = true;
   textContent = '';
+  parentElement = { scrollTop: 0 };
+  before = vi.fn();
+  remove = vi.fn();
+  querySelectorAll() { return []; }
   captures = new Set<number>();
   attributes = new Map<string, string>();
   focus = vi.fn();
@@ -60,6 +64,7 @@ describe('mobile controls and room dialog contract', () => {
   beforeEach(() => {
     root = new ElementDouble();
     keyboard = new EventTarget();
+    Object.assign(keyboard, { matchMedia: () => Object.assign(new EventTarget(), { matches: true }) });
     visibility = Object.assign(new EventTarget(), {
       visibilityState: 'visible', createElement: () => new ElementDouble(), activeElement: null,
     });

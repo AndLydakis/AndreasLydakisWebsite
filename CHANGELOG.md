@@ -6,6 +6,23 @@ pushed.
 
 ## [Unreleased]
 
+### PORT-09C follow-up — Office starting point
+
+- DEC-116: new visits/reloads start on clear central office floor instead of the living room. Updated spawn, navigation and browser-startup regressions. Owner approved delivery on 2026-09-24.
+
+### PORT-09C follow-up — Workstation collision outline
+
+- DEC-115: chair now blocks only its wheel footprint and visible rear leg; raised seat/backrest allow passage for future occlusion. Desk foot separated from the chair base; desk rear support retained. Supersedes the full chair silhouette below.
+
+- DEC-114/115: desk collisions replace bottom-only behavior; raised monitors and chair seat/backrest are excluded. Sprite placement, interaction and separate coffee table unchanged. Added outline/navigation and real Arcade collision regression coverage. Owner approved delivery on 2026-09-24.
+
+### PORT-09C-B — FF7-inspired shared dialogs
+
+- DEC-113: tripled typewriter reveal speed, preserving layout and accessibility; long content now completes within two seconds.
+
+- Blue gradients, bevelled silver borders, overlapping title tabs and white shadowed text based on the owner's CSS reference.
+- Wrapping-safe typewriter text with Show all, reduced-motion support, accessible full text and lifecycle cleanup. Responsive scrolling and immediate photo display retained. Owner approved delivery on 2026-09-24.
+
 ### PORT-09C follow-up — Dog picture interaction
 
 - Delivered 2026-09-24 in b1e5841; successfully pushed to origin/master.

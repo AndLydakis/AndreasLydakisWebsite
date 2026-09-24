@@ -116,7 +116,7 @@ export function renderDomShell(root: HTMLElement): DomShellElements {
   dialog.setAttribute('aria-labelledby', 'dialog-title');
   dialog.setAttribute('aria-describedby', 'dialog-description');
   const dialogHeader = createElement('header', 'dialog-header');
-  const dialogHeadingGroup = createElement('div');
+  const dialogHeadingGroup = createElement('div', 'dialog-name-box');
   const dialogEyebrow = createElement('p', 'dialog-eyebrow');
   dialogEyebrow.id = 'dialog-eyebrow';
   const dialogTitle = createElement('h2');
@@ -125,7 +125,9 @@ export function renderDomShell(root: HTMLElement): DomShellElements {
   const dialogClose = createElement('button', 'dialog-close');
   dialogClose.type = 'button';
   dialogClose.textContent = 'Close';
-  dialogHeader.append(dialogHeadingGroup, dialogClose);
+  const dialogControls = createElement('div', 'dialog-controls');
+  dialogControls.append(dialogClose);
+  dialogHeader.append(dialogHeadingGroup, dialogControls);
   const dialogBody = createElement('div', 'dialog-body');
   const dialogDescription = createElement('p', 'dialog-description');
   dialogDescription.id = 'dialog-description';

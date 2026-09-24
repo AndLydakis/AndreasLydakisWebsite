@@ -2040,6 +2040,48 @@ Run unit/asset/fallback tests and actual Arcade collision tests at 15/30/60/120 
 
 ---
 
+## PORT-09C-B — FF7-inspired shared dialog presentation
+
+Related office follow-up (DEC-116): starting point moved to clear office floor at world tile (12, 27); 520 tests and production build pass. Included in the owner's approved delivery. Existing camera initialization is retained.
+
+Related office follow-up (DEC-114/115): desk outline excludes monitors; chair now uses only floor footprint plus visible rear leg, leaving seat/backrest non-solid for future occlusion. 520 tests and production build pass. Included in the owner's approved delivery. Evidence: output/qa/port09c/workstation-collisions.md. Depth sorting remains future work. This does not change the dialog story's scope.
+
+Type: Story
+
+Priority: High
+
+Dependencies: `PORT-09C`
+
+Milestone: M2
+
+Status: Verified and owner approved on 2026-09-24; commit/push in progress (DEC-117). 520 tests, production build and final development/production desktop/portrait/landscape browser suites pass, including the faster reveal, current collisions and office spawn. Evidence: output/qa/port09c/ff-dialogs.md. Added before PORT-09D at the owner's request (DEC-112).
+
+### Goal
+
+Apply the owner's reference style to every shared dialog without sacrificing wrapping, scrolling, accessibility or picture display.
+
+### Subtasks
+
+1. Add deep blue gradient, silver bevelled borders, white shadowed text and an overlapping title tab.
+2. Reveal paragraphs/list items with a wrapping-safe typewriter effect; keep titles, links and pictures immediately visible.
+3. Provide keyboard/touch Show all, immediate reduced-motion content and clean cancellation on close/reopen/destroy.
+4. Retain native modal focus, Escape/Close, gameplay gating and accessible complete text during animation.
+5. Test long titles, unbroken text, short landscape screens, image dialogs and all existing office interactions.
+
+### Acceptance criteria
+
+- Every content dialog uses the gradient and title-tab appearance; no fixed 450px or single-line clipping.
+- Text wraps normally and long content scrolls without horizontal overflow; Close and Show all remain reachable.
+- Show all completes the reveal and retains focus; reduced-motion preference bypasses or ends animation.
+- No timer survives close/reopen/destruction; grapheme clusters remain intact and assistive technology receives full text.
+- Desktop and mobile-emulated checks, unit tests and production build pass; owner approves appearance before delivery.
+
+### Verification
+
+Run DialogTypewriter unit tests and the extended scripts/verify-port09c-browser.mjs against development and production. Inspect screenshots at desktop/portrait/landscape, including photo content and long-content stress fixtures. Record limitations and follow the story completion workflow before marking Done.
+
+---
+
 ## PORT-09D — Add kitchen and meal content
 
 Type: Story  

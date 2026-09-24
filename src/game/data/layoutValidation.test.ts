@@ -159,7 +159,7 @@ describe('house layout validation', () => {
     };
 
     expect(validateHouseLayout(withoutOfficeConnection)).toContain(
-      'Required room office is unreachable from initial spawn.',
+      'Required room living-room is unreachable from initial spawn.',
     );
   });
 

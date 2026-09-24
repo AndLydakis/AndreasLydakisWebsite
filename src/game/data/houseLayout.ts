@@ -242,5 +242,6 @@ export const houseLayout: HouseLayout = {
   rooms: houseRooms,
   corridors: houseCorridors,
   doorways: houseDoorways,
-  initialSpawn: { x: 6, y: 10 },
+  // Clear central office floor, away from furniture and the doorway.
+  initialSpawn: { x: office.origin.x + 8.5, y: office.origin.y + 5 },
 };

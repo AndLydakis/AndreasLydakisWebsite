@@ -1,8 +1,24 @@
 import type { RoomDefinition } from './types';
 
+/** Desk silhouette and chair floor footprint for the right-facing 4.5-tile sprite.
+ * Raised monitors and the chair backrest/seat are non-solid for future occlusion.
+ * Keep these in room data so the normal Arcade collision system handles them.
+ */
+export const officeWorkstationOutline = [
+  { x: 2, y: 3.5625, width: 2.0625, height: 0.3125 },
+  { x: 1.75, y: 3.875, width: 2.125, height: 0.375 },
+  { x: 1.5, y: 4.25, width: 2.0625, height: 0.375 },
+  { x: 1.3125, y: 4.625, width: 1.9375, height: 0.3125 },
+  { x: 2, y: 4.9375, width: 0.4375, height: 1.3125 },
+  { x: 2.4375, y: 5.1875, width: 1.5, height: 0.25 },
+  // Visible rear leg/support reaches above the wheel footprint; do not omit it.
+  { x: 4.3125, y: 5.5625, width: 0.875, height: 0.625 },
+  { x: 3.4375, y: 5.8125, width: 1.6875, height: 0.625 },
+];
+
 /** Office v5: 17×10 tiles matches the 1634×962 artwork without stretching.
  * Positions are tile centers (+0.5 at render time); collision rectangles are edges.
- * Only floor-contact bands block the player's feet, not entire sprite images.
+ * Furniture uses floor-contact bands, except the owner's desk outline.
  */
 export const office: RoomDefinition = {
   id: 'office',
@@ -19,8 +35,8 @@ export const office: RoomDefinition = {
     { x: 0, y: 9.125, width: 17, height: 0.875 },
     { x: 0, y: 0, width: 0.5, height: 10 },
     { x: 16.5, y: 0, width: 0.5, height: 10 },
-    // Workstation feet and chair base; the right-facing working side remains reachable.
-    { x: 1.125, y: 6.25, width: 3.75, height: 0.375 },
+    // Desk front foot only; the chair has its own footprint, leaving the gap clear.
+    { x: 1.4375, y: 6.125, width: 1.625, height: 0.5 },
     { x: 4.625, y: 3.375, width: 1.95, height: 0.375 }, // Bookcase feet.
     { x: 1.875, y: 8.0625, width: 2.25, height: 0.375 }, // Dog bed rim/base.
     { x: 12.875, y: 6.8125, width: 1.875, height: 0.375 }, // Sofa feet.
@@ -32,6 +48,7 @@ export const office: RoomDefinition = {
     { x: 15.375, y: 3.625, width: 0.875, height: 0.375 },
     { x: 0.625, y: 8.375, width: 0.875, height: 0.375 },
     { x: 15.5, y: 8.375, width: 0.875, height: 0.375 },
+    ...officeWorkstationOutline,
   ],
   interactables: [
     {

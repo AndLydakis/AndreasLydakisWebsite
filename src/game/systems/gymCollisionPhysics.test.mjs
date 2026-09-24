@@ -2,6 +2,7 @@ import { createRequire } from 'node:module';
 import { describe, expect, it } from 'vitest';
 import { houseLayout } from '../data/houseLayout';
 import { PLAYER_SPEED } from '../entities/playerMotion';
+import { officeWorkstationOutline } from '../data/office';
 
 // Exercise the installed Arcade solver, not a mocked overlap predicate or renderer.
 const require = createRequire(import.meta.url);
@@ -19,6 +20,7 @@ const objects = [
 const cases = [
   ...objects.map(([name, rectX]) => ({ room: gym, name, rect: gym.collisionRects.find(item => item.x === rectX) })),
   ...office.collisionRects.slice(5, 12).map((rect, index) => ({ room: office, name: `office object ${index}`, rect })),
+  ...officeWorkstationOutline.map((rect, index) => ({ room: office, name: `workstation outline ${index}`, rect })),
 ];
 
 describe('gym and office equipment actual Arcade collisions', () => {

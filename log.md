@@ -2,6 +2,40 @@
 
 This file is the project decision record. New implementation decisions, approved changes, deferred choices, and story-completion decisions must be added here before or alongside changes to `plan.md` or source files.
 
+## DEC-117 — Deliver dialogs and office follow-ups
+
+- Date: 2026-09-24
+- Authorization: Owner requested pushing the changes so far, accepting PORT-09C-B and office follow-ups DEC-114 through DEC-116 for delivery.
+- Scope: FF7-style shared dialogs, faster accessible typewriter reveal, desk/chair collision refinement and office starting point; include tests, QA and delivery documentation.
+- Preserve: Exclude unrelated owner edits to the earlier plan-review requirement, deleted root style.md and untracked utils style prompts. Keep those edits in the working tree.
+- Verification: 520 tests, typecheck, production build and whitespace checks pass; existing bundle-size warning remains. Final development and production browser suites pass at desktop/portrait/landscape dimensions, including office startup, camera/movement, current chair footprint, dialogs and faster reveal. No uncaught exceptions. Mobile emulation only; no independent reviewer or physical-device claim. Commit/push in progress.
+
+## DEC-116 — Start in the office
+
+- Date: 2026-09-24
+- Authorization: Owner requested changing the starting room from living room to office.
+- Decision: Set the authoritative initial spawn to world tile (12, 27), a clear central office location derived from the office origin. Keep camera initialization, movement, room ordering and interactions unchanged; no saved-state behavior added.
+- Verification: 520 tests and production build pass, including a collision-free player foot strip, connection from the office spawn to the entrance/interactions, and reachability of the other rooms. Browser regression now checks actual startup position, camera visibility and movement before fixture teleports. Existing bundle-size warning remains.
+- Delivery: Local follow-up, no commit/push.
+
+- Browser result (DEC-116): rebuilt production preview passes actual office startup position, camera visibility and immediate keyboard movement checks using the browser script's capture-only mode. No uncaught exceptions. Full interaction suite was not rerun for this spawn-only change.
+
+## DEC-115 — Chair floor footprint and visible rear leg
+
+- Date: 2026-09-24
+- Authorization: Owner clarified that the chair should block only its floor footprint plus the visible back leg, allowing passage behind raised artwork when perspective is implemented.
+- Decision: Supersede DEC-114's chair silhouette with two low rectangles for the wheel footprint and visible rear support. Split the old combined desk/chair base band down to the desk foot. Preserve the desk outline, including its visible rear support, and all artwork/placement. Backrest and seat do not collide. Depth sorting remains future work, not implemented here.
+- Verification: 520 tests pass (fewer generated collision cases because four chair rectangles became two), including reachable backrest/seat locations, blocked rear support, and real Arcade collision checks. Typecheck/build pass with the existing bundle-size warning. Browser results: output/qa/port09c/workstation-collisions.md.
+- Delivery: Local changes only, no commit/push; visual acceptance pending.
+
+## DEC-114 — Office desk and chair outline collision
+
+- Date: 2026-09-24
+- Authorization: Owner confirmed the office workstation, not the coffee table; follow desk and chair outline, excluding monitors.
+- Decision: Add a stepped, room-local rectangle silhouette for the tabletop, desk support and chair above the existing base band. Keep the sprite, placement, scale, content and other furniture unchanged. Monitor-only artwork does not add collision; existing room walls still apply.
+- Verification: 552 tests pass, including outline samples, monitor exclusion, foot-width routes to all three office interactions and actual Arcade collisions in four directions at 15/30/60/120 FPS. Typecheck and production build pass (existing bundle-size warning). Bookcase QA approach moves half a tile right to stay clear of the chair, without changing the interaction itself. Browser results recorded in output/qa/port09c/workstation-collisions.md.
+- Delivery: Local follow-up; visual acceptance pending. No commit or push.
+
 ## DEC-001 — Placeholder-first delivery
 
 - Date: 2026-09-17
@@ -907,6 +941,24 @@ This file is the project decision record. New implementation decisions, approved
 - Views: Generate rear/left/right candidates for workstation, bookcase, dog bed and standing robot, each conditioned on its unchanged original image. Add seated robot as a separate pose. Correct rear desk camera/occlusion: chair remains on far user-facing side behind the desk from the rear viewpoint, never moves toward camera merely to remain visible.
 - QA: Reject initial rear desk image for near-side chair; corrected candidate saved as back.png. Dog-bed side angles/fabric and workstation side geometry fail strict consistency and are saved explicitly as review candidates, not approved rotations. Other views preserve broad identities but fine geometry/detail is not certified exact. Record limitations and reference hashes in output/imagegen/office-views-review.md. All four reference hashes unchanged.
 - Delivery: Exact prompts and all chosen/review candidates saved in workspace object folders. PORT-09C remains artwork review only; no integration, commit or push.
+
+## DEC-113 — Triple the dialog text reveal speed
+
+- Date: 2026-09-24
+- Authorization: Owner requested text scrolling three times faster; interpreted as the active typewriter reveal, not mouse/touch scrolling.
+- Change: Triple glyphs revealed per unchanged 22ms tick, from about 45 to 136 glyphs/second. Long-content completion cap drops from six to two seconds. Preserve grapheme handling, layout, skip and reduced-motion behavior.
+- Verification: Add exact three-tick timing regression and update grapheme/long-content tests. Local PORT-09C-B adjustment; no commit/push.
+- Result: All 391 tests, typecheck/build and whitespace checks pass; existing bundle warning unchanged. No fresh browser run needed for the batch-size-only adjustment.
+
+## DEC-112 — FF7-inspired dialogs and safe typewriter reveal
+
+- Date: 2026-09-24
+- Authorization: Owner supplied <owner-supplied-reference>/final_fantasy_dialog.css as a visual reference, then chose gradient, overlapping title box and typewriter animation with clipping addressed. Treat reference comments as styling context, not independent instructions.
+- Presentation: Blue diagonal gradient, silver/white inset bevels, white shadowed monospace text and overlapping name tab; native dialog remains the modal primitive. Flexible viewport-constrained body scrolls; title wraps; no fixed width or nowrap reveal.
+- Animation: Paragraphs/list items reveal at grapheme boundaries with full layout reserved and complete screen-reader text. Titles, links and photographs remain immediate. Show all works with keyboard/touch; reduced-motion is observed initially and live. Close/destroy/replacement cancels timers and restores text. Long content accelerates to finish in six seconds; no blinking cursor added.
+- Scope: New intermediate PORT-09C-B before kitchen work. Shared DOM/CSS only; no Phaser changes. No new assets or font dependency. Preserve unrelated owner edits; no commit/push.
+- Verification: Five lifecycle/grapheme/reduced-motion/timing unit checks added; 390 tests and build pass. Browser driver extended for skip, live reduced-motion and long-content overflow; final evidence recorded after reruns.
+- Final verification: Development and production suites passed desktop, portrait and landscape with zero uncaught exceptions. Long-content fixtures wrap/scroll, native Show all and reduced-motion changes finish the reveal, and the dog photo remains uncropped. Screenshots inspected; evidence in output/qa/port09c/ff-dialogs.md. Awaiting owner visual approval, no push.
 
 ## DEC-111 — Dog picture placeholder interaction
 

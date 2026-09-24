@@ -89,12 +89,17 @@ describe('initial house layout', () => {
     );
   });
 
-  it('places the authoritative initial spawn in the living room walkable area', () => {
-    expect(houseLayout.initialSpawn).toEqual({ x: 6, y: 10 });
-    expect(houseLayout.initialSpawn.x).toBeGreaterThan(livingRoomLeftWallX());
-    expect(houseLayout.initialSpawn.x).toBeLessThan(livingRoomRightWallX());
-    expect(houseLayout.initialSpawn.y).toBeGreaterThan(livingRoomTopWallY());
-    expect(houseLayout.initialSpawn.y).toBeLessThan(livingRoomBottomWallY());
+  it('places the authoritative initial spawn in the office walkable area', () => {
+    expect(houseLayout.initialSpawn).toEqual({ x: 12, y: 27 });
+    const room = houseRooms.find(room => room.id === 'office')!;
+    const x = houseLayout.initialSpawn.x - room.origin.x + 0.5;
+    const y = houseLayout.initialSpawn.y - room.origin.y + 1.5;
+    expect(x).toBeGreaterThan(0);
+    expect(x).toBeLessThan(room.widthTiles);
+    expect(y).toBeGreaterThan(0);
+    expect(y).toBeLessThan(room.heightTiles);
+    expect(room.collisionRects.some(r => x + 0.5 > r.x && x - 0.5 < r.x + r.width &&
+      y > r.y && y - 1 / houseLayout.tileSize < r.y + r.height)).toBe(false);
   });
 
   it('keeps both backdrop exits and interaction ranges reachable around furniture bases', () => {
@@ -118,7 +123,8 @@ describe('initial house layout', () => {
       x + 1 > rect.x && x < rect.x + rect.width &&
       y + 0.5 > rect.y && y + 0.5 - 1 / houseLayout.tileSize < rect.y + rect.height,
     );
-    const queue = [{ x: houseLayout.initialSpawn.x - room.origin.x, y: houseLayout.initialSpawn.y - room.origin.y + 1 }];
+    // This room-specific regression is independent of the global starting room.
+    const queue = [{ x: 4, y: 7 }];
     const reached = new Set<string>();
     for (let index = 0; index < queue.length; index++) {
       const { x, y } = queue[index]!;
@@ -210,19 +216,3 @@ describe('initial house layout', () => {
     expect(bottom * 16).toBe(73);
   });
 });
-
-function livingRoomLeftWallX(): number {
-  return houseRooms[0].origin.x + 1;
-}
-
-function livingRoomRightWallX(): number {
-  return houseRooms[0].origin.x + houseRooms[0].widthTiles - 1;
-}
-
-function livingRoomTopWallY(): number {
-  return houseRooms[0].origin.y + 1;
-}
-
-function livingRoomBottomWallY(): number {
-  return houseRooms[0].origin.y + houseRooms[0].heightTiles - 1;
-}

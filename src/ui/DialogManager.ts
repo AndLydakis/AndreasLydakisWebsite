@@ -1,5 +1,6 @@
 import type { InputController } from '../game/systems/InputController';
 import type { DialogContent } from './uiTypes';
+import { DialogTypewriter } from './DialogTypewriter';
 
 export interface DialogManagerOptions {
   dialog: HTMLDialogElement;
@@ -17,8 +18,21 @@ export class DialogManager {
   private readonly contentById = new Map<string, DialogContent>();
   private lastTrigger: HTMLElement | null = null;
   private destroyed = false;
+  private readonly revealButton = document.createElement('button');
+  private readonly typewriter = new DialogTypewriter(() => {
+    if (document.activeElement === this.revealButton && this.dialog.open) this.options.closeButton.focus();
+    this.revealButton.hidden = true;
+  });
+  private readonly motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  private readonly revealAll = (): void => { this.typewriter.finish(); };
+  private readonly handleMotionChange = (): void => {
+    if (this.motionPreference.matches) this.typewriter.finish();
+  };
 
   private readonly handleClose = (): void => {
+    // Ignore a queued close event from a previous cycle if the modal was reopened.
+    if (this.dialog.open) return;
+    this.typewriter.finish();
     this.inputController.resetMovement();
     this.inputController.setGameplayEnabled(true);
     this.onGameplayEnabledChange?.(true);
@@ -35,6 +49,13 @@ export class DialogManager {
   public constructor(private readonly options: DialogManagerOptions) {
     this.options.dialog.addEventListener('close', this.handleClose);
     this.options.closeButton.addEventListener('click', this.handleCloseButton);
+    this.revealButton.type = 'button';
+    this.revealButton.className = 'dialog-reveal';
+    this.revealButton.textContent = 'Show all';
+    this.revealButton.hidden = true;
+    this.options.closeButton.before(this.revealButton);
+    this.revealButton.addEventListener('click', this.revealAll);
+    this.motionPreference.addEventListener('change', this.handleMotionChange);
   }
 
   private get dialog(): HTMLDialogElement {
@@ -82,6 +103,7 @@ export class DialogManager {
     this.inputController.setGameplayEnabled(false);
     this.inputController.resetMovement();
     this.onGameplayEnabledChange?.(false);
+    this.typewriter.finish();
     this.renderContent(content);
 
     if (this.dialog.open) {
@@ -95,9 +117,15 @@ export class DialogManager {
     }
 
     this.options.closeButton.focus();
+    this.options.content.parentElement!.scrollTop = 0;
+    const text = Array.from(this.options.content.querySelectorAll<HTMLElement>('.dialog-section p, .dialog-section li'));
+    if (content.description) text.unshift(this.options.description);
+    this.typewriter.start(text, this.motionPreference.matches);
+    this.revealButton.hidden = !this.typewriter.isRunning();
   }
 
   public close(): void {
+    this.typewriter.finish();
     if (this.dialog.open) {
       this.dialog.close();
       return;
@@ -113,6 +141,10 @@ export class DialogManager {
 
     this.options.dialog.removeEventListener('close', this.handleClose);
     this.options.closeButton.removeEventListener('click', this.handleCloseButton);
+    this.typewriter.finish();
+    this.revealButton.removeEventListener('click', this.revealAll);
+    this.revealButton.remove();
+    this.motionPreference.removeEventListener('change', this.handleMotionChange);
 
     if (this.dialog.open) {
       this.dialog.close();

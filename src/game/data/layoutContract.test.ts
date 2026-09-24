@@ -130,6 +130,8 @@ describe('complete layout contract', () => {
   it('supports an explicit subset of required rooms while preserving full validation', () => {
     const withoutOfficeConnection: HouseLayout = {
       ...houseLayout,
+      // This fixture deliberately isolates the office from the required subset.
+      initialSpawn: { x: 6, y: 10 },
       doorways: houseLayout.doorways.filter(
         (doorway) => doorway.fromRoomId !== 'office' && doorway.toRoomId !== 'office',
       ),

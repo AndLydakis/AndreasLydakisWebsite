@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { optionalTexturePaths } from '../../app/assetManifest';
 import { contentById } from '../../content/contentRegistry';
 import { houseLayout, houseDoorways } from './houseLayout';
-import { office } from './office';
+import { office, officeWorkstationOutline } from './office';
 import { validateHouseLayout } from './layoutValidation';
 import { InteractionSystem } from '../systems/InteractionSystem';
 
@@ -13,6 +13,22 @@ function blocked(x: number, y: number): boolean {
 }
 
 describe('office presentation and navigation', () => {
+  it('blocks desk supports and chair feet but leaves raised chair art non-solid', () => {
+    const covered = (x: number, y: number) => officeWorkstationOutline.some(r =>
+      x >= r.x && x <= r.x + r.width && y >= r.y && y <= r.y + r.height);
+    for (const [x, y] of [[3.8, 3.7], [2, 4.75], [2.2, 5.8], [3.8, 5.3], [4.8, 5.65], [3.8, 6.2]]) {
+      expect(covered(x!, y!)).toBe(true);
+      expect(blocked(x!, y!)).toBe(true);
+    }
+    // Monitor-only art is above the tabletop; room walls still apply independently.
+    for (const [x, y] of [[2, 2.75], [3, 3.25], [3.8, 3.5]]) {
+      expect(covered(x!, y!)).toBe(false);
+    }
+    expect(blocked(3.8, 3.5)).toBe(false);
+    expect(blocked(5.875, 5)).toBe(false); // Reachable working side.
+    expect(blocked(4.75, 4.25)).toBe(false); // Backrest is visual, not floor footprint.
+    expect(blocked(4.75, 5)).toBe(false); // Walk behind the raised chair seat.
+  });
   it('aligns both doorways and the painted office passage on the corridor centerline', () => {
     const corridor = houseLayout.corridors.find(c => c.id === 'living-room-office-corridor')!;
     const center = corridor.origin.x + corridor.widthTiles / 2;
@@ -70,12 +86,12 @@ describe('office presentation and navigation', () => {
       queue.push({ x: x + 0.25, y }, { x: x - 0.25, y }, { x, y: y + 0.25 }, { x, y: y - 0.25 });
     }
     const interaction = new InteractionSystem(houseLayout);
-    for (const [x, y, id] of [[3, 7, 'office-workstation'], [5.5, 4.25, 'office-bookcase'], [3, 8.75, 'office-dog-bed']] as const) {
+    for (const [x, y, id] of [[3, 7, 'office-workstation'], [6, 4.25, 'office-bookcase'], [3, 8.75, 'office-dog-bed']] as const) {
       expect(reached.has(`${x},${y}`)).toBe(true);
       interaction.update({ position: { x: office.origin.x + x - 0.5, y: office.origin.y + y - 1.5 } });
       expect(interaction.getCurrentTarget()?.id).toBe(id);
     }
-    for (const [x, y] of [[8.5, 8.75], [11.75, 7.5], [15.5, 6], [6, 8]]) {
+    for (const [x, y] of [[houseLayout.initialSpawn.x - office.origin.x + 0.5, houseLayout.initialSpawn.y - office.origin.y + 1.5], [8.5, 8.75], [11.75, 7.5], [15.5, 6], [6, 8], [4.75, 4.25], [4.75, 5]]) {
       expect(reached.has(`${x},${y}`)).toBe(true);
     }
     interaction.destroy();
