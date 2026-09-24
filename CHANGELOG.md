@@ -6,6 +6,12 @@ pushed.
 
 ## [Unreleased]
 
+### PORT-18A — Perspective design and baseline (in progress)
+
+- Owner authorized documentation-only delivery of the reviewed generic perspective plan/contract. Baseline scripts and captures remain local; this is not full story closure or runtime delivery.
+- DEC-129: prioritize the occlusion contract before PORT-10A, retaining independent review gates. Draft explicit ground anchors, independent footprints, deterministic foot-based sorting and per-object artwork migration. No runtime/art changes.
+- Owner scope clarification: shared implementation for all separate world assets, with compound footprint arrays and explicit PORT-18E–18J adoption/verification coverage for all current gym, office and kitchen sprites; TV/vinyl remain initial fixtures only. Split later table/bookcase art from integration.
+
 ### PORT-09D — Accepted short wooden corridors
 
 - Owner approved delivery of DEC-128. 752 tests, typecheck/build and desktop/portrait/landscape corridor checks pass; prior full gameplay regression passed before the texture-only refinement.
