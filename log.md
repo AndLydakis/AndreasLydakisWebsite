@@ -4,6 +4,7 @@ This file is the project decision record. New implementation decisions, approved
 
 ## DEC-125 — Trial higher-resolution rendering without larger objects
 
+- Delivery: Owner-approved resolution-only commit 7ce5402 successfully pushed to origin/master on 2026-09-24. Subsequent jitter fixes remain separate local work.
 - Date: 2026-09-24
 - Authorization: Owner requested the rendering trial and subsequently approved pushing this resolution change before any jitter-fix work.
 - Direction: RENDER_SCALE=2 gives a 1024x576 canvas and 2.5 camera zoom. FIT retains the same CSS aspect/size, while proportional zoom retains the same 409.6x230.4 world viewport. No asset regeneration, world coordinates, collider, speed or filtering changes. Rendering uses four times as many pixels; physical-mobile performance is not established.
