@@ -2,6 +2,24 @@
 
 This file is the project decision record. New implementation decisions, approved changes, deferred choices, and story-completion decisions must be added here before or alongside changes to `plan.md` or source files.
 
+## DEC-127 — Rebuild other walking directions from the accepted down cycle
+
+- Acceptance: Owner confirmed the result looks good and authorized pushing DEC-126/127. This supersedes the earlier local-only/review-pending notes. Deliver as a PORT-09D presentation follow-up, preserving unrelated style-file and plan-wording edits.
+- Date: 2026-09-24
+- Authorization: Owner accepts downward walking but finds left/right/up too fast or jittery, and requests new frames matching the downward cycle. Keep downward source/cadence and every original idle source unchanged; no push.
+- Art: Built-in imagegen with the accepted down-walk-v3 sheet as motion/identity master. Generate replacement left/right/up sheets, refine side-view opposite arm/leg phase, and retain originals. Exact prompts and generator paths: output/imagegen/player-matched-walk.prompt.md.
+- Integration: Three versioned walk-matched-v1 PNGs, measured torso/sole anchors, and explicit per-frame rectangles. A uniform grid exposed neighboring shoe fragments; explicit texture regions isolate generated row offsets without rewriting source pixels. Standalone preview shows all four directions, slow stepping and the current 16-pose/s full-speed cadence.
+- Verification: Hash regressions preserve down-walk-v3 and all four idle sources byte-for-byte. Frame/anchor bounds, runtime loading, repaired-source selection, movement/idle transitions and motion telemetry must pass. Artwork remains a generated draft requiring owner playback review; no claim of perfect anatomical correspondence.
+- Results: 747 tests and typecheck/build passed. Development/production motion telemetry and production desktop/portrait/landscape gameplay checks passed without uncaught exceptions. Corrected four-direction contact sheet inspected; no neighboring shoe fragments. Evidence: output/qa/player-matched-walk/verification.md. Owner animation acceptance remains pending; no push.
+
+## DEC-126 — Local trial of synchronized camera and distance-driven walking
+
+- Date: 2026-09-24
+- Authorization: Owner asked to push the resolution changes first, then test the proposed jitter fix. Resolution delivered separately; do not push this experiment.
+- Camera: follow the completed physics/visual anchor in POST_UPDATE, disable camera whole-world-pixel rounding, and unregister on shutdown. Preserve bounds and the new render resolution.
+- Gait: select walking frames from actual post-physics travel, not elapsed time or requested velocity. Trial full-cycle distance 72 world pixels (16 poses/s at 144px/s); preserve directional sheets/anchors and time-driven idle animation. Hold pose on render-only frames, idle against obstacles, and ignore large teleport discontinuities. This stride is a reviewable calibration, not a guarantee of perfect foot planting in generated art.
+- Verification: add pure distance/FPS, missing-step, blocked/teleport and lifecycle tests plus browser telemetry for four directions/diagonals, exact camera-relative position, distance/frame correspondence, obstacle idle and scene restart. Evidence in output/qa/player-motion/verification.md. Full gameplay regressions remain required.
+
 ## DEC-125 — Trial higher-resolution rendering without larger objects
 
 - Delivery: Owner-approved resolution-only commit 7ce5402 successfully pushed to origin/master on 2026-09-24. Subsequent jitter fixes remain separate local work.

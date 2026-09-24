@@ -5,22 +5,25 @@ import { describe, expect, it } from 'vitest';
 import {
   PLAYER_ANIMATION_SEQUENCES, PLAYER_DIRECTIONS, PLAYER_FRAME_ANCHORS,
   PLAYER_FRAME_SIZE, PLAYER_DISPLAY_HEIGHT, playerAnimationAssets, playerAnimationKey,
-  PLAYER_WALK_REPAIRS, playerAnimationSource,
+  PLAYER_WALK_REPAIRS, playerAnimationSource, playerFrameRect,
 } from './playerAnimation';
 
 describe('player animation contract', () => {
-  it('changes only right/down walking sources, preserving all idle sources', () => {
+  it('replaces left/right/up walking sources while retaining the accepted down walk and all idles', () => {
     for (const direction of PLAYER_DIRECTIONS) {
       expect(playerAnimationSource(direction, 'idle').textureKey).toBe(`player-${direction}`);
     }
-    expect(playerAnimationSource('left', 'walk').textureKey).toBe('player-left');
-    expect(playerAnimationSource('up', 'walk').textureKey).toBe('player-up');
-    expect(playerAnimationSource('right', 'walk').textureKey).toBe('player-right-walk-v2');
+    expect(playerAnimationSource('left', 'walk').textureKey).toBe('player-left-walk-matched-v1');
+    expect(playerAnimationSource('up', 'walk').textureKey).toBe('player-up-walk-matched-v1');
+    expect(playerAnimationSource('right', 'walk').textureKey).toBe('player-right-walk-matched-v1');
     expect(playerAnimationSource('down', 'walk').textureKey).toBe('player-down-walk-v3');
   });
 
-  it('preserves working left/up artwork byte for byte', () => {
+  it('preserves the accepted down walk and all idle artwork byte for byte', () => {
     const expected = {
+      'down-walk-v3': '3aba7ed262c46882cfbc13aa8ae4d2db92e31a2ef811b00503ced7766cdcd83b',
+      down: '856ee738aa8f711d7e71694756e60059af2836902045062825d4433702595496',
+      right: '43ed2316f8a0d1e07a43b18a75ff617780edb7b51bbea852a96d375a85d81914',
       left: '058a9d8e7dfff7ea4d94cfc6d04f6f37e05c72d85e98e85432719ebac6401bdf',
       up: 'd5ee38666bd57cbb4aee425e8c1e2c2868b0c5cd8d8fb9ac36607f186768cbf3',
     };
@@ -36,9 +39,12 @@ describe('player animation contract', () => {
     expect(Math.floor(png.readUInt32BE(20)/repair.frameHeight)).toBe(3);
     expect(png[25]).toBe(6);
     expect(repair.anchors).toHaveLength(12);
-    for (const [x,y] of repair.anchors) {
-      expect(x).toBeGreaterThan(0); expect(x).toBeLessThan(repair.frameWidth);
-      expect(y).toBeGreaterThan(0); expect(y).toBeLessThanOrEqual(repair.frameHeight);
+    for (const [index,[x,y]] of repair.anchors.entries()) {
+      const [sx,sy,w,h]=playerFrameRect(repair,index);
+      expect(sx).toBeGreaterThanOrEqual(0); expect(sy).toBeGreaterThanOrEqual(0);
+      expect(sx+w).toBeLessThanOrEqual(png.readUInt32BE(16)); expect(sy+h).toBeLessThanOrEqual(png.readUInt32BE(20));
+      expect(x).toBeGreaterThan(0); expect(x).toBeLessThan(w);
+      expect(y).toBeGreaterThan(0); expect(y).toBeLessThanOrEqual(h);
     }
   });
   it('enlarges player artwork by 50% independently of physics', () => {

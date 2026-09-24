@@ -2123,6 +2123,8 @@ Walk the entire house and test every interaction from multiple approach directio
 
 ## PORT-10A — Complete the semantic content index
 
+Pre-story movement follow-up (DEC-126/127, Done): owner approved final playback and authorized delivery as a PORT-09D follow-up. Camera follows completed physics and gait advances by actual distance. Left/right/up use rebuilt walk-only sheets with explicit frame regions and measured anchors; down and all idle sources remain byte-identical. Validation: 747 tests, typecheck/build, development/production motion telemetry and production desktop/portrait/landscape gameplay checks passed; corrected contact sheet inspected. PORT-10A has not started. Evidence: output/qa/player-motion/verification.md and output/qa/player-matched-walk/verification.md.
+
 Pre-story presentation follow-up (DEC-125, Done): owner approved resolution changes; implementation commit 7ce5402 pushed to origin/master on 2026-09-24. 1024x576 rendering with proportional zoom preserves object sizes and visible world area. All 738 tests, build and development/production desktop/portrait/landscape checks passed. Physical-mobile performance remains unverified. Jitter-fix experiments are separate and unpushed. Evidence: output/qa/render-resolution/verification.md.
 
 Type: Story  

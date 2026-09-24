@@ -2,7 +2,8 @@
 import { readFileSync } from 'node:fs';
 import { inflateSync } from 'node:zlib';
 
-for (const direction of (process.argv.length > 2 ? process.argv.slice(2) : ['down', 'left', 'right', 'up'])) {
+const names = process.argv.slice(2).filter(arg => arg !== '--bounds');
+for (const direction of (names.length ? names : ['down', 'left', 'right', 'up'])) {
   const png = readFileSync(`public/assets/sprites/player/animations/${direction}.png`);
   let width, height;
   const chunks = [];
@@ -42,6 +43,39 @@ for (const direction of (process.argv.length > 2 ? process.argv.slice(2) : ['dow
     }
   }
   const anchors = [];
+  if (process.argv.includes('--bounds')) {
+    // Generated rows may spill across an ideal grid. Detect three tall body
+    // bands per column, ignoring tiny isolated alpha specks. Read-only metadata.
+    const frames = [];
+    for (let column = 0; column < 4; column++) {
+      const counts = [];
+      for (let y = 0; y < height; y++) {
+        let count = 0;
+        if (y < height) for (let x = column*frameWidth; x < (column+1)*frameWidth; x++) {
+          if (pixels[(y*width+x)*4+3] >= 128) count++;
+        }
+        counts.push(count);
+      }
+      const cuts = [0];
+      for (const boundary of [frameHeight,2*frameHeight]) {
+        const ys = Array.from({length:65},(_,i)=>boundary-32+i);
+        const minimum = Math.min(...ys.map(y=>counts[y]));
+        cuts.push(ys.find(y=>counts[y]===minimum));
+      }
+      cuts.push(height);
+      const bands = [0,1,2].map(row=>{
+        const ys=Array.from({length:cuts[row+1]-cuts[row]},(_,i)=>cuts[row]+i).filter(y=>counts[y]>=16);
+        return [ys[0],ys.at(-1)+1];
+      });
+      bands.forEach(([top,bottom],row) => {
+        const y = Math.max(cuts[row],top-2), h = Math.min(cuts[row+1],bottom+2)-y;
+        const torsoY = top + 140;
+        const xs = Array.from({length:frameWidth},(_,x)=>x).filter(x=>pixels[(torsoY*width+column*frameWidth+x)*4+3]>=128);
+        frames[row*4+column] = {rect:[column*frameWidth,y,frameWidth,h],anchor:[Math.round((xs[0]+xs.at(-1))/2),bottom-y]};
+      });
+    }
+    console.log('EXPLICIT',direction,JSON.stringify(frames));
+  }
   for (let frame = 0; frame < 12; frame++) {
     const ox = frame % 4 * frameWidth, oy = Math.floor(frame / 4) * frameHeight;
     const opaque = (x, y) => pixels[((oy + y) * width + ox + x) * 4 + 3] >= 128;

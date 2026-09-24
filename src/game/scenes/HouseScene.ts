@@ -6,7 +6,6 @@ import { DEFAULT_CAMERA_ZOOM } from '../config';
 import {
   getCameraConstraintBounds,
   getCameraScrollForTarget,
-  roundCameraScroll,
 } from '../camera/cameraFollow';
 import type { CameraBounds } from '../camera/cameraFollow';
 import { assertValidHouseLayout } from '../data/layoutValidation';
@@ -84,6 +83,10 @@ export class HouseScene extends Phaser.Scene {
       });
     });
     Object.values(PLAYER_WALK_REPAIRS).forEach((repair) => {
+      if ('frameRects' in repair) {
+        this.load.image(repair.textureKey, assetUrl(repair.path));
+        return;
+      }
       this.load.spritesheet(repair.textureKey, assetUrl(repair.path), {
         frameWidth: repair.frameWidth,
         frameHeight: repair.frameHeight,
@@ -96,6 +99,13 @@ export class HouseScene extends Phaser.Scene {
     try {
       assertValidHouseLayout(this.layout);
       this.assertPlaceholderTexturesLoaded();
+      for (const repair of Object.values(PLAYER_WALK_REPAIRS)) {
+        if (!('frameRects' in repair) || !this.textures.exists(repair.textureKey)) continue;
+        const texture = this.textures.get(repair.textureKey);
+        repair.frameRects.forEach(([x, y, width, height], index) => {
+          if (!texture.has(String(index))) texture.add(String(index), 0, x, y, width, height);
+        });
+      }
 
       const worldWidthPixels = this.layout.worldWidth * this.layout.tileSize;
       const worldHeightPixels = this.layout.worldHeight * this.layout.tileSize;
@@ -107,7 +117,8 @@ export class HouseScene extends Phaser.Scene {
       };
 
       this.physics.world.setBounds(0, 0, worldWidthPixels, worldHeightPixels);
-      this.cameras.main.setRoundPixels(true);
+      // Preserve sub-pixel camera movement at the higher render resolution.
+      this.cameras.main.setRoundPixels(false);
       buildHouse(this, this.layout);
 
       const camera = this.cameras.main;
@@ -143,6 +154,12 @@ export class HouseScene extends Phaser.Scene {
         onTargetChanged: this.callbacks.onInteractionTargetChanged,
       });
       this.updateCameraFollow();
+      // Arcade copies body positions to sprites during POST_UPDATE. Follow that
+      // same completed step as PlayerVisual, not the previous frame's anchor.
+      this.events.on(Phaser.Scenes.Events.POST_UPDATE, this.updateCameraFollow, this);
+      this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
+        this.events.off(Phaser.Scenes.Events.POST_UPDATE, this.updateCameraFollow, this);
+      });
 
       if (import.meta.env.DEV) {
         this.debugOverlay = new DebugOverlay(this, this.layout);
@@ -158,7 +175,6 @@ export class HouseScene extends Phaser.Scene {
 
   public update(): void {
     this.player?.update();
-    this.updateCameraFollow();
 
     if (this.player && this.interactionSystem) {
       this.interactionSystem.setGameplayEnabled(this.inputController.isGameplayEnabled());
@@ -202,9 +218,7 @@ export class HouseScene extends Phaser.Scene {
       },
       this.cameraBounds,
     );
-    const roundedScroll = roundCameraScroll(scroll);
-
-    camera.setScroll(roundedScroll.x, roundedScroll.y);
+    camera.setScroll(scroll.x, scroll.y);
   }
 
   private assertPlaceholderTexturesLoaded(): void {

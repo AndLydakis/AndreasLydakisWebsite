@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import type { Direction } from '../systems/InputController';
 import type { Velocity } from './playerMotion';
+import { advanceWalkCycle, walkFrame } from './walkCycle';
 import {
   PLAYER_ANIMATION_SEQUENCES,
   PLAYER_DIRECTIONS,
@@ -9,6 +10,7 @@ import {
   PLAYER_WALK_REPAIRS,
   playerAnimationKey,
   playerAnimationSource,
+  playerFrameRect,
 } from './playerAnimation';
 
 /**
@@ -19,6 +21,13 @@ import {
 export class PlayerVisual {
   private readonly sprite: Phaser.GameObjects.Sprite;
   private source = playerAnimationSource('down', 'idle');
+  private facing: Direction = 'down';
+  private movementRequested = false;
+  private stepped = false;
+  private phase = 0;
+  private animationKey = '';
+  private previousPosition: { x: number; y: number };
+  private readonly physicsWorld: Phaser.Physics.Arcade.World;
 
   public static create(
     scene: Phaser.Scene,
@@ -39,6 +48,9 @@ export class PlayerVisual {
     private readonly scene: Phaser.Scene,
     private readonly anchor: Phaser.GameObjects.Sprite,
   ) {
+    this.previousPosition = { x: anchor.x, y: anchor.y };
+    // The scene's physics.world reference is cleared before visual shutdown.
+    this.physicsWorld = scene.physics.world;
     for (const direction of PLAYER_DIRECTIONS) {
       for (const sequence of PLAYER_ANIMATION_SEQUENCES) {
         const texture = playerAnimationSource(direction, sequence.state).textureKey;
@@ -64,24 +76,54 @@ export class PlayerVisual {
     anchor.setVisible(false);
     this.syncPosition();
     this.update('down', { x: 0, y: 0 });
+    this.physicsWorld.on(Phaser.Physics.Arcade.Events.WORLD_STEP, this.markStep, this);
     scene.events.on(Phaser.Scenes.Events.POST_UPDATE, this.syncPosition, this);
     scene.events.once(Phaser.Scenes.Events.SHUTDOWN, this.destroy, this);
   }
 
   public update(facing: Direction, velocity: Velocity): void {
-    const state = velocity.x === 0 && velocity.y === 0 ? 'idle' : 'walk';
-    this.source = playerAnimationSource(facing, state);
-    // ignoreIfPlaying prevents restarting the cycle on every game update.
-    this.sprite.play(playerAnimationKey(facing, velocity), true);
+    this.facing = facing;
+    this.movementRequested = velocity.x !== 0 || velocity.y !== 0;
+    if (!this.movementRequested) this.setPose(false);
+  }
+
+  private markStep(): void {
+    this.stepped = true;
+  }
+
+  private setPose(walking: boolean): void {
+    this.source = playerAnimationSource(this.facing, walking ? 'walk' : 'idle');
+    const key = playerAnimationKey(this.facing, { x: walking ? 1 : 0, y: 0 });
+    if (key !== this.animationKey) {
+      this.sprite.play(key, true);
+      this.animationKey = key;
+      // Idle remains time-driven. Walking frames are selected by distance only.
+      if (walking) this.sprite.anims.pause();
+    }
+    if (walking) this.sprite.setFrame(walkFrame(this.phase));
+    else this.phase = 0;
   }
 
   private syncPosition(): void {
-    const [x, y] = this.source.anchors[Number(this.sprite.frame.name)];
-    this.sprite.setOrigin(x / this.source.frameWidth, y / this.source.frameHeight);
+    const distance = Math.hypot(this.anchor.x - this.previousPosition.x, this.anchor.y - this.previousPosition.y);
+    // Don't alternate idle/walk on high-refresh render frames without a physics
+    // step. Large discontinuities (spawn/debug teleport) must not advance gait.
+    if (this.stepped) {
+      const walking = this.movementRequested && distance > 1e-6 && distance < PLAYER_DISPLAY_HEIGHT;
+      if (walking) this.phase = advanceWalkCycle(this.phase, distance);
+      this.setPose(walking);
+    }
+    this.stepped = false;
+    this.previousPosition = { x: this.anchor.x, y: this.anchor.y };
+    const frame = Number(this.sprite.frame.name);
+    const [x, y] = this.source.anchors[frame];
+    const [, , width, height] = playerFrameRect(this.source, frame);
+    this.sprite.setOrigin(x / width, y / height);
     this.sprite.setPosition(this.anchor.x, this.anchor.y + this.anchor.height / 2);
   }
 
   private destroy(): void {
+    this.physicsWorld.off(Phaser.Physics.Arcade.Events.WORLD_STEP, this.markStep, this);
     this.scene.events.off(Phaser.Scenes.Events.POST_UPDATE, this.syncPosition, this);
     this.anchor.setVisible(true);
     this.sprite.destroy();

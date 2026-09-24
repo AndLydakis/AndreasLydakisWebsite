@@ -6,6 +6,13 @@ pushed.
 
 ## [Unreleased]
 
+### PORT-09D — Accepted movement and animation follow-up
+
+- DEC-127: rebuilt left/right/up walking sheets using the accepted down walk as reference, preserving down and all idle source bytes. Added explicit frame regions to avoid generated-grid spillover and expanded four-direction playback preview. Owner approved the result and requested delivery.
+
+- DEC-126: synchronize camera after physics, retain fractional camera scroll, and advance walk poses by actual distance travelled. Idle when blocked and preserve walk pose between physics ticks.
+- Validation: 747 tests, typecheck/build, development/production motion telemetry and production desktop/portrait/landscape gameplay checks passed. Owner visual acceptance closes this follow-up; PORT-10A remains unstarted.
+
 ### Presentation follow-up — Higher-resolution rendering trial
 
 - DEC-125: doubled canvas resolution to 1024x576 and scaled camera zoom proportionally, preserving on-screen object size and framing. Existing artwork and physics unchanged. Owner approved delivery; 738 tests, build and development/production browser checks pass. Jitter fixes are excluded from this delivery.

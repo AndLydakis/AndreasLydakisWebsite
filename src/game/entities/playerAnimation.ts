@@ -15,12 +15,27 @@ export const PLAYER_FRAME_ANCHORS: Record<Direction, readonly (readonly [number,
 
 /** Replacement sheets are walking-only: the original idle frames stay intact. */
 export const PLAYER_WALK_REPAIRS = {
+  left: {
+    textureKey: 'player-left-walk-matched-v1',
+    path: 'sprites/player/animations/left-walk-matched-v1.png',
+    frameWidth: 362, frameHeight: 362,
+    frameRects: [[0,4,362,372],[362,4,362,373],[724,4,362,373],[1086,4,362,372],[0,378,362,350],[362,378,362,348],[724,378,362,354],[1086,378,362,350],[0,730,362,339],[362,730,362,339],[724,732,362,343],[1086,730,362,339]],
+    anchors: [[226,372],[223,372],[203,372],[186,372],[227,350],[228,347],[202,354],[196,350],[224,337],[218,337],[204,341],[188,337]],
+  },
+  up: {
+    textureKey: 'player-up-walk-matched-v1',
+    path: 'sprites/player/animations/up-walk-matched-v1.png',
+    frameWidth: 361, frameHeight: 362,
+    frameRects: [[0,8,361,349],[361,8,361,349],[722,8,361,349],[1083,8,361,349],[0,371,361,347],[361,371,361,346],[722,371,361,336],[1083,371,361,347],[0,724,361,352],[361,723,361,340],[722,726,361,337],[1083,726,361,347]],
+    anchors: [[219,349],[195,349],[166,349],[144,349],[215,347],[194,346],[165,336],[146,346],[215,350],[194,338],[165,335],[144,345]],
+  },
   right: {
-    textureKey: 'player-right-walk-v2',
-    path: 'sprites/player/animations/right-walk-v2.png',
-    frameWidth: 361,
+    textureKey: 'player-right-walk-matched-v1',
+    path: 'sprites/player/animations/right-walk-matched-v1.png',
+    frameWidth: 362,
     frameHeight: 362,
-    anchors: [[197,362],[168,362],[169,362],[145,362],[190,354],[167,354],[164,357],[148,352],[190,347],[164,350],[161,350],[148,347]],
+    frameRects: [[0,7,362,362],[362,7,362,362],[724,7,362,362],[1086,7,362,362],[0,373,362,344],[362,373,362,347],[724,373,362,349],[1086,373,362,345],[0,724,362,342],[362,725,362,337],[724,725,362,348],[1086,725,362,342]],
+    anchors: [[202,361],[199,361],[197,361],[177,361],[200,344],[198,346],[195,348],[182,344],[192,340],[198,335],[194,346],[170,340]],
   },
   down: {
     textureKey: 'player-down-walk-v3',
@@ -32,7 +47,7 @@ export const PLAYER_WALK_REPAIRS = {
 } as const;
 
 export function playerAnimationSource(direction: Direction, state: 'idle' | 'walk') {
-  if (state === 'walk' && (direction === 'right' || direction === 'down')) {
+  if (state === 'walk') {
     return PLAYER_WALK_REPAIRS[direction];
   }
   return {
@@ -41,6 +56,12 @@ export function playerAnimationSource(direction: Direction, state: 'idle' | 'wal
     frameHeight: PLAYER_FRAME_SIZE,
     anchors: PLAYER_FRAME_ANCHORS[direction],
   };
+}
+
+/** Explicit regions avoid neighboring shoes leaking into imperfect generated grids. */
+export function playerFrameRect(source: ReturnType<typeof playerAnimationSource>, frame: number): readonly number[] {
+  return 'frameRects' in source ? source.frameRects[frame] :
+    [frame % 4 * source.frameWidth, Math.floor(frame / 4) * source.frameHeight, source.frameWidth, source.frameHeight];
 }
 
 /** Separate sheets make one direction replaceable without changing gameplay. */

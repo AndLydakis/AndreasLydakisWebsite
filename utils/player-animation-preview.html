@@ -10,21 +10,23 @@
   .directions { display:flex; gap:28px; flex-wrap:wrap; }
   h2 { margin-bottom:8px; }
 </style>
-<h1>Walking loop review — right / down</h1>
+<h1>Walking loop review — down reference and rebuilt directions</h1>
 <p>Development-only preview. Uses the runtime frame dimensions and anchors. Line = fixed foot anchor.</p>
-<label>Speed <select id="speed"><option value="2">2 fps (slow)</option><option value="8">8 fps (game)</option></select></label>
+<label>Speed <select id="speed"><option value="2">2 fps (slow)</option><option value="16" selected>16 fps (current full-speed gait)</option></select></label>
 <button id="pause">Pause</button><button id="next">Next frame</button>
 <label>Frame <input id="frame" type="range" min="0" max="7" value="0"><output id="number">1 / 8</output></label>
 <div class="directions">
   <section><h2>Right</h2><canvas id="right" width="300" height="330"></canvas></section>
   <section><h2>Down</h2><canvas id="down" width="300" height="330"></canvas></section>
+  <section><h2>Left</h2><canvas id="left" width="300" height="330"></canvas></section>
+  <section><h2>Up</h2><canvas id="up" width="300" height="330"></canvas></section>
 </div>
 <h2>Ordered contact sheets</h2>
 <p>All eight walking frames, left to right, with the same ground anchor.</p>
-<canvas id="strip" width="1120" height="330"></canvas>
+<canvas id="strip" width="1120" height="660"></canvas>
 <script type="module">
-  import { playerAnimationSource } from '/src/game/entities/playerAnimation.ts';
-  const directions = ['right', 'down'];
+  import { playerAnimationSource, playerFrameRect } from '/src/game/entities/playerAnimation.ts';
+  const directions = ['down', 'left', 'right', 'up'];
   const sheets = await Promise.all(directions.map(async direction => {
     const source = playerAnimationSource(direction, 'walk');
     const image = new Image(); image.src = '/assets/' + source.path;
@@ -37,11 +39,10 @@
   function draw(ctx, sheet, index, x, y, scale) {
     const { source, image } = sheet;
     const cell = index + 4, [ax, ay] = source.anchors[cell];
+    const [sx,sy,width,height] = playerFrameRect(source,cell);
     ctx.imageSmoothingEnabled = false;
     ctx.strokeStyle = '#71ddd0'; ctx.beginPath(); ctx.moveTo(x-42,y); ctx.lineTo(x+42,y); ctx.stroke();
-    ctx.drawImage(image, (cell%4)*source.frameWidth, Math.floor(cell/4)*source.frameHeight,
-      source.frameWidth, source.frameHeight, x-ax*scale, y-ay*scale,
-      source.frameWidth*scale, source.frameHeight*scale);
+    ctx.drawImage(image, sx,sy,width,height,x-ax*scale,y-ay*scale,width*scale,height*scale);
   }
   function render() {
     sheets.forEach(sheet => {
