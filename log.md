@@ -11,6 +11,7 @@ This file is the project decision record. New implementation decisions, approved
 - Delivery: local implementation and verification first; owner visual review before story closure/push. Preserve unrelated owner style edits and local PORT-18A evidence.
 - Results: generated assets inspected and integrated; 760 tests, typecheck/build and scoped diff checks pass. Development/production desktop/portrait/landscape gallery suites pass interaction, native scroll, images, focus/movement gating, dog/media/CV regression and four-sided stand collisions. Development 0/1/150/error fixtures pass. Evidence: output/qa/globe-gallery/verification.md.
 - Acceptance: owner requested pushing the changes. Deliver only PORT-09D-G; preserve unrelated style edits, plan-review wording and local PORT-18A evidence. Mark Done after successful push.
+- Delivery confirmed: `99fda9d` successfully pushed to `origin/master`; PORT-09D-G marked Done. Pre-push rerun passed all 760 tests and typecheck/build.
 
 ## DEC-129 — Prioritize perspective design (PORT-18A)
 

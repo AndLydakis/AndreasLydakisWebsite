@@ -2949,7 +2949,7 @@ Scope: one generic metadata-driven sorting/footprint system for every non-backgr
 Type: Story
 Priority: High — owner side quest before perspective
 Dependencies: Delivered PORT-09D and existing dialog/content infrastructure
-Status: Accepted — owner authorized delivery; awaiting successful push before Done. 760 tests, build and development/production desktop/portrait/landscape browser checks pass. Evidence: output/qa/globe-gallery/verification.md.
+Status: Done — implementation commit `99fda9d` successfully pushed to `origin/master` after owner authorized delivery. 760 tests, build and development/production desktop/portrait/landscape browser checks pass. Evidence: output/qa/globe-gallery/verification.md.
 Delivery: Follow global story workflow; owner visual approval before completion/push.
 
 ### Goal
@@ -2980,7 +2980,7 @@ Unit tests cover 0/1/3/150 entries, adapter paths/captions, lazy loading and ima
 
 ## PORT-18A — Review the occlusion contract and baseline
 
-Side quest queued ahead of resuming this story: PORT-09D-G above. Its globe becomes a third generic living-room adoption fixture in PORT-18C/18D; refresh inventory from current room data (19 separate objects after this addition), not the older 18-object baseline.
+Side quest delivered ahead of resuming this story: PORT-09D-G above. Its globe becomes a third generic living-room adoption fixture in PORT-18C/18D; refresh inventory from current room data (19 separate objects after this addition), not the older 18-object baseline.
 
 Type: Story
 Priority: High — owner-prioritized before PORT-10A (DEC-129)
