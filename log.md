@@ -915,6 +915,7 @@ This file is the project decision record. New implementation decisions, approved
 - Verification: 384 automated tests, TypeScript/build and development/production desktop and touch-emulated portrait/landscape checks passed, including the aligned corridor. Final test/build/diff review repeated before commit. Existing bundle-size warning and generic diagnostic outlines remain unchanged.
 - Scope: Include office art iterations, prompts, source office brief, implementation, tests and QA evidence. Preserve unrelated owner plan-review wording and style-file reorganization unstaged. No independent-review claim.
 - Delivery: Authorized PORT-09C commit and push to origin/master; record successful delivery before marking Done.
+- Delivered: Implementation commit 1403d5f successfully pushed to origin/master on 2026-09-24. Mark PORT-09C Done and publish the completion record. Unrelated owner plan wording and style-file reorganization remain unstaged.
 
 ## DEC-109 — Center the office entrance on the living-room corridor
 

@@ -1994,7 +1994,7 @@ Dependencies: `PORT-09B`
 Milestone: M2
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
-Status: Verified and owner-approved; authorized delivery in progress (DEC-110). Seven sprites, background v5, aligned corridor and workstation/shared reading interactions are integrated. Dog, sofa, table and robots remain decorative. All 384 tests and development/production browser checks pass; evidence: output/qa/port09c/verification.md. Mark Done after successful commit and push.
+Status: Done — owner-approved and delivered on 2026-09-24 (DEC-110). Implementation commit 1403d5f successfully pushed to origin/master. Seven sprites, background v5, aligned corridor and workstation/shared reading interactions are integrated. Dog, sofa, table and robots remain decorative. All 384 tests and development/production browser checks pass; evidence: output/qa/port09c/verification.md.
 
 The following art notes are historical iteration records, superseded by the integrated and approved DEC-108/109 layout. Unused alternate-view consistency refinements are not required for this story.
 

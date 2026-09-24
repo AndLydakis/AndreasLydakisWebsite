@@ -4,7 +4,7 @@
 
 Office origin shifted from (4,22) to (3.5,22), aligning both doors and the painted office passage at world x=12. Furniture positions within the office are unchanged. The office opening remains intentionally narrower than the corridor, now symmetrically inset. Added centerline regression and finite fractional-origin validation tests. `npm test`: 384 tests passed; typecheck/build and whitespace checks passed. Both development and production desktop/portrait/landscape browser suites passed, with zero uncaught exceptions. Production corridor-alignment.png was visually inspected and confirms a shared centerline. Nothing committed or pushed.
 
-Status: implementation verified locally and accepted for delivery by the owner (DEC-110). Dog remains decorative; no placeholder dialog required for this delivery. Commit/push authorized.
+Status: Done. Implementation commit 1403d5f successfully pushed to origin/master on 2026-09-24 after owner approval (DEC-110). Dog remains decorative; no placeholder dialog required for this delivery. Earlier no-push statements describe pre-delivery verification history.
 
 ## Automated checks
 

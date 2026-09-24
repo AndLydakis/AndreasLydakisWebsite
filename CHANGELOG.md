@@ -10,6 +10,8 @@ pushed.
 
 ### PORT-09C — Office artwork, interactions and aligned navigation
 
+- Delivered 2026-09-24: implementation commit 1403d5f pushed to origin/master; story marked Done after successful delivery.
+
 - Owner approved delivery (DEC-110). Seven selected sprites, narrower office background, shared reading and dummy CV interactions, floor-contact collisions and aligned corridor verified. 384 tests, typecheck/build and desktop/touch-emulated development/production browser checks pass. Dog remains decorative; CV/PDF and depth layering stay in later stories. Earlier no-push notes below describe historical iterations.
 
 - DEC-109: fixed the half-tile office/corridor offset by shifting the office left 8 world pixels. Added centerline alignment regression coverage; furniture stays unchanged relative to the room.
