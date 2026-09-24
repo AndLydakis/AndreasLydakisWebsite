@@ -6,6 +6,8 @@ pushed.
 
 ## [Unreleased]
 
+Delivery 2026-09-24: PORT-09C-B and office follow-ups DEC-114/115/116 committed as e7f6840 and successfully pushed to origin/master. 520 tests, build and final development/production desktop/mobile-emulated browser suites pass.
+
 ### PORT-09C follow-up — Office starting point
 
 - DEC-116: new visits/reloads start on clear central office floor instead of the living room. Updated spawn, navigation and browser-startup regressions. Owner approved delivery on 2026-09-24.

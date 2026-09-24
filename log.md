@@ -7,6 +7,7 @@ This file is the project decision record. New implementation decisions, approved
 - Date: 2026-09-24
 - Authorization: Owner requested pushing the changes so far, accepting PORT-09C-B and office follow-ups DEC-114 through DEC-116 for delivery.
 - Scope: FF7-style shared dialogs, faster accessible typewriter reveal, desk/chair collision refinement and office starting point; include tests, QA and delivery documentation.
+- Delivery result: e7f6840 successfully pushed to origin/master on 2026-09-24. PORT-09C-B is Done; record this result in a follow-up documentation commit.
 - Preserve: Exclude unrelated owner edits to the earlier plan-review requirement, deleted root style.md and untracked utils style prompts. Keep those edits in the working tree.
 - Verification: 520 tests, typecheck, production build and whitespace checks pass; existing bundle-size warning remains. Final development and production browser suites pass at desktop/portrait/landscape dimensions, including office startup, camera/movement, current chair footprint, dialogs and faster reveal. No uncaught exceptions. Mobile emulation only; no independent reviewer or physical-device claim. Commit/push in progress.
 

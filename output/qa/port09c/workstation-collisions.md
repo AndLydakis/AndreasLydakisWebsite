@@ -2,6 +2,8 @@
 
 ## Final delivery verification — 2026-09-24 (DEC-117)
 
+Delivery completed: e7f6840 successfully pushed to origin/master, including office starting point. The verification-time notes below are retained as history.
+
 Owner requested delivery. Current DEC-115 chair footprint and DEC-116 office spawn pass 520 tests, production build and full development/production browser suites (desktop/portrait/landscape emulation). Office startup is visible and permits movement; chair backrest remains passable while the visible rear support blocks. No uncaught browser exceptions. Commit/push in progress; earlier local-review notes below are historical.
 
 ## DEC-115 revision (current)

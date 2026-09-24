@@ -2,6 +2,8 @@
 
 ## Final delivery verification — 2026-09-24 (DEC-117)
 
+Delivery completed: e7f6840 successfully pushed to origin/master; PORT-09C-B marked Done. The verification-time notes below are retained as history.
+
 Owner requested delivery. Final 520 tests, typecheck/build and whitespace checks pass. Full development and production browser suites pass in desktop, portrait and landscape emulation with the tripled reveal speed, current workstation footprint and office spawn. Startup position, camera visibility, immediate movement, all three office dialogs, Show all/reduced motion, long-content clipping, photo fallback and collision checks pass without uncaught exceptions. Commit/push in progress. Historical local-review results follow.
 
 Reference: owner-supplied `<owner-supplied-reference>/final_fantasy_dialog.css`. Owner selected gradient, overlapping title tab and typewriter animation. Local implementation; no commit/push.

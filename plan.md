@@ -2054,7 +2054,7 @@ Dependencies: `PORT-09C`
 
 Milestone: M2
 
-Status: Verified and owner approved on 2026-09-24; commit/push in progress (DEC-117). 520 tests, production build and final development/production desktop/portrait/landscape browser suites pass, including the faster reveal, current collisions and office spawn. Evidence: output/qa/port09c/ff-dialogs.md. Added before PORT-09D at the owner's request (DEC-112).
+Status: Done — owner approved and delivered on 2026-09-24 in e7f6840, successfully pushed to origin/master (DEC-117). 520 tests, production build and final development/production desktop/portrait/landscape browser suites pass, including the faster reveal, current collisions and office spawn. Evidence: output/qa/port09c/ff-dialogs.md. Added before PORT-09D at the owner's request (DEC-112).
 
 ### Goal
 
