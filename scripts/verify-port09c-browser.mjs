@@ -91,6 +91,7 @@ try {
     await press('ArrowUp', 1050);
     assert.ok((await state()).bottom < 22 * 16, `${name}: office exit`);
     for (const [id, x, y, title] of [
+      ['office-dog-bed', 6.5, 30.75, 'Dog — placeholder photo'],
       ['office-workstation', 6.5, 29, 'Curriculum vitae'],
       ['office-bookcase', 9.1, 26.25, 'Recently read books'],
     ]) {
@@ -100,6 +101,19 @@ try {
         if (mobile) await tap('.mobile-interact'); else await press(cycle ? 'f' : 'e');
         assert.equal(await evaluate(`document.querySelector('dialog').open`), true, `${name} ${id} cycle ${cycle}: ${JSON.stringify(await evaluate('({target:testScene.interactionSystem.getCurrentTarget(),active:document.activeElement?.id,enabled:testScene.inputController.isGameplayEnabled()})'))}`);
         assert.equal(await evaluate(`document.querySelector('#dialog-title').textContent`), title);
+        if (id === 'office-dog-bed') {
+          await evaluate(`document.querySelector('.dialog-image').decode()`);
+          assert.equal(await evaluate(`(()=>{const i=document.querySelector('.dialog-image');const r=i.getBoundingClientRect();return i.naturalWidth>0 && i.alt.length>0 && r.width>0 && r.right<=innerWidth && document.querySelector('#dialog-content').children.length===1})()`), true);
+          const picture = await send('Page.captureScreenshot', { format: 'png' });
+          writeFileSync(`${output}/${name}-dog-dialog.png`, Buffer.from(picture.data, 'base64'));
+          if (cycle === 1) {
+            // Exercise the local error handler without depending on a network outage.
+            await evaluate(`document.querySelector('.dialog-image').dispatchEvent(new Event('error'))`);
+            assert.equal(await evaluate(`document.querySelector('#dialog-content [role="status"]').textContent`), 'Picture unavailable. Please try again later.');
+          }
+        } else {
+          assert.equal(await evaluate(`document.querySelector('.dialog-image') === null`), true);
+        }
         assert.equal(await evaluate('testScene.inputController.isGameplayEnabled()'), false);
         if (mobile) await tap('.dialog-close'); else await press('Escape');
         assert.equal(await evaluate(`document.querySelector('dialog').open`), false);
@@ -123,7 +137,7 @@ try {
       await pause(200);
       assert.ok(Math.abs((await state()).x - after.x) < 0.1);
     }
-    console.log(`PASS ${name}: assets, entrance/exit, E/F or touch dialogs twice, seven bases, input reset`);
+    console.log(`PASS ${name}: assets, entrance/exit, three E/F or touch dialogs twice, dog image/fallback/cleanup, seven bases, input reset`);
   }
   assert.deepEqual(errors, []);
   console.log('PASS no uncaught browser exceptions');

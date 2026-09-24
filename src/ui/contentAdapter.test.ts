@@ -1,10 +1,19 @@
 import { describe, expect, it } from 'vitest';
 
 import { televisionContent } from '../content/television';
+import { dogContent } from '../content/dog';
 import type { ContentRecord } from '../content/types';
 import { toDialogContent } from './contentAdapter';
 
 describe('toDialogContent', () => {
+  it('maps the dog picture through the asset URL boundary with accessible alt text', () => {
+    const dialog = toDialogContent(dogContent);
+    expect(dialog.image).toEqual({ src: '/assets/photos/dog/placeholder.png', alt: dogContent.image!.alt });
+    expect(dialog.sections).toEqual([]);
+    expect(dialog.description).toBeUndefined();
+    expect(dialog.actions).toBeUndefined();
+    expect(toDialogContent(televisionContent).image).toBeUndefined();
+  });
   it('keeps television content data and removes room metadata', () => {
     expect(toDialogContent(televisionContent)).toEqual({
       id: 'livingroom-media',

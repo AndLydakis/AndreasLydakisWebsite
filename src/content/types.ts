@@ -22,4 +22,6 @@ export interface ContentRecord {
   description?: string;
   sections: readonly ContentSection[];
   actions?: readonly ContentAction[];
+  /** Optional standalone picture; paths stay relative to public/assets. */
+  image?: { assetPath: string; alt: string };
 }

@@ -132,6 +132,21 @@ export class DialogManager {
     this.options.description.hidden = !content.description;
     this.options.content.replaceChildren();
 
+    if (content.image) {
+      const image = document.createElement('img');
+      image.className = 'dialog-image';
+      image.alt = content.image.alt;
+      // Local content pictures do not participate in Phaser's texture pipeline.
+      image.addEventListener('error', () => {
+        const fallback = document.createElement('p');
+        fallback.setAttribute('role', 'status');
+        fallback.textContent = 'Picture unavailable. Please try again later.';
+        image.replaceWith(fallback);
+      }, { once: true });
+      image.src = content.image.src;
+      this.options.content.append(image);
+    }
+
     content.sections.forEach((section) => {
       const sectionElement = document.createElement('section');
       sectionElement.className = 'dialog-section';

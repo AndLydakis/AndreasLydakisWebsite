@@ -16,6 +16,7 @@ export function toDialogContent(record: ContentRecord): DialogContent {
     eyebrow: record.eyebrow,
     description: record.description,
     sections: record.sections,
+    ...(record.image ? { image: { src: assetUrl(record.image.assetPath), alt: record.image.alt } } : {}),
     ...(record.actions?.length
       ? {
           actions: record.actions.map((action) => ({

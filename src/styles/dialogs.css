@@ -66,6 +66,15 @@
   line-height: 1.6;
 }
 
+/* Preserve the whole photograph; fit short landscape screens without cropping. */
+.dialog-image {
+  display: block;
+  width: 100%;
+  max-height: max(5rem, calc(85dvh - 10rem));
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+}
+
 .dialog-section + .dialog-section {
   margin-top: var(--space-4);
 }

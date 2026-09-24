@@ -908,6 +908,17 @@ This file is the project decision record. New implementation decisions, approved
 - QA: Reject initial rear desk image for near-side chair; corrected candidate saved as back.png. Dog-bed side angles/fabric and workstation side geometry fail strict consistency and are saved explicitly as review candidates, not approved rotations. Other views preserve broad identities but fine geometry/detail is not certified exact. Record limitations and reference hashes in output/imagegen/office-views-review.md. All four reference hashes unchanged.
 - Delivery: Exact prompts and all chosen/review candidates saved in workspace object folders. PORT-09C remains artwork review only; no integration, commit or push.
 
+## DEC-111 — Dog picture placeholder interaction
+
+- Date: 2026-09-24
+- Authorization: Owner requested an interactable on the existing dog that opens a same-style dialog containing only a generated dummy picture. This supersedes the decorative-dog choice for this local follow-up, not the completed delivery history.
+- Content: Generate a fictional border collie photograph with the built-in imagegen tool. Save public/assets/photos/dog/placeholder.png and exact prompt output/imagegen/office-dog-photo.prompt.md. Clearly identify it as a placeholder in dialog title and alt text; no claim of real-pet likeness.
+- Implementation: Promote the existing dog sprite to an interactable without moving or resizing it or its collision base. Radius 1.25 tiles. Add optional image metadata to the existing content-to-dialog boundary, base-path-aware URL resolution, responsive uncropped rendering and a failed-image message. Reuse normal dialog controls, movement gating and focus restoration; no custom dog-specific UI branch.
+- Verification: 385 tests and typecheck/build pass. Extended isolated browser driver checks dog photo load, image-only body, fallback, repeated E/F/touch opening and no image left behind in other dialogs. Final browser evidence recorded separately.
+- Delivery: Local PORT-09C follow-up pending owner review; no commit or push. Original PORT-09C delivery remains Done.
+- Final verification: development and production desktop/portrait/landscape suites passed, including photo load/fallback/cleanup and all existing office checks; screenshots visually inspected. Evidence: output/qa/port09c/dog-followup.md.
+- Follow-up delivery authorization: Owner requested pushing these changes. Repeat final tests/build/diff checks, commit only the dog follow-up and QA evidence, and preserve unrelated owner edits. Record successful delivery below.
+
 ## DEC-110 — Accept and deliver PORT-09C
 
 - Date: 2026-09-24

@@ -2012,6 +2012,8 @@ Proportions follow-up (DEC-107): sample-v5 targets about 15% less horizontal len
 
 Complete the office presentation and wire its workstation to the existing dummy CV content.
 
+Post-delivery follow-up (DEC-111, owner-approved): dog interactable opens an image-only body in the shared dialog with a labelled generated dummy photo. Placement/collisions preserved; alt text and image-load fallback provided. E/F and mobile opening/closing, responsive image containment, no stale image in CV/books, and movement reset verified. 385 tests and build pass. Original PORT-09C stays Done; follow-up delivery authorized and in progress.
+
 Alignment follow-up (DEC-109): office origin is now (3.5,22), placing its doorway on the living-room corridor's x=12 centerline. Local artwork, furniture and collision positions unchanged; fractional room origins supported and regression-tested.
 
 ### Subtasks

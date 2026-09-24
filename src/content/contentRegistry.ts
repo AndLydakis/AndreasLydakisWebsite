@@ -2,6 +2,7 @@ import { gymContent } from './gym';
 import { booksContent } from './books';
 import { kitchenContent } from './kitchen';
 import { officeContent } from './office';
+import { dogContent } from './dog';
 import { televisionContent } from './television';
 import { vinylContent } from './vinyl';
 import type { ContentRecord } from './types';
@@ -14,6 +15,7 @@ export const contentRegistry = [
   booksContent,
   gymContent,
   officeContent,
+  dogContent,
   kitchenContent,
 ] as const satisfies readonly ContentRecord[];
 

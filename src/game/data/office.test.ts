@@ -54,10 +54,10 @@ describe('office presentation and navigation', () => {
   });
 
   it('reuses the CV and reading records without creating room-specific UI', () => {
-    expect(office.interactables.map(i => i.contentId)).toEqual(['office-cv', 'livingroom-books']);
+    expect(office.interactables.map(i => i.contentId)).toEqual(['office-dog-photo', 'office-cv', 'livingroom-books']);
     expect(contentById.get('office-cv')!.eyebrow).toContain('PLACEHOLDER');
     const books = houseLayout.rooms[0]!.interactables.find(i => i.id === 'living-room-bookcase')!;
-    expect(office.interactables[1]!.contentId).toBe(books.contentId);
+    expect(office.interactables.find(i => i.id === 'office-bookcase')!.contentId).toBe(books.contentId);
   });
 
   it('connects the doorway to both interactions and routes around the furniture at foot width', () => {
@@ -70,7 +70,7 @@ describe('office presentation and navigation', () => {
       queue.push({ x: x + 0.25, y }, { x: x - 0.25, y }, { x, y: y + 0.25 }, { x, y: y - 0.25 });
     }
     const interaction = new InteractionSystem(houseLayout);
-    for (const [x, y, id] of [[3, 7, 'office-workstation'], [5.5, 4.25, 'office-bookcase']] as const) {
+    for (const [x, y, id] of [[3, 7, 'office-workstation'], [5.5, 4.25, 'office-bookcase'], [3, 8.75, 'office-dog-bed']] as const) {
       expect(reached.has(`${x},${y}`)).toBe(true);
       interaction.update({ position: { x: office.origin.x + x - 0.5, y: office.origin.y + y - 1.5 } });
       expect(interaction.getCurrentTarget()?.id).toBe(id);

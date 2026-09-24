@@ -6,6 +6,8 @@ Replace this document with a full attribution record if approved third-party ass
 
 ## Office samples — PORT-09C (artwork review)
 
+- DEC-111: public/assets/photos/dog/placeholder.png generated with the built-in image tool on 2026-09-24 for picture-dialog testing. Fictional border collie, no reference photo and no real-pet likeness claimed. Exact prompt: output/imagegen/office-dog-photo.prompt.md. Replace via src/content/dog.ts when an owner-supplied photo is available.
+
 - DEC-108 runtime selection: background sample-v5; workstation left-review.png (camera-view filename, screens/working side face screen-right); bookcase front; dog-bed front-three-quarter; sofa left; coffee-table front; standing and seated robots front-three-quarter. Existing generated originals preserved. The desk uses a previously labelled review candidate, not a claim that all directional variants are geometrically consistent. Runtime IDs/paths are in src/app/assetManifest.ts; placement/collisions in src/game/data/office.ts.
 
 - DEC-107: public/assets/backgrounds/office/sample-v5.png generated on 2026-09-24 with the built-in image generator from sample-v4, shortening room proportions. Exact prompt: output/imagegen/office-background-v5.prompt.md. Artwork review only.

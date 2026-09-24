@@ -6,6 +6,10 @@ pushed.
 
 ## [Unreleased]
 
+### PORT-09C follow-up — Dog picture interaction
+
+- DEC-111: existing dog now opens the shared dialog with a generated dummy border collie photograph. Added optional image content, responsive uncropped display, accessible alt text and image-load failure feedback. Placement/collisions unchanged. Owner approved delivery; 385 tests, typecheck/build and development/production desktop/mobile-emulated checks pass.
+
 - DEC-104: office background v3 adds two plants, including a large monstera; previous artwork preserved. Not integrated or pushed.
 
 ### PORT-09C — Office artwork, interactions and aligned navigation

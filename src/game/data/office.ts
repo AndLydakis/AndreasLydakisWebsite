@@ -35,6 +35,13 @@ export const office: RoomDefinition = {
   ],
   interactables: [
     {
+      id: 'office-dog-bed', roomId: 'office',
+      position: { x: 2.5, y: 7.25 },
+      label: 'Office dog', promptLabel: 'dog',
+      contentId: 'office-dog-photo', interactionRadiusTiles: 1.25,
+      assetId: 'office-dog-bed-front', displayHeightTiles: 1.6,
+    },
+    {
       id: 'office-workstation', roomId: 'office',
       position: { x: 2.5, y: 3.9 },
       label: 'Office workstation', promptLabel: 'office workstation',
@@ -51,7 +58,6 @@ export const office: RoomDefinition = {
     },
   ],
   decorations: [
-    { id: 'office-dog-bed', position: { x: 2.5, y: 7.25 }, assetId: 'office-dog-bed-front', displayHeightTiles: 1.6 },
     { id: 'office-sofa', position: { x: 13.25, y: 4.8 }, assetId: 'office-sofa-left', displayHeightTiles: 4.6 },
     { id: 'office-coffee-table', position: { x: 10.25, y: 5.2 }, assetId: 'office-coffee-table-front', displayHeightTiles: 3.4 },
     { id: 'office-robot-standing', position: { x: 12.25, y: 7.6 }, assetId: 'office-robot-standing', displayHeightTiles: 1.5 },
