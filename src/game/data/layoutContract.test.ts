@@ -39,7 +39,7 @@ describe('complete layout contract', () => {
     );
 
     const fractionalOrigin = replaceRoom(houseLayout, 'office', {
-      origin: { x: 3.5, y: 22 },
+      origin: { x: 3.5, y: 20 },
     });
     expect(validateHouseLayout(fractionalOrigin)).toEqual([]);
     for (const value of [NaN, Infinity, -Infinity]) {

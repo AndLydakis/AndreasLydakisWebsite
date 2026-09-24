@@ -2,6 +2,17 @@
 
 This file is the project decision record. New implementation decisions, approved changes, deferred choices, and story-completion decisions must be added here before or alongside changes to `plan.md` or source files.
 
+## DEC-128 — Shorter wooden corridors
+
+- Acceptance: Owner authorized pushing the shortened corridors and living-room-matched flooring. Mark this PORT-09D presentation follow-up Done; earlier local-only/review-pending notes are superseded. Preserve unrelated style-file and plan-wording edits.
+- Owner refinement: Match the living-room wood. Replace the primary procedural floor with runtime frames sampling an unobstructed patch of the existing living-room backdrop at matching world scale. Preserve source PNG bytes and retain procedural fallback for missing texture. No image generation required; no collision/layout changes in this refinement.
+- Refinement verified: 752 tests, typecheck/build and desktop/portrait/landscape corridor browser checks pass; overview inspected for texture/color/scale match. Evidence: output/qa/matched-corridor-wood/verification.md. Still local for owner review.
+- Request: Shorten corridors and add wooden flooring.
+- Layout: Horizontal living-room/gym gap reduces from 5 to 3 tiles; both vertical gaps reduce from 4 to 2 tiles. Preserve passage widths and room-local furniture/collision geometry. Move gym and kitchen two tiles left, office and kitchen two tiles up; spawn follows office data.
+- Presentation: Render warm staggered wooden planks with subtle grain as native graphics, clipped to corridor rectangles. No generated bitmap or new dependency is needed for this repeating geometric flooring.
+- Verification: Check room/door alignment, corridor side containment, both-direction traversal, spawn, and floor drawing bounds. Browser checks derive travel direction from adjacent rooms rather than corridor aspect ratio. Local presentation review before delivery.
+- Results: 750 tests and typecheck/build passed. Development desktop/portrait/landscape browser checks passed all corridor seams/containment, kitchen interactions, furniture and controls without uncaught exceptions. Full-house overview visually inspected; normal camera restored. Evidence: output/qa/short-wood-corridors/verification.md. No push; owner presentation review pending.
+
 ## DEC-127 — Rebuild other walking directions from the accepted down cycle
 
 - Acceptance: Owner confirmed the result looks good and authorized pushing DEC-126/127. This supersedes the earlier local-only/review-pending notes. Deliver as a PORT-09D presentation follow-up, preserving unrelated style-file and plan-wording edits.

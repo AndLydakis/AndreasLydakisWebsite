@@ -37,12 +37,12 @@ describe('collision geometry', () => {
   it('blocks every exposed corridor side without covering any room or corridor floor', () => {
     const walls = getCorridorCollisionRects(houseLayout);
     expect(walls).toEqual(expect.arrayContaining([
-      { x: 22, y: 10, width: 5, height: 1 },
-      { x: 22, y: 13, width: 5, height: 1 },
-      { x: 9, y: 18, width: 1, height: 4 },
-      { x: 14, y: 18, width: 1, height: 4 },
-      { x: 33, y: 18, width: 1, height: 4 },
-      { x: 38, y: 18, width: 1, height: 4 },
+      { x: 22, y: 10, width: 3, height: 1 },
+      { x: 22, y: 13, width: 3, height: 1 },
+      { x: 9, y: 18, width: 1, height: 2 },
+      { x: 14, y: 18, width: 1, height: 2 },
+      { x: 31, y: 18, width: 1, height: 2 },
+      { x: 36, y: 18, width: 1, height: 2 },
     ]));
     const floors = [
       ...houseLayout.rooms.map(r => ({ ...r.origin, width: r.widthTiles, height: r.heightTiles })),

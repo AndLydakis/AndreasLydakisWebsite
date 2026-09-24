@@ -90,7 +90,7 @@ describe('initial house layout', () => {
   });
 
   it('places the authoritative initial spawn in the office walkable area', () => {
-    expect(houseLayout.initialSpawn).toEqual({ x: 12, y: 27 });
+    expect(houseLayout.initialSpawn).toEqual({ x: 12, y: 25 });
     const room = houseRooms.find(room => room.id === 'office')!;
     const x = houseLayout.initialSpawn.x - room.origin.x + 0.5;
     const y = houseLayout.initialSpawn.y - room.origin.y + 1.5;

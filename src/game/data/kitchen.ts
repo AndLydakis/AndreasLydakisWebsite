@@ -15,13 +15,13 @@ export const kitchenFurnitureCollisions: readonly RoomTileRect[] = [
   { x: 7.8125, y: 7.9375, width: 1.375, height: 0.375 },
 ];
 
-/** Center the painted passage at world x=36, the gym corridor centerline.
+/** Center the painted passage at world x=34, the gym corridor centerline.
  * Doorway metadata is a containing tile envelope; collision jambs are precise.
  * Fixed fixtures live in the backdrop, with ordinary data-driven hotspots.
  */
 export const kitchen: RoomDefinition = {
   id: 'kitchen', name: 'Kitchen',
-  origin: { x: 36 - (kitchenEntrance.left + kitchenEntrance.right) / 2, y: 22 },
+  origin: { x: 34 - (kitchenEntrance.left + kitchenEntrance.right) / 2, y: 20 },
   widthTiles: 16, heightTiles: 10, visualAssetId: 'kitchen-background',
   collisionRects: [
     { x: 0, y: 0, width: kitchenEntrance.left, height: 3.0625 },

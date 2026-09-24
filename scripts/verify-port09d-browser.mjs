@@ -76,7 +76,8 @@ try {
     const corridors = await evaluate('testScene.layout.corridors');
     for (const corridor of corridors) {
       const { x, y } = corridor.origin, w = corridor.widthTiles, h = corridor.heightTiles;
-      const horizontal = w > h;
+      // Direction comes from connections, not aspect ratio: a short hall can be wider than long.
+      const horizontal = await evaluate(`testScene.layout.rooms.some(r => r.origin.x + r.widthTiles === ${x} && r.origin.y <= ${y} && r.origin.y + r.heightTiles >= ${y + h})`);
       // Push into each exposed side using real input, not a geometry-only predicate.
       for (const key of horizontal ? ['ArrowUp', 'ArrowDown'] : ['ArrowLeft', 'ArrowRight']) {
         await sole(x + w / 2, y + h / 2);
@@ -104,10 +105,12 @@ try {
     for (const sprite of [...room.interactables, ...room.decorations]) {
       if (!sprite.artworkInBackground) assert.equal(await evaluate(`testScene.textures.exists('${sprite.assetId}')`), true);
     }
-    assert.equal(room.origin.x + (7.5625 + 9.875) / 2, 36);
+    const kitchenHall = corridors.find(c => c.id === 'gym-kitchen-corridor');
+    const centerX = kitchenHall.origin.x + kitchenHall.widthTiles / 2;
+    assert.equal(room.origin.x + (7.5625 + 9.875) / 2, centerX);
     // Phaser may use a blob URL for the texture image; inspect the fetched asset instead.
     assert.equal(await evaluate("performance.getEntriesByType('resource').some(r=>r.name.endsWith('/backgrounds/kitchen/sample-v3.png'))"), true);
-    await sole(38.75, 28);
+    await sole(centerX + 2.75, room.origin.y + 6);
     const capture = async suffix => {
       const { cssContentSize } = await send('Page.getLayoutMetrics');
       const shot = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true,
@@ -117,14 +120,14 @@ try {
     await capture('kitchen');
     if (process.argv.includes('--capture-only')) continue;
     // Use actual keyboard movement through the new painted doorway in both directions.
-    await sole(36, 20);
+    await sole(centerX, room.origin.y - 1);
     await press('ArrowDown', 750);
-    assert.ok((await state()).bottom > 25 * 16, 'enter kitchen through corridor');
+    assert.ok((await state()).bottom > (room.origin.y + 3) * 16, 'enter kitchen through corridor');
     await press('ArrowUp', 750);
-    assert.ok((await state()).bottom < 22 * 16, 'exit kitchen to corridor');
+    assert.ok((await state()).bottom < room.origin.y * 16, 'exit kitchen to corridor');
     for (const [id, x, y, title] of [
-      ['kitchen-stove', room.origin.x + 2.75, 28, 'Recently cooked'],
-      ['kitchen-fridge', room.origin.x + 14.5, 27.25, 'Shopping list'],
+      ['kitchen-stove', room.origin.x + 2.75, room.origin.y + 6, 'Recently cooked'],
+      ['kitchen-fridge', room.origin.x + 14.5, room.origin.y + 5.25, 'Shopping list'],
     ]) {
       for (let cycle = 0; cycle < 2; cycle++) {
         await sole(x, y);
@@ -151,13 +154,13 @@ try {
       assert.ok((await state()).y >= bottom * 16 - 0.01, `${name}: furniture base ${rect.x},${rect.y}`);
     }
     if (mobile) {
-      await sole(38.75, 30);
+      await sole(centerX + 2.75, room.origin.y + 8);
       const before = await state();
       await tap('[data-direction="right"]', 150);
       assert.ok((await state()).x > before.x + 5);
     }
     // Left run reaches the bottom wall, so approach it horizontally from clear floor.
-    await sole(room.origin.x + 2.6, 30);
+    await sole(room.origin.x + 2.6, room.origin.y + 8);
     await press('ArrowLeft', 400);
     assert.ok((await state()).x >= (room.origin.x + 1.9375) * 16 - 0.01, 'left fitted counter');
     console.log(`PASS ${name}: fitted artwork, centered corridor, both dialogs twice, read-only content, furniture bases, controls`);

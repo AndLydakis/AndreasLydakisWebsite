@@ -24,7 +24,7 @@ export const office: RoomDefinition = {
   id: 'office',
   name: 'Office',
   // Center the odd-width room/doorway on the corridor's world x=12 centerline.
-  origin: { x: 3.5, y: 22 },
+  origin: { x: 3.5, y: 20 },
   widthTiles: 17,
   heightTiles: 10,
   visualAssetId: 'office-background',

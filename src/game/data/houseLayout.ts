@@ -76,7 +76,7 @@ const livingRoom: RoomDefinition = {
 const gym: RoomDefinition = {
   id: 'gym',
   name: 'Gym',
-  origin: { x: 27, y: 4 },
+  origin: { x: 25, y: 4 },
   widthTiles: 16,
   heightTiles: 14,
   collisionRects: [
@@ -152,20 +152,20 @@ export const houseCorridors = [
   {
     id: 'living-room-gym-corridor',
     origin: { x: 22, y: 11 },
-    widthTiles: 5,
+    widthTiles: 3,
     heightTiles: 2,
   },
   {
     id: 'living-room-office-corridor',
     origin: { x: 10, y: 18 },
     widthTiles: 4,
-    heightTiles: 4,
+    heightTiles: 2,
   },
   {
     id: 'gym-kitchen-corridor',
-    origin: { x: 34, y: 18 },
+    origin: { x: 32, y: 18 },
     widthTiles: 4,
-    heightTiles: 4,
+    heightTiles: 2,
   },
 ] as const;
 

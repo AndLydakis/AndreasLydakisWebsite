@@ -3,8 +3,47 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { houseLayout } from '../data/houseLayout';
 import type { InteractableDefinition } from '../data/types';
-import { buildRoom } from './houseRenderer';
+import { buildRoom, drawLivingRoomFloor, drawWoodFloor } from './houseRenderer';
 import type { HouseRenderLayers } from './houseRenderer';
+
+describe('wooden corridor floors', () => {
+  it('reuses living-room pixels at matching scale and caches source frames', () => {
+    const frames = new Set<string>();
+    const texture = { getSourceImage: () => ({ width: 1499, height: 1049 }),
+      has: (key: string) => frames.has(key),
+      add: vi.fn((key: string) => frames.add(key)) };
+    const image = { setOrigin: vi.fn().mockReturnThis(), setDisplaySize: vi.fn().mockReturnThis(), setDepth: vi.fn().mockReturnThis() };
+    const scene = { textures: { exists: () => true, get: () => texture }, add: { image: vi.fn(() => image) } };
+    const rect = { x: 160, y: 288, width: 64, height: 32 };
+    expect(drawLivingRoomFloor(scene as unknown as Phaser.Scene, rect, 16)).toBe(true);
+    expect(texture.add).toHaveBeenCalledWith('corridor-wood-300-150', 0, 1080, 360, 300, 150);
+    expect(scene.add.image).toHaveBeenCalledWith(160, 288, 'living-room-background', 'corridor-wood-300-150');
+    expect(image.setDisplaySize).toHaveBeenCalledWith(64, 32);
+    drawLivingRoomFloor(scene as unknown as Phaser.Scene, rect, 16);
+    expect(texture.add).toHaveBeenCalledTimes(1);
+  });
+
+  it('retains the procedural fallback when the living-room texture is missing', () => {
+    const scene = { textures: { exists: () => false } };
+    expect(drawLivingRoomFloor(scene as unknown as Phaser.Scene, { x: 0, y: 0, width: 64, height: 32 }, 16)).toBe(false);
+  });
+  it.each(houseLayout.corridors)('clips staggered planks to $id without drawing across entrances', corridor => {
+    const graphics = { fillStyle: vi.fn(), fillRect: vi.fn() };
+    const rect = { x: corridor.origin.x * 16, y: corridor.origin.y * 16,
+      width: corridor.widthTiles * 16, height: corridor.heightTiles * 16 };
+    drawWoodFloor(graphics as unknown as Phaser.GameObjects.Graphics, rect, 16);
+    expect(graphics.fillStyle.mock.calls.length).toBeGreaterThan(3);
+    expect(new Set(graphics.fillStyle.mock.calls.map(call => call[0])).size).toBeGreaterThan(3);
+    for (const [x, y, width, height] of graphics.fillRect.mock.calls) {
+      expect(width).toBeGreaterThan(0);
+      expect(height).toBeGreaterThan(0);
+      expect(x).toBeGreaterThanOrEqual(rect.x);
+      expect(y).toBeGreaterThanOrEqual(rect.y);
+      expect(x + width).toBeLessThanOrEqual(rect.x + rect.width);
+      expect(y + height).toBeLessThanOrEqual(rect.y + rect.height);
+    }
+  });
+});
 
 /** Records the rendering contract without creating a browser or Phaser renderer. */
 function renderInteractable(

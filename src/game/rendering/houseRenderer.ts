@@ -17,7 +17,6 @@ import type {
 
 const COLORS = {
   floor: 0x3b315c,
-  corridor: 0x50416e,
   roomOutline: 0x8d70bd,
   wall: 0x171226,
   wallOutline: 0x62e6ff,
@@ -45,20 +44,9 @@ export function buildHouse(scene: Phaser.Scene, layout: HouseLayout): HouseRende
       layout.tileSize,
     );
 
-    layers.floor.fillStyle(COLORS.corridor, 1);
-    layers.floor.fillRect(
-      corridorPixels.x,
-      corridorPixels.y,
-      corridorPixels.width,
-      corridorPixels.height,
-    );
-    layers.floor.lineStyle(2, COLORS.roomOutline, 1);
-    layers.floor.strokeRect(
-      corridorPixels.x,
-      corridorPixels.y,
-      corridorPixels.width,
-      corridorPixels.height,
-    );
+    if (!drawLivingRoomFloor(scene, corridorPixels, layout.tileSize)) {
+      drawWoodFloor(layers.floor, corridorPixels, layout.tileSize);
+    }
   });
 
   const roomsById = new Map(layout.rooms.map((room) => [room.id, room]));
@@ -177,6 +165,60 @@ export function buildRoom(
       image.setScale(Math.min(1, (tileSize * 3) / Math.max(image.width, image.height)));
     }
   });
+}
+
+/** Reuse unobstructed wood to the right of the living-room rug at its room scale.
+ * Source frames reference the existing PNG without modifying or duplicating it.
+ */
+export function drawLivingRoomFloor(
+  scene: Phaser.Scene,
+  rect: { x: number; y: number; width: number; height: number },
+  tileSize: number,
+): boolean {
+  const key = 'living-room-background';
+  if (!scene.textures.exists(key)) return false;
+  const texture = scene.textures.get(key);
+  const source = texture.getSourceImage();
+  const scaleX = tileSize * 20 / source.width;
+  const scaleY = tileSize * 14 / source.height;
+  // This furniture-free patch also excludes the painted right wall and sunlight.
+  const patch = { x: 1080, y: 360, width: 312, height: 440 };
+  for (let y = 0; y < rect.height; y += patch.height * scaleY) {
+    for (let x = 0; x < rect.width; x += patch.width * scaleX) {
+      const width = Math.min(patch.width * scaleX, rect.width - x);
+      const height = Math.min(patch.height * scaleY, rect.height - y);
+      const sourceWidth = Math.ceil(width / scaleX), sourceHeight = Math.ceil(height / scaleY);
+      const frame = `corridor-wood-${sourceWidth}-${sourceHeight}`;
+      if (!texture.has(frame)) texture.add(frame, 0, patch.x, patch.y, sourceWidth, sourceHeight);
+      scene.add.image(rect.x + x, rect.y + y, key, frame)
+        .setOrigin(0, 0).setDisplaySize(width, height).setDepth(0);
+    }
+  }
+  return true;
+}
+
+/** Missing-art fallback: staggered pixel-aligned planks clipped to the floor. */
+export function drawWoodFloor(
+  graphics: Phaser.GameObjects.Graphics,
+  rect: { x: number; y: number; width: number; height: number },
+  tileSize: number,
+): void {
+  const colors = [0x92704c, 0xa17b52, 0x896747, 0x9a7450];
+  const plankWidth = tileSize * 2, plankHeight = tileSize / 2;
+  graphics.fillStyle(0x4e392b, 1);
+  graphics.fillRect(rect.x, rect.y, rect.width, rect.height);
+  for (let row = 0, y = 0; y < rect.height; row++, y += plankHeight) {
+    for (let column = 0, x = -(row % 2) * tileSize; x < rect.width; column++, x += plankWidth) {
+      const left = Math.max(0, x), right = Math.min(rect.width, x + plankWidth);
+      const width = right - left, height = Math.min(plankHeight, rect.height - y);
+      graphics.fillStyle(colors[(row + column) % colors.length], 1);
+      graphics.fillRect(rect.x + left, rect.y + y, width - 1, height - 1);
+      if (width > 6 && height > 3) {
+        graphics.fillStyle(0xb18a5e, 0.55);
+        graphics.fillRect(rect.x + left + 2, rect.y + y + 2, width - 5, 1);
+      }
+    }
+  }
 }
 
 function createRenderLayers(scene: Phaser.Scene): HouseRenderLayers {

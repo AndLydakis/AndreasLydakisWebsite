@@ -6,6 +6,13 @@ pushed.
 
 ## [Unreleased]
 
+### PORT-09D — Accepted short wooden corridors
+
+- Owner approved delivery of DEC-128. 752 tests, typecheck/build and desktop/portrait/landscape corridor checks pass; prior full gameplay regression passed before the texture-only refinement.
+
+- Refined corridor wood to reuse the actual living-room floor artwork and plank scale, with cached runtime frames and a missing-texture fallback; original PNG unchanged.
+- DEC-128: shorten all three connectors by two tiles, translate adjacent rooms without changing their contents, and replace purple corridor floors with staggered wooden planks. Preserve doorway widths and derive collision boundaries from the revised layout.
+
 ### PORT-09D — Accepted movement and animation follow-up
 
 - DEC-127: rebuilt left/right/up walking sheets using the accepted down walk as reference, preserving down and all idle source bytes. Added explicit frame regions to avoid generated-grid spillover and expanded four-direction playback preview. Owner approved the result and requested delivery.
