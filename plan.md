@@ -3020,7 +3020,7 @@ Type: Story
 Priority: High — owner-prioritized before PORT-10A (DEC-129)
 Dependencies: Current delivered room, collision and player baseline (`PORT-09D` and accepted presentation follow-ups). The former all-stories/PORT-17D scheduling dependency is superseded by DEC-129.
 Milestone: M6
-Status: Accepted — refreshed 19-object baseline, 772 tests and build pass; architect, game developer and scrum master approve the revised design. Owner approved the unchanged positions, existing bases, tested routes and proposed globe plane. Awaiting successful push before Done. No runtime changes. Evidence: `output/qa/port18a/verification.md`.
+Status: Done — implementation/design delivery commit `4ad6504` successfully pushed to `origin/master`. Refreshed 19-object baseline, 772 tests and build pass; architect, game developer and scrum master approve the revised design. Owner approved unchanged positions, existing bases, tested routes and proposed globe plane. No runtime changes. Evidence: `output/qa/port18a/verification.md`.
 Delivery: Global story workflow and all M6 review gates apply.
 
 Design and evidence: `docs/occlusion-contract-v1.md`; review decisions in `log.md` under DEC-129.

@@ -5,6 +5,7 @@ This file is the project decision record. New implementation decisions, approved
 ## DEC-132 — Resume PORT-18A against the delivered globe/travel baseline
 
 - Owner final acceptance: "Approve these positions and routes" in response to the explicit unchanged TV/vinyl/globe placements, existing bases, verified left-side routes and conservative globe plane question. Required acceptance gates are satisfied. Deliver the design/baseline as PORT-18A under the standing completed-story commit/push workflow; no 18B/18C implementation is included. Preserve unrelated owner plan wording and style files.
+- Delivery confirmed: `4ad6504` successfully pushed to `origin/master`; PORT-18A marked Done. Final contract/plan edits after the reviewed hashes only record reviewer/owner acceptance and delivery status; design requirements remain unchanged. PORT-18B is next and remains unstarted.
 
 - Owner authorizes resuming PORT-18A, not subsequent runtime implementation. Refresh design-only evidence against `6e0ac1d`, including the globe (19th separate object) and quick travel. Preserve all runtime/assets, room placements, existing collisions and unrelated owner edits.
 - Reuse architect Lorentz, senior game developer Ramanujan and scrum master Tesla for focused delta review. Refresh the generic contract and detailed acceptance criteria rather than relying on the old 18-object snapshot.
