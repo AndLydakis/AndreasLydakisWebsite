@@ -6,6 +6,10 @@ pushed.
 
 ## [Unreleased]
 
+## [2026-09-25] — Approved perspective and furniture delivery
+
+Delivered to `origin/master` in `5381572`; all seven stories below are complete.
+
 Owner approved delivery of the held PORT-18C, PORT-18D, PORT-18D1, PORT-19A,
 PORT-19B, PORT-19C and PORT-19C1 changes on2026-09-25 (DEC-143). Entries below
 record the implementation sequence; earlier no-push/review notes are historical.

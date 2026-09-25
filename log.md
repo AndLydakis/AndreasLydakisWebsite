@@ -9,6 +9,7 @@ This file is the project decision record. New implementation decisions, approved
 - Final fresh verification: 981 tests/38files, typecheck and production build pass (`index-C8eMkW2t.js`); scoped whitespace check passes. Existing Vite bundle-size advisory is unchanged. Current development/production table/fallback/interaction/quick-travel/gallery checks and independent game/source reviews are recorded in DEC-141/142 and `output/qa/port19c1-table-bounds/verification.md`.
 - Owner approval closes the visible-acceptance gate. Mark stories Done only after the implementation push succeeds; record delivery commit and remote verification afterward.
 - Final independent senior engineer release review (Lorentz, read-only accumulated production diff against6c11c11) approves lifecycle/teleport synchronization, deterministic sorting, collision ownership, atomic fallback and latest table dimensions/asset identities with no remaining blockers. Reviewed runtime hashes match the final tested snapshot; unrelated owner files/plan wording excluded. The fresh981-test/build gate passed.
+- Delivery succeeded: implementation commit `5381572` pushed to `origin/master` (remote advanced from6c11c11). Close the seven listed stories as Done; PORT-18E is the next pending perspective story. Follow-up documentation records the completed push; unrelated owner edits remain local.
 
 ## DEC-142 — Triple the coffee-table collision height
 

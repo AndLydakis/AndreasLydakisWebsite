@@ -3092,7 +3092,7 @@ Type: Story
 Priority: High — queued after prerequisite
 Dependencies: `PORT-18B`
 Milestone: M6
-Status: Ready for delivery — owner approved accumulated changes and push (DEC-143); final 981-test/build gate passes
+Status: Done — owner approved; delivered in5381572 to origin/master (DEC-143). Generic depth sorting, 981-test/build and browser/review gates pass.
 Delivery: Global story workflow and all M6 review gates apply.
 
 ### Goal
@@ -3132,7 +3132,7 @@ Type: Story
 Priority: High — queued after prerequisite
 Dependencies: `PORT-18C`
 Milestone: M6
-Status: Ready for delivery — owner approved accumulated changes and push (DEC-143); geometry/browser/review gates pass
+Status: Done — owner approved; delivered in5381572 to origin/master (DEC-143). Combined collision ownership and geometry/browser/review gates pass.
 Delivery: Global story workflow and all M6 review gates apply.
 
 ### Goal
@@ -3166,7 +3166,7 @@ Type: Story — owner-requested layout correction (DEC-137)
 Priority: High
 Dependencies: `PORT-18D`
 Milestone: M6
-Status: Ready for delivery — owner approved accumulated changes and push (DEC-143); alignment/traversal/quick-travel gates pass
+Status: Done — owner approved; delivered in5381572 to origin/master (DEC-143). Gym–kitchen alignment, traversal and quick-travel gates pass.
 Delivery: Global story workflow and all M6 review gates apply.
 
 ### Goal
@@ -3407,7 +3407,7 @@ Type: Story
 Priority: High — queued after prerequisite
 Dependencies: `PORT-18D1` (owner requested passage correction before resuming couch/table)
 Milestone: M6
-Status: Ready for delivery — owner accepted couch artwork and authorized push (DEC-143)
+Status: Done — owner accepted couch artwork; delivered in5381572 to origin/master (DEC-143).
 Delivery: Global story workflow and all M6 review gates apply.
 
 ### Goal
@@ -3440,7 +3440,7 @@ Type: Story
 Priority: High — queued after prerequisite
 Dependencies: `PORT-19A`
 Milestone: M6
-Status: Ready for delivery — owner accepted DEC-139 sofa bounds and authorized push (DEC-143); verification gates pass
+Status: Done — owner accepted couch integration and DEC-139 bounds; delivered in5381572 to origin/master (DEC-143). Verification gates pass.
 Delivery: Global story workflow and all M6 review gates apply.
 
 ### Goal
@@ -3474,7 +3474,7 @@ Type: Story
 Priority: High — queued after prerequisite
 Dependencies: `PORT-19B`
 Milestone: M6
-Status: Ready for delivery — owner accepted table artwork and authorized push (DEC-143)
+Status: Done — owner accepted table artwork; delivered in5381572 to origin/master (DEC-143).
 Delivery: Global story workflow and all M6 review gates apply.
 
 ### Goal
@@ -3506,7 +3506,7 @@ Type: Story
 Priority: High — queued after prerequisite
 Dependencies: `PORT-19C`
 Milestone: M6
-Status: Ready for delivery — owner accepted DEC-142 table bounds and authorized push (DEC-143); 981 tests/build and browser/review gates pass
+Status: Done — owner accepted table integration and DEC-142 bounds; delivered in5381572 to origin/master (DEC-143). 981 tests/build and browser/review gates pass.
 Delivery: Global story workflow and all M6 review gates apply.
 
 ### Goal
