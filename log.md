@@ -10,6 +10,7 @@ This file is the project decision record. New implementation decisions, approved
 - Results: 805 tests across32files, typecheck/build, scoped diff check and development/production desktop/portrait/landscape/320px browser checks pass. The reusable browser harness now accepts an optional evidence folder so prior QA is not overwritten. No live data/assets/rendering/physics changes. Criterion-by-criterion evidence and exact six-file SHA256 review snapshot: `output/qa/port18b/verification.md`.
 - Independent reviews: Lorentz (`01a0d50e-85ea-7ee3-a283-83b5110976ee`), acting as senior software engineer, explicitly approves with no findings and independently passes73targetedtests/typecheck/scopeddiff. Ramanujan (`01a0d50e-8707-7132-8b5c-584c2b897e00`), senior game developer, explicitly approves the identical snapshot with no findings and independently passes91targetedtests. No independent live-testing claim. No fix/re-review loop needed because neither found blockers.
 - All PORT-18B criteria are satisfied. No visible change requires additional visual approval; deliver under standing completed-story commit/push instructions. PORT-18C remains unstarted; re-estimate its two-day ceiling before coding.
+- Delivery confirmed: `dc9539d` successfully pushed to `origin/master`; PORT-18B marked Done. Unrelated owner style edits and plan-review wording remain local.
 
 ## DEC-132 — Resume PORT-18A against the delivered globe/travel baseline
 

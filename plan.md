@@ -3058,7 +3058,7 @@ Type: Story
 Priority: High — queued after prerequisite
 Dependencies: `PORT-18A`
 Milestone: M6
-Status: Accepted — 805 tests, typecheck/build and development/production four-viewport browser checks pass. Independent senior engineer and game developer approve; no visible/live geometry changes. Awaiting successful push before Done. Evidence: `output/qa/port18b/verification.md`.
+Status: Done — implementation commit `dc9539d` successfully pushed to `origin/master`. 805 tests, typecheck/build and development/production four-viewport browser checks pass. Independent senior engineer and game developer approve; no visible/live geometry changes. Evidence: `output/qa/port18b/verification.md`.
 Delivery: Global story workflow and all M6 review gates apply.
 
 ### Goal
