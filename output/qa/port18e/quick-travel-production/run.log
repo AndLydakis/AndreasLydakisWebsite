@@ -1,0 +1,5 @@
+PASS desktop: glove, all destinations twice, camera/feet, input reset, no overflow, modal guard
+PASS portrait: glove, all destinations twice, camera/feet, input reset, no overflow, modal guard
+PASS landscape: glove, all destinations twice, camera/feet, input reset, no overflow, modal guard
+PASS narrow: glove, all destinations twice, camera/feet, input reset, no overflow, modal guard
+PASS no uncaught exceptions

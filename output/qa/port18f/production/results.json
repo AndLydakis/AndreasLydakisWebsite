@@ -1,0 +1,6007 @@
+{
+  "url": "http://127.0.0.1:4173",
+  "recordedAt": "2026-09-25T10:21:51.282Z",
+  "baseline": "output/qa/port18f/preintegration-geometry.json",
+  "results": [
+    {
+      "integration": {
+        "bodies": 80,
+        "bounds": {
+          "visible": true,
+          "alpha": 1,
+          "depth": 8,
+          "commands": 2564,
+          "doorwayVisible": false,
+          "worldVisible": false,
+          "rectangles": [
+            {
+              "x": 32,
+              "y": 64,
+              "width": 320,
+              "height": 64
+            },
+            {
+              "x": 32,
+              "y": 256,
+              "width": 128,
+              "height": 32
+            },
+            {
+              "x": 224,
+              "y": 256,
+              "width": 128,
+              "height": 32
+            },
+            {
+              "x": 32,
+              "y": 80,
+              "width": 16,
+              "height": 192
+            },
+            {
+              "x": 336,
+              "y": 80,
+              "width": 16,
+              "height": 96
+            },
+            {
+              "x": 336,
+              "y": 208,
+              "width": 16,
+              "height": 64
+            },
+            {
+              "x": 249,
+              "y": 128,
+              "width": 70,
+              "height": 9
+            },
+            {
+              "x": 176,
+              "y": 148,
+              "width": 32,
+              "height": 5
+            },
+            {
+              "x": 294,
+              "y": 183,
+              "width": 36,
+              "height": 5
+            },
+            {
+              "x": 86,
+              "y": 188,
+              "width": 20,
+              "height": 6
+            },
+            {
+              "x": 138,
+              "y": 214,
+              "width": 104,
+              "height": 28
+            },
+            {
+              "x": 160,
+              "y": 175,
+              "width": 60,
+              "height": 24
+            },
+            {
+              "x": 400,
+              "y": 64,
+              "width": 256,
+              "height": 56
+            },
+            {
+              "x": 400,
+              "y": 256,
+              "width": 103,
+              "height": 32
+            },
+            {
+              "x": 574,
+              "y": 256,
+              "width": 82,
+              "height": 32
+            },
+            {
+              "x": 400,
+              "y": 80,
+              "width": 16,
+              "height": 96
+            },
+            {
+              "x": 400,
+              "y": 208,
+              "width": 16,
+              "height": 64
+            },
+            {
+              "x": 640,
+              "y": 80,
+              "width": 16,
+              "height": 192
+            },
+            {
+              "x": 516,
+              "y": 122,
+              "width": 24,
+              "height": 9
+            },
+            {
+              "x": 565,
+              "y": 150,
+              "width": 9,
+              "height": 6
+            },
+            {
+              "x": 574,
+              "y": 146,
+              "width": 9,
+              "height": 6
+            },
+            {
+              "x": 583,
+              "y": 142,
+              "width": 10,
+              "height": 6
+            },
+            {
+              "x": 601,
+              "y": 161,
+              "width": 10,
+              "height": 6
+            },
+            {
+              "x": 611,
+              "y": 157,
+              "width": 10,
+              "height": 6
+            },
+            {
+              "x": 621,
+              "y": 153,
+              "width": 8,
+              "height": 6
+            },
+            {
+              "x": 582,
+              "y": 143,
+              "width": 10,
+              "height": 5
+            },
+            {
+              "x": 592,
+              "y": 146,
+              "width": 10,
+              "height": 5
+            },
+            {
+              "x": 602,
+              "y": 149,
+              "width": 10,
+              "height": 5
+            },
+            {
+              "x": 534.6666666666666,
+              "y": 191,
+              "width": 34.66666666666663,
+              "height": 6
+            },
+            {
+              "x": 426,
+              "y": 120,
+              "width": 28,
+              "height": 7.5
+            },
+            {
+              "x": 592,
+              "y": 196,
+              "width": 20,
+              "height": 6
+            },
+            {
+              "x": 616,
+              "y": 226,
+              "width": 20,
+              "height": 6
+            },
+            {
+              "x": 584,
+              "y": 226,
+              "width": 20,
+              "height": 6
+            },
+            {
+              "x": 432,
+              "y": 244,
+              "width": 30,
+              "height": 7
+            },
+            {
+              "x": 56,
+              "y": 320,
+              "width": 114,
+              "height": 54
+            },
+            {
+              "x": 214,
+              "y": 320,
+              "width": 114,
+              "height": 54
+            },
+            {
+              "x": 56,
+              "y": 466,
+              "width": 272,
+              "height": 14
+            },
+            {
+              "x": 56,
+              "y": 320,
+              "width": 8,
+              "height": 160
+            },
+            {
+              "x": 320,
+              "y": 320,
+              "width": 8,
+              "height": 160
+            },
+            {
+              "x": 79,
+              "y": 418,
+              "width": 26,
+              "height": 8
+            },
+            {
+              "x": 130,
+              "y": 374,
+              "width": 31.19999999999999,
+              "height": 6
+            },
+            {
+              "x": 86,
+              "y": 449,
+              "width": 36,
+              "height": 6
+            },
+            {
+              "x": 262,
+              "y": 429,
+              "width": 30,
+              "height": 6
+            },
+            {
+              "x": 217,
+              "y": 425,
+              "width": 22,
+              "height": 6
+            },
+            {
+              "x": 252,
+              "y": 455,
+              "width": 16,
+              "height": 6
+            },
+            {
+              "x": 280,
+              "y": 454,
+              "width": 16,
+              "height": 6
+            },
+            {
+              "x": 80,
+              "y": 379,
+              "width": 16,
+              "height": 6
+            },
+            {
+              "x": 302,
+              "y": 378,
+              "width": 14,
+              "height": 6
+            },
+            {
+              "x": 66,
+              "y": 454,
+              "width": 14,
+              "height": 6
+            },
+            {
+              "x": 304,
+              "y": 454,
+              "width": 14,
+              "height": 6
+            },
+            {
+              "x": 88,
+              "y": 377,
+              "width": 33,
+              "height": 5
+            },
+            {
+              "x": 84,
+              "y": 382,
+              "width": 34,
+              "height": 6
+            },
+            {
+              "x": 80,
+              "y": 388,
+              "width": 33,
+              "height": 6
+            },
+            {
+              "x": 77,
+              "y": 394,
+              "width": 31,
+              "height": 5
+            },
+            {
+              "x": 88,
+              "y": 399,
+              "width": 7,
+              "height": 21
+            },
+            {
+              "x": 95,
+              "y": 403,
+              "width": 24,
+              "height": 4
+            },
+            {
+              "x": 125,
+              "y": 409,
+              "width": 14,
+              "height": 10
+            },
+            {
+              "x": 111,
+              "y": 413,
+              "width": 27,
+              "height": 10
+            },
+            {
+              "x": 399,
+              "y": 320,
+              "width": 121,
+              "height": 49
+            },
+            {
+              "x": 557,
+              "y": 320,
+              "width": 98,
+              "height": 49
+            },
+            {
+              "x": 399,
+              "y": 462,
+              "width": 256,
+              "height": 18
+            },
+            {
+              "x": 399,
+              "y": 320,
+              "width": 6,
+              "height": 160
+            },
+            {
+              "x": 645,
+              "y": 320,
+              "width": 10,
+              "height": 160
+            },
+            {
+              "x": 405,
+              "y": 369,
+              "width": 25,
+              "height": 93
+            },
+            {
+              "x": 430,
+              "y": 369,
+              "width": 52,
+              "height": 23
+            },
+            {
+              "x": 587,
+              "y": 369,
+              "width": 30,
+              "height": 24
+            },
+            {
+              "x": 617,
+              "y": 369,
+              "width": 28,
+              "height": 31
+            },
+            {
+              "x": 502,
+              "y": 416,
+              "width": 66,
+              "height": 25
+            },
+            {
+              "x": 515,
+              "y": 441,
+              "width": 40,
+              "height": 6
+            },
+            {
+              "x": 524,
+              "y": 447,
+              "width": 22,
+              "height": 6
+            },
+            {
+              "x": 352,
+              "y": 160,
+              "width": 48,
+              "height": 16
+            },
+            {
+              "x": 352,
+              "y": 208,
+              "width": 48,
+              "height": 16
+            },
+            {
+              "x": 144,
+              "y": 288,
+              "width": 16,
+              "height": 32
+            },
+            {
+              "x": 224,
+              "y": 288,
+              "width": 16,
+              "height": 32
+            },
+            {
+              "x": 487,
+              "y": 288,
+              "width": 16,
+              "height": 32
+            },
+            {
+              "x": 574,
+              "y": 288,
+              "width": 16,
+              "height": 32
+            },
+            {
+              "x": 0,
+              "y": 0,
+              "width": 1024,
+              "height": 16
+            },
+            {
+              "x": 0,
+              "y": 560,
+              "width": 1024,
+              "height": 16
+            },
+            {
+              "x": 0,
+              "y": 0,
+              "width": 16,
+              "height": 576
+            },
+            {
+              "x": 1008,
+              "y": 0,
+              "width": 16,
+              "height": 576
+            }
+          ]
+        }
+      }
+    },
+    {
+      "route": "gym-steel-plates-reachable-perimeter",
+      "id": "gym-steel-plates",
+      "speed": 144,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-steel-plates-front",
+          "sole": 185,
+          "x": 602,
+          "playerDepth": 3.2857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 185,
+          "anchorY": 169,
+          "animation": "player-idle-down",
+          "frame": 3,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-steel-plates-front",
+          "sole": 185,
+          "x": 578.0000000000002,
+          "playerDepth": 3.2857142857142856,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 185,
+          "anchorY": 169,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "gym-steel-plates-front",
+          "sole": 211.40000000000006,
+          "x": 578.0000000000002,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 211.40000000000006,
+          "anchorY": 195.40000000000006,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "gym-steel-plates-front",
+          "sole": 211.40000000000006,
+          "x": 602,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 211.40000000000006,
+          "anchorY": 195.40000000000006,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "gym-steel-plates-front",
+          "sole": 211.40000000000006,
+          "x": 625.9999999999998,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 211.40000000000006,
+          "anchorY": 195.40000000000006,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-steel-plates-front",
+          "sole": 182.6,
+          "x": 625.9999999999998,
+          "playerDepth": 3.2857142857142856,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 182.6,
+          "anchorY": 166.6,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-steel-plates-front",
+          "sole": 182.6,
+          "x": 602,
+          "playerDepth": 3.2857142857142856,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 182.6,
+          "anchorY": 166.6,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 120,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-walk-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-idle-up",
+          "player-walk-up"
+        ]
+      },
+      "viewport": "desktop"
+    },
+    {
+      "route": "gym-steel-plates-reachable-perimeter",
+      "id": "gym-steel-plates",
+      "speed": 72,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-steel-plates-front",
+          "sole": 185,
+          "x": 602,
+          "playerDepth": 3.2857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 185,
+          "anchorY": 169,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-steel-plates-front",
+          "sole": 185,
+          "x": 624.8000000000009,
+          "playerDepth": 3.2857142857142856,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 185,
+          "anchorY": 169,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "gym-steel-plates-front",
+          "sole": 211.39999999999975,
+          "x": 624.8000000000009,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 211.39999999999975,
+          "anchorY": 195.39999999999975,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "gym-steel-plates-front",
+          "sole": 211.39999999999975,
+          "x": 600.8,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 211.39999999999975,
+          "anchorY": 195.39999999999975,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "gym-steel-plates-front",
+          "sole": 211.39999999999975,
+          "x": 579.1999999999991,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 211.39999999999975,
+          "anchorY": 195.39999999999975,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-steel-plates-front",
+          "sole": 185,
+          "x": 579.1999999999991,
+          "playerDepth": 3.2857142857142856,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 185,
+          "anchorY": 169,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-steel-plates-front",
+          "sole": 185,
+          "x": 603.2,
+          "playerDepth": 3.2857142857142856,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 185,
+          "anchorY": 169,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 183,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-walk-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-idle-up",
+          "player-walk-up"
+        ]
+      },
+      "viewport": "desktop"
+    },
+    {
+      "viewport": "desktop",
+      "screenshot": "desktop-gym-steel-plates-behind.png",
+      "state": {
+        "id": "gym-steel-plates",
+        "plane": 202,
+        "objectDepth": 3.642857142857143,
+        "texture": "gym-steel-plates-front",
+        "sole": 185,
+        "x": 602,
+        "playerDepth": 3.2857142857142856,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 185,
+        "anchorY": 169,
+        "animation": "player-idle-down",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "viewport": "desktop",
+      "screenshot": "desktop-gym-steel-plates-front.png",
+      "state": {
+        "id": "gym-steel-plates",
+        "plane": 202,
+        "objectDepth": 3.571428571428571,
+        "texture": "gym-steel-plates-front",
+        "sole": 211,
+        "x": 602,
+        "playerDepth": 3.642857142857143,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 211,
+        "anchorY": 195,
+        "animation": "player-idle-down",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "viewport": "desktop",
+      "screenshot": "desktop-gym-steel-plates-side.png",
+      "state": {
+        "id": "gym-steel-plates",
+        "plane": 202,
+        "objectDepth": 3.571428571428571,
+        "texture": "gym-steel-plates-front",
+        "sole": 202,
+        "x": 580,
+        "playerDepth": 3.642857142857143,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 202,
+        "anchorY": 186,
+        "animation": "player-idle-down",
+        "frame": 3,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "route": "gym-bumper-plates-reachable-perimeter",
+      "id": "gym-bumper-plates",
+      "speed": 144,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 217,
+          "x": 626,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 217,
+          "anchorY": 201,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 217,
+          "x": 573.2000000000005,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 217,
+          "anchorY": 201,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-bumper-plates-front",
+          "sole": 241.00000000000006,
+          "x": 573.2000000000005,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 241.00000000000006,
+          "anchorY": 225.00000000000006,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-bumper-plates-front",
+          "sole": 241.00000000000006,
+          "x": 626,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 241.00000000000006,
+          "anchorY": 225.00000000000006,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 87,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-walk-down",
+          "player-idle-right",
+          "player-walk-right"
+        ]
+      },
+      "viewport": "desktop"
+    },
+    {
+      "route": "gym-bumper-plates-reachable-perimeter",
+      "id": "gym-bumper-plates",
+      "speed": 72,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-bumper-plates-front",
+          "sole": 240,
+          "x": 626,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 240,
+          "anchorY": 224,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-bumper-plates-front",
+          "sole": 240,
+          "x": 573.199999999998,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 240,
+          "anchorY": 224,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 216.00000000000023,
+          "x": 573.199999999998,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 216.00000000000023,
+          "anchorY": 200.00000000000023,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 216.00000000000023,
+          "x": 627.2,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 216.00000000000023,
+          "anchorY": 200.00000000000023,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 143,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-idle-up",
+          "player-walk-up",
+          "player-idle-right",
+          "player-walk-right"
+        ]
+      },
+      "viewport": "desktop"
+    },
+    {
+      "viewport": "desktop",
+      "screenshot": "desktop-gym-bumper-plates-behind.png",
+      "state": {
+        "id": "gym-bumper-plates",
+        "plane": 232,
+        "objectDepth": 3.7142857142857144,
+        "texture": "gym-bumper-plates-front",
+        "sole": 217,
+        "x": 626,
+        "playerDepth": 3.642857142857143,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 217,
+        "anchorY": 201,
+        "animation": "player-idle-down",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "viewport": "desktop",
+      "screenshot": "desktop-gym-bumper-plates-front.png",
+      "state": {
+        "id": "gym-bumper-plates",
+        "plane": 232,
+        "objectDepth": 3.642857142857143,
+        "texture": "gym-bumper-plates-front",
+        "sole": 240,
+        "x": 626,
+        "playerDepth": 3.7857142857142856,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 240,
+        "anchorY": 224,
+        "animation": "player-idle-down",
+        "frame": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "viewport": "desktop",
+      "screenshot": "desktop-gym-bumper-plates-side.png",
+      "state": {
+        "id": "gym-bumper-plates",
+        "plane": 232,
+        "objectDepth": 3.642857142857143,
+        "texture": "gym-bumper-plates-front",
+        "sole": 232,
+        "x": 574,
+        "playerDepth": 3.7857142857142856,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 232,
+        "anchorY": 216,
+        "animation": "player-idle-down",
+        "frame": 3,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "route": "gym-bumper-plates-extra-reachable-perimeter",
+      "id": "gym-bumper-plates-extra",
+      "speed": 144,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7857142857142856,
+          "texture": "gym-bumper-plates-front",
+          "sole": 217,
+          "x": 594,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 217,
+          "anchorY": 201,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7857142857142856,
+          "texture": "gym-bumper-plates-front",
+          "sole": 217,
+          "x": 572.4000000000002,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 217,
+          "anchorY": 201,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 241.00000000000006,
+          "x": 572.4000000000002,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 241.00000000000006,
+          "anchorY": 225.00000000000006,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 241.00000000000006,
+          "x": 594,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 241.00000000000006,
+          "anchorY": 225.00000000000006,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 61,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-walk-down",
+          "player-idle-right",
+          "player-walk-right"
+        ]
+      },
+      "viewport": "desktop"
+    },
+    {
+      "route": "gym-bumper-plates-extra-reachable-perimeter",
+      "id": "gym-bumper-plates-extra",
+      "speed": 72,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 240,
+          "x": 594,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 240,
+          "anchorY": 224,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 240,
+          "x": 573.5999999999992,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 240,
+          "anchorY": 224,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7857142857142856,
+          "texture": "gym-bumper-plates-front",
+          "sole": 216.00000000000023,
+          "x": 573.5999999999992,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 216.00000000000023,
+          "anchorY": 200.00000000000023,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7857142857142856,
+          "texture": "gym-bumper-plates-front",
+          "sole": 216.00000000000023,
+          "x": 595.2,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 216.00000000000023,
+          "anchorY": 200.00000000000023,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 88,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-idle-up",
+          "player-walk-up",
+          "player-idle-right",
+          "player-walk-right"
+        ]
+      },
+      "viewport": "desktop"
+    },
+    {
+      "viewport": "desktop",
+      "screenshot": "desktop-gym-bumper-plates-extra-behind.png",
+      "state": {
+        "id": "gym-bumper-plates-extra",
+        "plane": 232,
+        "objectDepth": 3.7857142857142856,
+        "texture": "gym-bumper-plates-front",
+        "sole": 217,
+        "x": 594,
+        "playerDepth": 3.642857142857143,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 217,
+        "anchorY": 201,
+        "animation": "player-idle-down",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "viewport": "desktop",
+      "screenshot": "desktop-gym-bumper-plates-extra-front.png",
+      "state": {
+        "id": "gym-bumper-plates-extra",
+        "plane": 232,
+        "objectDepth": 3.7142857142857144,
+        "texture": "gym-bumper-plates-front",
+        "sole": 240,
+        "x": 594,
+        "playerDepth": 3.7857142857142856,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 240,
+        "anchorY": 224,
+        "animation": "player-idle-down",
+        "frame": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "viewport": "desktop",
+      "screenshot": "desktop-gym-bumper-plates-extra-side.png",
+      "state": {
+        "id": "gym-bumper-plates-extra",
+        "plane": 232,
+        "objectDepth": 3.7142857142857144,
+        "texture": "gym-bumper-plates-front",
+        "sole": 232,
+        "x": 574,
+        "playerDepth": 3.7857142857142856,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 232,
+        "anchorY": 216,
+        "animation": "player-idle-down",
+        "frame": 3,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "route": "gym-boxing-bag-reachable-perimeter",
+      "id": "gym-boxing-bag",
+      "speed": 144,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.928571428571429,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 235,
+          "x": 450,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 235,
+          "anchorY": 219,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.928571428571429,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 235,
+          "x": 476.39999999999975,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 235,
+          "anchorY": 219,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 254.20000000000005,
+          "x": 476.39999999999975,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 254.20000000000005,
+          "anchorY": 238.20000000000005,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 254.20000000000005,
+          "x": 450,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 254.20000000000005,
+          "anchorY": 238.20000000000005,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 254.20000000000005,
+          "x": 424,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 254.20000000000005,
+          "anchorY": 238.20000000000005,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.928571428571429,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 232.6,
+          "x": 424,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 232.6,
+          "anchorY": 216.6,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.928571428571429,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 232.6,
+          "x": 450.39999999999975,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 232.6,
+          "anchorY": 216.6,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 119,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-walk-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-idle-up",
+          "player-walk-up"
+        ]
+      },
+      "viewport": "desktop"
+    },
+    {
+      "route": "gym-boxing-bag-reachable-perimeter",
+      "id": "gym-boxing-bag",
+      "speed": 72,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.928571428571429,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 235,
+          "x": 450,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 235,
+          "anchorY": 219,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.928571428571429,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 235,
+          "x": 424,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 235,
+          "anchorY": 219,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 254.19999999999982,
+          "x": 424,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 254.19999999999982,
+          "anchorY": 238.19999999999982,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 254.19999999999982,
+          "x": 450.39999999999975,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 254.19999999999982,
+          "anchorY": 238.19999999999982,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 254.19999999999982,
+          "x": 476.7999999999995,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 254.19999999999982,
+          "anchorY": 238.19999999999982,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.928571428571429,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 235,
+          "x": 476.7999999999995,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 235,
+          "anchorY": 219,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.928571428571429,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 235,
+          "x": 449.19999999999976,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 235,
+          "anchorY": 219,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 181,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-walk-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-idle-up",
+          "player-walk-up"
+        ]
+      },
+      "viewport": "desktop"
+    },
+    {
+      "viewport": "desktop",
+      "screenshot": "desktop-gym-boxing-bag-behind.png",
+      "state": {
+        "id": "gym-boxing-bag",
+        "plane": 251,
+        "objectDepth": 3.928571428571429,
+        "texture": "gym-boxing-bag-front-three-quarter",
+        "sole": 235,
+        "x": 450,
+        "playerDepth": 3.7857142857142856,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 235,
+        "anchorY": 219,
+        "animation": "player-idle-down",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "viewport": "desktop",
+      "screenshot": "desktop-gym-boxing-bag-front.png",
+      "state": {
+        "id": "gym-boxing-bag",
+        "plane": 251,
+        "objectDepth": 3.857142857142857,
+        "texture": "gym-boxing-bag-front-three-quarter",
+        "sole": 254,
+        "x": 450,
+        "playerDepth": 3.928571428571429,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 254,
+        "anchorY": 238,
+        "animation": "player-idle-down",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "viewport": "desktop",
+      "screenshot": "desktop-gym-boxing-bag-side.png",
+      "state": {
+        "id": "gym-boxing-bag",
+        "plane": 251,
+        "objectDepth": 3.857142857142857,
+        "texture": "gym-boxing-bag-front-three-quarter",
+        "sole": 251,
+        "x": 476,
+        "playerDepth": 3.928571428571429,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 251,
+        "anchorY": 235,
+        "animation": "player-idle-down",
+        "frame": 3,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "viewport": "desktop",
+      "debugOff": {
+        "bounds": true,
+        "door": false,
+        "world": false,
+        "debug": false
+      },
+      "debugOn": {
+        "bounds": true,
+        "door": false,
+        "world": false,
+        "debug": false
+      }
+    },
+    {
+      "route": "gym-steel-plates-reachable-perimeter",
+      "id": "gym-steel-plates",
+      "speed": 144,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-steel-plates-front",
+          "sole": 185,
+          "x": 602,
+          "playerDepth": 3.2857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 185,
+          "anchorY": 169,
+          "animation": "player-idle-down",
+          "frame": 2,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-steel-plates-front",
+          "sole": 185,
+          "x": 578.0000000000002,
+          "playerDepth": 3.2857142857142856,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 185,
+          "anchorY": 169,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "gym-steel-plates-front",
+          "sole": 211.40000000000006,
+          "x": 578.0000000000002,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 211.40000000000006,
+          "anchorY": 195.40000000000006,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "gym-steel-plates-front",
+          "sole": 211.40000000000006,
+          "x": 602,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 211.40000000000006,
+          "anchorY": 195.40000000000006,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "gym-steel-plates-front",
+          "sole": 211.40000000000006,
+          "x": 625.9999999999998,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 211.40000000000006,
+          "anchorY": 195.40000000000006,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-steel-plates-front",
+          "sole": 182.6,
+          "x": 625.9999999999998,
+          "playerDepth": 3.2857142857142856,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 182.6,
+          "anchorY": 166.6,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-steel-plates-front",
+          "sole": 182.6,
+          "x": 602,
+          "playerDepth": 3.2857142857142856,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 182.6,
+          "anchorY": 166.6,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 123,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-walk-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-idle-up",
+          "player-walk-up"
+        ]
+      },
+      "viewport": "portrait"
+    },
+    {
+      "route": "gym-steel-plates-reachable-perimeter",
+      "id": "gym-steel-plates",
+      "speed": 72,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-steel-plates-front",
+          "sole": 185,
+          "x": 602,
+          "playerDepth": 3.2857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 185,
+          "anchorY": 169,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-steel-plates-front",
+          "sole": 185,
+          "x": 624.8000000000009,
+          "playerDepth": 3.2857142857142856,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 185,
+          "anchorY": 169,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "gym-steel-plates-front",
+          "sole": 211.39999999999975,
+          "x": 624.8000000000009,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 211.39999999999975,
+          "anchorY": 195.39999999999975,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "gym-steel-plates-front",
+          "sole": 211.39999999999975,
+          "x": 600.8,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 211.39999999999975,
+          "anchorY": 195.39999999999975,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "gym-steel-plates-front",
+          "sole": 211.39999999999975,
+          "x": 579.1999999999991,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 211.39999999999975,
+          "anchorY": 195.39999999999975,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-steel-plates-front",
+          "sole": 185,
+          "x": 579.1999999999991,
+          "playerDepth": 3.2857142857142856,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 185,
+          "anchorY": 169,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-steel-plates-front",
+          "sole": 185,
+          "x": 603.2,
+          "playerDepth": 3.2857142857142856,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 185,
+          "anchorY": 169,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 181,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-walk-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-idle-up",
+          "player-walk-up"
+        ]
+      },
+      "viewport": "portrait"
+    },
+    {
+      "viewport": "portrait",
+      "screenshot": "portrait-gym-steel-plates-behind.png",
+      "state": {
+        "id": "gym-steel-plates",
+        "plane": 202,
+        "objectDepth": 3.642857142857143,
+        "texture": "gym-steel-plates-front",
+        "sole": 185,
+        "x": 602,
+        "playerDepth": 3.2857142857142856,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 185,
+        "anchorY": 169,
+        "animation": "player-idle-down",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "viewport": "portrait",
+      "screenshot": "portrait-gym-steel-plates-front.png",
+      "state": {
+        "id": "gym-steel-plates",
+        "plane": 202,
+        "objectDepth": 3.571428571428571,
+        "texture": "gym-steel-plates-front",
+        "sole": 211,
+        "x": 602,
+        "playerDepth": 3.642857142857143,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 211,
+        "anchorY": 195,
+        "animation": "player-idle-down",
+        "frame": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "viewport": "portrait",
+      "screenshot": "portrait-gym-steel-plates-side.png",
+      "state": {
+        "id": "gym-steel-plates",
+        "plane": 202,
+        "objectDepth": 3.571428571428571,
+        "texture": "gym-steel-plates-front",
+        "sole": 202,
+        "x": 580,
+        "playerDepth": 3.642857142857143,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 202,
+        "anchorY": 186,
+        "animation": "player-idle-down",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "route": "gym-bumper-plates-reachable-perimeter",
+      "id": "gym-bumper-plates",
+      "speed": 144,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 217,
+          "x": 626,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 217,
+          "anchorY": 201,
+          "animation": "player-idle-down",
+          "frame": 2,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 217,
+          "x": 573.2000000000005,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 217,
+          "anchorY": 201,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-bumper-plates-front",
+          "sole": 241.00000000000006,
+          "x": 573.2000000000005,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 241.00000000000006,
+          "anchorY": 225.00000000000006,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-bumper-plates-front",
+          "sole": 241.00000000000006,
+          "x": 626,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 241.00000000000006,
+          "anchorY": 225.00000000000006,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 87,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-walk-down",
+          "player-idle-right",
+          "player-walk-right"
+        ]
+      },
+      "viewport": "portrait"
+    },
+    {
+      "route": "gym-bumper-plates-reachable-perimeter",
+      "id": "gym-bumper-plates",
+      "speed": 72,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-bumper-plates-front",
+          "sole": 240,
+          "x": 626,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 240,
+          "anchorY": 224,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-bumper-plates-front",
+          "sole": 240,
+          "x": 573.199999999998,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 240,
+          "anchorY": 224,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 216.00000000000023,
+          "x": 573.199999999998,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 216.00000000000023,
+          "anchorY": 200.00000000000023,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 216.00000000000023,
+          "x": 627.2,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 216.00000000000023,
+          "anchorY": 200.00000000000023,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 142,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-idle-up",
+          "player-walk-up",
+          "player-idle-right",
+          "player-walk-right"
+        ]
+      },
+      "viewport": "portrait"
+    },
+    {
+      "viewport": "portrait",
+      "screenshot": "portrait-gym-bumper-plates-behind.png",
+      "state": {
+        "id": "gym-bumper-plates",
+        "plane": 232,
+        "objectDepth": 3.7142857142857144,
+        "texture": "gym-bumper-plates-front",
+        "sole": 217,
+        "x": 626,
+        "playerDepth": 3.642857142857143,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 217,
+        "anchorY": 201,
+        "animation": "player-idle-down",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "viewport": "portrait",
+      "screenshot": "portrait-gym-bumper-plates-front.png",
+      "state": {
+        "id": "gym-bumper-plates",
+        "plane": 232,
+        "objectDepth": 3.642857142857143,
+        "texture": "gym-bumper-plates-front",
+        "sole": 240,
+        "x": 626,
+        "playerDepth": 3.7857142857142856,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 240,
+        "anchorY": 224,
+        "animation": "player-idle-down",
+        "frame": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "viewport": "portrait",
+      "screenshot": "portrait-gym-bumper-plates-side.png",
+      "state": {
+        "id": "gym-bumper-plates",
+        "plane": 232,
+        "objectDepth": 3.642857142857143,
+        "texture": "gym-bumper-plates-front",
+        "sole": 232,
+        "x": 574,
+        "playerDepth": 3.7857142857142856,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 232,
+        "anchorY": 216,
+        "animation": "player-idle-down",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "route": "gym-bumper-plates-extra-reachable-perimeter",
+      "id": "gym-bumper-plates-extra",
+      "speed": 144,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7857142857142856,
+          "texture": "gym-bumper-plates-front",
+          "sole": 217,
+          "x": 594,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 217,
+          "anchorY": 201,
+          "animation": "player-idle-down",
+          "frame": 2,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7857142857142856,
+          "texture": "gym-bumper-plates-front",
+          "sole": 217,
+          "x": 572.4000000000002,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 217,
+          "anchorY": 201,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 241.00000000000006,
+          "x": 572.4000000000002,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 241.00000000000006,
+          "anchorY": 225.00000000000006,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 241.00000000000006,
+          "x": 594,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 241.00000000000006,
+          "anchorY": 225.00000000000006,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 61,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-walk-down",
+          "player-idle-right",
+          "player-walk-right"
+        ]
+      },
+      "viewport": "portrait"
+    },
+    {
+      "route": "gym-bumper-plates-extra-reachable-perimeter",
+      "id": "gym-bumper-plates-extra",
+      "speed": 72,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 240,
+          "x": 594,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 240,
+          "anchorY": 224,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 240,
+          "x": 573.5999999999992,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 240,
+          "anchorY": 224,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7857142857142856,
+          "texture": "gym-bumper-plates-front",
+          "sole": 216.00000000000023,
+          "x": 573.5999999999992,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 216.00000000000023,
+          "anchorY": 200.00000000000023,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7857142857142856,
+          "texture": "gym-bumper-plates-front",
+          "sole": 216.00000000000023,
+          "x": 595.2,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 216.00000000000023,
+          "anchorY": 200.00000000000023,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 88,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-idle-up",
+          "player-walk-up",
+          "player-idle-right",
+          "player-walk-right"
+        ]
+      },
+      "viewport": "portrait"
+    },
+    {
+      "viewport": "portrait",
+      "screenshot": "portrait-gym-bumper-plates-extra-behind.png",
+      "state": {
+        "id": "gym-bumper-plates-extra",
+        "plane": 232,
+        "objectDepth": 3.7857142857142856,
+        "texture": "gym-bumper-plates-front",
+        "sole": 217,
+        "x": 594,
+        "playerDepth": 3.642857142857143,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 217,
+        "anchorY": 201,
+        "animation": "player-idle-down",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "viewport": "portrait",
+      "screenshot": "portrait-gym-bumper-plates-extra-front.png",
+      "state": {
+        "id": "gym-bumper-plates-extra",
+        "plane": 232,
+        "objectDepth": 3.7142857142857144,
+        "texture": "gym-bumper-plates-front",
+        "sole": 240,
+        "x": 594,
+        "playerDepth": 3.7857142857142856,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 240,
+        "anchorY": 224,
+        "animation": "player-idle-down",
+        "frame": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "viewport": "portrait",
+      "screenshot": "portrait-gym-bumper-plates-extra-side.png",
+      "state": {
+        "id": "gym-bumper-plates-extra",
+        "plane": 232,
+        "objectDepth": 3.7142857142857144,
+        "texture": "gym-bumper-plates-front",
+        "sole": 232,
+        "x": 574,
+        "playerDepth": 3.7857142857142856,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 232,
+        "anchorY": 216,
+        "animation": "player-idle-down",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "route": "gym-boxing-bag-reachable-perimeter",
+      "id": "gym-boxing-bag",
+      "speed": 144,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.928571428571429,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 235,
+          "x": 450,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 235,
+          "anchorY": 219,
+          "animation": "player-idle-down",
+          "frame": 3,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.928571428571429,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 235,
+          "x": 476.39999999999975,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 235,
+          "anchorY": 219,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 254.20000000000005,
+          "x": 476.39999999999975,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 254.20000000000005,
+          "anchorY": 238.20000000000005,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 254.20000000000005,
+          "x": 450,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 254.20000000000005,
+          "anchorY": 238.20000000000005,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 254.20000000000005,
+          "x": 424,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 254.20000000000005,
+          "anchorY": 238.20000000000005,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.928571428571429,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 232.6,
+          "x": 424,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 232.6,
+          "anchorY": 216.6,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.928571428571429,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 232.6,
+          "x": 450.39999999999975,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 232.6,
+          "anchorY": 216.6,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 121,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-walk-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-idle-up",
+          "player-walk-up"
+        ]
+      },
+      "viewport": "portrait"
+    },
+    {
+      "route": "gym-boxing-bag-reachable-perimeter",
+      "id": "gym-boxing-bag",
+      "speed": 72,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.928571428571429,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 235,
+          "x": 450,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 235,
+          "anchorY": 219,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.928571428571429,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 235,
+          "x": 424,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 235,
+          "anchorY": 219,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 254.19999999999982,
+          "x": 424,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 254.19999999999982,
+          "anchorY": 238.19999999999982,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 254.19999999999982,
+          "x": 450.39999999999975,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 254.19999999999982,
+          "anchorY": 238.19999999999982,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 254.19999999999982,
+          "x": 476.7999999999995,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 254.19999999999982,
+          "anchorY": 238.19999999999982,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.928571428571429,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 235,
+          "x": 476.7999999999995,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 235,
+          "anchorY": 219,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.928571428571429,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 235,
+          "x": 449.19999999999976,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 235,
+          "anchorY": 219,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 181,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-walk-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-idle-up",
+          "player-walk-up"
+        ]
+      },
+      "viewport": "portrait"
+    },
+    {
+      "viewport": "portrait",
+      "screenshot": "portrait-gym-boxing-bag-behind.png",
+      "state": {
+        "id": "gym-boxing-bag",
+        "plane": 251,
+        "objectDepth": 3.928571428571429,
+        "texture": "gym-boxing-bag-front-three-quarter",
+        "sole": 235,
+        "x": 450,
+        "playerDepth": 3.7857142857142856,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 235,
+        "anchorY": 219,
+        "animation": "player-idle-down",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "viewport": "portrait",
+      "screenshot": "portrait-gym-boxing-bag-front.png",
+      "state": {
+        "id": "gym-boxing-bag",
+        "plane": 251,
+        "objectDepth": 3.857142857142857,
+        "texture": "gym-boxing-bag-front-three-quarter",
+        "sole": 254,
+        "x": 450,
+        "playerDepth": 3.928571428571429,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 254,
+        "anchorY": 238,
+        "animation": "player-idle-down",
+        "frame": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "viewport": "portrait",
+      "screenshot": "portrait-gym-boxing-bag-side.png",
+      "state": {
+        "id": "gym-boxing-bag",
+        "plane": 251,
+        "objectDepth": 3.857142857142857,
+        "texture": "gym-boxing-bag-front-three-quarter",
+        "sole": 251,
+        "x": 476,
+        "playerDepth": 3.928571428571429,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 251,
+        "anchorY": 235,
+        "animation": "player-idle-down",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "viewport": "portrait",
+      "debugOff": {
+        "bounds": true,
+        "door": false,
+        "world": false,
+        "debug": false
+      },
+      "debugOn": {
+        "bounds": true,
+        "door": false,
+        "world": false,
+        "debug": false
+      }
+    },
+    {
+      "route": "gym-steel-plates-reachable-perimeter",
+      "id": "gym-steel-plates",
+      "speed": 144,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-steel-plates-front",
+          "sole": 185,
+          "x": 602,
+          "playerDepth": 3.2857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 185,
+          "anchorY": 169,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-steel-plates-front",
+          "sole": 185,
+          "x": 578.0000000000002,
+          "playerDepth": 3.2857142857142856,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 185,
+          "anchorY": 169,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "gym-steel-plates-front",
+          "sole": 211.40000000000006,
+          "x": 578.0000000000002,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 211.40000000000006,
+          "anchorY": 195.40000000000006,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "gym-steel-plates-front",
+          "sole": 211.40000000000006,
+          "x": 602,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 211.40000000000006,
+          "anchorY": 195.40000000000006,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "gym-steel-plates-front",
+          "sole": 211.40000000000006,
+          "x": 625.9999999999998,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 211.40000000000006,
+          "anchorY": 195.40000000000006,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-steel-plates-front",
+          "sole": 182.6,
+          "x": 625.9999999999998,
+          "playerDepth": 3.2857142857142856,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 182.6,
+          "anchorY": 166.6,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-steel-plates-front",
+          "sole": 182.6,
+          "x": 602,
+          "playerDepth": 3.2857142857142856,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 182.6,
+          "anchorY": 166.6,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 124,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-walk-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-idle-up",
+          "player-walk-up"
+        ]
+      },
+      "viewport": "landscape"
+    },
+    {
+      "route": "gym-steel-plates-reachable-perimeter",
+      "id": "gym-steel-plates",
+      "speed": 72,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-steel-plates-front",
+          "sole": 185,
+          "x": 602,
+          "playerDepth": 3.2857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 185,
+          "anchorY": 169,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-steel-plates-front",
+          "sole": 185,
+          "x": 624.8000000000009,
+          "playerDepth": 3.2857142857142856,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 185,
+          "anchorY": 169,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "gym-steel-plates-front",
+          "sole": 211.39999999999975,
+          "x": 624.8000000000009,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 211.39999999999975,
+          "anchorY": 195.39999999999975,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "gym-steel-plates-front",
+          "sole": 211.39999999999975,
+          "x": 600.8,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 211.39999999999975,
+          "anchorY": 195.39999999999975,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "gym-steel-plates-front",
+          "sole": 211.39999999999975,
+          "x": 579.1999999999991,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 211.39999999999975,
+          "anchorY": 195.39999999999975,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-steel-plates-front",
+          "sole": 185,
+          "x": 579.1999999999991,
+          "playerDepth": 3.2857142857142856,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 185,
+          "anchorY": 169,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-steel-plates-front",
+          "sole": 185,
+          "x": 603.2,
+          "playerDepth": 3.2857142857142856,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 185,
+          "anchorY": 169,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 181,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-walk-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-idle-up",
+          "player-walk-up"
+        ]
+      },
+      "viewport": "landscape"
+    },
+    {
+      "viewport": "landscape",
+      "screenshot": "landscape-gym-steel-plates-behind.png",
+      "state": {
+        "id": "gym-steel-plates",
+        "plane": 202,
+        "objectDepth": 3.642857142857143,
+        "texture": "gym-steel-plates-front",
+        "sole": 185,
+        "x": 602,
+        "playerDepth": 3.2857142857142856,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 185,
+        "anchorY": 169,
+        "animation": "player-idle-down",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "viewport": "landscape",
+      "screenshot": "landscape-gym-steel-plates-front.png",
+      "state": {
+        "id": "gym-steel-plates",
+        "plane": 202,
+        "objectDepth": 3.571428571428571,
+        "texture": "gym-steel-plates-front",
+        "sole": 211,
+        "x": 602,
+        "playerDepth": 3.642857142857143,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 211,
+        "anchorY": 195,
+        "animation": "player-idle-down",
+        "frame": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "viewport": "landscape",
+      "screenshot": "landscape-gym-steel-plates-side.png",
+      "state": {
+        "id": "gym-steel-plates",
+        "plane": 202,
+        "objectDepth": 3.571428571428571,
+        "texture": "gym-steel-plates-front",
+        "sole": 202,
+        "x": 580,
+        "playerDepth": 3.642857142857143,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 202,
+        "anchorY": 186,
+        "animation": "player-idle-down",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "route": "gym-bumper-plates-reachable-perimeter",
+      "id": "gym-bumper-plates",
+      "speed": 144,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 217,
+          "x": 626,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 217,
+          "anchorY": 201,
+          "animation": "player-idle-down",
+          "frame": 3,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 217,
+          "x": 573.2000000000005,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 217,
+          "anchorY": 201,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-bumper-plates-front",
+          "sole": 241.00000000000006,
+          "x": 573.2000000000005,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 241.00000000000006,
+          "anchorY": 225.00000000000006,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-bumper-plates-front",
+          "sole": 241.00000000000006,
+          "x": 626,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 241.00000000000006,
+          "anchorY": 225.00000000000006,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 88,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-walk-down",
+          "player-idle-right",
+          "player-walk-right"
+        ]
+      },
+      "viewport": "landscape"
+    },
+    {
+      "route": "gym-bumper-plates-reachable-perimeter",
+      "id": "gym-bumper-plates",
+      "speed": 72,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-bumper-plates-front",
+          "sole": 240,
+          "x": 626,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 240,
+          "anchorY": 224,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-bumper-plates-front",
+          "sole": 240,
+          "x": 573.199999999998,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 240,
+          "anchorY": 224,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 216.00000000000023,
+          "x": 573.199999999998,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 216.00000000000023,
+          "anchorY": 200.00000000000023,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 216.00000000000023,
+          "x": 627.2,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 216.00000000000023,
+          "anchorY": 200.00000000000023,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 142,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-idle-up",
+          "player-walk-up",
+          "player-idle-right",
+          "player-walk-right"
+        ]
+      },
+      "viewport": "landscape"
+    },
+    {
+      "viewport": "landscape",
+      "screenshot": "landscape-gym-bumper-plates-behind.png",
+      "state": {
+        "id": "gym-bumper-plates",
+        "plane": 232,
+        "objectDepth": 3.7142857142857144,
+        "texture": "gym-bumper-plates-front",
+        "sole": 217,
+        "x": 626,
+        "playerDepth": 3.642857142857143,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 217,
+        "anchorY": 201,
+        "animation": "player-idle-down",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "viewport": "landscape",
+      "screenshot": "landscape-gym-bumper-plates-front.png",
+      "state": {
+        "id": "gym-bumper-plates",
+        "plane": 232,
+        "objectDepth": 3.642857142857143,
+        "texture": "gym-bumper-plates-front",
+        "sole": 240,
+        "x": 626,
+        "playerDepth": 3.7857142857142856,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 240,
+        "anchorY": 224,
+        "animation": "player-idle-down",
+        "frame": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "viewport": "landscape",
+      "screenshot": "landscape-gym-bumper-plates-side.png",
+      "state": {
+        "id": "gym-bumper-plates",
+        "plane": 232,
+        "objectDepth": 3.642857142857143,
+        "texture": "gym-bumper-plates-front",
+        "sole": 232,
+        "x": 574,
+        "playerDepth": 3.7857142857142856,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 232,
+        "anchorY": 216,
+        "animation": "player-idle-down",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "route": "gym-bumper-plates-extra-reachable-perimeter",
+      "id": "gym-bumper-plates-extra",
+      "speed": 144,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7857142857142856,
+          "texture": "gym-bumper-plates-front",
+          "sole": 217,
+          "x": 594,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 217,
+          "anchorY": 201,
+          "animation": "player-idle-down",
+          "frame": 3,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7857142857142856,
+          "texture": "gym-bumper-plates-front",
+          "sole": 217,
+          "x": 572.4000000000002,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 217,
+          "anchorY": 201,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 241.00000000000006,
+          "x": 572.4000000000002,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 241.00000000000006,
+          "anchorY": 225.00000000000006,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 241.00000000000006,
+          "x": 594,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 241.00000000000006,
+          "anchorY": 225.00000000000006,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 61,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-walk-down",
+          "player-idle-right",
+          "player-walk-right"
+        ]
+      },
+      "viewport": "landscape"
+    },
+    {
+      "route": "gym-bumper-plates-extra-reachable-perimeter",
+      "id": "gym-bumper-plates-extra",
+      "speed": 72,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 240,
+          "x": 594,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 240,
+          "anchorY": 224,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 240,
+          "x": 573.5999999999992,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 240,
+          "anchorY": 224,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7857142857142856,
+          "texture": "gym-bumper-plates-front",
+          "sole": 216.00000000000023,
+          "x": 573.5999999999992,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 216.00000000000023,
+          "anchorY": 200.00000000000023,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7857142857142856,
+          "texture": "gym-bumper-plates-front",
+          "sole": 216.00000000000023,
+          "x": 595.2,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 216.00000000000023,
+          "anchorY": 200.00000000000023,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 88,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-idle-up",
+          "player-walk-up",
+          "player-idle-right",
+          "player-walk-right"
+        ]
+      },
+      "viewport": "landscape"
+    },
+    {
+      "viewport": "landscape",
+      "screenshot": "landscape-gym-bumper-plates-extra-behind.png",
+      "state": {
+        "id": "gym-bumper-plates-extra",
+        "plane": 232,
+        "objectDepth": 3.7857142857142856,
+        "texture": "gym-bumper-plates-front",
+        "sole": 217,
+        "x": 594,
+        "playerDepth": 3.642857142857143,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 217,
+        "anchorY": 201,
+        "animation": "player-idle-down",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "viewport": "landscape",
+      "screenshot": "landscape-gym-bumper-plates-extra-front.png",
+      "state": {
+        "id": "gym-bumper-plates-extra",
+        "plane": 232,
+        "objectDepth": 3.7142857142857144,
+        "texture": "gym-bumper-plates-front",
+        "sole": 240,
+        "x": 594,
+        "playerDepth": 3.7857142857142856,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 240,
+        "anchorY": 224,
+        "animation": "player-idle-down",
+        "frame": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "viewport": "landscape",
+      "screenshot": "landscape-gym-bumper-plates-extra-side.png",
+      "state": {
+        "id": "gym-bumper-plates-extra",
+        "plane": 232,
+        "objectDepth": 3.7142857142857144,
+        "texture": "gym-bumper-plates-front",
+        "sole": 232,
+        "x": 574,
+        "playerDepth": 3.7857142857142856,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 232,
+        "anchorY": 216,
+        "animation": "player-idle-down",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "route": "gym-boxing-bag-reachable-perimeter",
+      "id": "gym-boxing-bag",
+      "speed": 144,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.928571428571429,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 235,
+          "x": 450,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 235,
+          "anchorY": 219,
+          "animation": "player-idle-down",
+          "frame": 3,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.928571428571429,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 235,
+          "x": 476.39999999999975,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 235,
+          "anchorY": 219,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 254.20000000000005,
+          "x": 476.39999999999975,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 254.20000000000005,
+          "anchorY": 238.20000000000005,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 254.20000000000005,
+          "x": 450,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 254.20000000000005,
+          "anchorY": 238.20000000000005,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 254.20000000000005,
+          "x": 424,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 254.20000000000005,
+          "anchorY": 238.20000000000005,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.928571428571429,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 232.6,
+          "x": 424,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 232.6,
+          "anchorY": 216.6,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.928571428571429,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 232.6,
+          "x": 450.39999999999975,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 232.6,
+          "anchorY": 216.6,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 121,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-walk-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-idle-up",
+          "player-walk-up"
+        ]
+      },
+      "viewport": "landscape"
+    },
+    {
+      "route": "gym-boxing-bag-reachable-perimeter",
+      "id": "gym-boxing-bag",
+      "speed": 72,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.928571428571429,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 235,
+          "x": 450,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 235,
+          "anchorY": 219,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.928571428571429,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 235,
+          "x": 424,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 235,
+          "anchorY": 219,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 254.19999999999982,
+          "x": 424,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 254.19999999999982,
+          "anchorY": 238.19999999999982,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 254.19999999999982,
+          "x": 450.39999999999975,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 254.19999999999982,
+          "anchorY": 238.19999999999982,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 254.19999999999982,
+          "x": 476.7999999999995,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 254.19999999999982,
+          "anchorY": 238.19999999999982,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.928571428571429,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 235,
+          "x": 476.7999999999995,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 235,
+          "anchorY": 219,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.928571428571429,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 235,
+          "x": 449.19999999999976,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 235,
+          "anchorY": 219,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 181,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-walk-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-idle-up",
+          "player-walk-up"
+        ]
+      },
+      "viewport": "landscape"
+    },
+    {
+      "viewport": "landscape",
+      "screenshot": "landscape-gym-boxing-bag-behind.png",
+      "state": {
+        "id": "gym-boxing-bag",
+        "plane": 251,
+        "objectDepth": 3.928571428571429,
+        "texture": "gym-boxing-bag-front-three-quarter",
+        "sole": 235,
+        "x": 450,
+        "playerDepth": 3.7857142857142856,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 235,
+        "anchorY": 219,
+        "animation": "player-idle-down",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "viewport": "landscape",
+      "screenshot": "landscape-gym-boxing-bag-front.png",
+      "state": {
+        "id": "gym-boxing-bag",
+        "plane": 251,
+        "objectDepth": 3.857142857142857,
+        "texture": "gym-boxing-bag-front-three-quarter",
+        "sole": 254,
+        "x": 450,
+        "playerDepth": 3.928571428571429,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 254,
+        "anchorY": 238,
+        "animation": "player-idle-down",
+        "frame": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "viewport": "landscape",
+      "screenshot": "landscape-gym-boxing-bag-side.png",
+      "state": {
+        "id": "gym-boxing-bag",
+        "plane": 251,
+        "objectDepth": 3.857142857142857,
+        "texture": "gym-boxing-bag-front-three-quarter",
+        "sole": 251,
+        "x": 476,
+        "playerDepth": 3.928571428571429,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 251,
+        "anchorY": 235,
+        "animation": "player-idle-down",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "viewport": "landscape",
+      "debugOff": {
+        "bounds": true,
+        "door": false,
+        "world": false,
+        "debug": false
+      },
+      "debugOn": {
+        "bounds": true,
+        "door": false,
+        "world": false,
+        "debug": false
+      }
+    },
+    {
+      "tie": "gym-steel-plates",
+      "delta": -0.25,
+      "immediate": {
+        "id": "gym-steel-plates",
+        "plane": 202,
+        "objectDepth": 3.642857142857143,
+        "texture": "gym-steel-plates-front",
+        "sole": 201.75,
+        "x": 580,
+        "playerDepth": 3.571428571428571,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 201.75,
+        "anchorY": 185.75,
+        "animation": "player-idle-down",
+        "frame": 3,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "settled": {
+        "id": "gym-steel-plates",
+        "plane": 202,
+        "objectDepth": 3.642857142857143,
+        "texture": "gym-steel-plates-front",
+        "sole": 201.75,
+        "x": 580,
+        "playerDepth": 3.571428571428571,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 201.75,
+        "anchorY": 185.75,
+        "animation": "player-idle-down",
+        "frame": 3,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "tie": "gym-steel-plates",
+      "delta": 0,
+      "immediate": {
+        "id": "gym-steel-plates",
+        "plane": 202,
+        "objectDepth": 3.571428571428571,
+        "texture": "gym-steel-plates-front",
+        "sole": 202,
+        "x": 580,
+        "playerDepth": 3.642857142857143,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 202,
+        "anchorY": 186,
+        "animation": "player-idle-down",
+        "frame": 3,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "settled": {
+        "id": "gym-steel-plates",
+        "plane": 202,
+        "objectDepth": 3.571428571428571,
+        "texture": "gym-steel-plates-front",
+        "sole": 202,
+        "x": 580,
+        "playerDepth": 3.642857142857143,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 202,
+        "anchorY": 186,
+        "animation": "player-idle-down",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "tie": "gym-steel-plates",
+      "delta": 0.25,
+      "immediate": {
+        "id": "gym-steel-plates",
+        "plane": 202,
+        "objectDepth": 3.571428571428571,
+        "texture": "gym-steel-plates-front",
+        "sole": 202.25,
+        "x": 580,
+        "playerDepth": 3.642857142857143,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 202.25,
+        "anchorY": 186.25,
+        "animation": "player-idle-down",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "settled": {
+        "id": "gym-steel-plates",
+        "plane": 202,
+        "objectDepth": 3.571428571428571,
+        "texture": "gym-steel-plates-front",
+        "sole": 202.25,
+        "x": 580,
+        "playerDepth": 3.642857142857143,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 202.25,
+        "anchorY": 186.25,
+        "animation": "player-idle-down",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "tie": "gym-bumper-plates",
+      "delta": -0.25,
+      "immediate": {
+        "id": "gym-bumper-plates",
+        "plane": 232,
+        "objectDepth": 3.7142857142857144,
+        "texture": "gym-bumper-plates-front",
+        "sole": 231.75,
+        "x": 574,
+        "playerDepth": 3.642857142857143,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 231.75,
+        "anchorY": 215.75,
+        "animation": "player-idle-down",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "settled": {
+        "id": "gym-bumper-plates",
+        "plane": 232,
+        "objectDepth": 3.7142857142857144,
+        "texture": "gym-bumper-plates-front",
+        "sole": 231.75,
+        "x": 574,
+        "playerDepth": 3.642857142857143,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 231.75,
+        "anchorY": 215.75,
+        "animation": "player-idle-down",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "tie": "gym-bumper-plates",
+      "delta": 0,
+      "immediate": {
+        "id": "gym-bumper-plates",
+        "plane": 232,
+        "objectDepth": 3.642857142857143,
+        "texture": "gym-bumper-plates-front",
+        "sole": 232,
+        "x": 574,
+        "playerDepth": 3.7857142857142856,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 232,
+        "anchorY": 216,
+        "animation": "player-idle-down",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "settled": {
+        "id": "gym-bumper-plates",
+        "plane": 232,
+        "objectDepth": 3.642857142857143,
+        "texture": "gym-bumper-plates-front",
+        "sole": 232,
+        "x": 574,
+        "playerDepth": 3.7857142857142856,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 232,
+        "anchorY": 216,
+        "animation": "player-idle-down",
+        "frame": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "tie": "gym-bumper-plates",
+      "delta": 0.25,
+      "immediate": {
+        "id": "gym-bumper-plates",
+        "plane": 232,
+        "objectDepth": 3.642857142857143,
+        "texture": "gym-bumper-plates-front",
+        "sole": 232.25,
+        "x": 574,
+        "playerDepth": 3.7857142857142856,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 232.25,
+        "anchorY": 216.25,
+        "animation": "player-idle-down",
+        "frame": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "settled": {
+        "id": "gym-bumper-plates",
+        "plane": 232,
+        "objectDepth": 3.642857142857143,
+        "texture": "gym-bumper-plates-front",
+        "sole": 232.25,
+        "x": 574,
+        "playerDepth": 3.7857142857142856,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 232.25,
+        "anchorY": 216.25,
+        "animation": "player-idle-down",
+        "frame": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "tie": "gym-bumper-plates-extra",
+      "delta": -0.25,
+      "immediate": {
+        "id": "gym-bumper-plates-extra",
+        "plane": 232,
+        "objectDepth": 3.7857142857142856,
+        "texture": "gym-bumper-plates-front",
+        "sole": 231.75,
+        "x": 574,
+        "playerDepth": 3.642857142857143,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 231.75,
+        "anchorY": 215.75,
+        "animation": "player-idle-down",
+        "frame": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "settled": {
+        "id": "gym-bumper-plates-extra",
+        "plane": 232,
+        "objectDepth": 3.7857142857142856,
+        "texture": "gym-bumper-plates-front",
+        "sole": 231.75,
+        "x": 574,
+        "playerDepth": 3.642857142857143,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 231.75,
+        "anchorY": 215.75,
+        "animation": "player-idle-down",
+        "frame": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "tie": "gym-bumper-plates-extra",
+      "delta": 0,
+      "immediate": {
+        "id": "gym-bumper-plates-extra",
+        "plane": 232,
+        "objectDepth": 3.7142857142857144,
+        "texture": "gym-bumper-plates-front",
+        "sole": 232,
+        "x": 574,
+        "playerDepth": 3.7857142857142856,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 232,
+        "anchorY": 216,
+        "animation": "player-idle-down",
+        "frame": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "settled": {
+        "id": "gym-bumper-plates-extra",
+        "plane": 232,
+        "objectDepth": 3.7142857142857144,
+        "texture": "gym-bumper-plates-front",
+        "sole": 232,
+        "x": 574,
+        "playerDepth": 3.7857142857142856,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 232,
+        "anchorY": 216,
+        "animation": "player-idle-down",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "tie": "gym-bumper-plates-extra",
+      "delta": 0.25,
+      "immediate": {
+        "id": "gym-bumper-plates-extra",
+        "plane": 232,
+        "objectDepth": 3.7142857142857144,
+        "texture": "gym-bumper-plates-front",
+        "sole": 232.25,
+        "x": 574,
+        "playerDepth": 3.7857142857142856,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 232.25,
+        "anchorY": 216.25,
+        "animation": "player-idle-down",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "settled": {
+        "id": "gym-bumper-plates-extra",
+        "plane": 232,
+        "objectDepth": 3.7142857142857144,
+        "texture": "gym-bumper-plates-front",
+        "sole": 232.25,
+        "x": 574,
+        "playerDepth": 3.7857142857142856,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 232.25,
+        "anchorY": 216.25,
+        "animation": "player-idle-down",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "tie": "gym-boxing-bag",
+      "delta": -0.25,
+      "immediate": {
+        "id": "gym-boxing-bag",
+        "plane": 251,
+        "objectDepth": 3.928571428571429,
+        "texture": "gym-boxing-bag-front-three-quarter",
+        "sole": 250.75,
+        "x": 476,
+        "playerDepth": 3.857142857142857,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 250.75,
+        "anchorY": 234.75,
+        "animation": "player-idle-down",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "settled": {
+        "id": "gym-boxing-bag",
+        "plane": 251,
+        "objectDepth": 3.928571428571429,
+        "texture": "gym-boxing-bag-front-three-quarter",
+        "sole": 250.75,
+        "x": 476,
+        "playerDepth": 3.857142857142857,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 250.75,
+        "anchorY": 234.75,
+        "animation": "player-idle-down",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "tie": "gym-boxing-bag",
+      "delta": 0,
+      "immediate": {
+        "id": "gym-boxing-bag",
+        "plane": 251,
+        "objectDepth": 3.857142857142857,
+        "texture": "gym-boxing-bag-front-three-quarter",
+        "sole": 251,
+        "x": 476,
+        "playerDepth": 3.928571428571429,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 251,
+        "anchorY": 235,
+        "animation": "player-idle-down",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "settled": {
+        "id": "gym-boxing-bag",
+        "plane": 251,
+        "objectDepth": 3.857142857142857,
+        "texture": "gym-boxing-bag-front-three-quarter",
+        "sole": 251,
+        "x": 476,
+        "playerDepth": 3.928571428571429,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 251,
+        "anchorY": 235,
+        "animation": "player-idle-down",
+        "frame": 3,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "tie": "gym-boxing-bag",
+      "delta": 0.25,
+      "immediate": {
+        "id": "gym-boxing-bag",
+        "plane": 251,
+        "objectDepth": 3.857142857142857,
+        "texture": "gym-boxing-bag-front-three-quarter",
+        "sole": 251.25,
+        "x": 476,
+        "playerDepth": 3.928571428571429,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 251.25,
+        "anchorY": 235.25,
+        "animation": "player-idle-down",
+        "frame": 3,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "settled": {
+        "id": "gym-boxing-bag",
+        "plane": 251,
+        "objectDepth": 3.857142857142857,
+        "texture": "gym-boxing-bag-front-three-quarter",
+        "sole": 251.25,
+        "x": 476,
+        "playerDepth": 3.928571428571429,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 251.25,
+        "anchorY": 235.25,
+        "animation": "player-idle-down",
+        "frame": 3,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "restart": 0,
+      "listeners": {
+        "post": 2,
+        "step": 1
+      }
+    },
+    {
+      "restart": 1,
+      "listeners": {
+        "post": 2,
+        "step": 1
+      }
+    },
+    {
+      "missing": [
+        "gym-steel-plates-front"
+      ],
+      "restart": 0,
+      "states": [
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "furniture-placeholder",
+          "sole": 202,
+          "x": 580,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 202,
+          "anchorY": 186,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-bumper-plates-front",
+          "sole": 232,
+          "x": 574,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 232,
+          "anchorY": 216,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 232,
+          "x": 574,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 232,
+          "anchorY": 216,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 251,
+          "x": 476,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 251,
+          "anchorY": 235,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "listeners": {
+        "post": 2,
+        "step": 1
+      }
+    },
+    {
+      "missing": [
+        "gym-steel-plates-front"
+      ],
+      "restart": 1,
+      "states": [
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "furniture-placeholder",
+          "sole": 202,
+          "x": 580,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 202,
+          "anchorY": 186,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-bumper-plates-front",
+          "sole": 232,
+          "x": 574,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 232,
+          "anchorY": 216,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 232,
+          "x": 574,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 232,
+          "anchorY": 216,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 251,
+          "x": 476,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 251,
+          "anchorY": 235,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "listeners": {
+        "post": 2,
+        "step": 1
+      }
+    },
+    {
+      "missing": [
+        "gym-bumper-plates-front"
+      ],
+      "restart": 0,
+      "states": [
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "gym-steel-plates-front",
+          "sole": 202,
+          "x": 580,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 202,
+          "anchorY": 186,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.642857142857143,
+          "texture": "furniture-placeholder",
+          "sole": 232,
+          "x": 574,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 232,
+          "anchorY": 216,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "furniture-placeholder",
+          "sole": 232,
+          "x": 574,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 232,
+          "anchorY": 216,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 251,
+          "x": 476,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 251,
+          "anchorY": 235,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "listeners": {
+        "post": 2,
+        "step": 1
+      }
+    },
+    {
+      "missing": [
+        "gym-bumper-plates-front"
+      ],
+      "restart": 1,
+      "states": [
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "gym-steel-plates-front",
+          "sole": 202,
+          "x": 580,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 202,
+          "anchorY": 186,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.642857142857143,
+          "texture": "furniture-placeholder",
+          "sole": 232,
+          "x": 574,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 232,
+          "anchorY": 216,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "furniture-placeholder",
+          "sole": 232,
+          "x": 574,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 232,
+          "anchorY": 216,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 251,
+          "x": 476,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 251,
+          "anchorY": 235,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "listeners": {
+        "post": 2,
+        "step": 1
+      }
+    },
+    {
+      "missing": [
+        "gym-boxing-bag-front-three-quarter"
+      ],
+      "restart": 0,
+      "states": [
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "gym-steel-plates-front",
+          "sole": 202,
+          "x": 580,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 202,
+          "anchorY": 186,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-bumper-plates-front",
+          "sole": 232,
+          "x": 574,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 232,
+          "anchorY": 216,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 232,
+          "x": 574,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 232,
+          "anchorY": 216,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "furniture-placeholder",
+          "sole": 251,
+          "x": 476,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 251,
+          "anchorY": 235,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "listeners": {
+        "post": 2,
+        "step": 1
+      }
+    },
+    {
+      "missing": [
+        "gym-boxing-bag-front-three-quarter"
+      ],
+      "restart": 1,
+      "states": [
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "gym-steel-plates-front",
+          "sole": 202,
+          "x": 580,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 202,
+          "anchorY": 186,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-bumper-plates-front",
+          "sole": 232,
+          "x": 574,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 232,
+          "anchorY": 216,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 232,
+          "x": 574,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 232,
+          "anchorY": 216,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "furniture-placeholder",
+          "sole": 251,
+          "x": 476,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 251,
+          "anchorY": 235,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "listeners": {
+        "post": 2,
+        "step": 1
+      }
+    },
+    {
+      "missing": [
+        "gym-steel-plates-front",
+        "gym-bumper-plates-front",
+        "gym-boxing-bag-front-three-quarter"
+      ],
+      "restart": 0,
+      "states": [
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "furniture-placeholder",
+          "sole": 202,
+          "x": 580,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 202,
+          "anchorY": 186,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.642857142857143,
+          "texture": "furniture-placeholder",
+          "sole": 232,
+          "x": 574,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 232,
+          "anchorY": 216,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "furniture-placeholder",
+          "sole": 232,
+          "x": 574,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 232,
+          "anchorY": 216,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "furniture-placeholder",
+          "sole": 251,
+          "x": 476,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 251,
+          "anchorY": 235,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "listeners": {
+        "post": 2,
+        "step": 1
+      }
+    },
+    {
+      "missing": [
+        "gym-steel-plates-front",
+        "gym-bumper-plates-front",
+        "gym-boxing-bag-front-three-quarter"
+      ],
+      "restart": 1,
+      "states": [
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "furniture-placeholder",
+          "sole": 202,
+          "x": 580,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 202,
+          "anchorY": 186,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.642857142857143,
+          "texture": "furniture-placeholder",
+          "sole": 232,
+          "x": 574,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 232,
+          "anchorY": 216,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "furniture-placeholder",
+          "sole": 232,
+          "x": 574,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 232,
+          "anchorY": 216,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "furniture-placeholder",
+          "sole": 251,
+          "x": 476,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 251,
+          "anchorY": 235,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "listeners": {
+        "post": 2,
+        "step": 1
+      }
+    },
+    {
+      "missing": [
+        "player-down"
+      ],
+      "restart": 0,
+      "states": [
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "gym-steel-plates-front",
+          "sole": 202,
+          "x": 580,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-placeholder",
+          "visible": true,
+          "visualY": 186,
+          "anchorY": 186,
+          "animation": null,
+          "frame": "__BASE",
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-bumper-plates-front",
+          "sole": 232,
+          "x": 574,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-placeholder",
+          "visible": true,
+          "visualY": 216,
+          "anchorY": 216,
+          "animation": null,
+          "frame": "__BASE",
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 232,
+          "x": 574,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-placeholder",
+          "visible": true,
+          "visualY": 216,
+          "anchorY": 216,
+          "animation": null,
+          "frame": "__BASE",
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 251,
+          "x": 476,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-placeholder",
+          "visible": true,
+          "visualY": 235,
+          "anchorY": 235,
+          "animation": null,
+          "frame": "__BASE",
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "listeners": {
+        "post": 2,
+        "step": 0
+      }
+    },
+    {
+      "missing": [
+        "player-down"
+      ],
+      "restart": 1,
+      "states": [
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "gym-steel-plates-front",
+          "sole": 202,
+          "x": 580,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-placeholder",
+          "visible": true,
+          "visualY": 186,
+          "anchorY": 186,
+          "animation": null,
+          "frame": "__BASE",
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.642857142857143,
+          "texture": "gym-bumper-plates-front",
+          "sole": 232,
+          "x": 574,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-placeholder",
+          "visible": true,
+          "visualY": 216,
+          "anchorY": 216,
+          "animation": null,
+          "frame": "__BASE",
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "gym-bumper-plates-front",
+          "sole": 232,
+          "x": 574,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-placeholder",
+          "visible": true,
+          "visualY": 216,
+          "anchorY": 216,
+          "animation": null,
+          "frame": "__BASE",
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "gym-boxing-bag-front-three-quarter",
+          "sole": 251,
+          "x": 476,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-placeholder",
+          "visible": true,
+          "visualY": 235,
+          "anchorY": 235,
+          "animation": null,
+          "frame": "__BASE",
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "listeners": {
+        "post": 2,
+        "step": 0
+      }
+    },
+    {
+      "missing": [
+        "gym-steel-plates-front",
+        "gym-bumper-plates-front",
+        "gym-boxing-bag-front-three-quarter",
+        "player-down"
+      ],
+      "restart": 0,
+      "states": [
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "furniture-placeholder",
+          "sole": 202,
+          "x": 580,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-placeholder",
+          "visible": true,
+          "visualY": 186,
+          "anchorY": 186,
+          "animation": null,
+          "frame": "__BASE",
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.642857142857143,
+          "texture": "furniture-placeholder",
+          "sole": 232,
+          "x": 574,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-placeholder",
+          "visible": true,
+          "visualY": 216,
+          "anchorY": 216,
+          "animation": null,
+          "frame": "__BASE",
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "furniture-placeholder",
+          "sole": 232,
+          "x": 574,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-placeholder",
+          "visible": true,
+          "visualY": 216,
+          "anchorY": 216,
+          "animation": null,
+          "frame": "__BASE",
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "furniture-placeholder",
+          "sole": 251,
+          "x": 476,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-placeholder",
+          "visible": true,
+          "visualY": 235,
+          "anchorY": 235,
+          "animation": null,
+          "frame": "__BASE",
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "listeners": {
+        "post": 2,
+        "step": 0
+      }
+    },
+    {
+      "missing": [
+        "gym-steel-plates-front",
+        "gym-bumper-plates-front",
+        "gym-boxing-bag-front-three-quarter",
+        "player-down"
+      ],
+      "restart": 1,
+      "states": [
+        {
+          "id": "gym-steel-plates",
+          "plane": 202,
+          "objectDepth": 3.571428571428571,
+          "texture": "furniture-placeholder",
+          "sole": 202,
+          "x": 580,
+          "playerDepth": 3.642857142857143,
+          "playerTexture": "player-placeholder",
+          "visible": true,
+          "visualY": 186,
+          "anchorY": 186,
+          "animation": null,
+          "frame": "__BASE",
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates",
+          "plane": 232,
+          "objectDepth": 3.642857142857143,
+          "texture": "furniture-placeholder",
+          "sole": 232,
+          "x": 574,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-placeholder",
+          "visible": true,
+          "visualY": 216,
+          "anchorY": 216,
+          "animation": null,
+          "frame": "__BASE",
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bumper-plates-extra",
+          "plane": 232,
+          "objectDepth": 3.7142857142857144,
+          "texture": "furniture-placeholder",
+          "sole": 232,
+          "x": 574,
+          "playerDepth": 3.7857142857142856,
+          "playerTexture": "player-placeholder",
+          "visible": true,
+          "visualY": 216,
+          "anchorY": 216,
+          "animation": null,
+          "frame": "__BASE",
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-boxing-bag",
+          "plane": 251,
+          "objectDepth": 3.857142857142857,
+          "texture": "furniture-placeholder",
+          "sole": 251,
+          "x": 476,
+          "playerDepth": 3.928571428571429,
+          "playerTexture": "player-placeholder",
+          "visible": true,
+          "visualY": 235,
+          "anchorY": 235,
+          "animation": null,
+          "frame": "__BASE",
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "listeners": {
+        "post": 2,
+        "step": 0
+      }
+    }
+  ],
+  "exceptions": [],
+  "limitations": [
+    "Bumper gap 12px and east wall gap 4px cannot fit 16px feet; shared left bypass only.",
+    "Bag base to south wall leaves 5px sole strip; composite artwork has one plane, visual review required.",
+    "Mobile route sequences use keyboard; actual D-pad smoke has separate JSON."
+  ]
+}

@@ -1,0 +1,958 @@
+{
+  "url": "http://127.0.0.1:5173",
+  "recordedAt": "2026-09-25T09:40:15.748Z",
+  "results": [
+    {
+      "route": "bench-steel-clear-front-pass",
+      "id": "gym-bench",
+      "speed": 144,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 552,
+          "playerDepth": 3.8,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-down",
+          "frame": 2,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 580.7999999999997,
+          "playerDepth": 3.8,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 609.5999999999995,
+          "playerDepth": 3.8,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 45,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-right",
+          "player-walk-right"
+        ]
+      },
+      "viewport": "desktop"
+    },
+    {
+      "route": "bench-steel-clear-front-pass",
+      "id": "gym-bench",
+      "speed": 144,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 608,
+          "playerDepth": 3.8,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 579.2000000000003,
+          "playerDepth": 3.8,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 550.4000000000005,
+          "playerDepth": 3.8,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 48,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left"
+        ]
+      },
+      "viewport": "desktop"
+    },
+    {
+      "route": "bench-steel-clear-front-pass",
+      "id": "gym-bench",
+      "speed": 72,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 552,
+          "playerDepth": 3.8,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 580.8000000000011,
+          "playerDepth": 3.8,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 608.4000000000021,
+          "playerDepth": 3.8,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 71,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-right",
+          "player-walk-right"
+        ]
+      },
+      "viewport": "desktop"
+    },
+    {
+      "route": "bench-steel-clear-front-pass",
+      "id": "gym-bench",
+      "speed": 72,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 608,
+          "playerDepth": 3.8,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 579.1999999999989,
+          "playerDepth": 3.8,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 551.5999999999979,
+          "playerDepth": 3.8,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 71,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left"
+        ]
+      },
+      "viewport": "desktop"
+    },
+    {
+      "overlap": "desktop",
+      "state": {
+        "x": 580,
+        "sole": 205,
+        "frame": 0,
+        "playerDepth": 3.8,
+        "benchDepth": 3.6,
+        "steelDepth": 2,
+        "alphaThreshold": 128,
+        "samplesPerWorldPixel": 16,
+        "playerBenchOpaquePixels": 659,
+        "playerSteelOpaquePixels": 548,
+        "benchSteelOpaquePixels": 0
+      },
+      "screenshot": "desktop-bench-steel-opaque-overlap.png"
+    },
+    {
+      "route": "bench-steel-clear-front-pass",
+      "id": "gym-bench",
+      "speed": 144,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 552,
+          "playerDepth": 3.8,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-down",
+          "frame": 1,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 580.7999999999997,
+          "playerDepth": 3.8,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 609.5999999999995,
+          "playerDepth": 3.8,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 48,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-right",
+          "player-walk-right"
+        ]
+      },
+      "viewport": "portrait"
+    },
+    {
+      "route": "bench-steel-clear-front-pass",
+      "id": "gym-bench",
+      "speed": 144,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 608,
+          "playerDepth": 3.8,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 579.2000000000003,
+          "playerDepth": 3.8,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 550.4000000000005,
+          "playerDepth": 3.8,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 48,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left"
+        ]
+      },
+      "viewport": "portrait"
+    },
+    {
+      "route": "bench-steel-clear-front-pass",
+      "id": "gym-bench",
+      "speed": 72,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 552,
+          "playerDepth": 3.8,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 580.8000000000011,
+          "playerDepth": 3.8,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 608.4000000000021,
+          "playerDepth": 3.8,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 71,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-right",
+          "player-walk-right"
+        ]
+      },
+      "viewport": "portrait"
+    },
+    {
+      "route": "bench-steel-clear-front-pass",
+      "id": "gym-bench",
+      "speed": 72,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 608,
+          "playerDepth": 3.8,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 579.1999999999989,
+          "playerDepth": 3.8,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 551.5999999999979,
+          "playerDepth": 3.8,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 71,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left"
+        ]
+      },
+      "viewport": "portrait"
+    },
+    {
+      "overlap": "portrait",
+      "state": {
+        "x": 580,
+        "sole": 205,
+        "frame": 0,
+        "playerDepth": 3.8,
+        "benchDepth": 3.6,
+        "steelDepth": 2,
+        "alphaThreshold": 128,
+        "samplesPerWorldPixel": 16,
+        "playerBenchOpaquePixels": 659,
+        "playerSteelOpaquePixels": 548,
+        "benchSteelOpaquePixels": 0
+      },
+      "screenshot": "portrait-bench-steel-opaque-overlap.png"
+    },
+    {
+      "route": "bench-steel-clear-front-pass",
+      "id": "gym-bench",
+      "speed": 144,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 552,
+          "playerDepth": 3.8,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-down",
+          "frame": 1,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 580.7999999999997,
+          "playerDepth": 3.8,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 609.5999999999995,
+          "playerDepth": 3.8,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 48,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-right",
+          "player-walk-right"
+        ]
+      },
+      "viewport": "landscape"
+    },
+    {
+      "route": "bench-steel-clear-front-pass",
+      "id": "gym-bench",
+      "speed": 144,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 608,
+          "playerDepth": 3.8,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 579.2000000000003,
+          "playerDepth": 3.8,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 550.4000000000005,
+          "playerDepth": 3.8,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 48,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left"
+        ]
+      },
+      "viewport": "landscape"
+    },
+    {
+      "route": "bench-steel-clear-front-pass",
+      "id": "gym-bench",
+      "speed": 72,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 552,
+          "playerDepth": 3.8,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 580.8000000000011,
+          "playerDepth": 3.8,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 608.4000000000021,
+          "playerDepth": 3.8,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 71,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-right",
+          "player-walk-right"
+        ]
+      },
+      "viewport": "landscape"
+    },
+    {
+      "route": "bench-steel-clear-front-pass",
+      "id": "gym-bench",
+      "speed": 72,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 608,
+          "playerDepth": 3.8,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 579.1999999999989,
+          "playerDepth": 3.8,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205,
+          "x": 551.5999999999979,
+          "playerDepth": 3.8,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 205,
+          "anchorY": 189,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 71,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left"
+        ]
+      },
+      "viewport": "landscape"
+    },
+    {
+      "overlap": "landscape",
+      "state": {
+        "x": 580,
+        "sole": 205,
+        "frame": 0,
+        "playerDepth": 3.8,
+        "benchDepth": 3.6,
+        "steelDepth": 2,
+        "alphaThreshold": 128,
+        "samplesPerWorldPixel": 16,
+        "playerBenchOpaquePixels": 659,
+        "playerSteelOpaquePixels": 548,
+        "benchSteelOpaquePixels": 0
+      },
+      "screenshot": "landscape-bench-steel-opaque-overlap.png"
+    }
+  ],
+  "exceptions": []
+}

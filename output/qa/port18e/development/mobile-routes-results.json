@@ -1,0 +1,4228 @@
+{
+  "url": "http://127.0.0.1:5173",
+  "recordedAt": "2026-09-25T09:39:12.758Z",
+  "results": [
+    {
+      "route": "left-bypass",
+      "id": "gym-squat-rack",
+      "speed": 144,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 135,
+          "x": 596,
+          "playerDepth": 3.2,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 135,
+          "anchorY": 119,
+          "animation": "player-idle-down",
+          "frame": 3,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 135,
+          "x": 550.4000000000004,
+          "playerDepth": 3.2,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 135,
+          "anchorY": 119,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175.8000000000001,
+          "x": 550.4000000000004,
+          "playerDepth": 3.4,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 175.8000000000001,
+          "anchorY": 159.8000000000001,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175.8000000000001,
+          "x": 605.5999999999999,
+          "playerDepth": 3.4,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 175.8000000000001,
+          "anchorY": 159.8000000000001,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175.8000000000001,
+          "x": 631.9999999999997,
+          "playerDepth": 3.4,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 175.8000000000001,
+          "anchorY": 159.8000000000001,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 163.80000000000007,
+          "x": 631.9999999999997,
+          "playerDepth": 3.3,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 163.80000000000007,
+          "anchorY": 147.80000000000007,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 122,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-walk-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-idle-up",
+          "player-walk-up"
+        ]
+      },
+      "viewport": "portrait"
+    },
+    {
+      "route": "left-bypass",
+      "id": "gym-squat-rack",
+      "speed": 144,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 165,
+          "x": 630,
+          "playerDepth": 3.3,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 165,
+          "anchorY": 149,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 177.00000000000003,
+          "x": 630,
+          "playerDepth": 3.4,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 177.00000000000003,
+          "anchorY": 161.00000000000003,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 177.00000000000003,
+          "x": 603.6000000000003,
+          "playerDepth": 3.4,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 177.00000000000003,
+          "anchorY": 161.00000000000003,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 177.00000000000003,
+          "x": 550.8000000000008,
+          "playerDepth": 3.4,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 177.00000000000003,
+          "anchorY": 161.00000000000003,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 133.79999999999993,
+          "x": 550.8000000000008,
+          "playerDepth": 3.2,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 133.79999999999993,
+          "anchorY": 117.79999999999993,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 133.79999999999993,
+          "x": 596.4000000000003,
+          "playerDepth": 3.2,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 133.79999999999993,
+          "anchorY": 117.79999999999993,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 127,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-walk-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-idle-up",
+          "player-walk-up",
+          "player-idle-right",
+          "player-walk-right"
+        ]
+      },
+      "viewport": "portrait"
+    },
+    {
+      "route": "interior-single-plane",
+      "id": "gym-squat-rack",
+      "speed": 144,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 160,
+          "x": 552,
+          "playerDepth": 3.3,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 160,
+          "anchorY": 144,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 160,
+          "x": 590.3999999999996,
+          "playerDepth": 3.3,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 160,
+          "anchorY": 144,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 176.80000000000004,
+          "x": 590.3999999999996,
+          "playerDepth": 3.4,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 176.80000000000004,
+          "anchorY": 160.80000000000004,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 176.80000000000004,
+          "x": 552,
+          "playerDepth": 3.4,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 176.80000000000004,
+          "anchorY": 160.80000000000004,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 72,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-walk-down",
+          "player-idle-left",
+          "player-walk-left"
+        ]
+      },
+      "viewport": "portrait"
+    },
+    {
+      "route": "interior-single-plane",
+      "id": "gym-squat-rack",
+      "speed": 144,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175,
+          "x": 552,
+          "playerDepth": 3.4,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 175,
+          "anchorY": 159,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175,
+          "x": 590.3999999999996,
+          "playerDepth": 3.4,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 175,
+          "anchorY": 159,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 158.19999999999996,
+          "x": 590.3999999999996,
+          "playerDepth": 3.3,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 158.19999999999996,
+          "anchorY": 142.19999999999996,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 158.19999999999996,
+          "x": 552,
+          "playerDepth": 3.3,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 158.19999999999996,
+          "anchorY": 142.19999999999996,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 72,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-idle-up",
+          "player-walk-up",
+          "player-idle-left",
+          "player-walk-left"
+        ]
+      },
+      "viewport": "portrait"
+    },
+    {
+      "route": "around",
+      "id": "gym-bench",
+      "speed": 144,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 184,
+          "x": 552,
+          "playerDepth": 3.4,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 184,
+          "anchorY": 168,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 184,
+          "x": 520.8000000000003,
+          "playerDepth": 3.4,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 184,
+          "anchorY": 168,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205.60000000000005,
+          "x": 520.8000000000003,
+          "playerDepth": 3.8,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 205.60000000000005,
+          "anchorY": 189.60000000000005,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205.60000000000005,
+          "x": 552,
+          "playerDepth": 3.8,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 205.60000000000005,
+          "anchorY": 189.60000000000005,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205.60000000000005,
+          "x": 583.1999999999997,
+          "playerDepth": 3.8,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 205.60000000000005,
+          "anchorY": 189.60000000000005,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 181.6,
+          "x": 583.1999999999997,
+          "playerDepth": 3.4,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 181.6,
+          "anchorY": 165.6,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 181.6,
+          "x": 552,
+          "playerDepth": 3.4,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 181.6,
+          "anchorY": 165.6,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 131,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-walk-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-idle-up",
+          "player-walk-up"
+        ]
+      },
+      "viewport": "portrait"
+    },
+    {
+      "route": "around",
+      "id": "gym-bench",
+      "speed": 144,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 184,
+          "x": 552,
+          "playerDepth": 3.4,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 184,
+          "anchorY": 168,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 184,
+          "x": 583.1999999999997,
+          "playerDepth": 3.4,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 184,
+          "anchorY": 168,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205.60000000000005,
+          "x": 583.1999999999997,
+          "playerDepth": 3.8,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 205.60000000000005,
+          "anchorY": 189.60000000000005,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205.60000000000005,
+          "x": 552,
+          "playerDepth": 3.8,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 205.60000000000005,
+          "anchorY": 189.60000000000005,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205.60000000000005,
+          "x": 520.8000000000003,
+          "playerDepth": 3.8,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 205.60000000000005,
+          "anchorY": 189.60000000000005,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 181.6,
+          "x": 520.8000000000003,
+          "playerDepth": 3.4,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 181.6,
+          "anchorY": 165.6,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 181.6,
+          "x": 552,
+          "playerDepth": 3.4,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 181.6,
+          "anchorY": 165.6,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 131,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-walk-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-idle-up",
+          "player-walk-up"
+        ]
+      },
+      "viewport": "portrait"
+    },
+    {
+      "route": "front-and-right-side-not-rear",
+      "id": "gym-dumbbell-rack",
+      "speed": 144,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136,
+          "x": 440,
+          "playerDepth": 3.2,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 136,
+          "anchorY": 120,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136,
+          "x": 466.39999999999975,
+          "playerDepth": 3.2,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 136,
+          "anchorY": 120,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.2,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 121,
+          "x": 466.39999999999975,
+          "playerDepth": 3.1,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 121,
+          "anchorY": 105,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 137.80000000000004,
+          "x": 466.39999999999975,
+          "playerDepth": 3.2,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 137.80000000000004,
+          "anchorY": 121.80000000000004,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 137.80000000000004,
+          "x": 424,
+          "playerDepth": 3.2,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 137.80000000000004,
+          "anchorY": 121.80000000000004,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 137.80000000000004,
+          "x": 440.79999999999984,
+          "playerDepth": 3.2,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 137.80000000000004,
+          "anchorY": 121.80000000000004,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 101,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-idle-up",
+          "player-walk-up",
+          "player-walk-down",
+          "player-idle-left",
+          "player-walk-left"
+        ]
+      },
+      "viewport": "portrait"
+    },
+    {
+      "route": "front-and-right-side-not-rear",
+      "id": "gym-dumbbell-rack",
+      "speed": 144,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136,
+          "x": 440,
+          "playerDepth": 3.2,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 136,
+          "anchorY": 120,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136,
+          "x": 424,
+          "playerDepth": 3.2,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 136,
+          "anchorY": 120,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136,
+          "x": 467.1999999999996,
+          "playerDepth": 3.2,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 136,
+          "anchorY": 120,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.2,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 121,
+          "x": 467.1999999999996,
+          "playerDepth": 3.1,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 121,
+          "anchorY": 105,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 137.80000000000004,
+          "x": 467.1999999999996,
+          "playerDepth": 3.2,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 137.80000000000004,
+          "anchorY": 121.80000000000004,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 137.80000000000004,
+          "x": 438.39999999999986,
+          "playerDepth": 3.2,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 137.80000000000004,
+          "anchorY": 121.80000000000004,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 102,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-idle-right",
+          "player-walk-right",
+          "player-idle-up",
+          "player-walk-up",
+          "player-walk-down"
+        ]
+      },
+      "viewport": "portrait"
+    },
+    {
+      "route": "left-bypass",
+      "id": "gym-squat-rack",
+      "speed": 72,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 135,
+          "x": 596,
+          "playerDepth": 3.2,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 135,
+          "anchorY": 119,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 135,
+          "x": 551.5999999999983,
+          "playerDepth": 3.2,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 135,
+          "anchorY": 119,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175.7999999999996,
+          "x": 551.5999999999983,
+          "playerDepth": 3.4,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 175.7999999999996,
+          "anchorY": 159.7999999999996,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175.7999999999996,
+          "x": 604.4000000000003,
+          "playerDepth": 3.4,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 175.7999999999996,
+          "anchorY": 159.7999999999996,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175.7999999999996,
+          "x": 630.8000000000013,
+          "playerDepth": 3.4,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 175.7999999999996,
+          "anchorY": 159.7999999999996,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 164.99999999999972,
+          "x": 630.8000000000013,
+          "playerDepth": 3.3,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 164.99999999999972,
+          "anchorY": 148.99999999999972,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 197,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-walk-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-idle-up",
+          "player-walk-up"
+        ]
+      },
+      "viewport": "portrait"
+    },
+    {
+      "route": "left-bypass",
+      "id": "gym-squat-rack",
+      "speed": 72,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 165,
+          "x": 630,
+          "playerDepth": 3.3,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 165,
+          "anchorY": 149,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175.7999999999999,
+          "x": 630,
+          "playerDepth": 3.4,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 175.7999999999999,
+          "anchorY": 159.7999999999999,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175.7999999999999,
+          "x": 603.599999999999,
+          "playerDepth": 3.4,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 175.7999999999999,
+          "anchorY": 159.7999999999999,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175.7999999999999,
+          "x": 551.999999999997,
+          "playerDepth": 3.4,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 175.7999999999999,
+          "anchorY": 159.7999999999999,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 133.8000000000003,
+          "x": 551.999999999997,
+          "playerDepth": 3.2,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 133.8000000000003,
+          "anchorY": 117.8000000000003,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 133.8000000000003,
+          "x": 596.3999999999987,
+          "playerDepth": 3.2,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 133.8000000000003,
+          "anchorY": 117.8000000000003,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 197,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-walk-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-idle-up",
+          "player-walk-up",
+          "player-idle-right",
+          "player-walk-right"
+        ]
+      },
+      "viewport": "portrait"
+    },
+    {
+      "route": "interior-single-plane",
+      "id": "gym-squat-rack",
+      "speed": 72,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 160,
+          "x": 552,
+          "playerDepth": 3.3,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 160,
+          "anchorY": 144,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 160,
+          "x": 590.4000000000015,
+          "playerDepth": 3.3,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 160,
+          "anchorY": 144,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175.59999999999985,
+          "x": 590.4000000000015,
+          "playerDepth": 3.4,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 175.59999999999985,
+          "anchorY": 159.59999999999985,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175.59999999999985,
+          "x": 550.8,
+          "playerDepth": 3.4,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 175.59999999999985,
+          "anchorY": 159.59999999999985,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 111,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-walk-down",
+          "player-idle-left",
+          "player-walk-left"
+        ]
+      },
+      "viewport": "portrait"
+    },
+    {
+      "route": "interior-single-plane",
+      "id": "gym-squat-rack",
+      "speed": 72,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175,
+          "x": 552,
+          "playerDepth": 3.4,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 175,
+          "anchorY": 159,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175,
+          "x": 590.4000000000015,
+          "playerDepth": 3.4,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 175,
+          "anchorY": 159,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 159.40000000000015,
+          "x": 590.4000000000015,
+          "playerDepth": 3.3,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 159.40000000000015,
+          "anchorY": 143.40000000000015,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 159.40000000000015,
+          "x": 550.8,
+          "playerDepth": 3.3,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 159.40000000000015,
+          "anchorY": 143.40000000000015,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 111,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-idle-up",
+          "player-walk-up",
+          "player-idle-left",
+          "player-walk-left"
+        ]
+      },
+      "viewport": "portrait"
+    },
+    {
+      "route": "around",
+      "id": "gym-bench",
+      "speed": 72,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 184,
+          "x": 552,
+          "playerDepth": 3.4,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 184,
+          "anchorY": 168,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 184,
+          "x": 521.9999999999989,
+          "playerDepth": 3.4,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 184,
+          "anchorY": 168,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205.5999999999998,
+          "x": 521.9999999999989,
+          "playerDepth": 3.8,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 205.5999999999998,
+          "anchorY": 189.5999999999998,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205.5999999999998,
+          "x": 553.2,
+          "playerDepth": 3.8,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 205.5999999999998,
+          "anchorY": 189.5999999999998,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205.5999999999998,
+          "x": 582.0000000000011,
+          "playerDepth": 3.8,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 205.5999999999998,
+          "anchorY": 189.5999999999998,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 184,
+          "x": 582.0000000000011,
+          "playerDepth": 3.4,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 184,
+          "anchorY": 168,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 184,
+          "x": 550.8,
+          "playerDepth": 3.4,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 184,
+          "anchorY": 168,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 197,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-walk-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-idle-up",
+          "player-walk-up"
+        ]
+      },
+      "viewport": "portrait"
+    },
+    {
+      "route": "around",
+      "id": "gym-bench",
+      "speed": 72,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 184,
+          "x": 552,
+          "playerDepth": 3.4,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 184,
+          "anchorY": 168,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 184,
+          "x": 582.0000000000011,
+          "playerDepth": 3.4,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 184,
+          "anchorY": 168,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205.5999999999998,
+          "x": 582.0000000000011,
+          "playerDepth": 3.8,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 205.5999999999998,
+          "anchorY": 189.5999999999998,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205.5999999999998,
+          "x": 550.8,
+          "playerDepth": 3.8,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 205.5999999999998,
+          "anchorY": 189.5999999999998,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205.5999999999998,
+          "x": 521.9999999999989,
+          "playerDepth": 3.8,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 205.5999999999998,
+          "anchorY": 189.5999999999998,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 184,
+          "x": 521.9999999999989,
+          "playerDepth": 3.4,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 184,
+          "anchorY": 168,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 184,
+          "x": 553.2,
+          "playerDepth": 3.4,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 184,
+          "anchorY": 168,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 197,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-walk-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-idle-up",
+          "player-walk-up"
+        ]
+      },
+      "viewport": "portrait"
+    },
+    {
+      "route": "front-and-right-side-not-rear",
+      "id": "gym-dumbbell-rack",
+      "speed": 72,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136,
+          "x": 440,
+          "playerDepth": 3.2,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 136,
+          "anchorY": 120,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136,
+          "x": 466.39999999999975,
+          "playerDepth": 3.2,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 136,
+          "anchorY": 120,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.2,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 121,
+          "x": 466.39999999999975,
+          "playerDepth": 3.1,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 121,
+          "anchorY": 105,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136.59999999999994,
+          "x": 466.39999999999975,
+          "playerDepth": 3.2,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 136.59999999999994,
+          "anchorY": 120.59999999999994,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136.59999999999994,
+          "x": 424,
+          "playerDepth": 3.2,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 136.59999999999994,
+          "anchorY": 120.59999999999994,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136.59999999999994,
+          "x": 440.79999999999984,
+          "playerDepth": 3.2,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 136.59999999999994,
+          "anchorY": 120.59999999999994,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 149,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-idle-up",
+          "player-walk-up",
+          "player-walk-down",
+          "player-idle-left",
+          "player-walk-left"
+        ]
+      },
+      "viewport": "portrait"
+    },
+    {
+      "route": "front-and-right-side-not-rear",
+      "id": "gym-dumbbell-rack",
+      "speed": 72,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136,
+          "x": 440,
+          "playerDepth": 3.2,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 136,
+          "anchorY": 120,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136,
+          "x": 424,
+          "playerDepth": 3.2,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 136,
+          "anchorY": 120,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136,
+          "x": 467.1999999999996,
+          "playerDepth": 3.2,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 136,
+          "anchorY": 120,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.2,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 121,
+          "x": 467.1999999999996,
+          "playerDepth": 3.1,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 121,
+          "anchorY": 105,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136.59999999999994,
+          "x": 467.1999999999996,
+          "playerDepth": 3.2,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 136.59999999999994,
+          "anchorY": 120.59999999999994,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136.59999999999994,
+          "x": 439.59999999999985,
+          "playerDepth": 3.2,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 136.59999999999994,
+          "anchorY": 120.59999999999994,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 150,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-idle-right",
+          "player-walk-right",
+          "player-idle-up",
+          "player-walk-up",
+          "player-walk-down"
+        ]
+      },
+      "viewport": "portrait"
+    },
+    {
+      "route": "left-bypass",
+      "id": "gym-squat-rack",
+      "speed": 144,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 135,
+          "x": 596,
+          "playerDepth": 3.2,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 135,
+          "anchorY": 119,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 135,
+          "x": 550.4000000000004,
+          "playerDepth": 3.2,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 135,
+          "anchorY": 119,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175.8000000000001,
+          "x": 550.4000000000004,
+          "playerDepth": 3.4,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 175.8000000000001,
+          "anchorY": 159.8000000000001,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175.8000000000001,
+          "x": 605.5999999999999,
+          "playerDepth": 3.4,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 175.8000000000001,
+          "anchorY": 159.8000000000001,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175.8000000000001,
+          "x": 631.9999999999997,
+          "playerDepth": 3.4,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 175.8000000000001,
+          "anchorY": 159.8000000000001,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 163.80000000000007,
+          "x": 631.9999999999997,
+          "playerDepth": 3.3,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 163.80000000000007,
+          "anchorY": 147.80000000000007,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 126,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-walk-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-idle-up",
+          "player-walk-up"
+        ]
+      },
+      "viewport": "landscape"
+    },
+    {
+      "route": "left-bypass",
+      "id": "gym-squat-rack",
+      "speed": 144,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 165,
+          "x": 630,
+          "playerDepth": 3.3,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 165,
+          "anchorY": 149,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 177.00000000000003,
+          "x": 630,
+          "playerDepth": 3.4,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 177.00000000000003,
+          "anchorY": 161.00000000000003,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 177.00000000000003,
+          "x": 603.6000000000003,
+          "playerDepth": 3.4,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 177.00000000000003,
+          "anchorY": 161.00000000000003,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 177.00000000000003,
+          "x": 550.8000000000008,
+          "playerDepth": 3.4,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 177.00000000000003,
+          "anchorY": 161.00000000000003,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 133.79999999999993,
+          "x": 550.8000000000008,
+          "playerDepth": 3.2,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 133.79999999999993,
+          "anchorY": 117.79999999999993,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 133.79999999999993,
+          "x": 596.4000000000003,
+          "playerDepth": 3.2,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 133.79999999999993,
+          "anchorY": 117.79999999999993,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 126,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-walk-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-idle-up",
+          "player-walk-up",
+          "player-idle-right",
+          "player-walk-right"
+        ]
+      },
+      "viewport": "landscape"
+    },
+    {
+      "route": "interior-single-plane",
+      "id": "gym-squat-rack",
+      "speed": 144,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 160,
+          "x": 552,
+          "playerDepth": 3.3,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 160,
+          "anchorY": 144,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 160,
+          "x": 590.3999999999996,
+          "playerDepth": 3.3,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 160,
+          "anchorY": 144,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 176.80000000000004,
+          "x": 590.3999999999996,
+          "playerDepth": 3.4,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 176.80000000000004,
+          "anchorY": 160.80000000000004,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 176.80000000000004,
+          "x": 552,
+          "playerDepth": 3.4,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 176.80000000000004,
+          "anchorY": 160.80000000000004,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 72,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-walk-down",
+          "player-idle-left",
+          "player-walk-left"
+        ]
+      },
+      "viewport": "landscape"
+    },
+    {
+      "route": "interior-single-plane",
+      "id": "gym-squat-rack",
+      "speed": 144,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175,
+          "x": 552,
+          "playerDepth": 3.4,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 175,
+          "anchorY": 159,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175,
+          "x": 590.3999999999996,
+          "playerDepth": 3.4,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 175,
+          "anchorY": 159,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 158.19999999999996,
+          "x": 590.3999999999996,
+          "playerDepth": 3.3,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 158.19999999999996,
+          "anchorY": 142.19999999999996,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 158.19999999999996,
+          "x": 552,
+          "playerDepth": 3.3,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 158.19999999999996,
+          "anchorY": 142.19999999999996,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 72,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-idle-up",
+          "player-walk-up",
+          "player-idle-left",
+          "player-walk-left"
+        ]
+      },
+      "viewport": "landscape"
+    },
+    {
+      "route": "around",
+      "id": "gym-bench",
+      "speed": 144,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 184,
+          "x": 552,
+          "playerDepth": 3.4,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 184,
+          "anchorY": 168,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 184,
+          "x": 520.8000000000003,
+          "playerDepth": 3.4,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 184,
+          "anchorY": 168,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205.60000000000005,
+          "x": 520.8000000000003,
+          "playerDepth": 3.8,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 205.60000000000005,
+          "anchorY": 189.60000000000005,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205.60000000000005,
+          "x": 552,
+          "playerDepth": 3.8,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 205.60000000000005,
+          "anchorY": 189.60000000000005,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205.60000000000005,
+          "x": 583.1999999999997,
+          "playerDepth": 3.8,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 205.60000000000005,
+          "anchorY": 189.60000000000005,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 181.6,
+          "x": 583.1999999999997,
+          "playerDepth": 3.4,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 181.6,
+          "anchorY": 165.6,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 181.6,
+          "x": 552,
+          "playerDepth": 3.4,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 181.6,
+          "anchorY": 165.6,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 131,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-walk-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-idle-up",
+          "player-walk-up"
+        ]
+      },
+      "viewport": "landscape"
+    },
+    {
+      "route": "around",
+      "id": "gym-bench",
+      "speed": 144,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 184,
+          "x": 552,
+          "playerDepth": 3.4,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 184,
+          "anchorY": 168,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 184,
+          "x": 583.1999999999997,
+          "playerDepth": 3.4,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 184,
+          "anchorY": 168,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205.60000000000005,
+          "x": 583.1999999999997,
+          "playerDepth": 3.8,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 205.60000000000005,
+          "anchorY": 189.60000000000005,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205.60000000000005,
+          "x": 552,
+          "playerDepth": 3.8,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 205.60000000000005,
+          "anchorY": 189.60000000000005,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205.60000000000005,
+          "x": 520.8000000000003,
+          "playerDepth": 3.8,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 205.60000000000005,
+          "anchorY": 189.60000000000005,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 181.6,
+          "x": 520.8000000000003,
+          "playerDepth": 3.4,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 181.6,
+          "anchorY": 165.6,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 181.6,
+          "x": 552,
+          "playerDepth": 3.4,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 181.6,
+          "anchorY": 165.6,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 131,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-walk-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-idle-up",
+          "player-walk-up"
+        ]
+      },
+      "viewport": "landscape"
+    },
+    {
+      "route": "front-and-right-side-not-rear",
+      "id": "gym-dumbbell-rack",
+      "speed": 144,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136,
+          "x": 440,
+          "playerDepth": 3.2,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 136,
+          "anchorY": 120,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136,
+          "x": 466.39999999999975,
+          "playerDepth": 3.2,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 136,
+          "anchorY": 120,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.2,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 121,
+          "x": 466.39999999999975,
+          "playerDepth": 3.1,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 121,
+          "anchorY": 105,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 137.80000000000004,
+          "x": 466.39999999999975,
+          "playerDepth": 3.2,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 137.80000000000004,
+          "anchorY": 121.80000000000004,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 137.80000000000004,
+          "x": 424,
+          "playerDepth": 3.2,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 137.80000000000004,
+          "anchorY": 121.80000000000004,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 137.80000000000004,
+          "x": 440.79999999999984,
+          "playerDepth": 3.2,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 137.80000000000004,
+          "anchorY": 121.80000000000004,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 101,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-idle-up",
+          "player-walk-up",
+          "player-walk-down",
+          "player-idle-left",
+          "player-walk-left"
+        ]
+      },
+      "viewport": "landscape"
+    },
+    {
+      "route": "front-and-right-side-not-rear",
+      "id": "gym-dumbbell-rack",
+      "speed": 144,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136,
+          "x": 440,
+          "playerDepth": 3.2,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 136,
+          "anchorY": 120,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136,
+          "x": 424,
+          "playerDepth": 3.2,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 136,
+          "anchorY": 120,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136,
+          "x": 467.1999999999996,
+          "playerDepth": 3.2,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 136,
+          "anchorY": 120,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.2,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 121,
+          "x": 467.1999999999996,
+          "playerDepth": 3.1,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 121,
+          "anchorY": 105,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 137.80000000000004,
+          "x": 467.1999999999996,
+          "playerDepth": 3.2,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 137.80000000000004,
+          "anchorY": 121.80000000000004,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 137.80000000000004,
+          "x": 438.39999999999986,
+          "playerDepth": 3.2,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 137.80000000000004,
+          "anchorY": 121.80000000000004,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 102,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-idle-right",
+          "player-walk-right",
+          "player-idle-up",
+          "player-walk-up",
+          "player-walk-down"
+        ]
+      },
+      "viewport": "landscape"
+    },
+    {
+      "route": "left-bypass",
+      "id": "gym-squat-rack",
+      "speed": 72,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 135,
+          "x": 596,
+          "playerDepth": 3.2,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 135,
+          "anchorY": 119,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 135,
+          "x": 551.5999999999983,
+          "playerDepth": 3.2,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 135,
+          "anchorY": 119,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175.7999999999996,
+          "x": 551.5999999999983,
+          "playerDepth": 3.4,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 175.7999999999996,
+          "anchorY": 159.7999999999996,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175.7999999999996,
+          "x": 604.4000000000003,
+          "playerDepth": 3.4,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 175.7999999999996,
+          "anchorY": 159.7999999999996,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175.7999999999996,
+          "x": 630.8000000000013,
+          "playerDepth": 3.4,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 175.7999999999996,
+          "anchorY": 159.7999999999996,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 164.99999999999972,
+          "x": 630.8000000000013,
+          "playerDepth": 3.3,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 164.99999999999972,
+          "anchorY": 148.99999999999972,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 197,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-walk-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-idle-up",
+          "player-walk-up"
+        ]
+      },
+      "viewport": "landscape"
+    },
+    {
+      "route": "left-bypass",
+      "id": "gym-squat-rack",
+      "speed": 72,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 165,
+          "x": 630,
+          "playerDepth": 3.3,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 165,
+          "anchorY": 149,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175.7999999999999,
+          "x": 630,
+          "playerDepth": 3.4,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 175.7999999999999,
+          "anchorY": 159.7999999999999,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175.7999999999999,
+          "x": 603.599999999999,
+          "playerDepth": 3.4,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 175.7999999999999,
+          "anchorY": 159.7999999999999,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175.7999999999999,
+          "x": 551.999999999997,
+          "playerDepth": 3.4,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 175.7999999999999,
+          "anchorY": 159.7999999999999,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 133.8000000000003,
+          "x": 551.999999999997,
+          "playerDepth": 3.2,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 133.8000000000003,
+          "anchorY": 117.8000000000003,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 133.8000000000003,
+          "x": 596.3999999999987,
+          "playerDepth": 3.2,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 133.8000000000003,
+          "anchorY": 117.8000000000003,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 197,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-walk-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-idle-up",
+          "player-walk-up",
+          "player-idle-right",
+          "player-walk-right"
+        ]
+      },
+      "viewport": "landscape"
+    },
+    {
+      "route": "interior-single-plane",
+      "id": "gym-squat-rack",
+      "speed": 72,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 160,
+          "x": 552,
+          "playerDepth": 3.3,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 160,
+          "anchorY": 144,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 160,
+          "x": 590.4000000000015,
+          "playerDepth": 3.3,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 160,
+          "anchorY": 144,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175.59999999999985,
+          "x": 590.4000000000015,
+          "playerDepth": 3.4,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 175.59999999999985,
+          "anchorY": 159.59999999999985,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175.59999999999985,
+          "x": 550.8,
+          "playerDepth": 3.4,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 175.59999999999985,
+          "anchorY": 159.59999999999985,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 111,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-walk-down",
+          "player-idle-left",
+          "player-walk-left"
+        ]
+      },
+      "viewport": "landscape"
+    },
+    {
+      "route": "interior-single-plane",
+      "id": "gym-squat-rack",
+      "speed": 72,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175,
+          "x": 552,
+          "playerDepth": 3.4,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 175,
+          "anchorY": 159,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.3,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 175,
+          "x": 590.4000000000015,
+          "playerDepth": 3.4,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 175,
+          "anchorY": 159,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 159.40000000000015,
+          "x": 590.4000000000015,
+          "playerDepth": 3.3,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 159.40000000000015,
+          "anchorY": 143.40000000000015,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-squat-rack",
+          "plane": 167,
+          "objectDepth": 3.4,
+          "texture": "gym-squat-rack-front-right",
+          "sole": 159.40000000000015,
+          "x": 550.8,
+          "playerDepth": 3.3,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 159.40000000000015,
+          "anchorY": 143.40000000000015,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 111,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-idle-up",
+          "player-walk-up",
+          "player-idle-left",
+          "player-walk-left"
+        ]
+      },
+      "viewport": "landscape"
+    },
+    {
+      "route": "around",
+      "id": "gym-bench",
+      "speed": 72,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 184,
+          "x": 552,
+          "playerDepth": 3.4,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 184,
+          "anchorY": 168,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 184,
+          "x": 521.9999999999989,
+          "playerDepth": 3.4,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 184,
+          "anchorY": 168,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205.5999999999998,
+          "x": 521.9999999999989,
+          "playerDepth": 3.8,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 205.5999999999998,
+          "anchorY": 189.5999999999998,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205.5999999999998,
+          "x": 553.2,
+          "playerDepth": 3.8,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 205.5999999999998,
+          "anchorY": 189.5999999999998,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205.5999999999998,
+          "x": 582.0000000000011,
+          "playerDepth": 3.8,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 205.5999999999998,
+          "anchorY": 189.5999999999998,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 184,
+          "x": 582.0000000000011,
+          "playerDepth": 3.4,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 184,
+          "anchorY": 168,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 184,
+          "x": 550.8,
+          "playerDepth": 3.4,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 184,
+          "anchorY": 168,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 197,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-walk-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-idle-up",
+          "player-walk-up"
+        ]
+      },
+      "viewport": "landscape"
+    },
+    {
+      "route": "around",
+      "id": "gym-bench",
+      "speed": 72,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 184,
+          "x": 552,
+          "playerDepth": 3.4,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 184,
+          "anchorY": 168,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 184,
+          "x": 582.0000000000011,
+          "playerDepth": 3.4,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 184,
+          "anchorY": 168,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205.5999999999998,
+          "x": 582.0000000000011,
+          "playerDepth": 3.8,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 205.5999999999998,
+          "anchorY": 189.5999999999998,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205.5999999999998,
+          "x": 550.8,
+          "playerDepth": 3.8,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 205.5999999999998,
+          "anchorY": 189.5999999999998,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.6,
+          "texture": "gym-bench-front",
+          "sole": 205.5999999999998,
+          "x": 521.9999999999989,
+          "playerDepth": 3.8,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 205.5999999999998,
+          "anchorY": 189.5999999999998,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 184,
+          "x": 521.9999999999989,
+          "playerDepth": 3.4,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 184,
+          "anchorY": 168,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-bench",
+          "plane": 197,
+          "objectDepth": 3.7,
+          "texture": "gym-bench-front",
+          "sole": 184,
+          "x": 553.2,
+          "playerDepth": 3.4,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 184,
+          "anchorY": 168,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 197,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-walk-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-idle-up",
+          "player-walk-up"
+        ]
+      },
+      "viewport": "landscape"
+    },
+    {
+      "route": "front-and-right-side-not-rear",
+      "id": "gym-dumbbell-rack",
+      "speed": 72,
+      "reverse": false,
+      "states": [
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136,
+          "x": 440,
+          "playerDepth": 3.2,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 136,
+          "anchorY": 120,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136,
+          "x": 466.39999999999975,
+          "playerDepth": 3.2,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 136,
+          "anchorY": 120,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.2,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 121,
+          "x": 466.39999999999975,
+          "playerDepth": 3.1,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 121,
+          "anchorY": 105,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136.59999999999994,
+          "x": 466.39999999999975,
+          "playerDepth": 3.2,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 136.59999999999994,
+          "anchorY": 120.59999999999994,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136.59999999999994,
+          "x": 424,
+          "playerDepth": 3.2,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 136.59999999999994,
+          "anchorY": 120.59999999999994,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136.59999999999994,
+          "x": 440.79999999999984,
+          "playerDepth": 3.2,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 136.59999999999994,
+          "anchorY": 120.59999999999994,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 149,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-right",
+          "player-walk-right",
+          "player-idle-up",
+          "player-walk-up",
+          "player-walk-down",
+          "player-idle-left",
+          "player-walk-left"
+        ]
+      },
+      "viewport": "landscape"
+    },
+    {
+      "route": "front-and-right-side-not-rear",
+      "id": "gym-dumbbell-rack",
+      "speed": 72,
+      "reverse": true,
+      "states": [
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136,
+          "x": 440,
+          "playerDepth": 3.2,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 136,
+          "anchorY": 120,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136,
+          "x": 424,
+          "playerDepth": 3.2,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 136,
+          "anchorY": 120,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136,
+          "x": 467.1999999999996,
+          "playerDepth": 3.2,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 136,
+          "anchorY": 120,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.2,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 121,
+          "x": 467.1999999999996,
+          "playerDepth": 3.1,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 121,
+          "anchorY": 105,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136.59999999999994,
+          "x": 467.1999999999996,
+          "playerDepth": 3.2,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 136.59999999999994,
+          "anchorY": 120.59999999999994,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "gym-dumbbell-rack",
+          "plane": 127.5,
+          "objectDepth": 3.1,
+          "texture": "gym-dumbbell-rack-front",
+          "sole": 136.59999999999994,
+          "x": 439.59999999999985,
+          "playerDepth": 3.2,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 136.59999999999994,
+          "anchorY": 120.59999999999994,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 150,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-idle-right",
+          "player-walk-right",
+          "player-idle-up",
+          "player-walk-up",
+          "player-walk-down"
+        ]
+      },
+      "viewport": "landscape"
+    }
+  ],
+  "exceptions": [],
+  "input": "Real keyboard movement under touch-enabled viewport emulation; touch activation covered separately."
+}

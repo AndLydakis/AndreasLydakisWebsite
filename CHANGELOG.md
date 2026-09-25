@@ -6,6 +6,24 @@ pushed.
 
 ## [Unreleased]
 
+## [2026-09-25] — Approved gym perspective delivery
+
+Owner approved the held PORT-18E and requested PORT-18F subset (DEC-146).
+Delivery pending final checks/push; boombox adoption is not included.
+
+### PORT-18F — Plates and boxing-bag perspective (partial)
+
+- Apply the existing depth-sorting/footprint system to the steel stack, both coloured plate stacks and boxing bag, preserving their artwork, placement, scale and collision geometry.
+- Full 1,443-test suite, typecheck/build, development/production route/fallback/restart/interaction/D-pad checks and independent technical reviews pass. Corrected steel solver tests to select the complete rectangle rather than only its X coordinate.
+- Keep the boombox unchanged and pending; this is only the owner-requested subset of PORT-18F. Owner accepted the current visuals and authorized delivery.
+
+### PORT-18E — Gym racks and bench perspective
+
+- Opted the squat rack, dumbbell rack and bench into the existing feet-based depth ordering through object metadata only.
+- Transferred their eleven existing collision rectangles to object-owned footprints without changing geometry, placement, scale or interactions; retained all nine stepped squat-rack pieces.
+- Retained visible collision review outlines. The wall-adjacent dumbbell rack has no rear route; the squat rack remains one composite image. Owner accepted the current presentation for delivery.
+- Full 1,316-test suite at initial integration, typecheck/build, development/production browser checks (desktop/mobile emulation, actual D-pad smoke, missing art/restarts and current interactions) and independent technical reviews pass. Combined final suite covers the later plate/bag additions too.
+
 ## [2026-09-25] — Approved perspective and furniture delivery
 
 Delivered to `origin/master` in `5381572`; all seven stories below are complete.

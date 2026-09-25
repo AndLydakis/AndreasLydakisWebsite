@@ -1,0 +1,1388 @@
+{
+  "layout": {
+    "tileSize": 16,
+    "worldWidth": 64,
+    "worldHeight": 36,
+    "rooms": [
+      {
+        "id": "living-room",
+        "name": "Living room",
+        "origin": {
+          "x": 2,
+          "y": 4
+        },
+        "widthTiles": 20,
+        "heightTiles": 14,
+        "collisionRects": [
+          {
+            "x": 0,
+            "y": 0,
+            "width": 20,
+            "height": 4
+          },
+          {
+            "x": 0,
+            "y": 12,
+            "width": 8,
+            "height": 2
+          },
+          {
+            "x": 12,
+            "y": 12,
+            "width": 8,
+            "height": 2
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "width": 1,
+            "height": 12
+          },
+          {
+            "x": 19,
+            "y": 1,
+            "width": 1,
+            "height": 6
+          },
+          {
+            "x": 19,
+            "y": 9,
+            "width": 1,
+            "height": 4
+          },
+          {
+            "x": 13.5625,
+            "y": 4,
+            "width": 4.375,
+            "height": 0.5625
+          }
+        ],
+        "interactables": [
+          {
+            "id": "living-room-television",
+            "roomId": "living-room",
+            "position": {
+              "x": 9.5,
+              "y": 4
+            },
+            "label": "Television and game console",
+            "promptLabel": "television and game console",
+            "contentId": "livingroom-media",
+            "interactionRadiusTiles": 2,
+            "assetId": "television-console-front",
+            "groundAnchor": {
+              "x": 10,
+              "y": 5.5625
+            },
+            "footprints": [
+              {
+                "x": 9,
+                "y": 5.25,
+                "width": 2,
+                "height": 0.3125
+              }
+            ],
+            "displayHeightTiles": 2.8
+          },
+          {
+            "id": "living-room-record-player",
+            "roomId": "living-room",
+            "position": {
+              "x": 17,
+              "y": 6
+            },
+            "label": "Vinyl and record player",
+            "promptLabel": "vinyl and record player",
+            "contentId": "livingroom-vinyl",
+            "interactionRadiusTiles": 1.5,
+            "assetId": "record-player-front",
+            "groundAnchor": {
+              "x": 17.5,
+              "y": 7.75
+            },
+            "footprints": [
+              {
+                "x": 16.375,
+                "y": 7.4375,
+                "width": 2.25,
+                "height": 0.3125
+              }
+            ],
+            "displayHeightTiles": 2.8
+          },
+          {
+            "id": "living-room-bookcase",
+            "roomId": "living-room",
+            "position": {
+              "x": 15.25,
+              "y": 2.25
+            },
+            "label": "Bookcase and recent reading",
+            "promptLabel": "bookcase and recent reading",
+            "contentId": "livingroom-books",
+            "interactionRadiusTiles": 1.5,
+            "artworkInBackground": true
+          },
+          {
+            "id": "living-room-globe",
+            "roomId": "living-room",
+            "position": {
+              "x": 3.5,
+              "y": 6
+            },
+            "label": "Globe and travel pictures",
+            "promptLabel": "globe and travel pictures",
+            "contentId": "livingroom-travel",
+            "interactionRadiusTiles": 1.75,
+            "assetId": "globe-stand-front",
+            "displayHeightTiles": 3.5,
+            "groundAnchor": {
+              "x": 4,
+              "y": 8.125
+            },
+            "footprints": [
+              {
+                "x": 3.375,
+                "y": 7.75,
+                "width": 1.25,
+                "height": 0.375
+              }
+            ]
+          }
+        ],
+        "decorations": [
+          {
+            "id": "living-room-couch",
+            "assetId": "living-room-couch",
+            "position": {
+              "x": 9.40660440293529,
+              "y": 9.282650142993328
+            },
+            "displayWidthTiles": 6.711140760507004,
+            "displayHeightTiles": 2.722592945662536,
+            "groundAnchor": {
+              "x": 9.875,
+              "y": 11.125
+            },
+            "footprints": [
+              {
+                "x": 6.625,
+                "y": 9.375,
+                "width": 6.5,
+                "height": 1.75
+              }
+            ]
+          },
+          {
+            "id": "living-room-coffee-table",
+            "assetId": "living-room-coffee-table",
+            "position": {
+              "x": 9.386591060707138,
+              "y": 6.6868446139180175
+            },
+            "displayWidthTiles": 4.109406270847232,
+            "displayHeightTiles": 2.469018112488084,
+            "groundAnchor": {
+              "x": 9.875,
+              "y": 8.4375
+            },
+            "footprints": [
+              {
+                "x": 8,
+                "y": 6.9375,
+                "width": 3.75,
+                "height": 1.5
+              }
+            ]
+          }
+        ],
+        "visualAssetId": "living-room-background-couch-table-removed",
+        "visualBundle": {
+          "fallbackAssetId": "living-room-background",
+          "foregroundIds": [
+            "living-room-couch",
+            "living-room-coffee-table"
+          ]
+        }
+      },
+      {
+        "id": "gym",
+        "name": "Gym",
+        "origin": {
+          "x": 25,
+          "y": 4
+        },
+        "widthTiles": 16,
+        "heightTiles": 14,
+        "collisionRects": [
+          {
+            "x": 0,
+            "y": 0,
+            "width": 16,
+            "height": 3.5
+          },
+          {
+            "x": 0,
+            "y": 12,
+            "width": 6.4375,
+            "height": 2
+          },
+          {
+            "x": 10.875,
+            "y": 12,
+            "width": 5.125,
+            "height": 2
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "width": 1,
+            "height": 6
+          },
+          {
+            "x": 0,
+            "y": 9,
+            "width": 1,
+            "height": 4
+          },
+          {
+            "x": 15,
+            "y": 1,
+            "width": 1,
+            "height": 12
+          },
+          {
+            "x": 10.3125,
+            "y": 5.375,
+            "width": 0.5625,
+            "height": 0.375
+          },
+          {
+            "x": 10.875,
+            "y": 5.125,
+            "width": 0.5625,
+            "height": 0.375
+          },
+          {
+            "x": 11.4375,
+            "y": 4.875,
+            "width": 0.625,
+            "height": 0.375
+          },
+          {
+            "x": 12.5625,
+            "y": 6.0625,
+            "width": 0.625,
+            "height": 0.375
+          },
+          {
+            "x": 13.1875,
+            "y": 5.8125,
+            "width": 0.625,
+            "height": 0.375
+          },
+          {
+            "x": 13.8125,
+            "y": 5.5625,
+            "width": 0.5,
+            "height": 0.375
+          },
+          {
+            "x": 11.375,
+            "y": 4.9375,
+            "width": 0.625,
+            "height": 0.3125
+          },
+          {
+            "x": 12,
+            "y": 5.125,
+            "width": 0.625,
+            "height": 0.3125
+          },
+          {
+            "x": 12.625,
+            "y": 5.3125,
+            "width": 0.625,
+            "height": 0.3125
+          },
+          {
+            "x": 1.625,
+            "y": 3.5,
+            "width": 1.75,
+            "height": 0.46875
+          },
+          {
+            "x": 8.416666666666666,
+            "y": 7.9375,
+            "width": 2.1666666666666665,
+            "height": 0.375
+          },
+          {
+            "x": 2,
+            "y": 11.25,
+            "width": 1.875,
+            "height": 0.4375
+          },
+          {
+            "x": 12,
+            "y": 8.25,
+            "width": 1.25,
+            "height": 0.375
+          },
+          {
+            "x": 13.5,
+            "y": 10.125,
+            "width": 1.25,
+            "height": 0.375
+          },
+          {
+            "x": 11.5,
+            "y": 10.125,
+            "width": 1.25,
+            "height": 0.375
+          },
+          {
+            "x": 7.25,
+            "y": 3.625,
+            "width": 1.5,
+            "height": 0.5625
+          }
+        ],
+        "interactables": [
+          {
+            "id": "gym-squat-rack",
+            "roomId": "gym",
+            "position": {
+              "x": 11.75,
+              "y": 3.5
+            },
+            "label": "Squat rack",
+            "promptLabel": "squat rack",
+            "contentId": "gym-personal-records",
+            "interactionRadiusTiles": 2,
+            "assetId": "gym-squat-rack-front-right",
+            "displayHeightTiles": 5
+          },
+          {
+            "id": "gym-boombox",
+            "roomId": "gym",
+            "position": {
+              "x": 7.5,
+              "y": 3
+            },
+            "label": "Boombox",
+            "promptLabel": "boombox",
+            "contentId": "livingroom-vinyl",
+            "interactionRadiusTiles": 1.5,
+            "assetId": "gym-boombox-front",
+            "displayHeightTiles": 1.5
+          }
+        ],
+        "decorations": [
+          {
+            "id": "gym-bench",
+            "position": {
+              "x": 9,
+              "y": 7.125
+            },
+            "assetId": "gym-bench-front",
+            "displayHeightTiles": 1.875,
+            "displayWidthTiles": 2.8130287648054146
+          },
+          {
+            "id": "gym-dumbbell-rack",
+            "position": {
+              "x": 2,
+              "y": 2.5
+            },
+            "assetId": "gym-dumbbell-rack-front",
+            "displayHeightTiles": 2.25
+          },
+          {
+            "id": "gym-steel-plates",
+            "position": {
+              "x": 12.125,
+              "y": 7.125
+            },
+            "assetId": "gym-steel-plates-front",
+            "displayHeightTiles": 2
+          },
+          {
+            "id": "gym-bumper-plates",
+            "position": {
+              "x": 13.625,
+              "y": 9.125
+            },
+            "assetId": "gym-bumper-plates-front",
+            "displayHeightTiles": 2
+          },
+          {
+            "id": "gym-bumper-plates-extra",
+            "position": {
+              "x": 11.625,
+              "y": 9.125
+            },
+            "assetId": "gym-bumper-plates-front",
+            "displayHeightTiles": 2
+          },
+          {
+            "id": "gym-boxing-bag",
+            "position": {
+              "x": 2.5,
+              "y": 9.25
+            },
+            "assetId": "gym-boxing-bag-front-three-quarter",
+            "displayHeightTiles": 3.984375
+          }
+        ],
+        "visualAssetId": "gym-background"
+      },
+      {
+        "id": "office",
+        "name": "Office",
+        "origin": {
+          "x": 3.5,
+          "y": 20
+        },
+        "widthTiles": 17,
+        "heightTiles": 10,
+        "visualAssetId": "office-background",
+        "collisionRects": [
+          {
+            "x": 0,
+            "y": 0,
+            "width": 7.125,
+            "height": 3.375
+          },
+          {
+            "x": 9.875,
+            "y": 0,
+            "width": 7.125,
+            "height": 3.375
+          },
+          {
+            "x": 0,
+            "y": 9.125,
+            "width": 17,
+            "height": 0.875
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0.5,
+            "height": 10
+          },
+          {
+            "x": 16.5,
+            "y": 0,
+            "width": 0.5,
+            "height": 10
+          },
+          {
+            "x": 1.4375,
+            "y": 6.125,
+            "width": 1.625,
+            "height": 0.5
+          },
+          {
+            "x": 4.625,
+            "y": 3.375,
+            "width": 1.95,
+            "height": 0.375
+          },
+          {
+            "x": 1.875,
+            "y": 8.0625,
+            "width": 2.25,
+            "height": 0.375
+          },
+          {
+            "x": 12.875,
+            "y": 6.8125,
+            "width": 1.875,
+            "height": 0.375
+          },
+          {
+            "x": 10.0625,
+            "y": 6.5625,
+            "width": 1.375,
+            "height": 0.375
+          },
+          {
+            "x": 12.25,
+            "y": 8.4375,
+            "width": 1,
+            "height": 0.375
+          },
+          {
+            "x": 14,
+            "y": 8.375,
+            "width": 1,
+            "height": 0.375
+          },
+          {
+            "x": 1.5,
+            "y": 3.6875,
+            "width": 1,
+            "height": 0.375
+          },
+          {
+            "x": 15.375,
+            "y": 3.625,
+            "width": 0.875,
+            "height": 0.375
+          },
+          {
+            "x": 0.625,
+            "y": 8.375,
+            "width": 0.875,
+            "height": 0.375
+          },
+          {
+            "x": 15.5,
+            "y": 8.375,
+            "width": 0.875,
+            "height": 0.375
+          },
+          {
+            "x": 2,
+            "y": 3.5625,
+            "width": 2.0625,
+            "height": 0.3125
+          },
+          {
+            "x": 1.75,
+            "y": 3.875,
+            "width": 2.125,
+            "height": 0.375
+          },
+          {
+            "x": 1.5,
+            "y": 4.25,
+            "width": 2.0625,
+            "height": 0.375
+          },
+          {
+            "x": 1.3125,
+            "y": 4.625,
+            "width": 1.9375,
+            "height": 0.3125
+          },
+          {
+            "x": 2,
+            "y": 4.9375,
+            "width": 0.4375,
+            "height": 1.3125
+          },
+          {
+            "x": 2.4375,
+            "y": 5.1875,
+            "width": 1.5,
+            "height": 0.25
+          },
+          {
+            "x": 4.3125,
+            "y": 5.5625,
+            "width": 0.875,
+            "height": 0.625
+          },
+          {
+            "x": 3.4375,
+            "y": 5.8125,
+            "width": 1.6875,
+            "height": 0.625
+          }
+        ],
+        "interactables": [
+          {
+            "id": "office-dog-bed",
+            "roomId": "office",
+            "position": {
+              "x": 2.5,
+              "y": 7.25
+            },
+            "label": "Office dog",
+            "promptLabel": "dog",
+            "contentId": "office-dog-photo",
+            "interactionRadiusTiles": 1.25,
+            "assetId": "office-dog-bed-front",
+            "displayHeightTiles": 1.6
+          },
+          {
+            "id": "office-workstation",
+            "roomId": "office",
+            "position": {
+              "x": 2.5,
+              "y": 3.9
+            },
+            "label": "Office workstation",
+            "promptLabel": "office workstation",
+            "contentId": "office-cv",
+            "interactionRadiusTiles": 2.25,
+            "assetId": "office-workstation-right-facing",
+            "displayHeightTiles": 4.5
+          },
+          {
+            "id": "office-bookcase",
+            "roomId": "office",
+            "position": {
+              "x": 5.1,
+              "y": 1.5
+            },
+            "label": "Bookcase and recent reading",
+            "promptLabel": "bookcase and recent reading",
+            "contentId": "livingroom-books",
+            "interactionRadiusTiles": 1.5,
+            "assetId": "office-bookcase-front",
+            "displayHeightTiles": 4
+          }
+        ],
+        "decorations": [
+          {
+            "id": "office-sofa",
+            "position": {
+              "x": 13.25,
+              "y": 4.8
+            },
+            "assetId": "office-sofa-left",
+            "displayHeightTiles": 4.6
+          },
+          {
+            "id": "office-coffee-table",
+            "position": {
+              "x": 10.25,
+              "y": 5.2
+            },
+            "assetId": "office-coffee-table-front",
+            "displayHeightTiles": 3.4
+          },
+          {
+            "id": "office-robot-standing",
+            "position": {
+              "x": 12.25,
+              "y": 7.6
+            },
+            "assetId": "office-robot-standing",
+            "displayHeightTiles": 1.5
+          },
+          {
+            "id": "office-robot-seated",
+            "position": {
+              "x": 14,
+              "y": 7.7
+            },
+            "assetId": "office-robot-seated",
+            "displayHeightTiles": 1.15
+          }
+        ]
+      },
+      {
+        "id": "kitchen",
+        "name": "Kitchen",
+        "origin": {
+          "x": 24.9375,
+          "y": 20
+        },
+        "widthTiles": 16,
+        "heightTiles": 10,
+        "visualAssetId": "kitchen-background",
+        "collisionRects": [
+          {
+            "x": 0,
+            "y": 0,
+            "width": 7.5625,
+            "height": 3.0625
+          },
+          {
+            "x": 9.875,
+            "y": 0,
+            "width": 6.125,
+            "height": 3.0625
+          },
+          {
+            "x": 0,
+            "y": 8.875,
+            "width": 16,
+            "height": 1.125
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0.375,
+            "height": 10
+          },
+          {
+            "x": 15.375,
+            "y": 0,
+            "width": 0.625,
+            "height": 10
+          },
+          {
+            "x": 0.375,
+            "y": 3.0625,
+            "width": 1.5625,
+            "height": 5.8125
+          },
+          {
+            "x": 1.9375,
+            "y": 3.0625,
+            "width": 3.25,
+            "height": 1.4375
+          },
+          {
+            "x": 11.75,
+            "y": 3.0625,
+            "width": 1.875,
+            "height": 1.5
+          },
+          {
+            "x": 13.625,
+            "y": 3.0625,
+            "width": 1.75,
+            "height": 1.9375
+          },
+          {
+            "x": 6.4375,
+            "y": 6,
+            "width": 4.125,
+            "height": 1.5625
+          },
+          {
+            "x": 7.25,
+            "y": 7.5625,
+            "width": 2.5,
+            "height": 0.375
+          },
+          {
+            "x": 7.8125,
+            "y": 7.9375,
+            "width": 1.375,
+            "height": 0.375
+          }
+        ],
+        "interactables": [
+          {
+            "id": "kitchen-stove",
+            "roomId": "kitchen",
+            "position": {
+              "x": 0.7,
+              "y": 4.5
+            },
+            "label": "Kitchen stove",
+            "promptLabel": "kitchen stove",
+            "contentId": "kitchen-meals",
+            "interactionRadiusTiles": 2.25,
+            "artworkInBackground": true
+          },
+          {
+            "id": "kitchen-fridge",
+            "roomId": "kitchen",
+            "position": {
+              "x": 14,
+              "y": 3
+            },
+            "label": "Kitchen shopping list",
+            "promptLabel": "fridge shopping list",
+            "contentId": "kitchen-shopping",
+            "interactionRadiusTiles": 2,
+            "artworkInBackground": true
+          }
+        ],
+        "decorations": [
+          {
+            "id": "kitchen-dining-set",
+            "position": {
+              "x": 8,
+              "y": 6
+            },
+            "assetId": "kitchen-dining-set",
+            "displayHeightTiles": 4.5
+          }
+        ]
+      }
+    ],
+    "corridors": [
+      {
+        "id": "living-room-gym-corridor",
+        "origin": {
+          "x": 22,
+          "y": 11
+        },
+        "widthTiles": 3,
+        "heightTiles": 2
+      },
+      {
+        "id": "living-room-office-corridor",
+        "origin": {
+          "x": 10,
+          "y": 18
+        },
+        "widthTiles": 4,
+        "heightTiles": 2
+      },
+      {
+        "id": "gym-kitchen-corridor",
+        "origin": {
+          "x": 31.4375,
+          "y": 18
+        },
+        "widthTiles": 4.4375,
+        "heightTiles": 2
+      }
+    ],
+    "doorways": [
+      {
+        "id": "living-room-to-gym",
+        "fromRoomId": "living-room",
+        "toRoomId": "gym",
+        "opening": {
+          "x": 19,
+          "y": 7,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "id": "gym-to-living-room",
+        "fromRoomId": "gym",
+        "toRoomId": "living-room",
+        "opening": {
+          "x": 0,
+          "y": 7,
+          "width": 1,
+          "height": 2
+        }
+      },
+      {
+        "id": "living-room-to-office",
+        "fromRoomId": "living-room",
+        "toRoomId": "office",
+        "opening": {
+          "x": 8,
+          "y": 13,
+          "width": 4,
+          "height": 1
+        }
+      },
+      {
+        "id": "office-to-living-room",
+        "fromRoomId": "office",
+        "toRoomId": "living-room",
+        "opening": {
+          "x": 7,
+          "y": 0,
+          "width": 3,
+          "height": 1
+        }
+      },
+      {
+        "id": "gym-to-kitchen",
+        "fromRoomId": "gym",
+        "toRoomId": "kitchen",
+        "opening": {
+          "x": 6,
+          "y": 13,
+          "width": 5,
+          "height": 1
+        }
+      },
+      {
+        "id": "kitchen-to-gym",
+        "fromRoomId": "kitchen",
+        "toRoomId": "gym",
+        "opening": {
+          "x": 7,
+          "y": 0,
+          "width": 3,
+          "height": 1
+        }
+      }
+    ],
+    "initialSpawn": {
+      "x": 12,
+      "y": 25
+    }
+  },
+  "worldRects": [
+    {
+      "x": 2,
+      "y": 4,
+      "width": 20,
+      "height": 4
+    },
+    {
+      "x": 2,
+      "y": 16,
+      "width": 8,
+      "height": 2
+    },
+    {
+      "x": 14,
+      "y": 16,
+      "width": 8,
+      "height": 2
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "width": 1,
+      "height": 12
+    },
+    {
+      "x": 21,
+      "y": 5,
+      "width": 1,
+      "height": 6
+    },
+    {
+      "x": 21,
+      "y": 13,
+      "width": 1,
+      "height": 4
+    },
+    {
+      "x": 15.5625,
+      "y": 8,
+      "width": 4.375,
+      "height": 0.5625
+    },
+    {
+      "x": 11,
+      "y": 9.25,
+      "width": 2,
+      "height": 0.3125
+    },
+    {
+      "x": 18.375,
+      "y": 11.4375,
+      "width": 2.25,
+      "height": 0.3125
+    },
+    {
+      "x": 5.375,
+      "y": 11.75,
+      "width": 1.25,
+      "height": 0.375
+    },
+    {
+      "x": 8.625,
+      "y": 13.375,
+      "width": 6.5,
+      "height": 1.75
+    },
+    {
+      "x": 10,
+      "y": 10.9375,
+      "width": 3.75,
+      "height": 1.5
+    },
+    {
+      "x": 25,
+      "y": 4,
+      "width": 16,
+      "height": 3.5
+    },
+    {
+      "x": 25,
+      "y": 16,
+      "width": 6.4375,
+      "height": 2
+    },
+    {
+      "x": 35.875,
+      "y": 16,
+      "width": 5.125,
+      "height": 2
+    },
+    {
+      "x": 25,
+      "y": 5,
+      "width": 1,
+      "height": 6
+    },
+    {
+      "x": 25,
+      "y": 13,
+      "width": 1,
+      "height": 4
+    },
+    {
+      "x": 40,
+      "y": 5,
+      "width": 1,
+      "height": 12
+    },
+    {
+      "x": 35.3125,
+      "y": 9.375,
+      "width": 0.5625,
+      "height": 0.375
+    },
+    {
+      "x": 35.875,
+      "y": 9.125,
+      "width": 0.5625,
+      "height": 0.375
+    },
+    {
+      "x": 36.4375,
+      "y": 8.875,
+      "width": 0.625,
+      "height": 0.375
+    },
+    {
+      "x": 37.5625,
+      "y": 10.0625,
+      "width": 0.625,
+      "height": 0.375
+    },
+    {
+      "x": 38.1875,
+      "y": 9.8125,
+      "width": 0.625,
+      "height": 0.375
+    },
+    {
+      "x": 38.8125,
+      "y": 9.5625,
+      "width": 0.5,
+      "height": 0.375
+    },
+    {
+      "x": 36.375,
+      "y": 8.9375,
+      "width": 0.625,
+      "height": 0.3125
+    },
+    {
+      "x": 37,
+      "y": 9.125,
+      "width": 0.625,
+      "height": 0.3125
+    },
+    {
+      "x": 37.625,
+      "y": 9.3125,
+      "width": 0.625,
+      "height": 0.3125
+    },
+    {
+      "x": 26.625,
+      "y": 7.5,
+      "width": 1.75,
+      "height": 0.46875
+    },
+    {
+      "x": 33.416666666666664,
+      "y": 11.9375,
+      "width": 2.1666666666666665,
+      "height": 0.375
+    },
+    {
+      "x": 27,
+      "y": 15.25,
+      "width": 1.875,
+      "height": 0.4375
+    },
+    {
+      "x": 37,
+      "y": 12.25,
+      "width": 1.25,
+      "height": 0.375
+    },
+    {
+      "x": 38.5,
+      "y": 14.125,
+      "width": 1.25,
+      "height": 0.375
+    },
+    {
+      "x": 36.5,
+      "y": 14.125,
+      "width": 1.25,
+      "height": 0.375
+    },
+    {
+      "x": 32.25,
+      "y": 7.625,
+      "width": 1.5,
+      "height": 0.5625
+    },
+    {
+      "x": 3.5,
+      "y": 20,
+      "width": 7.125,
+      "height": 3.375
+    },
+    {
+      "x": 13.375,
+      "y": 20,
+      "width": 7.125,
+      "height": 3.375
+    },
+    {
+      "x": 3.5,
+      "y": 29.125,
+      "width": 17,
+      "height": 0.875
+    },
+    {
+      "x": 3.5,
+      "y": 20,
+      "width": 0.5,
+      "height": 10
+    },
+    {
+      "x": 20,
+      "y": 20,
+      "width": 0.5,
+      "height": 10
+    },
+    {
+      "x": 4.9375,
+      "y": 26.125,
+      "width": 1.625,
+      "height": 0.5
+    },
+    {
+      "x": 8.125,
+      "y": 23.375,
+      "width": 1.95,
+      "height": 0.375
+    },
+    {
+      "x": 5.375,
+      "y": 28.0625,
+      "width": 2.25,
+      "height": 0.375
+    },
+    {
+      "x": 16.375,
+      "y": 26.8125,
+      "width": 1.875,
+      "height": 0.375
+    },
+    {
+      "x": 13.5625,
+      "y": 26.5625,
+      "width": 1.375,
+      "height": 0.375
+    },
+    {
+      "x": 15.75,
+      "y": 28.4375,
+      "width": 1,
+      "height": 0.375
+    },
+    {
+      "x": 17.5,
+      "y": 28.375,
+      "width": 1,
+      "height": 0.375
+    },
+    {
+      "x": 5,
+      "y": 23.6875,
+      "width": 1,
+      "height": 0.375
+    },
+    {
+      "x": 18.875,
+      "y": 23.625,
+      "width": 0.875,
+      "height": 0.375
+    },
+    {
+      "x": 4.125,
+      "y": 28.375,
+      "width": 0.875,
+      "height": 0.375
+    },
+    {
+      "x": 19,
+      "y": 28.375,
+      "width": 0.875,
+      "height": 0.375
+    },
+    {
+      "x": 5.5,
+      "y": 23.5625,
+      "width": 2.0625,
+      "height": 0.3125
+    },
+    {
+      "x": 5.25,
+      "y": 23.875,
+      "width": 2.125,
+      "height": 0.375
+    },
+    {
+      "x": 5,
+      "y": 24.25,
+      "width": 2.0625,
+      "height": 0.375
+    },
+    {
+      "x": 4.8125,
+      "y": 24.625,
+      "width": 1.9375,
+      "height": 0.3125
+    },
+    {
+      "x": 5.5,
+      "y": 24.9375,
+      "width": 0.4375,
+      "height": 1.3125
+    },
+    {
+      "x": 5.9375,
+      "y": 25.1875,
+      "width": 1.5,
+      "height": 0.25
+    },
+    {
+      "x": 7.8125,
+      "y": 25.5625,
+      "width": 0.875,
+      "height": 0.625
+    },
+    {
+      "x": 6.9375,
+      "y": 25.8125,
+      "width": 1.6875,
+      "height": 0.625
+    },
+    {
+      "x": 24.9375,
+      "y": 20,
+      "width": 7.5625,
+      "height": 3.0625
+    },
+    {
+      "x": 34.8125,
+      "y": 20,
+      "width": 6.125,
+      "height": 3.0625
+    },
+    {
+      "x": 24.9375,
+      "y": 28.875,
+      "width": 16,
+      "height": 1.125
+    },
+    {
+      "x": 24.9375,
+      "y": 20,
+      "width": 0.375,
+      "height": 10
+    },
+    {
+      "x": 40.3125,
+      "y": 20,
+      "width": 0.625,
+      "height": 10
+    },
+    {
+      "x": 25.3125,
+      "y": 23.0625,
+      "width": 1.5625,
+      "height": 5.8125
+    },
+    {
+      "x": 26.875,
+      "y": 23.0625,
+      "width": 3.25,
+      "height": 1.4375
+    },
+    {
+      "x": 36.6875,
+      "y": 23.0625,
+      "width": 1.875,
+      "height": 1.5
+    },
+    {
+      "x": 38.5625,
+      "y": 23.0625,
+      "width": 1.75,
+      "height": 1.9375
+    },
+    {
+      "x": 31.375,
+      "y": 26,
+      "width": 4.125,
+      "height": 1.5625
+    },
+    {
+      "x": 32.1875,
+      "y": 27.5625,
+      "width": 2.5,
+      "height": 0.375
+    },
+    {
+      "x": 32.75,
+      "y": 27.9375,
+      "width": 1.375,
+      "height": 0.375
+    },
+    {
+      "x": 22,
+      "y": 10,
+      "width": 3,
+      "height": 1
+    },
+    {
+      "x": 22,
+      "y": 13,
+      "width": 3,
+      "height": 1
+    },
+    {
+      "x": 9,
+      "y": 18,
+      "width": 1,
+      "height": 2
+    },
+    {
+      "x": 14,
+      "y": 18,
+      "width": 1,
+      "height": 2
+    },
+    {
+      "x": 30.4375,
+      "y": 18,
+      "width": 1,
+      "height": 2
+    },
+    {
+      "x": 35.875,
+      "y": 18,
+      "width": 1,
+      "height": 2
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "width": 64,
+      "height": 1
+    },
+    {
+      "x": 0,
+      "y": 35,
+      "width": 64,
+      "height": 1
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 36
+    },
+    {
+      "x": 63,
+      "y": 0,
+      "width": 1,
+      "height": 36
+    }
+  ]
+}

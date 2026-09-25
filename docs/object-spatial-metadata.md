@@ -105,3 +105,55 @@ evidence belongs to `output/qa/port19c1` rather than overwriting earlier reviews
 Owner follow-up DEC-142 triples the table base height to24px: room-local
 `(8,6.9375,3.75,1.5)`, world `(160,175,60,24)`. Front edge/ground anchor remain
 at world y199. Updated evidence is `output/qa/port19c1-table-bounds`.
+
+## Gym large equipment adoption (PORT-18E)
+
+The squat rack, dumbbell rack and bench now use this same metadata pipeline.
+Their artwork placement/scaling and interaction fields are unchanged. The nine
+stepped squat-rack pieces and one base each for dumbbells/bench transfer from the
+room rectangle array to their owning objects without merging or resizing.
+
+| Object | Room-local ground anchor | World ground point (px) | Footprint pieces |
+| --- | --- | --- | --- |
+| Squat rack | (12.25,6.4375) | (596,167) | 9 |
+| Dumbbell rack | (2.5,3.96875) | (440,127.5) | 1 |
+| Bench | (9.5,8.3125) | (552,197) | 1 |
+
+These planes retain existing base front edges. Measured opaque feet (alpha≥128)
+end respectively0.117px,0.237px and0.340px above those planes; transparent image
+padding does not determine sorting. Bench retains independent width scaling.
+
+The dumbbell base meets the upper wall and its left gap is10px versus the16px
+player foot strip, so only front/right approaches are available. The diagonal
+squat rack remains one image: all uprights/bar/base sort together, not separately
+around a player inside it. Owner acceptance of that approximation remains a
+closure gate; otherwise propose a separately authorized layered-art split.
+Do not change collisions to hide that limitation. Remaining gym objects migrate
+through PORT-18F below. Evidence and immutable pre-migration geometry belong
+in `output/qa/port18e`; this story does not remove the temporary cyan bounds.
+
+## Plate stacks and boxing bag (partial PORT-18F)
+
+The owner-requested subset adds four decorations to the same generic pipeline.
+Each owns its unchanged former room rectangle; neither sprite dimensions nor
+transparent padding determine collisions. Both bumper stacks share a texture but
+keep distinct instance identities, anchors and bases. No new interaction is added.
+
+| Object | Room-local ground anchor | World ground point (px) |
+| --- | --- | --- |
+| Steel plates | (12.625,8.625) | (602,202) |
+| Bumper plates | (14.125,10.5) | (626,232) |
+| Extra bumper plates | (12.125,10.5) | (594,232) |
+| Boxing bag | (3,11.6875) | (448,251) |
+
+The bag and stand remain a single image sorted at the existing base front edge;
+this is whole-object ordering, not separate bag/stand layers. Its display height
+remains 125% of the player. The boombox is intentionally unchanged and still
+pending within PORT-18F. Evidence is under `output/qa/port18f`; owner acceptance
+and the earlier squat-rack limitation remain separate closure gates. Cyan
+collision review outlines remain visible.
+
+Delivery approval (DEC-146): owner accepted the current gym presentation and
+authorized delivery of PORT-18E plus the four-decoration PORT-18F subset. Earlier
+acceptance-gate notes above describe the review process; boombox adoption remains
+pending. Single-image sorting limitations are unchanged, not per-part occlusion.

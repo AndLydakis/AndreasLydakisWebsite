@@ -117,26 +117,6 @@ const gym: RoomDefinition = {
     { x: 0, y: 1, width: 1, height: 6 },
     { x: 0, y: 9, width: 1, height: 4 },
     { x: 15, y: 1, width: 1, height: 12 },
-    // Tight floor-contact footprints, not the full visual bounding boxes.
-    // Short stepped rectangles follow the front-right artwork's diagonal feet/crossmember.
-    // Keep the open space between the feet walkable; no full-sprite collision box.
-    { x: 10.3125, y: 5.375, width: 0.5625, height: 0.375 },
-    { x: 10.875, y: 5.125, width: 0.5625, height: 0.375 },
-    { x: 11.4375, y: 4.875, width: 0.625, height: 0.375 },
-    { x: 12.5625, y: 6.0625, width: 0.625, height: 0.375 },
-    { x: 13.1875, y: 5.8125, width: 0.625, height: 0.375 },
-    { x: 13.8125, y: 5.5625, width: 0.5, height: 0.375 },
-    { x: 11.375, y: 4.9375, width: 0.625, height: 0.3125 },
-    { x: 12, y: 5.125, width: 0.625, height: 0.3125 },
-    { x: 12.625, y: 5.3125, width: 0.625, height: 0.3125 },
-    { x: 1.625, y: 3.5, width: 1.75, height: 0.46875 }, // Triple-height base; bottom stays at the rack feet.
-    // Six-pixel depth prevents Arcade's thin-body separation crossing at 144px/s.
-    // Extend upward only, preserving the resized bench's visible bottom edge.
-    { x: 9.5 - 1.625 * 2 / 3, y: 7.9375, width: 3.25 * 2 / 3, height: 0.375 },
-    { x: 2, y: 11.25, width: 1.875, height: 0.4375 }, // Boxing stand floor-contact base.
-    { x: 12, y: 8.25, width: 1.25, height: 0.375 }, // Cast-iron stack.
-    { x: 13.5, y: 10.125, width: 1.25, height: 0.375 }, // Bumper stack.
-    { x: 11.5, y: 10.125, width: 1.25, height: 0.375 }, // Second copy, same artwork.
     { x: 7.25, y: 3.625, width: 1.5, height: 0.5625 }, // Triple-height base; bottom stays at the boombox feet.
   ],
   interactables: [
@@ -150,6 +130,21 @@ const gym: RoomDefinition = {
       interactionRadiusTiles: 2,
       assetId: 'gym-squat-rack-front-right',
       displayHeightTiles: 5,
+      // One sort plane for the complete diagonal image, not per-upright occlusion.
+      // The front floor-contact edge excludes transparent padding; geometry is unchanged.
+      groundAnchor: { x: 12.25, y: 6.4375 },
+      footprints: [
+        // Preserve every stepped foot/crossmember piece and the open space between feet.
+        { x: 10.3125, y: 5.375, width: 0.5625, height: 0.375 },
+        { x: 10.875, y: 5.125, width: 0.5625, height: 0.375 },
+        { x: 11.4375, y: 4.875, width: 0.625, height: 0.375 },
+        { x: 12.5625, y: 6.0625, width: 0.625, height: 0.375 },
+        { x: 13.1875, y: 5.8125, width: 0.625, height: 0.375 },
+        { x: 13.8125, y: 5.5625, width: 0.5, height: 0.375 },
+        { x: 11.375, y: 4.9375, width: 0.625, height: 0.3125 },
+        { x: 12, y: 5.125, width: 0.625, height: 0.3125 },
+        { x: 12.625, y: 5.3125, width: 0.625, height: 0.3125 },
+      ],
     },
     {
       id: 'gym-boombox',
@@ -166,12 +161,46 @@ const gym: RoomDefinition = {
   ],
   decorations: [
     // Original 1330×1182 art: half the displayed height, two-thirds the displayed length.
-    { id: 'gym-bench', position: { x: 9, y: 7.125 }, assetId: 'gym-bench-front', displayHeightTiles: 1.875, displayWidthTiles: 3.75 * 1330 / 1182 * 2 / 3 },
-    { id: 'gym-dumbbell-rack', position: { x: 2, y: 2.5 }, assetId: 'gym-dumbbell-rack-front', displayHeightTiles: 2.25 },
-    { id: 'gym-steel-plates', position: { x: 12.125, y: 7.125 }, assetId: 'gym-steel-plates-front', displayHeightTiles: 2 },
-    { id: 'gym-bumper-plates', position: { x: 13.625, y: 9.125 }, assetId: 'gym-bumper-plates-front', displayHeightTiles: 2 },
-    { id: 'gym-bumper-plates-extra', position: { x: 11.625, y: 9.125 }, assetId: 'gym-bumper-plates-front', displayHeightTiles: 2 },
-    { id: 'gym-boxing-bag', position: { x: 2.5, y: 9.25 }, assetId: 'gym-boxing-bag-front-three-quarter', displayHeightTiles: PLAYER_DISPLAY_HEIGHT * 1.25 / 16 },
+    {
+      id: 'gym-bench', position: { x: 9, y: 7.125 }, assetId: 'gym-bench-front',
+      displayHeightTiles: 1.875, displayWidthTiles: 3.75 * 1330 / 1182 * 2 / 3,
+      groundAnchor: { x: 9.5, y: 8.3125 },
+      // Retain the six-pixel base depth needed by the thin-foot Arcade collider.
+      footprints: [{ x: 9.5 - 1.625 * 2 / 3, y: 7.9375, width: 3.25 * 2 / 3, height: 0.375 }],
+    },
+    {
+      id: 'gym-dumbbell-rack', position: { x: 2, y: 2.5 }, assetId: 'gym-dumbbell-rack-front',
+      displayHeightTiles: 2.25,
+      groundAnchor: { x: 2.5, y: 3.96875 },
+      // Existing triple-height base meets the upper wall: rear access stays blocked.
+      footprints: [{ x: 1.625, y: 3.5, width: 1.75, height: 0.46875 }],
+    },
+    {
+      id: 'gym-steel-plates', position: { x: 12.125, y: 7.125 },
+      assetId: 'gym-steel-plates-front', displayHeightTiles: 2,
+      groundAnchor: { x: 12.625, y: 8.625 },
+      footprints: [{ x: 12, y: 8.25, width: 1.25, height: 0.375 }],
+    },
+    {
+      id: 'gym-bumper-plates', position: { x: 13.625, y: 9.125 },
+      assetId: 'gym-bumper-plates-front', displayHeightTiles: 2,
+      groundAnchor: { x: 14.125, y: 10.5 },
+      footprints: [{ x: 13.5, y: 10.125, width: 1.25, height: 0.375 }],
+    },
+    {
+      // Shared artwork, independent position, sorting identity and physical base.
+      id: 'gym-bumper-plates-extra', position: { x: 11.625, y: 9.125 },
+      assetId: 'gym-bumper-plates-front', displayHeightTiles: 2,
+      groundAnchor: { x: 12.125, y: 10.5 },
+      footprints: [{ x: 11.5, y: 10.125, width: 1.25, height: 0.375 }],
+    },
+    {
+      id: 'gym-boxing-bag', position: { x: 2.5, y: 9.25 },
+      assetId: 'gym-boxing-bag-front-three-quarter', displayHeightTiles: PLAYER_DISPLAY_HEIGHT * 1.25 / 16,
+      // Sort the complete bag/stand at its existing front floor-contact edge.
+      groundAnchor: { x: 3, y: 11.6875 },
+      footprints: [{ x: 2, y: 11.25, width: 1.875, height: 0.4375 }],
+    },
   ],
   visualAssetId: 'gym-background',
 };

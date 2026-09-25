@@ -1,0 +1,4 @@
+PASS desktop: globe, keyboard/touch gallery scroll, images, close/focus, existing dialogs
+PASS portrait: globe, keyboard/touch gallery scroll, images, close/focus, existing dialogs
+PASS landscape: globe, keyboard/touch gallery scroll, images, close/focus, existing dialogs
+PASS four-sided globe base and no uncaught exceptions

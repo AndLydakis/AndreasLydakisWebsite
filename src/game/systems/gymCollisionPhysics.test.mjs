@@ -1,10 +1,11 @@
 import { createRequire } from 'node:module';
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { houseLayout } from '../data/houseLayout';
 import { PLAYER_SPEED } from '../entities/playerMotion';
 import { officeWorkstationOutline } from '../data/office';
 import { kitchen, kitchenFurnitureCollisions } from '../data/kitchen';
-import { getCorridorCollisionRects } from './collisionGeometry';
+import { getCorridorCollisionRects, getRoomLocalCollisionRects } from './collisionGeometry';
 
 // Exercise the installed Arcade solver, not a mocked overlap predicate or renderer.
 const require = createRequire(import.meta.url);
@@ -17,21 +18,39 @@ const livingRoom = houseLayout.rooms.find(room => room.id === 'living-room');
 const pilotCases = ['living-room-television', 'living-room-record-player', 'living-room-globe'].flatMap(id =>
   livingRoom.interactables.find(object => object.id === id).footprints.map(rect => ({ room: livingRoom, name: id, rect })));
 const objects = [
-  ['dumbbell rack', 1.625],
-  ['boombox', 7.25],
-  ['bench', 9.5 - 1.625 * 2 / 3],
-  ['boxing stand', 2],
+  ['dumbbell rack', { x: 1.625, y: 3.5, width: 1.75, height: 0.46875 }],
+  ['boombox', { x: 7.25, y: 3.625, width: 1.5, height: 0.5625 }],
+  ['bench', { x: 9.5 - 1.625 * 2 / 3, y: 7.9375, width: 3.25 * 2 / 3, height: 0.375 }],
+  ['boxing stand', { x: 2, y: 11.25, width: 1.875, height: 0.4375 }],
+  ['steel stack', { x: 12, y: 8.25, width: 1.25, height: 0.375 }],
+  ['bumper stack', { x: 13.5, y: 10.125, width: 1.25, height: 0.375 }],
+  ['extra bumper stack', { x: 11.5, y: 10.125, width: 1.25, height: 0.375 }],
 ];
+const gymObjectCases = objects.map(([name, expected]) => ({ room: gym, name, expected,
+  rect: getRoomLocalCollisionRects(gym).find(rect =>
+    ['x', 'y', 'width', 'height'].every(key => rect[key] === expected[key])),
+}));
+const preGym = JSON.parse(readFileSync(new URL('./fixtures/port18e-before.json', import.meta.url), 'utf8'))
+  .layout.rooms.find(room => room.id === 'gym');
+const squatCases = preGym.collisionRects.slice(6, 15).map((expected, index) => ({
+  room: gym, name: `squat rack piece ${index + 1}`,
+  rect: getRoomLocalCollisionRects(gym).find(rect =>
+    ['x', 'y', 'width', 'height'].every(key => rect[key] === expected[key])),
+}));
 const cases = [
   ...pilotCases,
+  ...squatCases,
   ...getCorridorCollisionRects(houseLayout).map((rect, index) => ({ room: { origin: { x: 0, y: 0 } }, name: `corridor wall ${index}`, rect })),
   ...kitchenFurnitureCollisions.map((rect, index) => ({ room: kitchen, name: `kitchen object ${index}`, rect })),
-  ...objects.map(([name, rectX]) => ({ room: gym, name, rect: gym.collisionRects.find(item => item.x === rectX) })),
+  ...gymObjectCases,
   ...office.collisionRects.slice(5, 12).map((rect, index) => ({ room: office, name: `office object ${index}`, rect })),
   ...officeWorkstationOutline.map((rect, index) => ({ room: office, name: `workstation outline ${index}`, rect })),
 ];
 
 describe('house equipment and corridor walls actual Arcade collisions', () => {
+  it.each(gymObjectCases)('selects the exact $name base, not another rectangle sharing x', ({ rect, expected }) => {
+    expect(rect).toEqual(expected);
+  });
   for (const { room, name, rect } of cases) {
     for (const direction of ['up', 'down', 'left', 'right']) {
       it.each([15, 30, 60, 120])(`${name} stops sustained ${direction} movement at %s render FPS`, (fps) => {
@@ -75,8 +94,9 @@ describe('house equipment and corridor walls actual Arcade collisions', () => {
   }
 });
 
-describe('migrated pilot bases actual Arcade diagonal corner contact', () => {
-  for (const { room, name, rect } of pilotCases) {
+describe('migrated pilot and gym bases actual Arcade diagonal corner contact', () => {
+  const gymCases = gymObjectCases.filter(({ name }) => name !== 'boombox');
+  for (const { room, name, rect } of [...pilotCases, ...squatCases, ...gymCases]) {
     for (const [dx, dy] of [[1, 1], [-1, 1], [1, -1], [-1, -1]]) {
       it.each([15, 30, 60, 120])(`${name} blocks diagonal ${dx},${dy} at %s render FPS`, fps => {
         const x = (room.origin.x + rect.x) * 16, y = (room.origin.y + rect.y) * 16;

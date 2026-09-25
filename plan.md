@@ -3198,7 +3198,7 @@ Type: Story
 Priority: High — queued after prerequisite
 Dependencies: `PORT-19C1` (owner prioritized living-room couch/table after PORT-18D)
 Milestone: M6
-Status: Pending — not started
+Status: Accepted — owner approves current presentation and delivery (DEC-146); final checks/push pending.
 Delivery: Global story workflow and all M6 review gates apply.
 
 ### Goal
@@ -3211,7 +3211,7 @@ Author and verify this bounded asset group through the shared perspective system
 2. Add metadata only through the generic schema/registry; atomically migrate existing room bases to `footprints` arrays without changing the complete collision multiset.
 3. Preserve all stepped squat-rack pieces and the existing dumbbell/bench bases. Review the diagonal rack silhouette; no bar/perspective art repair is silently included.
 4. Verify each instance's reachable front/behind/side/corner paths, idle/walk transitions and equal-depth behavior; include another object/player overlap where reachable.
-5. Test missing art, restart, debug on/off, production diagnostics absence and all current interactions. Obtain independent engineer/game reviews and owner visual acceptance; record per-instance evidence.
+5. Test missing art, restart, debug on/off, production diagnostics absence (except the owner-approved temporary cyan collision bounds) and all current interactions. Obtain independent engineer/game reviews and owner visual acceptance; record per-instance evidence.
 
 ### Acceptance criteria
 
@@ -3225,6 +3225,8 @@ Author and verify this bounded asset group through the shared perspective system
 
 Run full test/typecheck/build and scoped diff checks; compare collision multisets and inspect normal/slow runtime sequences for every listed instance. Record reviewed snapshot, findings, fixes/re-review and owner sign-off. Re-estimate before work and split above two focused days. This is asset-data adoption, not new core rendering implementation.
 
+PORT-18E evidence: `output/qa/port18e/verification.md`. Full suite (1,316 tests/39 files), typecheck/build and scoped whitespace checks pass. Development/production each pass 145 core records, 44 interaction cases, 32 mobile-viewport keyboard routes, 15 measured overlap/route records and 2 actual D-pad smoke cases; gallery/quick-travel regressions also pass. Exact 80-body geometry is preserved. Independent engineer/game technical reviews pass; strengthened bench/steel overlap evidence closes the review gap. The squat rack remains a single composite image, requiring owner acceptance or separately authorized layered art. Dumbbell rear access remains blocked by its existing wall/base. No physical-device test is claimed. Preserve temporary cyan collision bounds.
+
 ---
 
 ## PORT-18F — Apply generic perspective to remaining gym objects
@@ -3233,7 +3235,7 @@ Type: Story
 Priority: High — queued after prerequisite
 Dependencies: `PORT-18E`
 Milestone: M6
-Status: Pending — not started
+Status: Partially implemented — owner accepts plates/boxing-bag subset for delivery (DEC-146); push pending. Boombox remains unimplemented; do not close the full story.
 Delivery: Global story workflow and all M6 review gates apply.
 
 ### Goal
@@ -3259,6 +3261,8 @@ Author and verify this bounded asset group through the shared perspective system
 ### Verification
 
 Run full test/typecheck/build and scoped diff checks; compare collision multisets and inspect normal/slow runtime sequences for every listed instance. Record reviewed snapshot, findings, fixes/re-review and owner sign-off. Re-estimate before work and split above two focused days. This is asset-data adoption, not new core rendering implementation.
+
+Partial PORT-18F evidence: `output/qa/port18f/verification.md`. The four requested decorations preserve all 80 collision bodies and every placement/scale/interaction field. Full 1,443-test suite, typecheck/build and whitespace checks pass. Development/production each pass 90 core records, 14 squat/music interactions and 2 actual D-pad cases. Independent engineer/game reviewers approve the corrected steel collision test and saved visuals. Bag/stand uses whole-object ordering; owner visual acceptance remains required. Boombox adoption is still unimplemented; this is not story closure.
 
 ---
 

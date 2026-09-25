@@ -1,0 +1,358 @@
+{
+  "url": "http://127.0.0.1:5173",
+  "recordedAt": "2026-09-25T10:20:15.922Z",
+  "mode": "interactions",
+  "results": [
+    {
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "mobile": false,
+      "id": "gym-squat-rack",
+      "input": "e",
+      "opened": {
+        "title": "Personal records",
+        "gameplay": false,
+        "position": {
+          "x": 596,
+          "y": 170
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 596,
+          "y": 170
+        }
+      },
+      "screenshot": "interaction-desktop-gym-squat-rack-e.png"
+    },
+    {
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "mobile": false,
+      "id": "gym-squat-rack",
+      "input": "f",
+      "opened": {
+        "title": "Personal records",
+        "gameplay": false,
+        "position": {
+          "x": 596,
+          "y": 170
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 596,
+          "y": 170
+        }
+      },
+      "screenshot": "interaction-desktop-gym-squat-rack-f.png"
+    },
+    {
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "mobile": false,
+      "id": "gym-squat-rack",
+      "input": "Enter",
+      "opened": {
+        "title": "Personal records",
+        "gameplay": false,
+        "position": {
+          "x": 596,
+          "y": 170
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 596,
+          "y": 170
+        }
+      },
+      "screenshot": "interaction-desktop-gym-squat-rack-Enter.png"
+    },
+    {
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "mobile": false,
+      "id": "gym-boombox",
+      "input": "e",
+      "opened": {
+        "title": "Music collection",
+        "gameplay": false,
+        "position": {
+          "x": 528,
+          "y": 140
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 528,
+          "y": 140
+        }
+      },
+      "screenshot": "interaction-desktop-gym-boombox-e.png"
+    },
+    {
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "mobile": false,
+      "id": "gym-boombox",
+      "input": "f",
+      "opened": {
+        "title": "Music collection",
+        "gameplay": false,
+        "position": {
+          "x": 528,
+          "y": 140
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 528,
+          "y": 140
+        }
+      },
+      "screenshot": "interaction-desktop-gym-boombox-f.png"
+    },
+    {
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "mobile": false,
+      "id": "gym-boombox",
+      "input": "Enter",
+      "opened": {
+        "title": "Music collection",
+        "gameplay": false,
+        "position": {
+          "x": 528,
+          "y": 140
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 528,
+          "y": 140
+        }
+      },
+      "screenshot": "interaction-desktop-gym-boombox-Enter.png"
+    },
+    {
+      "viewport": "portrait",
+      "width": 390,
+      "height": 844,
+      "mobile": true,
+      "id": "gym-squat-rack",
+      "input": "e",
+      "opened": {
+        "title": "Personal records",
+        "gameplay": false,
+        "position": {
+          "x": 596,
+          "y": 170
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 596,
+          "y": 170
+        }
+      },
+      "screenshot": "interaction-portrait-gym-squat-rack-e.png"
+    },
+    {
+      "viewport": "portrait",
+      "width": 390,
+      "height": 844,
+      "mobile": true,
+      "id": "gym-squat-rack",
+      "input": "f",
+      "opened": {
+        "title": "Personal records",
+        "gameplay": false,
+        "position": {
+          "x": 596,
+          "y": 170
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 596,
+          "y": 170
+        }
+      },
+      "screenshot": "interaction-portrait-gym-squat-rack-f.png"
+    },
+    {
+      "viewport": "portrait",
+      "width": 390,
+      "height": 844,
+      "mobile": true,
+      "id": "gym-squat-rack",
+      "input": "Enter",
+      "opened": {
+        "title": "Personal records",
+        "gameplay": false,
+        "position": {
+          "x": 596,
+          "y": 170
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 596,
+          "y": 170
+        }
+      },
+      "screenshot": "interaction-portrait-gym-squat-rack-Enter.png"
+    },
+    {
+      "viewport": "portrait",
+      "width": 390,
+      "height": 844,
+      "mobile": true,
+      "id": "gym-squat-rack",
+      "input": "touch",
+      "opened": {
+        "title": "Personal records",
+        "gameplay": false,
+        "position": {
+          "x": 596,
+          "y": 170
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 596,
+          "y": 170
+        }
+      },
+      "screenshot": "interaction-portrait-gym-squat-rack-touch.png"
+    },
+    {
+      "viewport": "portrait",
+      "width": 390,
+      "height": 844,
+      "mobile": true,
+      "id": "gym-boombox",
+      "input": "e",
+      "opened": {
+        "title": "Music collection",
+        "gameplay": false,
+        "position": {
+          "x": 528,
+          "y": 140
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 528,
+          "y": 140
+        }
+      },
+      "screenshot": "interaction-portrait-gym-boombox-e.png"
+    },
+    {
+      "viewport": "portrait",
+      "width": 390,
+      "height": 844,
+      "mobile": true,
+      "id": "gym-boombox",
+      "input": "f",
+      "opened": {
+        "title": "Music collection",
+        "gameplay": false,
+        "position": {
+          "x": 528,
+          "y": 140
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 528,
+          "y": 140
+        }
+      },
+      "screenshot": "interaction-portrait-gym-boombox-f.png"
+    },
+    {
+      "viewport": "portrait",
+      "width": 390,
+      "height": 844,
+      "mobile": true,
+      "id": "gym-boombox",
+      "input": "Enter",
+      "opened": {
+        "title": "Music collection",
+        "gameplay": false,
+        "position": {
+          "x": 528,
+          "y": 140
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 528,
+          "y": 140
+        }
+      },
+      "screenshot": "interaction-portrait-gym-boombox-Enter.png"
+    },
+    {
+      "viewport": "portrait",
+      "width": 390,
+      "height": 844,
+      "mobile": true,
+      "id": "gym-boombox",
+      "input": "touch",
+      "opened": {
+        "title": "Music collection",
+        "gameplay": false,
+        "position": {
+          "x": 528,
+          "y": 140
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 528,
+          "y": 140
+        }
+      },
+      "screenshot": "interaction-portrait-gym-boombox-touch.png"
+    }
+  ],
+  "exceptions": []
+}

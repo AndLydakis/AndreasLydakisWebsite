@@ -5,12 +5,13 @@ import { houseLayout, houseDoorways } from './houseLayout';
 import { validateHouseLayout } from './layoutValidation';
 import { InteractionSystem } from '../systems/InteractionSystem';
 import { PLAYER_DISPLAY_HEIGHT } from '../entities/playerAnimation';
+import { getRoomLocalCollisionRects } from '../systems/collisionGeometry';
 
 const gym = houseLayout.rooms.find((room) => room.id === 'gym')!;
 
 /** Match the real 16px-wide, 1px-high foot strip; inputs are local sole-center tile coordinates. */
 function blocked(x: number, y: number): boolean {
-  return gym.collisionRects.some((rect) =>
+  return getRoomLocalCollisionRects(gym).some((rect) =>
     x + 0.5 > rect.x && x - 0.5 < rect.x + rect.width &&
     y > rect.y && y - 1 / houseLayout.tileSize < rect.y + rect.height,
   );
@@ -98,7 +99,7 @@ describe('gym artwork and navigation', () => {
       const artBottom = sprite.position.y + 0.5 + sprite.displayHeightTiles! * (visibleBottom / sourceHeight - 0.5);
       // Compare footprint edge to art base. The 1px foot strip adds its own contact thickness.
       expect(Math.abs(collisionBottom - artBottom) * houseLayout.tileSize).toBeLessThanOrEqual(1);
-      expect(gym.collisionRects.some((rect) => rect.y + rect.height === collisionBottom)).toBe(true);
+      expect(getRoomLocalCollisionRects(gym).some((rect) => rect.y + rect.height === collisionBottom)).toBe(true);
     }
   });
 
@@ -106,7 +107,7 @@ describe('gym artwork and navigation', () => {
     ['dumbbell rack', 1.625, 3.5, 1.75, 0.15625 * 3],
     ['boombox', 7.25, 3.625, 1.5, 0.1875 * 3],
   ] as const)('blocks the moved %s base while keeping its floor approach clear', (_name, x, y, width, height) => {
-    expect(gym.collisionRects).toContainEqual({ x, y, width, height });
+    expect(getRoomLocalCollisionRects(gym)).toContainEqual({ x, y, width, height });
     const bottom = y + height;
     // The taller footprint extends upward, retaining the existing foot-contact edge.
     expect(blocked(x + width / 2, y + 1 / 16)).toBe(true);
