@@ -5,6 +5,7 @@ This file is the project decision record. New implementation decisions, approved
 ## DEC-131 — Header quick-travel menu
 
 - Final acceptance: owner confirms "looks good" and authorizes pushing PORT-09D-H with the original transparent glove. Deliver this story and its verification evidence only; unrelated style edits, owner plan-review wording and local PORT-18A work remain excluded. Mark Done after successful push.
+- Delivery confirmed: `cec2464` successfully pushed to `origin/master`; PORT-09D-H marked Done. Pre-push rerun passed 772 tests and typecheck/build.
 
 - Owner requests a compact four-entry box by the title: CV, Media, Training, Food Log. A white FF7-inspired glove initially points at CV and follows hover; clicking teleports rather than opening content.
 - Map entries to Office, Living room, Gym and Kitchen. Author destinations as room-local foot coordinates in `src/game/data/quickTravel.ts`; validate a conservative clearance square against all collisions at activation so future furniture changes fail safely.

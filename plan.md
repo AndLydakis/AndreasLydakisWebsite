@@ -2983,7 +2983,7 @@ Unit tests cover 0/1/3/150 entries, adapter paths/captions, lazy loading and ima
 Type: Story
 Priority: High — owner presentation request before perspective
 Dependencies: Delivered rooms and existing input/camera infrastructure
-Status: Accepted — owner visually approved and authorized delivery; awaiting successful push before Done. 772 tests, typecheck/build, development/production desktop/portrait/landscape/320px quick-travel checks and production dialog/gallery regression pass. Evidence: `output/qa/quick-travel/verification.md`.
+Status: Done — implementation commit `cec2464` successfully pushed to `origin/master` after owner visual approval. 772 tests, typecheck/build, development/production desktop/portrait/landscape/320px quick-travel checks and production dialog/gallery regression pass. Evidence: `output/qa/quick-travel/verification.md`.
 Delivery: Global story workflow; keep local until owner accepts the presentation.
 
 ### Goal
