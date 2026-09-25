@@ -12,6 +12,7 @@ import type {
   DoorwayDefinition,
   HouseLayout,
   RoomDefinition,
+  RoomSpriteDefinition,
   RoomTileRect,
   WorldTilePoint,
   WorldTileRect,
@@ -259,6 +260,7 @@ function validateRoom(
       errors.push(`Room ${roomLabel} artwork IDs must be non-empty and unique: ${sprite.id}`);
     }
     spriteIds.add(sprite.id);
+    validateSpriteSpatialMetadata(sprite, room, errors);
     if (!pointInRect(sprite.position, roomBounds)) {
       errors.push(`Artwork ${sprite.id} is outside room ${roomLabel} bounds.`);
     }
@@ -268,6 +270,37 @@ function validateRoom(
     if (sprite.displayWidthTiles !== undefined &&
       (!isPositiveFinite(sprite.displayWidthTiles) || sprite.displayHeightTiles === undefined)) {
       errors.push(`Artwork ${sprite.id} must have a positive finite display width and an explicit height.`);
+    }
+  });
+}
+
+/** Validate optional object geometry without activating it in the live scene. */
+function validateSpriteSpatialMetadata(
+  sprite: RoomSpriteDefinition,
+  room: RoomDefinition,
+  errors: string[],
+): void {
+  const label = `Artwork ${sprite.id} in room ${room.id}`;
+  const anchor = sprite.groundAnchor;
+  const footprints = sprite.footprints ?? [];
+  if (sprite.artworkInBackground && (anchor !== undefined || sprite.footprints !== undefined)) {
+    errors.push(`${label} cannot have spatial metadata while artworkInBackground is true.`);
+  }
+  // Floor-edge points may sit exactly on the room boundary, unlike tile centers.
+  if (anchor !== undefined && (!Number.isFinite(anchor.x) || !Number.isFinite(anchor.y) ||
+    anchor.x < 0 || anchor.y < 0 || anchor.x > room.widthTiles || anchor.y > room.heightTiles)) {
+    errors.push(`${label} groundAnchor must be finite and within room edges.`);
+  }
+  if (footprints.length > 0 && anchor === undefined) {
+    errors.push(`${label} nonempty footprints require a groundAnchor.`);
+  }
+  footprints.forEach((rect, index) => {
+    if (!rectWithinBounds(rect, roomBounds(room))) {
+      errors.push(`${label} footprint ${index} must have positive finite dimensions and lie within room bounds.`);
+    }
+    if (footprints.slice(0, index).some(previous => previous.x === rect.x && previous.y === rect.y &&
+      previous.width === rect.width && previous.height === rect.height)) {
+      errors.push(`${label} footprint ${index} duplicates an earlier rectangle.`);
     }
   });
 }

@@ -100,3 +100,16 @@ export function worldRectToWorldPixel(
     height: rect.height * tileSize,
   };
 }
+
+/** Ground anchors are floor-edge points, unlike centered artwork tile points.
+ * Accept no display scale: visual resizing must never change the sort plane.
+ */
+export function roomGroundAnchorToWorldPixel(
+  room: RoomOrigin,
+  anchor: RoomTilePoint,
+  tileSize: number,
+): WorldPixelPoint {
+  assertValidTileSize(tileSize);
+  const world = roomTileToWorld(room, anchor);
+  return { x: world.x * tileSize, y: world.y * tileSize };
+}

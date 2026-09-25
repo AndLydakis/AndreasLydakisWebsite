@@ -2,6 +2,15 @@
 
 This file is the project decision record. New implementation decisions, approved changes, deferred choices, and story-completion decisions must be added here before or alongside changes to `plan.md` or source files.
 
+## DEC-133 — PORT-18B spatial metadata and validation
+
+- Owner authorizes PORT-18B after delivered PORT-18A (`9a055ad`). Scope: shared optional `groundAnchor` and plural `footprints`, edge-coordinate helper, validation, synthetic tests and authoring documentation only. No authored room metadata, live sorting, collision migration or teleport fix in this story.
+- Preserve omission compatibility: no inferred anchors/footprints. Ground anchors use continuous room-local edges (no half-tile offset); accept finite points on the inclusive room boundary. Footprints retain separate rectangles; nonempty arrays require an anchor, exact duplicate rectangles are invalid, and background-painted objects reject either spatial field. Preserve room-local artwork IDs and globally unique interactable IDs.
+- Reuse existing rectangle conversion; add a clearly named ground-anchor pixel helper. Tests cover all four rooms, boundaries/non-finite values, compound geometry, duplicate-ID scopes, omitted/empty arrays, baked-art rejection, scale independence and unchanged live renderer/collision output. Independent engineer/game reviews and full checks precede completion/push.
+- Results: 805 tests across32files, typecheck/build, scoped diff check and development/production desktop/portrait/landscape/320px browser checks pass. The reusable browser harness now accepts an optional evidence folder so prior QA is not overwritten. No live data/assets/rendering/physics changes. Criterion-by-criterion evidence and exact six-file SHA256 review snapshot: `output/qa/port18b/verification.md`.
+- Independent reviews: Lorentz (`01a0d50e-85ea-7ee3-a283-83b5110976ee`), acting as senior software engineer, explicitly approves with no findings and independently passes73targetedtests/typecheck/scopeddiff. Ramanujan (`01a0d50e-8707-7132-8b5c-584c2b897e00`), senior game developer, explicitly approves the identical snapshot with no findings and independently passes91targetedtests. No independent live-testing claim. No fix/re-review loop needed because neither found blockers.
+- All PORT-18B criteria are satisfied. No visible change requires additional visual approval; deliver under standing completed-story commit/push instructions. PORT-18C remains unstarted; re-estimate its two-day ceiling before coding.
+
 ## DEC-132 — Resume PORT-18A against the delivered globe/travel baseline
 
 - Owner final acceptance: "Approve these positions and routes" in response to the explicit unchanged TV/vinyl/globe placements, existing bases, verified left-side routes and conservative globe plane question. Required acceptance gates are satisfied. Deliver the design/baseline as PORT-18A under the standing completed-story commit/push workflow; no 18B/18C implementation is included. Preserve unrelated owner plan wording and style files.

@@ -33,6 +33,15 @@ export interface RoomSpriteDefinition {
   displayHeightTiles?: number;
   /** Optional independent artwork width in tiles; requires an explicit height. */
   displayWidthTiles?: number;
+  /** Optional sort plane in continuous room-local tile-edge coordinates (no +0.5).
+   * Independent of artwork position, display scale and interaction center.
+   */
+  groundAnchor?: RoomTilePoint;
+  /** Optional solid base pieces in room-local tile-edge coordinates.
+   * Empty/omitted means no object-owned footprint; nonempty requires groundAnchor.
+   * Metadata only until collision migration; never inferred from the artwork.
+   */
+  footprints?: readonly RoomTileRect[];
 }
 
 export interface InteractableDefinition extends RoomSpriteDefinition {

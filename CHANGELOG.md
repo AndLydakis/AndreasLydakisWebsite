@@ -6,6 +6,12 @@ pushed.
 
 ## [Unreleased]
 
+### PORT-18B — Object spatial metadata
+
+- Added shared optional ground anchors and compound footprint arrays with floor-edge coordinate conversion and validation for bounds, finite values, duplicate rectangles and background-art restrictions.
+- Preserved existing room-local artwork/global interactable ID rules, omitted-field compatibility and all shipped placements/rendering/collisions. Added synthetic validation/conversion and renderer-fallback regressions plus authoring documentation.
+- 805 tests, typecheck/build and development/production desktop/portrait/landscape/320px browser checks pass. Independent senior engineer and game developer approve. Perspective rendering and collision migration remain deferred to their own stories.
+
 ### PORT-09D-H — Header quick-travel menu
 
 - Added CV, Media, Training and Food Log navigation next to the title, with a compact FF7-inspired blue panel and original white cartoon-glove pointer.

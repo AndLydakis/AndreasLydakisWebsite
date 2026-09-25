@@ -2,7 +2,8 @@
 import assert from 'node:assert/strict';
 import { mkdirSync, writeFileSync } from 'node:fs';
 const url = process.argv[2] ?? 'http://127.0.0.1:5173';
-const output = `output/qa/quick-travel/${url.includes(':4173') ? 'production' : 'development'}`;
+// Optional output folder allows later regression stories to preserve prior evidence.
+const output = process.argv[4] ?? `output/qa/quick-travel/${url.includes(':4173') ? 'production' : 'development'}`;
 mkdirSync(output, { recursive: true });
 const tabs = await (await fetch(`http://127.0.0.1:${process.argv[3] ?? 9333}/json`)).json();
 const ws = new WebSocket(tabs.find(tab => tab.type === 'page').webSocketDebuggerUrl);

@@ -115,6 +115,16 @@ describe('interactable artwork rendering', () => {
 });
 
 describe('room backdrop rendering', () => {
+  it.each([true, false])('spatial metadata does not activate rendering changes yet (art=%s)', available => {
+    const original = houseLayout.rooms[0].interactables[0];
+    const plain = renderInteractable(original, available, 64, 64);
+    const spatial = renderInteractable({ ...original, groundAnchor: { x: 10, y: 5.5625 },
+      footprints: [{ x: 9, y: 5.25, width: 2, height: 0.3125 }] }, available, 64, 64);
+    expect(spatial.scene.add.image.mock.calls).toEqual(plain.scene.add.image.mock.calls);
+    expect(spatial.image.setOrigin.mock.calls).toEqual(plain.image.setOrigin.mock.calls);
+    expect(spatial.image.setScale.mock.calls).toEqual(plain.image.setScale.mock.calls);
+    expect(spatial.image.setDepth.mock.calls).toEqual(plain.image.setDepth.mock.calls);
+  });
   it.each([['gym', true], ['gym', false], ['office', true], ['office', false], ['kitchen', true], ['kitchen', false]] as const)('renders %s equipment independently with safe missing-art fallbacks (%s)', (roomId, available) => {
     const graphics = { fillStyle: vi.fn(), fillRect: vi.fn(), lineStyle: vi.fn(), strokeRect: vi.fn() };
     const images: Array<{ setScale: ReturnType<typeof vi.fn>; setDisplaySize: ReturnType<typeof vi.fn> }> = [];
