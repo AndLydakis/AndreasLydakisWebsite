@@ -6,6 +6,10 @@ pushed.
 
 ## [Unreleased]
 
+## [2026-09-25] — Remaining perspective adoption
+
+Delivered in `fafe34e` to `origin/master`; PORT-18F, PORT-18G, PORT-18H, PORT-18I and PORT-18J are complete.
+
 ### PORT-18F–18J — Boombox, kitchen and study perspective
 
 - Opt the remaining nine original objects into the existing generic depth registry and footprint collector, with the owner-requested office follow-ups below.

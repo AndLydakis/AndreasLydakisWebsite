@@ -3237,7 +3237,7 @@ Type: Story
 Priority: High — queued after prerequisite
 Dependencies: `PORT-18E`
 Milestone: M6
-Status: In review — plates/bag already delivered; boombox implemented and visuals accepted (DEC-153). Final integration/review gates and conditional push pending.
+Status: Done — owner approved; implementation fafe34e successfully pushed to origin/master (DEC-153). Combined 1,930-test/build, development/production integration and independent engineer/game-review gates pass. Final evidence: `output/qa/port18f-j/final/verification.md`.
 Delivery: Global story workflow and all M6 review gates apply.
 
 ### Goal
@@ -3274,7 +3274,7 @@ Type: Story
 Priority: High — queued after prerequisite
 Dependencies: `PORT-18F`
 Milestone: M6
-Status: In review — workstation and top-post correction implemented; owner accepts current whole-image sorting (DEC-153). Final integration/review gates and conditional push pending.
+Status: Done — owner approved workstation/composite sorting and top-post correction; delivered in fafe34e to origin/master (DEC-153). Combined integration and independent review gates pass; final evidence: `output/qa/port18f-j/final/verification.md`.
 Approved workstation exception: remove only its top-post rectangle specified in subtask 3; retain the original perspective anchor. Other room exceptions are listed in the shared PORT-18F–18J delivery contract above.
 Delivery: Global story workflow and all M6 review gates apply.
 
@@ -3310,7 +3310,7 @@ Type: Story
 Priority: High — queued after prerequisite
 Dependencies: `PORT-18G`
 Milestone: M6
-Status: In review — dog/bookcase and plant follow-ups implemented; owner accepts current visuals (DEC-153). Final integration/review gates and conditional push pending.
+Status: Done — owner approved dog/bookcase and plant follow-ups; delivered in fafe34e to origin/master (DEC-153). Combined integration and independent review gates pass; final evidence: `output/qa/port18f-j/final/verification.md`.
 Approved dog-bed adjustment (DEC-150): move it down 6px and replace its floor band with full visible sprite bounds; shift its anchor with the artwork, preserve content/scale, and verify the desk/dog passage and image dialog. Baseline-preservation requirements permit this explicit exception in addition to DEC-148/149.
 Office collision follow-up (DEC-151): extend the top-right/bottom-left/bottom-right painted pot boxes to 15px/13px/13px respectively, retaining their bottoms and widths. Leave the behind-desk pot unchanged; include exactly these three geometry exceptions and recheck the dog/plant approach.
 Approved perspective follow-up (DEC-152): extract those three plants into transparent decorations with the same colliders and floor-contact anchors; restore their background areas, preserve the behind-desk plant, and use the existing atomic visual bundle with original backdrop fallback. Verify no doubled/missing plants, 79 unchanged world bodies, three new depth registrations, reachable occlusion and fallback behavior. Owner accepts the resulting artwork under DEC-153; its conditional delivery authorization supersedes the earlier no-push hold.
@@ -3349,7 +3349,7 @@ Type: Story
 Priority: High — queued after prerequisite
 Dependencies: `PORT-18H`
 Milestone: M6
-Status: In review — lounge objects/robots and taller sofa/table collisions implemented; owner accepts current visuals (DEC-153). Final integration/review gates and conditional push pending.
+Status: Done — owner approved lounge objects/robots and taller collisions; delivered in fafe34e to origin/master (DEC-153). Combined integration and independent review gates pass; final evidence: `output/qa/port18f-j/final/verification.md`.
 Approved geometry exception (DEC-149): office sofa and coffee-table footprints extend upward to 80% of opaque artwork height, retaining their bottom edges, widths and perspective anchors. Other approved exceptions are listed in the shared PORT-18F–18J delivery contract; verify collision approaches and routes before closure.
 Delivery: Global story workflow and all M6 review gates apply.
 
@@ -3385,7 +3385,7 @@ Type: Story
 Priority: High — queued after prerequisite
 Dependencies: `PORT-18I`
 Milestone: M6
-Status: In review — kitchen dining and final 24-instance coverage implemented; owner accepts current whole-image sorting (DEC-153). Final integration/review gates and conditional push pending.
+Status: Done — owner approved kitchen dining/composite sorting; delivered in fafe34e to origin/master (DEC-153). Final 24-instance/79-body coverage, combined integration and independent review gates pass; evidence: `output/qa/port18f-j/final/verification.md`.
 Delivery: Global story workflow and all M6 review gates apply.
 
 ### Goal
