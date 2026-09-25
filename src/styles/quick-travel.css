@@ -1,0 +1,45 @@
+.site-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+.site-heading { min-width: 0; overflow-wrap: anywhere; }
+.quick-travel {
+  flex: 0 0 auto;
+  width: 10.5rem;
+  padding: 0.3rem;
+  border: 3px solid #bdc4d5;
+  border-radius: 0.45rem;
+  background: linear-gradient(135deg, #244fbc 0%, #102b8c 35%, #080f55 75%, #04072f 100%);
+  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #717b9c, inset 0 0 0 4px #111944, 0 5px 12px rgb(0 0 0 / 45%);
+}
+.quick-travel button {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 1.85rem;
+  padding: 0.15rem 0.25rem 0.15rem 2.75rem;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  font: bold 1rem/1.2 'Courier New', Courier, monospace;
+  text-align: left;
+  text-shadow: 1px 2px #05091d;
+  touch-action: manipulation;
+}
+.quick-travel button[data-highlighted='true']::before {
+  content: '';
+  position: absolute;
+  width: 2.65rem;
+  height: 1.5rem;
+  left: 0;
+  top: calc(50% - 0.75rem);
+  background: url('/assets/ui/glove-pointer-original.png') center / contain no-repeat;
+}
+.quick-travel button:focus-visible { outline: 1px dashed #fff; outline-offset: -2px; }
+/* Keep compact mouse rows, but preserve usable touch targets on phones/tablets. */
+@media (pointer: coarse) {
+  .quick-travel button { min-height: 2.75rem; }
+}
+@media (max-width: 24rem) {
+  .site-header { gap: 0.5rem; }
+  .quick-travel { width: 9.5rem; }
+  .quick-travel button { font-size: 0.9rem; }
+}

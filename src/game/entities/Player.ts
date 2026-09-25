@@ -66,4 +66,16 @@ export class Player {
       facing: this.facing,
     };
   }
+
+  /** Reset physics history and queued input as well as the visible anchor.
+   * Feet use world tile-edge coordinates, independent of animation frame size.
+   */
+  public teleportTo(feet: WorldTilePoint): void {
+    this.inputController.resetMovement();
+    this.inputController.consumeInteractionRequest();
+    this.body.reset(feet.x * this.options.tileSize,
+      feet.y * this.options.tileSize - this.sprite.height / 2);
+    this.facing = 'down';
+    this.options.visual?.update(this.facing, { x: 0, y: 0 });
+  }
 }

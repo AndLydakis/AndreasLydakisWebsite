@@ -2978,6 +2978,40 @@ Unit tests cover 0/1/3/150 entries, adapter paths/captions, lazy loading and ima
 
 ---
 
+## PORT-09D-H — Add compact header quick travel
+
+Type: Story
+Priority: High — owner presentation request before perspective
+Dependencies: Delivered rooms and existing input/camera infrastructure
+Status: Accepted — owner visually approved and authorized delivery; awaiting successful push before Done. 772 tests, typecheck/build, development/production desktop/portrait/landscape/320px quick-travel checks and production dialog/gallery regression pass. Evidence: `output/qa/quick-travel/verification.md`.
+Delivery: Global story workflow; keep local until owner accepts the presentation.
+
+### Goal
+
+Offer a small FF7-inspired navigation box beside the title that teleports to four safe room locations.
+
+### Subtasks
+
+1. Define room-local floor destinations for CV/Office, Media/Living room, Training/Gym and Food Log/Kitchen, with obstruction validation.
+2. Render four native buttons, initially highlight CV with the owner's original transparent white-glove PNG (no redraw), and move the glove on hover/focus.
+3. Implement scene-owned teleport with body/input reset, idle pose, immediate interaction/camera refresh and modal/startup guards.
+4. Tighten only this menu's desktop rows; retain touch usability, visible keyboard focus and responsive title layout.
+5. Verify all destinations, repeated travel, held input, native keyboard/touch activation, camera visibility, mobile widths and existing interaction behavior. Record evidence and obtain owner visual acceptance before closure/push.
+
+### Acceptance criteria
+
+- The four labels appear in the requested order, near the title; exactly one white glove starts beside CV. Hover/focus changes only the highlight.
+- Click, Enter, Space and touch teleport to the matching room without opening a dialog or changing room geometry. Foot position is collision-free and configurable in one data module.
+- No retained motion or queued interaction after teleport; player and camera arrive together and normal movement resumes. Travel is unavailable before startup or while a dialog suspends gameplay.
+- Menu keyboard navigation does not move the player; closing existing dialogs retains its prior behavior. No horizontal overflow at 320px/portrait/landscape; touch buttons are at least 44px tall.
+- Unit tests, typecheck/build and development/production browser checks pass. Plan, log, changelog and owner acceptance are recorded before scoped delivery.
+
+### Verification
+
+Unit tests cover destination mapping/clearance/relocation, menu highlight/focus/cleanup and player reset. Browser checks cover real mouse, Enter/Space, touch, all four landings, camera, movement reset and modal guard. Physical-device/deployment acceptance is separate.
+
+---
+
 ## PORT-18A — Review the occlusion contract and baseline
 
 Side quest delivered ahead of resuming this story: PORT-09D-G above. Its globe becomes a third generic living-room adoption fixture in PORT-18C/18D; refresh inventory from current room data (19 separate objects after this addition), not the older 18-object baseline.

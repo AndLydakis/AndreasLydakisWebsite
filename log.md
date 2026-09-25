@@ -2,6 +2,19 @@
 
 This file is the project decision record. New implementation decisions, approved changes, deferred choices, and story-completion decisions must be added here before or alongside changes to `plan.md` or source files.
 
+## DEC-131 — Header quick-travel menu
+
+- Final acceptance: owner confirms "looks good" and authorizes pushing PORT-09D-H with the original transparent glove. Deliver this story and its verification evidence only; unrelated style edits, owner plan-review wording and local PORT-18A work remain excluded. Mark Done after successful push.
+
+- Owner requests a compact four-entry box by the title: CV, Media, Training, Food Log. A white FF7-inspired glove initially points at CV and follows hover; clicking teleports rather than opening content.
+- Map entries to Office, Living room, Gym and Kitchen. Author destinations as room-local foot coordinates in `src/game/data/quickTravel.ts`; validate a conservative clearance square against all collisions at activation so future furniture changes fail safely.
+- Keep navigation in native DOM buttons with keyboard focus, Arrow/Home/End navigation, Enter/Space and touch activation. Keep physics reset, idle pose, interaction refresh and camera repositioning inside Player/HouseScene; clear held movement and queued interactions on focus/teleport. Disable buttons until ready; reject travel during modal gameplay suspension.
+- Use an original vector glove and the existing blue-gradient/bevel styling, no new library. Owner follow-up requests a clearer, more cartoony hand and tighter option spacing in this box only: oversized finger, rounded glove/cuff, compact desktop rows with 44px coarse-pointer touch targets.
+- Add PORT-09D-H as an intermediate presentation story before perspective. Preserve unrelated edits and PORT-18A evidence. Keep local pending visual acceptance; no push yet.
+- Owner supplied a classic shaded pointing-glove reference. Refine the original SVG to a broad rounded cuff/knuckles, longer index finger and neutral grey dimensional shading; keep the asset transparent and scalable, not an emoji.
+- Superseded glove decision: owner rejects the SVG and requests the attached image directly, retaining only the glove. Background-extraction tool produced a changed image, which was rejected and never integrated. Recovered the exact attached 48×24 PNG; read-only alpha inspection confirms 300 fully transparent pixels and transparent corners, so no image edits are necessary. Use `public/assets/ui/glove-pointer-original.png` byte-for-byte; remove the unused SVG and CSS shadow. Menu spacing and travel behavior remain unchanged.
+- Verification: 772 tests, typecheck/build and scoped diff check pass. Development/production quick-travel browser checks pass desktop/portrait/landscape/320px; existing production gallery/dialog/base-collision regression also passes. Evidence: `output/qa/quick-travel/verification.md`. Ready for owner visual acceptance; no push.
+
 ## DEC-130 — Globe and expandable travel gallery side quest
 
 - Owner requests a globe on a stand on the empty left side of the living room, opening a scrollable list of pictures from around the world with no fixed item limit.

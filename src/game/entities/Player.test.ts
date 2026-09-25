@@ -14,11 +14,27 @@ vi.mock('phaser', () => ({
       setAllowGravity = vi.fn();
       setCollideWorldBounds = vi.fn();
       setVelocity = vi.fn();
+      reset = vi.fn();
     } } },
   },
 }));
 
 describe('player ground contact', () => {
+  it('teleports feet, clears held/queued input and returns to an idle down pose', () => {
+    const body = new Phaser.Physics.Arcade.Body({} as Phaser.Physics.Arcade.World);
+    const sprite = { width: 32, height: 32, body, x: 104, y: 168 };
+    const scene = { physics: { add: { existing: vi.fn() } } };
+    const input = { resetMovement: vi.fn(), consumeInteractionRequest: vi.fn() };
+    const visual = { update: vi.fn() };
+    const player = new Player(scene as unknown as Phaser.Scene,
+      sprite as unknown as Phaser.GameObjects.Sprite, input as unknown as InputController,
+      { tileSize: 16, visual: visual as unknown as PlayerVisual });
+    player.teleportTo({ x: 11, y: 25.5 });
+    expect(body.reset).toHaveBeenCalledWith(176, 392);
+    expect(input.resetMovement).toHaveBeenCalledOnce();
+    expect(input.consumeInteractionRequest).toHaveBeenCalledOnce();
+    expect(visual.update).toHaveBeenCalledWith('down', { x: 0, y: 0 });
+  });
   it('passes movement and stopped state to presentation without changing physics geometry', () => {
     const body = new Phaser.Physics.Arcade.Body({} as Phaser.Physics.Arcade.World);
     const sprite = { width: 32, height: 32, body, x: 104, y: 168 };

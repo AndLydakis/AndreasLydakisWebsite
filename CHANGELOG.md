@@ -6,6 +6,13 @@ pushed.
 
 ## [Unreleased]
 
+### PORT-09D-H — Header quick-travel menu
+
+- Added CV, Media, Training and Food Log navigation next to the title, with a compact FF7-inspired blue panel and original white cartoon-glove pointer.
+- Added guarded room-local teleport destinations, physics/input reset and camera follow; supports hover, keyboard focus/activation and touch without opening content dialogs.
+- Tightened only this panel's desktop rows. 772 tests, typecheck/build, four-viewport development/production travel checks and existing production dialog/gallery regression pass. Owner visually approved the final original-image glove and authorized delivery.
+- Replaced the rejected SVG with the owner's exact original 48×24 PNG, already alpha-transparent; no redraw, resampling or added shadow. Kept compact spacing and navigation unchanged.
+
 ### PORT-09D-G — Globe and travel gallery
 
 - Added a generated globe stand to the left living-room floor, with a normal gallery interaction and independent base collision.

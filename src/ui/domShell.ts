@@ -1,4 +1,5 @@
 export interface DomShellElements {
+  quickTravel: HTMLElement;
   gameShell: HTMLElement;
   canvasLayer: HTMLElement;
   mobileControls: HTMLElement;
@@ -43,7 +44,10 @@ export function renderDomShell(root: HTMLElement): DomShellElements {
   title.textContent = 'title.text';
   const introduction = createElement('p');
   introduction.textContent = 'intro.text.';
-  header.append(title, introduction);
+  const headingGroup = createElement('div', 'site-heading');
+  headingGroup.append(title, introduction);
+  const quickTravel = createElement('nav');
+  header.append(headingGroup, quickTravel);
 
   const experienceLayout = createElement('div', 'experience-layout game-only');
   const gameColumn = createElement('section', 'game-column');
@@ -139,6 +143,7 @@ export function renderDomShell(root: HTMLElement): DomShellElements {
   root.append(skipLink, main, dialog);
 
   return {
+    quickTravel,
     gameShell,
     canvasLayer,
     mobileControls,

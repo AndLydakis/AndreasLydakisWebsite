@@ -11,6 +11,7 @@ import type { CameraBounds } from '../camera/cameraFollow';
 import { assertValidHouseLayout } from '../data/layoutValidation';
 import { worldTileToWorldPixel } from '../data/coordinates';
 import type { HouseLayout } from '../data/types';
+import { resolveQuickTravel, type QuickTravelId } from '../data/quickTravel';
 import { DebugOverlay } from '../debug/DebugOverlay';
 import { Player } from '../entities/Player';
 import { PlayerVisual } from '../entities/PlayerVisual';
@@ -191,6 +192,17 @@ export class HouseScene extends Phaser.Scene {
     if (this.player && this.debugOverlay) {
       this.debugOverlay.update(this.player.getState());
     }
+  }
+
+  /** Only the scene owns the physics/camera teleport; DOM never moves sprites. */
+  public travelTo(id: QuickTravelId): boolean {
+    if (!this.player || !this.inputController.isGameplayEnabled()) return false;
+    const feet = resolveQuickTravel(this.layout, id);
+    if (!feet) return false;
+    this.player.teleportTo(feet);
+    this.interactionSystem?.update(this.player.getState());
+    this.updateCameraFollow();
+    return true;
   }
 
   public shutdown(): void {

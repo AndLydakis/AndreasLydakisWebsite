@@ -3,6 +3,7 @@ import './styles/foundation.css';
 import './styles/game.css';
 import './styles/dialogs.css';
 import './styles/mobile-controls.css';
+import './styles/quick-travel.css';
 
 import { validatePlaceholderAssets } from './app/assetManifest';
 import { assertValidContentRegistry, contentRegistry } from './content/contentRegistry';
@@ -15,6 +16,9 @@ import { DialogManager } from './ui/DialogManager';
 import { MobileControls } from './ui/MobileControls';
 import { renderDomShell } from './ui/domShell';
 import { GameUiBridge } from './ui/uiBridge';
+import { QuickTravelMenu } from './ui/QuickTravelMenu';
+import { HouseScene } from './game/scenes/HouseScene';
+import { quickTravelDestinations } from './game/data/quickTravel';
 
 const app = document.querySelector<HTMLElement>('#app');
 
@@ -40,6 +44,21 @@ const dialogManager = new DialogManager({
 });
 const contentIndex = new ContentIndex(dom.contentList, dialogManager);
 const bridge = new GameUiBridge();
+const quickTravel = new QuickTravelMenu(dom.quickTravel, id => {
+  const scene = game?.scene.getScene('HouseScene');
+  if (scene instanceof HouseScene && scene.travelTo(id)) {
+    const destination = quickTravelDestinations.find(item => item.id === id)!;
+    const room = houseLayout.rooms.find(item => item.id === destination.roomId)!;
+    dom.gameStatus.textContent = `Travelled to ${room.name}.`;
+    dom.gameShell.focus({ preventScroll: true });
+    dom.gameShell.scrollIntoView({ block: 'nearest', behavior: 'instant' });
+  } else {
+    dom.gameStatus.textContent = 'That destination is not available right now.';
+  }
+}, () => {
+  inputController.resetMovement();
+  inputController.consumeInteractionRequest();
+});
 
 // All rooms are now implemented: the content registry is the single source of truth.
 dialogManager.registerContents(contentRegistry.map(toDialogContent));
@@ -65,9 +84,11 @@ const subscriptions = [
     }
   }),
   bridge.on('gameReady', () => {
+    quickTravel.setEnabled(true);
     dom.gameStatus.textContent = 'The interactive house is ready.';
   }),
   bridge.on('gameStartupError', ({ error }) => {
+    quickTravel.setEnabled(false);
     const message = error instanceof Error ? error.message : String(error);
     dom.startupError.hidden = false;
     dom.startupError.textContent = `The interactive house could not start. ${message}`;
@@ -122,6 +143,7 @@ const teardown = (): void => {
   game?.destroy(true);
   bridge.destroy();
   contentIndex.destroy();
+  quickTravel.destroy();
   dialogManager.destroy();
   mobileControls.destroy();
   inputController.destroy();
