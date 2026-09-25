@@ -2,6 +2,19 @@
 
 This file is the project decision record. New implementation decisions, approved changes, deferred choices, and story-completion decisions must be added here before or alongside changes to `plan.md` or source files.
 
+## DEC-132 — Resume PORT-18A against the delivered globe/travel baseline
+
+- Owner final acceptance: "Approve these positions and routes" in response to the explicit unchanged TV/vinyl/globe placements, existing bases, verified left-side routes and conservative globe plane question. Required acceptance gates are satisfied. Deliver the design/baseline as PORT-18A under the standing completed-story commit/push workflow; no 18B/18C implementation is included. Preserve unrelated owner plan wording and style files.
+
+- Owner authorizes resuming PORT-18A, not subsequent runtime implementation. Refresh design-only evidence against `6e0ac1d`, including the globe (19th separate object) and quick travel. Preserve all runtime/assets, room placements, existing collisions and unrelated owner edits.
+- Reuse architect Lorentz, senior game developer Ramanujan and scrum master Tesla for focused delta review. Refresh the generic contract and detailed acceptance criteria rather than relying on the old 18-object snapshot.
+- Proposed globe ground anchor is room-local floor-edge (4,8.125), with its existing (3.375,7.75,1.25,0.375) footprint. Proposed left-side route: sole (4,7) → (2.5,7) → (2.5,9) → (4,9), and reverse; no relocation. Browser measurements and reviewer acceptance are pending.
+- Owner confirmation of the final routes/contract remains the closure gate; no 18B/18C coding or automatic push while that is pending.
+- Refreshed evidence passes: 19-object inventory, 36 TV/vinyl/globe route waypoints at 144/72px/s, three front interaction targets, couch/table/bookcase stop controls, four settled quick-travel destinations, no exceptions; 772 tests and typecheck/build pass. No src/public diff. Evidence: `output/qa/port18a/verification.md`.
+- Review findings addressed in the candidate: explicit three-fixture/19+3 coverage; preserved globe footprint with measured visible feet at ≈127.78px versus proposed130px sort plane; shared quick-travel collision consumers and blocked-destination rejection; pre-physics/first-render teleport synchronization and preserved DOM/gallery behavior. Immediate browser measurements reproduce transient body offset (−8,−31)px at all four destinations before physics; record as an integration hazard, not a claimed visible rendering bug. No runtime fix in 18A.
+- Sizing remains provisional: 18C two focused days with no headroom; re-estimate before coding and conditionally split 18C infrastructure →18C1 three-fixture activation →18D if over ceiling. 18D one day must include clearance-consumer checks in its re-estimate. Renewed final review is pending.
+- Renewed final outcome: Lorentz (architect), Ramanujan (senior game developer) and Tesla (scrum master) explicitly approved the same revised candidate with no remaining design/sizing blockers. Reviewed SHA256: contract `a3a672a7172d5a36e6961ca3fc435e623f1b125957472cb1d611c75631d87dcd`; plan `f6bd76d59f88190e23a339460bbf171e67c9dab89f9f756240fe971072dddec4` (includes preserved owner wording). Subsequent plan edit only records review status. Reviewers inspected source/design and recorded evidence, not independent live testing. Owner confirmation of unchanged placements, tested left-side routes and conservative globe plane requested; awaiting answer. No commit/push or later implementation yet.
+
 ## DEC-131 — Header quick-travel menu
 
 - Final acceptance: owner confirms "looks good" and authorizes pushing PORT-09D-H with the original transparent glove. Deliver this story and its verification evidence only; unrelated style edits, owner plan-review wording and local PORT-18A work remain excluded. Mark Done after successful push.

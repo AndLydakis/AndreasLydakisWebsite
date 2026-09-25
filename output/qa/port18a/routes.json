@@ -1,0 +1,598 @@
+{
+  "revision": "6e0ac1dcea4751c11560c5803b67efbfa5031842",
+  "results": [
+    {
+      "name": "tv",
+      "speed": 144,
+      "index": 1,
+      "target": {
+        "x": 164,
+        "y": 140
+      },
+      "after": {
+        "x": 163.19999999999993,
+        "y": 140
+      }
+    },
+    {
+      "name": "tv",
+      "speed": 144,
+      "index": 2,
+      "target": {
+        "x": 164,
+        "y": 164
+      },
+      "after": {
+        "x": 163.19999999999993,
+        "y": 164.00000000000006
+      }
+    },
+    {
+      "name": "tv",
+      "speed": 144,
+      "index": 3,
+      "target": {
+        "x": 192,
+        "y": 164
+      },
+      "after": {
+        "x": 194.4,
+        "y": 164.00000000000006
+      }
+    },
+    {
+      "name": "tv",
+      "speed": 144,
+      "index": 4,
+      "target": {
+        "x": 164,
+        "y": 164
+      },
+      "after": {
+        "x": 163.19999999999993,
+        "y": 164.00000000000006
+      }
+    },
+    {
+      "name": "tv",
+      "speed": 144,
+      "index": 5,
+      "target": {
+        "x": 164,
+        "y": 140
+      },
+      "after": {
+        "x": 163.19999999999993,
+        "y": 137.6
+      }
+    },
+    {
+      "name": "tv",
+      "speed": 144,
+      "index": 6,
+      "target": {
+        "x": 192,
+        "y": 140
+      },
+      "after": {
+        "x": 194.4,
+        "y": 137.6
+      }
+    },
+    {
+      "name": "vinyl",
+      "speed": 144,
+      "index": 1,
+      "target": {
+        "x": 280,
+        "y": 172
+      },
+      "after": {
+        "x": 278.4000000000003,
+        "y": 172
+      }
+    },
+    {
+      "name": "vinyl",
+      "speed": 144,
+      "index": 2,
+      "target": {
+        "x": 280,
+        "y": 200
+      },
+      "after": {
+        "x": 278.4000000000003,
+        "y": 200.80000000000007
+      }
+    },
+    {
+      "name": "vinyl",
+      "speed": 144,
+      "index": 3,
+      "target": {
+        "x": 312,
+        "y": 200
+      },
+      "after": {
+        "x": 312,
+        "y": 200.80000000000007
+      }
+    },
+    {
+      "name": "vinyl",
+      "speed": 144,
+      "index": 4,
+      "target": {
+        "x": 280,
+        "y": 200
+      },
+      "after": {
+        "x": 278.4000000000003,
+        "y": 200.80000000000007
+      }
+    },
+    {
+      "name": "vinyl",
+      "speed": 144,
+      "index": 5,
+      "target": {
+        "x": 280,
+        "y": 172
+      },
+      "after": {
+        "x": 278.4000000000003,
+        "y": 169.6
+      }
+    },
+    {
+      "name": "vinyl",
+      "speed": 144,
+      "index": 6,
+      "target": {
+        "x": 312,
+        "y": 172
+      },
+      "after": {
+        "x": 312,
+        "y": 169.6
+      }
+    },
+    {
+      "name": "globe",
+      "speed": 144,
+      "index": 1,
+      "target": {
+        "x": 72,
+        "y": 176
+      },
+      "after": {
+        "x": 71.99999999999994,
+        "y": 176
+      }
+    },
+    {
+      "name": "globe",
+      "speed": 144,
+      "index": 2,
+      "target": {
+        "x": 72,
+        "y": 208
+      },
+      "after": {
+        "x": 71.99999999999994,
+        "y": 209.60000000000008
+      }
+    },
+    {
+      "name": "globe",
+      "speed": 144,
+      "index": 3,
+      "target": {
+        "x": 96,
+        "y": 208
+      },
+      "after": {
+        "x": 98.4,
+        "y": 209.60000000000008
+      }
+    },
+    {
+      "name": "globe",
+      "speed": 144,
+      "index": 4,
+      "target": {
+        "x": 72,
+        "y": 208
+      },
+      "after": {
+        "x": 71.99999999999994,
+        "y": 209.60000000000008
+      }
+    },
+    {
+      "name": "globe",
+      "speed": 144,
+      "index": 5,
+      "target": {
+        "x": 72,
+        "y": 176
+      },
+      "after": {
+        "x": 71.99999999999994,
+        "y": 173.6
+      }
+    },
+    {
+      "name": "globe",
+      "speed": 144,
+      "index": 6,
+      "target": {
+        "x": 96,
+        "y": 176
+      },
+      "after": {
+        "x": 98.4,
+        "y": 173.6
+      }
+    },
+    {
+      "name": "tv",
+      "speed": 72,
+      "index": 1,
+      "target": {
+        "x": 164,
+        "y": 140
+      },
+      "after": {
+        "x": 163.20000000000027,
+        "y": 140
+      }
+    },
+    {
+      "name": "tv",
+      "speed": 72,
+      "index": 2,
+      "target": {
+        "x": 164,
+        "y": 164
+      },
+      "after": {
+        "x": 163.20000000000027,
+        "y": 165.19999999999976
+      }
+    },
+    {
+      "name": "tv",
+      "speed": 72,
+      "index": 3,
+      "target": {
+        "x": 192,
+        "y": 164
+      },
+      "after": {
+        "x": 192,
+        "y": 165.19999999999976
+      }
+    },
+    {
+      "name": "tv",
+      "speed": 72,
+      "index": 4,
+      "target": {
+        "x": 164,
+        "y": 164
+      },
+      "after": {
+        "x": 163.20000000000027,
+        "y": 165.19999999999976
+      }
+    },
+    {
+      "name": "tv",
+      "speed": 72,
+      "index": 5,
+      "target": {
+        "x": 164,
+        "y": 140
+      },
+      "after": {
+        "x": 163.20000000000027,
+        "y": 140
+      }
+    },
+    {
+      "name": "tv",
+      "speed": 72,
+      "index": 6,
+      "target": {
+        "x": 192,
+        "y": 140
+      },
+      "after": {
+        "x": 192,
+        "y": 140
+      }
+    },
+    {
+      "name": "vinyl",
+      "speed": 72,
+      "index": 1,
+      "target": {
+        "x": 280,
+        "y": 172
+      },
+      "after": {
+        "x": 279.6000000000003,
+        "y": 172
+      }
+    },
+    {
+      "name": "vinyl",
+      "speed": 72,
+      "index": 2,
+      "target": {
+        "x": 280,
+        "y": 200
+      },
+      "after": {
+        "x": 279.6000000000003,
+        "y": 200.79999999999973
+      }
+    },
+    {
+      "name": "vinyl",
+      "speed": 72,
+      "index": 3,
+      "target": {
+        "x": 312,
+        "y": 200
+      },
+      "after": {
+        "x": 312,
+        "y": 200.79999999999973
+      }
+    },
+    {
+      "name": "vinyl",
+      "speed": 72,
+      "index": 4,
+      "target": {
+        "x": 280,
+        "y": 200
+      },
+      "after": {
+        "x": 279.6000000000003,
+        "y": 200.79999999999973
+      }
+    },
+    {
+      "name": "vinyl",
+      "speed": 72,
+      "index": 5,
+      "target": {
+        "x": 280,
+        "y": 172
+      },
+      "after": {
+        "x": 279.6000000000003,
+        "y": 172
+      }
+    },
+    {
+      "name": "vinyl",
+      "speed": 72,
+      "index": 6,
+      "target": {
+        "x": 312,
+        "y": 172
+      },
+      "after": {
+        "x": 312,
+        "y": 172
+      }
+    },
+    {
+      "name": "globe",
+      "speed": 72,
+      "index": 1,
+      "target": {
+        "x": 72,
+        "y": 176
+      },
+      "after": {
+        "x": 71.99999999999994,
+        "y": 176
+      }
+    },
+    {
+      "name": "globe",
+      "speed": 72,
+      "index": 2,
+      "target": {
+        "x": 72,
+        "y": 208
+      },
+      "after": {
+        "x": 71.99999999999994,
+        "y": 208.3999999999997
+      }
+    },
+    {
+      "name": "globe",
+      "speed": 72,
+      "index": 3,
+      "target": {
+        "x": 96,
+        "y": 208
+      },
+      "after": {
+        "x": 97.2,
+        "y": 208.3999999999997
+      }
+    },
+    {
+      "name": "globe",
+      "speed": 72,
+      "index": 4,
+      "target": {
+        "x": 72,
+        "y": 208
+      },
+      "after": {
+        "x": 71.99999999999994,
+        "y": 208.3999999999997
+      }
+    },
+    {
+      "name": "globe",
+      "speed": 72,
+      "index": 5,
+      "target": {
+        "x": 72,
+        "y": 176
+      },
+      "after": {
+        "x": 71.99999999999994,
+        "y": 176
+      }
+    },
+    {
+      "name": "globe",
+      "speed": 72,
+      "index": 6,
+      "target": {
+        "x": 96,
+        "y": 176
+      },
+      "after": {
+        "x": 97.2,
+        "y": 176
+      }
+    }
+  ],
+  "controls": [
+    {
+      "name": "couch",
+      "stopped": {
+        "x": 192,
+        "y": 243
+      },
+      "baseBottom": 11.125
+    },
+    {
+      "name": "table",
+      "stopped": {
+        "x": 192,
+        "y": 200
+      },
+      "baseBottom": 8.4375
+    },
+    {
+      "name": "bookcase",
+      "stopped": {
+        "x": 280,
+        "y": 138
+      },
+      "baseBottom": 4.5625
+    }
+  ],
+  "travel": [
+    {
+      "destination": "cv",
+      "immediate": {
+        "sole": {
+          "x": 168,
+          "y": 377
+        },
+        "expectedSole": {
+          "x": 176,
+          "y": 408
+        }
+      },
+      "sole": {
+        "x": 176,
+        "y": 408
+      },
+      "anchorSole": 408,
+      "visible": true,
+      "velocity": {
+        "x": 0,
+        "y": 0
+      },
+      "dialog": false
+    },
+    {
+      "destination": "media",
+      "immediate": {
+        "sole": {
+          "x": 136,
+          "y": 137
+        },
+        "expectedSole": {
+          "x": 144,
+          "y": 168
+        }
+      },
+      "sole": {
+        "x": 144,
+        "y": 168
+      },
+      "anchorSole": 168,
+      "visible": true,
+      "velocity": {
+        "x": 0,
+        "y": 0
+      },
+      "dialog": false
+    },
+    {
+      "destination": "training",
+      "immediate": {
+        "sole": {
+          "x": 488,
+          "y": 145
+        },
+        "expectedSole": {
+          "x": 496,
+          "y": 176
+        }
+      },
+      "sole": {
+        "x": 496,
+        "y": 176
+      },
+      "anchorSole": 176,
+      "visible": true,
+      "velocity": {
+        "x": 0,
+        "y": 0
+      },
+      "dialog": false
+    },
+    {
+      "destination": "food-log",
+      "immediate": {
+        "sole": {
+          "x": 460.5,
+          "y": 393
+        },
+        "expectedSole": {
+          "x": 468.5,
+          "y": 424
+        }
+      },
+      "sole": {
+        "x": 468.5,
+        "y": 424
+      },
+      "anchorSole": 424,
+      "visible": true,
+      "velocity": {
+        "x": 0,
+        "y": 0
+      },
+      "dialog": false
+    }
+  ],
+  "exceptions": []
+}

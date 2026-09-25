@@ -1,0 +1,196 @@
+{
+  "revision": "6e0ac1dcea4751c11560c5803b67efbfa5031842",
+  "count": 19,
+  "inventory": [
+    {
+      "roomId": "living-room",
+      "id": "living-room-television",
+      "assetId": "television-console-front",
+      "position": {
+        "x": 9.5,
+        "y": 4
+      },
+      "displayHeightTiles": 2.8
+    },
+    {
+      "roomId": "living-room",
+      "id": "living-room-record-player",
+      "assetId": "record-player-front",
+      "position": {
+        "x": 17,
+        "y": 6
+      },
+      "displayHeightTiles": 2.8
+    },
+    {
+      "roomId": "living-room",
+      "id": "living-room-globe",
+      "assetId": "globe-stand-front",
+      "position": {
+        "x": 3.5,
+        "y": 6
+      },
+      "displayHeightTiles": 3.5
+    },
+    {
+      "roomId": "gym",
+      "id": "gym-squat-rack",
+      "assetId": "gym-squat-rack-front-right",
+      "position": {
+        "x": 11.75,
+        "y": 3.5
+      },
+      "displayHeightTiles": 5
+    },
+    {
+      "roomId": "gym",
+      "id": "gym-boombox",
+      "assetId": "gym-boombox-front",
+      "position": {
+        "x": 7.5,
+        "y": 3
+      },
+      "displayHeightTiles": 1.5
+    },
+    {
+      "roomId": "gym",
+      "id": "gym-bench",
+      "assetId": "gym-bench-front",
+      "position": {
+        "x": 9,
+        "y": 7.125
+      },
+      "displayHeightTiles": 1.875
+    },
+    {
+      "roomId": "gym",
+      "id": "gym-dumbbell-rack",
+      "assetId": "gym-dumbbell-rack-front",
+      "position": {
+        "x": 2,
+        "y": 2.5
+      },
+      "displayHeightTiles": 2.25
+    },
+    {
+      "roomId": "gym",
+      "id": "gym-steel-plates",
+      "assetId": "gym-steel-plates-front",
+      "position": {
+        "x": 12.125,
+        "y": 7.125
+      },
+      "displayHeightTiles": 2
+    },
+    {
+      "roomId": "gym",
+      "id": "gym-bumper-plates",
+      "assetId": "gym-bumper-plates-front",
+      "position": {
+        "x": 13.625,
+        "y": 9.125
+      },
+      "displayHeightTiles": 2
+    },
+    {
+      "roomId": "gym",
+      "id": "gym-bumper-plates-extra",
+      "assetId": "gym-bumper-plates-front",
+      "position": {
+        "x": 11.625,
+        "y": 9.125
+      },
+      "displayHeightTiles": 2
+    },
+    {
+      "roomId": "gym",
+      "id": "gym-boxing-bag",
+      "assetId": "gym-boxing-bag-front-three-quarter",
+      "position": {
+        "x": 2.5,
+        "y": 9.25
+      },
+      "displayHeightTiles": 3.984375
+    },
+    {
+      "roomId": "office",
+      "id": "office-dog-bed",
+      "assetId": "office-dog-bed-front",
+      "position": {
+        "x": 2.5,
+        "y": 7.25
+      },
+      "displayHeightTiles": 1.6
+    },
+    {
+      "roomId": "office",
+      "id": "office-workstation",
+      "assetId": "office-workstation-right-facing",
+      "position": {
+        "x": 2.5,
+        "y": 3.9
+      },
+      "displayHeightTiles": 4.5
+    },
+    {
+      "roomId": "office",
+      "id": "office-bookcase",
+      "assetId": "office-bookcase-front",
+      "position": {
+        "x": 5.1,
+        "y": 1.5
+      },
+      "displayHeightTiles": 4
+    },
+    {
+      "roomId": "office",
+      "id": "office-sofa",
+      "assetId": "office-sofa-left",
+      "position": {
+        "x": 13.25,
+        "y": 4.8
+      },
+      "displayHeightTiles": 4.6
+    },
+    {
+      "roomId": "office",
+      "id": "office-coffee-table",
+      "assetId": "office-coffee-table-front",
+      "position": {
+        "x": 10.25,
+        "y": 5.2
+      },
+      "displayHeightTiles": 3.4
+    },
+    {
+      "roomId": "office",
+      "id": "office-robot-standing",
+      "assetId": "office-robot-standing",
+      "position": {
+        "x": 12.25,
+        "y": 7.6
+      },
+      "displayHeightTiles": 1.5
+    },
+    {
+      "roomId": "office",
+      "id": "office-robot-seated",
+      "assetId": "office-robot-seated",
+      "position": {
+        "x": 14,
+        "y": 7.7
+      },
+      "displayHeightTiles": 1.15
+    },
+    {
+      "roomId": "kitchen",
+      "id": "kitchen-dining-set",
+      "assetId": "kitchen-dining-set",
+      "position": {
+        "x": 8,
+        "y": 6
+      },
+      "displayHeightTiles": 4.5
+    }
+  ]
+}

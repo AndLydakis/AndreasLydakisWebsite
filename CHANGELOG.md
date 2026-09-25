@@ -19,8 +19,10 @@ pushed.
 - Added reusable scrollable photo-array content, captions/alt text, lazy loading and empty/error states; no fixed gallery count. Included three labelled AI-generated world-photo placeholders and authoring instructions.
 - Owner authorized delivery. Validation: 760 tests, typecheck/build and development/production desktop/portrait/landscape browser checks passed.
 
-### PORT-18A — Perspective design and baseline (in progress)
+### PORT-18A — Perspective design and baseline
 
+- Refreshed the design-only baseline for delivered globe and quick travel: 19 separate objects, three living-room fixtures and 22-object eventual extracted inventory before approved splits. Added teleport synchronization, destination-clearance and preserved header/gallery acceptance criteria; no runtime or art changes.
+- Baseline passes 36 normal/slow route waypoints, baked-base controls and four settled travel destinations. Recorded the immediate pre-physics reset offset for PORT-18C synchronization coverage. All 772 tests and typecheck/build pass; renewed architect/game/scrum reviews and owner contract/route acceptance complete. Delivering the baseline script/captures now closes the earlier documentation-only delivery gap.
 - Owner authorized documentation-only delivery of the reviewed generic perspective plan/contract. Baseline scripts and captures remain local; this is not full story closure or runtime delivery.
 - DEC-129: prioritize the occlusion contract before PORT-10A, retaining independent review gates. Draft explicit ground anchors, independent footprints, deterministic foot-based sorting and per-object artwork migration. No runtime/art changes.
 - Owner scope clarification: shared implementation for all separate world assets, with compound footprint arrays and explicit PORT-18E–18J adoption/verification coverage for all current gym, office and kitchen sprites; TV/vinyl remain initial fixtures only. Split later table/bookcase art from integration.

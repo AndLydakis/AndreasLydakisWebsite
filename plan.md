@@ -3014,13 +3014,13 @@ Unit tests cover destination mapping/clearance/relocation, menu highlight/focus/
 
 ## PORT-18A — Review the occlusion contract and baseline
 
-Side quest delivered ahead of resuming this story: PORT-09D-G above. Its globe becomes a third generic living-room adoption fixture in PORT-18C/18D; refresh inventory from current room data (19 separate objects after this addition), not the older 18-object baseline.
+Side quests delivered ahead of resuming this story: PORT-09D-G/H above. The globe is a third generic living-room adoption fixture in PORT-18C/18D; quick travel adds first-frame synchronization and collision-clearance regression requirements. Current baseline is `6e0ac1d` with 19 separate objects, not the older 18-object baseline.
 
 Type: Story
 Priority: High — owner-prioritized before PORT-10A (DEC-129)
 Dependencies: Current delivered room, collision and player baseline (`PORT-09D` and accepted presentation follow-ups). The former all-stories/PORT-17D scheduling dependency is superseded by DEC-129.
 Milestone: M6
-Status: In progress — design/baseline and independent reviews; no runtime changes
+Status: Accepted — refreshed 19-object baseline, 772 tests and build pass; architect, game developer and scrum master approve the revised design. Owner approved the unchanged positions, existing bases, tested routes and proposed globe plane. Awaiting successful push before Done. No runtime changes. Evidence: `output/qa/port18a/verification.md`.
 Delivery: Global story workflow and all M6 review gates apply.
 
 Design and evidence: `docs/occlusion-contract-v1.md`; review decisions in `log.md` under DEC-129.
@@ -3032,7 +3032,7 @@ Approve the smallest data-driven design before changing runtime behavior or artw
 ### Subtasks
 
 1. Audit the then-current renderer, player visual/physics anchor, room schema, asset loading, debug overlays and interaction feedback; do not assume today's fixed depth values still apply.
-2. Capture baseline screenshots and routes around TV, record player, couch, table and bookcase; record already-active furniture collisions and inaccessible/unverified space. Record frame-time samples, resource sizes, build/browser/viewport/throttling settings for later same-environment comparisons.
+2. Capture baseline screenshots and routes around TV, record player, globe, couch, table and bookcase; record already-active furniture collisions and inaccessible/unverified space. Inventory all 19 separate objects and record all four quick-travel destinations, including immediate/pre-physics versus settled sole state. Record frame-time samples, resource sizes, build/browser/viewport/throttling settings for later same-environment comparisons.
 3. Specify separate visual placement, room-local ground/depth anchor and optional rectangular floor footprint. Define units, coordinate conversion, stable equal-depth ordering and reserved background/world/overlay bands.
 4. Specify backward-compatible defaults, decorative objects without content IDs, missing-art behavior and scene teardown/restart behavior. Preserve interaction centers, radii, camera target and player collider unless separately approved.
 5. Inventory which furniture is baked into the backdrop; plan registered foreground cutouts and an unobstructed floor/backdrop, including baked shadows and transparent padding.
@@ -3096,14 +3096,17 @@ Delivery: Global story workflow and all M6 review gates apply.
 
 ### Goal
 
-Implement the shared data-driven sorting/lifecycle/diagnostic pipeline for any non-background sprite. Use TV and record player as the first live acceptance cases, preserving existing room-authored collisions. Prove cross-room reuse with synthetic decorative and interactive fixtures; other current assets are activated through PORT-18E–18J metadata stories.
+Implement the shared data-driven sorting/lifecycle/diagnostic pipeline for any non-background sprite. Use TV, record player and globe as the first live acceptance cases, preserving their placements and existing room-authored collisions. Prove cross-room reuse with synthetic decorative and interactive fixtures; other current assets are activated through PORT-18E–18J metadata stories.
+
+Sizing: provisionally two focused days, with no headroom after the globe/teleport additions. Re-estimate before coding. If above two days, split into PORT-18C generic ordering/lifecycle/teleport integration with synthetic evidence, then PORT-18C1 three-fixture activation/visual acceptance; PORT-18D must depend on 18C1 in that case. No split is activated by this estimate alone.
 
 ### Subtasks
 
 1. Implement the shared depth registry and apply authored anchors plus the player's synchronized physics sole. No runtime room/asset/content-ID branches; test different rooms, repeated local decoration IDs, interactables and decorations.
 2. Keep backgrounds below sortable objects and interaction/debug feedback in their documented bands.
 3. Author pilot anchors using the measured artwork, not the bottom of transparent image padding; use only placements approved in PORT-18A.
-4. Add sorting, equality, movement and scene lifecycle regressions; capture live front/behind/side comparisons for both pilot objects.
+4. Add sorting, equality, movement and scene lifecycle regressions; capture live front/behind/side comparisons for all three pilot objects, including the globe's gallery.
+5. Synchronize body, visible art/fallback, camera and depth before the first rendered destination frame after teleport, even without a physics step. Test all four actual destinations and a synthetic overlapping destination that exposes stale rank, repeated/same-room travel, travel while moving, dialog close/travel, missing player art and restart. Preserve input reset/interaction refresh and prevent jump distance advancing the walk cycle.
 
 ### Acceptance criteria
 
@@ -3111,6 +3114,7 @@ Implement the shared data-driven sorting/lifecycle/diagnostic pipeline for any n
 - Side approaches, equal anchors, rapid reversals and idle/walk frame changes do not cause flicker or depth jitter.
 - Physics, player size/speed, camera tracking, interaction centers/ranges and dialog controls remain unchanged.
 - Existing placeholder fallback receives the same sorting behavior; scene restart does not accumulate listeners or duplicate visuals.
+- Immediate pre-physics teleport state and the first destination render use the destination sole (world tile-edge coordinates, no +0.5), never the old rank or unsynchronized reset body. Startup/modal guards, header focus/keyboard/touch behavior and gallery scrolling/error fallback remain intact.
 - Desktop and portrait/landscape emulation evidence is recorded and the owner approves the visible result.
 
 ### Verification
@@ -3130,13 +3134,13 @@ Delivery: Global story workflow and all M6 review gates apply.
 
 ### Goal
 
-Block the solid bases of the TV and record player while keeping their surrounding clear floor walkable.
+Migrate the existing solid bases of the TV, record player and globe without changing their shape, while keeping their surrounding clear floor walkable. Re-estimate the provisional one-day scope including quick-travel clearance checks before coding.
 
 ### Subtasks
 
 1. Feed optional object footprints into the existing static Arcade collision builder exactly once per object.
-2. Migrate the two existing pilot base rectangles to object footprints, removing the exact old room rectangles in the same change; show their rectangles/anchors in development diagnostics only. Compare the world collision sets before and after.
-3. Update physics, spawn validation, renderer fallback/previews and debug geometry consumers; test combined footprint collection, omitted footprints, room offsets and cleanup/rebuild. Require complete world-collision multiset equality including counts before/after migration.
+2. Migrate the three existing pilot base rectangles to object footprints, removing the exact old room rectangles in the same change; show their rectangles/anchors in development diagnostics only. Preserve globe rectangle (3.375,7.75,1.25,0.375) exactly. Update its regression test to assert the combined collection rather than requiring old room ownership. Compare the world collision multisets before and after.
+3. Update physics, spawn validation, quick-travel clearance, renderer fallback/previews and debug geometry consumers; test combined footprint collection, omitted footprints, room offsets and cleanup/rebuild. Require complete world-collision multiset equality including counts before/after migration. All four existing destinations resolve identically; a synthetic object-owned footprint at a destination rejects travel without moving the player, even with missing art.
 4. Verify movement and interaction from all reachable sides at the normal configured speed and the agreed throttled test setting.
 
 ### Acceptance criteria
@@ -3145,7 +3149,7 @@ Block the solid bases of the TV and record player while keeping their surroundin
 - Clear floor behind and beside the object remains traversable even where player artwork overlaps the object's image.
 - Front/behind depth changes never toggle a collider; changing image scale or animation does not move the footprint.
 - Footprints are not duplicated by pre-existing room rectangles. Walls, doors and routes to all content remain usable.
-- Both dialogs still open and close using keyboard and mobile controls from valid in-range locations; the owner approves footprint placement.
+- All three content flows still open and close using keyboard and mobile controls from valid in-range locations, including globe gallery scroll/close/reopen; the owner approves footprint placement.
 
 ### Verification
 
@@ -3582,8 +3586,8 @@ Close the extension with independent end-to-end evidence and a repeatable mainta
 
 ### Acceptance criteria
 
-- The complete shipped sortable-object inventory passes applicable front/behind/side/corner checks, stable animation/idle ordering, combined-scene overlap, missing-art fallback and restart checks without flicker or invisible unintended blockers. Enumerate current data: 18 existing separate instances plus the three extracted living-room objects at this baseline, adjusted for approved additions/layer splits. A metadata count alone does not establish visual acceptance.
-- All portfolio interactions and DOM paths implemented at the accepted baseline remain available; this does not require pending PORT-10A. Camera movement, keyboard controls, mobile press/release/cancellation and dialog focus show no regressions.
+- The complete shipped sortable-object inventory passes applicable front/behind/side/corner checks, stable animation/idle ordering, combined-scene overlap, missing-art fallback and restart checks without flicker or invisible unintended blockers. Enumerate current data: 19 existing separate instances plus the three extracted living-room objects at this baseline (22 total), adjusted for approved additions/layer splits. A metadata count alone does not establish visual acceptance.
+- All portfolio interactions and DOM paths implemented at the accepted baseline remain available; this does not require pending PORT-10A. Camera movement, keyboard controls, mobile press/release/cancellation and dialog focus show no regressions. Include all four header quick-travel options, first-destination-frame sorting, modal/startup guards and globe gallery scrolling/error fallback/close/reopen.
 - An independent maintainer can add one hypothetical object using the documented fields without core-system edits; debug overlays are absent from production.
 - Evidence includes commands/results, screenshots or recordings, environment/viewport settings, performance comparison and deploy-preview URL. Performance regressions are resolved or explicitly accepted by owner and reviewers with rationale.
 - All M6 stories have completed review records; no blocking/high/medium findings remain. Low-priority exceptions are explicitly accepted and tracked.
