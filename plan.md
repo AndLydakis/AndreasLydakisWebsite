@@ -3198,7 +3198,7 @@ Type: Story
 Priority: High — queued after prerequisite
 Dependencies: `PORT-19C1` (owner prioritized living-room couch/table after PORT-18D)
 Milestone: M6
-Status: Accepted — owner approves current presentation and delivery (DEC-146); final checks/push pending.
+Status: Done — owner accepted current presentation; delivered in 797845a to origin/master (DEC-146). Final 1,443-test/build gates pass.
 Delivery: Global story workflow and all M6 review gates apply.
 
 ### Goal
@@ -3235,7 +3235,7 @@ Type: Story
 Priority: High — queued after prerequisite
 Dependencies: `PORT-18E`
 Milestone: M6
-Status: Partially implemented — owner accepts plates/boxing-bag subset for delivery (DEC-146); push pending. Boombox remains unimplemented; do not close the full story.
+Status: Partially delivered — owner-approved plates/boxing-bag subset pushed in 797845a to origin/master (DEC-146). Boombox remains unimplemented; do not close the full story.
 Delivery: Global story workflow and all M6 review gates apply.
 
 ### Goal

@@ -9,7 +9,8 @@ pushed.
 ## [2026-09-25] — Approved gym perspective delivery
 
 Owner approved the held PORT-18E and requested PORT-18F subset (DEC-146).
-Delivery pending final checks/push; boombox adoption is not included.
+Delivered to `origin/master` in `797845a` after 1,443 tests and build passed.
+PORT-18E is complete; boombox adoption remains pending in PORT-18F.
 
 ### PORT-18F — Plates and boxing-bag perspective (partial)
 

@@ -8,6 +8,7 @@ This file is the project decision record. New implementation decisions, approved
 - Preserve unrelated style edits and the owner-authored plan review wording near line 516. Stage only gym implementation/tests, QA evidence and story documentation. Retain temporary collision bounds.
 - Re-run the full test/build gates before committing. Mark PORT-18E Done only after successful push; keep PORT-18F partial with the delivered subset recorded. Prior no-push/acceptance notes describe the earlier review state and are superseded by this approval.
 - Final fresh verification passes: 1,443 tests/40 files, typecheck and production build index-Q2S55Ouf.js. Runtime/test hashes match reviewed snapshots; no new implementation changes. Existing bundle-size advisory remains unchanged.
+- Delivery succeeded: 797845a pushed to origin/master, advancing from bca905d. Mark PORT-18E Done and PORT-18F partially delivered (plates/bag accepted; boombox pending). Follow-up documentation records this completed push. Unrelated style files and owner plan wording remain local.
 
 ## DEC-145 — Apply perspective to plates and boxing bag only
 
