@@ -1,0 +1,114 @@
+{
+  "error": "Error: {\"exceptionId\":23,\"text\":\"Uncaught (in promise) Error: restart timed out\",\"lineNumber\":2,\"columnNumber\":39,\"scriptId\":\"29340\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"\",\"scriptId\":\"29340\",\"url\":\"\",\"lineNumber\":1,\"columnNumber\":38}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"Error\",\"description\":\"Error: restart timed out\\n    at <anonymous>:2:39\",\"objectId\":\"-1214607908262947032.554.4\"}}\n    at evaluate (file://<repo>/scripts/verify-office-plants-browser.mjs:41:40)\n    at async readyAfterRestart (file://<repo>/scripts/verify-office-plants-browser.mjs:124:3)\n    at async file://<repo>/scripts/verify-office-plants-browser.mjs:282:3",
+  "results": [],
+  "exceptions": [
+    {
+      "exceptionId": 22,
+      "text": "Uncaught",
+      "lineNumber": 65,
+      "columnNumber": 73816,
+      "scriptId": "29333",
+      "url": "http://127.0.0.1:4173/assets/index-CfIgWzj0.js",
+      "stackTrace": {
+        "callFrames": [
+          {
+            "functionName": "get",
+            "scriptId": "29333",
+            "url": "http://127.0.0.1:4173/assets/index-CfIgWzj0.js",
+            "lineNumber": 65,
+            "columnNumber": 73816
+          },
+          {
+            "functionName": "batchSprite",
+            "scriptId": "29333",
+            "url": "http://127.0.0.1:4173/assets/index-CfIgWzj0.js",
+            "lineNumber": 24,
+            "columnNumber": 240611
+          },
+          {
+            "functionName": "S",
+            "scriptId": "29333",
+            "url": "http://127.0.0.1:4173/assets/index-CfIgWzj0.js",
+            "lineNumber": 9,
+            "columnNumber": 76892
+          },
+          {
+            "functionName": "render",
+            "scriptId": "29333",
+            "url": "http://127.0.0.1:4173/assets/index-CfIgWzj0.js",
+            "lineNumber": 24,
+            "columnNumber": 239328
+          },
+          {
+            "functionName": "render",
+            "scriptId": "29333",
+            "url": "http://127.0.0.1:4173/assets/index-CfIgWzj0.js",
+            "lineNumber": 2,
+            "columnNumber": 61958
+          },
+          {
+            "functionName": "render",
+            "scriptId": "29333",
+            "url": "http://127.0.0.1:4173/assets/index-CfIgWzj0.js",
+            "lineNumber": 65,
+            "columnNumber": 6859
+          },
+          {
+            "functionName": "render",
+            "scriptId": "29333",
+            "url": "http://127.0.0.1:4173/assets/index-CfIgWzj0.js",
+            "lineNumber": 64,
+            "columnNumber": 22781
+          },
+          {
+            "functionName": "step",
+            "scriptId": "29333",
+            "url": "http://127.0.0.1:4173/assets/index-CfIgWzj0.js",
+            "lineNumber": 2,
+            "columnNumber": 89912
+          },
+          {
+            "functionName": "step",
+            "scriptId": "29333",
+            "url": "http://127.0.0.1:4173/assets/index-CfIgWzj0.js",
+            "lineNumber": 2,
+            "columnNumber": 94107
+          },
+          {
+            "functionName": "e",
+            "scriptId": "29333",
+            "url": "http://127.0.0.1:4173/assets/index-CfIgWzj0.js",
+            "lineNumber": 4,
+            "columnNumber": 3093
+          }
+        ]
+      },
+      "exception": {
+        "type": "object",
+        "subtype": "error",
+        "className": "TypeError",
+        "description": "TypeError: Cannot read properties of null (reading 'drawImage')\n    at initialize.get [as canvasData] (http://127.0.0.1:4173/assets/index-CfIgWzj0.js:66:73817)\n    at initialize.batchSprite (http://127.0.0.1:4173/assets/index-CfIgWzj0.js:25:240612)\n    at initialize.S [as renderCanvas] (http://127.0.0.1:4173/assets/index-CfIgWzj0.js:10:76893)\n    at initialize.render (http://127.0.0.1:4173/assets/index-CfIgWzj0.js:25:239329)\n    at initialize.render (http://127.0.0.1:4173/assets/index-CfIgWzj0.js:3:61959)\n    at initialize.render (http://127.0.0.1:4173/assets/index-CfIgWzj0.js:66:6860)\n    at initialize.render (http://127.0.0.1:4173/assets/index-CfIgWzj0.js:65:22782)\n    at initialize.step (http://127.0.0.1:4173/assets/index-CfIgWzj0.js:3:89913)\n    at initialize.step (http://127.0.0.1:4173/assets/index-CfIgWzj0.js:3:94108)\n    at e (http://127.0.0.1:4173/assets/index-CfIgWzj0.js:5:3094)",
+        "objectId": "-1214607908262947032.554.3",
+        "preview": {
+          "type": "object",
+          "subtype": "error",
+          "description": "TypeError: Cannot read properties of null (reading 'drawImage')\n    at initialize.get [as canvasData] (http://127.0.0.1:4173/assets/index-CfIgWzj0.js:66:73817)\n    at initialize.batchSprite (http://127.0.0.1:4173/assets/index-CfIgWzj0.js:25:240612)\n    at initialize.S [as renderCanvas] (http://127.0.0.1:4173/assets/index-CfIgWzj0.js:10:76893)\n    at initialize.render (http://127.0.0.1:4173/assets/index-CfIgWzj0.js:25:239329)\n    at initialize.render (http://127.0.0.1:4173/assets/index-CfIgWzj0.js:3:61959)\n    at initialize.render (http://127.0.0.1:4173/assets/index-CfIgWzj0.js:66:6860)\n    at initialize.render (http://127.0.0.1:4173/assets/index-CfIgWzj0.js:65:22782)\n    at initialize.step (http://127.0.0.1:4173/assets/index-CfIgWzj0.js:3:89913)\n    at initialize.step (http://127.0.0.1:4173/assets/index-CfIgWzj0.js:3:94108)\n    at e (http://127.0.0.1:4173/assets/index-CfIgWzj0.js:5:3094)",
+          "overflow": false,
+          "properties": [
+            {
+              "name": "stack",
+              "type": "string",
+              "value": "TypeError: Cannot read properties of null (reading…//127.0.0.1:4173/assets/index-CfIgWzj0.js:5:3094)"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "Cannot read properties of null (reading 'drawImage')"
+            }
+          ]
+        }
+      },
+      "executionContextId": 554
+    }
+  ]
+}

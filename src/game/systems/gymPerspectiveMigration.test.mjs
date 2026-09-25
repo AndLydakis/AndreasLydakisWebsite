@@ -6,6 +6,7 @@ import { quickTravelDestinations, resolveQuickTravel } from '../data/quickTravel
 import { getAllCollisionRects, getRoomLocalCollisionRects } from './collisionGeometry';
 import { buildRoom } from '../rendering/houseRenderer';
 import { DepthRegistry } from '../rendering/DepthRegistry';
+import { undoRemainingOwnership, withApprovedOfficeChanges } from './fixtures/remainingOwnership.mjs';
 
 // Captured before PORT-18E edits. Never regenerate from the migrated layout.
 const baseline = JSON.parse(readFileSync(new URL('./fixtures/port18e-before.json', import.meta.url), 'utf8'));
@@ -25,11 +26,11 @@ const laterIds = ['gym-steel-plates', 'gym-bumper-plates', 'gym-bumper-plates-ex
 const laterRects = beforeGym.collisionRects.slice(17, 21);
 
 describe('PORT-18E exact gym ownership migration', () => {
-  it('preserves all 80 world bodies including rectangle multiplicity', () => {
+  it('preserves the world multiset except the approved desk-post deletion and six office resizes', () => {
     expect(baseline.worldRects).toHaveLength(80);
     const current = getAllCollisionRects(houseLayout);
-    expect(current).toHaveLength(80);
-    expect(multiset(current)).toEqual(multiset(baseline.worldRects));
+    expect(current).toHaveLength(79);
+    expect(multiset(current)).toEqual(multiset(withApprovedOfficeChanges(baseline.worldRects)));
     expect(validateHouseLayout(houseLayout)).toEqual([]);
   });
 
@@ -58,9 +59,11 @@ describe('PORT-18E exact gym ownership migration', () => {
   });
 
   it('changes only approved 18E and partial 18F ownership while retaining all other fields', () => {
+    const normalized = undoRemainingOwnership(houseLayout);
+    const gym = normalized.rooms.find(room => room.id === 'gym');
     const moved = new Set([...migrations.flatMap(item => multiset(item.expected)), ...multiset(laterRects)]);
     expect(gym.collisionRects).toEqual(beforeGym.collisionRects.filter(rect => !moved.has(multiset([rect])[0])));
-    const restored = { ...houseLayout, rooms: houseLayout.rooms.map(room => room.id !== 'gym' ? room : {
+    const restored = { ...normalized, rooms: normalized.rooms.map(room => room.id !== 'gym' ? room : {
       ...room, collisionRects: beforeGym.collisionRects,
       interactables: room.interactables.map(stripMigration),
       decorations: room.decorations.map(stripMigration),

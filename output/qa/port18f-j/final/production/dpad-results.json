@@ -1,0 +1,64 @@
+{
+  "url": "http://127.0.0.1:4173",
+  "harnessSha256": "abe2a93e175b2e809855d4ba3e09fe98b55b256a22d4c40dec4b71fb9b2aed7e",
+  "recordedAt": "2026-09-25T13:30:14.370Z",
+  "results": [
+    {
+      "viewport": "portrait",
+      "input": "CDP touchStart/touchEnd on actual on-screen D-pad; no keyboard or movement reset",
+      "before": {
+        "x": 228,
+        "y": 443,
+        "vx": 0,
+        "vy": 0
+      },
+      "contact": {
+        "x": 228,
+        "y": 431.99999999999994,
+        "vx": 0,
+        "vy": 0
+      },
+      "released": {
+        "x": 228,
+        "y": 453.59999999999974,
+        "vx": 0,
+        "vy": 0
+      },
+      "settled": {
+        "x": 228,
+        "y": 453.59999999999974,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "viewport": "landscape",
+      "input": "CDP touchStart/touchEnd on actual on-screen D-pad; no keyboard or movement reset",
+      "before": {
+        "x": 228,
+        "y": 443,
+        "vx": 0,
+        "vy": 0
+      },
+      "contact": {
+        "x": 228,
+        "y": 431.99999999999994,
+        "vx": 0,
+        "vy": 0
+      },
+      "released": {
+        "x": 228,
+        "y": 451.19999999999976,
+        "vx": 0,
+        "vy": 0
+      },
+      "settled": {
+        "x": 228,
+        "y": 451.19999999999976,
+        "vx": 0,
+        "vy": 0
+      }
+    }
+  ],
+  "exceptions": []
+}

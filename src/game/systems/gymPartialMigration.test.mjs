@@ -5,6 +5,7 @@ import { getAllCollisionRects, getRoomLocalCollisionRects } from './collisionGeo
 import { buildRoom } from '../rendering/houseRenderer';
 import { DepthRegistry } from '../rendering/DepthRegistry';
 import { validateHouseLayout } from '../data/layoutValidation';
+import { undoRemainingOwnership, withApprovedOfficeChanges } from './fixtures/remainingOwnership.mjs';
 
 const baseline = JSON.parse(readFileSync(new URL('./fixtures/port18f-partial-before.json', import.meta.url), 'utf8'));
 const oldGym = baseline.layout.rooms.find(room => room.id === 'gym');
@@ -18,10 +19,10 @@ const migrations = [
 ];
 
 describe('partial PORT-18F decoration-only migration', () => {
-  it('preserves the immutable 80-body world multiset', () => {
+  it('preserves the immutable world multiset except the approved desk-post deletion and six office resizes', () => {
     expect(baseline.worldRects).toHaveLength(80);
-    expect(getAllCollisionRects(houseLayout)).toHaveLength(80);
-    expect(multiset(getAllCollisionRects(houseLayout))).toEqual(multiset(baseline.worldRects));
+    expect(getAllCollisionRects(houseLayout)).toHaveLength(79);
+    expect(multiset(getAllCollisionRects(houseLayout))).toEqual(multiset(withApprovedOfficeChanges(baseline.worldRects)));
     expect(validateHouseLayout(houseLayout)).toEqual([]);
   });
 
@@ -40,9 +41,11 @@ describe('partial PORT-18F decoration-only migration', () => {
   });
 
   it('leaves every other field unchanged including boombox and PORT-18E metadata', () => {
+    const normalized = undoRemainingOwnership(houseLayout);
+    const gym = normalized.rooms.find(room => room.id === 'gym');
     const moved = new Set(multiset(migrations.map(item => item.rect)));
     expect(gym.collisionRects).toEqual(oldGym.collisionRects.filter(rect => !moved.has(multiset([rect])[0])));
-    const restored = { ...houseLayout, rooms: houseLayout.rooms.map(room => room.id !== 'gym' ? room : {
+    const restored = { ...normalized, rooms: normalized.rooms.map(room => room.id !== 'gym' ? room : {
       ...room, collisionRects: oldGym.collisionRects, decorations: room.decorations.map(sprite => {
         if (!migrations.some(item => item.id === sprite.id)) return sprite;
         const { groundAnchor, footprints, ...old } = sprite;

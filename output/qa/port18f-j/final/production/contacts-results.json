@@ -1,0 +1,1556 @@
+{
+  "url": "http://127.0.0.1:4173",
+  "harnessSha256": "abe2a93e175b2e809855d4ba3e09fe98b55b256a22d4c40dec4b71fb9b2aed7e",
+  "recordedAt": "2026-09-25T13:28:30.254Z",
+  "baseline": "output/qa/port18f-j/preintegration-geometry.json",
+  "results": [
+    {
+      "integration": {
+        "bodies": 79,
+        "instances": [
+          "living-room-television",
+          "living-room-record-player",
+          "living-room-globe",
+          "living-room-couch",
+          "living-room-coffee-table",
+          "gym-squat-rack",
+          "gym-boombox",
+          "gym-bench",
+          "gym-dumbbell-rack",
+          "gym-steel-plates",
+          "gym-bumper-plates",
+          "gym-bumper-plates-extra",
+          "gym-boxing-bag",
+          "office-dog-bed",
+          "office-workstation",
+          "office-bookcase",
+          "office-plant-top-right",
+          "office-plant-bottom-left",
+          "office-plant-bottom-right",
+          "office-sofa",
+          "office-coffee-table",
+          "office-robot-standing",
+          "office-robot-seated",
+          "kitchen-dining-set"
+        ],
+        "bounds": {
+          "visible": true,
+          "alpha": 1,
+          "depth": 8,
+          "commands": 2532,
+          "doorwayVisible": false,
+          "worldVisible": false,
+          "rectangles": [
+            {
+              "x": 32,
+              "y": 64,
+              "width": 320,
+              "height": 64
+            },
+            {
+              "x": 32,
+              "y": 256,
+              "width": 128,
+              "height": 32
+            },
+            {
+              "x": 224,
+              "y": 256,
+              "width": 128,
+              "height": 32
+            },
+            {
+              "x": 32,
+              "y": 80,
+              "width": 16,
+              "height": 192
+            },
+            {
+              "x": 336,
+              "y": 80,
+              "width": 16,
+              "height": 96
+            },
+            {
+              "x": 336,
+              "y": 208,
+              "width": 16,
+              "height": 64
+            },
+            {
+              "x": 249,
+              "y": 128,
+              "width": 70,
+              "height": 9
+            },
+            {
+              "x": 176,
+              "y": 148,
+              "width": 32,
+              "height": 5
+            },
+            {
+              "x": 294,
+              "y": 183,
+              "width": 36,
+              "height": 5
+            },
+            {
+              "x": 86,
+              "y": 188,
+              "width": 20,
+              "height": 6
+            },
+            {
+              "x": 138,
+              "y": 214,
+              "width": 104,
+              "height": 28
+            },
+            {
+              "x": 160,
+              "y": 175,
+              "width": 60,
+              "height": 24
+            },
+            {
+              "x": 400,
+              "y": 64,
+              "width": 256,
+              "height": 56
+            },
+            {
+              "x": 400,
+              "y": 256,
+              "width": 103,
+              "height": 32
+            },
+            {
+              "x": 574,
+              "y": 256,
+              "width": 82,
+              "height": 32
+            },
+            {
+              "x": 400,
+              "y": 80,
+              "width": 16,
+              "height": 96
+            },
+            {
+              "x": 400,
+              "y": 208,
+              "width": 16,
+              "height": 64
+            },
+            {
+              "x": 640,
+              "y": 80,
+              "width": 16,
+              "height": 192
+            },
+            {
+              "x": 565,
+              "y": 150,
+              "width": 9,
+              "height": 6
+            },
+            {
+              "x": 574,
+              "y": 146,
+              "width": 9,
+              "height": 6
+            },
+            {
+              "x": 583,
+              "y": 142,
+              "width": 10,
+              "height": 6
+            },
+            {
+              "x": 601,
+              "y": 161,
+              "width": 10,
+              "height": 6
+            },
+            {
+              "x": 611,
+              "y": 157,
+              "width": 10,
+              "height": 6
+            },
+            {
+              "x": 621,
+              "y": 153,
+              "width": 8,
+              "height": 6
+            },
+            {
+              "x": 582,
+              "y": 143,
+              "width": 10,
+              "height": 5
+            },
+            {
+              "x": 592,
+              "y": 146,
+              "width": 10,
+              "height": 5
+            },
+            {
+              "x": 602,
+              "y": 149,
+              "width": 10,
+              "height": 5
+            },
+            {
+              "x": 516,
+              "y": 122,
+              "width": 24,
+              "height": 9
+            },
+            {
+              "x": 534.6666666666666,
+              "y": 191,
+              "width": 34.66666666666663,
+              "height": 6
+            },
+            {
+              "x": 426,
+              "y": 120,
+              "width": 28,
+              "height": 7.5
+            },
+            {
+              "x": 592,
+              "y": 196,
+              "width": 20,
+              "height": 6
+            },
+            {
+              "x": 616,
+              "y": 226,
+              "width": 20,
+              "height": 6
+            },
+            {
+              "x": 584,
+              "y": 226,
+              "width": 20,
+              "height": 6
+            },
+            {
+              "x": 432,
+              "y": 244,
+              "width": 30,
+              "height": 7
+            },
+            {
+              "x": 56,
+              "y": 320,
+              "width": 114,
+              "height": 54
+            },
+            {
+              "x": 214,
+              "y": 320,
+              "width": 114,
+              "height": 54
+            },
+            {
+              "x": 56,
+              "y": 466,
+              "width": 272,
+              "height": 14
+            },
+            {
+              "x": 56,
+              "y": 320,
+              "width": 8,
+              "height": 160
+            },
+            {
+              "x": 320,
+              "y": 320,
+              "width": 8,
+              "height": 160
+            },
+            {
+              "x": 80,
+              "y": 379,
+              "width": 16,
+              "height": 6
+            },
+            {
+              "x": 85.575,
+              "y": 439.875,
+              "width": 37.14999999999999,
+              "height": 21.17500000000001
+            },
+            {
+              "x": 79,
+              "y": 418,
+              "width": 26,
+              "height": 8
+            },
+            {
+              "x": 84,
+              "y": 382,
+              "width": 34,
+              "height": 6
+            },
+            {
+              "x": 80,
+              "y": 388,
+              "width": 33,
+              "height": 6
+            },
+            {
+              "x": 77,
+              "y": 394,
+              "width": 31,
+              "height": 5
+            },
+            {
+              "x": 88,
+              "y": 399,
+              "width": 7,
+              "height": 21
+            },
+            {
+              "x": 95,
+              "y": 403,
+              "width": 24,
+              "height": 4
+            },
+            {
+              "x": 125,
+              "y": 409,
+              "width": 14,
+              "height": 10
+            },
+            {
+              "x": 111,
+              "y": 413,
+              "width": 27,
+              "height": 10
+            },
+            {
+              "x": 130,
+              "y": 374,
+              "width": 31.19999999999999,
+              "height": 6
+            },
+            {
+              "x": 302,
+              "y": 369,
+              "width": 14,
+              "height": 15
+            },
+            {
+              "x": 66,
+              "y": 447,
+              "width": 14,
+              "height": 13
+            },
+            {
+              "x": 304,
+              "y": 447,
+              "width": 14,
+              "height": 13
+            },
+            {
+              "x": 262,
+              "y": 388.00333333333333,
+              "width": 30,
+              "height": 46.99666666666667
+            },
+            {
+              "x": 217,
+              "y": 397.0566666666667,
+              "width": 22,
+              "height": 33.94333333333333
+            },
+            {
+              "x": 252,
+              "y": 455,
+              "width": 16,
+              "height": 6
+            },
+            {
+              "x": 280,
+              "y": 454,
+              "width": 16,
+              "height": 6
+            },
+            {
+              "x": 399,
+              "y": 320,
+              "width": 121,
+              "height": 49
+            },
+            {
+              "x": 557,
+              "y": 320,
+              "width": 98,
+              "height": 49
+            },
+            {
+              "x": 399,
+              "y": 462,
+              "width": 256,
+              "height": 18
+            },
+            {
+              "x": 399,
+              "y": 320,
+              "width": 6,
+              "height": 160
+            },
+            {
+              "x": 645,
+              "y": 320,
+              "width": 10,
+              "height": 160
+            },
+            {
+              "x": 405,
+              "y": 369,
+              "width": 25,
+              "height": 93
+            },
+            {
+              "x": 430,
+              "y": 369,
+              "width": 52,
+              "height": 23
+            },
+            {
+              "x": 587,
+              "y": 369,
+              "width": 30,
+              "height": 24
+            },
+            {
+              "x": 617,
+              "y": 369,
+              "width": 28,
+              "height": 31
+            },
+            {
+              "x": 502,
+              "y": 416,
+              "width": 66,
+              "height": 25
+            },
+            {
+              "x": 515,
+              "y": 441,
+              "width": 40,
+              "height": 6
+            },
+            {
+              "x": 524,
+              "y": 447,
+              "width": 22,
+              "height": 6
+            },
+            {
+              "x": 352,
+              "y": 160,
+              "width": 48,
+              "height": 16
+            },
+            {
+              "x": 352,
+              "y": 208,
+              "width": 48,
+              "height": 16
+            },
+            {
+              "x": 144,
+              "y": 288,
+              "width": 16,
+              "height": 32
+            },
+            {
+              "x": 224,
+              "y": 288,
+              "width": 16,
+              "height": 32
+            },
+            {
+              "x": 487,
+              "y": 288,
+              "width": 16,
+              "height": 32
+            },
+            {
+              "x": 574,
+              "y": 288,
+              "width": 16,
+              "height": 32
+            },
+            {
+              "x": 0,
+              "y": 0,
+              "width": 1024,
+              "height": 16
+            },
+            {
+              "x": 0,
+              "y": 560,
+              "width": 1024,
+              "height": 16
+            },
+            {
+              "x": 0,
+              "y": 0,
+              "width": 16,
+              "height": 576
+            },
+            {
+              "x": 1008,
+              "y": 0,
+              "width": 16,
+              "height": 576
+            }
+          ]
+        }
+      }
+    },
+    {
+      "contact": "gym-boombox",
+      "speed": 144,
+      "bottom": 131,
+      "state": {
+        "id": "gym-boombox",
+        "plane": 131,
+        "objectDepth": 3.076923076923077,
+        "texture": "gym-boombox-front",
+        "sole": 132,
+        "x": 528,
+        "playerDepth": 3.1153846153846154,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 132,
+        "anchorY": 116,
+        "animation": "player-idle-up",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": -144
+        }
+      },
+      "held": {
+        "id": "gym-boombox",
+        "plane": 131,
+        "objectDepth": 3.076923076923077,
+        "texture": "gym-boombox-front",
+        "sole": 132,
+        "x": 528,
+        "playerDepth": 3.1153846153846154,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 132,
+        "anchorY": 116,
+        "animation": "player-idle-up",
+        "frame": 1,
+        "velocity": {
+          "x": 0,
+          "y": -144
+        }
+      }
+    },
+    {
+      "contact": "gym-boombox",
+      "speed": 72,
+      "bottom": 131,
+      "state": {
+        "id": "gym-boombox",
+        "plane": 131,
+        "objectDepth": 3.076923076923077,
+        "texture": "gym-boombox-front",
+        "sole": 132,
+        "x": 528,
+        "playerDepth": 3.1153846153846154,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 132,
+        "anchorY": 116,
+        "animation": "player-idle-up",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": -72
+        }
+      },
+      "held": {
+        "id": "gym-boombox",
+        "plane": 131,
+        "objectDepth": 3.076923076923077,
+        "texture": "gym-boombox-front",
+        "sole": 132,
+        "x": 528,
+        "playerDepth": 3.1153846153846154,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 132,
+        "anchorY": 116,
+        "animation": "player-idle-up",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": -72
+        }
+      }
+    },
+    {
+      "contact": "office-workstation",
+      "speed": 144,
+      "bottom": 426,
+      "state": {
+        "id": "office-workstation",
+        "plane": 426,
+        "objectDepth": 3.6153846153846154,
+        "texture": "office-workstation-right-facing",
+        "sole": 427,
+        "x": 92,
+        "playerDepth": 3.6538461538461537,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 427,
+        "anchorY": 411,
+        "animation": "player-idle-up",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": -144
+        }
+      },
+      "held": {
+        "id": "office-workstation",
+        "plane": 426,
+        "objectDepth": 3.6153846153846154,
+        "texture": "office-workstation-right-facing",
+        "sole": 427,
+        "x": 92,
+        "playerDepth": 3.6538461538461537,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 427,
+        "anchorY": 411,
+        "animation": "player-idle-up",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": -144
+        }
+      }
+    },
+    {
+      "contact": "office-workstation",
+      "speed": 72,
+      "bottom": 426,
+      "state": {
+        "id": "office-workstation",
+        "plane": 426,
+        "objectDepth": 3.6153846153846154,
+        "texture": "office-workstation-right-facing",
+        "sole": 427,
+        "x": 92,
+        "playerDepth": 3.6538461538461537,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 427,
+        "anchorY": 411,
+        "animation": "player-idle-up",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": -72
+        }
+      },
+      "held": {
+        "id": "office-workstation",
+        "plane": 426,
+        "objectDepth": 3.6153846153846154,
+        "texture": "office-workstation-right-facing",
+        "sole": 427,
+        "x": 92,
+        "playerDepth": 3.6538461538461537,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 427,
+        "anchorY": 411,
+        "animation": "player-idle-up",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": -72
+        }
+      }
+    },
+    {
+      "contact": "office-dog-bed",
+      "speed": 144,
+      "bottom": 461.05,
+      "state": {
+        "id": "office-dog-bed",
+        "plane": 461,
+        "objectDepth": 3.8846153846153846,
+        "texture": "office-dog-bed-front",
+        "sole": 462.05,
+        "x": 104.15,
+        "playerDepth": 3.9615384615384617,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 462.05,
+        "anchorY": 446.05,
+        "animation": "player-idle-up",
+        "frame": 1,
+        "velocity": {
+          "x": 0,
+          "y": -144
+        }
+      },
+      "held": {
+        "id": "office-dog-bed",
+        "plane": 461,
+        "objectDepth": 3.8846153846153846,
+        "texture": "office-dog-bed-front",
+        "sole": 462.05,
+        "x": 104.15,
+        "playerDepth": 3.9615384615384617,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 462.05,
+        "anchorY": 446.05,
+        "animation": "player-idle-up",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": -144
+        }
+      }
+    },
+    {
+      "contact": "office-dog-bed",
+      "speed": 72,
+      "bottom": 461.05,
+      "state": {
+        "id": "office-dog-bed",
+        "plane": 461,
+        "objectDepth": 3.8846153846153846,
+        "texture": "office-dog-bed-front",
+        "sole": 462.05,
+        "x": 104.15,
+        "playerDepth": 3.9615384615384617,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 462.05,
+        "anchorY": 446.05,
+        "animation": "player-idle-up",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": -72
+        }
+      },
+      "held": {
+        "id": "office-dog-bed",
+        "plane": 461,
+        "objectDepth": 3.8846153846153846,
+        "texture": "office-dog-bed-front",
+        "sole": 462.05,
+        "x": 104.15,
+        "playerDepth": 3.9615384615384617,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 462.05,
+        "anchorY": 446.05,
+        "animation": "player-idle-up",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": -72
+        }
+      }
+    },
+    {
+      "contact": "office-bookcase",
+      "speed": 144,
+      "bottom": 380,
+      "state": {
+        "id": "office-bookcase",
+        "plane": 380,
+        "objectDepth": 3.5384615384615383,
+        "texture": "office-bookcase-front",
+        "sole": 381,
+        "x": 145.6,
+        "playerDepth": 3.5769230769230766,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 381,
+        "anchorY": 365,
+        "animation": "player-idle-up",
+        "frame": 1,
+        "velocity": {
+          "x": 0,
+          "y": -144
+        }
+      },
+      "held": {
+        "id": "office-bookcase",
+        "plane": 380,
+        "objectDepth": 3.5384615384615383,
+        "texture": "office-bookcase-front",
+        "sole": 381,
+        "x": 145.6,
+        "playerDepth": 3.5769230769230766,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 381,
+        "anchorY": 365,
+        "animation": "player-idle-up",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": -144
+        }
+      }
+    },
+    {
+      "contact": "office-bookcase",
+      "speed": 72,
+      "bottom": 380,
+      "state": {
+        "id": "office-bookcase",
+        "plane": 380,
+        "objectDepth": 3.5384615384615383,
+        "texture": "office-bookcase-front",
+        "sole": 381,
+        "x": 145.6,
+        "playerDepth": 3.5769230769230766,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 381,
+        "anchorY": 365,
+        "animation": "player-idle-up",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": -72
+        }
+      },
+      "held": {
+        "id": "office-bookcase",
+        "plane": 380,
+        "objectDepth": 3.5384615384615383,
+        "texture": "office-bookcase-front",
+        "sole": 381,
+        "x": 145.6,
+        "playerDepth": 3.5769230769230766,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 381,
+        "anchorY": 365,
+        "animation": "player-idle-up",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": -72
+        }
+      }
+    },
+    {
+      "contact": "office-sofa",
+      "speed": 144,
+      "bottom": 435,
+      "state": {
+        "id": "office-sofa",
+        "plane": 435,
+        "objectDepth": 3.6923076923076925,
+        "texture": "office-sofa-left",
+        "sole": 436,
+        "x": 277,
+        "playerDepth": 3.730769230769231,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 436,
+        "anchorY": 420,
+        "animation": "player-idle-up",
+        "frame": 1,
+        "velocity": {
+          "x": 0,
+          "y": -144
+        }
+      },
+      "held": {
+        "id": "office-sofa",
+        "plane": 435,
+        "objectDepth": 3.6923076923076925,
+        "texture": "office-sofa-left",
+        "sole": 436,
+        "x": 277,
+        "playerDepth": 3.730769230769231,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 436,
+        "anchorY": 420,
+        "animation": "player-idle-up",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": -144
+        }
+      }
+    },
+    {
+      "contact": "office-sofa",
+      "speed": 72,
+      "bottom": 435,
+      "state": {
+        "id": "office-sofa",
+        "plane": 435,
+        "objectDepth": 3.6923076923076925,
+        "texture": "office-sofa-left",
+        "sole": 436,
+        "x": 277,
+        "playerDepth": 3.730769230769231,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 436,
+        "anchorY": 420,
+        "animation": "player-idle-up",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": -72
+        }
+      },
+      "held": {
+        "id": "office-sofa",
+        "plane": 435,
+        "objectDepth": 3.6923076923076925,
+        "texture": "office-sofa-left",
+        "sole": 436,
+        "x": 277,
+        "playerDepth": 3.730769230769231,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 436,
+        "anchorY": 420,
+        "animation": "player-idle-up",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": -72
+        }
+      }
+    },
+    {
+      "contact": "office-coffee-table",
+      "speed": 144,
+      "bottom": 431,
+      "state": {
+        "id": "office-coffee-table",
+        "plane": 431,
+        "objectDepth": 3.6538461538461537,
+        "texture": "office-coffee-table-front",
+        "sole": 431.99999999999994,
+        "x": 228,
+        "playerDepth": 3.6923076923076925,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 431.99999999999994,
+        "anchorY": 415.99999999999994,
+        "animation": "player-idle-up",
+        "frame": 1,
+        "velocity": {
+          "x": 0,
+          "y": -144
+        }
+      },
+      "held": {
+        "id": "office-coffee-table",
+        "plane": 431,
+        "objectDepth": 3.6538461538461537,
+        "texture": "office-coffee-table-front",
+        "sole": 431.99999999999994,
+        "x": 228,
+        "playerDepth": 3.6923076923076925,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 431.99999999999994,
+        "anchorY": 415.99999999999994,
+        "animation": "player-idle-up",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": -144
+        }
+      }
+    },
+    {
+      "contact": "office-coffee-table",
+      "speed": 72,
+      "bottom": 431,
+      "state": {
+        "id": "office-coffee-table",
+        "plane": 431,
+        "objectDepth": 3.6538461538461537,
+        "texture": "office-coffee-table-front",
+        "sole": 431.99999999999994,
+        "x": 228,
+        "playerDepth": 3.6923076923076925,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 431.99999999999994,
+        "anchorY": 415.99999999999994,
+        "animation": "player-idle-up",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": -72
+        }
+      },
+      "held": {
+        "id": "office-coffee-table",
+        "plane": 431,
+        "objectDepth": 3.6538461538461537,
+        "texture": "office-coffee-table-front",
+        "sole": 431.99999999999994,
+        "x": 228,
+        "playerDepth": 3.6923076923076925,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 431.99999999999994,
+        "anchorY": 415.99999999999994,
+        "animation": "player-idle-up",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": -72
+        }
+      }
+    },
+    {
+      "contact": "office-robot-standing",
+      "speed": 144,
+      "bottom": 461,
+      "state": {
+        "id": "office-robot-standing",
+        "plane": 461,
+        "objectDepth": 3.9230769230769234,
+        "texture": "office-robot-standing",
+        "sole": 462,
+        "x": 260,
+        "playerDepth": 3.9615384615384617,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 462,
+        "anchorY": 446,
+        "animation": "player-idle-up",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": -144
+        }
+      },
+      "held": {
+        "id": "office-robot-standing",
+        "plane": 461,
+        "objectDepth": 3.9230769230769234,
+        "texture": "office-robot-standing",
+        "sole": 462,
+        "x": 260,
+        "playerDepth": 3.9615384615384617,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 462,
+        "anchorY": 446,
+        "animation": "player-idle-up",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": -144
+        }
+      }
+    },
+    {
+      "contact": "office-robot-standing",
+      "speed": 72,
+      "bottom": 461,
+      "state": {
+        "id": "office-robot-standing",
+        "plane": 461,
+        "objectDepth": 3.9230769230769234,
+        "texture": "office-robot-standing",
+        "sole": 462,
+        "x": 260,
+        "playerDepth": 3.9615384615384617,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 462,
+        "anchorY": 446,
+        "animation": "player-idle-up",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": -72
+        }
+      },
+      "held": {
+        "id": "office-robot-standing",
+        "plane": 461,
+        "objectDepth": 3.9230769230769234,
+        "texture": "office-robot-standing",
+        "sole": 462,
+        "x": 260,
+        "playerDepth": 3.9615384615384617,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 462,
+        "anchorY": 446,
+        "animation": "player-idle-up",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": -72
+        }
+      }
+    },
+    {
+      "contact": "office-robot-seated",
+      "speed": 144,
+      "bottom": 460,
+      "state": {
+        "id": "office-robot-seated",
+        "plane": 460,
+        "objectDepth": 3.8461538461538463,
+        "texture": "office-robot-seated",
+        "sole": 461,
+        "x": 288,
+        "playerDepth": 3.9615384615384617,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 461,
+        "anchorY": 445,
+        "animation": "player-idle-up",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": -144
+        }
+      },
+      "held": {
+        "id": "office-robot-seated",
+        "plane": 460,
+        "objectDepth": 3.8461538461538463,
+        "texture": "office-robot-seated",
+        "sole": 461,
+        "x": 288,
+        "playerDepth": 3.9615384615384617,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 461,
+        "anchorY": 445,
+        "animation": "player-idle-up",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": -144
+        }
+      }
+    },
+    {
+      "contact": "office-robot-seated",
+      "speed": 72,
+      "bottom": 460,
+      "state": {
+        "id": "office-robot-seated",
+        "plane": 460,
+        "objectDepth": 3.8461538461538463,
+        "texture": "office-robot-seated",
+        "sole": 461,
+        "x": 288,
+        "playerDepth": 3.9615384615384617,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 461,
+        "anchorY": 445,
+        "animation": "player-idle-up",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": -72
+        }
+      },
+      "held": {
+        "id": "office-robot-seated",
+        "plane": 460,
+        "objectDepth": 3.8461538461538463,
+        "texture": "office-robot-seated",
+        "sole": 461,
+        "x": 288,
+        "playerDepth": 3.9615384615384617,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 461,
+        "anchorY": 445,
+        "animation": "player-idle-up",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": -72
+        }
+      }
+    },
+    {
+      "contact": "kitchen-dining-set",
+      "speed": 144,
+      "bottom": 453,
+      "state": {
+        "id": "kitchen-dining-set",
+        "plane": 453,
+        "objectDepth": 3.730769230769231,
+        "texture": "kitchen-dining-set",
+        "sole": 454,
+        "x": 535,
+        "playerDepth": 3.769230769230769,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 454,
+        "anchorY": 438,
+        "animation": "player-idle-up",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": -144
+        }
+      },
+      "held": {
+        "id": "kitchen-dining-set",
+        "plane": 453,
+        "objectDepth": 3.730769230769231,
+        "texture": "kitchen-dining-set",
+        "sole": 454,
+        "x": 535,
+        "playerDepth": 3.769230769230769,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 454,
+        "anchorY": 438,
+        "animation": "player-idle-up",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": -144
+        }
+      }
+    },
+    {
+      "contact": "kitchen-dining-set",
+      "speed": 72,
+      "bottom": 453,
+      "state": {
+        "id": "kitchen-dining-set",
+        "plane": 453,
+        "objectDepth": 3.730769230769231,
+        "texture": "kitchen-dining-set",
+        "sole": 454,
+        "x": 535,
+        "playerDepth": 3.769230769230769,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 454,
+        "anchorY": 438,
+        "animation": "player-idle-up",
+        "frame": 1,
+        "velocity": {
+          "x": 0,
+          "y": -72
+        }
+      },
+      "held": {
+        "id": "kitchen-dining-set",
+        "plane": 453,
+        "objectDepth": 3.730769230769231,
+        "texture": "kitchen-dining-set",
+        "sole": 454,
+        "x": 535,
+        "playerDepth": 3.769230769230769,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 454,
+        "anchorY": 438,
+        "animation": "player-idle-up",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": -72
+        }
+      }
+    },
+    {
+      "contact": "office-plant-top-right",
+      "speed": 144,
+      "bottom": 384,
+      "state": {
+        "id": "office-plant-top-right",
+        "plane": 384,
+        "objectDepth": 3.5769230769230766,
+        "texture": "office-plant-top-right",
+        "sole": 385,
+        "x": 309,
+        "playerDepth": 3.6153846153846154,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 385,
+        "anchorY": 369,
+        "animation": "player-idle-up",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": -144
+        }
+      },
+      "held": {
+        "id": "office-plant-top-right",
+        "plane": 384,
+        "objectDepth": 3.5769230769230766,
+        "texture": "office-plant-top-right",
+        "sole": 385,
+        "x": 309,
+        "playerDepth": 3.6153846153846154,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 385,
+        "anchorY": 369,
+        "animation": "player-idle-up",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": -144
+        }
+      }
+    },
+    {
+      "contact": "office-plant-top-right",
+      "speed": 72,
+      "bottom": 384,
+      "state": {
+        "id": "office-plant-top-right",
+        "plane": 384,
+        "objectDepth": 3.5769230769230766,
+        "texture": "office-plant-top-right",
+        "sole": 385,
+        "x": 309,
+        "playerDepth": 3.6153846153846154,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 385,
+        "anchorY": 369,
+        "animation": "player-idle-up",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": -72
+        }
+      },
+      "held": {
+        "id": "office-plant-top-right",
+        "plane": 384,
+        "objectDepth": 3.5769230769230766,
+        "texture": "office-plant-top-right",
+        "sole": 385,
+        "x": 309,
+        "playerDepth": 3.6153846153846154,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 385,
+        "anchorY": 369,
+        "animation": "player-idle-up",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": -72
+        }
+      }
+    },
+    {
+      "contact": "office-plant-bottom-left",
+      "speed": 144,
+      "bottom": 460,
+      "state": {
+        "id": "office-plant-bottom-left",
+        "plane": 460,
+        "objectDepth": 3.769230769230769,
+        "texture": "office-plant-bottom-left",
+        "sole": 461,
+        "x": 73,
+        "playerDepth": 3.9615384615384617,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 461,
+        "anchorY": 445,
+        "animation": "player-idle-up",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": -144
+        }
+      },
+      "held": {
+        "id": "office-plant-bottom-left",
+        "plane": 460,
+        "objectDepth": 3.769230769230769,
+        "texture": "office-plant-bottom-left",
+        "sole": 461,
+        "x": 73,
+        "playerDepth": 3.9615384615384617,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 461,
+        "anchorY": 445,
+        "animation": "player-idle-up",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": -144
+        }
+      }
+    },
+    {
+      "contact": "office-plant-bottom-left",
+      "speed": 72,
+      "bottom": 460,
+      "state": {
+        "id": "office-plant-bottom-left",
+        "plane": 460,
+        "objectDepth": 3.769230769230769,
+        "texture": "office-plant-bottom-left",
+        "sole": 461,
+        "x": 73,
+        "playerDepth": 3.9615384615384617,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 461,
+        "anchorY": 445,
+        "animation": "player-idle-up",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": -72
+        }
+      },
+      "held": {
+        "id": "office-plant-bottom-left",
+        "plane": 460,
+        "objectDepth": 3.769230769230769,
+        "texture": "office-plant-bottom-left",
+        "sole": 461,
+        "x": 73,
+        "playerDepth": 3.9615384615384617,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 461,
+        "anchorY": 445,
+        "animation": "player-idle-up",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": -72
+        }
+      }
+    },
+    {
+      "contact": "office-plant-bottom-right",
+      "speed": 144,
+      "bottom": 460,
+      "state": {
+        "id": "office-plant-bottom-right",
+        "plane": 460,
+        "objectDepth": 3.8076923076923075,
+        "texture": "office-plant-bottom-right",
+        "sole": 461,
+        "x": 311,
+        "playerDepth": 3.9615384615384617,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 461,
+        "anchorY": 445,
+        "animation": "player-idle-up",
+        "frame": 1,
+        "velocity": {
+          "x": 0,
+          "y": -144
+        }
+      },
+      "held": {
+        "id": "office-plant-bottom-right",
+        "plane": 460,
+        "objectDepth": 3.8076923076923075,
+        "texture": "office-plant-bottom-right",
+        "sole": 461,
+        "x": 311,
+        "playerDepth": 3.9615384615384617,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 461,
+        "anchorY": 445,
+        "animation": "player-idle-up",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": -144
+        }
+      }
+    },
+    {
+      "contact": "office-plant-bottom-right",
+      "speed": 72,
+      "bottom": 460,
+      "state": {
+        "id": "office-plant-bottom-right",
+        "plane": 460,
+        "objectDepth": 3.8076923076923075,
+        "texture": "office-plant-bottom-right",
+        "sole": 461,
+        "x": 311,
+        "playerDepth": 3.9615384615384617,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 461,
+        "anchorY": 445,
+        "animation": "player-idle-up",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": -72
+        }
+      },
+      "held": {
+        "id": "office-plant-bottom-right",
+        "plane": 460,
+        "objectDepth": 3.8076923076923075,
+        "texture": "office-plant-bottom-right",
+        "sole": 461,
+        "x": 311,
+        "playerDepth": 3.9615384615384617,
+        "playerTexture": "player-up",
+        "visible": true,
+        "visualY": 461,
+        "anchorY": 445,
+        "animation": "player-idle-up",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": -72
+        }
+      }
+    }
+  ],
+  "exceptions": []
+}

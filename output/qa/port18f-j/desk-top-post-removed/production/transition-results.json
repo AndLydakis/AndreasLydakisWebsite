@@ -1,0 +1,367 @@
+{
+  "url": "http://127.0.0.1:4173",
+  "recordedAt": "2026-09-25T12:04:14.514Z",
+  "results": [
+    {
+      "id": "office-workstation",
+      "delta": -1,
+      "state": {
+        "id": "office-workstation",
+        "plane": 426,
+        "objectDepth": 3.6956521739130435,
+        "texture": "office-workstation-right-facing",
+        "sole": 425,
+        "x": 115,
+        "playerDepth": 3.6521739130434785,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 425,
+        "anchorY": 409,
+        "animation": "player-idle-down",
+        "frame": 3,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "overlap": {
+        "opaqueOverlapSamples": 7235,
+        "alphaThreshold": 128,
+        "samplesPerWorldPixel": 16,
+        "frame": 3
+      },
+      "screenshot": "transition-office-workstation--1.png"
+    },
+    {
+      "id": "office-workstation",
+      "delta": 0,
+      "state": {
+        "id": "office-workstation",
+        "plane": 426,
+        "objectDepth": 3.6521739130434785,
+        "texture": "office-workstation-right-facing",
+        "sole": 426,
+        "x": 115,
+        "playerDepth": 3.6956521739130435,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 426,
+        "anchorY": 410,
+        "animation": "player-idle-down",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "overlap": {
+        "opaqueOverlapSamples": 6968,
+        "alphaThreshold": 128,
+        "samplesPerWorldPixel": 16,
+        "frame": 0
+      },
+      "screenshot": "transition-office-workstation-0.png"
+    },
+    {
+      "id": "office-workstation",
+      "delta": 1,
+      "state": {
+        "id": "office-workstation",
+        "plane": 426,
+        "objectDepth": 3.6521739130434785,
+        "texture": "office-workstation-right-facing",
+        "sole": 427,
+        "x": 115,
+        "playerDepth": 3.6956521739130435,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 427,
+        "anchorY": 411,
+        "animation": "player-idle-down",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "overlap": {
+        "opaqueOverlapSamples": 6732,
+        "alphaThreshold": 128,
+        "samplesPerWorldPixel": 16,
+        "frame": 0
+      },
+      "screenshot": "transition-office-workstation-1.png"
+    },
+    {
+      "id": "kitchen-dining-set",
+      "delta": -1,
+      "state": {
+        "id": "kitchen-dining-set",
+        "plane": 453,
+        "objectDepth": 3.8260869565217392,
+        "texture": "kitchen-dining-set",
+        "sole": 452,
+        "x": 513,
+        "playerDepth": 3.782608695652174,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 452,
+        "anchorY": 436,
+        "animation": "player-idle-down",
+        "frame": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "overlap": {
+        "opaqueOverlapSamples": 6690,
+        "alphaThreshold": 128,
+        "samplesPerWorldPixel": 16,
+        "frame": 1
+      },
+      "screenshot": "transition-kitchen-dining-set--1.png"
+    },
+    {
+      "id": "kitchen-dining-set",
+      "delta": 0,
+      "state": {
+        "id": "kitchen-dining-set",
+        "plane": 453,
+        "objectDepth": 3.782608695652174,
+        "texture": "kitchen-dining-set",
+        "sole": 453,
+        "x": 513,
+        "playerDepth": 3.8260869565217392,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 453,
+        "anchorY": 437,
+        "animation": "player-idle-down",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "overlap": {
+        "opaqueOverlapSamples": 6672,
+        "alphaThreshold": 128,
+        "samplesPerWorldPixel": 16,
+        "frame": 2
+      },
+      "screenshot": "transition-kitchen-dining-set-0.png"
+    },
+    {
+      "id": "kitchen-dining-set",
+      "delta": 1,
+      "state": {
+        "id": "kitchen-dining-set",
+        "plane": 453,
+        "objectDepth": 3.782608695652174,
+        "texture": "kitchen-dining-set",
+        "sole": 454,
+        "x": 513,
+        "playerDepth": 3.8260869565217392,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 454,
+        "anchorY": 438,
+        "animation": "player-idle-down",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "overlap": {
+        "opaqueOverlapSamples": 6560,
+        "alphaThreshold": 128,
+        "samplesPerWorldPixel": 16,
+        "frame": 2
+      },
+      "screenshot": "transition-kitchen-dining-set-1.png"
+    },
+    {
+      "id": "office-sofa",
+      "delta": -1,
+      "state": {
+        "id": "office-sofa",
+        "plane": 435,
+        "objectDepth": 3.782608695652174,
+        "texture": "office-sofa-left",
+        "sole": 434,
+        "x": 254,
+        "playerDepth": 3.7391304347826084,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 434,
+        "anchorY": 418,
+        "animation": "player-idle-down",
+        "frame": 3,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "overlap": {
+        "opaqueOverlapSamples": 1115,
+        "alphaThreshold": 128,
+        "samplesPerWorldPixel": 16,
+        "frame": 3
+      },
+      "screenshot": "transition-office-sofa--1.png"
+    },
+    {
+      "id": "office-sofa",
+      "delta": 0,
+      "state": {
+        "id": "office-sofa",
+        "plane": 435,
+        "objectDepth": 3.7391304347826084,
+        "texture": "office-sofa-left",
+        "sole": 435,
+        "x": 254,
+        "playerDepth": 3.782608695652174,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 435,
+        "anchorY": 419,
+        "animation": "player-idle-down",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "overlap": {
+        "opaqueOverlapSamples": 1074,
+        "alphaThreshold": 128,
+        "samplesPerWorldPixel": 16,
+        "frame": 0
+      },
+      "screenshot": "transition-office-sofa-0.png"
+    },
+    {
+      "id": "office-sofa",
+      "delta": 1,
+      "state": {
+        "id": "office-sofa",
+        "plane": 435,
+        "objectDepth": 3.7391304347826084,
+        "texture": "office-sofa-left",
+        "sole": 436,
+        "x": 254,
+        "playerDepth": 3.782608695652174,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 436,
+        "anchorY": 420,
+        "animation": "player-idle-down",
+        "frame": 0,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "overlap": {
+        "opaqueOverlapSamples": 1064,
+        "alphaThreshold": 128,
+        "samplesPerWorldPixel": 16,
+        "frame": 0
+      },
+      "screenshot": "transition-office-sofa-1.png"
+    },
+    {
+      "id": "office-coffee-table",
+      "delta": -1,
+      "state": {
+        "id": "office-coffee-table",
+        "plane": 431,
+        "objectDepth": 3.7391304347826084,
+        "texture": "office-coffee-table-front",
+        "sole": 430,
+        "x": 250,
+        "playerDepth": 3.6956521739130435,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 430,
+        "anchorY": 414,
+        "animation": "player-idle-down",
+        "frame": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "overlap": {
+        "opaqueOverlapSamples": 331,
+        "alphaThreshold": 128,
+        "samplesPerWorldPixel": 16,
+        "frame": 1
+      },
+      "screenshot": "transition-office-coffee-table--1.png"
+    },
+    {
+      "id": "office-coffee-table",
+      "delta": 0,
+      "state": {
+        "id": "office-coffee-table",
+        "plane": 431,
+        "objectDepth": 3.6956521739130435,
+        "texture": "office-coffee-table-front",
+        "sole": 431,
+        "x": 250,
+        "playerDepth": 3.7391304347826084,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 431,
+        "anchorY": 415,
+        "animation": "player-idle-down",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "overlap": {
+        "opaqueOverlapSamples": 386,
+        "alphaThreshold": 128,
+        "samplesPerWorldPixel": 16,
+        "frame": 2
+      },
+      "screenshot": "transition-office-coffee-table-0.png"
+    },
+    {
+      "id": "office-coffee-table",
+      "delta": 1,
+      "state": {
+        "id": "office-coffee-table",
+        "plane": 431,
+        "objectDepth": 3.6956521739130435,
+        "texture": "office-coffee-table-front",
+        "sole": 432,
+        "x": 250,
+        "playerDepth": 3.7391304347826084,
+        "playerTexture": "player-down",
+        "visible": true,
+        "visualY": 432,
+        "anchorY": 416,
+        "animation": "player-idle-down",
+        "frame": 2,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "overlap": {
+        "opaqueOverlapSamples": 394,
+        "alphaThreshold": 128,
+        "samplesPerWorldPixel": 16,
+        "frame": 2
+      },
+      "screenshot": "transition-office-coffee-table-1.png"
+    }
+  ],
+  "exceptions": []
+}

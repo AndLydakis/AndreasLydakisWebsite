@@ -117,7 +117,6 @@ const gym: RoomDefinition = {
     { x: 0, y: 1, width: 1, height: 6 },
     { x: 0, y: 9, width: 1, height: 4 },
     { x: 15, y: 1, width: 1, height: 12 },
-    { x: 7.25, y: 3.625, width: 1.5, height: 0.5625 }, // Triple-height base; bottom stays at the boombox feet.
   ],
   interactables: [
     {
@@ -157,6 +156,9 @@ const gym: RoomDefinition = {
       interactionRadiusTiles: 1.5,
       assetId: 'gym-boombox-front',
       displayHeightTiles: 1.5,
+      groundAnchor: { x: 8, y: 4.1875 },
+      // Preserve the owner's triple-height base and existing music interaction.
+      footprints: [{ x: 7.25, y: 3.625, width: 1.5, height: 0.5625 }],
     },
   ],
   decorations: [

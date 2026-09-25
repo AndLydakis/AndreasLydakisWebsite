@@ -1,0 +1,669 @@
+{
+  "url": "http://127.0.0.1:4173",
+  "recordedAt": "2026-09-25T12:04:01.289Z",
+  "results": [
+    {
+      "route": "approved-top-post-removed-rear-strip",
+      "id": "office-workstation",
+      "speed": 144,
+      "reverse": false,
+      "states": [
+        {
+          "id": "office-workstation",
+          "plane": 426,
+          "objectDepth": 3.6956521739130435,
+          "texture": "office-workstation-right-facing",
+          "sole": 381,
+          "x": 174,
+          "playerDepth": 3.6521739130434785,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 381,
+          "anchorY": 365,
+          "animation": "player-idle-down",
+          "frame": 3,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "office-workstation",
+          "plane": 426,
+          "objectDepth": 3.6956521739130435,
+          "texture": "office-workstation-right-facing",
+          "sole": 381,
+          "x": 111.59999999999985,
+          "playerDepth": 3.6521739130434785,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 381,
+          "anchorY": 365,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "office-workstation",
+          "plane": 426,
+          "objectDepth": 3.6956521739130435,
+          "texture": "office-workstation-right-facing",
+          "sole": 376.20000000000005,
+          "x": 111.59999999999985,
+          "playerDepth": 3.608695652173913,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 376.20000000000005,
+          "anchorY": 360.20000000000005,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "office-workstation",
+          "plane": 426,
+          "objectDepth": 3.6956521739130435,
+          "texture": "office-workstation-right-facing",
+          "sole": 376.20000000000005,
+          "x": 121.19999999999987,
+          "playerDepth": 3.608695652173913,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 376.20000000000005,
+          "anchorY": 360.20000000000005,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 65,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-idle-up",
+          "player-walk-up",
+          "player-idle-right",
+          "player-walk-right"
+        ]
+      }
+    },
+    {
+      "route": "approved-top-post-removed-rear-strip",
+      "id": "office-workstation",
+      "speed": 144,
+      "reverse": true,
+      "states": [
+        {
+          "id": "office-workstation",
+          "plane": 426,
+          "objectDepth": 3.6956521739130435,
+          "texture": "office-workstation-right-facing",
+          "sole": 378,
+          "x": 120,
+          "playerDepth": 3.608695652173913,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 378,
+          "anchorY": 362,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "office-workstation",
+          "plane": 426,
+          "objectDepth": 3.6956521739130435,
+          "texture": "office-workstation-right-facing",
+          "sole": 378,
+          "x": 110.39999999999998,
+          "playerDepth": 3.608695652173913,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 378,
+          "anchorY": 362,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "office-workstation",
+          "plane": 426,
+          "objectDepth": 3.6956521739130435,
+          "texture": "office-workstation-right-facing",
+          "sole": 382,
+          "x": 110.39999999999998,
+          "playerDepth": 3.6521739130434785,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 382,
+          "anchorY": 366,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "office-workstation",
+          "plane": 426,
+          "objectDepth": 3.6956521739130435,
+          "texture": "office-workstation-right-facing",
+          "sole": 382,
+          "x": 175.20000000000013,
+          "playerDepth": 3.6521739130434785,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 382,
+          "anchorY": 366,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 67,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-walk-down",
+          "player-idle-right",
+          "player-walk-right"
+        ]
+      }
+    },
+    {
+      "route": "approved-top-post-removed-rear-strip",
+      "id": "office-workstation",
+      "speed": 72,
+      "reverse": false,
+      "states": [
+        {
+          "id": "office-workstation",
+          "plane": 426,
+          "objectDepth": 3.6956521739130435,
+          "texture": "office-workstation-right-facing",
+          "sole": 381,
+          "x": 174,
+          "playerDepth": 3.6521739130434785,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 381,
+          "anchorY": 365,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "office-workstation",
+          "plane": 426,
+          "objectDepth": 3.6956521739130435,
+          "texture": "office-workstation-right-facing",
+          "sole": 381,
+          "x": 111.60000000000039,
+          "playerDepth": 3.6521739130434785,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 381,
+          "anchorY": 365,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "office-workstation",
+          "plane": 426,
+          "objectDepth": 3.6956521739130435,
+          "texture": "office-workstation-right-facing",
+          "sole": 377.40000000000003,
+          "x": 111.60000000000039,
+          "playerDepth": 3.608695652173913,
+          "playerTexture": "player-up",
+          "visible": true,
+          "visualY": 377.40000000000003,
+          "anchorY": 361.40000000000003,
+          "animation": "player-idle-up",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "office-workstation",
+          "plane": 426,
+          "objectDepth": 3.6956521739130435,
+          "texture": "office-workstation-right-facing",
+          "sole": 377.40000000000003,
+          "x": 120.00000000000041,
+          "playerDepth": 3.608695652173913,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 377.40000000000003,
+          "anchorY": 361.40000000000003,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 95,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-idle-up",
+          "player-walk-up",
+          "player-idle-right",
+          "player-walk-right"
+        ]
+      }
+    },
+    {
+      "route": "approved-top-post-removed-rear-strip",
+      "id": "office-workstation",
+      "speed": 72,
+      "reverse": true,
+      "states": [
+        {
+          "id": "office-workstation",
+          "plane": 426,
+          "objectDepth": 3.6956521739130435,
+          "texture": "office-workstation-right-facing",
+          "sole": 378,
+          "x": 120,
+          "playerDepth": 3.608695652173913,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 378,
+          "anchorY": 362,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "office-workstation",
+          "plane": 426,
+          "objectDepth": 3.6956521739130435,
+          "texture": "office-workstation-right-facing",
+          "sole": 378,
+          "x": 111.59999999999998,
+          "playerDepth": 3.608695652173913,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 378,
+          "anchorY": 362,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "office-workstation",
+          "plane": 426,
+          "objectDepth": 3.6956521739130435,
+          "texture": "office-workstation-right-facing",
+          "sole": 381.59999999999997,
+          "x": 111.59999999999998,
+          "playerDepth": 3.6521739130434785,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 381.59999999999997,
+          "anchorY": 365.59999999999997,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "office-workstation",
+          "plane": 426,
+          "objectDepth": 3.6956521739130435,
+          "texture": "office-workstation-right-facing",
+          "sole": 381.59999999999997,
+          "x": 175.1999999999996,
+          "playerDepth": 3.6521739130434785,
+          "playerTexture": "player-right",
+          "visible": true,
+          "visualY": 381.59999999999997,
+          "anchorY": 365.59999999999997,
+          "animation": "player-idle-right",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 95,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-walk-down",
+          "player-idle-right",
+          "player-walk-right"
+        ]
+      }
+    },
+    {
+      "route": "desk-chair-narrow-interior",
+      "id": "office-workstation",
+      "speed": 72,
+      "reverse": false,
+      "states": [
+        {
+          "id": "office-workstation",
+          "plane": 426,
+          "objectDepth": 3.6956521739130435,
+          "texture": "office-workstation-right-facing",
+          "sole": 408,
+          "x": 154,
+          "playerDepth": 3.6521739130434785,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 408,
+          "anchorY": 392,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "office-workstation",
+          "plane": 426,
+          "objectDepth": 3.6956521739130435,
+          "texture": "office-workstation-right-facing",
+          "sole": 408,
+          "x": 110.8000000000002,
+          "playerDepth": 3.6521739130434785,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 408,
+          "anchorY": 392,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "office-workstation",
+          "plane": 426,
+          "objectDepth": 3.6956521739130435,
+          "texture": "office-workstation-right-facing",
+          "sole": 411.59999999999997,
+          "x": 110.8000000000002,
+          "playerDepth": 3.6521739130434785,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 411.59999999999997,
+          "anchorY": 395.59999999999997,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 62,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-walk-down"
+        ]
+      }
+    }
+  ],
+  "rendered": [
+    {
+      "screenshot": "desktop-workstation-front-clean-postrender.png",
+      "display": {
+        "sole": 434,
+        "playerDepth": 3.7391304347826084,
+        "objectDepth": 3.6521739130434785,
+        "playerIndex": 106,
+        "objectIndex": 104,
+        "workstationViews": [
+          {
+            "depth": 3.6521739130434785,
+            "visible": true,
+            "x": 104,
+            "y": 390.4,
+            "index": 104
+          }
+        ],
+        "playerViews": [
+          {
+            "texture": "player-placeholder",
+            "depth": 3.5,
+            "visible": false,
+            "index": 100
+          },
+          {
+            "texture": "player-down",
+            "depth": 3.7391304347826084,
+            "visible": true,
+            "index": 106
+          }
+        ]
+      }
+    },
+    {
+      "screenshot": "desktop-workstation-rear-strip-144-forward.png",
+      "display": {
+        "sole": 376.20000000000005,
+        "playerDepth": 3.608695652173913,
+        "objectDepth": 3.6956521739130435,
+        "playerIndex": 103,
+        "objectIndex": 105,
+        "workstationViews": [
+          {
+            "depth": 3.6956521739130435,
+            "visible": true,
+            "x": 104,
+            "y": 390.4,
+            "index": 105
+          }
+        ],
+        "playerViews": [
+          {
+            "texture": "player-placeholder",
+            "depth": 3.5,
+            "visible": false,
+            "index": 100
+          },
+          {
+            "texture": "player-right",
+            "depth": 3.608695652173913,
+            "visible": true,
+            "index": 103
+          }
+        ]
+      }
+    },
+    {
+      "screenshot": "desktop-workstation-rear-strip-144-reverse.png",
+      "display": {
+        "sole": 382,
+        "playerDepth": 3.6521739130434785,
+        "objectDepth": 3.6956521739130435,
+        "playerIndex": 104,
+        "objectIndex": 105,
+        "workstationViews": [
+          {
+            "depth": 3.6956521739130435,
+            "visible": true,
+            "x": 104,
+            "y": 390.4,
+            "index": 105
+          }
+        ],
+        "playerViews": [
+          {
+            "texture": "player-placeholder",
+            "depth": 3.5,
+            "visible": false,
+            "index": 100
+          },
+          {
+            "texture": "player-right",
+            "depth": 3.6521739130434785,
+            "visible": true,
+            "index": 104
+          }
+        ]
+      }
+    },
+    {
+      "screenshot": "desktop-workstation-rear-strip-72-forward.png",
+      "display": {
+        "sole": 377.40000000000003,
+        "playerDepth": 3.608695652173913,
+        "objectDepth": 3.6956521739130435,
+        "playerIndex": 103,
+        "objectIndex": 105,
+        "workstationViews": [
+          {
+            "depth": 3.6956521739130435,
+            "visible": true,
+            "x": 104,
+            "y": 390.4,
+            "index": 105
+          }
+        ],
+        "playerViews": [
+          {
+            "texture": "player-placeholder",
+            "depth": 3.5,
+            "visible": false,
+            "index": 100
+          },
+          {
+            "texture": "player-right",
+            "depth": 3.608695652173913,
+            "visible": true,
+            "index": 103
+          }
+        ]
+      }
+    },
+    {
+      "screenshot": "desktop-workstation-rear-strip-72-reverse.png",
+      "display": {
+        "sole": 381.59999999999997,
+        "playerDepth": 3.6521739130434785,
+        "objectDepth": 3.6956521739130435,
+        "playerIndex": 104,
+        "objectIndex": 105,
+        "workstationViews": [
+          {
+            "depth": 3.6956521739130435,
+            "visible": true,
+            "x": 104,
+            "y": 390.4,
+            "index": 105
+          }
+        ],
+        "playerViews": [
+          {
+            "texture": "player-placeholder",
+            "depth": 3.5,
+            "visible": false,
+            "index": 100
+          },
+          {
+            "texture": "player-right",
+            "depth": 3.6521739130434785,
+            "visible": true,
+            "index": 104
+          }
+        ]
+      }
+    },
+    {
+      "screenshot": "desktop-workstation-interior-clean-postrender.png",
+      "display": {
+        "sole": 411.59999999999997,
+        "playerDepth": 3.6521739130434785,
+        "objectDepth": 3.6956521739130435,
+        "playerIndex": 104,
+        "objectIndex": 105,
+        "workstationViews": [
+          {
+            "depth": 3.6956521739130435,
+            "visible": true,
+            "x": 104,
+            "y": 390.4,
+            "index": 105
+          }
+        ],
+        "playerViews": [
+          {
+            "texture": "player-placeholder",
+            "depth": 3.5,
+            "visible": false,
+            "index": 100
+          },
+          {
+            "texture": "player-down",
+            "depth": 3.6521739130434785,
+            "visible": true,
+            "index": 104
+          }
+        ]
+      }
+    }
+  ],
+  "exceptions": [],
+  "limitation": "One whole desk/chair sprite sorts at Y426; this reachable interior does not provide per-part occlusion. Former rear strip traversed both directions at 144/72 after exactly one approved collider deletion."
+}

@@ -1,0 +1,151 @@
+{
+  "url": "http://127.0.0.1:5173",
+  "recordedAt": "2026-09-25T11:58:26.019Z",
+  "results": [
+    {
+      "route": "desk-chair-narrow-interior",
+      "id": "office-workstation",
+      "speed": 72,
+      "reverse": false,
+      "states": [
+        {
+          "id": "office-workstation",
+          "plane": 426,
+          "objectDepth": 3.6956521739130435,
+          "texture": "office-workstation-right-facing",
+          "sole": 408,
+          "x": 154,
+          "playerDepth": 3.6521739130434785,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 408,
+          "anchorY": 392,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "office-workstation",
+          "plane": 426,
+          "objectDepth": 3.6956521739130435,
+          "texture": "office-workstation-right-facing",
+          "sole": 408,
+          "x": 110.8000000000002,
+          "playerDepth": 3.6521739130434785,
+          "playerTexture": "player-left",
+          "visible": true,
+          "visualY": 408,
+          "anchorY": 392,
+          "animation": "player-idle-left",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "office-workstation",
+          "plane": 426,
+          "objectDepth": 3.6956521739130435,
+          "texture": "office-workstation-right-facing",
+          "sole": 411.59999999999997,
+          "x": 110.8000000000002,
+          "playerDepth": 3.6521739130434785,
+          "playerTexture": "player-down",
+          "visible": true,
+          "visualY": 411.59999999999997,
+          "anchorY": 395.59999999999997,
+          "animation": "player-idle-down",
+          "frame": 0,
+          "velocity": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "monitor": {
+        "samples": 63,
+        "violations": [],
+        "animations": [
+          "player-idle-down",
+          "player-idle-left",
+          "player-walk-left",
+          "player-walk-down"
+        ]
+      }
+    }
+  ],
+  "rendered": [
+    {
+      "screenshot": "desktop-workstation-front-clean-postrender.png",
+      "display": {
+        "sole": 434,
+        "playerDepth": 3.7391304347826084,
+        "objectDepth": 3.6521739130434785,
+        "playerIndex": 107,
+        "objectIndex": 105,
+        "workstationViews": [
+          {
+            "depth": 3.6521739130434785,
+            "visible": true,
+            "x": 104,
+            "y": 390.4,
+            "index": 105
+          }
+        ],
+        "playerViews": [
+          {
+            "texture": "player-placeholder",
+            "depth": 3.5,
+            "visible": false,
+            "index": 101
+          },
+          {
+            "texture": "player-down",
+            "depth": 3.7391304347826084,
+            "visible": true,
+            "index": 107
+          }
+        ]
+      }
+    },
+    {
+      "screenshot": "desktop-workstation-interior-clean-postrender.png",
+      "display": {
+        "sole": 411.59999999999997,
+        "playerDepth": 3.6521739130434785,
+        "objectDepth": 3.6956521739130435,
+        "playerIndex": 105,
+        "objectIndex": 106,
+        "workstationViews": [
+          {
+            "depth": 3.6956521739130435,
+            "visible": true,
+            "x": 104,
+            "y": 390.4,
+            "index": 106
+          }
+        ],
+        "playerViews": [
+          {
+            "texture": "player-placeholder",
+            "depth": 3.5,
+            "visible": false,
+            "index": 101
+          },
+          {
+            "texture": "player-down",
+            "depth": 3.6521739130434785,
+            "visible": true,
+            "index": 105
+          }
+        ]
+      }
+    }
+  ],
+  "exceptions": [],
+  "limitation": "One whole desk/chair sprite sorts at Y426; this reachable interior does not provide per-part occlusion. Entry starts on accessible right-side floor at Y408; rear pocket is not claimed."
+}

@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { houseLayout } from '../data/houseLayout';
 import { quickTravelDestinations, resolveQuickTravel } from '../data/quickTravel';
 import { getAllCollisionRects, getRoomLocalCollisionRects } from './collisionGeometry';
+import { withApprovedOfficeChanges } from './fixtures/remainingOwnership.mjs';
 
 const baseline = JSON.parse(readFileSync(new URL('../../../output/qa/port18a/baseline.json', import.meta.url), 'utf8')).layout;
 // Later owner-approved sofa/table resizes: keep snapshots immutable and permit only these deltas.
@@ -41,7 +42,7 @@ describe('PORT-18D baseline-preserving ownership migration', () => {
     const approved = { ...beforeCouch, rooms: beforeCouch.rooms.map(room => room.id !== 'living-room' ? room : {
       ...room, collisionRects: room.collisionRects.map(applyApprovedResize),
     }) };
-    expect(multiset(getAllCollisionRects(houseLayout))).toEqual(multiset(getAllCollisionRects(approved)));
+    expect(multiset(getAllCollisionRects(houseLayout))).toEqual(multiset(withApprovedOfficeChanges(getAllCollisionRects(approved))));
     for (const { id } of quickTravelDestinations) {
       expect(resolveQuickTravel(houseLayout, id)).toEqual(resolveQuickTravel(approved, id));
     }

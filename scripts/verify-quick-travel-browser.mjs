@@ -6,7 +6,10 @@ const url = process.argv[2] ?? 'http://127.0.0.1:5173';
 const output = process.argv[4] ?? `output/qa/quick-travel/${url.includes(':4173') ? 'production' : 'development'}`;
 mkdirSync(output, { recursive: true });
 const tabs = await (await fetch(`http://127.0.0.1:${process.argv[3] ?? 9333}/json`)).json();
-const ws = new WebSocket(tabs.find(tab => tab.type === 'page').webSocketDebuggerUrl);
+const qaTab = tabs.find(tab => tab.type === 'page' && tab.url.startsWith(url))
+  ?? tabs.find(tab => tab.type === 'page' && /^http:\/\/127\.0\.0\.1:(5173|4173)\//.test(tab.url));
+assert.ok(qaTab, 'Expected an explicit isolated localhost QA page');
+const ws = new WebSocket(qaTab.webSocketDebuggerUrl);
 await new Promise(resolve => ws.addEventListener('open', resolve, { once: true }));
 let sequence = 0;
 const pending = new Map(), exceptions = [];

@@ -148,12 +148,86 @@ keep distinct instance identities, anchors and bases. No new interaction is adde
 
 The bag and stand remain a single image sorted at the existing base front edge;
 this is whole-object ordering, not separate bag/stand layers. Its display height
-remains 125% of the player. The boombox is intentionally unchanged and still
-pending within PORT-18F. Evidence is under `output/qa/port18f`; owner acceptance
-and the earlier squat-rack limitation remain separate closure gates. Cyan
+remains 125% of the player. At this partial-delivery checkpoint the boombox was
+unchanged and pending within PORT-18F; its later adoption is documented below.
+Historical evidence is under `output/qa/port18f`. Cyan
 collision review outlines remain visible.
 
 Delivery approval (DEC-146): owner accepted the current gym presentation and
 authorized delivery of PORT-18E plus the four-decoration PORT-18F subset. Earlier
-acceptance-gate notes above describe the review process; boombox adoption remains
-pending. Single-image sorting limitations are unchanged, not per-part occlusion.
+acceptance-gate notes above describe the review process; boombox adoption was
+deferred to DEC-147 below. Single-image sorting limitations are unchanged, not per-part occlusion.
+
+## Remaining gym, kitchen and study objects (PORT-18F–18J)
+
+DEC-147 implements the remaining nine original objects; DEC-152 adds three plants.
+All 24 separate instances now have authored anchors; only painted hotspots and
+background/floor/UI layers remain outside this inventory. No new renderer or
+physics branches are needed. Following the owner's DEC-148 clearance adjustment,
+full-world geometry is the original 80 rectangles minus only the workstation's
+top-post band at local (2,3.5625,2.0625,0.3125): 79 rectangles remain.
+DEC-149 additionally resizes only the office sofa/table rectangles upward to 80%
+of opaque artwork height (approximately 46.997px / 33.943px respectively), retaining
+their widths and bottom edges. Their sorting anchors do not change. These taller
+solids deliberately prevent walking through most of the visible objects.
+DEC-150 moves the study dog/bed and anchor down 6px, using the full visible-art
+bounding rectangle (1.8484375,7.4921875,2.321875,1.3234375) in local tiles.
+This leaves 4.95px above the south wall; interaction content and sprite scale stay unchanged.
+DEC-151 extends the three unobstructed painted plant-pot boxes upward to 15px
+(top-right) and 13px (both bottom corners), approximately half their visible
+plant heights. The behind-desk plant is unchanged; these remain background
+collision geometry, not additional depth-sorted sprites.
+
+DEC-152 supersedes the painted status of those three plants: they are now separate
+decorations in the existing depth registry, taking ownership of the exact same
+pot rectangles. The behind-desk monstera stays painted. Separate-instance count
+is now 24; world collision count remains 79. `office-background-plants-removed`
+and all three plant textures form one `visualBundle`; any missing member selects
+the original `office-background` and suppresses the extracted sprites together.
+If neither backdrop exists, the generic fallback still keeps all colliders.
+
+| Plant | Ground anchor (local tiles) | Visible height (world px) | Generated alpha bounds (exclusive right/bottom) |
+| --- | --- | --- | --- |
+| Top-right | (15.8125,4) | 29.106 | [325,90,930,1224) on 1221x1288 |
+| Bottom-left | (1.0625,8.75) | 26.112 | [195,179,1030,1127) on 1240x1268 |
+| Bottom-right | (15.9375,8.75) | 26.611 | [209,102,1106,1118) on 1312x1199 |
+
+Registration uses measured lower-pot silhouette centers (619/631/660 source px),
+not whole-foliage centroids; original backdrop pot centers were estimated at
+1518/98/1537 source px. Uniform scaling preserves cutout proportions. Visible
+bottoms align with the sorting planes to within 0.00002 world px. The generated
+cutouts preserve pot identity/style but slightly vary foliage; art acceptance
+is separate from technical correctness. Built-in image editing prompts and asset
+names are recorded in `output/imagegen/office-plants-perspective.prompt.md`.
+
+| Object | Local anchor (tile edges) | Footprint pieces | Sort plane minus opaque bottom (px) |
+| --- | --- | --- | --- |
+| Boombox | (8,4.1875) | 1 | +0.45 |
+| Kitchen dining set | (8.5,8.3125) | 3 | +2.36 |
+| Study workstation | (3,6.625) | 8 | +1.40 |
+| Dog/bed | (3,8.8125) | 1 | −0.05 |
+| Study bookcase | (5.6,3.75) | 1 | −0.08 |
+| Study sofa | (13.75,7.1875) | 1 | +1.83 |
+| Study coffee table | (10.75,6.9375) | 1 | −0.78 |
+| Standing robot | (12.75,8.8125) | 1 | +0.31 |
+| Seated robot | (14.5,8.75) | 1 | +0.46 |
+
+Measured at alpha≥128 in the existing scaled art. Positive offsets place the
+plane south of visible contact. These anchors preserve existing footprint front
+edges, not uniformly exact opaque-image bottoms; visible transitions require
+review. The workstation owns seven remaining outline rectangles plus the
+front desk-foot band, including the chair rear support. The removed top post is
+visual only; its removal does not change the independent sort plane. The dining set owns all
+three original table/chair bands. Kitchen fixed cabinets remain room-owned;
+the exported complete furniture inventory is retained for geometry assertions.
+
+Desk/chair and dining table/chairs each sort as a whole image. Neither supports
+putting the player in front of one part and behind another independently. Do not
+change colliders to disguise this limitation. The study bookcase meets the upper
+wall, so its rear is not a reachable walk-behind route. Preserve all six content
+interactions (music, CV, dog photo, books, meals, shopping), existing camera/input
+behavior and the owner-requested cyan bounds. QA: `output/qa/port18f-j/final/verification.md`.
+DEC-153 records owner acceptance of the current artwork and composite sorting,
+and authorizes delivery after integration and independent review pass. Cyan
+collision outlines remain an explicit presentation exception; other development
+diagnostics must remain absent in production.

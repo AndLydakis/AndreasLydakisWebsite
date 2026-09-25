@@ -15,6 +15,10 @@ export const optionalTexturePaths = {
   'kitchen-background': 'backgrounds/kitchen/sample-v3.png',
   'kitchen-dining-set': 'sprites/kitchen-dining-set/front-v1.png',
   'office-background': 'backgrounds/office/sample-v5.png',
+  'office-background-plants-removed': 'backgrounds/office/three-plants-removed-v1.png',
+  'office-plant-top-right': 'sprites/office-plant-top-right/front-v1.png',
+  'office-plant-bottom-left': 'sprites/office-plant-bottom-left/front-v1.png',
+  'office-plant-bottom-right': 'sprites/office-plant-bottom-right/front-v1.png',
   // Source names denote camera viewpoint: this view's working side faces screen-right.
   'office-workstation-right-facing': 'sprites/office-workstation/left-review.png',
   'office-bookcase-front': 'sprites/office-bookcase/front.png',

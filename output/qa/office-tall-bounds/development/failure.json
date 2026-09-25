@@ -1,0 +1,5 @@
+{
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  [\n    '[0,0,1024,16]',\n    '[0,0,16,576]',\n    '[0,560,1024,16]',\n    '[1008,0,16,576]',\n...\n    '[214,320,114,54]',\n+   '[217,397.0566666666666,22,33.94333333333333]',\n-   '[217,397.0566666666667,22,33.94333333333333]',\n    '[224,256,128,32]',\n    '[224,288,16,32]',\n    '[249,128,70,9]',\n    '[252,455,16,6]',\n    '[262,388.00333333333333,30,46.99666666666667]',\n\n    at geometry (file://<repo>/scripts/verify-office-tall-bounds-browser.mjs:231:42)\n    at async file://<repo>/scripts/verify-office-tall-bounds-browser.mjs:259:25",
+  "results": [],
+  "exceptions": []
+}

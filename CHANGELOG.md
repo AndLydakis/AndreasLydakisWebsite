@@ -6,6 +6,18 @@ pushed.
 
 ## [Unreleased]
 
+### PORT-18F–18J — Boombox, kitchen and study perspective
+
+- Opt the remaining nine original objects into the existing generic depth registry and footprint collector, with the owner-requested office follow-ups below.
+- Transfer the boombox base, three dining-set pieces and office footprints without merging or duplicating pieces. Kitchen fixtures and the behind-desk plant remain baked into their backgrounds.
+- Remove the desk's top-post collision at the owner's request to open clearance beside the north wall; retain its independent perspective anchor and remaining desk/chair pieces (79 world bodies remain).
+- Extend office sofa and coffee-table collisions upward to 80% of visible artwork height; preserve their widths, bottom edges and perspective anchors.
+- Move the study dog/bed down 6px and expand its collision to the complete visible sprite bounds, preserving its image interaction and shifting the perspective anchor with it.
+- Extend the three unobstructed office plant-pot collision boxes to roughly half each plant's height; leave the behind-desk pot unchanged.
+- Separate those three plants into transparent sprites with normal front/behind sorting and a restored office backdrop; preserve all collision geometry and retain the original background as an atomic missing-art fallback.
+- Verify the final 24-object metadata inventory and 79-body world geometry. Baseline exceptions are exactly the approved desk-post deletion, six collider resizes, dog shift and three plant extractions; unrelated layout fields remain protected.
+- Owner accepts current visuals and whole-image composite sorting (DEC-153). Fresh 1,930 tests, typecheck/build, 498 integration records per environment and four-viewport quick-travel checks pass. Senior engineer and game reviewer approve with no blockers; evidence is in `output/qa/port18f-j/final/verification.md`. Retain requested cyan collision outlines.
+
 ## [2026-09-25] — Approved gym perspective delivery
 
 Owner approved the held PORT-18E and requested PORT-18F subset (DEC-146).

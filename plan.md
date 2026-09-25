@@ -3231,11 +3231,13 @@ PORT-18E evidence: `output/qa/port18e/verification.md`. Full suite (1,316 tests/
 
 ## PORT-18F — Apply generic perspective to remaining gym objects
 
+Shared PORT-18F–18J delivery contract (DEC-153): the owner accepts the current artwork, routes and whole-image desk/chair and dining-set sorting. Integration expectations include only the explicitly approved DEC-148–152 geometry/art changes: 79 world bodies, 24 separate instances, unchanged unrelated layout fields, and the three-plant atomic fallback. Earlier baseline-preservation criteria exclude those authorized changes. Keep cyan collision outlines as requested; other production diagnostics remain absent. Final combined QA/reviewer approval and successful push are required before Done.
+
 Type: Story
 Priority: High — queued after prerequisite
 Dependencies: `PORT-18E`
 Milestone: M6
-Status: Partially delivered — owner-approved plates/boxing-bag subset pushed in 797845a to origin/master (DEC-146). Boombox remains unimplemented; do not close the full story.
+Status: In review — plates/bag already delivered; boombox implemented and visuals accepted (DEC-153). Final integration/review gates and conditional push pending.
 Delivery: Global story workflow and all M6 review gates apply.
 
 ### Goal
@@ -3262,7 +3264,7 @@ Author and verify this bounded asset group through the shared perspective system
 
 Run full test/typecheck/build and scoped diff checks; compare collision multisets and inspect normal/slow runtime sequences for every listed instance. Record reviewed snapshot, findings, fixes/re-review and owner sign-off. Re-estimate before work and split above two focused days. This is asset-data adoption, not new core rendering implementation.
 
-Partial PORT-18F evidence: `output/qa/port18f/verification.md`. The four requested decorations preserve all 80 collision bodies and every placement/scale/interaction field. Full 1,443-test suite, typecheck/build and whitespace checks pass. Development/production each pass 90 core records, 14 squat/music interactions and 2 actual D-pad cases. Independent engineer/game reviewers approve the corrected steel collision test and saved visuals. Bag/stand uses whole-object ordering; owner visual acceptance remains required. Boombox adoption is still unimplemented; this is not story closure.
+Historical partial PORT-18F evidence: `output/qa/port18f/verification.md`. The four requested decorations preserved all 80 collision bodies and every placement/scale/interaction field. Full 1,443-test suite, typecheck/build and whitespace checks passed, with development/production route, interaction and D-pad evidence. Owner accepted and delivered plates/bag in DEC-146. Boombox adoption is now implemented locally under DEC-147; DEC-153 records visual acceptance and the combined integration/review delivery gate.
 
 ---
 
@@ -3272,7 +3274,8 @@ Type: Story
 Priority: High — queued after prerequisite
 Dependencies: `PORT-18F`
 Milestone: M6
-Status: Pending — not started
+Status: In review — workstation and top-post correction implemented; owner accepts current whole-image sorting (DEC-153). Final integration/review gates and conditional push pending.
+Approved workstation exception: remove only its top-post rectangle specified in subtask 3; retain the original perspective anchor. Other room exceptions are listed in the shared PORT-18F–18J delivery contract above.
 Delivery: Global story workflow and all M6 review gates apply.
 
 ### Goal
@@ -3283,7 +3286,7 @@ Author and verify this bounded asset group through the shared perspective system
 
 1. Inventory exact instances: office-workstation. Measure visible floor contact and record room-local ground anchors and every existing base rectangle before editing.
 2. Add metadata only through the generic schema/registry; atomically migrate existing room bases to `footprints` arrays without changing the complete collision multiset.
-3. Preserve every officeWorkstationOutline rectangle plus the desk front-foot band as separate footprint pieces, including the visible chair rear support. Test the desk/chair gap; one combined image sorts as one plane. Stop for an approved layered-art follow-up if that cannot satisfy the intended behind-desk view.
+3. Preserve the desk front-foot band and remaining outline pieces, including the visible chair rear support. Exception DEC-148: remove only the top-post rectangle (2,3.5625,2.0625,0.3125) at the owner's request; assert baseline minus that exact rectangle (79 world bodies, eight workstation pieces). Test both directions through the opened wall-side strip and the desk/chair gap; one combined image sorts as one plane. Stop for an approved layered-art follow-up if that cannot satisfy the intended behind-desk view.
 4. Verify each instance's reachable front/behind/side/corner paths, idle/walk transitions and equal-depth behavior; include another object/player overlap where reachable.
 5. Test missing art, restart, debug on/off, production diagnostics absence and all current interactions. Obtain independent engineer/game reviews and owner visual acceptance; record per-instance evidence.
 
@@ -3307,7 +3310,11 @@ Type: Story
 Priority: High — queued after prerequisite
 Dependencies: `PORT-18G`
 Milestone: M6
-Status: Pending — not started
+Status: In review — dog/bookcase and plant follow-ups implemented; owner accepts current visuals (DEC-153). Final integration/review gates and conditional push pending.
+Approved dog-bed adjustment (DEC-150): move it down 6px and replace its floor band with full visible sprite bounds; shift its anchor with the artwork, preserve content/scale, and verify the desk/dog passage and image dialog. Baseline-preservation requirements permit this explicit exception in addition to DEC-148/149.
+Office collision follow-up (DEC-151): extend the top-right/bottom-left/bottom-right painted pot boxes to 15px/13px/13px respectively, retaining their bottoms and widths. Leave the behind-desk pot unchanged; include exactly these three geometry exceptions and recheck the dog/plant approach.
+Approved perspective follow-up (DEC-152): extract those three plants into transparent decorations with the same colliders and floor-contact anchors; restore their background areas, preserve the behind-desk plant, and use the existing atomic visual bundle with original backdrop fallback. Verify no doubled/missing plants, 79 unchanged world bodies, three new depth registrations, reachable occlusion and fallback behavior. Owner accepts the resulting artwork under DEC-153; its conditional delivery authorization supersedes the earlier no-push hold.
+Focused DEC-152 verification: 1,930 tests/42 files and typecheck/build pass; development/production browser runs each pass 24 records covering routes, overlap, restarts, missing art and the dog dialog. Evidence: `output/qa/office-plant-perspective/`. Combined story integration/review evidence is recorded separately in `output/qa/port18f-j/final/verification.md`.
 Delivery: Global story workflow and all M6 review gates apply.
 
 ### Goal
@@ -3342,7 +3349,8 @@ Type: Story
 Priority: High — queued after prerequisite
 Dependencies: `PORT-18H`
 Milestone: M6
-Status: Pending — not started
+Status: In review — lounge objects/robots and taller sofa/table collisions implemented; owner accepts current visuals (DEC-153). Final integration/review gates and conditional push pending.
+Approved geometry exception (DEC-149): office sofa and coffee-table footprints extend upward to 80% of opaque artwork height, retaining their bottom edges, widths and perspective anchors. Other approved exceptions are listed in the shared PORT-18F–18J delivery contract; verify collision approaches and routes before closure.
 Delivery: Global story workflow and all M6 review gates apply.
 
 ### Goal
@@ -3377,7 +3385,7 @@ Type: Story
 Priority: High — queued after prerequisite
 Dependencies: `PORT-18I`
 Milestone: M6
-Status: Pending — not started
+Status: In review — kitchen dining and final 24-instance coverage implemented; owner accepts current whole-image sorting (DEC-153). Final integration/review gates and conditional push pending.
 Delivery: Global story workflow and all M6 review gates apply.
 
 ### Goal
@@ -3388,7 +3396,7 @@ Author and verify this bounded asset group through the shared perspective system
 
 1. Inventory exact instances: kitchen-dining-set. Measure visible floor contact and record room-local ground anchors and every existing base rectangle before editing.
 2. Add metadata only through the generic schema/registry; atomically migrate existing room bases to `footprints` arrays without changing the complete collision multiset.
-3. Preserve all three existing dining/foot-band rectangles separately. Stove/fridge remain background hotspots, not separate objects. Add a coverage test over every current non-background object in houseLayout: none may lack reviewed metadata. Expect 21 separate instances after approved couch/table extraction (before bookcase), absent further approved additions/splits. Couch/table must be included, not excluded as baked art; only still-baked assets and floor/UI layers are excluded.
+3. Preserve all three existing dining/foot-band rectangles separately. Stove/fridge remain background hotspots, not separate objects. Add a coverage test over every current non-background object in houseLayout: none may lack reviewed metadata. Expect 24 separate instances after the approved couch/table and three office-plant extractions (DEC-152). These extracted objects must be included, not excluded as baked art; only still-baked assets and floor/UI layers are excluded.
 4. Verify each instance's reachable front/behind/side/corner paths, idle/walk transitions and equal-depth behavior; include another object/player overlap where reachable.
 5. Test missing art, restart, debug on/off, production diagnostics absence and all current interactions. Obtain independent engineer/game reviews and owner visual acceptance; record per-instance evidence.
 

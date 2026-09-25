@@ -3,8 +3,8 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { houseLayout } from '../data/houseLayout';
 import { PLAYER_SPEED } from '../entities/playerMotion';
-import { officeWorkstationOutline } from '../data/office';
-import { kitchen, kitchenFurnitureCollisions } from '../data/kitchen';
+import { kitchen } from '../data/kitchen';
+import { approvedPotResizes, beforeRemaining, remainingOwners } from './fixtures/remainingOwnership.mjs';
 import { getCorridorCollisionRects, getRoomLocalCollisionRects } from './collisionGeometry';
 
 // Exercise the installed Arcade solver, not a mocked overlap predicate or renderer.
@@ -37,18 +37,26 @@ const squatCases = preGym.collisionRects.slice(6, 15).map((expected, index) => (
   rect: getRoomLocalCollisionRects(gym).find(rect =>
     ['x', 'y', 'width', 'height'].every(key => rect[key] === expected[key])),
 }));
+const exactCases = (room, expectedRects, label) => expectedRects.map((expected, index) => ({
+  room, name: `${label} ${index}`, expected,
+  rect: getRoomLocalCollisionRects(room).find(rect => ['x', 'y', 'width', 'height'].every(key => rect[key] === expected[key])),
+}));
+const kitchenCases = exactCases(kitchen, beforeRemaining.layout.rooms.find(room => room.id === 'kitchen').collisionRects.slice(5), 'kitchen object');
+const officeCases = remainingOwners.filter(owner => owner.roomId === 'office')
+  .flatMap(owner => exactCases(office, owner.rects, owner.id))
+  .concat(approvedPotResizes.flatMap(pot => exactCases(office, [pot.rect], pot.id)));
+const diningCases = exactCases(kitchen, remainingOwners.find(owner => owner.id === 'kitchen-dining-set').rects, 'dining piece');
 const cases = [
   ...pilotCases,
   ...squatCases,
   ...getCorridorCollisionRects(houseLayout).map((rect, index) => ({ room: { origin: { x: 0, y: 0 } }, name: `corridor wall ${index}`, rect })),
-  ...kitchenFurnitureCollisions.map((rect, index) => ({ room: kitchen, name: `kitchen object ${index}`, rect })),
+  ...kitchenCases,
   ...gymObjectCases,
-  ...office.collisionRects.slice(5, 12).map((rect, index) => ({ room: office, name: `office object ${index}`, rect })),
-  ...officeWorkstationOutline.map((rect, index) => ({ room: office, name: `workstation outline ${index}`, rect })),
+  ...officeCases,
 ];
 
 describe('house equipment and corridor walls actual Arcade collisions', () => {
-  it.each(gymObjectCases)('selects the exact $name base, not another rectangle sharing x', ({ rect, expected }) => {
+  it.each([...gymObjectCases, ...kitchenCases, ...officeCases])('selects the exact $name base, not another rectangle sharing x', ({ rect, expected }) => {
     expect(rect).toEqual(expected);
   });
   for (const { room, name, rect } of cases) {
@@ -94,9 +102,9 @@ describe('house equipment and corridor walls actual Arcade collisions', () => {
   }
 });
 
-describe('migrated pilot and gym bases actual Arcade diagonal corner contact', () => {
-  const gymCases = gymObjectCases.filter(({ name }) => name !== 'boombox');
-  for (const { room, name, rect } of [...pilotCases, ...squatCases, ...gymCases]) {
+describe('house furniture bases actual Arcade diagonal corner contact', () => {
+  const gymCases = gymObjectCases;
+  for (const { room, name, rect } of [...pilotCases, ...squatCases, ...gymCases, ...officeCases, ...diningCases]) {
     for (const [dx, dy] of [[1, 1], [-1, 1], [1, -1], [-1, -1]]) {
       it.each([15, 30, 60, 120])(`${name} blocks diagonal ${dx},${dy} at %s render FPS`, fps => {
         const x = (room.origin.x + rect.x) * 16, y = (room.origin.y + rect.y) * 16;
@@ -131,5 +139,46 @@ describe('migrated pilot and gym bases actual Arcade diagonal corner contact', (
         }
       });
     }
+  }
+});
+
+describe('office removed top-post escape with the actual Arcade solver', () => {
+  for (const [label, targetX] of [['left', 1], ['right', 4.125]]) {
+    it.each([15, 30, 60, 120])(`escapes ${label} through the removed strip near the wall at %s FPS`, fps => {
+      const world = new World({ sys: { scale: { width: 1024, height: 768 } } }, { gravity: { x: 0, y: 0 } });
+      const player = new Body(world);
+      player.setSize(16, 1, false);
+      const startX = (office.origin.x + 3) * 16;
+      const soleY = (office.origin.y + 3.625) * 16;
+      player.position.set(startX - 8, soleY - 1);
+      world.add(player);
+      const solids = getRoomLocalCollisionRects(office).map(rect => ({
+        x: (office.origin.x + rect.x) * 16, y: (office.origin.y + rect.y) * 16,
+        width: rect.width * 16, height: rect.height * 16,
+      }));
+      for (const rect of solids) {
+        const body = new StaticBody(world, { x: rect.x + rect.width / 2, y: rect.y + rect.height / 2,
+          originX: 0.5, originY: 0.5, displayWidth: rect.width, displayHeight: rect.height });
+        world.add(body);
+        world.addCollider(player, body);
+      }
+      const target = (office.origin.x + targetX) * 16;
+      try {
+        for (let frame = 0; frame < fps; frame++) {
+          const delta = target - (player.left + 8);
+          player.setVelocity(Math.sign(delta) * Math.min(PLAYER_SPEED, Math.abs(delta) * fps), 0);
+          world.update(frame * 1000 / fps, 1000 / fps);
+          world.postUpdate();
+          expect(player.bottom).toBeCloseTo(soleY);
+          for (const rect of solids) {
+            const overlapX = Math.min(player.right, rect.x + rect.width) - Math.max(player.left, rect.x);
+            const overlapY = Math.min(player.bottom, rect.y + rect.height) - Math.max(player.top, rect.y);
+            expect(overlapX > 1e-6 && overlapY > 1e-6).toBe(false);
+          }
+        }
+        expect(player.left + 8).toBeCloseTo(target);
+        expect(Math.abs(player.left + 8 - startX)).toBeGreaterThan(16);
+      } finally { world.destroy(); }
+    });
   }
 });

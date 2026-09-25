@@ -7,7 +7,7 @@ import { InteractionSystem } from '../systems/InteractionSystem';
 import { gymKitchenCenterX, gymSouthEntrance } from './gymKitchenConnection';
 import { getAllCollisionRects, getRoomLocalCollisionRects } from '../systems/collisionGeometry';
 
-const blocked = (x: number, y: number) => kitchen.collisionRects.some(r =>
+const blocked = (x: number, y: number) => getRoomLocalCollisionRects(kitchen).some(r =>
   x + 0.5 > r.x && x - 0.5 < r.x + r.width && y > r.y && y - 1 / 16 < r.y + r.height);
 
 describe('kitchen layout and content', () => {

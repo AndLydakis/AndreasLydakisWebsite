@@ -1,0 +1,183 @@
+{
+  "url": "http://127.0.0.1:5173",
+  "harnessSha256": "5bc0565cd6825fc7245ff138ee8aae5ff224e39f42455e3e03a146f86f78c2a4",
+  "recordedAt": "2026-09-25T13:17:51.495Z",
+  "baseline": "output/qa/port18f-j/preintegration-geometry.json",
+  "results": [
+    {
+      "viewport": "desktop",
+      "bounds": true,
+      "screenshot": "desktop-workstation-front-cyan.png",
+      "state": {
+        "sole": 434,
+        "plane": 426,
+        "playerIndex": 107,
+        "deskIndex": 105,
+        "playerDepth": 3.6923076923076925,
+        "deskDepth": 3.6153846153846154,
+        "frame": 3,
+        "players": [
+          {
+            "key": "player-down",
+            "depth": 3.6923076923076925,
+            "x": 104,
+            "y": 434
+          }
+        ],
+        "desks": [
+          {
+            "depth": 3.6153846153846154,
+            "x": 104,
+            "y": 390.4
+          }
+        ]
+      }
+    },
+    {
+      "viewport": "desktop",
+      "bounds": false,
+      "screenshot": "desktop-workstation-front-clean.png",
+      "state": {
+        "sole": 434,
+        "plane": 426,
+        "playerIndex": 107,
+        "deskIndex": 105,
+        "playerDepth": 3.6923076923076925,
+        "deskDepth": 3.6153846153846154,
+        "frame": 3,
+        "players": [
+          {
+            "key": "player-down",
+            "depth": 3.6923076923076925,
+            "x": 104,
+            "y": 434
+          }
+        ],
+        "desks": [
+          {
+            "depth": 3.6153846153846154,
+            "x": 104,
+            "y": 390.4
+          }
+        ]
+      }
+    },
+    {
+      "viewport": "portrait",
+      "bounds": true,
+      "screenshot": "portrait-workstation-front-cyan.png",
+      "state": {
+        "sole": 434,
+        "plane": 426,
+        "playerIndex": 107,
+        "deskIndex": 105,
+        "playerDepth": 3.6923076923076925,
+        "deskDepth": 3.6153846153846154,
+        "frame": 0,
+        "players": [
+          {
+            "key": "player-down",
+            "depth": 3.6923076923076925,
+            "x": 104,
+            "y": 434
+          }
+        ],
+        "desks": [
+          {
+            "depth": 3.6153846153846154,
+            "x": 104,
+            "y": 390.4
+          }
+        ]
+      }
+    },
+    {
+      "viewport": "portrait",
+      "bounds": false,
+      "screenshot": "portrait-workstation-front-clean.png",
+      "state": {
+        "sole": 434,
+        "plane": 426,
+        "playerIndex": 107,
+        "deskIndex": 105,
+        "playerDepth": 3.6923076923076925,
+        "deskDepth": 3.6153846153846154,
+        "frame": 0,
+        "players": [
+          {
+            "key": "player-down",
+            "depth": 3.6923076923076925,
+            "x": 104,
+            "y": 434
+          }
+        ],
+        "desks": [
+          {
+            "depth": 3.6153846153846154,
+            "x": 104,
+            "y": 390.4
+          }
+        ]
+      }
+    },
+    {
+      "viewport": "landscape",
+      "bounds": true,
+      "screenshot": "landscape-workstation-front-cyan.png",
+      "state": {
+        "sole": 434,
+        "plane": 426,
+        "playerIndex": 107,
+        "deskIndex": 105,
+        "playerDepth": 3.6923076923076925,
+        "deskDepth": 3.6153846153846154,
+        "frame": 0,
+        "players": [
+          {
+            "key": "player-down",
+            "depth": 3.6923076923076925,
+            "x": 104,
+            "y": 434
+          }
+        ],
+        "desks": [
+          {
+            "depth": 3.6153846153846154,
+            "x": 104,
+            "y": 390.4
+          }
+        ]
+      }
+    },
+    {
+      "viewport": "landscape",
+      "bounds": false,
+      "screenshot": "landscape-workstation-front-clean.png",
+      "state": {
+        "sole": 434,
+        "plane": 426,
+        "playerIndex": 107,
+        "deskIndex": 105,
+        "playerDepth": 3.6923076923076925,
+        "deskDepth": 3.6153846153846154,
+        "frame": 0,
+        "players": [
+          {
+            "key": "player-down",
+            "depth": 3.6923076923076925,
+            "x": 104,
+            "y": 434
+          }
+        ],
+        "desks": [
+          {
+            "depth": 3.6153846153846154,
+            "x": 104,
+            "y": 390.4
+          }
+        ]
+      }
+    }
+  ],
+  "exceptions": []
+}
