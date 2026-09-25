@@ -6,6 +6,55 @@ pushed.
 
 ## [Unreleased]
 
+Owner approved delivery of the held PORT-18C, PORT-18D, PORT-18D1, PORT-19A,
+PORT-19B, PORT-19C and PORT-19C1 changes on2026-09-25 (DEC-143). Entries below
+record the implementation sequence; earlier no-push/review notes are historical.
+
+### PORT-19C1 — Coffee-table integration (local)
+
+- Owner follow-up: tripled table collision height from8px to24px, extending backward while preserving its front edge and the15px passage to the sofa.
+
+- Activated the approved original-pixel table cutout and cumulative restored backdrop through the existing depth-sorting/visual-bundle system.
+- Moved the table's unchanged collision base to its decoration; retained the enlarged sofa, visible collision outlines and original fallback backdrop. Retained the intermediate backdrop on disk without loading it at runtime.
+- Owner runtime review pending; no commit or push.
+
+### PORT-19C — Coffee-table art preparation (accepted locally)
+
+- Extracted the original table, pizza and cans without regenerating foreground pixels; prepared a localized restored-rug backdrop and registered alpha/player-overlap previews.
+- Preserved the approved couch and documented table registration, existing collision base and cumulative visual bundle. Independent art/technical reviews pass; owner accepted the package for integration.
+- No live asset switch, collision change, commit or push.
+
+### PORT-19B — Couch depth integration (local)
+
+- Owner review adjustment: enlarged the sofa collision footprint from7px to28px tall, keeping its front edge fixed; temporarily show house collision outlines in both preview modes.
+
+- Activated the approved pixel-preserving couch cutout and restored living-room backdrop, keeping exact placement and the original collision base.
+- Added generic all-or-nothing visual bundles: incomplete extracted art falls back to the original painted room, or visible placeholders if both backgrounds fail. Physics is unchanged.
+- Retained the original assets; coffee table/bookcase remain painted. No commit or push; owner runtime visual review pending.
+
+### Gym–kitchen alignment (local)
+
+- Aligned the corridor and gym collision jambs to the painted gym entrance; shifted the kitchen 5.5 world pixels left so both entrances share one centerline.
+- Preserved room-local kitchen contents and added support for precise fractional corridor geometry. No artwork changes or push.
+
+### PORT-19A — Couch art preparation (accepted locally)
+
+- Extracted the original couch with an explicit alpha mask, preserving RGB pixels, canvas registration and current footprint. Added localized restored-floor background, contrasting-alpha previews, and front/behind/side player mockups.
+- Retained the original and rejected generated drafts. Owner approved integration; the live switch belongs to PORT-19B. No push.
+
+### PORT-18D — Object-owned collision footprints (local)
+
+- Moved the TV, vinyl player and globe's existing solid bases into object metadata without changing geometry or placement.
+- Unified physics, spawn validation, quick-travel clearance, fallback previews and debug outlines through the combined collision collector; added development anchor markers.
+- Prioritized couch/table preparation and integration before gym adoption. No artwork or other furniture behavior changed in this story; no commit/push.
+
+### PORT-18C — Generic depth sorting (local; awaiting owner verification)
+
+- Added shared feet/ground-anchor sorting for separate world sprites, initially enabled for the living-room TV, vinyl player and globe. Unchanged placements, art, interaction ranges and collision geometry; other objects await their adoption stories.
+- Synchronized visible player, depth and camera after physics and immediately on travel, including fallback art. Kept teleport jumps out of the walk cycle.
+- Isolated development diagnostics from production and fixed scene-restart cleanup. Added bounded-rank, Unicode tuple-order, lifecycle, mobile and no-step travel regressions.
+- No commit or push until the owner manually verifies the result.
+
 ### PORT-18B — Object spatial metadata
 
 - Added shared optional ground anchors and compound footprint arrays with floor-edge coordinate conversion and validation for bounds, finite values, duplicate rectangles and background-art restrictions.

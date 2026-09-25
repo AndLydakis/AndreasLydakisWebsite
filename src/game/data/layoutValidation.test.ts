@@ -5,6 +5,20 @@ import { assertValidHouseLayout, validateHouseLayout } from './layoutValidation'
 import type { DoorwayDefinition, HouseLayout, RoomDefinition } from './types';
 
 describe('house layout validation', () => {
+  it.each(['decoration', 'interactable'])('rejects a spawn obstructed only by a %s footprint, independent of art', kind => {
+    const office = houseLayout.rooms.find(room => room.id === 'office')!;
+    const x = houseLayout.initialSpawn.x - office.origin.x;
+    const y = houseLayout.initialSpawn.y - office.origin.y;
+    const metadata = { groundAnchor: { x, y }, footprints: [{ x, y, width: 1, height: 1 }], assetId: 'missing-art' };
+    const layout = replaceRoom(houseLayout, 'office', kind === 'decoration'
+      ? { decorations: [...(office.decorations ?? []), { id: 'spawn-blocker', position: { x, y }, ...metadata }] }
+      : { interactables: office.interactables.map((object, index) => index === 0 ? { ...object, ...metadata } : object) });
+    expect(validateHouseLayout(layout)).toContain('Initial spawn is not walkable because it is inside a collision rect in room office.');
+    const clear = replaceRoom(layout, 'office', kind === 'decoration'
+      ? { decorations: office.decorations }
+      : { interactables: office.interactables });
+    expect(validateHouseLayout(clear)).toEqual([]);
+  });
   it('accepts the complete initial layout', () => {
     expect(validateHouseLayout(houseLayout)).toEqual([]);
     expect(() => assertValidHouseLayout(houseLayout)).not.toThrow();
@@ -35,10 +49,10 @@ describe('house layout validation', () => {
     });
     const invalidErrors = validateHouseLayout(invalidCorridor);
     expect(invalidErrors).toContain(
-      'Corridor living-room-gym-corridor origin must use non-negative integer world coordinates.',
+      'Corridor living-room-gym-corridor origin must use finite non-negative world coordinates.',
     );
     expect(invalidErrors).toContain(
-      'Corridor living-room-gym-corridor must have positive integer tile dimensions.',
+      'Corridor living-room-gym-corridor must have positive finite tile dimensions.',
     );
 
     const outsideWorld = replaceCorridor(houseLayout, 'living-room-gym-corridor', {
@@ -54,6 +68,39 @@ describe('house layout validation', () => {
     expect(validateHouseLayout(duplicateId)).toContain(
       'Duplicate corridor ID: gym-kitchen-corridor',
     );
+  });
+
+  it('accepts finite fractional corridor origins and both dimensions', () => {
+    const layout = { ...houseLayout, corridors: [...houseLayout.corridors, {
+      id: 'fractional-fixture', origin: { x: 42.125, y: 30.25 }, widthTiles: 1.5, heightTiles: 0.75,
+    }] };
+    expect(validateHouseLayout(layout)).toEqual([]);
+  });
+
+  it.each(['x', 'y'] as const)('rejects negative/nonfinite corridor origin %s', axis => {
+    for (const value of [-0.01, NaN, Infinity, -Infinity]) {
+      const layout = replaceCorridor(houseLayout, 'gym-kitchen-corridor', {
+        origin: { x: 31.4375, y: 18, [axis]: value },
+      });
+      expect(validateHouseLayout(layout)).toContain('Corridor gym-kitchen-corridor origin must use finite non-negative world coordinates.');
+    }
+  });
+
+  it.each(['widthTiles', 'heightTiles'] as const)('rejects nonpositive/nonfinite corridor %s', field => {
+    for (const value of [0, -0.01, NaN, Infinity, -Infinity]) {
+      const layout = replaceCorridor(houseLayout, 'gym-kitchen-corridor', { [field]: value });
+      expect(validateHouseLayout(layout)).toContain('Corridor gym-kitchen-corridor must have positive finite tile dimensions.');
+    }
+  });
+
+  it('still rejects fractional corridor extents outside world bounds', () => {
+    for (const change of [
+      { origin: { x: 63.75, y: 18 }, widthTiles: 0.5 },
+      { origin: { x: 31.4375, y: 35.75 }, heightTiles: 0.5 },
+    ]) {
+      expect(validateHouseLayout(replaceCorridor(houseLayout, 'gym-kitchen-corridor', change)))
+        .toContain('Corridor gym-kitchen-corridor is outside world bounds.');
+    }
   });
 
   it('rejects collision rectangles outside their room bounds', () => {

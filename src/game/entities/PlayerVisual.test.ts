@@ -23,7 +23,7 @@ function fixture(missing = false, existingAnimations = false) {
     physics: { world: { on: vi.fn(), off: vi.fn() } },
   };
   const visual = PlayerVisual.create(scene as unknown as Phaser.Scene, anchor as unknown as Phaser.GameObjects.Sprite);
-  const sync = () => { const [,fn,owner] = scene.events.on.mock.calls[0]; fn.call(owner); };
+  const sync = () => visual!.synchronize();
   const step = (dx = 0, dy = 0) => {
     const [,fn,owner] = scene.physics.world.on.mock.calls[0]; fn.call(owner);
     anchor.x += dx; anchor.y += dy; sync();
@@ -96,9 +96,8 @@ describe('player visual isolation', () => {
     const { visual, sprite, anchor, scene } = fixture();
     expect(sprite.setPosition).toHaveBeenLastCalledWith(104, 184);
     anchor.x = 200; anchor.y = 240;
-    const [, sync, context] = scene.events.on.mock.calls[0];
     sprite.frame.name = 9;
-    sync.call(context);
+    visual!.synchronize();
     expect(sprite.setPosition).toHaveBeenLastCalledWith(200, 256);
     expect(anchor.width).toBe(32);
     expect(anchor.height).toBe(32);
@@ -107,9 +106,21 @@ describe('player visual isolation', () => {
     Object.assign(scene.physics, { world: undefined });
     const [, shutdown, owner] = scene.events.once.mock.calls[0];
     shutdown.call(owner);
-    expect(scene.events.off).toHaveBeenCalledWith('postupdate', sync, visual);
+    expect(scene.events.on).not.toHaveBeenCalled(); // Scene owns presentation ordering.
     expect(world.off).toHaveBeenCalledWith('worldstep', expect.any(Function), visual);
     expect(sprite.destroy).toHaveBeenCalledOnce();
     expect(anchor.setVisible).toHaveBeenLastCalledWith(true);
+  });
+
+  it('exposes the visible sprite and resets even a short teleport without advancing gait', () => {
+    const { visual, sprite, anchor, step } = fixture();
+    expect(visual!.getDisplayObject()).toBe(sprite);
+    visual!.update('right', { x: 144, y: 0 }); step(9);
+    anchor.x += 9;
+    visual!.update('down', { x: 0, y: 0 });
+    visual!.synchronize(true);
+    expect(sprite.setPosition).toHaveBeenLastCalledWith(anchor.x, anchor.y + 16);
+    visual!.update('right', { x: 144, y: 0 }); step(9);
+    expect(sprite.frame.name).toBe(5); // New walk starts from zero distance.
   });
 });

@@ -39,7 +39,7 @@ export interface RoomSpriteDefinition {
   groundAnchor?: RoomTilePoint;
   /** Optional solid base pieces in room-local tile-edge coordinates.
    * Empty/omitted means no object-owned footprint; nonempty requires groundAnchor.
-   * Metadata only until collision migration; never inferred from the artwork.
+   * Consumed independently of rendering; never inferred from the artwork.
    */
   footprints?: readonly RoomTileRect[];
 }
@@ -64,10 +64,17 @@ export interface RoomDefinition {
   /** Decorative objects never register prompts or content; they share the generic art renderer. */
   decorations?: readonly RoomSpriteDefinition[];
   visualAssetId?: string;
+  /** Restored backdrop and extracted sprites switch atomically; fallback retains baked art. */
+  visualBundle?: {
+    fallbackAssetId: string;
+    /** IDs in this room's combined interactables/decorations, not texture keys. */
+    foregroundIds: readonly string[];
+  };
 }
 
 export interface CorridorDefinition {
   id: string;
+  /** Floor-edge coordinates/dimensions may be fractional to meet painted jambs. */
   origin: WorldTilePoint;
   widthTiles: number;
   heightTiles: number;

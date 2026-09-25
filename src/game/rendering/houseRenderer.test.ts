@@ -3,8 +3,34 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { houseLayout } from '../data/houseLayout';
 import type { InteractableDefinition } from '../data/types';
-import { buildRoom, drawLivingRoomFloor, drawWoodFloor } from './houseRenderer';
+import { buildHouse, buildRoom, drawCollisionBounds, drawLivingRoomFloor, drawWoodFloor } from './houseRenderer';
 import type { HouseRenderLayers } from './houseRenderer';
+import type { HouseRenderOptions } from './houseRenderer';
+import { DepthRegistry } from './DepthRegistry';
+import { getAllCollisionRects, getRoomLocalCollisionRects } from '../systems/collisionGeometry';
+
+describe('temporary collision bounds review', () => {
+  it('outlines the exact full-house physics multiset, including corridors and perimeter', () => {
+    const graphics = { clear: vi.fn(), lineStyle: vi.fn(), strokeRect: vi.fn() };
+    drawCollisionBounds(graphics as unknown as Phaser.GameObjects.Graphics, houseLayout);
+    expect(graphics.clear).toHaveBeenCalledOnce();
+    expect(graphics.strokeRect.mock.calls).toEqual(getAllCollisionRects(houseLayout).map(rect =>
+      [rect.x, rect.y, rect.width, rect.height].map(value => value * houseLayout.tileSize)));
+  });
+  it.each([false, true])('shows collision outlines independently of diagnostics: %s', showCollisionBounds => {
+    const graphics = () => ({
+      clear: vi.fn().mockReturnThis(),
+      setDepth: vi.fn().mockReturnThis(), setVisible: vi.fn().mockReturnThis(),
+      lineStyle: vi.fn().mockReturnThis(), strokeRect: vi.fn().mockReturnThis(),
+    });
+    const scene = { add: { graphics } } as unknown as Phaser.Scene;
+    const layers = buildHouse(scene, { ...houseLayout, rooms: [], corridors: [], doorways: [] },
+      { debugEnabled: false, showCollisionBounds });
+    expect(layers.collisionPreview.setVisible).toHaveBeenLastCalledWith(showCollisionBounds);
+    expect(layers.doorwayPreview.setVisible).toHaveBeenLastCalledWith(false);
+    expect(layers.worldBounds.setVisible).toHaveBeenLastCalledWith(false);
+  });
+});
 
 describe('wooden corridor floors', () => {
   it('reuses living-room pixels at matching scale and caches source frames', () => {
@@ -51,6 +77,7 @@ function renderInteractable(
   artworkAvailable: boolean,
   width: number,
   height: number,
+  options: HouseRenderOptions = {},
 ) {
   const image = {
     width,
@@ -70,9 +97,10 @@ function renderInteractable(
 
   buildRoom(
     scene as unknown as Phaser.Scene,
-    { ...houseLayout.rooms[0], visualAssetId: undefined, interactables: [interactable] },
+    { ...houseLayout.rooms[0], visualAssetId: undefined, visualBundle: undefined, decorations: [], interactables: [interactable] },
     houseLayout.tileSize,
     layers as unknown as HouseRenderLayers,
+    options,
   );
   return { scene, image };
 }
@@ -115,7 +143,7 @@ describe('interactable artwork rendering', () => {
 });
 
 describe('room backdrop rendering', () => {
-  it.each([true, false])('spatial metadata does not activate rendering changes yet (art=%s)', available => {
+  it.each([true, false])('metadata preserves geometry and scale without a registry (art=%s)', available => {
     const original = houseLayout.rooms[0].interactables[0];
     const plain = renderInteractable(original, available, 64, 64);
     const spatial = renderInteractable({ ...original, groundAnchor: { x: 10, y: 5.5625 },
@@ -124,6 +152,13 @@ describe('room backdrop rendering', () => {
     expect(spatial.image.setOrigin.mock.calls).toEqual(plain.image.setOrigin.mock.calls);
     expect(spatial.image.setScale.mock.calls).toEqual(plain.image.setScale.mock.calls);
     expect(spatial.image.setDepth.mock.calls).toEqual(plain.image.setDepth.mock.calls);
+  });
+  it.each([true, false])('registers the actual visible artwork or placeholder using edge coordinates (art=%s)', available => {
+    const registry = new DepthRegistry();
+    const register = vi.spyOn(registry, 'registerObject');
+    const television = houseLayout.rooms[0].interactables[0];
+    const { image } = renderInteractable(television, available, 64, 64, { depthRegistry: registry });
+    expect(register).toHaveBeenCalledWith('living-room', television.id, image, (4 + 5.5625) * 16);
   });
   it.each([['gym', true], ['gym', false], ['office', true], ['office', false], ['kitchen', true], ['kitchen', false]] as const)('renders %s equipment independently with safe missing-art fallbacks (%s)', (roomId, available) => {
     const graphics = { fillStyle: vi.fn(), fillRect: vi.fn(), lineStyle: vi.fn(), strokeRect: vi.fn() };
@@ -144,6 +179,9 @@ describe('room backdrop rendering', () => {
     const sprites = [...room.interactables, ...room.decorations!]
       .filter(sprite => !available || !sprite.artworkInBackground);
     expect(addImage).toHaveBeenCalledTimes(sprites.length + (available ? 1 : 0));
+    if (available) expect(addImage.mock.calls[0]).toEqual([
+      room.origin.x * 16, room.origin.y * 16, room.visualAssetId, '__BASE',
+    ]);
     sprites.forEach((sprite, index) => {
       const callIndex = index + (available ? 1 : 0);
       expect(addImage.mock.calls[callIndex]).toEqual([
@@ -174,11 +212,11 @@ describe('room backdrop rendering', () => {
     };
     const room = houseLayout.rooms[0];
     const bookcase = room.interactables.find((item) => item.contentId === 'livingroom-books')!;
-    buildRoom(scene as unknown as Phaser.Scene, { ...room, interactables: [bookcase] }, 16,
+    buildRoom(scene as unknown as Phaser.Scene, { ...room, visualAssetId: 'living-room-background', visualBundle: undefined, decorations: [], interactables: [bookcase] }, 16,
       { floor: graphics, walls: graphics, collisionPreview: graphics } as unknown as HouseRenderLayers);
     expect(scene.add.image).toHaveBeenCalledTimes(1);
     expect(scene.add.image).toHaveBeenCalledWith(...(available
-      ? [32, 64, 'living-room-background']
+      ? [32, 64, 'living-room-background', '__BASE']
       : [284, 108, 'furniture-placeholder']));
   });
 
@@ -191,25 +229,36 @@ describe('room backdrop rendering', () => {
       setOrigin: vi.fn().mockReturnThis(),
       setDisplaySize: vi.fn().mockReturnThis(),
       setDepth: vi.fn().mockReturnThis(),
+      setScale: vi.fn().mockReturnThis(),
+      width: 64, height: 64,
     };
     const scene = {
       textures: { exists: vi.fn(() => available) },
       add: { image: vi.fn(() => image) },
     };
-    const room = { ...houseLayout.rooms[0], interactables: [] };
+    const room = { ...houseLayout.rooms[0], visualAssetId: 'living-room-background', visualBundle: undefined, interactables: [], decorations: [{
+      id: 'compound-preview', position: { x: 3, y: 6 }, groundAnchor: { x: 3.5, y: 7 },
+      footprints: [{ x: 3, y: 6.5, width: 0.25, height: 0.5 }, { x: 4, y: 6.5, width: 0.25, height: 0.5 }],
+    }] };
     buildRoom(scene as unknown as Phaser.Scene, room, 16, layers as unknown as HouseRenderLayers);
 
-    expect(layers.collisionPreview.strokeRect).toHaveBeenCalledTimes(room.collisionRects.length);
+    const solids = getRoomLocalCollisionRects(room);
+    expect(layers.collisionPreview.strokeRect).toHaveBeenCalledTimes(solids.length + 1); // Room outline is diagnostic too.
+    for (const rect of solids) {
+      const pixels = [(room.origin.x + rect.x) * 16, (room.origin.y + rect.y) * 16, rect.width * 16, rect.height * 16];
+      expect(layers.collisionPreview.strokeRect).toHaveBeenCalledWith(...pixels);
+      if (!available) expect(layers.walls.fillRect).toHaveBeenCalledWith(...pixels);
+    }
     if (available) {
-      expect(scene.add.image).toHaveBeenCalledWith(32, 64, 'living-room-background');
+      expect(scene.add.image).toHaveBeenCalledWith(32, 64, 'living-room-background', '__BASE');
       expect(image.setOrigin).toHaveBeenCalledWith(0, 0);
       expect(image.setDisplaySize).toHaveBeenCalledWith(320, 224);
       expect(image.setDepth).toHaveBeenCalledWith(1);
       expect(layers.walls.fillRect).not.toHaveBeenCalled();
     } else {
-      expect(scene.add.image).not.toHaveBeenCalled();
+      expect(scene.add.image).toHaveBeenCalledWith(88, 168, 'furniture-placeholder');
       expect(layers.floor.fillRect).toHaveBeenCalled();
-      expect(layers.walls.fillRect).toHaveBeenCalledTimes(room.collisionRects.length);
+      expect(layers.walls.fillRect).toHaveBeenCalledTimes(solids.length);
     }
   });
 });

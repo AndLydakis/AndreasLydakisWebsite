@@ -118,6 +118,8 @@ try {
       writeFileSync(`${output}/${name}-${suffix}.png`, Buffer.from(shot.data, 'base64'));
     };
     await capture('kitchen');
+    await sole(centerX, room.origin.y - 0.5);
+    await capture('gym-kitchen-connection');
     if (process.argv.includes('--capture-only')) continue;
     // Use actual keyboard movement through the new painted doorway in both directions.
     await sole(centerX, room.origin.y - 1);

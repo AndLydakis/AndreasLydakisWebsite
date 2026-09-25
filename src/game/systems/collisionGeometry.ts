@@ -1,13 +1,21 @@
 import { corridorToWorldRect, roomRectToWorld } from '../data/coordinates';
-import type { HouseLayout, WorldTileRect } from '../data/types';
+import type { HouseLayout, RoomDefinition, RoomTileRect, WorldTileRect } from '../data/types';
+
+/** One source for room solids, independent of artwork availability or depth.
+ * Keep compound pieces and multiplicity intact; authoring owns deduplication.
+ */
+export function getRoomLocalCollisionRects(room: RoomDefinition): RoomTileRect[] {
+  return [...room.collisionRects, ...[...room.interactables, ...(room.decorations ?? [])]
+    .flatMap(object => object.footprints ?? [])];
+}
 
 /**
- * Returns every room-authored collision rectangle in world-tile coordinates.
+ * Returns room-authored and object-owned solids in world-tile coordinates.
  * The source layout stays room-local, while physics consumes one flat list.
  */
 export function getRoomCollisionRects(layout: HouseLayout): WorldTileRect[] {
   return layout.rooms.flatMap((room) =>
-    room.collisionRects.map((collisionRect) => roomRectToWorld(room, collisionRect)),
+    getRoomLocalCollisionRects(room).map((collisionRect) => roomRectToWorld(room, collisionRect)),
   );
 }
 

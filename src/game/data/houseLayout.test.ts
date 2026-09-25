@@ -3,8 +3,22 @@ import { describe, expect, it } from 'vitest';
 import { contentRegistry, validateInteractableReferences } from '../../content/contentRegistry';
 import { roomRegistry } from './rooms';
 import { houseCorridors, houseDoorways, houseLayout, houseRooms } from './houseLayout';
+import { getRoomLocalCollisionRects } from '../systems/collisionGeometry';
 
 describe('initial house layout', () => {
+  it('registers the extracted couch crop in the original backdrop coordinate system', () => {
+    const room = houseRooms[0];
+    const couch = room.decorations?.find(sprite => sprite.id === 'living-room-couch');
+    expect(couch).toBeDefined();
+    expect(room.visualBundle?.foregroundIds).toContain('living-room-couch');
+    expect(couch!.artworkInBackground).not.toBe(true);
+    expect(couch!.assetId).toBeTruthy();
+    expect(couch!.displayWidthTiles! * 16).toBeCloseTo(503 / 1499 * 320, 8);
+    expect(couch!.displayHeightTiles! * 16).toBeCloseTo(204 / 1049 * 224, 8);
+    expect((couch!.position.x + 0.5) * 16).toBeCloseTo((491 + 994) / 2 / 1499 * 320, 8);
+    expect((couch!.position.y + 0.5) * 16).toBeCloseTo((631 + 835) / 2 / 1049 * 224, 8);
+  });
+
   it('defines the approved world dimensions and room set', () => {
     expect(houseLayout.tileSize).toBe(16);
     expect(houseLayout.worldWidth).toBe(64);
@@ -48,7 +62,7 @@ describe('initial house layout', () => {
         expect(interactable.position.y).toBeLessThan(room.heightTiles);
       });
 
-      room.collisionRects.forEach((rect) => {
+      getRoomLocalCollisionRects(room).forEach((rect) => {
         expect(rect.x).toBeGreaterThanOrEqual(0);
         expect(rect.y).toBeGreaterThanOrEqual(0);
         expect(rect.width).toBeGreaterThan(0);
@@ -98,20 +112,23 @@ describe('initial house layout', () => {
     expect(x).toBeLessThan(room.widthTiles);
     expect(y).toBeGreaterThan(0);
     expect(y).toBeLessThan(room.heightTiles);
-    expect(room.collisionRects.some(r => x + 0.5 > r.x && x - 0.5 < r.x + r.width &&
+    expect(getRoomLocalCollisionRects(room).some(r => x + 0.5 > r.x && x - 0.5 < r.x + r.width &&
       y > r.y && y - 1 / houseLayout.tileSize < r.y + r.height)).toBe(false);
   });
 
   it('keeps both backdrop exits and interaction ranges reachable around furniture bases', () => {
     const room = houseRooms[0];
-    const blocked = (x: number, y: number) => room.collisionRects.some((rect) =>
+    const blocked = (x: number, y: number) => getRoomLocalCollisionRects(room).some((rect) =>
       x >= rect.x && x < rect.x + rect.width && y >= rect.y && y < rect.y + rect.height,
     );
-    expect(room.visualAssetId).toBe('living-room-background');
+    expect(room.visualBundle?.fallbackAssetId).toBe('living-room-background');
+    expect(room.visualAssetId).not.toBe(room.visualBundle?.fallbackAssetId);
     expect(blocked(15, 4)).toBe(true); // Tight bookcase base extends the wall.
     expect(blocked(15, 4.625)).toBe(false); // Floor immediately below stays clear.
-    expect(blocked(9, 7)).toBe(false); // Upper table artwork is not a floor obstacle.
-    expect(blocked(9, 10)).toBe(false); // Upper sofa artwork is not a floor obstacle.
+    expect(blocked(9, 6.75)).toBe(false); // Clear floor behind the enlarged table base.
+    expect(blocked(9, 7)).toBe(true); // Owner-requested deeper table footprint.
+    expect(blocked(9, 9.25)).toBe(false); // Clear floor behind the enlarged sofa base.
+    expect(blocked(9, 10)).toBe(true); // Owner-requested deeper sofa footprint.
     expect(blocked(9, 8.25)).toBe(true); // Coffee table base.
     expect(blocked(9, 11)).toBe(true); // Sofa base.
     expect(blocked(9, 3)).toBe(true); // Upper wall remains solid.
@@ -119,7 +136,7 @@ describe('initial house layout', () => {
     expect(blocked(7, 7)).toBe(false); // Exposed rug stays walkable.
 
     // Flood-fill foot-strip cell centers; interaction centers may sit over wall artwork.
-    const footBlocked = (x: number, y: number) => room.collisionRects.some((rect) =>
+    const footBlocked = (x: number, y: number) => getRoomLocalCollisionRects(room).some((rect) =>
       x + 1 > rect.x && x < rect.x + rect.width &&
       y + 0.5 > rect.y && y + 0.5 - 1 / houseLayout.tileSize < rect.y + rect.height,
     );
@@ -150,18 +167,18 @@ describe('initial house layout', () => {
     }
   });
   it.each([
-    ['table', 8, 7.9375, 3.75, 0.5, 630 / 1049 * 224],
-    ['sofa', 6.625, 10.6875, 6.5, 0.4375, 833 / 1049 * 224],
+    ['table', 8, 6.9375, 3.75, 1.5, 630 / 1049 * 224],
+    ['sofa', 6.625, 9.375, 6.5, 1.75, 833 / 1049 * 224],
     ['TV', 9, 5.25, 2, 0.3125, (4.5 + 2.8 * (1120 / 1288 - 0.5)) * 16],
     ['vinyl', 16.375, 7.4375, 2.25, 0.3125, (6.5 + 2.8 * (1226 / 1289 - 0.5)) * 16],
   ] as const)('fits the %s bottom and leaves floor clear immediately below it', (_name, x, y, width, height, artBottomPx) => {
     const room = houseRooms[0];
-    expect(room.collisionRects).toContainEqual({ x, y, width, height });
+    expect(getRoomLocalCollisionRects(room)).toContainEqual({ x, y, width, height });
     const bottom = y + height;
     expect(Math.abs(bottom * 16 - artBottomPx)).toBeLessThanOrEqual(1);
     // Model the actual 16px-wide, 1px-high foot strip at and just below the base.
     const centerX = x + width / 2;
-    const blockedAt = (soleY: number) => room.collisionRects.some((rect) =>
+    const blockedAt = (soleY: number) => getRoomLocalCollisionRects(room).some((rect) =>
       centerX + 0.5 > rect.x && centerX - 0.5 < rect.x + rect.width &&
       soleY > rect.y && soleY - 1 / 16 < rect.y + rect.height,
     );
@@ -180,7 +197,7 @@ describe('initial house layout', () => {
     // These are floor-contact lanes, not full-character bounding boxes.
     for (const feetY of [4.5, 6.25]) {
       for (let centerX = 8; centerX <= 12; centerX += 0.25) {
-        const overlapsWall = room.collisionRects.some((rect) =>
+        const overlapsWall = getRoomLocalCollisionRects(room).some((rect) =>
           centerX + 0.5 > rect.x && centerX - 0.5 < rect.x + rect.width &&
           feetY > rect.y && feetY - 1 / houseLayout.tileSize < rect.y + rect.height,
         );

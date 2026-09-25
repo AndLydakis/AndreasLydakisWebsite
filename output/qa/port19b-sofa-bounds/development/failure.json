@@ -1,0 +1,7 @@
+{
+  "at": "2026-09-25T08:45:40.851Z",
+  "message": "AssertionError [ERR_ASSERTION]: Outlines must match every actual collider exactly once\n+ actual - expected\n... Skipped lines\n\n  [\n    '[0,0,1024,16]',\n    '[0,0,16,576]',\n    '[0,560,1024,16]',\n    '[1008,0,16,576]',\n    '[111,413,27,10]',\n    '[125,409,14,10]',\n+   '[130,374,31.19999999999999,6]',\n-   '[130,374,31.2,6]',\n    '[138,214,104,28]',\n    '[144,288,16,32]',\n    '[160,191,60,8]',\n    '[176,148,32,5]',\n    '[214,320,114,54]',\n...\n    '[524,447,22,6]',\n+   '[534.6666666666666,191,34.66666666666663,6]',\n-   '[534.6666666666666,191,34.666666666666664,6]',\n    '[557,320,98,49]',\n    '[56,320,114,54]',\n    '[56,320,8,160]',\n    '[56,466,272,14]',\n    '[565,150,9,6]',\n\n    at checkVisibleBounds (file://<repo>/scripts/verify-port19b-browser.mjs:107:10)\n    at async verifyIntegration (file://<repo>/scripts/verify-port19b-browser.mjs:214:27)\n    at async run (file://<repo>/scripts/verify-port19b-browser.mjs:292:31)\n    at async file://<repo>/scripts/verify-port19b-browser.mjs:396:5",
+  "results": [],
+  "interactionResults": [],
+  "exceptions": []
+}

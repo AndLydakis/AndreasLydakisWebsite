@@ -1,0 +1,1549 @@
+{
+  "url": "http://127.0.0.1:5173",
+  "recordedAt": "2026-09-25T08:27:11.773Z",
+  "baseline": "output/qa/port19b/preintegration-geometry.json",
+  "results": [
+    {
+      "integration": {
+        "object": {
+          "id": "living-room-couch",
+          "assetId": "living-room-couch",
+          "position": {
+            "x": 9.40660440293529,
+            "y": 9.282650142993328
+          },
+          "displayWidthTiles": 6.711140760507004,
+          "displayHeightTiles": 2.722592945662536,
+          "groundAnchor": {
+            "x": 9.875,
+            "y": 11.125
+          },
+          "footprints": [
+            {
+              "x": 6.625,
+              "y": 10.6875,
+              "width": 6.5,
+              "height": 0.4375
+            }
+          ]
+        },
+        "ground": 242,
+        "viewX": 190.50567044696464,
+        "textures": [
+          "living-room-background-couch-removed",
+          "gym-background",
+          "office-background",
+          "kitchen-background"
+        ],
+        "count": 5,
+        "backdrop": [
+          {
+            "frame": "__BASE",
+            "width": 1499,
+            "height": 1049
+          }
+        ],
+        "frontCount": 1
+      },
+      "bodyCount": 80
+    },
+    {
+      "route": "forward",
+      "speed": 144,
+      "waypoint": 0,
+      "target": {
+        "x": 190,
+        "y": 226
+      },
+      "actual": {
+        "x": 190,
+        "y": 226
+      },
+      "depth": {
+        "sole": 226,
+        "visual": 226,
+        "playerDepth": 3.6666666666666665,
+        "couchDepth": 3.8333333333333335,
+        "plane": 242
+      }
+    },
+    {
+      "route": "forward",
+      "speed": 144,
+      "waypoint": 1,
+      "target": {
+        "x": 126,
+        "y": 226
+      },
+      "actual": {
+        "x": 125.19999999999985,
+        "y": 226
+      },
+      "depth": {
+        "sole": 226,
+        "visual": 226,
+        "playerDepth": 3.6666666666666665,
+        "couchDepth": 3.8333333333333335,
+        "plane": 242
+      }
+    },
+    {
+      "route": "forward",
+      "speed": 144,
+      "waypoint": 2,
+      "target": {
+        "x": 126,
+        "y": 250
+      },
+      "actual": {
+        "x": 125.19999999999985,
+        "y": 250.00000000000006
+      },
+      "depth": {
+        "sole": 250.00000000000006,
+        "visual": 250.00000000000006,
+        "playerDepth": 3.8333333333333335,
+        "couchDepth": 3.6666666666666665,
+        "plane": 242
+      }
+    },
+    {
+      "route": "forward",
+      "speed": 144,
+      "waypoint": 3,
+      "target": {
+        "x": 190,
+        "y": 250
+      },
+      "actual": {
+        "x": 192.4,
+        "y": 250.00000000000006
+      },
+      "depth": {
+        "sole": 250.00000000000006,
+        "visual": 250.00000000000006,
+        "playerDepth": 3.8333333333333335,
+        "couchDepth": 3.6666666666666665,
+        "plane": 242
+      }
+    },
+    {
+      "route": "forward",
+      "speed": 144,
+      "waypoint": 4,
+      "target": {
+        "x": 254,
+        "y": 250
+      },
+      "actual": {
+        "x": 254.80000000000015,
+        "y": 250.00000000000006
+      },
+      "depth": {
+        "sole": 250.00000000000006,
+        "visual": 250.00000000000006,
+        "playerDepth": 3.8333333333333335,
+        "couchDepth": 3.6666666666666665,
+        "plane": 242
+      }
+    },
+    {
+      "route": "forward",
+      "speed": 144,
+      "waypoint": 5,
+      "target": {
+        "x": 254,
+        "y": 226
+      },
+      "actual": {
+        "x": 254.80000000000015,
+        "y": 223.6
+      },
+      "depth": {
+        "sole": 223.6,
+        "visual": 223.6,
+        "playerDepth": 3.6666666666666665,
+        "couchDepth": 3.8333333333333335,
+        "plane": 242
+      }
+    },
+    {
+      "route": "forward",
+      "speed": 144,
+      "waypoint": 6,
+      "target": {
+        "x": 190,
+        "y": 226
+      },
+      "actual": {
+        "x": 187.6,
+        "y": 223.6
+      },
+      "depth": {
+        "sole": 223.6,
+        "visual": 223.6,
+        "playerDepth": 3.6666666666666665,
+        "couchDepth": 3.8333333333333335,
+        "plane": 242
+      }
+    },
+    {
+      "route": "reverse",
+      "speed": 144,
+      "waypoint": 0,
+      "target": {
+        "x": 190,
+        "y": 226
+      },
+      "actual": {
+        "x": 190,
+        "y": 226
+      },
+      "depth": {
+        "sole": 226,
+        "visual": 226,
+        "playerDepth": 3.6666666666666665,
+        "couchDepth": 3.8333333333333335,
+        "plane": 242
+      }
+    },
+    {
+      "route": "reverse",
+      "speed": 144,
+      "waypoint": 1,
+      "target": {
+        "x": 254,
+        "y": 226
+      },
+      "actual": {
+        "x": 254.80000000000015,
+        "y": 226
+      },
+      "depth": {
+        "sole": 226,
+        "visual": 226,
+        "playerDepth": 3.6666666666666665,
+        "couchDepth": 3.8333333333333335,
+        "plane": 242
+      }
+    },
+    {
+      "route": "reverse",
+      "speed": 144,
+      "waypoint": 2,
+      "target": {
+        "x": 254,
+        "y": 250
+      },
+      "actual": {
+        "x": 254.80000000000015,
+        "y": 250.00000000000006
+      },
+      "depth": {
+        "sole": 250.00000000000006,
+        "visual": 250.00000000000006,
+        "playerDepth": 3.8333333333333335,
+        "couchDepth": 3.6666666666666665,
+        "plane": 242
+      }
+    },
+    {
+      "route": "reverse",
+      "speed": 144,
+      "waypoint": 3,
+      "target": {
+        "x": 190,
+        "y": 250
+      },
+      "actual": {
+        "x": 187.6,
+        "y": 250.00000000000006
+      },
+      "depth": {
+        "sole": 250.00000000000006,
+        "visual": 250.00000000000006,
+        "playerDepth": 3.8333333333333335,
+        "couchDepth": 3.6666666666666665,
+        "plane": 242
+      }
+    },
+    {
+      "route": "reverse",
+      "speed": 144,
+      "waypoint": 4,
+      "target": {
+        "x": 126,
+        "y": 250
+      },
+      "actual": {
+        "x": 125.19999999999985,
+        "y": 250.00000000000006
+      },
+      "depth": {
+        "sole": 250.00000000000006,
+        "visual": 250.00000000000006,
+        "playerDepth": 3.8333333333333335,
+        "couchDepth": 3.6666666666666665,
+        "plane": 242
+      }
+    },
+    {
+      "route": "reverse",
+      "speed": 144,
+      "waypoint": 5,
+      "target": {
+        "x": 126,
+        "y": 226
+      },
+      "actual": {
+        "x": 125.19999999999985,
+        "y": 223.6
+      },
+      "depth": {
+        "sole": 223.6,
+        "visual": 223.6,
+        "playerDepth": 3.6666666666666665,
+        "couchDepth": 3.8333333333333335,
+        "plane": 242
+      }
+    },
+    {
+      "route": "reverse",
+      "speed": 144,
+      "waypoint": 6,
+      "target": {
+        "x": 190,
+        "y": 226
+      },
+      "actual": {
+        "x": 192.4,
+        "y": 223.6
+      },
+      "depth": {
+        "sole": 223.6,
+        "visual": 223.6,
+        "playerDepth": 3.6666666666666665,
+        "couchDepth": 3.8333333333333335,
+        "plane": 242
+      }
+    },
+    {
+      "route": "forward",
+      "speed": 72,
+      "waypoint": 0,
+      "target": {
+        "x": 190,
+        "y": 226
+      },
+      "actual": {
+        "x": 190,
+        "y": 226
+      },
+      "depth": {
+        "sole": 226,
+        "visual": 226,
+        "playerDepth": 3.6666666666666665,
+        "couchDepth": 3.8333333333333335,
+        "plane": 242
+      }
+    },
+    {
+      "route": "forward",
+      "speed": 72,
+      "waypoint": 1,
+      "target": {
+        "x": 126,
+        "y": 226
+      },
+      "actual": {
+        "x": 125.20000000000057,
+        "y": 226
+      },
+      "depth": {
+        "sole": 226,
+        "visual": 226,
+        "playerDepth": 3.6666666666666665,
+        "couchDepth": 3.8333333333333335,
+        "plane": 242
+      }
+    },
+    {
+      "route": "forward",
+      "speed": 72,
+      "waypoint": 2,
+      "target": {
+        "x": 126,
+        "y": 250
+      },
+      "actual": {
+        "x": 125.20000000000057,
+        "y": 251.19999999999976
+      },
+      "depth": {
+        "sole": 251.19999999999976,
+        "visual": 251.19999999999976,
+        "playerDepth": 3.8333333333333335,
+        "couchDepth": 3.6666666666666665,
+        "plane": 242
+      }
+    },
+    {
+      "route": "forward",
+      "speed": 72,
+      "waypoint": 3,
+      "target": {
+        "x": 190,
+        "y": 250
+      },
+      "actual": {
+        "x": 190,
+        "y": 251.19999999999976
+      },
+      "depth": {
+        "sole": 251.19999999999976,
+        "visual": 251.19999999999976,
+        "playerDepth": 3.8333333333333335,
+        "couchDepth": 3.6666666666666665,
+        "plane": 242
+      }
+    },
+    {
+      "route": "forward",
+      "speed": 72,
+      "waypoint": 4,
+      "target": {
+        "x": 254,
+        "y": 250
+      },
+      "actual": {
+        "x": 254.7999999999994,
+        "y": 251.19999999999976
+      },
+      "depth": {
+        "sole": 251.19999999999976,
+        "visual": 251.19999999999976,
+        "playerDepth": 3.8333333333333335,
+        "couchDepth": 3.6666666666666665,
+        "plane": 242
+      }
+    },
+    {
+      "route": "forward",
+      "speed": 72,
+      "waypoint": 5,
+      "target": {
+        "x": 254,
+        "y": 226
+      },
+      "actual": {
+        "x": 254.7999999999994,
+        "y": 226
+      },
+      "depth": {
+        "sole": 226,
+        "visual": 226,
+        "playerDepth": 3.6666666666666665,
+        "couchDepth": 3.8333333333333335,
+        "plane": 242
+      }
+    },
+    {
+      "route": "forward",
+      "speed": 72,
+      "waypoint": 6,
+      "target": {
+        "x": 190,
+        "y": 226
+      },
+      "actual": {
+        "x": 190,
+        "y": 226
+      },
+      "depth": {
+        "sole": 226,
+        "visual": 226,
+        "playerDepth": 3.6666666666666665,
+        "couchDepth": 3.8333333333333335,
+        "plane": 242
+      }
+    },
+    {
+      "route": "reverse",
+      "speed": 72,
+      "waypoint": 0,
+      "target": {
+        "x": 190,
+        "y": 226
+      },
+      "actual": {
+        "x": 190,
+        "y": 226
+      },
+      "depth": {
+        "sole": 226,
+        "visual": 226,
+        "playerDepth": 3.6666666666666665,
+        "couchDepth": 3.8333333333333335,
+        "plane": 242
+      }
+    },
+    {
+      "route": "reverse",
+      "speed": 72,
+      "waypoint": 1,
+      "target": {
+        "x": 254,
+        "y": 226
+      },
+      "actual": {
+        "x": 254.7999999999994,
+        "y": 226
+      },
+      "depth": {
+        "sole": 226,
+        "visual": 226,
+        "playerDepth": 3.6666666666666665,
+        "couchDepth": 3.8333333333333335,
+        "plane": 242
+      }
+    },
+    {
+      "route": "reverse",
+      "speed": 72,
+      "waypoint": 2,
+      "target": {
+        "x": 254,
+        "y": 250
+      },
+      "actual": {
+        "x": 254.7999999999994,
+        "y": 251.19999999999976
+      },
+      "depth": {
+        "sole": 251.19999999999976,
+        "visual": 251.19999999999976,
+        "playerDepth": 3.8333333333333335,
+        "couchDepth": 3.6666666666666665,
+        "plane": 242
+      }
+    },
+    {
+      "route": "reverse",
+      "speed": 72,
+      "waypoint": 3,
+      "target": {
+        "x": 190,
+        "y": 250
+      },
+      "actual": {
+        "x": 190,
+        "y": 251.19999999999976
+      },
+      "depth": {
+        "sole": 251.19999999999976,
+        "visual": 251.19999999999976,
+        "playerDepth": 3.8333333333333335,
+        "couchDepth": 3.6666666666666665,
+        "plane": 242
+      }
+    },
+    {
+      "route": "reverse",
+      "speed": 72,
+      "waypoint": 4,
+      "target": {
+        "x": 126,
+        "y": 250
+      },
+      "actual": {
+        "x": 125.20000000000057,
+        "y": 251.19999999999976
+      },
+      "depth": {
+        "sole": 251.19999999999976,
+        "visual": 251.19999999999976,
+        "playerDepth": 3.8333333333333335,
+        "couchDepth": 3.6666666666666665,
+        "plane": 242
+      }
+    },
+    {
+      "route": "reverse",
+      "speed": 72,
+      "waypoint": 5,
+      "target": {
+        "x": 126,
+        "y": 226
+      },
+      "actual": {
+        "x": 125.20000000000057,
+        "y": 226
+      },
+      "depth": {
+        "sole": 226,
+        "visual": 226,
+        "playerDepth": 3.6666666666666665,
+        "couchDepth": 3.8333333333333335,
+        "plane": 242
+      }
+    },
+    {
+      "route": "reverse",
+      "speed": 72,
+      "waypoint": 6,
+      "target": {
+        "x": 190,
+        "y": 226
+      },
+      "actual": {
+        "x": 190,
+        "y": 226
+      },
+      "depth": {
+        "sole": 226,
+        "visual": 226,
+        "playerDepth": 3.6666666666666665,
+        "couchDepth": 3.8333333333333335,
+        "plane": 242
+      }
+    },
+    {
+      "collision": "north",
+      "speed": 144,
+      "directions": [
+        "ArrowDown"
+      ],
+      "state": {
+        "left": 182,
+        "right": 198,
+        "top": 234,
+        "bottom": 235,
+        "samples": 5,
+        "contact": true
+      }
+    },
+    {
+      "collision": "south",
+      "speed": 144,
+      "directions": [
+        "ArrowUp"
+      ],
+      "state": {
+        "left": 182,
+        "right": 198,
+        "top": 242,
+        "bottom": 243,
+        "samples": 5,
+        "contact": true
+      }
+    },
+    {
+      "collision": "west",
+      "speed": 144,
+      "directions": [
+        "ArrowRight"
+      ],
+      "state": {
+        "left": 122,
+        "right": 138,
+        "top": 238,
+        "bottom": 239,
+        "samples": 4,
+        "contact": true
+      }
+    },
+    {
+      "collision": "east",
+      "speed": 144,
+      "directions": [
+        "ArrowLeft"
+      ],
+      "state": {
+        "left": 242,
+        "right": 258,
+        "top": 238,
+        "bottom": 239,
+        "samples": 4,
+        "contact": true
+      }
+    },
+    {
+      "collision": "north-west",
+      "speed": 144,
+      "directions": [
+        "ArrowDown",
+        "ArrowRight"
+      ],
+      "state": {
+        "left": 124.48528137423855,
+        "right": 140.48528137423855,
+        "top": 234,
+        "bottom": 235,
+        "samples": 6,
+        "contact": true
+      }
+    },
+    {
+      "collision": "north-east",
+      "speed": 144,
+      "directions": [
+        "ArrowDown",
+        "ArrowLeft"
+      ],
+      "state": {
+        "left": 239.51471862576145,
+        "right": 255.51471862576145,
+        "top": 234,
+        "bottom": 235,
+        "samples": 6,
+        "contact": true
+      }
+    },
+    {
+      "collision": "south-west",
+      "speed": 144,
+      "directions": [
+        "ArrowUp",
+        "ArrowRight"
+      ],
+      "state": {
+        "left": 124.48528137423855,
+        "right": 140.48528137423855,
+        "top": 242,
+        "bottom": 243,
+        "samples": 6,
+        "contact": true
+      }
+    },
+    {
+      "collision": "south-east",
+      "speed": 144,
+      "directions": [
+        "ArrowUp",
+        "ArrowLeft"
+      ],
+      "state": {
+        "left": 239.51471862576145,
+        "right": 255.51471862576145,
+        "top": 242,
+        "bottom": 243,
+        "samples": 6,
+        "contact": true
+      }
+    },
+    {
+      "collision": "north",
+      "speed": 72,
+      "directions": [
+        "ArrowDown"
+      ],
+      "state": {
+        "left": 182,
+        "right": 198,
+        "top": 234,
+        "bottom": 235,
+        "samples": 8,
+        "contact": true
+      }
+    },
+    {
+      "collision": "south",
+      "speed": 72,
+      "directions": [
+        "ArrowUp"
+      ],
+      "state": {
+        "left": 182,
+        "right": 198,
+        "top": 242,
+        "bottom": 243,
+        "samples": 8,
+        "contact": true
+      }
+    },
+    {
+      "collision": "west",
+      "speed": 72,
+      "directions": [
+        "ArrowRight"
+      ],
+      "state": {
+        "left": 122.00000000000001,
+        "right": 138,
+        "top": 238,
+        "bottom": 239,
+        "samples": 6,
+        "contact": true
+      }
+    },
+    {
+      "collision": "east",
+      "speed": 72,
+      "directions": [
+        "ArrowLeft"
+      ],
+      "state": {
+        "left": 242.00000000000006,
+        "right": 258.00000000000006,
+        "top": 238,
+        "bottom": 239,
+        "samples": 6,
+        "contact": true
+      }
+    },
+    {
+      "collision": "north-west",
+      "speed": 72,
+      "directions": [
+        "ArrowDown",
+        "ArrowRight"
+      ],
+      "state": {
+        "left": 124.48528137423848,
+        "right": 140.48528137423847,
+        "top": 234,
+        "bottom": 235,
+        "samples": 11,
+        "contact": true
+      }
+    },
+    {
+      "collision": "north-east",
+      "speed": 72,
+      "directions": [
+        "ArrowDown",
+        "ArrowLeft"
+      ],
+      "state": {
+        "left": 239.5147186257613,
+        "right": 255.5147186257613,
+        "top": 234,
+        "bottom": 235,
+        "samples": 11,
+        "contact": true
+      }
+    },
+    {
+      "collision": "south-west",
+      "speed": 72,
+      "directions": [
+        "ArrowUp",
+        "ArrowRight"
+      ],
+      "state": {
+        "left": 124.48528137423848,
+        "right": 140.48528137423847,
+        "top": 242,
+        "bottom": 243,
+        "samples": 11,
+        "contact": true
+      }
+    },
+    {
+      "collision": "south-east",
+      "speed": 72,
+      "directions": [
+        "ArrowUp",
+        "ArrowLeft"
+      ],
+      "state": {
+        "left": 239.5147186257613,
+        "right": 255.5147186257613,
+        "top": 242,
+        "bottom": 243,
+        "samples": 11,
+        "contact": true
+      }
+    },
+    {
+      "screenshot": "desktop-behind",
+      "depth": {
+        "sole": 226,
+        "visual": 226,
+        "playerDepth": 3.6666666666666665,
+        "couchDepth": 3.8333333333333335,
+        "plane": 242
+      }
+    },
+    {
+      "screenshot": "desktop-front",
+      "depth": {
+        "sole": 250,
+        "visual": 250,
+        "playerDepth": 3.8333333333333335,
+        "couchDepth": 3.6666666666666665,
+        "plane": 242
+      }
+    },
+    {
+      "screenshot": "desktop-left",
+      "depth": {
+        "sole": 239,
+        "visual": 239,
+        "playerDepth": 3.6666666666666665,
+        "couchDepth": 3.8333333333333335,
+        "plane": 242
+      }
+    },
+    {
+      "screenshot": "desktop-right",
+      "depth": {
+        "sole": 239,
+        "visual": 239,
+        "playerDepth": 3.6666666666666665,
+        "couchDepth": 3.8333333333333335,
+        "plane": 242
+      }
+    },
+    {
+      "screenshot": "portrait-behind",
+      "depth": {
+        "sole": 226,
+        "visual": 226,
+        "playerDepth": 3.6666666666666665,
+        "couchDepth": 3.8333333333333335,
+        "plane": 242
+      }
+    },
+    {
+      "screenshot": "portrait-front",
+      "depth": {
+        "sole": 250,
+        "visual": 250,
+        "playerDepth": 3.8333333333333335,
+        "couchDepth": 3.6666666666666665,
+        "plane": 242
+      }
+    },
+    {
+      "screenshot": "portrait-left",
+      "depth": {
+        "sole": 239,
+        "visual": 239,
+        "playerDepth": 3.6666666666666665,
+        "couchDepth": 3.8333333333333335,
+        "plane": 242
+      }
+    },
+    {
+      "screenshot": "portrait-right",
+      "depth": {
+        "sole": 239,
+        "visual": 239,
+        "playerDepth": 3.6666666666666665,
+        "couchDepth": 3.8333333333333335,
+        "plane": 242
+      }
+    },
+    {
+      "screenshot": "landscape-behind",
+      "depth": {
+        "sole": 226,
+        "visual": 226,
+        "playerDepth": 3.6666666666666665,
+        "couchDepth": 3.8333333333333335,
+        "plane": 242
+      }
+    },
+    {
+      "screenshot": "landscape-front",
+      "depth": {
+        "sole": 250,
+        "visual": 250,
+        "playerDepth": 3.8333333333333335,
+        "couchDepth": 3.6666666666666665,
+        "plane": 242
+      }
+    },
+    {
+      "screenshot": "landscape-left",
+      "depth": {
+        "sole": 239,
+        "visual": 239,
+        "playerDepth": 3.6666666666666665,
+        "couchDepth": 3.8333333333333335,
+        "plane": 242
+      }
+    },
+    {
+      "screenshot": "landscape-right",
+      "depth": {
+        "sole": 239,
+        "visual": 239,
+        "playerDepth": 3.6666666666666665,
+        "couchDepth": 3.8333333333333335,
+        "plane": 242
+      }
+    },
+    {
+      "existingObject": "living-room-television",
+      "y": 140,
+      "plane": 153,
+      "front": false
+    },
+    {
+      "existingObject": "living-room-television",
+      "y": 164,
+      "plane": 153,
+      "front": true
+    },
+    {
+      "existingObject": "living-room-record-player",
+      "y": 172,
+      "plane": 188,
+      "front": false
+    },
+    {
+      "existingObject": "living-room-record-player",
+      "y": 200,
+      "plane": 188,
+      "front": true
+    },
+    {
+      "existingObject": "living-room-globe",
+      "y": 176,
+      "plane": 194,
+      "front": false
+    },
+    {
+      "existingObject": "living-room-globe",
+      "y": 208,
+      "plane": 194,
+      "front": true
+    },
+    {
+      "missing": [
+        "living-room-background"
+      ],
+      "restart": 0,
+      "state": {
+        "backgrounds": [
+          "living-room-background-couch-removed",
+          "gym-background",
+          "office-background",
+          "kitchen-background"
+        ],
+        "backdrops": [
+          {
+            "texture": "living-room-background-couch-removed",
+            "frame": "__BASE",
+            "width": 1499,
+            "height": 1049
+          }
+        ],
+        "couchTexture": "living-room-couch",
+        "foregroundCount": 1,
+        "other": [
+          "living-room-globe",
+          "living-room-record-player",
+          "living-room-television"
+        ],
+        "listeners": {
+          "post": 2,
+          "step": 1
+        }
+      }
+    },
+    {
+      "missing": [
+        "living-room-background"
+      ],
+      "restart": 1,
+      "state": {
+        "backgrounds": [
+          "living-room-background-couch-removed",
+          "gym-background",
+          "office-background",
+          "kitchen-background"
+        ],
+        "backdrops": [
+          {
+            "texture": "living-room-background-couch-removed",
+            "frame": "__BASE",
+            "width": 1499,
+            "height": 1049
+          }
+        ],
+        "couchTexture": "living-room-couch",
+        "foregroundCount": 1,
+        "other": [
+          "living-room-globe",
+          "living-room-record-player",
+          "living-room-television"
+        ],
+        "listeners": {
+          "post": 2,
+          "step": 1
+        }
+      }
+    },
+    {
+      "collision": "fallback-1-north",
+      "speed": 144,
+      "directions": [
+        "ArrowDown"
+      ],
+      "state": {
+        "left": 182,
+        "right": 198,
+        "top": 234,
+        "bottom": 235,
+        "samples": 5,
+        "contact": true
+      }
+    },
+    {
+      "missing": [
+        "living-room-background-couch-removed"
+      ],
+      "restart": 0,
+      "state": {
+        "backgrounds": [
+          "living-room-background",
+          "gym-background",
+          "office-background",
+          "kitchen-background"
+        ],
+        "backdrops": [
+          {
+            "texture": "living-room-background",
+            "frame": "__BASE",
+            "width": 1499,
+            "height": 1049
+          }
+        ],
+        "couchTexture": null,
+        "foregroundCount": 0,
+        "other": [
+          "living-room-globe",
+          "living-room-record-player",
+          "living-room-television"
+        ],
+        "listeners": {
+          "post": 2,
+          "step": 1
+        }
+      }
+    },
+    {
+      "missing": [
+        "living-room-background-couch-removed"
+      ],
+      "restart": 1,
+      "state": {
+        "backgrounds": [
+          "living-room-background",
+          "gym-background",
+          "office-background",
+          "kitchen-background"
+        ],
+        "backdrops": [
+          {
+            "texture": "living-room-background",
+            "frame": "__BASE",
+            "width": 1499,
+            "height": 1049
+          }
+        ],
+        "couchTexture": null,
+        "foregroundCount": 0,
+        "other": [
+          "living-room-globe",
+          "living-room-record-player",
+          "living-room-television"
+        ],
+        "listeners": {
+          "post": 2,
+          "step": 1
+        }
+      }
+    },
+    {
+      "collision": "fallback-2-north",
+      "speed": 144,
+      "directions": [
+        "ArrowDown"
+      ],
+      "state": {
+        "left": 182,
+        "right": 198,
+        "top": 234,
+        "bottom": 235,
+        "samples": 5,
+        "contact": true
+      }
+    },
+    {
+      "missing": [
+        "living-room-background",
+        "living-room-background-couch-removed"
+      ],
+      "restart": 0,
+      "state": {
+        "backgrounds": [
+          "gym-background",
+          "office-background",
+          "kitchen-background"
+        ],
+        "backdrops": [],
+        "couchTexture": "furniture-placeholder",
+        "foregroundCount": 0,
+        "other": [
+          "living-room-globe",
+          "living-room-record-player",
+          "living-room-television"
+        ],
+        "listeners": {
+          "post": 2,
+          "step": 1
+        }
+      }
+    },
+    {
+      "missing": [
+        "living-room-background",
+        "living-room-background-couch-removed"
+      ],
+      "restart": 1,
+      "state": {
+        "backgrounds": [
+          "gym-background",
+          "office-background",
+          "kitchen-background"
+        ],
+        "backdrops": [],
+        "couchTexture": "furniture-placeholder",
+        "foregroundCount": 0,
+        "other": [
+          "living-room-globe",
+          "living-room-record-player",
+          "living-room-television"
+        ],
+        "listeners": {
+          "post": 2,
+          "step": 1
+        }
+      }
+    },
+    {
+      "collision": "fallback-3-north",
+      "speed": 144,
+      "directions": [
+        "ArrowDown"
+      ],
+      "state": {
+        "left": 182,
+        "right": 198,
+        "top": 234,
+        "bottom": 235,
+        "samples": 5,
+        "contact": true
+      }
+    },
+    {
+      "missing": [
+        "living-room-couch"
+      ],
+      "restart": 0,
+      "state": {
+        "backgrounds": [
+          "living-room-background",
+          "gym-background",
+          "office-background",
+          "kitchen-background"
+        ],
+        "backdrops": [
+          {
+            "texture": "living-room-background",
+            "frame": "__BASE",
+            "width": 1499,
+            "height": 1049
+          }
+        ],
+        "couchTexture": null,
+        "foregroundCount": 0,
+        "other": [
+          "living-room-globe",
+          "living-room-record-player",
+          "living-room-television"
+        ],
+        "listeners": {
+          "post": 2,
+          "step": 1
+        }
+      }
+    },
+    {
+      "missing": [
+        "living-room-couch"
+      ],
+      "restart": 1,
+      "state": {
+        "backgrounds": [
+          "living-room-background",
+          "gym-background",
+          "office-background",
+          "kitchen-background"
+        ],
+        "backdrops": [
+          {
+            "texture": "living-room-background",
+            "frame": "__BASE",
+            "width": 1499,
+            "height": 1049
+          }
+        ],
+        "couchTexture": null,
+        "foregroundCount": 0,
+        "other": [
+          "living-room-globe",
+          "living-room-record-player",
+          "living-room-television"
+        ],
+        "listeners": {
+          "post": 2,
+          "step": 1
+        }
+      }
+    },
+    {
+      "collision": "fallback-4-north",
+      "speed": 144,
+      "directions": [
+        "ArrowDown"
+      ],
+      "state": {
+        "left": 182,
+        "right": 198,
+        "top": 234,
+        "bottom": 235,
+        "samples": 5,
+        "contact": true
+      }
+    },
+    {
+      "missing": [
+        "living-room-background",
+        "living-room-couch"
+      ],
+      "restart": 0,
+      "state": {
+        "backgrounds": [
+          "gym-background",
+          "office-background",
+          "kitchen-background"
+        ],
+        "backdrops": [],
+        "couchTexture": "furniture-placeholder",
+        "foregroundCount": 0,
+        "other": [
+          "living-room-globe",
+          "living-room-record-player",
+          "living-room-television"
+        ],
+        "listeners": {
+          "post": 2,
+          "step": 1
+        }
+      }
+    },
+    {
+      "missing": [
+        "living-room-background",
+        "living-room-couch"
+      ],
+      "restart": 1,
+      "state": {
+        "backgrounds": [
+          "gym-background",
+          "office-background",
+          "kitchen-background"
+        ],
+        "backdrops": [],
+        "couchTexture": "furniture-placeholder",
+        "foregroundCount": 0,
+        "other": [
+          "living-room-globe",
+          "living-room-record-player",
+          "living-room-television"
+        ],
+        "listeners": {
+          "post": 2,
+          "step": 1
+        }
+      }
+    },
+    {
+      "collision": "fallback-5-north",
+      "speed": 144,
+      "directions": [
+        "ArrowDown"
+      ],
+      "state": {
+        "left": 182,
+        "right": 198,
+        "top": 234,
+        "bottom": 235,
+        "samples": 6,
+        "contact": true
+      }
+    },
+    {
+      "missing": [
+        "living-room-background-couch-removed",
+        "living-room-couch"
+      ],
+      "restart": 0,
+      "state": {
+        "backgrounds": [
+          "living-room-background",
+          "gym-background",
+          "office-background",
+          "kitchen-background"
+        ],
+        "backdrops": [
+          {
+            "texture": "living-room-background",
+            "frame": "__BASE",
+            "width": 1499,
+            "height": 1049
+          }
+        ],
+        "couchTexture": null,
+        "foregroundCount": 0,
+        "other": [
+          "living-room-globe",
+          "living-room-record-player",
+          "living-room-television"
+        ],
+        "listeners": {
+          "post": 2,
+          "step": 1
+        }
+      }
+    },
+    {
+      "missing": [
+        "living-room-background-couch-removed",
+        "living-room-couch"
+      ],
+      "restart": 1,
+      "state": {
+        "backgrounds": [
+          "living-room-background",
+          "gym-background",
+          "office-background",
+          "kitchen-background"
+        ],
+        "backdrops": [
+          {
+            "texture": "living-room-background",
+            "frame": "__BASE",
+            "width": 1499,
+            "height": 1049
+          }
+        ],
+        "couchTexture": null,
+        "foregroundCount": 0,
+        "other": [
+          "living-room-globe",
+          "living-room-record-player",
+          "living-room-television"
+        ],
+        "listeners": {
+          "post": 2,
+          "step": 1
+        }
+      }
+    },
+    {
+      "collision": "fallback-6-north",
+      "speed": 144,
+      "directions": [
+        "ArrowDown"
+      ],
+      "state": {
+        "left": 182,
+        "right": 198,
+        "top": 234,
+        "bottom": 235,
+        "samples": 5,
+        "contact": true
+      }
+    },
+    {
+      "missing": [
+        "living-room-background",
+        "living-room-background-couch-removed",
+        "living-room-couch"
+      ],
+      "restart": 0,
+      "state": {
+        "backgrounds": [
+          "gym-background",
+          "office-background",
+          "kitchen-background"
+        ],
+        "backdrops": [],
+        "couchTexture": "furniture-placeholder",
+        "foregroundCount": 0,
+        "other": [
+          "living-room-globe",
+          "living-room-record-player",
+          "living-room-television"
+        ],
+        "listeners": {
+          "post": 2,
+          "step": 1
+        }
+      }
+    },
+    {
+      "missing": [
+        "living-room-background",
+        "living-room-background-couch-removed",
+        "living-room-couch"
+      ],
+      "restart": 1,
+      "state": {
+        "backgrounds": [
+          "gym-background",
+          "office-background",
+          "kitchen-background"
+        ],
+        "backdrops": [],
+        "couchTexture": "furniture-placeholder",
+        "foregroundCount": 0,
+        "other": [
+          "living-room-globe",
+          "living-room-record-player",
+          "living-room-television"
+        ],
+        "listeners": {
+          "post": 2,
+          "step": 1
+        }
+      }
+    },
+    {
+      "collision": "fallback-7-north",
+      "speed": 144,
+      "directions": [
+        "ArrowDown"
+      ],
+      "state": {
+        "left": 182,
+        "right": 198,
+        "top": 234,
+        "bottom": 235,
+        "samples": 5,
+        "contact": true
+      }
+    }
+  ],
+  "listeners": {
+    "post": 2,
+    "step": 1
+  },
+  "exceptions": []
+}

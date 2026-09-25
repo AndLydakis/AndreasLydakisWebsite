@@ -1,0 +1,558 @@
+{
+  "url": "http://127.0.0.1:5173",
+  "recordedAt": "2026-09-25T08:46:55.405Z",
+  "mode": "interactions",
+  "results": [
+    {
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "mobile": false,
+      "id": "living-room-television",
+      "input": "e",
+      "opened": {
+        "title": "Games and movies",
+        "gameplay": false,
+        "position": {
+          "x": 192,
+          "y": 164
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 192,
+          "y": 164
+        }
+      },
+      "screenshot": "interaction-desktop-living-room-television-e.png"
+    },
+    {
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "mobile": false,
+      "id": "living-room-television",
+      "input": "f",
+      "opened": {
+        "title": "Games and movies",
+        "gameplay": false,
+        "position": {
+          "x": 192,
+          "y": 164
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 192,
+          "y": 164
+        }
+      },
+      "screenshot": "interaction-desktop-living-room-television-f.png"
+    },
+    {
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "mobile": false,
+      "id": "living-room-television",
+      "input": "Enter",
+      "opened": {
+        "title": "Games and movies",
+        "gameplay": false,
+        "position": {
+          "x": 192,
+          "y": 164
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 192,
+          "y": 164
+        }
+      },
+      "screenshot": "interaction-desktop-living-room-television-Enter.png"
+    },
+    {
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "mobile": false,
+      "id": "living-room-record-player",
+      "input": "e",
+      "opened": {
+        "title": "Music collection",
+        "gameplay": false,
+        "position": {
+          "x": 312,
+          "y": 200
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 312,
+          "y": 200
+        }
+      },
+      "screenshot": "interaction-desktop-living-room-record-player-e.png"
+    },
+    {
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "mobile": false,
+      "id": "living-room-record-player",
+      "input": "f",
+      "opened": {
+        "title": "Music collection",
+        "gameplay": false,
+        "position": {
+          "x": 312,
+          "y": 200
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 312,
+          "y": 200
+        }
+      },
+      "screenshot": "interaction-desktop-living-room-record-player-f.png"
+    },
+    {
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "mobile": false,
+      "id": "living-room-record-player",
+      "input": "Enter",
+      "opened": {
+        "title": "Music collection",
+        "gameplay": false,
+        "position": {
+          "x": 312,
+          "y": 200
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 312,
+          "y": 200
+        }
+      },
+      "screenshot": "interaction-desktop-living-room-record-player-Enter.png"
+    },
+    {
+      "viewport": "portrait",
+      "width": 390,
+      "height": 844,
+      "mobile": true,
+      "id": "living-room-television",
+      "input": "e",
+      "opened": {
+        "title": "Games and movies",
+        "gameplay": false,
+        "position": {
+          "x": 192,
+          "y": 164
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 192,
+          "y": 164
+        }
+      },
+      "screenshot": "interaction-portrait-living-room-television-e.png"
+    },
+    {
+      "viewport": "portrait",
+      "width": 390,
+      "height": 844,
+      "mobile": true,
+      "id": "living-room-television",
+      "input": "f",
+      "opened": {
+        "title": "Games and movies",
+        "gameplay": false,
+        "position": {
+          "x": 192,
+          "y": 164
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 192,
+          "y": 164
+        }
+      },
+      "screenshot": "interaction-portrait-living-room-television-f.png"
+    },
+    {
+      "viewport": "portrait",
+      "width": 390,
+      "height": 844,
+      "mobile": true,
+      "id": "living-room-television",
+      "input": "Enter",
+      "opened": {
+        "title": "Games and movies",
+        "gameplay": false,
+        "position": {
+          "x": 192,
+          "y": 164
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 192,
+          "y": 164
+        }
+      },
+      "screenshot": "interaction-portrait-living-room-television-Enter.png"
+    },
+    {
+      "viewport": "portrait",
+      "width": 390,
+      "height": 844,
+      "mobile": true,
+      "id": "living-room-television",
+      "input": "touch",
+      "opened": {
+        "title": "Games and movies",
+        "gameplay": false,
+        "position": {
+          "x": 192,
+          "y": 164
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 192,
+          "y": 164
+        }
+      },
+      "screenshot": "interaction-portrait-living-room-television-touch.png"
+    },
+    {
+      "viewport": "portrait",
+      "width": 390,
+      "height": 844,
+      "mobile": true,
+      "id": "living-room-record-player",
+      "input": "e",
+      "opened": {
+        "title": "Music collection",
+        "gameplay": false,
+        "position": {
+          "x": 312,
+          "y": 200
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 312,
+          "y": 200
+        }
+      },
+      "screenshot": "interaction-portrait-living-room-record-player-e.png"
+    },
+    {
+      "viewport": "portrait",
+      "width": 390,
+      "height": 844,
+      "mobile": true,
+      "id": "living-room-record-player",
+      "input": "f",
+      "opened": {
+        "title": "Music collection",
+        "gameplay": false,
+        "position": {
+          "x": 312,
+          "y": 200
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 312,
+          "y": 200
+        }
+      },
+      "screenshot": "interaction-portrait-living-room-record-player-f.png"
+    },
+    {
+      "viewport": "portrait",
+      "width": 390,
+      "height": 844,
+      "mobile": true,
+      "id": "living-room-record-player",
+      "input": "Enter",
+      "opened": {
+        "title": "Music collection",
+        "gameplay": false,
+        "position": {
+          "x": 312,
+          "y": 200
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 312,
+          "y": 200
+        }
+      },
+      "screenshot": "interaction-portrait-living-room-record-player-Enter.png"
+    },
+    {
+      "viewport": "portrait",
+      "width": 390,
+      "height": 844,
+      "mobile": true,
+      "id": "living-room-record-player",
+      "input": "touch",
+      "opened": {
+        "title": "Music collection",
+        "gameplay": false,
+        "position": {
+          "x": 312,
+          "y": 200
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 312,
+          "y": 200
+        }
+      },
+      "screenshot": "interaction-portrait-living-room-record-player-touch.png"
+    },
+    {
+      "viewport": "landscape",
+      "width": 844,
+      "height": 390,
+      "mobile": true,
+      "id": "living-room-television",
+      "input": "e",
+      "opened": {
+        "title": "Games and movies",
+        "gameplay": false,
+        "position": {
+          "x": 192,
+          "y": 164
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 192,
+          "y": 164
+        }
+      },
+      "screenshot": "interaction-landscape-living-room-television-e.png"
+    },
+    {
+      "viewport": "landscape",
+      "width": 844,
+      "height": 390,
+      "mobile": true,
+      "id": "living-room-television",
+      "input": "f",
+      "opened": {
+        "title": "Games and movies",
+        "gameplay": false,
+        "position": {
+          "x": 192,
+          "y": 164
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 192,
+          "y": 164
+        }
+      },
+      "screenshot": "interaction-landscape-living-room-television-f.png"
+    },
+    {
+      "viewport": "landscape",
+      "width": 844,
+      "height": 390,
+      "mobile": true,
+      "id": "living-room-television",
+      "input": "Enter",
+      "opened": {
+        "title": "Games and movies",
+        "gameplay": false,
+        "position": {
+          "x": 192,
+          "y": 164
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 192,
+          "y": 164
+        }
+      },
+      "screenshot": "interaction-landscape-living-room-television-Enter.png"
+    },
+    {
+      "viewport": "landscape",
+      "width": 844,
+      "height": 390,
+      "mobile": true,
+      "id": "living-room-television",
+      "input": "touch",
+      "opened": {
+        "title": "Games and movies",
+        "gameplay": false,
+        "position": {
+          "x": 192,
+          "y": 164
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 192,
+          "y": 164
+        }
+      },
+      "screenshot": "interaction-landscape-living-room-television-touch.png"
+    },
+    {
+      "viewport": "landscape",
+      "width": 844,
+      "height": 390,
+      "mobile": true,
+      "id": "living-room-record-player",
+      "input": "e",
+      "opened": {
+        "title": "Music collection",
+        "gameplay": false,
+        "position": {
+          "x": 312,
+          "y": 200
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 312,
+          "y": 200
+        }
+      },
+      "screenshot": "interaction-landscape-living-room-record-player-e.png"
+    },
+    {
+      "viewport": "landscape",
+      "width": 844,
+      "height": 390,
+      "mobile": true,
+      "id": "living-room-record-player",
+      "input": "f",
+      "opened": {
+        "title": "Music collection",
+        "gameplay": false,
+        "position": {
+          "x": 312,
+          "y": 200
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 312,
+          "y": 200
+        }
+      },
+      "screenshot": "interaction-landscape-living-room-record-player-f.png"
+    },
+    {
+      "viewport": "landscape",
+      "width": 844,
+      "height": 390,
+      "mobile": true,
+      "id": "living-room-record-player",
+      "input": "Enter",
+      "opened": {
+        "title": "Music collection",
+        "gameplay": false,
+        "position": {
+          "x": 312,
+          "y": 200
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 312,
+          "y": 200
+        }
+      },
+      "screenshot": "interaction-landscape-living-room-record-player-Enter.png"
+    },
+    {
+      "viewport": "landscape",
+      "width": 844,
+      "height": 390,
+      "mobile": true,
+      "id": "living-room-record-player",
+      "input": "touch",
+      "opened": {
+        "title": "Music collection",
+        "gameplay": false,
+        "position": {
+          "x": 312,
+          "y": 200
+        }
+      },
+      "closed": {
+        "open": false,
+        "gameplay": true,
+        "position": {
+          "x": 312,
+          "y": 200
+        }
+      },
+      "screenshot": "interaction-landscape-living-room-record-player-touch.png"
+    }
+  ],
+  "exceptions": []
+}

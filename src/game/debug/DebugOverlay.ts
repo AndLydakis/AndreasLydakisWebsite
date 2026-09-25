@@ -2,12 +2,14 @@ import Phaser from 'phaser';
 
 import {
   roomRectToWorld,
+  roomGroundAnchorToWorldPixel,
   roomTileToWorld,
   worldRectToWorldPixel,
   worldTileToWorldPixel,
 } from '../data/coordinates';
 import type { HouseLayout } from '../data/types';
 import type { PlayerState } from '../entities/Player';
+import { getRoomLocalCollisionRects } from '../systems/collisionGeometry';
 
 const ROOM_COLOR = 0x62e6ff;
 const COLLISION_COLOR = 0xff9a9a;
@@ -54,6 +56,11 @@ export class DebugOverlay {
     this.status.destroy();
   }
 
+  public setVisible(visible: boolean): void {
+    this.geometry.setVisible(visible);
+    this.status.setVisible(visible);
+  }
+
   private drawStaticGeometry(): void {
     const worldPixels = worldRectToWorldPixel(
       {
@@ -92,7 +99,7 @@ export class DebugOverlay {
         roomPixels.height,
       );
 
-      room.collisionRects.forEach((collisionRect) => {
+      getRoomLocalCollisionRects(room).forEach((collisionRect) => {
         const collisionPixels = worldRectToWorldPixel(
           roomRectToWorld(room, collisionRect),
           this.layout.tileSize,
@@ -106,6 +113,13 @@ export class DebugOverlay {
           collisionPixels.height,
         );
       });
+
+      for (const object of [...room.interactables, ...(room.decorations ?? [])]) {
+        if (!object.groundAnchor) continue;
+        const anchor = roomGroundAnchorToWorldPixel(room, object.groundAnchor, this.layout.tileSize);
+        this.geometry.lineStyle(1, WORLD_COLOR, 1);
+        this.geometry.strokeCircle(anchor.x, anchor.y, 2);
+      }
 
       room.interactables.forEach((interactable) => {
         const position = worldTileToWorldPixel(

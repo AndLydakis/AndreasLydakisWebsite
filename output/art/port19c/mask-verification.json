@@ -1,0 +1,54 @@
+{
+  "source_sha256": "0e1b232f2bd9b8a1154f3be667100c3b1d30a4e094addd6dcf060c889bcedfc7",
+  "original_sha256": "a12a6a3be2b0818d2335694e802bf318916cf753341d017a820fbb4b8c5d7096",
+  "restoration_sha256": "102ca7c71bda6aa3af3e1cfb5b7c11a5743f24e0a95c9876604760aa3f271584",
+  "canvas": [
+    1499,
+    1049
+  ],
+  "alpha_bounds_exclusive": [
+    587,
+    446,
+    895,
+    631
+  ],
+  "restoration_candidate_size": [
+    1500,
+    1049
+  ],
+  "restoration_normalization": "1500 to1499 columns, nearest neighbor; repair patch only",
+  "alpha_values": [
+    0,
+    255
+  ],
+  "foreground_rgb_changes": 0,
+  "opaque_table_composite_changes": 0,
+  "outside_restoration_changes": 0,
+  "couch_region_unchanged": true,
+  "restoration_bounds_exclusive": [
+    573,
+    432,
+    909,
+    645
+  ],
+  "room_display_pixels": [
+    320,
+    224
+  ],
+  "room_origin_pixels": [
+    32,
+    64
+  ],
+  "ground_anchor_room_tiles": [
+    9.875,
+    8.4375
+  ],
+  "existing_footprint_room_tiles": [
+    8,
+    7.9375,
+    3.75,
+    0.5
+  ],
+  "shadow_policy": "broad shadow remains floor-owned; narrow contact edges in foreground",
+  "status": "review candidate; owner art acceptance and runtime integration pending"
+}

@@ -7,6 +7,7 @@ import {
   roomRectToWorld,
 } from './coordinates';
 import { roomRegistry } from './rooms';
+import { getRoomLocalCollisionRects } from '../systems/collisionGeometry';
 import type {
   CorridorDefinition,
   DoorwayDefinition,
@@ -253,6 +254,20 @@ function validateRoom(
     }
   });
 
+  // A restored backdrop and its extracted objects must have an unambiguous fallback.
+  if (room.visualBundle) {
+    const { fallbackAssetId, foregroundIds } = room.visualBundle;
+    if (!room.visualAssetId?.trim() || !fallbackAssetId.trim() || fallbackAssetId === room.visualAssetId) {
+      errors.push(`Room ${roomLabel} visualBundle requires distinct non-empty primary and fallback asset IDs.`);
+    }
+    const sprites = [...room.interactables, ...(room.decorations ?? [])];
+    if (!foregroundIds.length || new Set(foregroundIds).size !== foregroundIds.length ||
+      foregroundIds.some(id => !id.trim() || !sprites.some(sprite =>
+        sprite.id === id && sprite.assetId?.trim() && !sprite.artworkInBackground))) {
+      errors.push(`Room ${roomLabel} visualBundle foreground IDs must be non-empty, unique separate textured artwork IDs.`);
+    }
+  }
+
   // Art metadata is checked independently of interaction/content metadata.
   const spriteIds = new Set<string>();
   [...room.interactables, ...(room.decorations ?? [])].forEach((sprite) => {
@@ -335,14 +350,15 @@ function validateCorridor(
   }
   corridorIds.add(corridor.id);
 
-  if (!isNonNegativeInteger(corridor.origin.x) || !isNonNegativeInteger(corridor.origin.y)) {
+  if (!Number.isFinite(corridor.origin.x) || corridor.origin.x < 0 ||
+      !Number.isFinite(corridor.origin.y) || corridor.origin.y < 0) {
     errors.push(
-      `Corridor ${corridorLabel} origin must use non-negative integer world coordinates.`,
+      `Corridor ${corridorLabel} origin must use finite non-negative world coordinates.`,
     );
   }
 
-  if (!isPositiveInteger(corridor.widthTiles) || !isPositiveInteger(corridor.heightTiles)) {
-    errors.push(`Corridor ${corridorLabel} must have positive integer tile dimensions.`);
+  if (!isPositiveFinite(corridor.widthTiles) || !isPositiveFinite(corridor.heightTiles)) {
+    errors.push(`Corridor ${corridorLabel} must have positive finite tile dimensions.`);
   }
 
   if (!rectWithinBounds(corridorToWorldRect(corridor), worldBounds)) {
@@ -488,7 +504,7 @@ function validateInitialSpawn(
   }
 
   containingRooms.forEach(({ room }) => {
-    room.collisionRects.forEach((collisionRect) => {
+    getRoomLocalCollisionRects(room).forEach((collisionRect) => {
       if (pointInRect(spawn, roomRectToWorld(room, collisionRect))) {
         errors.push(`Initial spawn is not walkable because it is inside a collision rect in room ${room.id}.`);
       }

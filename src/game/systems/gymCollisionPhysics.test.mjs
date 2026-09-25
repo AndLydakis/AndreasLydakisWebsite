@@ -13,6 +13,9 @@ const Body = require('phaser/src/physics/arcade/Body');
 const StaticBody = require('phaser/src/physics/arcade/StaticBody');
 const gym = houseLayout.rooms.find((room) => room.id === 'gym');
 const office = houseLayout.rooms.find((room) => room.id === 'office');
+const livingRoom = houseLayout.rooms.find(room => room.id === 'living-room');
+const pilotCases = ['living-room-television', 'living-room-record-player', 'living-room-globe'].flatMap(id =>
+  livingRoom.interactables.find(object => object.id === id).footprints.map(rect => ({ room: livingRoom, name: id, rect })));
 const objects = [
   ['dumbbell rack', 1.625],
   ['boombox', 7.25],
@@ -20,6 +23,7 @@ const objects = [
   ['boxing stand', 2],
 ];
 const cases = [
+  ...pilotCases,
   ...getCorridorCollisionRects(houseLayout).map((rect, index) => ({ room: { origin: { x: 0, y: 0 } }, name: `corridor wall ${index}`, rect })),
   ...kitchenFurnitureCollisions.map((rect, index) => ({ room: kitchen, name: `kitchen object ${index}`, rect })),
   ...objects.map(([name, rectX]) => ({ room: gym, name, rect: gym.collisionRects.find(item => item.x === rectX) })),
@@ -63,6 +67,45 @@ describe('house equipment and corridor walls actual Arcade collisions', () => {
           if (dx < 0) expect(player.left).toBeCloseTo(x + width);
           if (dy > 0) expect(player.bottom).toBeCloseTo(y);
           if (dy < 0) expect(player.top).toBeCloseTo(y + height);
+        } finally {
+          world.destroy();
+        }
+      });
+    }
+  }
+});
+
+describe('migrated pilot bases actual Arcade diagonal corner contact', () => {
+  for (const { room, name, rect } of pilotCases) {
+    for (const [dx, dy] of [[1, 1], [-1, 1], [1, -1], [-1, -1]]) {
+      it.each([15, 30, 60, 120])(`${name} blocks diagonal ${dx},${dy} at %s render FPS`, fps => {
+        const x = (room.origin.x + rect.x) * 16, y = (room.origin.y + rect.y) * 16;
+        const width = rect.width * 16, height = rect.height * 16;
+        const world = new World({ sys: { scale: { width: 1024, height: 768 } } }, { gravity: { x: 0, y: 0 } });
+        const player = new Body(world);
+        player.setSize(16, 1, false);
+        // Equal 8px gaps make the normalized diagonal reach both corner faces together.
+        player.position.set(dx > 0 ? x - 24 : x + width + 8, dy > 0 ? y - 9 : y + height + 8);
+        const start = { x: player.x, y: player.y };
+        world.add(player);
+        const obstacle = new StaticBody(world, {
+          x: x + width / 2, y: y + height / 2, originX: 0.5, originY: 0.5,
+          displayWidth: width, displayHeight: height,
+        });
+        world.add(obstacle);
+        let contacts = 0;
+        world.addCollider(player, obstacle, () => { contacts++; });
+        try {
+          for (let frame = 0; frame < fps; frame++) {
+            player.setVelocity(dx * PLAYER_SPEED / Math.SQRT2, dy * PLAYER_SPEED / Math.SQRT2);
+            world.update(frame * 1000 / fps, 1000 / fps);
+            world.postUpdate();
+            const overlapX = Math.min(player.right, x + width) - Math.max(player.left, x);
+            const overlapY = Math.min(player.bottom, y + height) - Math.max(player.top, y);
+            expect(overlapX > 1e-6 && overlapY > 1e-6).toBe(false);
+          }
+          expect(contacts).toBeGreaterThan(0); // A pass-through must not masquerade as clear final space.
+          expect(Math.hypot(player.x - start.x, player.y - start.y)).toBeGreaterThan(1);
         } finally {
           world.destroy();
         }

@@ -6,6 +6,7 @@ import type {
 import { PLAYER_DISPLAY_HEIGHT } from '../entities/playerAnimation';
 import { office } from './office';
 import { kitchen } from './kitchen';
+import { gymKitchenCenterX, gymSouthEntrance, gymWorldOrigin } from './gymKitchenConnection';
 
 const livingRoom: RoomDefinition = {
   id: 'living-room',
@@ -24,14 +25,6 @@ const livingRoom: RoomDefinition = {
     // Painted bookcase base: x=217..287px, bottom=73px in the 320×224 room.
     // Join the existing wall at y=64px; only extend it to the shelf's feet.
     { x: 13.5625, y: 4, width: 4.375, height: 0.5625 },
-    // Bottom-only furniture bands in room-local tiles (16px/tile).
-    // Painted table/sofa bases follow the 320×224 backdrop, not their upper artwork.
-    { x: 8, y: 7.9375, width: 3.75, height: 0.5 }, // Coffee table feet, bottom 135px.
-    { x: 6.625, y: 10.6875, width: 6.5, height: 0.4375 }, // Sofa feet, bottom 178px.
-    // Sprite bases account for transparent padding and the current 2.8-tile height.
-    { x: 9, y: 5.25, width: 2, height: 0.3125 }, // TV cabinet feet (controllers are cosmetic).
-    { x: 16.375, y: 7.4375, width: 2.25, height: 0.3125 }, // Vinyl stand feet.
-    { x: 3.375, y: 7.75, width: 1.25, height: 0.375 }, // Globe stand's lower feet; artwork independent.
   ],
   interactables: [
     {
@@ -45,6 +38,8 @@ const livingRoom: RoomDefinition = {
       contentId: 'livingroom-media',
       interactionRadiusTiles: 2,
       assetId: 'television-console-front',
+      groundAnchor: { x: 10, y: 5.5625 },
+      footprints: [{ x: 9, y: 5.25, width: 2, height: 0.3125 }],
       displayHeightTiles: 2.8,
     },
     {
@@ -56,6 +51,8 @@ const livingRoom: RoomDefinition = {
       contentId: 'livingroom-vinyl',
       interactionRadiusTiles: 1.5,
       assetId: 'record-player-front',
+      groundAnchor: { x: 17.5, y: 7.75 },
+      footprints: [{ x: 16.375, y: 7.4375, width: 2.25, height: 0.3125 }],
       displayHeightTiles: 2.8,
     },
     {
@@ -76,22 +73,47 @@ const livingRoom: RoomDefinition = {
       label: 'Globe and travel pictures', promptLabel: 'globe and travel pictures',
       contentId: 'livingroom-travel', interactionRadiusTiles: 1.75,
       assetId: 'globe-stand-front', displayHeightTiles: 3.5,
+      groundAnchor: { x: 4, y: 8.125 },
+      footprints: [{ x: 3.375, y: 7.75, width: 1.25, height: 0.375 }],
     },
   ],
-  visualAssetId: 'living-room-background',
+  decorations: [{
+    id: 'living-room-couch', assetId: 'living-room-couch',
+    // Exact source-pixel registration; tile-center positions subtract the renderer's +0.5.
+    position: { x: 742.5 * 20 / 1499 - 0.5, y: 733 * 14 / 1049 - 0.5 },
+    displayWidthTiles: 503 * 20 / 1499,
+    displayHeightTiles: 204 * 14 / 1049,
+    groundAnchor: { x: 9.875, y: 11.125 },
+    // Owner review: four times deeper, growing backward while keeping the front edge at178px.
+    footprints: [{ x: 6.625, y: 9.375, width: 6.5, height: 1.75 }],
+  }, {
+    id: 'living-room-coffee-table', assetId: 'living-room-coffee-table',
+    // Native crop [587,446,895,631), registered against the same1499×1049 source.
+    position: { x: 741 * 20 / 1499 - 0.5, y: 538.5 * 14 / 1049 - 0.5 },
+    displayWidthTiles: 308 * 20 / 1499,
+    displayHeightTiles: 185 * 14 / 1049,
+    groundAnchor: { x: 9.875, y: 8.4375 },
+    // Owner review: triple the depth backward, preserving the front edge at135px.
+    footprints: [{ x: 8, y: 6.9375, width: 3.75, height: 1.5 }],
+  }],
+  visualAssetId: 'living-room-background-couch-table-removed',
+  visualBundle: {
+    fallbackAssetId: 'living-room-background',
+    foregroundIds: ['living-room-couch', 'living-room-coffee-table'],
+  },
 };
 
 const gym: RoomDefinition = {
   id: 'gym',
   name: 'Gym',
-  origin: { x: 25, y: 4 },
+  origin: gymWorldOrigin,
   widthTiles: 16,
   heightTiles: 14,
   collisionRects: [
     // Upper wall ends at the painted floor line. Door connections remain unchanged.
     { x: 0, y: 0, width: 16, height: 3.5 },
-    { x: 0, y: 12, width: 7, height: 2 },
-    { x: 11, y: 12, width: 5, height: 2 },
+    { x: 0, y: 12, width: gymSouthEntrance.left, height: 2 },
+    { x: gymSouthEntrance.right, y: 12, width: 16 - gymSouthEntrance.right, height: 2 },
     { x: 0, y: 1, width: 1, height: 6 },
     { x: 0, y: 9, width: 1, height: 4 },
     { x: 15, y: 1, width: 1, height: 12 },
@@ -171,8 +193,8 @@ export const houseCorridors = [
   },
   {
     id: 'gym-kitchen-corridor',
-    origin: { x: 32, y: 18 },
-    widthTiles: 4,
+    origin: { x: gymKitchenCenterX - (gymSouthEntrance.right - gymSouthEntrance.left) / 2, y: 18 },
+    widthTiles: gymSouthEntrance.right - gymSouthEntrance.left,
     heightTiles: 2,
   },
 ] as const;
@@ -206,7 +228,8 @@ export const houseDoorways: readonly DoorwayDefinition[] = [
     id: 'gym-to-kitchen',
     fromRoomId: 'gym',
     toRoomId: 'kitchen',
-    opening: { x: 7, y: 13, width: 4, height: 1 },
+    // Tile envelope contains the precise artwork-aligned jambs.
+    opening: { x: 6, y: 13, width: 5, height: 1 },
   },
   {
     id: 'kitchen-to-gym',

@@ -1,0 +1,414 @@
+{
+  "url": "http://127.0.0.1:5173",
+  "results": [
+    {
+      "name": "tv",
+      "speed": 144,
+      "position": "behind",
+      "player": 3.2,
+      "object": 3.4,
+      "sole": 140,
+      "plane": 153,
+      "visualY": 140,
+      "expectedVisualY": 140
+    },
+    {
+      "name": "tv",
+      "speed": 144,
+      "position": "front",
+      "player": 3.4,
+      "object": 3.2,
+      "sole": 164.00000000000006,
+      "plane": 153,
+      "visualY": 164.00000000000006,
+      "expectedVisualY": 164.00000000000006
+    },
+    {
+      "name": "vinyl",
+      "speed": 144,
+      "position": "behind",
+      "player": 3.4,
+      "object": 3.6,
+      "sole": 172,
+      "plane": 188,
+      "visualY": 172,
+      "expectedVisualY": 172
+    },
+    {
+      "name": "vinyl",
+      "speed": 144,
+      "position": "front",
+      "player": 3.8,
+      "object": 3.4,
+      "sole": 200.80000000000007,
+      "plane": 188,
+      "visualY": 200.80000000000007,
+      "expectedVisualY": 200.80000000000007
+    },
+    {
+      "name": "globe",
+      "speed": 144,
+      "position": "behind",
+      "player": 3.4,
+      "object": 3.8,
+      "sole": 176,
+      "plane": 194,
+      "visualY": 176,
+      "expectedVisualY": 176
+    },
+    {
+      "name": "globe",
+      "speed": 144,
+      "position": "front",
+      "player": 3.8,
+      "object": 3.6,
+      "sole": 209.60000000000008,
+      "plane": 194,
+      "visualY": 209.60000000000008,
+      "expectedVisualY": 209.60000000000008
+    },
+    {
+      "name": "tv",
+      "speed": 72,
+      "position": "behind",
+      "player": 3.2,
+      "object": 3.4,
+      "sole": 140,
+      "plane": 153,
+      "visualY": 140,
+      "expectedVisualY": 140
+    },
+    {
+      "name": "tv",
+      "speed": 72,
+      "position": "front",
+      "player": 3.4,
+      "object": 3.2,
+      "sole": 165.19999999999976,
+      "plane": 153,
+      "visualY": 165.19999999999976,
+      "expectedVisualY": 165.19999999999976
+    },
+    {
+      "name": "vinyl",
+      "speed": 72,
+      "position": "behind",
+      "player": 3.4,
+      "object": 3.6,
+      "sole": 172,
+      "plane": 188,
+      "visualY": 172,
+      "expectedVisualY": 172
+    },
+    {
+      "name": "vinyl",
+      "speed": 72,
+      "position": "front",
+      "player": 3.8,
+      "object": 3.4,
+      "sole": 200.79999999999973,
+      "plane": 188,
+      "visualY": 200.79999999999973,
+      "expectedVisualY": 200.79999999999973
+    },
+    {
+      "name": "globe",
+      "speed": 72,
+      "position": "behind",
+      "player": 3.4,
+      "object": 3.8,
+      "sole": 176,
+      "plane": 194,
+      "visualY": 176,
+      "expectedVisualY": 176
+    },
+    {
+      "name": "globe",
+      "speed": 72,
+      "position": "front",
+      "player": 3.8,
+      "object": 3.6,
+      "sole": 208.3999999999997,
+      "plane": 194,
+      "visualY": 208.3999999999997,
+      "expectedVisualY": 208.3999999999997
+    },
+    {
+      "name": "tv",
+      "viewport": "portrait",
+      "front": false,
+      "player": 3.2,
+      "object": 3.4,
+      "sole": 140,
+      "plane": 153,
+      "visualY": 140,
+      "expectedVisualY": 140
+    },
+    {
+      "name": "tv",
+      "viewport": "portrait",
+      "front": true,
+      "player": 3.4,
+      "object": 3.2,
+      "sole": 164,
+      "plane": 153,
+      "visualY": 164,
+      "expectedVisualY": 164
+    },
+    {
+      "name": "vinyl",
+      "viewport": "portrait",
+      "front": false,
+      "player": 3.4,
+      "object": 3.6,
+      "sole": 172,
+      "plane": 188,
+      "visualY": 172,
+      "expectedVisualY": 172
+    },
+    {
+      "name": "vinyl",
+      "viewport": "portrait",
+      "front": true,
+      "player": 3.8,
+      "object": 3.4,
+      "sole": 200,
+      "plane": 188,
+      "visualY": 200,
+      "expectedVisualY": 200
+    },
+    {
+      "name": "globe",
+      "viewport": "portrait",
+      "front": false,
+      "player": 3.4,
+      "object": 3.8,
+      "sole": 176,
+      "plane": 194,
+      "visualY": 176,
+      "expectedVisualY": 176
+    },
+    {
+      "name": "globe",
+      "viewport": "portrait",
+      "front": true,
+      "player": 3.8,
+      "object": 3.6,
+      "sole": 208,
+      "plane": 194,
+      "visualY": 208,
+      "expectedVisualY": 208
+    },
+    {
+      "name": "tv",
+      "viewport": "landscape",
+      "front": false,
+      "player": 3.2,
+      "object": 3.4,
+      "sole": 140,
+      "plane": 153,
+      "visualY": 140,
+      "expectedVisualY": 140
+    },
+    {
+      "name": "tv",
+      "viewport": "landscape",
+      "front": true,
+      "player": 3.4,
+      "object": 3.2,
+      "sole": 164,
+      "plane": 153,
+      "visualY": 164,
+      "expectedVisualY": 164
+    },
+    {
+      "name": "vinyl",
+      "viewport": "landscape",
+      "front": false,
+      "player": 3.4,
+      "object": 3.6,
+      "sole": 172,
+      "plane": 188,
+      "visualY": 172,
+      "expectedVisualY": 172
+    },
+    {
+      "name": "vinyl",
+      "viewport": "landscape",
+      "front": true,
+      "player": 3.8,
+      "object": 3.4,
+      "sole": 200,
+      "plane": 188,
+      "visualY": 200,
+      "expectedVisualY": 200
+    },
+    {
+      "name": "globe",
+      "viewport": "landscape",
+      "front": false,
+      "player": 3.4,
+      "object": 3.8,
+      "sole": 176,
+      "plane": 194,
+      "visualY": 176,
+      "expectedVisualY": 176
+    },
+    {
+      "name": "globe",
+      "viewport": "landscape",
+      "front": true,
+      "player": 3.8,
+      "object": 3.6,
+      "sole": 208,
+      "plane": 194,
+      "visualY": 208,
+      "expectedVisualY": 208
+    },
+    {
+      "travel": "cv",
+      "immediate": {
+        "dx": 0,
+        "dy": 0,
+        "visualY": 408,
+        "sole": 408,
+        "depth": 3.8,
+        "velocity": 0,
+        "moving": false
+      }
+    },
+    {
+      "travel": "cv",
+      "firstDestinationRender": {
+        "sole": 408,
+        "visual": 408,
+        "depth": 3.8
+      }
+    },
+    {
+      "travel": "media",
+      "immediate": {
+        "dx": 0,
+        "dy": 0,
+        "visualY": 168,
+        "sole": 168,
+        "depth": 3.4,
+        "velocity": 0,
+        "moving": false
+      }
+    },
+    {
+      "travel": "media",
+      "firstDestinationRender": {
+        "sole": 168,
+        "visual": 168,
+        "depth": 3.4
+      }
+    },
+    {
+      "travel": "training",
+      "immediate": {
+        "dx": 0,
+        "dy": 0,
+        "visualY": 176,
+        "sole": 176,
+        "depth": 3.4,
+        "velocity": 0,
+        "moving": false
+      }
+    },
+    {
+      "travel": "training",
+      "firstDestinationRender": {
+        "sole": 176,
+        "visual": 176,
+        "depth": 3.4
+      }
+    },
+    {
+      "travel": "food-log",
+      "immediate": {
+        "dx": 0,
+        "dy": 0,
+        "visualY": 424,
+        "sole": 424,
+        "depth": 3.8,
+        "velocity": 0,
+        "moving": false
+      }
+    },
+    {
+      "travel": "food-log",
+      "firstDestinationRender": {
+        "sole": 424,
+        "visual": 424,
+        "depth": 3.8
+      }
+    },
+    {
+      "travel": "food-log",
+      "immediate": {
+        "dx": 0,
+        "dy": 0,
+        "visualY": 424,
+        "sole": 424,
+        "depth": 3.8,
+        "velocity": 0,
+        "moving": false
+      }
+    },
+    {
+      "travel": "food-log",
+      "firstDestinationRender": {
+        "sole": 424,
+        "visual": 424,
+        "depth": 3.8
+      }
+    },
+    {
+      "travel": "cv",
+      "immediate": {
+        "dx": 0,
+        "dy": 0,
+        "visualY": 408,
+        "sole": 408,
+        "depth": 3.8,
+        "velocity": 0,
+        "moving": false
+      }
+    },
+    {
+      "travel": "cv",
+      "firstDestinationRender": {
+        "sole": 408,
+        "visual": 408,
+        "depth": 3.8
+      }
+    },
+    {
+      "overlapTravel": {
+        "before": true,
+        "after": false
+      }
+    }
+  ],
+  "listeners": {
+    "post": 2,
+    "step": 1
+  },
+  "firstFrames": [
+    {
+      "sole": 424,
+      "visual": 424,
+      "anchor": 424,
+      "depth": 3.8
+    },
+    {
+      "sole": 424,
+      "visual": 424,
+      "anchor": 424,
+      "depth": 3.8
+    }
+  ],
+  "exceptions": []
+}

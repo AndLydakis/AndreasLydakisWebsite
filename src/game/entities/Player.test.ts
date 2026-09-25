@@ -15,6 +15,7 @@ vi.mock('phaser', () => ({
       setCollideWorldBounds = vi.fn();
       setVelocity = vi.fn();
       reset = vi.fn();
+      preUpdate = vi.fn();
     } } },
   },
 }));
@@ -25,12 +26,15 @@ describe('player ground contact', () => {
     const sprite = { width: 32, height: 32, body, x: 104, y: 168 };
     const scene = { physics: { add: { existing: vi.fn() } } };
     const input = { resetMovement: vi.fn(), consumeInteractionRequest: vi.fn() };
-    const visual = { update: vi.fn() };
+    const visual = { update: vi.fn(), synchronize: vi.fn() };
     const player = new Player(scene as unknown as Phaser.Scene,
       sprite as unknown as Phaser.GameObjects.Sprite, input as unknown as InputController,
       { tileSize: 16, visual: visual as unknown as PlayerVisual });
     player.teleportTo({ x: 11, y: 25.5 });
     expect(body.reset).toHaveBeenCalledWith(176, 392);
+    expect(body.preUpdate).toHaveBeenCalledTimes(2); // Spawn and teleport, without stepping.
+    expect(body.preUpdate).toHaveBeenLastCalledWith(false, 0);
+    expect(visual.synchronize).toHaveBeenCalledWith(true);
     expect(input.resetMovement).toHaveBeenCalledOnce();
     expect(input.consumeInteractionRequest).toHaveBeenCalledOnce();
     expect(visual.update).toHaveBeenCalledWith('down', { x: 0, y: 0 });

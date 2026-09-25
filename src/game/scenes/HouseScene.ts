@@ -17,6 +17,8 @@ import { Player } from '../entities/Player';
 import { PlayerVisual } from '../entities/PlayerVisual';
 import { playerAnimationAssets, PLAYER_FRAME_SIZE, PLAYER_WALK_REPAIRS } from '../entities/playerAnimation';
 import { buildHouse } from '../rendering/houseRenderer';
+import type { HouseRenderLayers } from '../rendering/houseRenderer';
+import { DepthRegistry } from '../rendering/DepthRegistry';
 import { CollisionSystem } from '../systems/CollisionSystem';
 import { InteractionSystem } from '../systems/InteractionSystem';
 import type { InteractionTarget } from '../systems/InteractionSystem';
@@ -32,6 +34,7 @@ export interface HouseSceneCallbacks {
 
 export interface HouseSceneOptions {
   readonly cameraZoom?: number;
+  readonly debugEnabled?: boolean;
 }
 
 /**
@@ -49,6 +52,11 @@ export class HouseScene extends Phaser.Scene {
   private interactionSystem?: InteractionSystem;
   private debugOverlay?: DebugOverlay;
   private cameraBounds?: CameraBounds;
+  private readonly depths = new DepthRegistry();
+  private renderLayers?: HouseRenderLayers;
+  private debugEnabled: boolean;
+  /** Temporary owner review switch; false restores normal development-only outlines. */
+  private readonly showCollisionBounds = true;
 
   public constructor(
     layout: HouseLayout,
@@ -61,6 +69,7 @@ export class HouseScene extends Phaser.Scene {
     this.inputController = inputController;
     this.callbacks = callbacks;
     this.cameraZoom = options.cameraZoom ?? DEFAULT_CAMERA_ZOOM;
+    this.debugEnabled = Boolean(import.meta.env.DEV && (options.debugEnabled ?? true));
   }
 
   public preload(): void {
@@ -120,7 +129,11 @@ export class HouseScene extends Phaser.Scene {
       this.physics.world.setBounds(0, 0, worldWidthPixels, worldHeightPixels);
       // Preserve sub-pixel camera movement at the higher render resolution.
       this.cameras.main.setRoundPixels(false);
-      buildHouse(this, this.layout);
+      this.depths.clear();
+      this.renderLayers = buildHouse(this, this.layout, {
+        depthRegistry: this.depths, debugEnabled: this.debugEnabled,
+        showCollisionBounds: this.showCollisionBounds,
+      });
 
       const camera = this.cameras.main;
       camera.setZoom(this.cameraZoom);
@@ -145,7 +158,7 @@ export class HouseScene extends Phaser.Scene {
       );
       this.playerSprite = this.add
         .sprite(playerPosition.x, playerPosition.y, 'player-placeholder')
-        .setDepth(6);
+        .setDepth(3.5);
       this.player = new Player(this, this.playerSprite, this.inputController, {
         tileSize: this.layout.tileSize,
         visual: PlayerVisual.create(this, this.playerSprite),
@@ -154,17 +167,17 @@ export class HouseScene extends Phaser.Scene {
       this.interactionSystem = new InteractionSystem(this.layout, {
         onTargetChanged: this.callbacks.onInteractionTargetChanged,
       });
-      this.updateCameraFollow();
-      // Arcade copies body positions to sprites during POST_UPDATE. Follow that
-      // same completed step as PlayerVisual, not the previous frame's anchor.
-      this.events.on(Phaser.Scenes.Events.POST_UPDATE, this.updateCameraFollow, this);
-      this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
-        this.events.off(Phaser.Scenes.Events.POST_UPDATE, this.updateCameraFollow, this);
-      });
+      this.depths.registerPlayer(this.player.getDisplayObject(), () => this.player!.getGroundY());
+      this.synchronizePresentation();
+      // Arcade's plugin registers POST_UPDATE before scene creation. Own one
+      // ordered callback: body-to-anchor copy -> visual -> depth -> camera.
+      this.events.on(Phaser.Scenes.Events.POST_UPDATE, this.synchronizePresentation, this);
+      this.events.once(Phaser.Scenes.Events.SHUTDOWN, this.shutdown, this);
 
       if (import.meta.env.DEV) {
         this.debugOverlay = new DebugOverlay(this, this.layout);
         this.debugOverlay.update(this.player.getState());
+        this.debugOverlay.setVisible(this.debugEnabled);
       }
     } catch (error) {
       this.callbacks.onStartupError?.(error);
@@ -201,17 +214,43 @@ export class HouseScene extends Phaser.Scene {
     if (!feet) return false;
     this.player.teleportTo(feet);
     this.interactionSystem?.update(this.player.getState());
-    this.updateCameraFollow();
+    this.synchronizePresentation();
     return true;
   }
 
   public shutdown(): void {
-    this.cameras.main.stopFollow();
+    this.events.off(Phaser.Scenes.Events.POST_UPDATE, this.synchronizePresentation, this);
+    this.depths.clear();
+    // CameraManager may already have disposed its cameras on scene shutdown.
+    this.cameras.main?.stopFollow();
     this.interactionSystem?.destroy();
     this.interactionSystem = undefined;
     this.collisionSystem?.destroy();
     this.collisionSystem = undefined;
     this.cameraBounds = undefined;
+    this.renderLayers = undefined;
+    this.debugOverlay?.destroy();
+    this.debugOverlay = undefined;
+    this.player = undefined;
+    this.playerSprite = undefined;
+  }
+
+  /** Production disables diagnostics; the temporary owner collision review is independent. */
+  public setDiagnosticsEnabled(enabled: boolean): void {
+    this.debugEnabled = Boolean(import.meta.env.DEV && enabled);
+    this.debugOverlay?.setVisible(this.debugEnabled);
+    if (this.renderLayers) {
+      this.renderLayers.collisionPreview.setVisible(this.debugEnabled || this.showCollisionBounds);
+      for (const layer of [this.renderLayers.doorwayPreview, this.renderLayers.worldBounds]) {
+        layer.setVisible(this.debugEnabled);
+      }
+    }
+  }
+
+  private synchronizePresentation(): void {
+    this.player?.synchronizePresentation();
+    this.depths.sort();
+    this.updateCameraFollow();
   }
 
   private updateCameraFollow(): void {

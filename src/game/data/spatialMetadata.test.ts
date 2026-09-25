@@ -19,17 +19,16 @@ const fixture = (patch: Partial<RoomSpriteDefinition> = {}, roomId = 'office'): 
 const errors = (patch: Partial<RoomSpriteDefinition>) => validateHouseLayout(fixture(patch)).join('\n');
 
 describe('optional sprite spatial metadata', () => {
-  it('leaves every delivered room record and collision/quick-travel consumer unchanged', () => {
+  it('collects object footprints without mutating delivered records or unrelated destinations', () => {
     const before = structuredClone(houseLayout);
     expect(validateHouseLayout(houseLayout)).toEqual([]);
-    for (const room of houseLayout.rooms) for (const sprite of [...room.interactables, ...(room.decorations ?? [])]) {
-      expect(sprite).not.toHaveProperty('groundAnchor');
-      expect(sprite).not.toHaveProperty('footprints');
-    }
     const withMetadata = fixture({ groundAnchor: anchor, footprints: [base] });
-    expect(getAllCollisionRects(withMetadata)).toEqual(getAllCollisionRects(houseLayout));
+    const added = { ...base, x: 10.5, y: 26 };
+    const combined = getAllCollisionRects(withMetadata);
+    expect(combined).toHaveLength(getAllCollisionRects(houseLayout).length + 1);
+    expect(combined).toContainEqual(added);
     for (const { id } of quickTravelDestinations) {
-      expect(resolveQuickTravel(withMetadata, id)).toEqual(resolveQuickTravel(houseLayout, id));
+      expect(resolveQuickTravel(withMetadata, id)).toEqual(id === 'cv' ? undefined : resolveQuickTravel(houseLayout, id));
     }
     expect(houseLayout).toEqual(before);
   });

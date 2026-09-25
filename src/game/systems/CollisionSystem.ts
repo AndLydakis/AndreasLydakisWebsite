@@ -43,7 +43,9 @@ export class CollisionSystem {
     }
 
     this.staticBodyList.length = 0;
-    this.staticBodies.clear(true, true);
+    // UpdateList destroys groups before our scene shutdown listener runs.
+    // Live explicit cleanup still owns the group; disposed groups need no clear.
+    if (this.staticBodies.scene) this.staticBodies.clear(true, true);
   }
 
   private addStaticBody(

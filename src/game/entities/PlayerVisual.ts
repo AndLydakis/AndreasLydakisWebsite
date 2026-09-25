@@ -74,10 +74,9 @@ export class PlayerVisual {
       .setScale(PLAYER_DISPLAY_HEIGHT / PLAYER_FRAME_SIZE)
       .setDepth(anchor.depth);
     anchor.setVisible(false);
-    this.syncPosition();
+    this.synchronize();
     this.update('down', { x: 0, y: 0 });
     this.physicsWorld.on(Phaser.Physics.Arcade.Events.WORLD_STEP, this.markStep, this);
-    scene.events.on(Phaser.Scenes.Events.POST_UPDATE, this.syncPosition, this);
     scene.events.once(Phaser.Scenes.Events.SHUTDOWN, this.destroy, this);
   }
 
@@ -104,7 +103,17 @@ export class PlayerVisual {
     else this.phase = 0;
   }
 
-  private syncPosition(): void {
+  public getDisplayObject(): Phaser.GameObjects.Sprite { return this.sprite; }
+
+  /** Called by the scene after Arcade's post-update and before sorting/camera.
+   * Reset suppresses even short teleport jumps that resemble a walking step.
+   */
+  public synchronize(reset = false): void {
+    if (reset) {
+      this.previousPosition = { x: this.anchor.x, y: this.anchor.y };
+      this.stepped = false;
+      this.phase = 0;
+    }
     const distance = Math.hypot(this.anchor.x - this.previousPosition.x, this.anchor.y - this.previousPosition.y);
     // Don't alternate idle/walk on high-refresh render frames without a physics
     // step. Large discontinuities (spawn/debug teleport) must not advance gait.
@@ -124,7 +133,6 @@ export class PlayerVisual {
 
   private destroy(): void {
     this.physicsWorld.off(Phaser.Physics.Arcade.Events.WORLD_STEP, this.markStep, this);
-    this.scene.events.off(Phaser.Scenes.Events.POST_UPDATE, this.syncPosition, this);
     this.anchor.setVisible(true);
     this.sprite.destroy();
   }

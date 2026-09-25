@@ -1,4 +1,5 @@
 import type { RoomDefinition, RoomTileRect } from './types';
+import { gymKitchenCenterX } from './gymKitchenConnection';
 
 /** Painted doorposts in sample-v3, measured in the 16x10 tile backdrop. */
 export const kitchenEntrance = { left: 7.5625, right: 9.875 } as const;
@@ -15,13 +16,13 @@ export const kitchenFurnitureCollisions: readonly RoomTileRect[] = [
   { x: 7.8125, y: 7.9375, width: 1.375, height: 0.375 },
 ];
 
-/** Center the painted passage at world x=34, the gym corridor centerline.
+/** Center the painted passage on the measured gym doorway/corridor centerline.
  * Doorway metadata is a containing tile envelope; collision jambs are precise.
  * Fixed fixtures live in the backdrop, with ordinary data-driven hotspots.
  */
 export const kitchen: RoomDefinition = {
   id: 'kitchen', name: 'Kitchen',
-  origin: { x: 34 - (kitchenEntrance.left + kitchenEntrance.right) / 2, y: 20 },
+  origin: { x: gymKitchenCenterX - (kitchenEntrance.left + kitchenEntrance.right) / 2, y: 20 },
   widthTiles: 16, heightTiles: 10, visualAssetId: 'kitchen-background',
   collisionRects: [
     { x: 0, y: 0, width: kitchenEntrance.left, height: 3.0625 },

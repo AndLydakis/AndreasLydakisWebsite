@@ -1,0 +1,239 @@
+{
+  "url": "http://127.0.0.1:5173",
+  "results": [
+    {
+      "viewport": "desktop",
+      "interaction": "living-room-television"
+    },
+    {
+      "viewport": "desktop",
+      "interaction": "living-room-record-player"
+    },
+    {
+      "viewport": "desktop",
+      "interaction": "living-room-globe"
+    },
+    {
+      "viewport": "portrait",
+      "interaction": "living-room-television"
+    },
+    {
+      "viewport": "portrait",
+      "interaction": "living-room-record-player"
+    },
+    {
+      "viewport": "portrait",
+      "interaction": "living-room-globe"
+    },
+    {
+      "viewport": "landscape",
+      "interaction": "living-room-television"
+    },
+    {
+      "viewport": "landscape",
+      "interaction": "living-room-record-player"
+    },
+    {
+      "viewport": "landscape",
+      "interaction": "living-room-globe"
+    },
+    {
+      "id": "living-room-television",
+      "speed": 144,
+      "direction": "ArrowDown",
+      "actual": 148,
+      "expected": 148
+    },
+    {
+      "id": "living-room-television",
+      "speed": 144,
+      "direction": "ArrowUp",
+      "actual": 153,
+      "expected": 153
+    },
+    {
+      "id": "living-room-television",
+      "speed": 144,
+      "direction": "ArrowRight",
+      "actual": 176,
+      "expected": 176
+    },
+    {
+      "id": "living-room-television",
+      "speed": 144,
+      "direction": "ArrowLeft",
+      "actual": 208,
+      "expected": 208
+    },
+    {
+      "id": "living-room-record-player",
+      "speed": 144,
+      "direction": "ArrowDown",
+      "actual": 183,
+      "expected": 183
+    },
+    {
+      "id": "living-room-record-player",
+      "speed": 144,
+      "direction": "ArrowUp",
+      "actual": 188,
+      "expected": 188
+    },
+    {
+      "id": "living-room-record-player",
+      "speed": 144,
+      "direction": "ArrowRight",
+      "actual": 294,
+      "expected": 294
+    },
+    {
+      "id": "living-room-record-player",
+      "speed": 144,
+      "direction": "ArrowLeft",
+      "actual": 330,
+      "expected": 330
+    },
+    {
+      "id": "living-room-globe",
+      "speed": 144,
+      "direction": "ArrowDown",
+      "actual": 188,
+      "expected": 188
+    },
+    {
+      "id": "living-room-globe",
+      "speed": 144,
+      "direction": "ArrowUp",
+      "actual": 194,
+      "expected": 194
+    },
+    {
+      "id": "living-room-globe",
+      "speed": 144,
+      "direction": "ArrowRight",
+      "actual": 86,
+      "expected": 86
+    },
+    {
+      "id": "living-room-globe",
+      "speed": 144,
+      "direction": "ArrowLeft",
+      "actual": 106,
+      "expected": 106
+    },
+    {
+      "id": "living-room-television",
+      "speed": 72,
+      "direction": "ArrowDown",
+      "actual": 148,
+      "expected": 148
+    },
+    {
+      "id": "living-room-television",
+      "speed": 72,
+      "direction": "ArrowUp",
+      "actual": 153,
+      "expected": 153
+    },
+    {
+      "id": "living-room-television",
+      "speed": 72,
+      "direction": "ArrowRight",
+      "actual": 176,
+      "expected": 176
+    },
+    {
+      "id": "living-room-television",
+      "speed": 72,
+      "direction": "ArrowLeft",
+      "actual": 208,
+      "expected": 208
+    },
+    {
+      "id": "living-room-record-player",
+      "speed": 72,
+      "direction": "ArrowDown",
+      "actual": 183,
+      "expected": 183
+    },
+    {
+      "id": "living-room-record-player",
+      "speed": 72,
+      "direction": "ArrowUp",
+      "actual": 188,
+      "expected": 188
+    },
+    {
+      "id": "living-room-record-player",
+      "speed": 72,
+      "direction": "ArrowRight",
+      "actual": 294,
+      "expected": 294
+    },
+    {
+      "id": "living-room-record-player",
+      "speed": 72,
+      "direction": "ArrowLeft",
+      "actual": 330,
+      "expected": 330
+    },
+    {
+      "id": "living-room-globe",
+      "speed": 72,
+      "direction": "ArrowDown",
+      "actual": 188,
+      "expected": 188
+    },
+    {
+      "id": "living-room-globe",
+      "speed": 72,
+      "direction": "ArrowUp",
+      "actual": 194,
+      "expected": 194
+    },
+    {
+      "id": "living-room-globe",
+      "speed": 72,
+      "direction": "ArrowRight",
+      "actual": 86,
+      "expected": 86
+    },
+    {
+      "id": "living-room-globe",
+      "speed": 72,
+      "direction": "ArrowLeft",
+      "actual": 106,
+      "expected": 106
+    },
+    {
+      "missing": false,
+      "state": {
+        "accepted": false,
+        "before": {
+          "x": 114,
+          "y": 175
+        },
+        "after": {
+          "x": 114,
+          "y": 175
+        }
+      }
+    },
+    {
+      "missing": true,
+      "state": {
+        "accepted": false,
+        "before": {
+          "x": 200,
+          "y": 408
+        },
+        "after": {
+          "x": 200,
+          "y": 408
+        }
+      }
+    }
+  ],
+  "bodyCount": 80,
+  "exceptions": []
+}

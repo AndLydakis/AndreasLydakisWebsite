@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { travelContent } from './travel';
 import { houseLayout } from '../game/data/houseLayout';
 import { optionalTexturePaths } from '../app/assetManifest';
+import { getRoomLocalCollisionRects } from '../game/systems/collisionGeometry';
 
 describe('globe gallery assets and placement', () => {
   it('registers all placeholder photos locally with captions and alt text', () => {
@@ -21,6 +22,6 @@ describe('globe gallery assets and placement', () => {
     const png = readFileSync(`public/assets/${optionalTexturePaths[globe.assetId]}`);
     expect(png.toString('ascii',1,4)).toBe('PNG');
     expect(png[25]).toBe(6); // RGBA, not an opaque black-background export.
-    expect(room.collisionRects).toContainEqual({ x: 3.375, y: 7.75, width: 1.25, height: 0.375 });
+    expect(getRoomLocalCollisionRects(room)).toContainEqual({ x: 3.375, y: 7.75, width: 1.25, height: 0.375 });
   });
 });

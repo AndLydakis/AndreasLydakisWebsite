@@ -4,6 +4,7 @@ import {
   corridorToWorldRect,
   doorwayOpeningToWorld,
   roomRectToWorld,
+  roomGroundAnchorToWorldPixel,
   roomTileToWorld,
   worldRectToWorldPixel,
   worldTileToWorldPixel,
@@ -14,6 +15,15 @@ import type {
   RoomDefinition,
   WorldTileRect,
 } from '../data/types';
+import type { DepthRegistry } from './DepthRegistry';
+import { getAllCollisionRects, getRoomLocalCollisionRects } from '../systems/collisionGeometry';
+
+export interface HouseRenderOptions {
+  readonly depthRegistry?: DepthRegistry;
+  readonly debugEnabled?: boolean;
+  /** Temporary owner-facing collision review, independent of development diagnostics. */
+  readonly showCollisionBounds?: boolean;
+}
 
 const COLORS = {
   floor: 0x3b315c,
@@ -33,10 +43,11 @@ export interface HouseRenderLayers {
 }
 
 /** Creates all generic layout render layers for the supplied house. */
-export function buildHouse(scene: Phaser.Scene, layout: HouseLayout): HouseRenderLayers {
-  const layers = createRenderLayers(scene);
+export function buildHouse(scene: Phaser.Scene, layout: HouseLayout, options: HouseRenderOptions = {}): HouseRenderLayers {
+  const layers = createRenderLayers(scene, Boolean(import.meta.env.DEV && options.debugEnabled));
+  if (options.showCollisionBounds) layers.collisionPreview.setVisible(true);
 
-  layout.rooms.forEach((room) => buildRoom(scene, room, layout.tileSize, layers));
+  layout.rooms.forEach((room) => buildRoom(scene, room, layout.tileSize, layers, options));
 
   layout.corridors.forEach((corridor) => {
     const corridorPixels = worldRectToWorldPixel(
@@ -67,7 +78,18 @@ export function buildHouse(scene: Phaser.Scene, layout: HouseLayout): HouseRende
     worldPixels.height,
   );
 
+  if (options.showCollisionBounds) drawCollisionBounds(layers.collisionPreview, layout);
   return layers;
+}
+
+/** Review precisely the physics rectangles, including corridor/perimeter walls, with no room outlines. */
+export function drawCollisionBounds(graphics: Phaser.GameObjects.Graphics, layout: HouseLayout): void {
+  graphics.clear();
+  graphics.lineStyle(1, COLORS.wallOutline, 0.8);
+  for (const rect of getAllCollisionRects(layout)) {
+    const pixels = worldRectToWorldPixel(rect, layout.tileSize);
+    graphics.strokeRect(pixels.x, pixels.y, pixels.width, pixels.height);
+  }
 }
 
 /** Renders one room from its data without branching on room IDs. */
@@ -76,6 +98,7 @@ export function buildRoom(
   room: RoomDefinition,
   tileSize: number,
   layers: HouseRenderLayers,
+  options: HouseRenderOptions = {},
 ): void {
   const roomPixels = worldRectToWorldPixel(
     roomRectToWorld(room, {
@@ -94,8 +117,8 @@ export function buildRoom(
     roomPixels.width,
     roomPixels.height,
   );
-  layers.floor.lineStyle(2, COLORS.roomOutline, 1);
-  layers.floor.strokeRect(
+  layers.collisionPreview.lineStyle(2, COLORS.roomOutline, 1);
+  layers.collisionPreview.strokeRect(
     roomPixels.x,
     roomPixels.y,
     roomPixels.width,
@@ -104,15 +127,24 @@ export function buildRoom(
 
   // Scenery is independent of physics: never paint collision blocks over room art.
   // Missing optional textures retain the generic floor and visible obstacle fallback.
-  const hasBackground = Boolean(room.visualAssetId && scene.textures.exists(room.visualAssetId));
-  if (hasBackground && room.visualAssetId) {
-    scene.add.image(roomPixels.x, roomPixels.y, room.visualAssetId)
+  const sprites = [...room.interactables, ...(room.decorations ?? [])];
+  const foregroundIds = new Set(room.visualBundle?.foregroundIds ?? []);
+  const textureExists = (key: string | undefined): boolean => Boolean(key && scene.textures.exists(key));
+  // Select once per room: never mix a baked fallback with its extracted foregrounds.
+  const bundleReady = textureExists(room.visualAssetId) && [...foregroundIds].every(id =>
+    textureExists(sprites.find(sprite => sprite.id === id)?.assetId));
+  const backgroundKey = room.visualBundle && !bundleReady
+    ? room.visualBundle.fallbackAssetId : room.visualAssetId;
+  const hasBackground = textureExists(backgroundKey);
+  if (hasBackground && backgroundKey) {
+    // Corridor crops can change a texture's default frame; backgrounds need the full PNG.
+    scene.add.image(roomPixels.x, roomPixels.y, backgroundKey, '__BASE')
       .setOrigin(0, 0)
       .setDisplaySize(roomPixels.width, roomPixels.height)
       .setDepth(1);
   }
 
-  room.collisionRects.forEach((collisionRect) => {
+  getRoomLocalCollisionRects(room).forEach((collisionRect) => {
     const collisionPixels = worldRectToWorldPixel(
       roomRectToWorld(room, collisionRect),
       tileSize,
@@ -138,7 +170,9 @@ export function buildRoom(
   });
 
   // Decorations use the same rendering contract, but are absent from interaction selection.
-  [...room.interactables, ...(room.decorations ?? [])].forEach((interactable) => {
+  sprites.forEach((interactable) => {
+    const failedBundleMember = foregroundIds.has(interactable.id) && !bundleReady;
+    if (failedBundleMember && hasBackground) return;
     // Painted furniture still has a normal interaction target, but needs no duplicate sprite.
     if (interactable.artworkInBackground && hasBackground) return;
 
@@ -147,11 +181,15 @@ export function buildRoom(
       tileSize,
     );
     const textureKey =
-      interactable.assetId && scene.textures.exists(interactable.assetId)
+      !failedBundleMember && interactable.assetId && scene.textures.exists(interactable.assetId)
         ? interactable.assetId
         : 'furniture-placeholder';
     const hasArtwork = textureKey === interactable.assetId;
-    const image = scene.add.image(position.x, position.y, textureKey).setDepth(5);
+    const image = scene.add.image(position.x, position.y, textureKey).setDepth(2);
+    if (interactable.groundAnchor !== undefined) {
+      const ground = roomGroundAnchorToWorldPixel(room, interactable.groundAnchor, tileSize);
+      options.depthRegistry?.registerObject(room.id, interactable.id, image, ground.y);
+    }
 
     // Artwork and proximity feedback share the same center in world space.
     image.setOrigin(0.5, 0.5);
@@ -221,13 +259,13 @@ export function drawWoodFloor(
   }
 }
 
-function createRenderLayers(scene: Phaser.Scene): HouseRenderLayers {
+function createRenderLayers(scene: Phaser.Scene, debugEnabled: boolean): HouseRenderLayers {
   return {
     floor: scene.add.graphics().setDepth(0),
     walls: scene.add.graphics().setDepth(1),
-    collisionPreview: scene.add.graphics().setDepth(2),
-    doorwayPreview: scene.add.graphics().setDepth(3),
-    worldBounds: scene.add.graphics().setDepth(4),
+    collisionPreview: scene.add.graphics().setDepth(8).setVisible(debugEnabled),
+    doorwayPreview: scene.add.graphics().setDepth(8).setVisible(debugEnabled),
+    worldBounds: scene.add.graphics().setDepth(8).setVisible(debugEnabled),
   };
 }
 

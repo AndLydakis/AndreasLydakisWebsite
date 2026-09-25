@@ -1,13 +1,39 @@
 import { describe, expect, it } from 'vitest';
 
 import { houseLayout } from '../data/houseLayout';
-import { getAllCollisionRects, getCorridorCollisionRects, getRoomCollisionRects, getWorldPerimeterRects } from './collisionGeometry';
+import { getAllCollisionRects, getCorridorCollisionRects, getRoomCollisionRects, getRoomLocalCollisionRects, getWorldPerimeterRects } from './collisionGeometry';
 
 describe('collision geometry', () => {
+  it('preserves compound pieces, duplicates across owners, fractional offsets and input data', () => {
+    const wall = { x: 0, y: 0, width: 1, height: 1 };
+    const shared = { x: 2, y: 3, width: 0.25, height: 0.5 };
+    const second = { x: 3.25, y: 3.5, width: 0.5, height: 0.25 };
+    const room = { ...houseLayout.rooms[0]!, origin: { x: 3.5, y: 20.25 }, collisionRects: [wall],
+      interactables: [{ ...houseLayout.rooms[0]!.interactables[0]!, footprints: [shared, second] }],
+      decorations: [
+        { id: 'decoration', position: { x: 2, y: 3 }, groundAnchor: { x: 2, y: 4 }, footprints: [shared] },
+        { id: 'empty', position: { x: 1, y: 1 }, footprints: [] },
+        { id: 'omitted', position: { x: 1, y: 1 } },
+      ],
+    };
+    const before = structuredClone(room);
+    const local = getRoomLocalCollisionRects(room);
+    expect(local).toEqual([wall, shared, second, shared]);
+    expect(getRoomCollisionRects({ ...houseLayout, rooms: [room] })).toEqual([
+      { x: 3.5, y: 20.25, width: 1, height: 1 },
+      { x: 5.5, y: 23.25, width: 0.25, height: 0.5 },
+      { x: 6.75, y: 23.75, width: 0.5, height: 0.25 },
+      { x: 5.5, y: 23.25, width: 0.25, height: 0.5 },
+    ]);
+    local.pop(); // The result array itself is not an authored array.
+    expect(room).toEqual(before);
+    expect(getRoomLocalCollisionRects(room)).toHaveLength(4);
+  });
+
   it('flattens room-local collision data into world-tile rectangles', () => {
     const roomRects = getRoomCollisionRects(houseLayout);
 
-    expect(roomRects).toHaveLength(houseLayout.rooms.reduce((sum, room) => sum + room.collisionRects.length, 0));
+    expect(roomRects).toHaveLength(houseLayout.rooms.reduce((sum, room) => sum + getRoomLocalCollisionRects(room).length, 0));
     expect(roomRects).toContainEqual({ x: 15.5625, y: 8, width: 4.375, height: 0.5625 });
     expect(roomRects).toContainEqual({ x: 2, y: 4, width: 20, height: 4 });
     expect(roomRects).toContainEqual({ x: 21, y: 5, width: 1, height: 6 });
@@ -41,8 +67,8 @@ describe('collision geometry', () => {
       { x: 22, y: 13, width: 3, height: 1 },
       { x: 9, y: 18, width: 1, height: 2 },
       { x: 14, y: 18, width: 1, height: 2 },
-      { x: 31, y: 18, width: 1, height: 2 },
-      { x: 36, y: 18, width: 1, height: 2 },
+      { x: 30.4375, y: 18, width: 1, height: 2 },
+      { x: 35.875, y: 18, width: 1, height: 2 },
     ]));
     const floors = [
       ...houseLayout.rooms.map(r => ({ ...r.origin, width: r.widthTiles, height: r.heightTiles })),

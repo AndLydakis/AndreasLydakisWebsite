@@ -46,6 +46,9 @@ export class Player {
     this.body.setAllowGravity(false);
     this.body.setCollideWorldBounds(true);
     this.body.setVelocity(0, 0);
+    // Public Arcade pre-update synchronizes offsets AND previous-frame history.
+    // No physics step is run; this also prevents first-frame position correction.
+    this.body.preUpdate(false, 0);
   }
 
   public update(): void {
@@ -75,7 +78,20 @@ export class Player {
     this.inputController.consumeInteractionRequest();
     this.body.reset(feet.x * this.options.tileSize,
       feet.y * this.options.tileSize - this.sprite.height / 2);
+    // reset() alone initially ignores the foot offset in Phaser 3.90.
+    this.body.preUpdate(false, 0);
     this.facing = 'down';
     this.options.visual?.update(this.facing, { x: 0, y: 0 });
+    this.synchronizePresentation(true);
+  }
+
+  public getGroundY(): number { return this.body.bottom; }
+
+  public getDisplayObject(): Phaser.GameObjects.Sprite {
+    return this.options.visual?.getDisplayObject() ?? this.sprite;
+  }
+
+  public synchronizePresentation(reset = false): void {
+    this.options.visual?.synchronize(reset);
   }
 }

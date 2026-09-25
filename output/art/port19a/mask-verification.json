@@ -1,0 +1,53 @@
+{
+  "source_sha256": "a12a6a3be2b0818d2335694e802bf318916cf753341d017a820fbb4b8c5d7096",
+  "canvas": [
+    1499,
+    1049
+  ],
+  "alpha_bounds_exclusive": [
+    491,
+    631,
+    994,
+    835
+  ],
+  "rgb_changed_pixels": 0,
+  "alpha_values": [
+    0,
+    255
+  ],
+  "restoration_bounds_exclusive": [
+    466,
+    606,
+    1019,
+    860
+  ],
+  "outside_restoration_changed_pixels": 0,
+  "table_unchanged": true,
+  "composite_opaque_couch_changed_pixels": 0,
+  "shadow_policy": "original broad cast shadow remains floor-owned; narrow contact edge remains on couch",
+  "cropped_sprite_source_rect": [
+    491,
+    631,
+    994,
+    835
+  ],
+  "room_display_pixels": [
+    320,
+    224
+  ],
+  "room_origin_pixels": [
+    32,
+    64
+  ],
+  "ground_anchor_room_tiles": [
+    9.875,
+    11.125
+  ],
+  "existing_footprint_room_tiles": [
+    6.625,
+    10.6875,
+    6.5,
+    0.4375
+  ],
+  "status": "draft; alpha and composite review required"
+}
