@@ -6,7 +6,4 @@ Use multiple shades per material, including reflected light, contact shadows, oc
 
 The result should feel like a production game asset carefully animated and hand-pixelled by an expert, not a logo, vector illustration, flat icon, emoji, or minimalist pixel-art symbol. Use crisp hard-edged pixels, no anti-aliasing, no blur, no smooth vector curves, no excessive empty space, and no large unbroken areas of flat color. Maintain consistent scale, lighting, palette, and detail density across all views.
 
-create an 80s kitchen, linoleum floor, smeg type fridge, gas stove, round table with checkered white/red tablecloth. vase with flower on the table, drying rack with some stuff on it. old fashioned two slot toaster on the counter. cupboards above and on the bottom of the counter. sunny window over sink. dog bowl in the corner. 
-
-* the fridge will be an interactable with my current shopping list
-* the stove will be an interactable with recent recipes and food i ateßß
+create an 80s living room, orthographic RPG cutaway view, with no vanishing-point perspective, wooden walls, top wall has a window with green curtains. wooden floor, middle of the room has a round green/yellow carpet. next to the window, on the right, there is a library with books of different sizes and colors. On the left there are a few frames of pictures of cats and dogs. there is a couch facing the top wall, at the bottom side of the carpet in front of the carpet there is also a coffee table, with an open pizza box with some half eatn pepperoni pizza on it and some soda next to it. No other furniture for now.

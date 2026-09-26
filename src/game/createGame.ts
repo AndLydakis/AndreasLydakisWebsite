@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 
 import { houseLayout } from './data/houseLayout';
 import { assertValidHouseLayout } from './data/layoutValidation';
-import type { HouseLayout } from './data/types';
+import type { HouseLayout, RoomDefinition } from './data/types';
 import { GAME_HEIGHT, GAME_WIDTH } from './config';
 import { HouseScene } from './scenes/HouseScene';
 import type { InteractionTarget } from './systems/InteractionSystem';
@@ -15,6 +15,7 @@ export interface CreateGameOptions {
   readonly inputController: InputController;
   readonly cameraZoom?: number;
   readonly onSceneReady?: () => void;
+  readonly onRoomChanged?: (roomId: RoomDefinition['id']) => void;
   readonly onStartupError?: (error: unknown) => void;
   readonly onInteractionTargetChanged?: (target: InteractionTarget | null) => void;
   readonly onContentRequested?: (contentId: string, triggerSource: InteractionTriggerSource) => void;
@@ -51,6 +52,7 @@ export function createGame(options: CreateGameOptions): Phaser.Game {
     },
     scene: new HouseScene(layout, options.inputController, {
       onSceneReady: options.onSceneReady,
+      onRoomChanged: options.onRoomChanged,
       onStartupError: options.onStartupError,
       onInteractionTargetChanged: options.onInteractionTargetChanged,
       onContentRequested: options.onContentRequested,

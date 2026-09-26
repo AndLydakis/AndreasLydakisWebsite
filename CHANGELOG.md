@@ -6,6 +6,20 @@ pushed.
 
 ## [Unreleased]
 
+## [2026-09-26] — Approved repository-state delivery
+
+- Include owner-authored plan-review wording and style-prompt reorganization/edits under `utils/`; remove the former root `style.md` as requested by the working state.
+
+### PORT-19D / PORT-19D1 — Owner-directed closure
+
+- Mark both bookcase stories complete at the owner's request (DEC-155), without claiming new artwork, runtime integration or verification.
+
+### Presentation follow-up — Header spacing and room indicator
+
+- Tighten the gap before Explore the house and its controls explanation without shrinking mobile quick-travel targets.
+- Track the player's current room with the quick-travel glove, independently of hover/focus; preserve the last room in corridors.
+- Verify 1,938 tests, typecheck/build and 66 development/production browser records each across four viewport sizes. Owner authorized delivery under DEC-156.
+
 ## [2026-09-25] — Remaining perspective adoption
 
 Delivered in `fafe34e` to `origin/master`; PORT-18F, PORT-18G, PORT-18H, PORT-18I and PORT-18J are complete.

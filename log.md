@@ -2,6 +2,29 @@
 
 This file is the project decision record. New implementation decisions, approved changes, deferred choices, and story-completion decisions must be added here before or alongside changes to `plan.md` or source files.
 
+## DEC-156 — Publish the current repository state
+
+- Date: 2026-09-26. Owner requests pushing the current state of the repo, authorizing delivery of the DEC-154 presentation follow-up, DEC-155 administrative closures, and all previously held owner-authored style and plan edits.
+- Include the root style-file removal and style files under utils exactly as authored; no asset generation or prompt execution. Preserve the distinction between administrative bookcase closure and implemented functionality.
+- Fresh verification passes 1,938 tests/44 files, typecheck and production build (`index-CgWYcXos.js`). Existing development/production browser evidence and independent approval remain applicable to this unchanged runtime snapshot. Existing bundle-size advisory and owner-authored kitchen-prompt trailing whitespace are retained, not reported as new runtime failures.
+- Publish the complete tracked/non-ignored working state to origin/master with applicable story IDs; verify the remote commit and clean working tree afterward.
+
+## DEC-155 — Owner-directed closure of PORT-19D and PORT-19D1
+
+- Date: 2026-09-26. Owner explicitly requests marking PORT-19D and PORT-19D1 complete after being informed that both were pending.
+- Mark both Done as an administrative scope decision, retaining their original requirements for reference. This does not assert that new living-room bookcase extraction, occlusion integration, acceptance testing or delivery occurred. PORT-19E must review the actual shipped inventory rather than assume these assets were implemented.
+- Documentation-only change; preserve all existing local work. No new implementation, tests, commit or push in this turn.
+
+## DEC-154 — Compact heading and current-room quick-travel indicator
+
+- After the perspective delivery, owner requests less empty space between the title and Explore the house instructions, and a glove that points at the player's current room. Implement as a separate presentation/navigation follow-up; no object geometry or art changes.
+- Reduce the header-to-game gap and explicitly set game heading/instruction margins, retaining responsive document flow and usable quick-travel touch targets. Do not overlap the navigation or pull text over it with negative positioning.
+- The glove represents location rather than hover/focus: update from actual room entry on foot or successful teleport, including initial office placement/restarts. Retain the last room while in a connecting corridor. Keep independent keyboard focus styling and expose the current location accessibly; failed travel must not move the indicator.
+- Verify unit tests/build and development/production responsive spacing, actual walking/teleport transitions, hover/focus behavior, dialogs and mobile controls. These new changes remain local for owner review, separate from the completed perspective push.
+- Implementation adds a generic world-feet room resolver and change-only scene callback through the existing UI bridge; no per-room runtime branch or geometry change. Main and implementing engineer pass 1,938 tests/44 files, typecheck/build (`index-CgWYcXos.js`). Independent reviewer passes 15 targeted tests and approves source/accessibility/lifecycle with no blockers; browser verification remains pending.
+- Final focused browser QA passes 66 records per environment at desktop, portrait, landscape and 320px widths: measured 12px header gap with no overlap/overflow, real walking through all four rooms and back, UI teleport/input resets, unchanged glove on hover/focus, ARIA location, mobile touch dialogs and successful scene restarts. Zero exceptions; evidence `output/qa/header-room-indicator/verification.md`. This is Chrome emulation, not physical-device testing. No runtime fixes were needed; follow-up remains uncommitted/unpushed for owner review.
+- Independent final review: Ramanujan approves the saved development and production evidence, including all 66 production records, with no blocking findings. Owner preview approval remains separate; no additional push performed.
+
 ## DEC-153 — Owner acceptance and conditional PORT-18F–18J delivery
 
 - Owner says current visuals look good and authorizes closing the current stories and pushing only after integration tests and review pass. Accept the current plant artwork, office geometry and previously explained whole-image workstation/dining sorting limitations; no layered-art split is required for this delivery.

@@ -1,0 +1,628 @@
+{
+  "url": "http://127.0.0.1:5173",
+  "harnessSha256": "7728e54ac1b3e96ec6b505ffee29d7de4086a29300eddf47519fa5afd56ef192",
+  "recordedAt": "2026-09-25T13:43:15.421Z",
+  "records": [
+    {
+      "kind": "spacing",
+      "viewport": "desktop",
+      "state": {
+        "header": {
+          "x": 64,
+          "y": 40,
+          "right": 1216,
+          "bottom": 173.96875,
+          "width": 1152,
+          "height": 133.96875
+        },
+        "title": {
+          "x": 64,
+          "y": 40,
+          "right": 372.1875,
+          "bottom": 90.390625,
+          "width": 308.1875,
+          "height": 50.390625
+        },
+        "nav": {
+          "x": 1048,
+          "y": 40,
+          "right": 1216,
+          "bottom": 173.96875,
+          "width": 168,
+          "height": 133.96875
+        },
+        "heading": {
+          "x": 64,
+          "y": 185.96875,
+          "right": 1216,
+          "bottom": 213.96875,
+          "width": 1152,
+          "height": 28
+        },
+        "instructions": {
+          "x": 64,
+          "y": 219.5625,
+          "right": 1216,
+          "bottom": 237.5625,
+          "width": 1152,
+          "height": 18
+        },
+        "game": {
+          "x": 64,
+          "y": 253.5625,
+          "right": 1216,
+          "bottom": 901.5625,
+          "width": 1152,
+          "height": 648
+        },
+        "headerCss": {
+          "top": 0,
+          "bottom": 12
+        },
+        "headingCss": {
+          "top": 0,
+          "bottom": 5.6
+        },
+        "instructionsCss": {
+          "top": 0,
+          "bottom": 16
+        },
+        "overflow": false
+      }
+    },
+    {
+      "kind": "header-capture",
+      "viewport": "desktop",
+      "id": "cv",
+      "screenshot": "desktop-header-cv.png"
+    },
+    {
+      "kind": "spacing",
+      "viewport": "desktop",
+      "state": {
+        "header": {
+          "x": 64,
+          "y": 40,
+          "right": 1216,
+          "bottom": 173.96875,
+          "width": 1152,
+          "height": 133.96875
+        },
+        "title": {
+          "x": 64,
+          "y": 40,
+          "right": 372.1875,
+          "bottom": 90.390625,
+          "width": 308.1875,
+          "height": 50.390625
+        },
+        "nav": {
+          "x": 1048,
+          "y": 40,
+          "right": 1216,
+          "bottom": 173.96875,
+          "width": 168,
+          "height": 133.96875
+        },
+        "heading": {
+          "x": 64,
+          "y": 185.96875,
+          "right": 1216,
+          "bottom": 213.96875,
+          "width": 1152,
+          "height": 28
+        },
+        "instructions": {
+          "x": 64,
+          "y": 219.5625,
+          "right": 1216,
+          "bottom": 237.5625,
+          "width": 1152,
+          "height": 18
+        },
+        "game": {
+          "x": 64,
+          "y": 253.5625,
+          "right": 1216,
+          "bottom": 901.5625,
+          "width": 1152,
+          "height": 648
+        },
+        "headerCss": {
+          "top": 0,
+          "bottom": 12
+        },
+        "headingCss": {
+          "top": 0,
+          "bottom": 5.6
+        },
+        "instructionsCss": {
+          "top": 0,
+          "bottom": 16
+        },
+        "overflow": false
+      }
+    },
+    {
+      "kind": "header-capture",
+      "viewport": "desktop",
+      "id": "training",
+      "screenshot": "desktop-header-training.png"
+    },
+    {
+      "kind": "restart",
+      "viewport": "desktop",
+      "from": "training",
+      "state": {
+        "room": "office",
+        "enabled": 4
+      }
+    },
+    {
+      "kind": "spacing",
+      "viewport": "portrait",
+      "state": {
+        "header": {
+          "x": 16,
+          "y": 24,
+          "right": 374,
+          "bottom": 215.59375,
+          "width": 358,
+          "height": 191.59375
+        },
+        "title": {
+          "x": 16,
+          "y": 24,
+          "right": 190,
+          "bottom": 82.78125,
+          "width": 174,
+          "height": 58.78125
+        },
+        "nav": {
+          "x": 206,
+          "y": 24,
+          "right": 374,
+          "bottom": 215.59375,
+          "width": 168,
+          "height": 191.59375
+        },
+        "heading": {
+          "x": 16,
+          "y": 227.59375,
+          "right": 374,
+          "bottom": 255.59375,
+          "width": 358,
+          "height": 28
+        },
+        "instructions": {
+          "x": 16,
+          "y": 261.1875,
+          "right": 374,
+          "bottom": 297.1875,
+          "width": 358,
+          "height": 36
+        },
+        "game": {
+          "x": 16,
+          "y": 313.1875,
+          "right": 374,
+          "bottom": 672.5625,
+          "width": 358,
+          "height": 359.375
+        },
+        "headerCss": {
+          "top": 0,
+          "bottom": 12
+        },
+        "headingCss": {
+          "top": 0,
+          "bottom": 5.6
+        },
+        "instructionsCss": {
+          "top": 0,
+          "bottom": 16
+        },
+        "overflow": false
+      }
+    },
+    {
+      "kind": "header-capture",
+      "viewport": "portrait",
+      "id": "cv",
+      "screenshot": "portrait-header-cv.png"
+    },
+    {
+      "kind": "spacing",
+      "viewport": "portrait",
+      "state": {
+        "header": {
+          "x": 16,
+          "y": 24,
+          "right": 374,
+          "bottom": 215.59375,
+          "width": 358,
+          "height": 191.59375
+        },
+        "title": {
+          "x": 16,
+          "y": 24,
+          "right": 190,
+          "bottom": 82.78125,
+          "width": 174,
+          "height": 58.78125
+        },
+        "nav": {
+          "x": 206,
+          "y": 24,
+          "right": 374,
+          "bottom": 215.59375,
+          "width": 168,
+          "height": 191.59375
+        },
+        "heading": {
+          "x": 16,
+          "y": 227.59375,
+          "right": 374,
+          "bottom": 255.59375,
+          "width": 358,
+          "height": 28
+        },
+        "instructions": {
+          "x": 16,
+          "y": 261.1875,
+          "right": 374,
+          "bottom": 297.1875,
+          "width": 358,
+          "height": 36
+        },
+        "game": {
+          "x": 16,
+          "y": 313.1875,
+          "right": 374,
+          "bottom": 672.5625,
+          "width": 358,
+          "height": 359.375
+        },
+        "headerCss": {
+          "top": 0,
+          "bottom": 12
+        },
+        "headingCss": {
+          "top": 0,
+          "bottom": 5.6
+        },
+        "instructionsCss": {
+          "top": 0,
+          "bottom": 16
+        },
+        "overflow": false
+      }
+    },
+    {
+      "kind": "header-capture",
+      "viewport": "portrait",
+      "id": "training",
+      "screenshot": "portrait-header-training.png"
+    },
+    {
+      "kind": "restart",
+      "viewport": "portrait",
+      "from": "training",
+      "state": {
+        "room": "office",
+        "enabled": 4
+      }
+    },
+    {
+      "kind": "spacing",
+      "viewport": "landscape",
+      "state": {
+        "header": {
+          "x": 33.75,
+          "y": 40,
+          "right": 810.25,
+          "bottom": 231.59375,
+          "width": 776.5,
+          "height": 191.59375
+        },
+        "title": {
+          "x": 33.75,
+          "y": 40,
+          "right": 304.703125,
+          "bottom": 84.3125,
+          "width": 270.953125,
+          "height": 44.3125
+        },
+        "nav": {
+          "x": 642.25,
+          "y": 40,
+          "right": 810.25,
+          "bottom": 231.59375,
+          "width": 168,
+          "height": 191.59375
+        },
+        "heading": {
+          "x": 33.75,
+          "y": 243.59375,
+          "right": 810.25,
+          "bottom": 271.59375,
+          "width": 776.5,
+          "height": 28
+        },
+        "instructions": {
+          "x": 33.75,
+          "y": 277.1875,
+          "right": 810.25,
+          "bottom": 295.1875,
+          "width": 776.5,
+          "height": 18
+        },
+        "game": {
+          "x": 33.75,
+          "y": 311.1875,
+          "right": 810.25,
+          "bottom": 660.59375,
+          "width": 776.5,
+          "height": 349.40625
+        },
+        "headerCss": {
+          "top": 0,
+          "bottom": 12
+        },
+        "headingCss": {
+          "top": 0,
+          "bottom": 5.6
+        },
+        "instructionsCss": {
+          "top": 0,
+          "bottom": 16
+        },
+        "overflow": false
+      }
+    },
+    {
+      "kind": "header-capture",
+      "viewport": "landscape",
+      "id": "cv",
+      "screenshot": "landscape-header-cv.png"
+    },
+    {
+      "kind": "spacing",
+      "viewport": "landscape",
+      "state": {
+        "header": {
+          "x": 33.75,
+          "y": 40,
+          "right": 810.25,
+          "bottom": 231.59375,
+          "width": 776.5,
+          "height": 191.59375
+        },
+        "title": {
+          "x": 33.75,
+          "y": 40,
+          "right": 304.703125,
+          "bottom": 84.3125,
+          "width": 270.953125,
+          "height": 44.3125
+        },
+        "nav": {
+          "x": 642.25,
+          "y": 40,
+          "right": 810.25,
+          "bottom": 231.59375,
+          "width": 168,
+          "height": 191.59375
+        },
+        "heading": {
+          "x": 33.75,
+          "y": 243.59375,
+          "right": 810.25,
+          "bottom": 271.59375,
+          "width": 776.5,
+          "height": 28
+        },
+        "instructions": {
+          "x": 33.75,
+          "y": 277.1875,
+          "right": 810.25,
+          "bottom": 295.1875,
+          "width": 776.5,
+          "height": 18
+        },
+        "game": {
+          "x": 33.75,
+          "y": 311.1875,
+          "right": 810.25,
+          "bottom": 660.59375,
+          "width": 776.5,
+          "height": 349.40625
+        },
+        "headerCss": {
+          "top": 0,
+          "bottom": 12
+        },
+        "headingCss": {
+          "top": 0,
+          "bottom": 5.6
+        },
+        "instructionsCss": {
+          "top": 0,
+          "bottom": 16
+        },
+        "overflow": false
+      }
+    },
+    {
+      "kind": "header-capture",
+      "viewport": "landscape",
+      "id": "training",
+      "screenshot": "landscape-header-training.png"
+    },
+    {
+      "kind": "restart",
+      "viewport": "landscape",
+      "from": "training",
+      "state": {
+        "room": "office",
+        "enabled": 4
+      }
+    },
+    {
+      "kind": "spacing",
+      "viewport": "narrow",
+      "state": {
+        "header": {
+          "x": 16,
+          "y": 24,
+          "right": 304,
+          "bottom": 215.59375,
+          "width": 288,
+          "height": 191.59375
+        },
+        "title": {
+          "x": 16,
+          "y": 24,
+          "right": 144,
+          "bottom": 82.78125,
+          "width": 128,
+          "height": 58.78125
+        },
+        "nav": {
+          "x": 152,
+          "y": 24,
+          "right": 304,
+          "bottom": 215.59375,
+          "width": 152,
+          "height": 191.59375
+        },
+        "heading": {
+          "x": 16,
+          "y": 227.59375,
+          "right": 304,
+          "bottom": 255.59375,
+          "width": 288,
+          "height": 28
+        },
+        "instructions": {
+          "x": 16,
+          "y": 261.1875,
+          "right": 304,
+          "bottom": 315.1875,
+          "width": 288,
+          "height": 54
+        },
+        "game": {
+          "x": 16,
+          "y": 331.1875,
+          "right": 304,
+          "bottom": 651.1875,
+          "width": 288,
+          "height": 320
+        },
+        "headerCss": {
+          "top": 0,
+          "bottom": 12
+        },
+        "headingCss": {
+          "top": 0,
+          "bottom": 5.6
+        },
+        "instructionsCss": {
+          "top": 0,
+          "bottom": 16
+        },
+        "overflow": false
+      }
+    },
+    {
+      "kind": "header-capture",
+      "viewport": "narrow",
+      "id": "cv",
+      "screenshot": "narrow-header-cv.png"
+    },
+    {
+      "kind": "spacing",
+      "viewport": "narrow",
+      "state": {
+        "header": {
+          "x": 16,
+          "y": 24,
+          "right": 304,
+          "bottom": 215.59375,
+          "width": 288,
+          "height": 191.59375
+        },
+        "title": {
+          "x": 16,
+          "y": 24,
+          "right": 144,
+          "bottom": 82.78125,
+          "width": 128,
+          "height": 58.78125
+        },
+        "nav": {
+          "x": 152,
+          "y": 24,
+          "right": 304,
+          "bottom": 215.59375,
+          "width": 152,
+          "height": 191.59375
+        },
+        "heading": {
+          "x": 16,
+          "y": 227.59375,
+          "right": 304,
+          "bottom": 255.59375,
+          "width": 288,
+          "height": 28
+        },
+        "instructions": {
+          "x": 16,
+          "y": 261.1875,
+          "right": 304,
+          "bottom": 315.1875,
+          "width": 288,
+          "height": 54
+        },
+        "game": {
+          "x": 16,
+          "y": 331.1875,
+          "right": 304,
+          "bottom": 651.1875,
+          "width": 288,
+          "height": 320
+        },
+        "headerCss": {
+          "top": 0,
+          "bottom": 12
+        },
+        "headingCss": {
+          "top": 0,
+          "bottom": 5.6
+        },
+        "instructionsCss": {
+          "top": 0,
+          "bottom": 16
+        },
+        "overflow": false
+      }
+    },
+    {
+      "kind": "header-capture",
+      "viewport": "narrow",
+      "id": "training",
+      "screenshot": "narrow-header-training.png"
+    },
+    {
+      "kind": "restart",
+      "viewport": "narrow",
+      "from": "training",
+      "state": {
+        "room": "office",
+        "enabled": 4
+      }
+    }
+  ],
+  "exceptions": []
+}

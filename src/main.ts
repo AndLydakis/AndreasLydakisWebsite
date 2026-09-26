@@ -66,6 +66,7 @@ contentIndex.setEntries([]);
 dom.gameStatus.textContent = 'Starting the interactive house...';
 
 const subscriptions = [
+  bridge.on('currentRoomChanged', ({ roomId }) => quickTravel.setCurrentRoom(roomId)),
   bridge.on('interactionAvailable', ({ label }) => {
     dom.interactionPrompt.hidden = false;
     dom.interactionPrompt.textContent = `Press E, F, Enter, Space, or Interact to interact with ${label}.`;
@@ -108,6 +109,7 @@ try {
     parent: dom.canvasLayer,
     layout: houseLayout,
     inputController,
+    onRoomChanged: roomId => bridge.emit('currentRoomChanged', { roomId }),
     onSceneReady: () => {
       bridge.emit('gameReady', undefined);
     },

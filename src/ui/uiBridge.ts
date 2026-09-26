@@ -1,6 +1,8 @@
 import type { InteractionTriggerSource } from '../game/systems/InputController';
+import type { RoomDefinition } from '../game/data/types';
 
 export interface GameUiEventMap {
+  currentRoomChanged: { roomId: RoomDefinition['id'] };
   interactionAvailable: { contentId: string; label: string };
   interactionUnavailable: undefined;
   contentRequested: { contentId: string; triggerSource: InteractionTriggerSource };

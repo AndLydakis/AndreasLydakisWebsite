@@ -10,7 +10,8 @@ import {
 import type { CameraBounds } from '../camera/cameraFollow';
 import { assertValidHouseLayout } from '../data/layoutValidation';
 import { worldTileToWorldPixel } from '../data/coordinates';
-import type { HouseLayout } from '../data/types';
+import type { HouseLayout, RoomDefinition } from '../data/types';
+import { resolveCurrentRoom } from '../data/currentRoom';
 import { resolveQuickTravel, type QuickTravelId } from '../data/quickTravel';
 import { DebugOverlay } from '../debug/DebugOverlay';
 import { Player } from '../entities/Player';
@@ -26,6 +27,7 @@ import { InputController } from '../systems/InputController';
 import type { InteractionTriggerSource } from '../systems/InputController';
 
 export interface HouseSceneCallbacks {
+  readonly onRoomChanged?: (roomId: RoomDefinition['id']) => void;
   readonly onSceneReady?: () => void;
   readonly onStartupError?: (error: unknown) => void;
   readonly onInteractionTargetChanged?: (target: InteractionTarget | null) => void;
@@ -54,6 +56,7 @@ export class HouseScene extends Phaser.Scene {
   private cameraBounds?: CameraBounds;
   private readonly depths = new DepthRegistry();
   private renderLayers?: HouseRenderLayers;
+  private currentRoom?: RoomDefinition['id'];
   private debugEnabled: boolean;
   /** Temporary owner review switch; false restores normal development-only outlines. */
   private readonly showCollisionBounds = true;
@@ -106,6 +109,7 @@ export class HouseScene extends Phaser.Scene {
   }
 
   public create(): void {
+    this.currentRoom = undefined;
     try {
       assertValidHouseLayout(this.layout);
       this.assertPlaceholderTexturesLoaded();
@@ -251,6 +255,17 @@ export class HouseScene extends Phaser.Scene {
     this.player?.synchronizePresentation();
     this.depths.sort();
     this.updateCameraFollow();
+    if (this.player && this.playerSprite) {
+      const room = resolveCurrentRoom(this.layout, {
+        x: this.playerSprite.x / this.layout.tileSize,
+        y: this.player.getGroundY() / this.layout.tileSize,
+      }, this.currentRoom);
+      // Walking, spawn and teleport share this path; never rewrite DOM every frame.
+      if (room !== undefined && room !== this.currentRoom) {
+        this.currentRoom = room;
+        this.callbacks.onRoomChanged?.(room);
+      }
+    }
   }
 
   private updateCameraFollow(): void {

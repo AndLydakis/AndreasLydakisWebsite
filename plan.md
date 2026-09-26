@@ -516,7 +516,7 @@ Validate the architecture and sequence before implementation begins.
 
 ### Acceptance criteria
 
-- A senior software engineer has reviewed the plan.
+- A senior software engineer with long expertise in TypeScrip has reviewed the plan. He is very particular about code being as minimal as necessary. He also wants extensive comments and docstring.
 - Blocking concerns are resolved.
 - No implementation story has unresolved architectural ambiguity.
 - Phaser remains pinned to `3.90.0`.
@@ -2985,6 +2985,8 @@ Type: Story
 Priority: High — owner presentation request before perspective
 Dependencies: Delivered rooms and existing input/camera infrastructure
 Status: Done — implementation commit `cec2464` successfully pushed to `origin/master` after owner visual approval. 772 tests, typecheck/build, development/production desktop/portrait/landscape/320px quick-travel checks and production dialog/gallery regression pass. Evidence: `output/qa/quick-travel/verification.md`.
+
+Approved presentation follow-up (DEC-154/156): compact title/game-introduction spacing and a glove indicating the actual current room instead of hover/focus are implemented. Walking, successful teleport and restart update it; corridors retain the last room and keyboard focus remains separate. All 1,938 tests/typecheck/build and 66 browser records per environment pass across four viewport sizes; independent source review approves. Evidence: `output/qa/header-room-indicator/verification.md`. Owner authorized repository-wide delivery on 2026-09-26.
 Delivery: Global story workflow; keep local until owner accepts the presentation.
 
 ### Goal
@@ -3551,7 +3553,7 @@ Type: Story
 Priority: High — queued after prerequisite
 Dependencies: `PORT-18J`, `PORT-19C1`
 Milestone: M6
-Status: Pending — not started
+Status: Done — 2026-09-26, closed at the owner's explicit request (DEC-155). Administrative closure; no new bookcase artwork, implementation or verification is claimed. Original scope below is retained for reference.
 Delivery: Global story workflow and all M6 review gates apply.
 
 ### Goal
@@ -3583,7 +3585,7 @@ Type: Story
 Priority: High — queued after prerequisite
 Dependencies: `PORT-19D`
 Milestone: M6
-Status: Pending — not started
+Status: Done — 2026-09-26, closed at the owner's explicit request (DEC-155). Administrative closure; no new bookcase occlusion integration or verification is claimed. Original scope below is retained for reference.
 Delivery: Global story workflow and all M6 review gates apply.
 
 ### Goal

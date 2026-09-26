@@ -53,9 +53,9 @@ const verifyLanding = async ([id,roomId,x,y]) => {
   assert.ok(Math.abs(state.dx)<.01 && Math.abs(state.dy)<.01, `${id}: ${JSON.stringify(state)}`);
   assert.equal(state.vx,0);assert.equal(state.vy,0);assert.equal(state.keys,false);
   assert.equal(state.visible,true);assert.equal(state.dialog,false);assert.equal(state.focus,'game-shell');
-  // Scrolling the game into view can put another row under a stationary mouse;
-  // that genuine hover may move the glove, but must never change the landing.
-  assert.equal((await highlight()).length,1);
+  // The glove follows confirmed location, independently of mouse/focus state.
+  assert.deepEqual(await highlight(),[id]);
+  assert.equal(await evaluate(`document.querySelector('${selector(id)}').getAttribute('aria-current')`),'location');
 };
 try {
   await send('Runtime.enable');await send('Page.enable');
@@ -73,11 +73,12 @@ try {
     if (!mobile) {
       const before = await evaluate('({x:s.playerSprite.x,y:s.playerSprite.y})');
       await send('Input.dispatchMouseEvent',{type:'mouseMoved',...await point('training')});
-      assert.deepEqual(await highlight(),['training']);
+      assert.deepEqual(await highlight(),['cv']);
       assert.deepEqual(await evaluate('({x:s.playerSprite.x,y:s.playerSprite.y})'),before);
       await evaluate(`document.querySelector('${selector('cv')}').focus()`);
       await key('ArrowDown','ArrowDown',40);
-      assert.deepEqual(await highlight(),['media']);
+      assert.deepEqual(await highlight(),['cv']);
+      assert.equal(await evaluate('document.activeElement.dataset.destination'),'media');
       assert.deepEqual(await evaluate('({x:s.playerSprite.x,y:s.playerSprite.y})'),before);
       await key('Enter','Enter',13);await verifyLanding(destinations[1]);
       await evaluate(`document.querySelector('${selector('cv')}').focus()`);

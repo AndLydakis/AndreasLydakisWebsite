@@ -3,6 +3,16 @@ import { describe, expect, it } from 'vitest';
 import { GameUiBridge } from './uiBridge';
 
 describe('GameUiBridge', () => {
+  it('forwards room changes and removes the room listener on unsubscribe', () => {
+    const bridge = new GameUiBridge();
+    const rooms: string[] = [];
+    const unsubscribe = bridge.on('currentRoomChanged', ({ roomId }) => rooms.push(roomId));
+    bridge.emit('currentRoomChanged', { roomId: 'office' });
+    bridge.emit('currentRoomChanged', { roomId: 'gym' });
+    unsubscribe();
+    bridge.emit('currentRoomChanged', { roomId: 'kitchen' });
+    expect(rooms).toEqual(['office', 'gym']);
+  });
   it('routes typed availability, unavailability, and content events', () => {
     const bridge = new GameUiBridge();
     const availability: string[] = [];

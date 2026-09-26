@@ -9,6 +9,15 @@
   min-width: 0;
 }
 
+/* Keep the introduction close to the header without overlapping quick travel. */
+#game-heading {
+  margin: 0 0 var(--space-1);
+}
+
+#game-instructions {
+  margin: 0 0 var(--space-3);
+}
+
 .experience-layout.game-only {
   grid-template-columns: 1fr;
 }
