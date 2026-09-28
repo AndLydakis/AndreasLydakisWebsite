@@ -50,16 +50,21 @@ for (let attempt = 0; attempt < 100; attempt++) {
   await pause(100);
 }
 const proto = await send('Runtime.evaluate', { expression: 'Phaser.Game.prototype' });
-const games = await send('Runtime.queryObjects', { prototypeObjectId: proto.result.objectId });
-await send('Runtime.callFunctionOn', { objectId: games.objects.objectId,
-  functionDeclaration: 'function(){window.s=this.find(g=>g.scene?.getScene("HouseScene")?.player)?.scene.getScene("HouseScene")}' });
-for (let attempt = 0; attempt < 100 && !(await evaluate('!!window.s?.playerSprite?.body')); attempt++) await pause(100);
-assert.ok(await evaluate('!!window.s?.playerSprite?.body'), 'HouseScene did not become ready');
+for (let attempt = 0; attempt < 100 && !(await evaluate('!!window.s?.playerSprite?.body')); attempt++) {
+  const games = await send('Runtime.queryObjects', { prototypeObjectId: proto.result.objectId });
+  await send('Runtime.callFunctionOn', { objectId: games.objects.objectId,
+    functionDeclaration: 'function(){window.s=this.find(g=>g.scene?.getScene("HouseScene")?.player)?.scene.getScene("HouseScene")}' });
+  await pause(100);
+}
+const sceneReady = await evaluate('!!window.s?.playerSprite?.body');
+if (!sceneReady) console.error(await evaluate(`({title:document.title,text:document.body.innerText,
+  canvases:document.querySelectorAll('canvas').length,phaser:typeof Phaser,scene:window.s?.sys?.settings?.status??null})`));
+assert.ok(sceneReady, 'HouseScene did not become ready');
 await evaluate('document.querySelector("#game-shell").focus();s.setDiagnosticsEnabled(false);void 0');
 
 const expected = [
   { x: 119, y: 403, width: 11, height: 15 },
-  { x: 101, y: 410, width: 30, height: 12 },
+  { x: 101, y: 410, width: 30, height: 16 },
 ];
 const state = await evaluate(`(()=>{const room=s.layout.rooms.find(r=>r.id==='office');
   const object=room.interactables.find(o=>o.id==='office-workstation');

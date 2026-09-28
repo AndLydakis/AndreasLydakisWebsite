@@ -2,6 +2,13 @@
 
 This file is the project decision record. New implementation decisions, approved changes, deferred choices, and story-completion decisions must be added here before or alongside changes to `plan.md` or source files.
 
+## DEC-160 — Align the compact-chair collision at the bottom
+
+- Date: 2026-09-28. Owner reports that the player can enter the compact chair at the bottom and requests the desk collision be aligned there.
+- Root cause: the compact wheel-base rectangle ended at local y=6.375 while the desk foot and perspective plane use y=6.625, leaving a 0.25-tile (4px) recess below the chair. Preserve its x/y start and width, increase only its height from 0.75 to 1 tile, and make its bottom exactly y=6.625. Keep eight workstation bodies, 79 world bodies, asset placement, interaction and perspective anchor unchanged.
+- Verification: 1,940 tests/44 files and typecheck/build pass (`index-BSr7PGF-.js`; existing bundle-size advisory only). Fresh isolated development and production browser sessions confirm a 30x16px chair-base body, non-penetrating bottom/side approaches, the open right-side route and both depth orders with zero runtime exceptions. Evidence: `output/qa/office-compact-workstation/`.
+- Independent senior game/software engineering review approves DEC-160 with no blocking findings after separately running all 1,940 tests and `git diff --check`; no review edits were made.
+
 ## DEC-158 — Preserve a compact-chair workstation variant
 
 - Date: 2026-09-28. Owner requests another version of the office desk asset with its chair closer to the desk so the combined asset is smaller, explicitly preserving the current version.

@@ -35,6 +35,10 @@ describe('office presentation and navigation', () => {
     expect(blocked(4.5, 4.25)).toBe(false); // Backrest is visual, not floor footprint.
     expect(blocked(4.75, 5)).toBe(false); // Walk behind the raised chair seat.
     expect(blocked(5.25, 5.75)).toBe(false); // Compact art opens the old chair's right edge.
+    const chairBase = officeWorkstationOutline.at(-1)!;
+    expect(chairBase.y + chairBase.height).toBe(6.625); // Flush with the desk-foot bottom.
+    expect(blocked(3.75, 6.625)).toBe(true);
+    expect(blocked(3.75, 6.625 + 1 / 16)).toBe(false);
   });
   it('aligns both doorways and the painted office passage on the corridor centerline', () => {
     const corridor = houseLayout.corridors.find(c => c.id === 'living-room-office-corridor')!;

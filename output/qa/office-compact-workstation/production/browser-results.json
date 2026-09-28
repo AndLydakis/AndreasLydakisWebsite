@@ -1,6 +1,6 @@
 {
   "url": "http://127.0.0.1:4173",
-  "recordedAt": "2026-09-28T07:22:16.542Z",
+  "recordedAt": "2026-09-28T07:49:30.568Z",
   "state": {
     "asset": "office-workstation-right-facing",
     "position": {
@@ -59,7 +59,7 @@
         "x": 2.8125,
         "y": 5.625,
         "width": 1.875,
-        "height": 0.75
+        "height": 1
       }
     ],
     "texture": "office-workstation-right-facing",
@@ -366,7 +366,7 @@
         "x": 101,
         "y": 410,
         "width": 30,
-        "height": 12
+        "height": 16
       },
       {
         "x": 130,
@@ -588,14 +588,14 @@
         "x": 101,
         "y": 410,
         "width": 30,
-        "height": 12
+        "height": 16
       },
       "side": "south",
       "stopped": {
         "left": 108,
         "right": 124,
-        "top": 422,
-        "bottom": 423,
+        "top": 426,
+        "bottom": 427,
         "centerX": 116
       }
     },
@@ -604,15 +604,15 @@
         "x": 101,
         "y": 410,
         "width": 30,
-        "height": 12
+        "height": 16
       },
       "side": "west",
       "stopped": {
-        "left": 182.40000000000023,
-        "right": 198.40000000000023,
-        "top": 423,
-        "bottom": 424,
-        "centerX": 190.40000000000023
+        "left": 85,
+        "right": 101,
+        "top": 425,
+        "bottom": 426,
+        "centerX": 93
       }
     }
   ],

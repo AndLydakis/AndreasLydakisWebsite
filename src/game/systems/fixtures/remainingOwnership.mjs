@@ -11,7 +11,7 @@ export const compactWorkstation = {
   oldRects: originalWorkstationRects,
   rects: originalWorkstationRects.slice(0, -2).concat([
     { x: 3.9375, y: 5.1875, width: 0.6875, height: 0.9375 },
-    { x: 2.8125, y: 5.625, width: 1.875, height: 0.75 },
+    { x: 2.8125, y: 5.625, width: 1.875, height: 1 },
   ]),
 };
 // Baked-art visual estimates (15/13/13px), not alpha-derived sprite bounds.

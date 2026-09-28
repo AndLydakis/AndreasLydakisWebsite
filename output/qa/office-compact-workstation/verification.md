@@ -19,7 +19,7 @@ Pass. The runtime selects the approved compact-chair RGBA asset without deleting
 `scripts/verify-compact-workstation-browser.mjs` passed against development (`127.0.0.1:5173`) and the built production preview (`127.0.0.1:4173`) in isolated Chrome.
 
 - Selected texture, source dimensions, 4.5-tile display height and world sort plane y=426 match authored data.
-- Arcade bodies include the compact support `{x:119,y:403,width:11,height:15}` and wheel base `{x:101,y:410,width:30,height:12}`.
+- Arcade bodies include the compact support `{x:119,y:403,width:11,height:15}` and bottom-aligned wheel base `{x:101,y:410,width:30,height:16}`. The latter now ends flush with the desk foot at world y=426, closing the reported four-pixel recess below the casters.
 - The player is stopped without penetration from north/east support approaches and south/west wheel-base approaches.
 - A full player-width vertical route at world x=140 crosses the area occupied by the old chair without touching the compact chair.
 - The player renders behind the complete workstation above the plane and in front below it; zero runtime exceptions were captured.
@@ -31,4 +31,4 @@ Desk and chair remain one generated image and therefore sort as one visual plane
 
 ## Independent review
 
-Senior game/software engineering review: **APPROVE**, no blocking gaps. The reviewer independently inspected the old/new art, authored geometry, shared renderer/depth path, baseline fixture and browser results; reran 93 focused tests and `git diff --check`; and made no repository edits.
+Senior game/software engineering review: **APPROVE**, no blocking gaps. The original integration review inspected the old/new art, authored geometry, shared renderer/depth path, baseline fixture and browser results and reran 93 focused tests. The DEC-160 correction review independently confirmed the four-pixel root cause, shared y=426 bottom/plane, retained route/body counts and both browser modes, then reran all 1,940 tests and `git diff --check`. Neither review edited repository files.

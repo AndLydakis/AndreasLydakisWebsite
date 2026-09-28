@@ -19,7 +19,8 @@ export const officeWorkstationOutline = [
   { x: 2.4375, y: 5.1875, width: 1.5, height: 0.25 },
   // The tucked chair has a narrow right support and a compact five-wheel base.
   { x: 3.9375, y: 5.1875, width: 0.6875, height: 0.9375 },
-  { x: 2.8125, y: 5.625, width: 1.875, height: 0.75 },
+  // Share the desk-foot bottom edge so the player cannot enter below the casters.
+  { x: 2.8125, y: 5.625, width: 1.875, height: 1 },
 ];
 
 /** Office v5: 17×10 tiles matches the 1634×962 artwork without stretching.
