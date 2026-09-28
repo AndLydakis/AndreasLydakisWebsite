@@ -47,6 +47,20 @@ function opaqueRows(bytes) {
 }
 
 describe('owner-approved office collision height from opaque artwork', () => {
+  it('registers the compact workstation at the preserved scale and lowest contact plane', () => {
+    const desk = office.interactables.find(sprite => sprite.id === 'office-workstation');
+    const bytes = readFileSync(new URL(`../../../public/assets/${optionalTexturePaths[desk.assetId]}`, import.meta.url));
+    const measured = opaqueRows(bytes);
+    expect(optionalTexturePaths[desk.assetId]).toBe('sprites/office-workstation/left-review-compact-chair.png');
+    expect(measured).toMatchObject({ width: 1312, height: 1199, bbox: [170, 33, 1108, 1166] });
+    expect(desk.position).toEqual({ x: 2.5, y: 3.9 });
+    expect(desk.displayHeightTiles).toBe(4.5);
+    expect(desk.groundAnchor).toEqual({ x: 3.75, y: 6.625 });
+    const visibleBottom = desk.position.y + 0.5
+      + desk.displayHeightTiles * (measured.bbox[3] / measured.height - 0.5);
+    expect((desk.groundAnchor.y - visibleBottom) * 16).toBeCloseTo(1.5817, 3);
+  });
+
   it.each([
     { id: 'office-sofa', bounds: [134, 1360], displayHeight: 4.6, anchor: { x: 13.75, y: 7.1875 } },
     { id: 'office-coffee-table', bounds: [151, 1349], displayHeight: 3.4, anchor: { x: 10.75, y: 6.9375 } },

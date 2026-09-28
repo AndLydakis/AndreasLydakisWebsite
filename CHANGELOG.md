@@ -6,6 +6,12 @@ pushed.
 
 ## [Unreleased]
 
+### PORT-18G follow-up — Compact workstation integration
+
+- Replace the live office workstation selection with the approved compact-chair variant while retaining the original asset as an available fallback.
+- Preserve the desk registration and eight-piece collision count; tighten only the chair support and wheel-base pieces to the new silhouette and keep the whole-image perspective plane at its lowest floor contact.
+- Add alpha-bound regression coverage and isolated development/production browser checks for asset loading, physical blocking, the newly opened right-side route and front/behind depth changes.
+
 ## [2026-09-28] — Placeholder CV download
 
 Delivered PORT-13B to `origin/master` in `8e96521`.

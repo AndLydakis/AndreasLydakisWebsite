@@ -204,7 +204,7 @@ names are recorded in `output/imagegen/office-plants-perspective.prompt.md`.
 | --- | --- | --- | --- |
 | Boombox | (8,4.1875) | 1 | +0.45 |
 | Kitchen dining set | (8.5,8.3125) | 3 | +2.36 |
-| Study workstation | (3,6.625) | 8 | +1.40 |
+| Study workstation | (3.75,6.625) | 8 | +1.58 |
 | Dog/bed | (3,8.8125) | 1 | −0.05 |
 | Study bookcase | (5.6,3.75) | 1 | −0.08 |
 | Study sofa | (13.75,7.1875) | 1 | +1.83 |
@@ -215,8 +215,11 @@ names are recorded in `output/imagegen/office-plants-perspective.prompt.md`.
 Measured at alpha≥128 in the existing scaled art. Positive offsets place the
 plane south of visible contact. These anchors preserve existing footprint front
 edges, not uniformly exact opaque-image bottoms; visible transitions require
-review. The workstation owns seven remaining outline rectangles plus the
-front desk-foot band, including the chair rear support. The removed top post is
+review. The compact workstation owns seven remaining outline rectangles plus
+the front desk-foot band. Its five desk pieces are preserved, while the chair
+uses a tightened right support and wheel-base pair matching the tucked
+silhouette. The original workstation PNG remains available but is no longer
+selected. The removed top post is
 visual only; its removal does not change the independent sort plane. The dining set owns all
 three original table/chair bands. Kitchen fixed cabinets remain room-owned;
 the exported complete furniture inventory is retained for geometry assertions.

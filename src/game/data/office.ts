@@ -5,7 +5,7 @@ import type { RoomDefinition } from './types';
 const sofaCollisionHeight = 4.6 * (1226 / 1536) * 0.8;
 const coffeeTableCollisionHeight = 3.4 * (1198 / 1536) * 0.8;
 
-/** Desk silhouette and chair floor footprint for the right-facing 4.5-tile sprite.
+/** Desk silhouette and compact-chair floor footprint for the right-facing 4.5-tile sprite.
  * Raised monitors and the chair backrest/seat are visual only, not solid bases.
  * Owned by the workstation; the shared collector feeds normal Arcade collision.
  */
@@ -17,9 +17,9 @@ export const officeWorkstationOutline = [
   { x: 1.3125, y: 4.625, width: 1.9375, height: 0.3125 },
   { x: 2, y: 4.9375, width: 0.4375, height: 1.3125 },
   { x: 2.4375, y: 5.1875, width: 1.5, height: 0.25 },
-  // Visible rear leg/support reaches above the wheel footprint; do not omit it.
-  { x: 4.3125, y: 5.5625, width: 0.875, height: 0.625 },
-  { x: 3.4375, y: 5.8125, width: 1.6875, height: 0.625 },
+  // The tucked chair has a narrow right support and a compact five-wheel base.
+  { x: 3.9375, y: 5.1875, width: 0.6875, height: 0.9375 },
+  { x: 2.8125, y: 5.625, width: 1.875, height: 0.75 },
 ];
 
 /** Office v5: 17×10 tiles matches the 1634×962 artwork without stretching.
@@ -65,8 +65,8 @@ export const office: RoomDefinition = {
       label: 'Office workstation', promptLabel: 'office workstation',
       contentId: 'office-cv', interactionRadiusTiles: 2.25,
       assetId: 'office-workstation-right-facing', displayHeightTiles: 4.5,
-      // One plane for the complete desk/chair image, not independent part layers.
-      groundAnchor: { x: 3, y: 6.625 },
+      // One plane for the complete desk/chair image, just below its lowest contact.
+      groundAnchor: { x: 3.75, y: 6.625 },
       footprints: [
         { x: 1.4375, y: 6.125, width: 1.625, height: 0.5 },
         ...officeWorkstationOutline,

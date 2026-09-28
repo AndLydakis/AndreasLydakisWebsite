@@ -2,6 +2,20 @@
 
 This file is the project decision record. New implementation decisions, approved changes, deferred choices, and story-completion decisions must be added here before or alongside changes to `plan.md` or source files.
 
+## DEC-158 — Preserve a compact-chair workstation variant
+
+- Date: 2026-09-28. Owner requests another version of the office desk asset with its chair closer to the desk so the combined asset is smaller, explicitly preserving the current version.
+- Use the currently integrated `left-review.png` as the immutable edit target. Generate one front/left three-quarter sibling variant with the same workstation, accessories, chair identity, scale, lighting and transparent pixel-art treatment; change only the chair position and resulting compact framing.
+- Save the review candidate as `public/assets/sprites/office-workstation/left-review-compact-chair.png`. During generation/review, do not alter the asset manifest, room data, collision geometry or current runtime selection; do not delete or overwrite any workstation view.
+- Visual inspection confirms the chair is tucked under the desk edge without merging, the silhouette is narrower, and the 1312x1199 RGBA output retains alpha. Exact prompt and hash are recorded in `output/imagegen/office-workstation-compact-chair.prompt.md`. Keep local for owner review; no commit or push yet.
+
+## DEC-159 — Integrate the compact office workstation
+
+- Date: 2026-09-28. Owner approves the new compact-chair workstation and requests using it with matching collision and perspective behavior. This supersedes DEC-158's review-only runtime boundary while preserving its no-delete requirement.
+- Select `left-review-compact-chair.png` through the existing `office-workstation-right-facing` manifest key. Keep position `(2.5,3.9)`, 4.5-tile display height, interaction identity/radius and all five desk collision pieces because the new 1312x1199 image keeps the desk registration. Preserve `left-review.png` unchanged as the prior variant.
+- Replace only the two chair pieces with a narrow support `(3.9375,5.1875,0.6875,0.9375)` and wheel base `(2.8125,5.625,1.875,0.75)`. Keep eight total workstation bodies and 79 world bodies. Move only the anchor's descriptive x coordinate to the chair/desk floor center `(3.75,6.625)`; generic sorting uses the unchanged y=6.625 plane, 1.58 rendered pixels below the new alpha bottom.
+- Verification: 1,940 tests/44 files and typecheck/build pass (`index-BUMz4rlb.js`; existing bundle-size advisory only). Isolated development and production browsers load the new texture, physically block the support/base from four relevant approaches, traverse the newly opened right-side lane, and switch player/object order on opposite sides of world y=426 with zero exceptions. Evidence: `output/qa/office-compact-workstation/`.
+
 ## DEC-157 — Expose the placeholder CV PDF from the CV dialog
 
 - Date: 2026-09-28. Owner requests a dummy download link in the CV section and a fake CV PDF for now.

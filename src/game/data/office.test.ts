@@ -17,7 +17,7 @@ describe('office presentation and navigation', () => {
   it('blocks desk supports and chair feet but leaves raised chair art non-solid', () => {
     const covered = (x: number, y: number) => officeWorkstationOutline.some(r =>
       x >= r.x && x <= r.x + r.width && y >= r.y && y <= r.y + r.height);
-    for (const [x, y] of [[2, 4.75], [2.2, 5.8], [3.8, 5.3], [4.8, 5.65], [3.8, 6.2]]) {
+    for (const [x, y] of [[2, 4.75], [2.2, 5.8], [3.8, 5.3], [4.3, 5.65], [3.5, 6.2]]) {
       expect(covered(x!, y!)).toBe(true);
       expect(blocked(x!, y!)).toBe(true);
     }
@@ -32,8 +32,9 @@ describe('office presentation and navigation', () => {
     for (let x = 1; x <= 4.125; x += 0.125) expect(blocked(x, 3.625)).toBe(false);
     expect(blocked(3, 3.375)).toBe(true); // Upper wall still blocks.
     expect(blocked(5.875, 5)).toBe(false); // Reachable working side.
-    expect(blocked(4.75, 4.25)).toBe(false); // Backrest is visual, not floor footprint.
+    expect(blocked(4.5, 4.25)).toBe(false); // Backrest is visual, not floor footprint.
     expect(blocked(4.75, 5)).toBe(false); // Walk behind the raised chair seat.
+    expect(blocked(5.25, 5.75)).toBe(false); // Compact art opens the old chair's right edge.
   });
   it('aligns both doorways and the painted office passage on the corridor centerline', () => {
     const corridor = houseLayout.corridors.find(c => c.id === 'living-room-office-corridor')!;

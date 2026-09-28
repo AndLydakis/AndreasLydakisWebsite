@@ -20,7 +20,7 @@ export const optionalTexturePaths = {
   'office-plant-bottom-left': 'sprites/office-plant-bottom-left/front-v1.png',
   'office-plant-bottom-right': 'sprites/office-plant-bottom-right/front-v1.png',
   // Source names denote camera viewpoint: this view's working side faces screen-right.
-  'office-workstation-right-facing': 'sprites/office-workstation/left-review.png',
+  'office-workstation-right-facing': 'sprites/office-workstation/left-review-compact-chair.png',
   'office-bookcase-front': 'sprites/office-bookcase/front.png',
   'office-dog-bed-front': 'sprites/office-dog-bed/front-three-quarter.png',
   'office-sofa-left': 'sprites/office-sofa/left.png',

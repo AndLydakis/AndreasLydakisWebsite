@@ -5,6 +5,15 @@ export const beforeRemaining = JSON.parse(readFileSync(new URL('./port18f-j-befo
 const oldRoom = id => beforeRemaining.layout.rooms.find(room => room.id === id);
 const office = oldRoom('office');
 export const removedDeskPost = { x: 2, y: 3.5625, width: 2.0625, height: 0.3125 };
+const originalWorkstationRects = [office.collisionRects[5], ...office.collisionRects.slice(17, 24)];
+export const compactWorkstation = {
+  oldAnchor: { x: 3, y: 6.625 }, anchor: { x: 3.75, y: 6.625 },
+  oldRects: originalWorkstationRects,
+  rects: originalWorkstationRects.slice(0, -2).concat([
+    { x: 3.9375, y: 5.1875, width: 0.6875, height: 0.9375 },
+    { x: 2.8125, y: 5.625, width: 1.875, height: 0.75 },
+  ]),
+};
 // Baked-art visual estimates (15/13/13px), not alpha-derived sprite bounds.
 export const approvedPotResizes = [
   { id: 'top-right pot', old: { x: 15.375, y: 3.625, width: 0.875, height: 0.375 },
@@ -44,12 +53,18 @@ export function withApprovedOfficeChanges(worldRects) {
     expect(result.filter(rect => rectKeys([rect])[0] === oldKey)).toHaveLength(1);
     result = result.map(rect => rectKeys([rect])[0] === oldKey ? toWorld(resize.rect) : rect);
   }
+  for (let index = compactWorkstation.oldRects.length - 2; index < compactWorkstation.oldRects.length; index++) {
+    const toWorld = rect => ({ ...rect, x: office.origin.x + rect.x, y: office.origin.y + rect.y });
+    const oldKey = rectKeys([toWorld(compactWorkstation.oldRects[index])])[0];
+    expect(result.filter(rect => rectKeys([rect])[0] === oldKey)).toHaveLength(1);
+    result = result.map(rect => rectKeys([rect])[0] === oldKey ? toWorld(compactWorkstation.rects[index]) : rect);
+  }
   return result;
 }
 export const remainingOwners = [
   { roomId: 'gym', id: 'gym-boombox', anchor: { x: 8, y: 4.1875 }, rects: oldRoom('gym').collisionRects.filter(rect => rect.x === 7.25 && rect.y === 3.625) },
   { roomId: 'kitchen', id: 'kitchen-dining-set', anchor: { x: 8.5, y: 8.3125 }, rects: oldRoom('kitchen').collisionRects.slice(9, 12) },
-  { roomId: 'office', id: 'office-workstation', anchor: { x: 3, y: 6.625 }, rects: [office.collisionRects[5], ...office.collisionRects.slice(17, 24)] },
+  { roomId: 'office', id: 'office-workstation', anchor: compactWorkstation.anchor, rects: compactWorkstation.rects },
   ...[['office-bookcase', 6, 5.6, 3.75], ['office-dog-bed', 7, 3, 8.8125],
     ['office-sofa', 8, 13.75, 7.1875], ['office-coffee-table', 9, 10.75, 6.9375],
     ['office-robot-standing', 10, 12.75, 8.8125], ['office-robot-seated', 11, 14.5, 8.75]]
@@ -79,7 +94,7 @@ export function undoRemainingOwnership(layout) {
     // for snapshot comparison; validate exact current pieces before stripping them.
     const moved = new Set(rectKeys([...owners.flatMap(owner => owner.rects),
       ...(room.id === 'office' ? [removedDeskPost, ...approvedOfficeResizes.map(resize => resize.old),
-        ...approvedPotResizes.map(resize => resize.old)] : [])]));
+        ...approvedPotResizes.map(resize => resize.old), ...compactWorkstation.oldRects.slice(-2)] : [])]));
     const expectedRoomRects = source.collisionRects.filter(rect => !moved.has(rectKeys([rect])[0]));
     expect(room.collisionRects).toEqual(expectedRoomRects);
     const strip = sprite => {

@@ -11,7 +11,7 @@ const currentOwners = [...remainingOwners, ...approvedPlants.map(plant => ({ roo
   rects: plant.footprints, anchor: plant.groundAnchor }))];
 
 describe('PORT-18F–J remaining ownership migrations and plant extraction', () => {
-  it('permits only the desk-post deletion and six office resizes from the immutable 80-body baseline', () => {
+  it('permits only the desk-post deletion, compact chair and six office resizes from the immutable 80-body baseline', () => {
     expect(beforeRemaining.worldRects).toHaveLength(80);
     expect(getAllCollisionRects(houseLayout)).toHaveLength(79);
     expect(rectKeys(getAllCollisionRects(houseLayout))).toEqual(rectKeys(withApprovedOfficeChanges(beforeRemaining.worldRects)));
