@@ -2,6 +2,14 @@
 
 This file is the project decision record. New implementation decisions, approved changes, deferred choices, and story-completion decisions must be added here before or alongside changes to `plan.md` or source files.
 
+## DEC-157 — Expose the placeholder CV PDF from the CV dialog
+
+- Date: 2026-09-28. Owner requests a dummy download link in the CV section and a fake CV PDF for now.
+- Reuse the existing, reproducibly generated `public/assets/cv.pdf`: it is a valid one-page, unencrypted PDF clearly labelled `PLACEHOLDER CV - REPLACE BEFORE LAUNCH`, contains only fictional placeholder sections, and has no scripts or forms. Its rendered page was re-inspected before integration.
+- Add a data-only action to `office-cv` with label `Download placeholder CV (PDF)` and download filename `placeholder-cv.pdf`. Resolve the URL through the existing `assetUrl` boundary and render it through the shared dialog action path; do not add CV-specific dialog logic or an embedded viewer.
+- Verify the content/action mapping, full test/typecheck/build suite, PDF metadata/text/rendering, development and production dialog behavior, keyboard accessibility, same-origin response and `application/pdf` content type. Update PORT-13B status and delivery record after successful push.
+- Verification passes: 1,939 tests/44 files, typecheck/build (`index-DG6EcyOy.js`), identical source/built PDF hashes, PDF metadata/text/render inspection, and four isolated-Chrome records across development/production desktop and touch-emulated portrait. Actual keyboard/touch downloads produce valid 2,582-byte PDF files; zero browser exceptions. Evidence: `output/qa/port13b/verification.md`. Netlify deploy-preview verification is deferred to PORT-16B because hosting is not active.
+
 ## DEC-156 — Publish the current repository state
 
 - Date: 2026-09-26. Owner requests pushing the current state of the repo, authorizing delivery of the DEC-154 presentation follow-up, DEC-155 administrative closures, and all previously held owner-authored style and plan edits.

@@ -1,0 +1,45 @@
+{
+  "url": "http://127.0.0.1:4173",
+  "recordedAt": "2026-09-28T06:22:31.247Z",
+  "results": [
+    {
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "mobile": false,
+      "link": {
+        "title": "Curriculum vitae",
+        "description": "This dummy CV and downloadable PDF will be replaced with the owner's approved CV later.",
+        "label": "Download placeholder CV (PDF)",
+        "href": "http://127.0.0.1:4173/assets/cv.pdf",
+        "pathname": "/assets/cv.pdf",
+        "origin": "http://127.0.0.1:4173",
+        "download": "placeholder-cv.pdf",
+        "tag": "A",
+        "visible": true,
+        "overflow": false
+      },
+      "downloadedBytes": 2582
+    },
+    {
+      "viewport": "portrait",
+      "width": 390,
+      "height": 844,
+      "mobile": true,
+      "link": {
+        "title": "Curriculum vitae",
+        "description": "This dummy CV and downloadable PDF will be replaced with the owner's approved CV later.",
+        "label": "Download placeholder CV (PDF)",
+        "href": "http://127.0.0.1:4173/assets/cv.pdf",
+        "pathname": "/assets/cv.pdf",
+        "origin": "http://127.0.0.1:4173",
+        "download": "placeholder-cv.pdf",
+        "tag": "A",
+        "visible": true,
+        "overflow": false
+      },
+      "downloadedBytes": 2582
+    }
+  ],
+  "exceptions": []
+}

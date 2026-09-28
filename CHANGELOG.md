@@ -6,6 +6,12 @@ pushed.
 
 ## [Unreleased]
 
+### PORT-13B — Placeholder CV download
+
+- Add a clearly labelled placeholder-PDF download action to the existing CV dialog using the shared, base-path-aware content action renderer.
+- Reuse the valid fictional `public/assets/cv.pdf` and download it as `placeholder-cv.pdf`; no embedded viewer or CV-specific dialog branch is introduced.
+- Verify 1,939 tests, typecheck/build, PDF metadata/text/rendering, HTTP content type and actual keyboard/touch downloads in development and production preview.
+
 ## [2026-09-26] — Approved repository-state delivery
 
 - Include owner-authored plan-review wording and style-prompt reorganization/edits under `utils/`; remove the former root `style.md` as requested by the working state.

@@ -2407,6 +2407,7 @@ Type: Story
 Priority: High  
 Dependencies: `PORT-13A`  
 Milestone: M2
+Status: In review — implementation and local/static-production verification pass (DEC-157): 1,939 tests, build, PDF checks and four desktop/mobile browser records. Netlify deploy-preview verification is assigned to PORT-16B because hosting is not active. Commit/push and completion record remain.
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal

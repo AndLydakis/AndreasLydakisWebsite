@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import { televisionContent } from '../content/television';
 import { dogContent } from '../content/dog';
-import type { ContentRecord } from '../content/types';
+import { officeContent } from '../content/office';
 import { toDialogContent } from './contentAdapter';
 
 describe('toDialogContent', () => {
@@ -31,21 +31,10 @@ describe('toDialogContent', () => {
     });
   });
 
-  it('maps future content actions to base-path-aware dialog links', () => {
-    const record: ContentRecord = {
-      ...televisionContent,
-      actions: [
-        {
-          label: 'Download placeholder',
-          assetPath: 'cv.pdf',
-          downloadName: 'placeholder-cv.pdf',
-        },
-      ],
-    };
-
-    expect(toDialogContent(record).actions).toEqual([
+  it('maps the placeholder CV download to a base-path-aware dialog link', () => {
+    expect(toDialogContent(officeContent).actions).toEqual([
       {
-        label: 'Download placeholder',
+        label: 'Download placeholder CV (PDF)',
         href: '/assets/cv.pdf',
         download: 'placeholder-cv.pdf',
       },

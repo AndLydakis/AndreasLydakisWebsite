@@ -8,6 +8,7 @@ import {
   validateRoomRegistry,
 } from './contentRegistry';
 import type { ContentRecord } from './types';
+import { officeContent } from './office';
 import { roomRegistry } from '../game/data/rooms';
 
 const contentSourceModules = import.meta.glob('./*.ts', {
@@ -96,6 +97,17 @@ describe('content and room registries', () => {
         },
       ]),
     ).toEqual([]);
+  });
+
+  it('keeps the dummy CV download explicit and replaceable', () => {
+    expect(officeContent.eyebrow).toContain('PLACEHOLDER');
+    expect(officeContent.actions).toEqual([
+      {
+        label: 'Download placeholder CV (PDF)',
+        assetPath: 'cv.pdf',
+        downloadName: 'placeholder-cv.pdf',
+      },
+    ]);
   });
 });
 

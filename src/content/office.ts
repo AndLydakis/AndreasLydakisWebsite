@@ -7,7 +7,7 @@ export const officeContent: ContentRecord = {
   roomLabel: 'Office',
   title: 'Curriculum vitae',
   eyebrow: 'PLACEHOLDER CONTENT',
-  description: 'This dummy CV will be replaced with the owner\'s CV later. The PDF action is connected in PORT-13.',
+  description: 'This dummy CV and downloadable PDF will be replaced with the owner\'s approved CV later.',
   sections: [
     {
       heading: 'Profile',
@@ -20,6 +20,13 @@ export const officeContent: ContentRecord = {
     {
       heading: 'Skills',
       items: ['PLACEHOLDER SKILL', 'PLACEHOLDER SKILL'],
+    },
+  ],
+  actions: [
+    {
+      label: 'Download placeholder CV (PDF)',
+      assetPath: 'cv.pdf',
+      downloadName: 'placeholder-cv.pdf',
     },
   ],
 };
