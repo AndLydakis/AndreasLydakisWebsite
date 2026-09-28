@@ -8,6 +8,7 @@ This file is the project decision record. New implementation decisions, approved
 - Root cause: the compact wheel-base rectangle ended at local y=6.375 while the desk foot and perspective plane use y=6.625, leaving a 0.25-tile (4px) recess below the chair. Preserve its x/y start and width, increase only its height from 0.75 to 1 tile, and make its bottom exactly y=6.625. Keep eight workstation bodies, 79 world bodies, asset placement, interaction and perspective anchor unchanged.
 - Verification: 1,940 tests/44 files and typecheck/build pass (`index-BSr7PGF-.js`; existing bundle-size advisory only). Fresh isolated development and production browser sessions confirm a 30x16px chair-base body, non-penetrating bottom/side approaches, the open right-side route and both depth orders with zero runtime exceptions. Evidence: `output/qa/office-compact-workstation/`.
 - Independent senior game/software engineering review approves DEC-160 with no blocking findings after separately running all 1,940 tests and `git diff --check`; no review edits were made.
+- Delivered in implementation commit `666c5ee`, successfully pushed to `origin/master` on 2026-09-28.
 
 ## DEC-158 — Preserve a compact-chair workstation variant
 
