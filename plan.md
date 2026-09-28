@@ -2407,7 +2407,7 @@ Type: Story
 Priority: High  
 Dependencies: `PORT-13A`  
 Milestone: M2
-Status: In review — implementation and local/static-production verification pass (DEC-157): 1,939 tests, build, PDF checks and four desktop/mobile browser records. Netlify deploy-preview verification is assigned to PORT-16B because hosting is not active. Commit/push and completion record remain.
+Status: Done — implementation commit `8e96521` successfully pushed to `origin/master` on 2026-09-28 (DEC-157). All 1,939 tests, build, PDF checks and four development/production desktop/mobile browser records pass. Netlify deploy-preview verification remains assigned to PORT-16B because hosting is not active.
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
@@ -2426,7 +2426,7 @@ Provide a reliable same-origin PDF download alongside the in-dialog CV.
 ### Acceptance criteria
 
 - The PDF link is visible and keyboard accessible in the CV dialog.
-- The link works locally, in `vite preview`, and in Netlify preview.
+- The link works locally and in `vite preview`; PORT-16B must repeat the same check in Netlify preview when hosting is active.
 - The PDF does not 404 and is served with the correct content type.
 - The placeholder PDF opens as a valid PDF and contains the required placeholder label.
 - The download uses the configured base path and a descriptive filename.

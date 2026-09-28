@@ -9,6 +9,7 @@ This file is the project decision record. New implementation decisions, approved
 - Add a data-only action to `office-cv` with label `Download placeholder CV (PDF)` and download filename `placeholder-cv.pdf`. Resolve the URL through the existing `assetUrl` boundary and render it through the shared dialog action path; do not add CV-specific dialog logic or an embedded viewer.
 - Verify the content/action mapping, full test/typecheck/build suite, PDF metadata/text/rendering, development and production dialog behavior, keyboard accessibility, same-origin response and `application/pdf` content type. Update PORT-13B status and delivery record after successful push.
 - Verification passes: 1,939 tests/44 files, typecheck/build (`index-DG6EcyOy.js`), identical source/built PDF hashes, PDF metadata/text/render inspection, and four isolated-Chrome records across development/production desktop and touch-emulated portrait. Actual keyboard/touch downloads produce valid 2,582-byte PDF files; zero browser exceptions. Evidence: `output/qa/port13b/verification.md`. Netlify deploy-preview verification is deferred to PORT-16B because hosting is not active.
+- Delivered: implementation commit `8e96521` successfully pushed to `origin/master` on 2026-09-28. PORT-13B is complete for the current static application; the external Netlify replay remains a PORT-16B deployment gate and is not claimed here.
 
 ## DEC-156 — Publish the current repository state
 

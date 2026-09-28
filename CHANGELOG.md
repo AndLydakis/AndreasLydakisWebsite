@@ -6,6 +6,10 @@ pushed.
 
 ## [Unreleased]
 
+## [2026-09-28] — Placeholder CV download
+
+Delivered PORT-13B to `origin/master` in `8e96521`.
+
 ### PORT-13B — Placeholder CV download
 
 - Add a clearly labelled placeholder-PDF download action to the existing CV dialog using the shared, base-path-aware content action renderer.
