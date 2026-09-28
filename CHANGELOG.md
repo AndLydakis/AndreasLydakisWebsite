@@ -8,6 +8,8 @@ pushed.
 
 ### PORT-18G follow-up — Compact workstation integration
 
+Delivered to `origin/master` in `f27ffe2`.
+
 - Replace the live office workstation selection with the approved compact-chair variant while retaining the original asset as an available fallback.
 - Preserve the desk registration and eight-piece collision count; tighten only the chair support and wheel-base pieces to the new silhouette and keep the whole-image perspective plane at its lowest floor contact.
 - Add alpha-bound regression coverage and isolated development/production browser checks for asset loading, physical blocking, the newly opened right-side route and front/behind depth changes.

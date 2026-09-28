@@ -15,6 +15,7 @@ This file is the project decision record. New implementation decisions, approved
 - Select `left-review-compact-chair.png` through the existing `office-workstation-right-facing` manifest key. Keep position `(2.5,3.9)`, 4.5-tile display height, interaction identity/radius and all five desk collision pieces because the new 1312x1199 image keeps the desk registration. Preserve `left-review.png` unchanged as the prior variant.
 - Replace only the two chair pieces with a narrow support `(3.9375,5.1875,0.6875,0.9375)` and wheel base `(2.8125,5.625,1.875,0.75)`. Keep eight total workstation bodies and 79 world bodies. Move only the anchor's descriptive x coordinate to the chair/desk floor center `(3.75,6.625)`; generic sorting uses the unchanged y=6.625 plane, 1.58 rendered pixels below the new alpha bottom.
 - Verification: 1,940 tests/44 files and typecheck/build pass (`index-BUMz4rlb.js`; existing bundle-size advisory only). Isolated development and production browsers load the new texture, physically block the support/base from four relevant approaches, traverse the newly opened right-side lane, and switch player/object order on opposite sides of world y=426 with zero exceptions. Evidence: `output/qa/office-compact-workstation/`.
+- Independent senior game/software engineering review approves the integration with no blocking gaps after 93 focused tests and `git diff --check`. Implementation commit `f27ffe2` successfully pushed to `origin/master` on 2026-09-28.
 
 ## DEC-157 — Expose the placeholder CV PDF from the CV dialog
 
