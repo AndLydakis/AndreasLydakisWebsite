@@ -3,7 +3,8 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { houseLayout } from '../data/houseLayout';
 import type { InteractableDefinition } from '../data/types';
-import { buildHouse, buildRoom, drawCollisionBounds, drawLivingRoomFloor, drawWoodFloor } from './houseRenderer';
+import { buildHouse, buildRoom, drawCollisionBounds, drawLivingRoomFloor, drawWoodFloor,
+  getInteractableLabelBase, renderInteractableLabel } from './houseRenderer';
 import type { HouseRenderLayers } from './houseRenderer';
 import type { HouseRenderOptions } from './houseRenderer';
 import { DepthRegistry } from './DepthRegistry';
@@ -139,6 +140,42 @@ describe('interactable artwork rendering', () => {
 
     expect(image.setOrigin).toHaveBeenCalledWith(0.5, 0.5);
     expect(image.setScale).toHaveBeenCalledWith(1);
+  });
+});
+
+describe('interactable nameplates', () => {
+  it('anchors below an authored footprint and renders FF7-inspired dialogue chrome', () => {
+    const interactable = houseLayout.rooms[0].interactables[0]!;
+    const text = { width: 80, height: 16, setOrigin: vi.fn().mockReturnThis() };
+    const graphics = {
+      fillStyle: vi.fn().mockReturnThis(), fillRoundedRect: vi.fn().mockReturnThis(),
+      fillGradientStyle: vi.fn().mockReturnThis(), lineStyle: vi.fn().mockReturnThis(),
+      strokeRoundedRect: vi.fn().mockReturnThis(),
+    };
+    const container = {
+      setName: vi.fn().mockReturnThis(), setVisible: vi.fn().mockReturnThis(), setDepth: vi.fn().mockReturnThis(),
+    };
+    const scene = { add: {
+      text: vi.fn(() => text), graphics: vi.fn(() => graphics), container: vi.fn(() => container),
+    } } as unknown as Phaser.Scene;
+
+    expect(getInteractableLabelBase(houseLayout.rooms[0], interactable, 16)).toEqual({ x: 192, y: 153 });
+    expect(renderInteractableLabel(scene, houseLayout.rooms[0], interactable, 16)).toBe(container);
+    expect((scene.add.text as ReturnType<typeof vi.fn>).mock.calls[0]![3]).toMatchObject({
+      color: '#ffffff', fontFamily: "'Courier New', Courier, monospace", fontSize: '5px', fontStyle: 'bold',
+      wordWrap: { width: 72, useAdvancedWrap: true }, resolution: 2,
+    });
+    expect(graphics.fillGradientStyle).toHaveBeenCalledWith(0x244fbc, 0x102b8c, 0x080f55, 0x04072f, 1);
+    expect(scene.add.container).toHaveBeenCalledWith(192, 166, [graphics, text]);
+    expect(container.setName).toHaveBeenCalledWith('interactable-label:living-room:living-room-television');
+    expect(container.setVisible).toHaveBeenCalledWith(false);
+    expect(container.setDepth).toHaveBeenCalledWith(8.5);
+  });
+
+  it('uses a generic below-center fallback for interactables painted into a backdrop', () => {
+    const room = houseLayout.rooms[0];
+    const bookcase = room.interactables.find(item => item.id === 'living-room-bookcase')!;
+    expect(getInteractableLabelBase(room, bookcase, 16)).toEqual({ x: 284, y: 124 });
   });
 });
 

@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 
 import { assetUrl } from '../../app/assetUrl';
 import { optionalTexturePaths, placeholderAssetPaths } from '../../app/assetManifest';
-import { DEFAULT_CAMERA_ZOOM } from '../config';
+import { ALWAYS_SHOW_INTERACTABLE_NAMEPLATES, DEFAULT_CAMERA_ZOOM } from '../config';
 import {
   getCameraConstraintBounds,
   getCameraScrollForTarget,
@@ -37,6 +37,7 @@ export interface HouseSceneCallbacks {
 export interface HouseSceneOptions {
   readonly cameraZoom?: number;
   readonly debugEnabled?: boolean;
+  readonly alwaysShowInteractableNameplates?: boolean;
 }
 
 /**
@@ -48,6 +49,7 @@ export class HouseScene extends Phaser.Scene {
   private readonly callbacks: HouseSceneCallbacks;
   private readonly inputController: InputController;
   private readonly cameraZoom: number;
+  private readonly alwaysShowInteractableNameplates: boolean;
   private playerSprite?: Phaser.GameObjects.Sprite;
   private player?: Player;
   private collisionSystem?: CollisionSystem;
@@ -72,6 +74,8 @@ export class HouseScene extends Phaser.Scene {
     this.inputController = inputController;
     this.callbacks = callbacks;
     this.cameraZoom = options.cameraZoom ?? DEFAULT_CAMERA_ZOOM;
+    this.alwaysShowInteractableNameplates = options.alwaysShowInteractableNameplates
+      ?? ALWAYS_SHOW_INTERACTABLE_NAMEPLATES;
     this.debugEnabled = Boolean(import.meta.env.DEV && (options.debugEnabled ?? true));
   }
 
@@ -138,6 +142,7 @@ export class HouseScene extends Phaser.Scene {
         depthRegistry: this.depths, debugEnabled: this.debugEnabled,
         showCollisionBounds: this.showCollisionBounds,
       });
+      this.setActiveInteractableLabel(undefined);
 
       const camera = this.cameras.main;
       camera.setZoom(this.cameraZoom);
@@ -169,7 +174,10 @@ export class HouseScene extends Phaser.Scene {
       });
       this.collisionSystem = new CollisionSystem(this, this.layout, this.playerSprite);
       this.interactionSystem = new InteractionSystem(this.layout, {
-        onTargetChanged: this.callbacks.onInteractionTargetChanged,
+        onTargetChanged: target => {
+          this.setActiveInteractableLabel(target?.id);
+          this.callbacks.onInteractionTargetChanged?.(target);
+        },
       });
       this.depths.registerPlayer(this.player.getDisplayObject(), () => this.player!.getGroundY());
       this.synchronizePresentation();
@@ -232,6 +240,7 @@ export class HouseScene extends Phaser.Scene {
     this.collisionSystem?.destroy();
     this.collisionSystem = undefined;
     this.cameraBounds = undefined;
+    this.renderLayers?.interactableLabels.clear();
     this.renderLayers = undefined;
     this.debugOverlay?.destroy();
     this.debugOverlay = undefined;
@@ -266,6 +275,12 @@ export class HouseScene extends Phaser.Scene {
         this.callbacks.onRoomChanged?.(room);
       }
     }
+  }
+
+  private setActiveInteractableLabel(id: string | undefined): void {
+    this.renderLayers?.interactableLabels.forEach((label, labelId) => {
+      label.setVisible(this.alwaysShowInteractableNameplates || labelId === id);
+    });
   }
 
   private updateCameraFollow(): void {

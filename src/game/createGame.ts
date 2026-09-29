@@ -14,6 +14,7 @@ export interface CreateGameOptions {
   readonly layout?: HouseLayout;
   readonly inputController: InputController;
   readonly cameraZoom?: number;
+  readonly alwaysShowInteractableNameplates?: boolean;
   readonly onSceneReady?: () => void;
   readonly onRoomChanged?: (roomId: RoomDefinition['id']) => void;
   readonly onStartupError?: (error: unknown) => void;
@@ -58,6 +59,7 @@ export function createGame(options: CreateGameOptions): Phaser.Game {
       onContentRequested: options.onContentRequested,
     }, {
       cameraZoom: options.cameraZoom,
+      alwaysShowInteractableNameplates: options.alwaysShowInteractableNameplates,
     }),
   };
 

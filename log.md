@@ -2,6 +2,14 @@
 
 This file is the project decision record. New implementation decisions, approved changes, deferred choices, and story-completion decisions must be added here before or alongside changes to `plan.md` or source files.
 
+## DEC-161 — Show an FF7-style nameplate for the active interactable
+
+- Date: 2026-09-29. Owner requests a box bearing each interactable's name below it, styled like the existing Final Fantasy VII-inspired dialog, and explicitly instructs not to push.
+- Render nameplates generically inside Phaser so they share camera movement and world placement. Reuse the dialog's diagonal blue palette, silver/white/dark bevel, bold Courier text and shadow. Resolve placement from each object's footprint bottom and ground anchor; use `position + (0.5,1.5)` for baked-art hotspots and clamp horizontal placement inside the owning room.
+- Add the central `ALWAYS_SHOW_INTERACTABLE_NAMEPLATES` boolean, defaulting to `true` by owner direction: true keeps all labels visible regardless of proximity or gameplay state, while false shows exactly the current proximity target and hides all labels whenever gameplay is disabled (including an open dialog). Expose an optional `createGame()` override for tests and future presentation modes. Retain the DOM live-region prompt as the complete accessible instruction rather than duplicating canvas text for assistive technology.
+- Verification: 1,944 tests/44 files and typecheck/build pass (`index-CnMsjzSj.js`; existing bundle-size advisory only). Isolated development and production browser checks validate all 11 names/anchors, including both `Books` labels, the true-by-default persistent mode, the false proximity-only override, stale-label clearing and 19 desktop/portrait/landscape captures per mode with zero exceptions. Evidence: `output/qa/interactable-nameplates/verification.md`.
+- State: owner accepted the current presentation and authorized delivery on 2026-09-29. Include the owner's `Books` label refinement for both bookcases and the shared content record in the same PORT-07C follow-up commit.
+
 ## DEC-160 — Align the compact-chair collision at the bottom
 
 - Date: 2026-09-28. Owner reports that the player can enter the compact chair at the bottom and requests the desk collision be aligned there.

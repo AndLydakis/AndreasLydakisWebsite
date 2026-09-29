@@ -6,6 +6,15 @@ pushed.
 
 ## [Unreleased]
 
+### PORT-07C follow-up — Active interactable nameplates
+
+- Add a compact FF7-inspired blue nameplate beneath every interactable, with configurable persistent or proximity-only visibility.
+- Add the central `ALWAYS_SHOW_INTERACTABLE_NAMEPLATES` flag, defaulting to always visible (`true`), plus a `createGame()` override; setting it to `false` restores proximity-only visibility.
+- Position labels from generic footprint/ground-anchor metadata, use a safe baked-art fallback, and clamp edge-adjacent labels inside their room without altering interactions, collisions or perspective.
+- Preserve the existing accessible proximity instruction and mobile Interact behavior. Verify all 11 interactables across desktop, portrait and landscape in development and production previews.
+- Simplify both bookcase nameplates, proximity prompts and their shared content label to `Books`.
+- Owner accepted the presentation and authorized delivery (DEC-161).
+
 ### PORT-18G follow-up — Compact workstation integration
 
 Delivered to `origin/master` in `f27ffe2`.

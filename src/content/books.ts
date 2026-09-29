@@ -3,7 +3,7 @@ import type { ContentRecord } from './types';
 /** Replace these clearly labeled entries with real reading notes when supplied. */
 export const booksContent: ContentRecord = {
   id: 'livingroom-books',
-  label: 'Bookcase and recent reading',
+  label: 'Books',
   roomId: 'living-room',
   roomLabel: 'Living room',
   title: 'Recently read books',

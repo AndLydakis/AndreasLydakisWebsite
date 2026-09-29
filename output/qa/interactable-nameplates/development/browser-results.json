@@ -1,0 +1,464 @@
+{
+  "url": "http://127.0.0.1:5173",
+  "recordedAt": "2026-09-29T06:17:14.259Z",
+  "labels": [
+    {
+      "name": "interactable-label:living-room:living-room-television",
+      "x": 192,
+      "y": 163,
+      "depth": 8.5,
+      "visible": true,
+      "text": "Television and game console",
+      "font": "'Courier New', Courier, monospace",
+      "fontSize": "5px",
+      "textWidth": 58,
+      "textHeight": 9.8046875,
+      "graphicsCommands": 312
+    },
+    {
+      "name": "interactable-label:living-room:living-room-record-player",
+      "x": 311,
+      "y": 195.5,
+      "depth": 8.5,
+      "visible": true,
+      "text": "Vinyl and record player",
+      "font": "'Courier New', Courier, monospace",
+      "fontSize": "5px",
+      "textWidth": 70,
+      "textHeight": 4.90234375,
+      "graphicsCommands": 312
+    },
+    {
+      "name": "interactable-label:living-room:living-room-bookcase",
+      "x": 284,
+      "y": 131.5,
+      "depth": 8.5,
+      "visible": true,
+      "text": "Books",
+      "font": "'Courier New', Courier, monospace",
+      "fontSize": "5px",
+      "textWidth": 16,
+      "textHeight": 4.90234375,
+      "graphicsCommands": 312
+    },
+    {
+      "name": "interactable-label:living-room:living-room-globe",
+      "x": 96,
+      "y": 204,
+      "depth": 8.5,
+      "visible": true,
+      "text": "Globe and travel pictures",
+      "font": "'Courier New', Courier, monospace",
+      "fontSize": "5px",
+      "textWidth": 49,
+      "textHeight": 9.8046875,
+      "graphicsCommands": 312
+    },
+    {
+      "name": "interactable-label:gym:gym-squat-rack",
+      "x": 596,
+      "y": 174.5,
+      "depth": 8.5,
+      "visible": true,
+      "text": "Squat rack",
+      "font": "'Courier New', Courier, monospace",
+      "fontSize": "5px",
+      "textWidth": 31,
+      "textHeight": 4.90234375,
+      "graphicsCommands": 312
+    },
+    {
+      "name": "interactable-label:gym:gym-boombox",
+      "x": 528,
+      "y": 138.5,
+      "depth": 8.5,
+      "visible": true,
+      "text": "Boombox",
+      "font": "'Courier New', Courier, monospace",
+      "fontSize": "5px",
+      "textWidth": 22,
+      "textHeight": 4.90234375,
+      "graphicsCommands": 312
+    },
+    {
+      "name": "interactable-label:office:office-dog-bed",
+      "x": 104,
+      "y": 468.55,
+      "depth": 8.5,
+      "visible": true,
+      "text": "Office dog",
+      "font": "'Courier New', Courier, monospace",
+      "fontSize": "5px",
+      "textWidth": 31,
+      "textHeight": 4.90234375,
+      "graphicsCommands": 312
+    },
+    {
+      "name": "interactable-label:office:office-workstation",
+      "x": 116,
+      "y": 433.5,
+      "depth": 8.5,
+      "visible": true,
+      "text": "Office workstation",
+      "font": "'Courier New', Courier, monospace",
+      "fontSize": "5px",
+      "textWidth": 55,
+      "textHeight": 4.90234375,
+      "graphicsCommands": 312
+    },
+    {
+      "name": "interactable-label:office:office-bookcase",
+      "x": 145.6,
+      "y": 387.5,
+      "depth": 8.5,
+      "visible": true,
+      "text": "Books",
+      "font": "'Courier New', Courier, monospace",
+      "fontSize": "5px",
+      "textWidth": 16,
+      "textHeight": 4.90234375,
+      "graphicsCommands": 312
+    },
+    {
+      "name": "interactable-label:kitchen:kitchen-stove",
+      "x": 425,
+      "y": 423.5,
+      "depth": 8.5,
+      "visible": true,
+      "text": "Kitchen stove",
+      "font": "'Courier New', Courier, monospace",
+      "fontSize": "5px",
+      "textWidth": 40,
+      "textHeight": 4.90234375,
+      "graphicsCommands": 312
+    },
+    {
+      "name": "interactable-label:kitchen:kitchen-fridge",
+      "x": 617,
+      "y": 399.5,
+      "depth": 8.5,
+      "visible": true,
+      "text": "Kitchen shopping list",
+      "font": "'Courier New', Courier, monospace",
+      "fontSize": "5px",
+      "textWidth": 64,
+      "textHeight": 4.90234375,
+      "graphicsCommands": 312
+    }
+  ],
+  "expected": [
+    {
+      "name": "interactable-label:living-room:living-room-television",
+      "id": "living-room-television",
+      "roomId": "living-room",
+      "text": "Television and game console",
+      "baseX": 192,
+      "baseY": 153,
+      "roomLeft": 32,
+      "roomRight": 352
+    },
+    {
+      "name": "interactable-label:living-room:living-room-record-player",
+      "id": "living-room-record-player",
+      "roomId": "living-room",
+      "text": "Vinyl and record player",
+      "baseX": 312,
+      "baseY": 188,
+      "roomLeft": 32,
+      "roomRight": 352
+    },
+    {
+      "name": "interactable-label:living-room:living-room-bookcase",
+      "id": "living-room-bookcase",
+      "roomId": "living-room",
+      "text": "Books",
+      "baseX": 284,
+      "baseY": 124,
+      "roomLeft": 32,
+      "roomRight": 352
+    },
+    {
+      "name": "interactable-label:living-room:living-room-globe",
+      "id": "living-room-globe",
+      "roomId": "living-room",
+      "text": "Globe and travel pictures",
+      "baseX": 96,
+      "baseY": 194,
+      "roomLeft": 32,
+      "roomRight": 352
+    },
+    {
+      "name": "interactable-label:gym:gym-squat-rack",
+      "id": "gym-squat-rack",
+      "roomId": "gym",
+      "text": "Squat rack",
+      "baseX": 596,
+      "baseY": 167,
+      "roomLeft": 400,
+      "roomRight": 656
+    },
+    {
+      "name": "interactable-label:gym:gym-boombox",
+      "id": "gym-boombox",
+      "roomId": "gym",
+      "text": "Boombox",
+      "baseX": 528,
+      "baseY": 131,
+      "roomLeft": 400,
+      "roomRight": 656
+    },
+    {
+      "name": "interactable-label:office:office-dog-bed",
+      "id": "office-dog-bed",
+      "roomId": "office",
+      "text": "Office dog",
+      "baseX": 104,
+      "baseY": 461.05,
+      "roomLeft": 56,
+      "roomRight": 328
+    },
+    {
+      "name": "interactable-label:office:office-workstation",
+      "id": "office-workstation",
+      "roomId": "office",
+      "text": "Office workstation",
+      "baseX": 116,
+      "baseY": 426,
+      "roomLeft": 56,
+      "roomRight": 328
+    },
+    {
+      "name": "interactable-label:office:office-bookcase",
+      "id": "office-bookcase",
+      "roomId": "office",
+      "text": "Books",
+      "baseX": 145.6,
+      "baseY": 380,
+      "roomLeft": 56,
+      "roomRight": 328
+    },
+    {
+      "name": "interactable-label:kitchen:kitchen-stove",
+      "id": "kitchen-stove",
+      "roomId": "kitchen",
+      "text": "Kitchen stove",
+      "baseX": 418.2,
+      "baseY": 416,
+      "roomLeft": 399,
+      "roomRight": 655
+    },
+    {
+      "name": "interactable-label:kitchen:kitchen-fridge",
+      "id": "kitchen-fridge",
+      "roomId": "kitchen",
+      "text": "Kitchen shopping list",
+      "baseX": 631,
+      "baseY": 392,
+      "roomLeft": 399,
+      "roomRight": 655
+    }
+  ],
+  "flagModes": {
+    "defaultAlways": [
+      "interactable-label:gym:gym-boombox",
+      "interactable-label:gym:gym-squat-rack",
+      "interactable-label:kitchen:kitchen-fridge",
+      "interactable-label:kitchen:kitchen-stove",
+      "interactable-label:living-room:living-room-bookcase",
+      "interactable-label:living-room:living-room-globe",
+      "interactable-label:living-room:living-room-record-player",
+      "interactable-label:living-room:living-room-television",
+      "interactable-label:office:office-bookcase",
+      "interactable-label:office:office-dog-bed",
+      "interactable-label:office:office-workstation"
+    ],
+    "alwaysWhileDisabled": [
+      "interactable-label:gym:gym-boombox",
+      "interactable-label:gym:gym-squat-rack",
+      "interactable-label:kitchen:kitchen-fridge",
+      "interactable-label:kitchen:kitchen-stove",
+      "interactable-label:living-room:living-room-bookcase",
+      "interactable-label:living-room:living-room-globe",
+      "interactable-label:living-room:living-room-record-player",
+      "interactable-label:living-room:living-room-television",
+      "interactable-label:office:office-bookcase",
+      "interactable-label:office:office-dog-bed",
+      "interactable-label:office:office-workstation"
+    ],
+    "proximityWithNoTarget": []
+  },
+  "captures": [
+    {
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "mobile": false,
+      "destination": "media",
+      "target": "living-room-television",
+      "filename": "desktop-living-room-television.png"
+    },
+    {
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "mobile": false,
+      "destination": "media",
+      "target": "living-room-record-player",
+      "filename": "desktop-living-room-record-player.png"
+    },
+    {
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "mobile": false,
+      "destination": "media",
+      "target": "living-room-bookcase",
+      "filename": "desktop-living-room-bookcase.png"
+    },
+    {
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "mobile": false,
+      "destination": "media",
+      "target": "living-room-globe",
+      "filename": "desktop-living-room-globe.png"
+    },
+    {
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "mobile": false,
+      "destination": "training",
+      "target": "gym-squat-rack",
+      "filename": "desktop-gym-squat-rack.png"
+    },
+    {
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "mobile": false,
+      "destination": "training",
+      "target": "gym-boombox",
+      "filename": "desktop-gym-boombox.png"
+    },
+    {
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "mobile": false,
+      "destination": "cv",
+      "target": "office-dog-bed",
+      "filename": "desktop-office-dog-bed.png"
+    },
+    {
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "mobile": false,
+      "destination": "cv",
+      "target": "office-workstation",
+      "filename": "desktop-office-workstation.png"
+    },
+    {
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "mobile": false,
+      "destination": "cv",
+      "target": "office-bookcase",
+      "filename": "desktop-office-bookcase.png"
+    },
+    {
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "mobile": false,
+      "destination": "food-log",
+      "target": "kitchen-stove",
+      "filename": "desktop-kitchen-stove.png"
+    },
+    {
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "mobile": false,
+      "destination": "food-log",
+      "target": "kitchen-fridge",
+      "filename": "desktop-kitchen-fridge.png"
+    },
+    {
+      "viewport": "portrait",
+      "width": 390,
+      "height": 844,
+      "mobile": true,
+      "destination": "media",
+      "target": "living-room-television",
+      "filename": "portrait-living-room-television.png"
+    },
+    {
+      "viewport": "portrait",
+      "width": 390,
+      "height": 844,
+      "mobile": true,
+      "destination": "training",
+      "target": "gym-squat-rack",
+      "filename": "portrait-gym-squat-rack.png"
+    },
+    {
+      "viewport": "portrait",
+      "width": 390,
+      "height": 844,
+      "mobile": true,
+      "destination": "cv",
+      "target": "office-dog-bed",
+      "filename": "portrait-office-dog-bed.png"
+    },
+    {
+      "viewport": "portrait",
+      "width": 390,
+      "height": 844,
+      "mobile": true,
+      "destination": "food-log",
+      "target": "kitchen-stove",
+      "filename": "portrait-kitchen-stove.png"
+    },
+    {
+      "viewport": "landscape",
+      "width": 844,
+      "height": 390,
+      "mobile": true,
+      "destination": "media",
+      "target": "living-room-television",
+      "filename": "landscape-living-room-television.png"
+    },
+    {
+      "viewport": "landscape",
+      "width": 844,
+      "height": 390,
+      "mobile": true,
+      "destination": "training",
+      "target": "gym-squat-rack",
+      "filename": "landscape-gym-squat-rack.png"
+    },
+    {
+      "viewport": "landscape",
+      "width": 844,
+      "height": 390,
+      "mobile": true,
+      "destination": "cv",
+      "target": "office-dog-bed",
+      "filename": "landscape-office-dog-bed.png"
+    },
+    {
+      "viewport": "landscape",
+      "width": 844,
+      "height": 390,
+      "mobile": true,
+      "destination": "food-log",
+      "target": "kitchen-stove",
+      "filename": "landscape-kitchen-stove.png"
+    }
+  ],
+  "exceptions": []
+}

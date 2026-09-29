@@ -12,6 +12,7 @@ import {
 import type {
   DoorwayDefinition,
   HouseLayout,
+  InteractableDefinition,
   RoomDefinition,
   WorldTileRect,
 } from '../data/types';
@@ -23,6 +24,8 @@ export interface HouseRenderOptions {
   readonly debugEnabled?: boolean;
   /** Temporary owner-facing collision review, independent of development diagnostics. */
   readonly showCollisionBounds?: boolean;
+  /** Internal room-rendering switch; buildHouse enables labels for the complete runtime. */
+  readonly showInteractableLabels?: boolean;
 }
 
 const COLORS = {
@@ -34,12 +37,22 @@ const COLORS = {
   worldOutline: 0xffe29a,
 } as const;
 
+const INTERACTABLE_LABEL = {
+  depth: 8.5,
+  gap: 2,
+  maxTextWidth: 72,
+  horizontalPadding: 4,
+  verticalPadding: 3,
+  minimumWidth: 28,
+} as const;
+
 export interface HouseRenderLayers {
   readonly floor: Phaser.GameObjects.Graphics;
   readonly walls: Phaser.GameObjects.Graphics;
   readonly collisionPreview: Phaser.GameObjects.Graphics;
   readonly doorwayPreview: Phaser.GameObjects.Graphics;
   readonly worldBounds: Phaser.GameObjects.Graphics;
+  readonly interactableLabels: Map<string, Phaser.GameObjects.Container>;
 }
 
 /** Creates all generic layout render layers for the supplied house. */
@@ -47,7 +60,8 @@ export function buildHouse(scene: Phaser.Scene, layout: HouseLayout, options: Ho
   const layers = createRenderLayers(scene, Boolean(import.meta.env.DEV && options.debugEnabled));
   if (options.showCollisionBounds) layers.collisionPreview.setVisible(true);
 
-  layout.rooms.forEach((room) => buildRoom(scene, room, layout.tileSize, layers, options));
+  const roomOptions = { ...options, showInteractableLabels: options.showInteractableLabels ?? true };
+  layout.rooms.forEach((room) => buildRoom(scene, room, layout.tileSize, layers, roomOptions));
 
   layout.corridors.forEach((corridor) => {
     const corridorPixels = worldRectToWorldPixel(
@@ -203,6 +217,64 @@ export function buildRoom(
       image.setScale(Math.min(1, (tileSize * 3) / Math.max(image.width, image.height)));
     }
   });
+
+  if (options.showInteractableLabels) {
+    room.interactables.forEach(interactable => {
+      layers.interactableLabels.set(interactable.id, renderInteractableLabel(scene, room, interactable, tileSize));
+    });
+  }
+}
+
+/** Places a nameplate below the authored physical base, with a safe fallback for baked artwork. */
+export function getInteractableLabelBase(
+  room: RoomDefinition,
+  interactable: InteractableDefinition,
+  tileSize: number,
+): { x: number; y: number } {
+  const localX = interactable.groundAnchor?.x ?? interactable.position.x + 0.5;
+  const footprintBottom = interactable.footprints?.length
+    ? Math.max(...interactable.footprints.map(rect => rect.y + rect.height))
+    : undefined;
+  const localY = footprintBottom ?? interactable.groundAnchor?.y ?? interactable.position.y + 1.5;
+  return { x: (room.origin.x + localX) * tileSize, y: (room.origin.y + localY) * tileSize };
+}
+
+/** Draws compact FF7-inspired dialogue chrome without changing interaction or accessibility state. */
+export function renderInteractableLabel(
+  scene: Phaser.Scene,
+  room: RoomDefinition,
+  interactable: InteractableDefinition,
+  tileSize: number,
+): Phaser.GameObjects.Container {
+  const text = scene.add.text(0, 0, interactable.label, {
+    color: '#ffffff',
+    fontFamily: "'Courier New', Courier, monospace",
+    fontSize: '5px',
+    fontStyle: 'bold',
+    align: 'center',
+    wordWrap: { width: INTERACTABLE_LABEL.maxTextWidth, useAdvancedWrap: true },
+    resolution: 2,
+  }).setOrigin(0.5, 0.5);
+  const width = Math.max(
+    INTERACTABLE_LABEL.minimumWidth,
+    Math.ceil(text.width) + INTERACTABLE_LABEL.horizontalPadding * 2,
+  );
+  const height = Math.ceil(text.height) + INTERACTABLE_LABEL.verticalPadding * 2;
+  const left = -width / 2, top = -height / 2;
+  const chrome = scene.add.graphics();
+  chrome.fillStyle(0x000000, 0.45).fillRoundedRect(left + 2, top + 3, width, height, 4);
+  chrome.fillGradientStyle(0x244fbc, 0x102b8c, 0x080f55, 0x04072f, 1)
+    .fillRoundedRect(left, top, width, height, 4);
+  chrome.lineStyle(2, 0xbdc4d5, 1).strokeRoundedRect(left, top, width, height, 4);
+  chrome.lineStyle(1, 0xffffff, 1).strokeRoundedRect(left + 1.5, top + 1.5, width - 3, height - 3, 2);
+  chrome.lineStyle(1, 0x111944, 1).strokeRoundedRect(left + 3, top + 3, width - 6, height - 6, 1);
+  const base = getInteractableLabelBase(room, interactable, tileSize);
+  const roomLeft = room.origin.x * tileSize, roomRight = (room.origin.x + room.widthTiles) * tileSize;
+  const x = Math.max(roomLeft + width / 2 + 2, Math.min(base.x, roomRight - width / 2 - 2));
+  return scene.add.container(x, base.y + INTERACTABLE_LABEL.gap + height / 2, [chrome, text])
+    .setName(`interactable-label:${room.id}:${interactable.id}`)
+    .setVisible(false)
+    .setDepth(INTERACTABLE_LABEL.depth);
 }
 
 /** Reuse unobstructed wood to the right of the living-room rug at its room scale.
@@ -266,6 +338,7 @@ function createRenderLayers(scene: Phaser.Scene, debugEnabled: boolean): HouseRe
     collisionPreview: scene.add.graphics().setDepth(8).setVisible(debugEnabled),
     doorwayPreview: scene.add.graphics().setDepth(8).setVisible(debugEnabled),
     worldBounds: scene.add.graphics().setDepth(8).setVisible(debugEnabled),
+    interactableLabels: new Map(),
   };
 }
 

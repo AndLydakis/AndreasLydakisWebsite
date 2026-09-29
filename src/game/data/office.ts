@@ -76,7 +76,7 @@ export const office: RoomDefinition = {
     {
       id: 'office-bookcase', roomId: 'office',
       position: { x: 5.1, y: 1.5 },
-      label: 'Bookcase and recent reading', promptLabel: 'bookcase and recent reading',
+      label: 'Books', promptLabel: 'books',
       // Same content identity and DOM dialog as the living-room bookcase.
       contentId: 'livingroom-books', interactionRadiusTiles: 1.5,
       assetId: 'office-bookcase-front', displayHeightTiles: 4,

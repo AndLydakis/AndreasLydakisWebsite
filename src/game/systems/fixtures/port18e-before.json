@@ -117,8 +117,8 @@
               "x": 15.25,
               "y": 2.25
             },
-            "label": "Bookcase and recent reading",
-            "promptLabel": "bookcase and recent reading",
+            "label": "Books",
+            "promptLabel": "books",
             "contentId": "livingroom-books",
             "interactionRadiusTiles": 1.5,
             "artworkInBackground": true
@@ -629,8 +629,8 @@
               "x": 5.1,
               "y": 1.5
             },
-            "label": "Bookcase and recent reading",
-            "promptLabel": "bookcase and recent reading",
+            "label": "Books",
+            "promptLabel": "books",
             "contentId": "livingroom-books",
             "interactionRadiusTiles": 1.5,
             "assetId": "office-bookcase-front",

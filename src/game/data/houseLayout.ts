@@ -61,8 +61,8 @@ const livingRoom: RoomDefinition = {
       // Artwork center at room pixel (252, 44), including the +0.5 tile offset.
       // The center sits over the wall art; its radius reaches the clear floor below.
       position: { x: 15.25, y: 2.25 },
-      label: 'Bookcase and recent reading',
-      promptLabel: 'bookcase and recent reading',
+      label: 'Books',
+      promptLabel: 'books',
       contentId: 'livingroom-books',
       interactionRadiusTiles: 1.5,
       artworkInBackground: true,

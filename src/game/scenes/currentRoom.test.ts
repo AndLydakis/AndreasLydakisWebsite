@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { HouseScene } from './HouseScene';
 import { houseLayout } from '../data/houseLayout';
+import { ALWAYS_SHOW_INTERACTABLE_NAMEPLATES } from '../config';
 import type { InputController } from '../systems/InputController';
 
 // Exercise the actual scene synchronization/travel methods without booting a canvas.
@@ -57,5 +58,44 @@ describe('scene current-room notifications', () => {
     scene.create();
     expect(scene['currentRoom']).toBeUndefined();
     expect(onStartupError).toHaveBeenCalledOnce();
+  });
+});
+
+describe('interactable nameplate visibility mode', () => {
+  it('can show only the current proximity target when the override is false', () => {
+    const scene = new HouseScene(houseLayout, {} as InputController, {}, {
+      alwaysShowInteractableNameplates: false,
+    });
+    const television = { setVisible: vi.fn() };
+    const recordPlayer = { setVisible: vi.fn() };
+    Object.assign(scene, { renderLayers: {
+      interactableLabels: new Map([
+        ['living-room-television', television],
+        ['living-room-record-player', recordPlayer],
+      ]),
+    } });
+
+    scene['setActiveInteractableLabel']('living-room-television');
+
+    expect(television.setVisible).toHaveBeenCalledWith(true);
+    expect(recordPlayer.setVisible).toHaveBeenCalledWith(false);
+  });
+
+  it('defaults to keeping every nameplate visible', () => {
+    expect(ALWAYS_SHOW_INTERACTABLE_NAMEPLATES).toBe(true);
+    const scene = new HouseScene(houseLayout, {} as InputController);
+    const television = { setVisible: vi.fn() };
+    const recordPlayer = { setVisible: vi.fn() };
+    Object.assign(scene, { renderLayers: {
+      interactableLabels: new Map([
+        ['living-room-television', television],
+        ['living-room-record-player', recordPlayer],
+      ]),
+    } });
+
+    scene['setActiveInteractableLabel'](undefined);
+
+    expect(television.setVisible).toHaveBeenCalledWith(true);
+    expect(recordPlayer.setVisible).toHaveBeenCalledWith(true);
   });
 });
