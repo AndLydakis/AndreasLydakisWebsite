@@ -43,6 +43,10 @@ const COLORS = {
 export const LABEL_INTERACTION_PADDING = 3;
 /** Radius circles sit below labels (2.9) and all perspective-sorted world objects (>3). */
 export const INTERACTION_RADIUS_DEPTH = PERSPECTIVE_DEPTH_MIN - 0.2;
+export const INTERACTABLE_LABEL_FONT = 'Tiny5';
+/** Preserve the original label footprint; resolution sharpens its backing texture. */
+export const INTERACTABLE_LABEL_FONT_SIZE = 5;
+export const INTERACTABLE_LABEL_TEXT_RESOLUTION = 4;
 
 const INTERACTABLE_LABEL = {
   // Labels remain behind the player and every perspective-sorted world sprite.
@@ -287,12 +291,12 @@ function createInteractableLabel(
 } {
   const text = scene.add.text(0, 0, interactable.label, {
     color: '#ffffff',
-    fontFamily: "'Courier New', Courier, monospace",
-    fontSize: '5px',
-    fontStyle: 'bold',
+    fontFamily: INTERACTABLE_LABEL_FONT,
+    fontSize: `${INTERACTABLE_LABEL_FONT_SIZE}px`,
+    fontStyle: 'normal',
     align: 'center',
     wordWrap: { width: INTERACTABLE_LABEL.maxTextWidth, useAdvancedWrap: true },
-    resolution: 2,
+    resolution: INTERACTABLE_LABEL_TEXT_RESOLUTION,
   }).setOrigin(0.5, 0.5);
   const width = Math.max(
     INTERACTABLE_LABEL.minimumWidth,

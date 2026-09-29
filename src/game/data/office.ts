@@ -53,7 +53,7 @@ export const office: RoomDefinition = {
     {
       id: 'office-dog-bed', roomId: 'office',
       position: { x: 2.5, y: 7.625 },
-      label: 'Office dog', promptLabel: 'dog',
+      label: 'Stella', promptLabel: 'dog',
       contentId: 'office-dog-photo', interactionRadiusTiles: 1.3125,
       assetId: 'office-dog-bed-front', displayHeightTiles: 1.6,
       groundAnchor: { x: 3, y: 8.8125 },

@@ -104,7 +104,9 @@ const reportStartupError = (error: unknown): void => {
 
 let game: ReturnType<typeof createGame> | undefined;
 
-try {
+const startGame = async (): Promise<void> => {
+  // Canvas text metrics must use the bundled font from the first rendered frame.
+  await document.fonts.load('5px "Tiny5"');
   game = createGame({
     parent: dom.canvasLayer,
     layout: houseLayout,
@@ -128,9 +130,9 @@ try {
     },
     onStartupError: reportStartupError,
   });
-} catch (error) {
-  reportStartupError(error);
-}
+};
+
+void startGame().catch(reportStartupError);
 
 app.dataset.foundationReady = 'true';
 

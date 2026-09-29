@@ -140,7 +140,7 @@ describe('InteractionSystem', () => {
     expect(target).toBeNull();
     expect(system.createInteractable(houseLayout.rooms[0]!.interactables[0]!)).toMatchObject({
       id: 'living-room-television',
-      position: { x: 11.5, y: 8 },
+      position: { x: 11.5, y: 7.5 },
     });
   });
 

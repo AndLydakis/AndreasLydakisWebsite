@@ -32,14 +32,15 @@ const livingRoom: RoomDefinition = {
       roomId: 'living-room',
       // Tile points render at +0.5: x=9.5 centers the TV in this 20-tile room.
       // Keep its base between the window wall and coffee table, with floor on both sides.
-      position: { x: 9.5, y: 4 },
+      // The half-tile upward offset keeps its nameplate clear of the table's pizza box.
+      position: { x: 9.5, y: 3.5 },
       label: 'Television and game console',
       promptLabel: 'television and game console',
       contentId: 'livingroom-media',
       interactionRadiusTiles: 2,
       assetId: 'television-console-front',
-      groundAnchor: { x: 10, y: 5.5625 },
-      footprints: [{ x: 9, y: 5.25, width: 2, height: 0.3125 }],
+      groundAnchor: { x: 10, y: 5.0625 },
+      footprints: [{ x: 9, y: 4.75, width: 2, height: 0.3125 }],
       displayHeightTiles: 2.8,
     },
     {

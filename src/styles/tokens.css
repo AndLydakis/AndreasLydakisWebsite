@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Tiny5";
+  src: url("/assets/fonts/tiny5/Tiny5-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+}
+
 :root {
   --color-page: #171226;
   --color-panel: #241a3d;

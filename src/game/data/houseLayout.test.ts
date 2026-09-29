@@ -169,7 +169,7 @@ describe('initial house layout', () => {
   it.each([
     ['table', 8, 6.9375, 3.75, 1.5, 630 / 1049 * 224],
     ['sofa', 6.625, 9.375, 6.5, 1.75, 833 / 1049 * 224],
-    ['TV', 9, 5.25, 2, 0.3125, (4.5 + 2.8 * (1120 / 1288 - 0.5)) * 16],
+    ['TV', 9, 4.75, 2, 0.3125, (4 + 2.8 * (1120 / 1288 - 0.5)) * 16],
     ['vinyl', 16.375, 7.4375, 2.25, 0.3125, (6.5 + 2.8 * (1226 / 1289 - 0.5)) * 16],
   ] as const)('fits the %s bottom and leaves floor clear immediately below it', (_name, x, y, width, height, artBottomPx) => {
     const room = houseRooms[0];
@@ -190,7 +190,7 @@ describe('initial house layout', () => {
     const room = houseRooms[0];
     const tv = room.interactables.find((item) => item.id === 'living-room-television')!;
     expect(tv.position.x + 0.5).toBe(room.widthTiles / 2);
-    expect(tv.position.y).toBe(4);
+    expect(tv.position.y).toBe(3.5);
     expect(tv.displayHeightTiles).toBe(2.8);
 
     // Sample 16px-wide, 1px-high player foot strips across both approach lanes.

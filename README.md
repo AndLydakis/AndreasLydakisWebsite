@@ -45,3 +45,6 @@ Project changes are tracked in [`CHANGELOG.md`](./CHANGELOG.md). Each remaining 
 
 The collision-bound and interaction-radius review flags, plus label-trigger behavior, are documented in
 [`docs/interaction-feedback.md`](./docs/interaction-feedback.md).
+
+The canvas backing scale, texture-filter policy and bundled nameplate font are documented in
+[`docs/rendering-quality.md`](./docs/rendering-quality.md).

@@ -2,6 +2,25 @@
 
 This file is the project decision record. New implementation decisions, approved changes, deferred choices, and story-completion decisions must be added here before or alongside changes to `plan.md` or source files.
 
+## DEC-176 — Deliver the rendering and living-room presentation batch
+
+- Date: 2026-09-29. Owner requests pushing the complete current workspace state, accepting the DEC-174 rendering/font refinement and DEC-175 television clearance.
+- Scope: deliver the 3× hybrid rendering pipeline, locally licensed Tiny5 nameplate font at the unchanged 5px logical size, repeatable browser evidence, and coordinated half-tile television translation. Include the owner's concurrent `Office dog` to `Stella` runtime/content label and alt-text edits, while preserving immutable historical fixture bytes and normalizing the approved label only in comparison helpers.
+- Delivery gate: repeat the full test, typecheck, production build and whitespace checks after reconciling the concurrent edits. Commit with a `PORT-07C` prefix and push to `origin/master`; record the resulting delivery separately after the remote update succeeds.
+
+## DEC-175 — Raise the living-room television clear of the pizza box
+
+- Date: 2026-09-29. Owner requests moving the television upward so its persistent nameplate no longer clips behind the pizza box on the coffee table.
+- Placement: translate the television artwork, interaction center, ground anchor and collision footprint upward by exactly half a tile (8 world pixels). Preserve horizontal centering, size, interaction radius, label wording, content and all table geometry.
+- Verification: all 1,960 tests/44 files, typecheck, production build and whitespace checks pass, including all 1,447 real Arcade collision cases and immutable-geometry normalizers. Isolated Chrome confirms the moved metadata, zero runtime exceptions and a visible gap: the rendered TV label text ends four world pixels above the coffee-table sprite. The screenshot in `output/qa/tv-label-clearance/desktop.png` confirms the complete label chrome clears the pizza box. Owner accepts and authorizes delivery under DEC-176.
+
+## DEC-174 — Sharpen world artwork and nameplates without changing their layout size
+
+- Date: 2026-09-29. Owner reports blurred interactable labels and visibly pixelated non-background assets, approves a hybrid rendering pass, and explicitly requires the nameplate boxes to retain their previous size.
+- Rendering: increase the existing proportional backing-render scale from 2× to 3× while scaling camera zoom with it, preserving world dimensions, object dimensions, effective viewport and gameplay geometry. Enable canvas/WebGL antialiasing, use normal browser canvas resampling, and set optional room/furniture textures to linear filtering. Keep every player animation and repair texture nearest-filtered so its authored pixel silhouette remains crisp.
+- Labels: bundle the open-licensed Tiny5 font and its SIL OFL license locally. Keep the original 5px logical font size and all existing nameplate padding/chrome constants; raise only Phaser text's internal texture resolution from 2× to 4×. Wait for the font before creating Phaser so first-frame text metrics cannot use a fallback face.
+- Verification: all 1,960 tests/44 files, typecheck, production build and whitespace checks pass. Isolated Chrome confirms a 1536×864 backing canvas, `image-rendering: auto`, Tiny5 at 5px/4×, linear environment filters, nearest player filters, unchanged startup health, and zero uncaught exceptions across desktop 1280×900, portrait 390×844 and landscape 844×390. The existing 11-label interaction verifier also passes all 275 label samples, first-contact checks and radius checks. Screenshots are in `output/qa/render-sharpness/`. Physical-device performance is not claimed. Owner accepts and authorizes delivery under DEC-176.
+
 ## DEC-173 — Deliver the completed PORT-07C interaction-feedback follow-up
 
 - Date: 2026-09-29. Owner accepts the interaction fixes and diagnostic presentation, requests pushing the changes, then adds final radius-layer and room-bounds requirements before delivery.

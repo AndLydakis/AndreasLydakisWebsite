@@ -24,17 +24,19 @@ const houseBounds = {
 };
 
 describe('camera follow math', () => {
-  it('doubles render resolution without changing visible world area or displayed object sizes', () => {
-    expect(RENDER_SCALE).toBe(2);
-    expect([GAME_WIDTH, GAME_HEIGHT, DEFAULT_CAMERA_ZOOM]).toEqual([1024, 576, 2.5]);
+  it('triples render resolution without changing visible world area or displayed object sizes', () => {
+    expect(RENDER_SCALE).toBe(3);
+    expect([GAME_WIDTH, GAME_HEIGHT, DEFAULT_CAMERA_ZOOM]).toEqual([1536, 864, 3.75]);
     const viewport = {
       width: GAME_WIDTH, height: GAME_HEIGHT, zoomX: DEFAULT_CAMERA_ZOOM, zoomY: DEFAULT_CAMERA_ZOOM,
     };
     expect(getEffectiveCameraViewport(viewport)).toEqual({ width: 409.6, height: 230.4 });
     // FIT maps both resolutions to the same CSS width; scale cancels out.
     expect(DEFAULT_CAMERA_ZOOM / GAME_WIDTH).toBe(1.25 / 512);
+    // Phaser stores scroll relative to the unzoomed backing-canvas center, so
+    // its numeric offset changes while the same world point remains centered.
     expect(getCameraScrollForTarget({ x: 512, y: 288 }, viewport, houseBounds)).toEqual({
-      x: 0, y: 0,
+      x: -256, y: -144,
     });
   });
 

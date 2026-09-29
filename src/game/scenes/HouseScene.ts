@@ -146,6 +146,7 @@ export class HouseScene extends Phaser.Scene {
           if (!texture.has(String(index))) texture.add(String(index), 0, x, y, width, height);
         });
       }
+      this.configureTextureFiltering();
 
       const worldWidthPixels = this.layout.worldWidth * this.layout.tileSize;
       const worldHeightPixels = this.layout.worldHeight * this.layout.tileSize;
@@ -350,5 +351,24 @@ export class HouseScene extends Phaser.Scene {
     if (missingKeys.length > 0) {
       throw new Error(`Placeholder assets failed to load: ${missingKeys.join(', ')}`);
     }
+  }
+
+  /** Smooth high-resolution environment art while retaining crisp player animation frames. */
+  private configureTextureFiltering(): void {
+    Object.keys(optionalTexturePaths).forEach((key) => {
+      if (this.textures.exists(key)) {
+        this.textures.get(key).setFilter(Phaser.Textures.FilterMode.LINEAR);
+      }
+    });
+    const playerKeys = [
+      'player-placeholder',
+      ...Object.keys(playerAnimationAssets),
+      ...Object.values(PLAYER_WALK_REPAIRS).map(repair => repair.textureKey),
+    ];
+    playerKeys.forEach((key) => {
+      if (this.textures.exists(key)) {
+        this.textures.get(key).setFilter(Phaser.Textures.FilterMode.NEAREST);
+      }
+    });
   }
 }

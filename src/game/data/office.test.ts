@@ -83,7 +83,10 @@ describe('office presentation and navigation', () => {
 
   it('reuses the CV and reading records without creating room-specific UI', () => {
     expect(office.interactables.map(i => i.contentId)).toEqual(['office-dog-photo', 'office-cv', 'livingroom-books']);
-    expect(office.interactables.find(i => i.id === 'office-dog-bed')!.interactionRadiusTiles).toBe(1.3125);
+    const dog = office.interactables.find(i => i.id === 'office-dog-bed')!;
+    expect(dog.interactionRadiusTiles).toBe(1.3125);
+    expect(dog.label).toBe('Stella');
+    expect(contentById.get('office-dog-photo')).toMatchObject({ label: 'Stella', image: { alt: 'Our dog, Stella.' } });
     expect(contentById.get('office-cv')!.eyebrow).toContain('PLACEHOLDER');
     const books = houseLayout.rooms[0]!.interactables.find(i => i.id === 'living-room-bookcase')!;
     expect(office.interactables.find(i => i.id === 'office-bookcase')!.contentId).toBe(books.contentId);

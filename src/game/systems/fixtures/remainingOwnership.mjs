@@ -5,6 +5,13 @@ export const beforeRemaining = JSON.parse(readFileSync(new URL('./port18f-j-befo
 const oldRoom = id => beforeRemaining.layout.rooms.find(room => room.id === id);
 const office = oldRoom('office');
 const gym = oldRoom('gym');
+const livingRoom = oldRoom('living-room');
+const originalTelevision = livingRoom.interactables.find(sprite => sprite.id === 'living-room-television');
+export const approvedTelevisionMove = {
+  position: { x: 9.5, y: 3.5 },
+  anchor: { x: 10, y: 5.0625 },
+  rect: { x: 9, y: 4.75, width: 2, height: 0.3125 },
+};
 export const approvedSteelMove = {
   id: 'gym-steel-plates',
   oldPosition: { x: 12.125, y: 7.125 }, position: { x: 13.375, y: 7.125 },
@@ -48,6 +55,7 @@ export const approvedDogChange = {
   id: 'office-dog-bed', old: office.collisionRects[7],
   position: { x: 2.5, y: 7.625 }, anchor: { x: 3, y: 8.8125 },
   rect: { x: 1.8484375, y: 7.4921875, width: 2.321875, height: 1.3234375 },
+  label: 'Stella',
   oldInteractionRadiusTiles: 1.25, interactionRadiusTiles: 1.3125,
 };
 export const approvedOfficeResizes = [
@@ -77,6 +85,11 @@ export function withApprovedGeometryChanges(worldRects) {
   expect(result.filter(rect => rectKeys([rect])[0] === oldSteelKey)).toHaveLength(1);
   result = result.map(rect => rectKeys([rect])[0] === oldSteelKey
     ? toGymWorld(approvedSteelMove.rect) : rect);
+  const toLivingWorld = rect => ({ ...rect, x: livingRoom.origin.x + rect.x, y: livingRoom.origin.y + rect.y });
+  const oldTelevisionKey = rectKeys([toLivingWorld(originalTelevision.footprints[0])])[0];
+  expect(result.filter(rect => rectKeys([rect])[0] === oldTelevisionKey)).toHaveLength(1);
+  result = result.map(rect => rectKeys([rect])[0] === oldTelevisionKey
+    ? toLivingWorld(approvedTelevisionMove.rect) : rect);
   return result;
 }
 export const remainingOwners = [
@@ -97,6 +110,16 @@ export const rectKeys = rects => rects.map(({ x, y, width, height }) => JSON.str
  */
 export function undoRemainingOwnership(layout) {
   return { ...layout, rooms: layout.rooms.map(room => {
+    if (room.id === 'living-room') {
+      const currentTelevision = room.interactables.find(sprite => sprite.id === originalTelevision.id);
+      expect(currentTelevision).toEqual({ ...originalTelevision,
+        position: approvedTelevisionMove.position,
+        groundAnchor: approvedTelevisionMove.anchor,
+        footprints: [approvedTelevisionMove.rect],
+      });
+      room = { ...room, interactables: room.interactables.map(sprite =>
+        sprite.id === originalTelevision.id ? originalTelevision : sprite) };
+    }
     const owners = remainingOwners.filter(owner => owner.roomId === room.id);
     if (!owners.length) return room;
     const source = oldRoom(room.id);
@@ -141,12 +164,13 @@ export function undoRemainingOwnership(layout) {
       const { groundAnchor, footprints, ...rest } = sprite;
       if (sprite.id === approvedDogChange.id) {
         expect(sprite.position).toEqual(approvedDogChange.position);
+        expect(sprite.label).toBe(approvedDogChange.label);
         expect(sprite.interactionRadiusTiles).toBe(approvedDogChange.interactionRadiusTiles);
         const original = source.interactables.find(item => item.id === sprite.id);
         expect(original.interactionRadiusTiles).toBe(approvedDogChange.oldInteractionRadiusTiles);
         // Normalize only the approved y shift and one-pixel radius increase;
         // x and all other fields remain checked against the immutable fixture.
-        return { ...rest, position: { ...rest.position, y: original.position.y },
+        return { ...rest, label: original.label, position: { ...rest.position, y: original.position.y },
           interactionRadiusTiles: original.interactionRadiusTiles };
       }
       return rest;

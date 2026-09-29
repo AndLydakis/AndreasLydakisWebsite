@@ -40,8 +40,10 @@ export function createGame(options: CreateGameOptions): Phaser.Game {
     height: GAME_HEIGHT,
     backgroundColor: '#0b0915',
     render: {
-      pixelArt: true,
-      roundPixels: true,
+      pixelArt: false,
+      antialias: true,
+      antialiasGL: true,
+      roundPixels: false,
     },
     scale: {
       mode: Phaser.Scale.FIT,

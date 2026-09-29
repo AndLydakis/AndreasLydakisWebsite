@@ -139,7 +139,7 @@ describe('interactable artwork rendering', () => {
   it('centers the front artwork on the interaction point without changing its aspect ratio', () => {
     const { scene, image } = renderInteractable(television, true, 1221, 1288);
 
-    expect(scene.add.image).toHaveBeenCalledWith(192, 136, 'television-console-front');
+    expect(scene.add.image).toHaveBeenCalledWith(192, 128, 'television-console-front');
     expect(image.setOrigin).toHaveBeenCalledWith(0.5, 0.5);
     expect(image.setScale).toHaveBeenCalledWith(44.8 / 1288);
   });
@@ -154,7 +154,7 @@ describe('interactable artwork rendering', () => {
   it('keeps a missing artwork fallback visible at the original generic size and anchor', () => {
     const { scene, image } = renderInteractable(television, false, 64, 64);
 
-    expect(scene.add.image).toHaveBeenCalledWith(192, 136, 'furniture-placeholder');
+    expect(scene.add.image).toHaveBeenCalledWith(192, 128, 'furniture-placeholder');
     expect(image.setOrigin).toHaveBeenCalledWith(0.5, 0.5);
     expect(image.setScale).toHaveBeenCalledWith(48 / 64);
   });
@@ -191,17 +191,17 @@ describe('interactable nameplates', () => {
         .mockReturnValueOnce(chrome).mockReturnValueOnce(highlight), container: vi.fn(() => container),
     } } as unknown as Phaser.Scene;
 
-    expect(getInteractableLabelBase(houseLayout.rooms[0], interactable, 16)).toEqual({ x: 192, y: 153 });
+    expect(getInteractableLabelBase(houseLayout.rooms[0], interactable, 16)).toEqual({ x: 192, y: 145 });
     expect(renderInteractableLabel(scene, houseLayout.rooms[0], interactable, 16)).toBe(container);
     expect((scene.add.text as ReturnType<typeof vi.fn>).mock.calls[0]![3]).toMatchObject({
-      color: '#ffffff', fontFamily: "'Courier New', Courier, monospace", fontSize: '5px', fontStyle: 'bold',
-      wordWrap: { width: 72, useAdvancedWrap: true }, resolution: 2,
+      color: '#ffffff', fontFamily: 'Tiny5', fontSize: '5px', fontStyle: 'normal',
+      wordWrap: { width: 72, useAdvancedWrap: true }, resolution: 4,
     });
     expect(chrome.fillGradientStyle).toHaveBeenCalledWith(0x244fbc, 0x102b8c, 0x080f55, 0x04072f, 1);
     expect(LABEL_INTERACTION_PADDING).toBe(3);
     expect(highlight.strokeRoundedRect).toHaveBeenCalledWith(-47, -14, 94, 28, 5);
     expect(highlight.setVisible).toHaveBeenCalledWith(false);
-    expect(scene.add.container).toHaveBeenCalledWith(192, 166, [highlight, chrome, text]);
+    expect(scene.add.container).toHaveBeenCalledWith(192, 158, [highlight, chrome, text]);
     expect(container.setName).toHaveBeenCalledWith('interactable-label:living-room:living-room-television');
     expect(container.setVisible).toHaveBeenCalledWith(false);
     expect(container.setDepth).toHaveBeenCalledWith(2.9);
@@ -218,8 +218,8 @@ describe('room backdrop rendering', () => {
   it.each([true, false])('metadata preserves geometry and scale without a registry (art=%s)', available => {
     const original = houseLayout.rooms[0].interactables[0];
     const plain = renderInteractable(original, available, 64, 64);
-    const spatial = renderInteractable({ ...original, groundAnchor: { x: 10, y: 5.5625 },
-      footprints: [{ x: 9, y: 5.25, width: 2, height: 0.3125 }] }, available, 64, 64);
+    const spatial = renderInteractable({ ...original, groundAnchor: { x: 10, y: 5.0625 },
+      footprints: [{ x: 9, y: 4.75, width: 2, height: 0.3125 }] }, available, 64, 64);
     expect(spatial.scene.add.image.mock.calls).toEqual(plain.scene.add.image.mock.calls);
     expect(spatial.image.setOrigin.mock.calls).toEqual(plain.image.setOrigin.mock.calls);
     expect(spatial.image.setScale.mock.calls).toEqual(plain.image.setScale.mock.calls);
@@ -230,7 +230,7 @@ describe('room backdrop rendering', () => {
     const register = vi.spyOn(registry, 'registerObject');
     const television = houseLayout.rooms[0].interactables[0];
     const { image } = renderInteractable(television, available, 64, 64, { depthRegistry: registry });
-    expect(register).toHaveBeenCalledWith('living-room', television.id, image, (4 + 5.5625) * 16);
+    expect(register).toHaveBeenCalledWith('living-room', television.id, image, (4 + 5.0625) * 16);
   });
   it.each([['gym', true], ['gym', false], ['office', true], ['office', false], ['kitchen', true], ['kitchen', false]] as const)('renders %s equipment independently with safe missing-art fallbacks (%s)', (roomId, available) => {
     const graphics = { fillStyle: vi.fn(), fillRect: vi.fn(), lineStyle: vi.fn(), strokeRect: vi.fn() };

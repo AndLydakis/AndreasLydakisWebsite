@@ -11,6 +11,8 @@ const oldCouchBase = { x: 6.625, y: 10.6875, width: 6.5, height: 0.4375 };
 const reviewedCouchBase = { x: 6.625, y: 9.375, width: 6.5, height: 1.75 };
 const oldTableBase = { x: 8, y: 7.9375, width: 3.75, height: 0.5 };
 const reviewedTableBase = { x: 8, y: 6.9375, width: 3.75, height: 1.5 };
+const oldTelevisionBase = { x: 9, y: 5.25, width: 2, height: 0.3125 };
+const raisedTelevisionBase = { x: 9, y: 4.75, width: 2, height: 0.3125 };
 // Isolate the historical ownership migration from later owner-approved room moves.
 const migratedBaseline = { ...baseline, rooms: baseline.rooms.map(room => room.id === 'living-room'
   ? houseLayout.rooms.find(current => current.id === room.id) : room) };
@@ -18,7 +20,13 @@ const multiset = rects => rects.map(({ x, y, width, height }) => JSON.stringify(
 const applyApprovedResize = rect => {
   if (multiset([rect])[0] === multiset([oldCouchBase])[0]) return reviewedCouchBase;
   if (multiset([rect])[0] === multiset([oldTableBase])[0]) return reviewedTableBase;
+  if (multiset([rect])[0] === multiset([oldTelevisionBase])[0]) return raisedTelevisionBase;
   return rect;
+};
+const raiseTelevisionWorldBase = rect => {
+  const oldWorld = { ...oldTelevisionBase, x: oldTelevisionBase.x + 2, y: oldTelevisionBase.y + 4 };
+  const raisedWorld = { ...raisedTelevisionBase, x: raisedTelevisionBase.x + 2, y: raisedTelevisionBase.y + 4 };
+  return multiset([rect])[0] === multiset([oldWorld])[0] ? raisedWorld : rect;
 };
 
 describe('PORT-18D baseline-preserving ownership migration', () => {
@@ -42,7 +50,8 @@ describe('PORT-18D baseline-preserving ownership migration', () => {
     const approved = { ...beforeCouch, rooms: beforeCouch.rooms.map(room => room.id !== 'living-room' ? room : {
       ...room, collisionRects: room.collisionRects.map(applyApprovedResize),
     }) };
-    expect(multiset(getAllCollisionRects(houseLayout))).toEqual(multiset(withApprovedGeometryChanges(getAllCollisionRects(approved))));
+    const expected = withApprovedGeometryChanges(getAllCollisionRects(approved)).map(raiseTelevisionWorldBase);
+    expect(multiset(getAllCollisionRects(houseLayout))).toEqual(multiset(expected));
     for (const { id } of quickTravelDestinations) {
       expect(resolveQuickTravel(houseLayout, id)).toEqual(resolveQuickTravel(approved, id));
     }
@@ -74,7 +83,7 @@ describe('PORT-18D baseline-preserving ownership migration', () => {
   });
 
   it.each([
-    ['living-room-television', { x: 9, y: 5.25, width: 2, height: 0.3125 }],
+    ['living-room-television', { x: 9, y: 4.75, width: 2, height: 0.3125 }],
     ['living-room-record-player', { x: 16.375, y: 7.4375, width: 2.25, height: 0.3125 }],
     ['living-room-globe', { x: 3.375, y: 7.75, width: 1.25, height: 0.375 }],
   ])('moves %s exact base to its owner once', (id, rect) => {
