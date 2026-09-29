@@ -18,6 +18,8 @@ export interface InteractionTarget {
   readonly position: WorldTilePoint;
   readonly interactionRadiusTiles: number;
   readonly bounds?: WorldTileRect;
+  /** Padded rendered nameplate rectangle; supplements, but never replaces, the original radius. */
+  readonly labelActivationBounds?: WorldTileRect;
 }
 
 export interface InteractionSystemCallbacks {
@@ -26,6 +28,12 @@ export interface InteractionSystemCallbacks {
 
 export interface InteractionSystemOptions extends InteractionSystemCallbacks {
   readonly gameplayEnabled?: boolean;
+  readonly labelActivationBounds?: ReadonlyMap<string, WorldTileRect>;
+}
+
+export interface InteractionPlayerState extends Pick<PlayerState, 'position'> {
+  /** Live foot collider, expressed in the same logical tile coordinates as the player position. */
+  readonly interactionBounds?: WorldTileRect;
 }
 
 /**
@@ -37,20 +45,39 @@ export function selectInteractionTarget(
   playerPosition: WorldTilePoint,
   targets: readonly InteractionTarget[],
   currentTargetId?: string,
+  playerInteractionBounds?: WorldTileRect,
 ): InteractionTarget | null {
-  const candidates = targets.filter((target) => isTargetInRange(playerPosition, target));
+  // A visible label is an explicit target. It must not be stolen by a nearby object's
+  // ordinary radius merely because that object's center happens to be closer.
+  const labelCandidates = targets.filter((target) =>
+    isLabelInRange(playerPosition, playerInteractionBounds, target));
+  if (labelCandidates.length > 0) {
+    return selectClosestTarget(playerPosition, labelCandidates, currentTargetId, distanceToLabelCenter);
+  }
+
+  const candidates = targets.filter((target) =>
+    distanceToTarget(playerPosition, target) <= target.interactionRadiusTiles);
 
   if (candidates.length === 0) {
     return null;
   }
 
+  return selectClosestTarget(playerPosition, candidates, currentTargetId, distanceToTarget);
+}
+
+function selectClosestTarget(
+  playerPosition: WorldTilePoint,
+  candidates: readonly InteractionTarget[],
+  currentTargetId: string | undefined,
+  distance: (point: WorldTilePoint, target: InteractionTarget) => number,
+): InteractionTarget | null {
   return candidates.reduce<InteractionTarget | null>((closest, candidate) => {
     if (!closest) {
       return candidate;
     }
 
-    const candidateDistance = distanceToTarget(playerPosition, candidate);
-    const closestDistance = distanceToTarget(playerPosition, closest);
+    const candidateDistance = distance(playerPosition, candidate);
+    const closestDistance = distance(playerPosition, closest);
 
     if (candidateDistance < closestDistance) {
       return candidate;
@@ -75,8 +102,30 @@ export function selectInteractionTarget(
 export function isTargetInRange(
   playerPosition: WorldTilePoint,
   target: InteractionTarget,
+  playerInteractionBounds?: WorldTileRect,
 ): boolean {
-  return distanceToTarget(playerPosition, target) <= target.interactionRadiusTiles;
+  return distanceToTarget(playerPosition, target) <= target.interactionRadiusTiles ||
+    isLabelInRange(playerPosition, playerInteractionBounds, target);
+}
+
+function isLabelInRange(
+  playerPosition: WorldTilePoint,
+  playerInteractionBounds: WorldTileRect | undefined,
+  target: InteractionTarget,
+): boolean {
+  if (!target.labelActivationBounds) return false;
+  return playerInteractionBounds
+    ? rectsOverlap(playerInteractionBounds, target.labelActivationBounds)
+    : pointInRect(playerPosition, target.labelActivationBounds);
+}
+
+function distanceToLabelCenter(point: WorldTilePoint, target: InteractionTarget): number {
+  const bounds = target.labelActivationBounds;
+  if (!bounds) return Number.POSITIVE_INFINITY;
+  return Math.hypot(
+    point.x - (bounds.x + bounds.width / 2),
+    point.y - (bounds.y + bounds.height / 2),
+  );
 }
 
 export function distanceToTarget(
@@ -100,6 +149,7 @@ export class InteractionSystem {
   private currentTarget: InteractionTarget | null = null;
   private gameplayEnabled: boolean;
   private destroyed = false;
+  private readonly labelActivationBounds: ReadonlyMap<string, WorldTileRect>;
 
   public constructor(
     private readonly layout: HouseLayout,
@@ -107,6 +157,7 @@ export class InteractionSystem {
   ) {
     this.callbacks = options;
     this.gameplayEnabled = options.gameplayEnabled ?? true;
+    this.labelActivationBounds = options.labelActivationBounds ?? new Map();
 
     layout.rooms.forEach((room) => {
       room.interactables.forEach((interactable) => {
@@ -128,6 +179,7 @@ export class InteractionSystem {
       );
     }
 
+    const labelActivationBounds = this.labelActivationBounds.get(definition.id);
     const target: InteractionTarget = {
       id: definition.id,
       roomId: definition.roomId,
@@ -137,6 +189,7 @@ export class InteractionSystem {
       position: roomTileToWorld(room, definition.position),
       interactionRadiusTiles:
         definition.interactionRadiusTiles ?? DEFAULT_INTERACTION_RADIUS_TILES,
+      ...(labelActivationBounds ? { labelActivationBounds } : {}),
       ...(definition.bounds
         ? {
             bounds: {
@@ -153,7 +206,7 @@ export class InteractionSystem {
     return target;
   }
 
-  public update(playerState: Pick<PlayerState, 'position'>): void {
+  public update(playerState: InteractionPlayerState): void {
     if (this.destroyed || !this.gameplayEnabled) {
       return;
     }
@@ -162,6 +215,7 @@ export class InteractionSystem {
       playerState.position,
       [...this.interactables.values()],
       this.currentTarget?.id,
+      playerState.interactionBounds,
     );
 
     this.setCurrentTarget(nextTarget);
@@ -208,4 +262,14 @@ function distanceToRect(point: WorldTilePoint, rect: WorldTileRect): number {
   const verticalDistance = Math.max(rect.y - point.y, 0, point.y - (rect.y + rect.height));
 
   return Math.hypot(horizontalDistance, verticalDistance);
+}
+
+function pointInRect(point: WorldTilePoint, rect: WorldTileRect): boolean {
+  return point.x >= rect.x && point.x <= rect.x + rect.width &&
+    point.y >= rect.y && point.y <= rect.y + rect.height;
+}
+
+function rectsOverlap(first: WorldTileRect, second: WorldTileRect): boolean {
+  return first.x <= second.x + second.width && first.x + first.width >= second.x &&
+    first.y <= second.y + second.height && first.y + first.height >= second.y;
 }

@@ -2,6 +2,65 @@
 
 This file is the project decision record. New implementation decisions, approved changes, deferred choices, and story-completion decisions must be added here before or alongside changes to `plan.md` or source files.
 
+## DEC-173 — Deliver the completed PORT-07C interaction-feedback follow-up
+
+- Date: 2026-09-29. Owner accepts the interaction fixes and diagnostic presentation, requests pushing the changes, then adds final radius-layer and room-bounds requirements before delivery.
+- Deliver DEC-165 through DEC-172 together as one coherent `PORT-07C` follow-up commit to `origin/master` after the final full test, typecheck, build and whitespace gates pass. Include the repeatable browser verifier and QA evidence. No unrelated changes are present in the working tree.
+- Final delivery gate: all 1,960 tests/44 files, typecheck, production build (`index-MawTZsvY.js`) and whitespace checks pass. Isolated Chrome verifies all visibility flags and interaction checks with zero exceptions; the final screenshot is visually accepted for delivery.
+
+## DEC-172 — Hide room bounding boxes behind a flag
+
+- Date: 2026-09-29. Before delivery, owner requests hiding the cyan room-perimeter boxes with a corresponding enable/disable flag.
+- Add `ROOM_BOUNDS_VISIBLE`, default `false`, plus a `createGame()` override. Separate room boxes from the remaining development overlay so the flag remains authoritative. Preserve room geometry, current-room detection, camera bounds and gameplay.
+- Verification: the central, scene and rendered room-bound states are false in isolated Chrome. Visual inspection confirms the cyan room boxes are absent while the webpage's purple outer frame remains. All interaction and visibility regressions pass with zero exceptions. Owner authorizes delivery under DEC-173.
+
+## DEC-171 — Render interaction radii behind nameplates
+
+- Date: 2026-09-29. Before delivery, owner requests that the visible yellow interaction-radius circles render behind the nameplates.
+- Move the shared radius layer from depth 10 to depth 2.8: immediately below nameplates at 2.9 and below perspective-sorted objects/player above depth 3. Preserve radius geometry, visibility flag, selection behavior and all other layers.
+- Verification: isolated Chrome confirms radius depth 2.8 below nameplates at 2.9, all visibility flags, 275 label samples, 11 first-contact checks, the original radius boundary and zero exceptions. Visual inspection confirms label chrome occludes the circles. Delivery authorization is recorded in DEC-173 after the final room-bounds refinement.
+
+## DEC-170 — Hide ground anchors and room-connection boxes behind flags
+
+- Date: 2026-09-29. Owner requests hiding the small perspective ground-anchor circles and the boxes at room connections, with enable/disable flags for each.
+- Add `GROUND_ANCHORS_VISIBLE` and `ROOM_CONNECTION_BOUNDS_VISIBLE`, both default `false`, plus independent `createGame()` overrides. Keep perspective sorting, doorway geometry, corridor movement and all gameplay behavior unchanged. Make each flag authoritative even when general development diagnostics are enabled.
+- Verification: all 1,960 tests/44 files, typecheck, production build (`index-B4R9K65l.js`) and whitespace checks pass. Isolated Chrome confirms both central and rendered values are false for ground anchors and room-connection boxes while collision bounds remain hidden, all interaction checks pass and no exceptions occur. Visual inspection confirms both overlays are absent. Subsequently accepted for delivery under DEC-173.
+
+## DEC-169 — Hide collision bounds behind a dedicated flag
+
+- Date: 2026-09-29. Owner approves the label interaction fixes and requests hiding collision visualization for now while retaining a flag to enable or disable it.
+- Add `COLLISION_BOUNDS_VISIBLE`, default `false`, and a `createGame()` override. Keep collision physics and geometry unchanged. Remove collision drawing from the general development overlay so this dedicated flag is the sole visibility control and cannot be overridden by diagnostics.
+- Verification: all 1,957 tests/44 files, typecheck, production build (`index-CNrYbxCC.js`) and whitespace checks pass. Isolated Chrome confirms both the default and rendered collision-layer visibility are false while all 275 label samples, 11 foot-contact checks, original radius boundary and zero-exception checks still pass. Visual inspection confirms collision rectangles are absent. Subsequently accepted for delivery under DEC-173.
+
+## DEC-168 — Prioritize physical label contact
+
+- Date: 2026-09-29. Browser diagnosis showed that the office workstation label could select the dog and the office bookcase label could select the workstation because radius candidates competed with explicit label hits. It also showed that label activation used the player's anchor center instead of the live 16×1-pixel foot collider.
+- Pass the player's live foot collider to the generic interaction system. A label-collider overlap takes priority over all radius-only candidates; if labels themselves overlap, select the closest label center with the existing stable tie behavior. Preserve original circular range selection when no label is touched.
+- Verification: all 1,954 tests/44 files, typecheck, production build (`index-BnlIaT6y.js`) and whitespace checks pass. Isolated Chrome verifies 25 interior samples and first foot contact for each of all 11 labels, the unchanged television radius boundary, matching single-label highlights and zero uncaught exceptions. Evidence: `output/qa/label-interaction/`.
+- Subsequently accepted for delivery under DEC-173.
+
+## DEC-167 — Inflate the office dog's interaction radius by one pixel
+
+- Date: 2026-09-29. Owner requests increasing only the office dog's circular interaction radius by one world pixel.
+- At the 16-pixel tile scale, change `office-dog-bed.interactionRadiusTiles` from `1.25` to `1.3125`. Preserve the dog position, collision footprint, perspective anchor, artwork, label trigger and content.
+- Verification: typecheck, 56 focused interaction/rendering/office tests and whitespace checks pass.
+- Subsequently accepted for delivery under DEC-173.
+
+## DEC-166 — Show interaction radius circles by default
+
+- Date: 2026-09-29. Owner requests setting the new interaction-radius visibility flag to true.
+- Change only `INTERACTION_RADIUS_VISIBLE` from `false` to `true`; preserve circular proximity, padded label triggers, yellow active-label highlighting and the per-game override.
+- Verification: typecheck, 37 focused scene/rendering tests and whitespace checks pass.
+- Subsequently accepted for delivery under DEC-173.
+
+## DEC-165 — Restore circular interaction and add label triggers
+
+- Date: 2026-09-29. Owner rejects the uncommitted object-outline experiment and explicitly requests restoring the repository to latest commit `40cbeec` before implementing a simpler replacement. The tracked working tree was reset to that commit and only the experiment's named untracked files were removed.
+- Preserve the original `interactionRadiusTiles` circle as each object's authoritative proximity behavior. Add the rendered label rectangle, inflated by three world pixels on every side, as a second trigger for the same target; it supplements rather than replaces or reshapes the circle.
+- Add `INTERACTION_RADIUS_VISIBLE`, default `false`, plus a `createGame()` override. The flag controls only a yellow depth-10 rendering of the unchanged circles. Remove the old development-overlay circles so the flag is the sole radius-visibility control.
+- Give each nameplate a separate yellow outer border using the same three-pixel padding. Show it only for the current interaction target; preserve persistent/proximity-only label visibility, label depth, accessible prompt behavior and interaction IDs/content.
+- Verification: 1,951 tests/44 files, typecheck/build and whitespace checks pass. An isolated Chrome run confirms all 11 padded nameplate rectangles select their owners, exactly one matching yellow highlight, hidden-by-default depth-10 radius rendering, unchanged television radius boundaries and zero exceptions. Evidence: `output/qa/label-interaction/`. Subsequently refined and accepted for delivery under DEC-166–173.
+
 ## DEC-164 — Adopt concise kitchen labels
 
 - Date: 2026-09-29. Owner confirms the concurrent kitchen edits are correct: use `Food Log` for the stove and its content record, and `Shopping list` for the fridge and its content record.

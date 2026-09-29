@@ -4,7 +4,8 @@ import { describe, expect, it, vi } from 'vitest';
 import { houseLayout } from '../data/houseLayout';
 import type { InteractableDefinition } from '../data/types';
 import { buildHouse, buildRoom, drawCollisionBounds, drawLivingRoomFloor, drawWoodFloor,
-  getInteractableLabelBase, renderInteractableLabel } from './houseRenderer';
+  getInteractableLabelBase, INTERACTION_RADIUS_DEPTH, LABEL_INTERACTION_PADDING,
+  renderInteractableLabel } from './houseRenderer';
 import type { HouseRenderLayers } from './houseRenderer';
 import type { HouseRenderOptions } from './houseRenderer';
 import { DepthRegistry } from './DepthRegistry';
@@ -18,7 +19,12 @@ describe('temporary collision bounds review', () => {
     expect(graphics.strokeRect.mock.calls).toEqual(getAllCollisionRects(houseLayout).map(rect =>
       [rect.x, rect.y, rect.width, rect.height].map(value => value * houseLayout.tileSize)));
   });
-  it.each([false, true])('shows collision outlines independently of diagnostics: %s', showCollisionBounds => {
+  it.each([
+    { debugEnabled: false, showCollisionBounds: false },
+    { debugEnabled: true, showCollisionBounds: false },
+    { debugEnabled: false, showCollisionBounds: true },
+    { debugEnabled: true, showCollisionBounds: true },
+  ])('sets collision visibility only from its flag: $debugEnabled/$showCollisionBounds', ({ debugEnabled, showCollisionBounds }) => {
     const graphics = () => ({
       clear: vi.fn().mockReturnThis(),
       setDepth: vi.fn().mockReturnThis(), setVisible: vi.fn().mockReturnThis(),
@@ -26,10 +32,31 @@ describe('temporary collision bounds review', () => {
     });
     const scene = { add: { graphics } } as unknown as Phaser.Scene;
     const layers = buildHouse(scene, { ...houseLayout, rooms: [], corridors: [], doorways: [] },
-      { debugEnabled: false, showCollisionBounds });
+      { debugEnabled, showCollisionBounds });
     expect(layers.collisionPreview.setVisible).toHaveBeenLastCalledWith(showCollisionBounds);
     expect(layers.doorwayPreview.setVisible).toHaveBeenLastCalledWith(false);
-    expect(layers.worldBounds.setVisible).toHaveBeenLastCalledWith(false);
+    expect(layers.worldBounds.setVisible).toHaveBeenLastCalledWith(debugEnabled);
+  });
+  it.each([false, true])('controls original-radius visibility independently: %s', interactionRadiusVisible => {
+    const graphics = () => ({
+      clear: vi.fn().mockReturnThis(), setDepth: vi.fn().mockReturnThis(), setVisible: vi.fn().mockReturnThis(),
+      lineStyle: vi.fn().mockReturnThis(), strokeRect: vi.fn().mockReturnThis(),
+    });
+    const scene = { add: { graphics } } as unknown as Phaser.Scene;
+    const layers = buildHouse(scene, { ...houseLayout, rooms: [], corridors: [], doorways: [] },
+      { interactionRadiusVisible });
+    expect(layers.interactionRadiusPreview.setVisible).toHaveBeenLastCalledWith(interactionRadiusVisible);
+    expect(layers.interactionRadiusPreview.setDepth).toHaveBeenCalledWith(INTERACTION_RADIUS_DEPTH);
+  });
+  it.each([false, true])('controls room-connection box visibility independently: %s', roomConnectionBoundsVisible => {
+    const graphics = () => ({
+      clear: vi.fn().mockReturnThis(), setDepth: vi.fn().mockReturnThis(), setVisible: vi.fn().mockReturnThis(),
+      lineStyle: vi.fn().mockReturnThis(), strokeRect: vi.fn().mockReturnThis(),
+    });
+    const scene = { add: { graphics } } as unknown as Phaser.Scene;
+    const layers = buildHouse(scene, { ...houseLayout, rooms: [], corridors: [], doorways: [] },
+      { debugEnabled: true, roomConnectionBoundsVisible });
+    expect(layers.doorwayPreview.setVisible).toHaveBeenLastCalledWith(roomConnectionBoundsVisible);
   });
 });
 
@@ -147,16 +174,21 @@ describe('interactable nameplates', () => {
   it('anchors below an authored footprint and renders FF7-inspired dialogue chrome', () => {
     const interactable = houseLayout.rooms[0].interactables[0]!;
     const text = { width: 80, height: 16, setOrigin: vi.fn().mockReturnThis() };
-    const graphics = {
+    const chrome = {
       fillStyle: vi.fn().mockReturnThis(), fillRoundedRect: vi.fn().mockReturnThis(),
       fillGradientStyle: vi.fn().mockReturnThis(), lineStyle: vi.fn().mockReturnThis(),
       strokeRoundedRect: vi.fn().mockReturnThis(),
+    };
+    const highlight = {
+      lineStyle: vi.fn().mockReturnThis(), strokeRoundedRect: vi.fn().mockReturnThis(),
+      setVisible: vi.fn().mockReturnThis(),
     };
     const container = {
       setName: vi.fn().mockReturnThis(), setVisible: vi.fn().mockReturnThis(), setDepth: vi.fn().mockReturnThis(),
     };
     const scene = { add: {
-      text: vi.fn(() => text), graphics: vi.fn(() => graphics), container: vi.fn(() => container),
+      text: vi.fn(() => text), graphics: vi.fn()
+        .mockReturnValueOnce(chrome).mockReturnValueOnce(highlight), container: vi.fn(() => container),
     } } as unknown as Phaser.Scene;
 
     expect(getInteractableLabelBase(houseLayout.rooms[0], interactable, 16)).toEqual({ x: 192, y: 153 });
@@ -165,8 +197,11 @@ describe('interactable nameplates', () => {
       color: '#ffffff', fontFamily: "'Courier New', Courier, monospace", fontSize: '5px', fontStyle: 'bold',
       wordWrap: { width: 72, useAdvancedWrap: true }, resolution: 2,
     });
-    expect(graphics.fillGradientStyle).toHaveBeenCalledWith(0x244fbc, 0x102b8c, 0x080f55, 0x04072f, 1);
-    expect(scene.add.container).toHaveBeenCalledWith(192, 166, [graphics, text]);
+    expect(chrome.fillGradientStyle).toHaveBeenCalledWith(0x244fbc, 0x102b8c, 0x080f55, 0x04072f, 1);
+    expect(LABEL_INTERACTION_PADDING).toBe(3);
+    expect(highlight.strokeRoundedRect).toHaveBeenCalledWith(-47, -14, 94, 28, 5);
+    expect(highlight.setVisible).toHaveBeenCalledWith(false);
+    expect(scene.add.container).toHaveBeenCalledWith(192, 166, [highlight, chrome, text]);
     expect(container.setName).toHaveBeenCalledWith('interactable-label:living-room:living-room-television');
     expect(container.setVisible).toHaveBeenCalledWith(false);
     expect(container.setDepth).toHaveBeenCalledWith(2.9);

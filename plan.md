@@ -1505,7 +1505,8 @@ The completed verification passes:
 - Follow-up: updated the visible availability tooltip to name `E`, `F`, `Enter`, `Space`, and `Interact`.
 - Delivered presentation follow-up (DEC-161): each interactable has a generic, room-edge-clamped, camera-bound FF7-style in-world nameplate beneath its authored base. The central `ALWAYS_SHOW_INTERACTABLE_NAMEPLATES` flag defaults to `true`, keeping every label visible; `false` shows only the current proximity target and hides labels when gameplay is disabled. The accessible DOM instruction remains unchanged, and both bookcases use the owner-selected `Books` label. Automated and development/production browser evidence covers both modes and 11 interactables across desktop/portrait/landscape; evidence: `output/qa/interactable-nameplates/verification.md`.
 - Perspective follow-up (DEC-162): nameplates render at depth 2.9, immediately below the perspective registry's strict `> 3` band, so the player and perspective-sorted world sprites always occlude labels without per-frame depth rewrites.
-- Decisions and evidence are recorded in `log.md` as `DEC-043`, `DEC-044`, `DEC-161` and `DEC-162`.
+- PORT-07C interaction-feedback follow-up (DEC-165–173, Done): preserve circular proximity, add padded nameplate triggers, use live foot-collider contact, prioritize labels over neighboring radius-only candidates, increase the office dog radius by one pixel and highlight only the active label. Yellow radius circles default visible at depth 2.8 behind depth-2.9 labels. Collision bounds, perspective anchors, room-connection boxes and cyan room bounds each have independent flags; all except interaction radii default hidden. Owner authorized delivery to `origin/master` on 2026-09-29; repeatable evidence is in `output/qa/label-interaction/`.
+- Decisions and evidence are recorded in `log.md` as `DEC-043`, `DEC-044`, `DEC-161`, `DEC-162` and `DEC-165` through `DEC-173`.
 - Implementation may proceed to `PORT-07CA`.
 
 ---

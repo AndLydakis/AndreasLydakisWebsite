@@ -1,7 +1,14 @@
 import { describe, expect, it, vi } from 'vitest';
 import { HouseScene } from './HouseScene';
 import { houseLayout } from '../data/houseLayout';
-import { ALWAYS_SHOW_INTERACTABLE_NAMEPLATES } from '../config';
+import {
+  ALWAYS_SHOW_INTERACTABLE_NAMEPLATES,
+  COLLISION_BOUNDS_VISIBLE,
+  GROUND_ANCHORS_VISIBLE,
+  INTERACTION_RADIUS_VISIBLE,
+  ROOM_CONNECTION_BOUNDS_VISIBLE,
+  ROOM_BOUNDS_VISIBLE,
+} from '../config';
 import type { InputController } from '../systems/InputController';
 
 // Exercise the actual scene synchronization/travel methods without booting a canvas.
@@ -68,10 +75,16 @@ describe('interactable nameplate visibility mode', () => {
     });
     const television = { setVisible: vi.fn() };
     const recordPlayer = { setVisible: vi.fn() };
+    const televisionHighlight = { setVisible: vi.fn() };
+    const recordPlayerHighlight = { setVisible: vi.fn() };
     Object.assign(scene, { renderLayers: {
       interactableLabels: new Map([
         ['living-room-television', television],
         ['living-room-record-player', recordPlayer],
+      ]),
+      interactableLabelHighlights: new Map([
+        ['living-room-television', televisionHighlight],
+        ['living-room-record-player', recordPlayerHighlight],
       ]),
     } });
 
@@ -79,6 +92,8 @@ describe('interactable nameplate visibility mode', () => {
 
     expect(television.setVisible).toHaveBeenCalledWith(true);
     expect(recordPlayer.setVisible).toHaveBeenCalledWith(false);
+    expect(televisionHighlight.setVisible).toHaveBeenCalledWith(true);
+    expect(recordPlayerHighlight.setVisible).toHaveBeenCalledWith(false);
   });
 
   it('defaults to keeping every nameplate visible', () => {
@@ -86,10 +101,16 @@ describe('interactable nameplate visibility mode', () => {
     const scene = new HouseScene(houseLayout, {} as InputController);
     const television = { setVisible: vi.fn() };
     const recordPlayer = { setVisible: vi.fn() };
+    const televisionHighlight = { setVisible: vi.fn() };
+    const recordPlayerHighlight = { setVisible: vi.fn() };
     Object.assign(scene, { renderLayers: {
       interactableLabels: new Map([
         ['living-room-television', television],
         ['living-room-record-player', recordPlayer],
+      ]),
+      interactableLabelHighlights: new Map([
+        ['living-room-television', televisionHighlight],
+        ['living-room-record-player', recordPlayerHighlight],
       ]),
     } });
 
@@ -97,5 +118,38 @@ describe('interactable nameplate visibility mode', () => {
 
     expect(television.setVisible).toHaveBeenCalledWith(true);
     expect(recordPlayer.setVisible).toHaveBeenCalledWith(true);
+    expect(televisionHighlight.setVisible).toHaveBeenCalledWith(false);
+    expect(recordPlayerHighlight.setVisible).toHaveBeenCalledWith(false);
+  });
+
+  it('keeps interaction-radius visualization visible by default', () => {
+    expect(INTERACTION_RADIUS_VISIBLE).toBe(true);
+    const scene = new HouseScene(houseLayout, {} as InputController);
+    expect(scene['interactionRadiusVisible']).toBe(true);
+  });
+
+  it('keeps collision-bound visualization hidden by default and accepts an override', () => {
+    expect(COLLISION_BOUNDS_VISIBLE).toBe(false);
+    expect(new HouseScene(houseLayout, {} as InputController)['collisionBoundsVisible']).toBe(false);
+    expect(new HouseScene(houseLayout, {} as InputController, {}, { collisionBoundsVisible: true })
+      ['collisionBoundsVisible']).toBe(true);
+  });
+
+  it('keeps anchors, room boxes and connection boxes hidden by default with independent overrides', () => {
+    expect(GROUND_ANCHORS_VISIBLE).toBe(false);
+    expect(ROOM_CONNECTION_BOUNDS_VISIBLE).toBe(false);
+    expect(ROOM_BOUNDS_VISIBLE).toBe(false);
+    const defaults = new HouseScene(houseLayout, {} as InputController);
+    expect(defaults['groundAnchorsVisible']).toBe(false);
+    expect(defaults['roomConnectionBoundsVisible']).toBe(false);
+    expect(defaults['roomBoundsVisible']).toBe(false);
+    const enabled = new HouseScene(houseLayout, {} as InputController, {}, {
+      groundAnchorsVisible: true,
+      roomConnectionBoundsVisible: true,
+      roomBoundsVisible: true,
+    });
+    expect(enabled['groundAnchorsVisible']).toBe(true);
+    expect(enabled['roomConnectionBoundsVisible']).toBe(true);
+    expect(enabled['roomBoundsVisible']).toBe(true);
   });
 });

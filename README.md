@@ -42,3 +42,6 @@ npm run preview
 See [`plan.md`](./plan.md) for the implementation stories and [`log.md`](./log.md) for approved technical decisions and future decisions.
 
 Project changes are tracked in [`CHANGELOG.md`](./CHANGELOG.md). Each remaining story adds a changelog entry, commits with its story ID, and pushes to the configured Git remote before it is marked complete.
+
+The collision-bound and interaction-radius review flags, plus label-trigger behavior, are documented in
+[`docs/interaction-feedback.md`](./docs/interaction-feedback.md).

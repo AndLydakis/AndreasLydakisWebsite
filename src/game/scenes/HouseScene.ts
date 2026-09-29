@@ -2,7 +2,15 @@ import Phaser from 'phaser';
 
 import { assetUrl } from '../../app/assetUrl';
 import { optionalTexturePaths, placeholderAssetPaths } from '../../app/assetManifest';
-import { ALWAYS_SHOW_INTERACTABLE_NAMEPLATES, DEFAULT_CAMERA_ZOOM } from '../config';
+import {
+  ALWAYS_SHOW_INTERACTABLE_NAMEPLATES,
+  COLLISION_BOUNDS_VISIBLE,
+  DEFAULT_CAMERA_ZOOM,
+  GROUND_ANCHORS_VISIBLE,
+  INTERACTION_RADIUS_VISIBLE,
+  ROOM_CONNECTION_BOUNDS_VISIBLE,
+  ROOM_BOUNDS_VISIBLE,
+} from '../config';
 import {
   getCameraConstraintBounds,
   getCameraScrollForTarget,
@@ -38,6 +46,11 @@ export interface HouseSceneOptions {
   readonly cameraZoom?: number;
   readonly debugEnabled?: boolean;
   readonly alwaysShowInteractableNameplates?: boolean;
+  readonly interactionRadiusVisible?: boolean;
+  readonly collisionBoundsVisible?: boolean;
+  readonly groundAnchorsVisible?: boolean;
+  readonly roomConnectionBoundsVisible?: boolean;
+  readonly roomBoundsVisible?: boolean;
 }
 
 /**
@@ -50,6 +63,11 @@ export class HouseScene extends Phaser.Scene {
   private readonly inputController: InputController;
   private readonly cameraZoom: number;
   private readonly alwaysShowInteractableNameplates: boolean;
+  private readonly interactionRadiusVisible: boolean;
+  private readonly collisionBoundsVisible: boolean;
+  private readonly groundAnchorsVisible: boolean;
+  private readonly roomConnectionBoundsVisible: boolean;
+  private readonly roomBoundsVisible: boolean;
   private playerSprite?: Phaser.GameObjects.Sprite;
   private player?: Player;
   private collisionSystem?: CollisionSystem;
@@ -60,8 +78,6 @@ export class HouseScene extends Phaser.Scene {
   private renderLayers?: HouseRenderLayers;
   private currentRoom?: RoomDefinition['id'];
   private debugEnabled: boolean;
-  /** Temporary owner review switch; false restores normal development-only outlines. */
-  private readonly showCollisionBounds = true;
 
   public constructor(
     layout: HouseLayout,
@@ -76,6 +92,12 @@ export class HouseScene extends Phaser.Scene {
     this.cameraZoom = options.cameraZoom ?? DEFAULT_CAMERA_ZOOM;
     this.alwaysShowInteractableNameplates = options.alwaysShowInteractableNameplates
       ?? ALWAYS_SHOW_INTERACTABLE_NAMEPLATES;
+    this.interactionRadiusVisible = options.interactionRadiusVisible ?? INTERACTION_RADIUS_VISIBLE;
+    this.collisionBoundsVisible = options.collisionBoundsVisible ?? COLLISION_BOUNDS_VISIBLE;
+    this.groundAnchorsVisible = options.groundAnchorsVisible ?? GROUND_ANCHORS_VISIBLE;
+    this.roomConnectionBoundsVisible = options.roomConnectionBoundsVisible
+      ?? ROOM_CONNECTION_BOUNDS_VISIBLE;
+    this.roomBoundsVisible = options.roomBoundsVisible ?? ROOM_BOUNDS_VISIBLE;
     this.debugEnabled = Boolean(import.meta.env.DEV && (options.debugEnabled ?? true));
   }
 
@@ -140,7 +162,9 @@ export class HouseScene extends Phaser.Scene {
       this.depths.clear();
       this.renderLayers = buildHouse(this, this.layout, {
         depthRegistry: this.depths, debugEnabled: this.debugEnabled,
-        showCollisionBounds: this.showCollisionBounds,
+        showCollisionBounds: this.collisionBoundsVisible,
+        roomConnectionBoundsVisible: this.roomConnectionBoundsVisible,
+        interactionRadiusVisible: this.interactionRadiusVisible,
       });
       this.setActiveInteractableLabel(undefined);
 
@@ -174,6 +198,7 @@ export class HouseScene extends Phaser.Scene {
       });
       this.collisionSystem = new CollisionSystem(this, this.layout, this.playerSprite);
       this.interactionSystem = new InteractionSystem(this.layout, {
+        labelActivationBounds: this.renderLayers.labelActivationBounds,
         onTargetChanged: target => {
           this.setActiveInteractableLabel(target?.id);
           this.callbacks.onInteractionTargetChanged?.(target);
@@ -187,7 +212,10 @@ export class HouseScene extends Phaser.Scene {
       this.events.once(Phaser.Scenes.Events.SHUTDOWN, this.shutdown, this);
 
       if (import.meta.env.DEV) {
-        this.debugOverlay = new DebugOverlay(this, this.layout);
+        this.debugOverlay = new DebugOverlay(this, this.layout, {
+          groundAnchorsVisible: this.groundAnchorsVisible,
+          roomBoundsVisible: this.roomBoundsVisible,
+        });
         this.debugOverlay.update(this.player.getState());
         this.debugOverlay.setVisible(this.debugEnabled);
       }
@@ -204,7 +232,10 @@ export class HouseScene extends Phaser.Scene {
 
     if (this.player && this.interactionSystem) {
       this.interactionSystem.setGameplayEnabled(this.inputController.isGameplayEnabled());
-      this.interactionSystem.update(this.player.getState());
+      this.interactionSystem.update({
+        position: this.player.getState().position,
+        interactionBounds: this.player.getInteractionBounds(),
+      });
 
       const interactionRequest = this.inputController.consumeInteractionRequest();
       const target = this.interactionSystem.getCurrentTarget();
@@ -241,6 +272,8 @@ export class HouseScene extends Phaser.Scene {
     this.collisionSystem = undefined;
     this.cameraBounds = undefined;
     this.renderLayers?.interactableLabels.clear();
+    this.renderLayers?.interactableLabelHighlights.clear();
+    this.renderLayers?.labelActivationBounds.clear();
     this.renderLayers = undefined;
     this.debugOverlay?.destroy();
     this.debugOverlay = undefined;
@@ -253,10 +286,9 @@ export class HouseScene extends Phaser.Scene {
     this.debugEnabled = Boolean(import.meta.env.DEV && enabled);
     this.debugOverlay?.setVisible(this.debugEnabled);
     if (this.renderLayers) {
-      this.renderLayers.collisionPreview.setVisible(this.debugEnabled || this.showCollisionBounds);
-      for (const layer of [this.renderLayers.doorwayPreview, this.renderLayers.worldBounds]) {
-        layer.setVisible(this.debugEnabled);
-      }
+      this.renderLayers.collisionPreview.setVisible(this.collisionBoundsVisible);
+      this.renderLayers.doorwayPreview.setVisible(this.roomConnectionBoundsVisible);
+      this.renderLayers.worldBounds.setVisible(this.debugEnabled);
     }
   }
 
@@ -280,6 +312,9 @@ export class HouseScene extends Phaser.Scene {
   private setActiveInteractableLabel(id: string | undefined): void {
     this.renderLayers?.interactableLabels.forEach((label, labelId) => {
       label.setVisible(this.alwaysShowInteractableNameplates || labelId === id);
+    });
+    this.renderLayers?.interactableLabelHighlights?.forEach((highlight, labelId) => {
+      highlight.setVisible(labelId === id);
     });
   }
 

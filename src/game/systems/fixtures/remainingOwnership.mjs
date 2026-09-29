@@ -48,6 +48,7 @@ export const approvedDogChange = {
   id: 'office-dog-bed', old: office.collisionRects[7],
   position: { x: 2.5, y: 7.625 }, anchor: { x: 3, y: 8.8125 },
   rect: { x: 1.8484375, y: 7.4921875, width: 2.321875, height: 1.3234375 },
+  oldInteractionRadiusTiles: 1.25, interactionRadiusTiles: 1.3125,
 };
 export const approvedOfficeResizes = [
   { id: 'office-sofa', old: office.collisionRects[8], height: 4.6 * (1226 / 1536) * 0.8, bottom: 7.1875 },
@@ -140,9 +141,13 @@ export function undoRemainingOwnership(layout) {
       const { groundAnchor, footprints, ...rest } = sprite;
       if (sprite.id === approvedDogChange.id) {
         expect(sprite.position).toEqual(approvedDogChange.position);
+        expect(sprite.interactionRadiusTiles).toBe(approvedDogChange.interactionRadiusTiles);
         const original = source.interactables.find(item => item.id === sprite.id);
-        // Normalize only the approved y shift; x and all other fields remain checked.
-        return { ...rest, position: { ...rest.position, y: original.position.y } };
+        expect(original.interactionRadiusTiles).toBe(approvedDogChange.oldInteractionRadiusTiles);
+        // Normalize only the approved y shift and one-pixel radius increase;
+        // x and all other fields remain checked against the immutable fixture.
+        return { ...rest, position: { ...rest.position, y: original.position.y },
+          interactionRadiusTiles: original.interactionRadiusTiles };
       }
       return rest;
     };

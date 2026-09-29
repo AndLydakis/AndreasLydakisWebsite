@@ -65,6 +65,37 @@ describe('selectInteractionTarget', () => {
     expect(selectInteractionTarget({ x: 3, y: 5 }, [interactable])).toEqual(interactable);
     expect(selectInteractionTarget({ x: 2.9, y: 5 }, [interactable])).toBeNull();
   });
+
+  it('retains circular proximity and also accepts the padded label rectangle', () => {
+    const interactable: InteractionTarget = {
+      ...target('desk', 8, 8, 1),
+      labelActivationBounds: { x: 3, y: 4, width: 2, height: 1 },
+    };
+    expect(selectInteractionTarget({ x: 8, y: 9 }, [interactable])).toEqual(interactable);
+    expect(selectInteractionTarget({ x: 4, y: 4.5 }, [interactable])).toEqual(interactable);
+    expect(selectInteractionTarget({ x: 2.99, y: 4.5 }, [interactable])).toBeNull();
+  });
+
+  it('prioritizes the label being touched over a neighboring radius-only candidate', () => {
+    const labelled: InteractionTarget = {
+      ...target('workstation', 8, 2, 1),
+      labelActivationBounds: { x: 3, y: 4, width: 2, height: 1 },
+    };
+    const nearby = target('dog', 4, 4.5, 2);
+
+    expect(selectInteractionTarget({ x: 4, y: 4.5 }, [nearby, labelled])).toEqual(labelled);
+  });
+
+  it('activates a label when the foot collider touches it before the anchor center enters', () => {
+    const labelled: InteractionTarget = {
+      ...target('bookcase', 8, 2, 1),
+      labelActivationBounds: { x: 3, y: 4, width: 2, height: 1 },
+    };
+    const anchorCenter = { x: 4, y: 3 };
+    const footCollider = { x: 3.5, y: 4, width: 1, height: 0.0625 };
+
+    expect(selectInteractionTarget(anchorCenter, [labelled], undefined, footCollider)).toEqual(labelled);
+  });
 });
 
 describe('InteractionSystem', () => {
@@ -111,6 +142,15 @@ describe('InteractionSystem', () => {
       id: 'living-room-television',
       position: { x: 11.5, y: 8 },
     });
+  });
+
+  it('attaches renderer-authored label activation bounds by stable interactable ID', () => {
+    const bounds = { x: 10, y: 11, width: 3, height: 1 };
+    const system = new InteractionSystem(houseLayout, {
+      labelActivationBounds: new Map([['living-room-television', bounds]]),
+    });
+    expect(system.createInteractable(houseLayout.rooms[0]!.interactables[0]!))
+      .toMatchObject({ labelActivationBounds: bounds });
   });
 
   it('emits only when the selected target changes', () => {

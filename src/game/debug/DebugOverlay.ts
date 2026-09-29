@@ -3,29 +3,36 @@ import Phaser from 'phaser';
 import {
   roomRectToWorld,
   roomGroundAnchorToWorldPixel,
-  roomTileToWorld,
   worldRectToWorldPixel,
-  worldTileToWorldPixel,
 } from '../data/coordinates';
 import type { HouseLayout } from '../data/types';
 import type { PlayerState } from '../entities/Player';
-import { getRoomLocalCollisionRects } from '../systems/collisionGeometry';
 
 const ROOM_COLOR = 0x62e6ff;
-const COLLISION_COLOR = 0xff9a9a;
-const INTERACTABLE_COLOR = 0xffb84d;
 const WORLD_COLOR = 0xffe29a;
 
 /** Development-only world diagnostics for layout and player placement. */
 export class DebugOverlay {
   private readonly geometry: Phaser.GameObjects.Graphics;
+  private readonly groundAnchors: Phaser.GameObjects.Graphics;
+  private readonly roomBounds: Phaser.GameObjects.Graphics;
   private readonly status: Phaser.GameObjects.Text;
+  private readonly groundAnchorsVisible: boolean;
+  private readonly roomBoundsVisible: boolean;
 
   public constructor(
     scene: Phaser.Scene,
     private readonly layout: HouseLayout,
+    options: {
+      readonly groundAnchorsVisible?: boolean;
+      readonly roomBoundsVisible?: boolean;
+    } = {},
   ) {
     this.geometry = scene.add.graphics().setDepth(8);
+    this.groundAnchors = scene.add.graphics().setDepth(8);
+    this.roomBounds = scene.add.graphics().setDepth(8);
+    this.groundAnchorsVisible = options.groundAnchorsVisible ?? false;
+    this.roomBoundsVisible = options.roomBoundsVisible ?? false;
     this.status = scene.add
       .text(8, 8, '', {
         color: '#ffe29a',
@@ -53,11 +60,15 @@ export class DebugOverlay {
 
   public destroy(): void {
     this.geometry.destroy();
+    this.groundAnchors.destroy();
+    this.roomBounds.destroy();
     this.status.destroy();
   }
 
   public setVisible(visible: boolean): void {
     this.geometry.setVisible(visible);
+    this.groundAnchors.setVisible(visible && this.groundAnchorsVisible);
+    this.roomBounds.setVisible(visible && this.roomBoundsVisible);
     this.status.setVisible(visible);
   }
 
@@ -91,46 +102,21 @@ export class DebugOverlay {
         this.layout.tileSize,
       );
 
-      this.geometry.lineStyle(1, ROOM_COLOR, 0.65);
-      this.geometry.strokeRect(
+      this.roomBounds.lineStyle(1, ROOM_COLOR, 0.65);
+      this.roomBounds.strokeRect(
         roomPixels.x,
         roomPixels.y,
         roomPixels.width,
         roomPixels.height,
       );
 
-      getRoomLocalCollisionRects(room).forEach((collisionRect) => {
-        const collisionPixels = worldRectToWorldPixel(
-          roomRectToWorld(room, collisionRect),
-          this.layout.tileSize,
-        );
-
-        this.geometry.lineStyle(1, COLLISION_COLOR, 0.85);
-        this.geometry.strokeRect(
-          collisionPixels.x,
-          collisionPixels.y,
-          collisionPixels.width,
-          collisionPixels.height,
-        );
-      });
-
       for (const object of [...room.interactables, ...(room.decorations ?? [])]) {
         if (!object.groundAnchor) continue;
         const anchor = roomGroundAnchorToWorldPixel(room, object.groundAnchor, this.layout.tileSize);
-        this.geometry.lineStyle(1, WORLD_COLOR, 1);
-        this.geometry.strokeCircle(anchor.x, anchor.y, 2);
+        this.groundAnchors.lineStyle(1, WORLD_COLOR, 1);
+        this.groundAnchors.strokeCircle(anchor.x, anchor.y, 2);
       }
 
-      room.interactables.forEach((interactable) => {
-        const position = worldTileToWorldPixel(
-          roomTileToWorld(room, interactable.position),
-          this.layout.tileSize,
-        );
-        const radius = (interactable.interactionRadiusTiles ?? 2) * this.layout.tileSize;
-
-        this.geometry.lineStyle(1, INTERACTABLE_COLOR, 0.85);
-        this.geometry.strokeCircle(position.x, position.y, radius);
-      });
     });
   }
 

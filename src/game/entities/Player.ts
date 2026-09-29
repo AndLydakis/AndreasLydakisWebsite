@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 
-import type { WorldTilePoint } from '../data/types';
+import type { WorldTilePoint, WorldTileRect } from '../data/types';
 import { InputController } from '../systems/InputController';
 import type { Direction } from '../systems/InputController';
 import { PLAYER_SPEED, facingFromMovement, movementSnapshotToVelocity } from './playerMotion';
@@ -67,6 +67,16 @@ export class Player {
         y: this.sprite.y / this.options.tileSize - 0.5,
       },
       facing: this.facing,
+    };
+  }
+
+  /** Returns the live foot collider in the same logical tile space used by interaction targets. */
+  public getInteractionBounds(): WorldTileRect {
+    return {
+      x: this.body.x / this.options.tileSize - 0.5,
+      y: this.body.y / this.options.tileSize - 0.5,
+      width: this.body.width / this.options.tileSize,
+      height: this.body.height / this.options.tileSize,
     };
   }
 

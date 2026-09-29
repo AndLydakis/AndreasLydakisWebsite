@@ -26,6 +26,8 @@ export interface HouseRenderOptions {
   readonly showCollisionBounds?: boolean;
   /** Internal room-rendering switch; buildHouse enables labels for the complete runtime. */
   readonly showInteractableLabels?: boolean;
+  readonly interactionRadiusVisible?: boolean;
+  readonly roomConnectionBoundsVisible?: boolean;
 }
 
 const COLORS = {
@@ -35,7 +37,12 @@ const COLORS = {
   wallOutline: 0x62e6ff,
   doorway: 0xffb84d,
   worldOutline: 0xffe29a,
+  interaction: 0xffd84d,
 } as const;
+
+export const LABEL_INTERACTION_PADDING = 3;
+/** Radius circles sit below labels (2.9) and all perspective-sorted world objects (>3). */
+export const INTERACTION_RADIUS_DEPTH = PERSPECTIVE_DEPTH_MIN - 0.2;
 
 const INTERACTABLE_LABEL = {
   // Labels remain behind the player and every perspective-sorted world sprite.
@@ -54,12 +61,17 @@ export interface HouseRenderLayers {
   readonly doorwayPreview: Phaser.GameObjects.Graphics;
   readonly worldBounds: Phaser.GameObjects.Graphics;
   readonly interactableLabels: Map<string, Phaser.GameObjects.Container>;
+  readonly interactableLabelHighlights: Map<string, Phaser.GameObjects.Graphics>;
+  readonly labelActivationBounds: Map<string, WorldTileRect>;
+  readonly interactionRadiusPreview: Phaser.GameObjects.Graphics;
 }
 
 /** Creates all generic layout render layers for the supplied house. */
 export function buildHouse(scene: Phaser.Scene, layout: HouseLayout, options: HouseRenderOptions = {}): HouseRenderLayers {
   const layers = createRenderLayers(scene, Boolean(import.meta.env.DEV && options.debugEnabled));
-  if (options.showCollisionBounds) layers.collisionPreview.setVisible(true);
+  layers.collisionPreview.setVisible(options.showCollisionBounds ?? false);
+  layers.doorwayPreview.setVisible(options.roomConnectionBoundsVisible ?? false);
+  layers.interactionRadiusPreview.setVisible(options.interactionRadiusVisible ?? false);
 
   const roomOptions = { ...options, showInteractableLabels: options.showInteractableLabels ?? true };
   layout.rooms.forEach((room) => buildRoom(scene, room, layout.tileSize, layers, roomOptions));
@@ -219,9 +231,22 @@ export function buildRoom(
     }
   });
 
+  room.interactables.forEach(interactable => {
+    const position = worldTileToWorldPixel(roomTileToWorld(room, interactable.position), tileSize);
+    layers.interactionRadiusPreview?.lineStyle(1, COLORS.interaction, 1);
+    layers.interactionRadiusPreview?.strokeCircle(
+      position.x,
+      position.y,
+      (interactable.interactionRadiusTiles ?? 2) * tileSize,
+    );
+  });
+
   if (options.showInteractableLabels) {
     room.interactables.forEach(interactable => {
-      layers.interactableLabels.set(interactable.id, renderInteractableLabel(scene, room, interactable, tileSize));
+      const rendered = createInteractableLabel(scene, room, interactable, tileSize);
+      layers.interactableLabels.set(interactable.id, rendered.container);
+      layers.interactableLabelHighlights.set(interactable.id, rendered.highlight);
+      layers.labelActivationBounds.set(interactable.id, rendered.activationBounds);
     });
   }
 }
@@ -247,6 +272,19 @@ export function renderInteractableLabel(
   interactable: InteractableDefinition,
   tileSize: number,
 ): Phaser.GameObjects.Container {
+  return createInteractableLabel(scene, room, interactable, tileSize).container;
+}
+
+function createInteractableLabel(
+  scene: Phaser.Scene,
+  room: RoomDefinition,
+  interactable: InteractableDefinition,
+  tileSize: number,
+): {
+  container: Phaser.GameObjects.Container;
+  highlight: Phaser.GameObjects.Graphics;
+  activationBounds: WorldTileRect;
+} {
   const text = scene.add.text(0, 0, interactable.label, {
     color: '#ffffff',
     fontFamily: "'Courier New', Courier, monospace",
@@ -269,13 +307,32 @@ export function renderInteractableLabel(
   chrome.lineStyle(2, 0xbdc4d5, 1).strokeRoundedRect(left, top, width, height, 4);
   chrome.lineStyle(1, 0xffffff, 1).strokeRoundedRect(left + 1.5, top + 1.5, width - 3, height - 3, 2);
   chrome.lineStyle(1, 0x111944, 1).strokeRoundedRect(left + 3, top + 3, width - 6, height - 6, 1);
+  const highlight = scene.add.graphics();
+  highlight.lineStyle(1, COLORS.interaction, 1).strokeRoundedRect(
+    left - LABEL_INTERACTION_PADDING,
+    top - LABEL_INTERACTION_PADDING,
+    width + LABEL_INTERACTION_PADDING * 2,
+    height + LABEL_INTERACTION_PADDING * 2,
+    5,
+  ).setVisible(false);
   const base = getInteractableLabelBase(room, interactable, tileSize);
   const roomLeft = room.origin.x * tileSize, roomRight = (room.origin.x + room.widthTiles) * tileSize;
   const x = Math.max(roomLeft + width / 2 + 2, Math.min(base.x, roomRight - width / 2 - 2));
-  return scene.add.container(x, base.y + INTERACTABLE_LABEL.gap + height / 2, [chrome, text])
+  const y = base.y + INTERACTABLE_LABEL.gap + height / 2;
+  const container = scene.add.container(x, y, [highlight, chrome, text])
     .setName(`interactable-label:${room.id}:${interactable.id}`)
     .setVisible(false)
     .setDepth(INTERACTABLE_LABEL.depth);
+  return {
+    container,
+    highlight,
+    activationBounds: {
+      x: (x - width / 2 - LABEL_INTERACTION_PADDING) / tileSize - 0.5,
+      y: (y - height / 2 - LABEL_INTERACTION_PADDING) / tileSize - 0.5,
+      width: (width + LABEL_INTERACTION_PADDING * 2) / tileSize,
+      height: (height + LABEL_INTERACTION_PADDING * 2) / tileSize,
+    },
+  };
 }
 
 /** Reuse unobstructed wood to the right of the living-room rug at its room scale.
@@ -336,10 +393,15 @@ function createRenderLayers(scene: Phaser.Scene, debugEnabled: boolean): HouseRe
   return {
     floor: scene.add.graphics().setDepth(0),
     walls: scene.add.graphics().setDepth(1),
-    collisionPreview: scene.add.graphics().setDepth(8).setVisible(debugEnabled),
-    doorwayPreview: scene.add.graphics().setDepth(8).setVisible(debugEnabled),
+    // Collision visibility is controlled only by COLLISION_BOUNDS_VISIBLE/the per-game override.
+    collisionPreview: scene.add.graphics().setDepth(8).setVisible(false),
+    // Doorway/connection boxes have their own presentation flag.
+    doorwayPreview: scene.add.graphics().setDepth(8).setVisible(false),
     worldBounds: scene.add.graphics().setDepth(8).setVisible(debugEnabled),
     interactableLabels: new Map(),
+    interactableLabelHighlights: new Map(),
+    labelActivationBounds: new Map(),
+    interactionRadiusPreview: scene.add.graphics().setDepth(INTERACTION_RADIUS_DEPTH).setVisible(false),
   };
 }
 

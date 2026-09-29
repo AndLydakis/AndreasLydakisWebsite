@@ -6,6 +6,20 @@ pushed.
 
 ## [Unreleased]
 
+### PORT-07C follow-up — Circular proximity with label triggers
+
+- Preserve every object's original circular interaction range.
+- Increase only the office dog's circular interaction radius by one world pixel (`1.25` to `1.3125` tiles).
+- Add each FF7-style nameplate, padded by three world pixels, as a second interaction trigger.
+- Use the live player foot collider for label contact and prioritize label hits over neighboring radius-only candidates.
+- Highlight only the currently available nameplate with a yellow outer border.
+- Add a central, default-on `INTERACTION_RADIUS_VISIBLE` flag and per-game override for optional yellow radius circles.
+- Render yellow interaction-radius circles immediately behind the nameplates instead of over them.
+- Add a central, default-off `COLLISION_BOUNDS_VISIBLE` flag and per-game override; collision physics remains active while the outlines are hidden.
+- Add independent default-off flags for perspective ground-anchor circles and room-connection boxes; sorting and doorway behavior remain active.
+- Add a default-off room-bounds flag for the cyan room-perimeter boxes; room geometry remains unchanged.
+- Owner accepted the combined interaction and diagnostic presentation; deliver as a `PORT-07C` follow-up.
+
 ### PORT-18F follow-up — Cast-iron plate spacing
 
 - Move the cast-iron weight stack 1.25 tiles right, together with its collision footprint and perspective anchor, so it no longer obscures the squat-rack nameplate.

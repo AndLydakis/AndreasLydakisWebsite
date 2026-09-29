@@ -78,4 +78,15 @@ describe('player ground contact', () => {
     const spriteTopAtContact = floorEdge - (height - 1);
     expect(spriteTopAtContact + height).toBe(floorEdge + 1);
   });
+
+  it('reports the live foot collider in logical interaction coordinates', () => {
+    const body = new Phaser.Physics.Arcade.Body({} as Phaser.Physics.Arcade.World);
+    Object.assign(body, { x: 96, y: 175, width: 16, height: 1 });
+    const sprite = { width: 32, height: 32, body, x: 104, y: 160 };
+    const scene = { physics: { add: { existing: vi.fn() } } };
+    const player = new Player(scene as unknown as Phaser.Scene,
+      sprite as unknown as Phaser.GameObjects.Sprite, {} as InputController, { tileSize: 16 });
+
+    expect(player.getInteractionBounds()).toEqual({ x: 5.5, y: 10.4375, width: 1, height: 0.0625 });
+  });
 });

@@ -15,6 +15,11 @@ export interface CreateGameOptions {
   readonly inputController: InputController;
   readonly cameraZoom?: number;
   readonly alwaysShowInteractableNameplates?: boolean;
+  readonly interactionRadiusVisible?: boolean;
+  readonly collisionBoundsVisible?: boolean;
+  readonly groundAnchorsVisible?: boolean;
+  readonly roomConnectionBoundsVisible?: boolean;
+  readonly roomBoundsVisible?: boolean;
   readonly onSceneReady?: () => void;
   readonly onRoomChanged?: (roomId: RoomDefinition['id']) => void;
   readonly onStartupError?: (error: unknown) => void;
@@ -60,6 +65,11 @@ export function createGame(options: CreateGameOptions): Phaser.Game {
     }, {
       cameraZoom: options.cameraZoom,
       alwaysShowInteractableNameplates: options.alwaysShowInteractableNameplates,
+      interactionRadiusVisible: options.interactionRadiusVisible,
+      collisionBoundsVisible: options.collisionBoundsVisible,
+      groundAnchorsVisible: options.groundAnchorsVisible,
+      roomConnectionBoundsVisible: options.roomConnectionBoundsVisible,
+      roomBoundsVisible: options.roomBoundsVisible,
     }),
   };
 
