@@ -178,10 +178,10 @@ const gym: RoomDefinition = {
       footprints: [{ x: 1.625, y: 3.5, width: 1.75, height: 0.46875 }],
     },
     {
-      id: 'gym-steel-plates', position: { x: 12.125, y: 7.125 },
+      id: 'gym-steel-plates', position: { x: 13.375, y: 7.125 },
       assetId: 'gym-steel-plates-front', displayHeightTiles: 2,
-      groundAnchor: { x: 12.625, y: 8.625 },
-      footprints: [{ x: 12, y: 8.25, width: 1.25, height: 0.375 }],
+      groundAnchor: { x: 13.875, y: 8.625 },
+      footprints: [{ x: 13.25, y: 8.25, width: 1.25, height: 0.375 }],
     },
     {
       id: 'gym-bumper-plates', position: { x: 13.625, y: 9.125 },

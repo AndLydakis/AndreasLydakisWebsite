@@ -2092,6 +2092,8 @@ Latest revision (DEC-121): owner selected the new fitted kitchen. Runtime now us
 
 Status: Done (2026-09-24). Owner approved delivery; implementation commit 0544ce7 successfully pushed to origin/master. Includes fitted kitchen, half-tile table collision adjustment and generated corridor side walls. All 738 tests, typecheck and build pass. Final development/production browser checks pass at desktop, portrait and landscape sizes, including both exposed sides and both end seams of every corridor, kitchen interactions, furniture and mobile controls (output/qa/port09d/verification.md). Earlier DEC-118/119 artwork/layout and QA are superseded. Physical-device and independent-review checks were not performed.
 
+Content-label follow-up (DEC-164): owner approves `Food Log` for the stove/meal record and `Shopping list` for the fridge/shopping record. Content IDs, prompt wording and interaction behavior remain unchanged. Combined full-suite/build and development/production browser gates pass.
+
 Type: Story  
 Priority: High  
 Dependencies: `PORT-09C`  
@@ -3243,6 +3245,7 @@ Priority: High — queued after prerequisite
 Dependencies: `PORT-18E`
 Milestone: M6
 Status: Done — owner approved; implementation fafe34e successfully pushed to origin/master (DEC-153). Combined 1,930-test/build, development/production integration and independent engineer/game-review gates pass. Final evidence: `output/qa/port18f-j/final/verification.md`.
+Presentation follow-up (DEC-163): translate only the cast-iron plate stack, anchor and base 1.25 tiles right to clear the persistent squat-rack label; preserve scale, y placement, body dimensions and all other gym objects. Full 1,946-test/build and development/production visual checks pass.
 Delivery: Global story workflow and all M6 review gates apply.
 
 ### Goal

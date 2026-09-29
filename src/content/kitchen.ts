@@ -2,7 +2,7 @@ import type { ContentRecord } from './types';
 
 export const kitchenContent: ContentRecord = {
   id: 'kitchen-meals',
-  label: 'Kitchen stove',
+  label: 'Food Log',
   roomId: 'kitchen',
   roomLabel: 'Kitchen',
   title: 'Recently cooked',
@@ -22,7 +22,7 @@ export const kitchenContent: ContentRecord = {
 
 /** Display-only content: no checked state, editing controls or persistence. */
 export const kitchenShoppingContent: ContentRecord = {
-  id: 'kitchen-shopping', label: 'Kitchen shopping list', roomId: 'kitchen', roomLabel: 'Kitchen',
+  id: 'kitchen-shopping', label: 'Shopping list', roomId: 'kitchen', roomLabel: 'Kitchen',
   title: 'Shopping list', eyebrow: 'PLACEHOLDER CONTENT',
   description: 'Read-only demo list; the owner can replace these entries in the content file.',
   sections: [{ heading: 'To buy', items: ['DEMO: tomatoes', 'DEMO: pasta', 'DEMO: basil', 'DEMO: milk'] }],

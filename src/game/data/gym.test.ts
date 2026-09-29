@@ -137,6 +137,15 @@ describe('gym artwork and navigation', () => {
     }
   });
 
+  it('moves the cast-iron stack right of the squat-rack nameplate with matching physics', () => {
+    const steel = gym.decorations!.find((item) => item.id === 'gym-steel-plates')!;
+    expect(steel.position).toEqual({ x: 13.375, y: 7.125 });
+    expect(steel.groundAnchor).toEqual({ x: 13.875, y: 8.625 });
+    expect(steel.footprints).toEqual([{ x: 13.25, y: 8.25, width: 1.25, height: 0.375 }]);
+    expect(steel.footprints![0]!.x + steel.footprints![0]!.width).toBeLessThan(15);
+    expect(getRoomLocalCollisionRects(gym)).toContainEqual(steel.footprints![0]);
+  });
+
   it('halves bench height and reduces its length to two-thirds with matching base contact', () => {
     const bench = gym.decorations!.find((item) => item.id === 'gym-bench')!;
     expect(bench.position).toEqual({ x: 9, y: 7.125 });

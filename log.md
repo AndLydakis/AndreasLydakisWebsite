@@ -2,6 +2,19 @@
 
 This file is the project decision record. New implementation decisions, approved changes, deferred choices, and story-completion decisions must be added here before or alongside changes to `plan.md` or source files.
 
+## DEC-164 — Adopt concise kitchen labels
+
+- Date: 2026-09-29. Owner confirms the concurrent kitchen edits are correct: use `Food Log` for the stove and its content record, and `Shopping list` for the fridge and its content record.
+- Keep the existing `kitchen-meals` and `kitchen-shopping` identities, prompt labels, titles, interactions and content unchanged. Normalize these approved wording deltas in historical layout regression checks rather than rewriting immutable fixtures.
+- Verification: the combined DEC-163/164 state passes 1,946 tests/44 files, typecheck/build (`index-Cb6jXaKk.js`; existing bundle-size advisory only), scoped whitespace checks, and development/production browser checks with zero exceptions.
+
+## DEC-163 — Move cast-iron plates clear of the squat-rack label
+
+- Date: 2026-09-29. Owner requests moving the cast-iron weight-plate stack right so it no longer obscures the persistent squat-rack nameplate.
+- Translate only `gym-steel-plates` by 1.25 tiles (20 world pixels) on x: position `12.125 -> 13.375`, ground anchor `12.625 -> 13.875`, and footprint `12 -> 13.25`. Preserve y, scale, art, base dimensions, body count, sorting behavior and all other gym placements.
+- Record the approved geometry delta explicitly while retaining immutable historical fixtures. Development and production browser captures show clear separation between the stack and `Squat rack` label; both visibility modes and all 11 labels pass with zero exceptions.
+- Verification: all 1,946 tests/44 files pass, including cardinal/diagonal Arcade contact for the translated base at 15/30/60/120 FPS. Typecheck/build passes as `index-Cb6jXaKk.js` with only the existing bundle-size advisory.
+
 ## DEC-162 — Keep interactable nameplates behind the player
 
 - Date: 2026-09-29. Owner requires every interactable nameplate to remain behind the player in perspective ordering.

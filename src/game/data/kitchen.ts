@@ -43,10 +43,10 @@ export const kitchen: RoomDefinition = {
   ],
   interactables: [
     { id: 'kitchen-stove', roomId: 'kitchen', position: { x: 0.7, y: 4.5 },
-      label: 'Kitchen stove', promptLabel: 'kitchen stove', contentId: 'kitchen-meals',
+      label: 'Food Log', promptLabel: 'kitchen stove', contentId: 'kitchen-meals',
       interactionRadiusTiles: 2.25, artworkInBackground: true },
     { id: 'kitchen-fridge', roomId: 'kitchen', position: { x: 14, y: 3 },
-      label: 'Kitchen shopping list', promptLabel: 'fridge shopping list', contentId: 'kitchen-shopping',
+      label: 'Shopping list', promptLabel: 'fridge shopping list', contentId: 'kitchen-shopping',
       interactionRadiusTiles: 2, artworkInBackground: true },
   ],
   decorations: [

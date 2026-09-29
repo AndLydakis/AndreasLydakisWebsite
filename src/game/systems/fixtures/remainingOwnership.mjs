@@ -4,6 +4,18 @@ import { expect } from 'vitest';
 export const beforeRemaining = JSON.parse(readFileSync(new URL('./port18f-j-before.json', import.meta.url), 'utf8'));
 const oldRoom = id => beforeRemaining.layout.rooms.find(room => room.id === id);
 const office = oldRoom('office');
+const gym = oldRoom('gym');
+export const approvedSteelMove = {
+  id: 'gym-steel-plates',
+  oldPosition: { x: 12.125, y: 7.125 }, position: { x: 13.375, y: 7.125 },
+  oldAnchor: { x: 12.625, y: 8.625 }, anchor: { x: 13.875, y: 8.625 },
+  oldRect: { x: 12, y: 8.25, width: 1.25, height: 0.375 },
+  rect: { x: 13.25, y: 8.25, width: 1.25, height: 0.375 },
+};
+export const approvedKitchenLabels = [
+  { id: 'kitchen-stove', oldLabel: 'Kitchen stove', label: 'Food Log' },
+  { id: 'kitchen-fridge', oldLabel: 'Kitchen shopping list', label: 'Shopping list' },
+];
 export const removedDeskPost = { x: 2, y: 3.5625, width: 2.0625, height: 0.3125 };
 const originalWorkstationRects = [office.collisionRects[5], ...office.collisionRects.slice(17, 24)];
 export const compactWorkstation = {
@@ -42,7 +54,7 @@ export const approvedOfficeResizes = [
   { id: 'office-coffee-table', old: office.collisionRects[9], height: 3.4 * (1198 / 1536) * 0.8, bottom: 6.9375 },
 ].map(item => ({ ...item, rect: { ...item.old, y: item.bottom - item.height, height: item.height } })).concat([approvedDogChange]);
 
-export function withApprovedOfficeChanges(worldRects) {
+export function withApprovedGeometryChanges(worldRects) {
   const removed = { ...removedDeskPost, x: office.origin.x + removedDeskPost.x, y: office.origin.y + removedDeskPost.y };
   const key = rectKeys([removed])[0];
   expect(worldRects.filter(rect => rectKeys([rect])[0] === key)).toHaveLength(1);
@@ -59,6 +71,11 @@ export function withApprovedOfficeChanges(worldRects) {
     expect(result.filter(rect => rectKeys([rect])[0] === oldKey)).toHaveLength(1);
     result = result.map(rect => rectKeys([rect])[0] === oldKey ? toWorld(compactWorkstation.rects[index]) : rect);
   }
+  const toGymWorld = rect => ({ ...rect, x: gym.origin.x + rect.x, y: gym.origin.y + rect.y });
+  const oldSteelKey = rectKeys([toGymWorld(approvedSteelMove.oldRect)])[0];
+  expect(result.filter(rect => rectKeys([rect])[0] === oldSteelKey)).toHaveLength(1);
+  result = result.map(rect => rectKeys([rect])[0] === oldSteelKey
+    ? toGymWorld(approvedSteelMove.rect) : rect);
   return result;
 }
 export const remainingOwners = [
@@ -82,6 +99,24 @@ export function undoRemainingOwnership(layout) {
     const owners = remainingOwners.filter(owner => owner.roomId === room.id);
     if (!owners.length) return room;
     const source = oldRoom(room.id);
+    if (room.id === 'gym') {
+      const sourceSteel = source.decorations.find(sprite => sprite.id === approvedSteelMove.id);
+      const currentSteel = room.decorations.find(sprite => sprite.id === approvedSteelMove.id);
+      expect(currentSteel).toEqual({ ...sourceSteel, position: approvedSteelMove.position,
+        groundAnchor: approvedSteelMove.anchor, footprints: [approvedSteelMove.rect] });
+      room = { ...room, decorations: room.decorations.map(sprite =>
+        sprite.id === approvedSteelMove.id ? sourceSteel : sprite) };
+    }
+    if (room.id === 'kitchen') {
+      room = { ...room, interactables: room.interactables.map(sprite => {
+        const change = approvedKitchenLabels.find(item => item.id === sprite.id);
+        if (!change) return sprite;
+        const sourceSprite = source.interactables.find(item => item.id === sprite.id);
+        expect(sourceSprite.label).toBe(change.oldLabel);
+        expect(sprite).toEqual({ ...sourceSprite, label: change.label });
+        return sourceSprite;
+      }) };
+    }
     if (room.id === 'office') {
       expect(room.visualAssetId).toBe('office-background-plants-removed');
       expect(room.visualBundle).toEqual(approvedPlantBundle);

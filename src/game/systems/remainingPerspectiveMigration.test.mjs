@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { houseLayout } from '../data/houseLayout';
 import { validateHouseLayout } from '../data/layoutValidation';
 import { getAllCollisionRects, getRoomLocalCollisionRects } from './collisionGeometry';
-import { approvedPlants, beforeRemaining, remainingOwners, rectKeys, undoRemainingOwnership, withApprovedOfficeChanges } from './fixtures/remainingOwnership.mjs';
+import { approvedPlants, beforeRemaining, remainingOwners, rectKeys, undoRemainingOwnership, withApprovedGeometryChanges } from './fixtures/remainingOwnership.mjs';
 import { buildRoom } from '../rendering/houseRenderer';
 import { DepthRegistry } from '../rendering/DepthRegistry';
 import { quickTravelDestinations, resolveQuickTravel } from '../data/quickTravel';
@@ -14,7 +14,7 @@ describe('PORT-18F–J remaining ownership migrations and plant extraction', () 
   it('permits only the desk-post deletion, compact chair and six office resizes from the immutable 80-body baseline', () => {
     expect(beforeRemaining.worldRects).toHaveLength(80);
     expect(getAllCollisionRects(houseLayout)).toHaveLength(79);
-    expect(rectKeys(getAllCollisionRects(houseLayout))).toEqual(rectKeys(withApprovedOfficeChanges(beforeRemaining.worldRects)));
+    expect(rectKeys(getAllCollisionRects(houseLayout))).toEqual(rectKeys(withApprovedGeometryChanges(beforeRemaining.worldRects)));
     expect(undoRemainingOwnership(houseLayout)).toEqual(beforeRemaining.layout);
     expect(validateHouseLayout(houseLayout)).toEqual([]);
   });

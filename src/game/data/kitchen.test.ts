@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { kitchen, kitchenEntrance, kitchenFurnitureCollisions } from './kitchen';
 import { houseLayout } from './houseLayout';
 import { validateHouseLayout } from './layoutValidation';
-import { kitchenShoppingContent } from '../../content/kitchen';
+import { kitchenContent, kitchenShoppingContent } from '../../content/kitchen';
 import { InteractionSystem } from '../systems/InteractionSystem';
 import { gymKitchenCenterX, gymSouthEntrance } from './gymKitchenConnection';
 import { getAllCollisionRects, getRoomLocalCollisionRects } from '../systems/collisionGeometry';
@@ -75,6 +75,10 @@ describe('kitchen layout and content', () => {
     expect(kitchen.decorations).toHaveLength(1);
     expect(kitchen.decorations![0]!.assetId).toBe('kitchen-dining-set');
     expect(kitchenShoppingContent.sections[0]!.items!.length).toBeGreaterThan(0);
+  });
+  it('uses the approved concise stove and fridge labels in world and dialog content', () => {
+    expect(kitchen.interactables.map(({ label }) => label)).toEqual(['Food Log', 'Shopping list']);
+    expect([kitchenContent.label, kitchenShoppingContent.label]).toEqual(['Food Log', 'Shopping list']);
   });
   it('centers the painted opening on the corridor and keeps both jambs solid', () => {
     const corridor = houseLayout.corridors.find(c => c.id === 'gym-kitchen-corridor')!;

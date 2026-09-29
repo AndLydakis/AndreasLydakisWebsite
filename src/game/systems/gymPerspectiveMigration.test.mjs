@@ -6,7 +6,7 @@ import { quickTravelDestinations, resolveQuickTravel } from '../data/quickTravel
 import { getAllCollisionRects, getRoomLocalCollisionRects } from './collisionGeometry';
 import { buildRoom } from '../rendering/houseRenderer';
 import { DepthRegistry } from '../rendering/DepthRegistry';
-import { undoRemainingOwnership, withApprovedOfficeChanges } from './fixtures/remainingOwnership.mjs';
+import { undoRemainingOwnership, withApprovedGeometryChanges } from './fixtures/remainingOwnership.mjs';
 
 // Captured before PORT-18E edits. Never regenerate from the migrated layout.
 const baseline = JSON.parse(readFileSync(new URL('./fixtures/port18e-before.json', import.meta.url), 'utf8'));
@@ -30,7 +30,7 @@ describe('PORT-18E exact gym ownership migration', () => {
     expect(baseline.worldRects).toHaveLength(80);
     const current = getAllCollisionRects(houseLayout);
     expect(current).toHaveLength(79);
-    expect(multiset(current)).toEqual(multiset(withApprovedOfficeChanges(baseline.worldRects)));
+    expect(multiset(current)).toEqual(multiset(withApprovedGeometryChanges(baseline.worldRects)));
     expect(validateHouseLayout(houseLayout)).toEqual([]);
   });
 

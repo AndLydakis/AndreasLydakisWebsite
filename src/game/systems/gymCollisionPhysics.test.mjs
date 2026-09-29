@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { houseLayout } from '../data/houseLayout';
 import { PLAYER_SPEED } from '../entities/playerMotion';
 import { kitchen } from '../data/kitchen';
-import { approvedPotResizes, beforeRemaining, remainingOwners } from './fixtures/remainingOwnership.mjs';
+import { approvedPotResizes, approvedSteelMove, beforeRemaining, remainingOwners } from './fixtures/remainingOwnership.mjs';
 import { getCorridorCollisionRects, getRoomLocalCollisionRects } from './collisionGeometry';
 
 // Exercise the installed Arcade solver, not a mocked overlap predicate or renderer.
@@ -22,7 +22,7 @@ const objects = [
   ['boombox', { x: 7.25, y: 3.625, width: 1.5, height: 0.5625 }],
   ['bench', { x: 9.5 - 1.625 * 2 / 3, y: 7.9375, width: 3.25 * 2 / 3, height: 0.375 }],
   ['boxing stand', { x: 2, y: 11.25, width: 1.875, height: 0.4375 }],
-  ['steel stack', { x: 12, y: 8.25, width: 1.25, height: 0.375 }],
+  ['steel stack', approvedSteelMove.rect],
   ['bumper stack', { x: 13.5, y: 10.125, width: 1.25, height: 0.375 }],
   ['extra bumper stack', { x: 11.5, y: 10.125, width: 1.25, height: 0.375 }],
 ];

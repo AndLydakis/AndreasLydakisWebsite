@@ -6,6 +6,16 @@ pushed.
 
 ## [Unreleased]
 
+### PORT-18F follow-up — Cast-iron plate spacing
+
+- Move the cast-iron weight stack 1.25 tiles right, together with its collision footprint and perspective anchor, so it no longer obscures the squat-rack nameplate.
+- Preserve its artwork scale, vertical placement, body dimensions and the rest of the gym composition.
+
+### PORT-09D follow-up — Concise kitchen labels
+
+- Rename the stove label and shared meal-content label to `Food Log`.
+- Rename the fridge label and shared shopping-content label to `Shopping list` without changing prompts, interactions or content identities.
+
 ### PORT-07C follow-up — Keep nameplates behind the player
 
 - Place interactable nameplates immediately below the perspective depth band so the player and perspective-sorted objects always render over them.
