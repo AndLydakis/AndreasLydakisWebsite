@@ -8,17 +8,23 @@ pushed.
 
 ### Content follow-up — Stella label
 
+Delivered with the presentation batch to `origin/master` in `762cf4e`.
+
 - Use the owner's `Stella` name for the office dog interactable and content label.
 - Update the dog-image alt text to the owner's supplied wording while retaining the existing placeholder image and placeholder dialog title.
 - Keep historical geometry fixtures immutable and normalize the approved label only in regression adapters.
 
 ### Presentation follow-up — Living-room television clearance
 
+Delivered to `origin/master` in `762cf4e`.
+
 - Move the television, interaction center, collision base and perspective anchor upward by half a tile while preserving its scale and horizontal position.
 - Keep the television nameplate visually clear of the coffee table and pizza box without changing the table, label styling or interaction radius.
 - Add a repeatable browser clearance check and updated collision/layout regressions.
 
 ### Presentation follow-up — Sharper artwork and interactable labels
+
+Delivered to `origin/master` in `762cf4e`.
 
 - Increase the backing canvas from 2× to 3× without changing world, object or visible viewport dimensions.
 - Smooth high-resolution room and furniture textures while retaining nearest filtering for player animation art.

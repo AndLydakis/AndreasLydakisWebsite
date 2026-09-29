@@ -7,6 +7,7 @@ This file is the project decision record. New implementation decisions, approved
 - Date: 2026-09-29. Owner requests pushing the complete current workspace state, accepting the DEC-174 rendering/font refinement and DEC-175 television clearance.
 - Scope: deliver the 3× hybrid rendering pipeline, locally licensed Tiny5 nameplate font at the unchanged 5px logical size, repeatable browser evidence, and coordinated half-tile television translation. Include the owner's concurrent `Office dog` to `Stella` runtime/content label and alt-text edits, while preserving immutable historical fixture bytes and normalizing the approved label only in comparison helpers.
 - Delivery gate: repeat the full test, typecheck, production build and whitespace checks after reconciling the concurrent edits. Commit with a `PORT-07C` prefix and push to `origin/master`; record the resulting delivery separately after the remote update succeeds.
+- Delivered: `762cf4e` (`PORT-07C: sharpen rendering and refine presentation`) successfully pushed to `origin/master` after all 1,960 tests, typecheck, production build and whitespace checks passed. DEC-174 and DEC-175 are complete; the existing Vite bundle-size advisory remains non-blocking.
 
 ## DEC-175 — Raise the living-room television clear of the pizza box
 
