@@ -5,7 +5,8 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 const url = process.argv[2] ?? 'http://127.0.0.1:5173';
 const port = process.argv[3] ?? '9455';
 const mode = url.includes(':4173') ? 'production' : 'development';
-const output = `output/qa/interactable-nameplates/${mode}`;
+const outputRoot = process.argv[4] ?? 'output/qa/interactable-nameplates';
+const output = `${outputRoot}/${mode}`;
 mkdirSync(output, { recursive: true });
 
 const tabs = await (await fetch(`http://127.0.0.1:${port}/json`)).json();
@@ -69,6 +70,7 @@ const expected = await evaluate(`(()=>s.layout.rooms.flatMap(room=>room.interact
   return {name:'interactable-label:'+room.id+':'+object.id,id:object.id,roomId:room.id,text:object.label,
     baseX:(room.origin.x+x)*16,baseY:(room.origin.y+y)*16,roomLeft:room.origin.x*16,roomRight:(room.origin.x+room.widthTiles)*16};
 })))()`);
+const playerDepth = await evaluate('s.player.getDisplayObject().depth');
 assert.equal(labels.length, expected.length);
 assert.equal(labels.length, 11);
 for (const item of expected) {
@@ -78,7 +80,8 @@ for (const item of expected) {
   const width = Math.max(28, Math.ceil(label.textWidth) + 8);
   assert.equal(label.x, Math.max(item.roomLeft + width / 2 + 2, Math.min(item.baseX, item.roomRight - width / 2 - 2)));
   assert.equal(label.y, item.baseY + 2 + (Math.ceil(label.textHeight) + 6) / 2);
-  assert.equal(label.depth, 8.5);
+  assert.equal(label.depth, 2.9);
+  assert.ok(label.depth < playerDepth);
   assert.equal(label.visible, true);
   assert.equal(label.font, "'Courier New', Courier, monospace");
   assert.equal(label.fontSize, '5px');

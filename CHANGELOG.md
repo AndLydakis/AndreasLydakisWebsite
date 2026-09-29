@@ -6,6 +6,11 @@ pushed.
 
 ## [Unreleased]
 
+### PORT-07C follow-up — Keep nameplates behind the player
+
+- Place interactable nameplates immediately below the perspective depth band so the player and perspective-sorted objects always render over them.
+- Preserve persistent/proximity visibility, placement, interaction and accessibility behavior.
+
 ### PORT-07C follow-up — Active interactable nameplates
 
 - Add a compact FF7-inspired blue nameplate beneath every interactable, with configurable persistent or proximity-only visibility.

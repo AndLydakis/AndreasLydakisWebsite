@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { DepthRegistry } from './DepthRegistry';
+import { DepthRegistry, PERSPECTIVE_DEPTH_MIN } from './DepthRegistry';
 
 const view = () => {
   const result = { depth: 2, setDepth: vi.fn((depth: number) => { result.depth = depth; }) };
@@ -28,7 +28,7 @@ describe('generic foot-based ordering', () => {
   it('keeps all ranks strictly between 3 and 4 for huge world offsets and many objects', () => {
     const registry = new DepthRegistry(), views = Array.from({length:1000}, view);
     views.forEach((v,i) => registry.registerObject('room', String(i), v, 1e12 + i));
-    registry.sort(); expect(views.every(v => v.depth>3 && v.depth<4)).toBe(true);
+    registry.sort(); expect(views.every(v => v.depth>PERSPECTIVE_DEPTH_MIN && v.depth<4)).toBe(true);
     expect(new Set(views.map(v => v.depth)).size).toBe(1000);
   });
   it('compares supplementary Unicode characters by code point in both tuple fields', () => {

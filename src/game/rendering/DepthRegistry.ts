@@ -4,6 +4,9 @@ export interface DepthView {
   setDepth(value: number): unknown;
 }
 
+/** Perspective-sorted objects and the player always render strictly above this boundary. */
+export const PERSPECTIVE_DEPTH_MIN = 3;
+
 interface Entry {
   readonly roomId: string;
   readonly id: string;
@@ -43,7 +46,7 @@ export class DepthRegistry {
     ordered.sort((a, b) => a.y - b.y || a.kind - b.kind ||
       compareText(a.roomId, b.roomId) || compareText(a.id, b.id));
     ordered.forEach(({ view }, index) => {
-      const depth = 3 + (index + 1) / (ordered.length + 1);
+      const depth = PERSPECTIVE_DEPTH_MIN + (index + 1) / (ordered.length + 1);
       if (view.depth !== depth) view.setDepth(depth);
     });
   }

@@ -1504,7 +1504,8 @@ The completed verification passes:
 - Follow-up: added `F` as an additional keyboard interaction key alongside `E`, `Enter`, `Space`, and the mobile `Interact` control.
 - Follow-up: updated the visible availability tooltip to name `E`, `F`, `Enter`, `Space`, and `Interact`.
 - Delivered presentation follow-up (DEC-161): each interactable has a generic, room-edge-clamped, camera-bound FF7-style in-world nameplate beneath its authored base. The central `ALWAYS_SHOW_INTERACTABLE_NAMEPLATES` flag defaults to `true`, keeping every label visible; `false` shows only the current proximity target and hides labels when gameplay is disabled. The accessible DOM instruction remains unchanged, and both bookcases use the owner-selected `Books` label. Automated and development/production browser evidence covers both modes and 11 interactables across desktop/portrait/landscape; evidence: `output/qa/interactable-nameplates/verification.md`.
-- Decisions and evidence are recorded in `log.md` as `DEC-043`, `DEC-044` and `DEC-161`.
+- Perspective follow-up (DEC-162): nameplates render at depth 2.9, immediately below the perspective registry's strict `> 3` band, so the player and perspective-sorted world sprites always occlude labels without per-frame depth rewrites.
+- Decisions and evidence are recorded in `log.md` as `DEC-043`, `DEC-044`, `DEC-161` and `DEC-162`.
 - Implementation may proceed to `PORT-07CA`.
 
 ---

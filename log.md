@@ -2,6 +2,14 @@
 
 This file is the project decision record. New implementation decisions, approved changes, deferred choices, and story-completion decisions must be added here before or alongside changes to `plan.md` or source files.
 
+## DEC-162 — Keep interactable nameplates behind the player
+
+- Date: 2026-09-29. Owner requires every interactable nameplate to remain behind the player in perspective ordering.
+- Put labels at depth 2.9, immediately below the perspective registry's strict depth band above 3. This guarantees the player and all perspective-sorted world sprites render over labels without changing their foot-based relative ordering or adding per-frame label depth updates.
+- Preserve label visibility modes, positions, interaction behavior and DOM accessibility. Add unit and browser assertions for the depth boundary.
+- Verification: 1,944 tests/44 files and typecheck/build pass (`index-KPb1m1WE.js`; existing bundle-size advisory only). Isolated development and production browser checks validate all 11 labels at depth 2.9 below the live player, both visibility modes, 19 desktop/portrait/landscape captures per mode and zero exceptions.
+- Keep the owner's unrelated, uncommitted kitchen label edits out of this follow-up commit.
+
 ## DEC-161 — Show an FF7-style nameplate for the active interactable
 
 - Date: 2026-09-29. Owner requests a box bearing each interactable's name below it, styled like the existing Final Fantasy VII-inspired dialog, and explicitly instructs not to push.

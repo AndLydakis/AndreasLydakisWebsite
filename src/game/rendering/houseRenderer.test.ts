@@ -169,7 +169,7 @@ describe('interactable nameplates', () => {
     expect(scene.add.container).toHaveBeenCalledWith(192, 166, [graphics, text]);
     expect(container.setName).toHaveBeenCalledWith('interactable-label:living-room:living-room-television');
     expect(container.setVisible).toHaveBeenCalledWith(false);
-    expect(container.setDepth).toHaveBeenCalledWith(8.5);
+    expect(container.setDepth).toHaveBeenCalledWith(2.9);
   });
 
   it('uses a generic below-center fallback for interactables painted into a backdrop', () => {

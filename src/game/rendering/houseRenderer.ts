@@ -16,7 +16,7 @@ import type {
   RoomDefinition,
   WorldTileRect,
 } from '../data/types';
-import type { DepthRegistry } from './DepthRegistry';
+import { PERSPECTIVE_DEPTH_MIN, type DepthRegistry } from './DepthRegistry';
 import { getAllCollisionRects, getRoomLocalCollisionRects } from '../systems/collisionGeometry';
 
 export interface HouseRenderOptions {
@@ -38,7 +38,8 @@ const COLORS = {
 } as const;
 
 const INTERACTABLE_LABEL = {
-  depth: 8.5,
+  // Labels remain behind the player and every perspective-sorted world sprite.
+  depth: PERSPECTIVE_DEPTH_MIN - 0.1,
   gap: 2,
   maxTextWidth: 72,
   horizontalPadding: 4,
