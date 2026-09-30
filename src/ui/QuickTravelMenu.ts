@@ -11,7 +11,7 @@ export class QuickTravelMenu {
 
   public constructor(
     private readonly container: HTMLElement,
-    onTravel: (id: QuickTravelId) => void,
+    onTravel: (id: QuickTravelId) => void | Promise<void>,
     onFocus: () => void,
   ) {
     container.className = 'quick-travel';

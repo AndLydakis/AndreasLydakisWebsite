@@ -6,6 +6,16 @@ pushed.
 
 ## [Unreleased]
 
+### PORT-20A–20C — Runtime loading and deployment-size reduction
+
+- Load only shared textures, compact player animation and the initial office before gameplay; then automatically load living room, gym and kitchen as sequential background batches without waiting for room entry.
+- Refresh stable room image slots after asynchronous loads while preserving visual-bundle fallback, collisions, interactions, labels and perspective behavior.
+- Add a small shared lossless corridor-floor crop so wooden corridors no longer require eager loading of the full living-room background.
+- Package only four idle and eight walking frames per direction as lossless WebP runtime strips, preserving original PNG sheets in a non-deployed source archive.
+- Move alternate viewpoints, review backgrounds and generation-only files out of `public/` into `output/assets`, with an exact published-file inventory test.
+- Reduce the production artifact from approximately 137 MiB to 57 MiB; verify all four quick-travel destinations and player movement across desktop and mobile-sized browser layouts.
+- Changes remain local for owner review; no commit or push.
+
 ### PORT-13B follow-up — Legacy portfolio link
 
 - Replace Stella's generated placeholder picture with the owner-supplied `stella.jpg`, update the dialog title and accessible description, and remove the obsolete placeholder asset.

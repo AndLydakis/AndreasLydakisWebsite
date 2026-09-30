@@ -45,17 +45,23 @@ const dialogManager = new DialogManager({
 });
 const contentIndex = new ContentIndex(dom.contentList, dialogManager);
 const bridge = new GameUiBridge();
-const quickTravel = new QuickTravelMenu(dom.quickTravel, id => {
+const quickTravel = new QuickTravelMenu(dom.quickTravel, async id => {
   const scene = game?.scene.getScene('HouseScene');
-  if (scene instanceof HouseScene && scene.travelTo(id)) {
-    const destination = quickTravelDestinations.find(item => item.id === id)!;
-    const room = houseLayout.rooms.find(item => item.id === destination.roomId)!;
-    dom.gameStatus.textContent = `Travelled to ${room.name}.`;
-    dom.gameShell.focus({ preventScroll: true });
-    dom.gameShell.scrollIntoView({ block: 'nearest', behavior: 'instant' });
-  } else {
-    dom.gameStatus.textContent = 'That destination is not available right now.';
+  const destination = quickTravelDestinations.find(item => item.id === id)!;
+  if (scene instanceof HouseScene) {
+    quickTravel.setEnabled(false);
+    dom.gameStatus.textContent = `Loading ${destination.label}...`;
+    const ready = await scene.prepareRoom(destination.roomId);
+    quickTravel.setEnabled(true);
+    if (ready && scene.travelTo(id)) {
+      const room = houseLayout.rooms.find(item => item.id === destination.roomId)!;
+      dom.gameStatus.textContent = `Travelled to ${room.name}.`;
+      dom.gameShell.focus({ preventScroll: true });
+      dom.gameShell.scrollIntoView({ block: 'nearest', behavior: 'instant' });
+      return;
+    }
   }
+  dom.gameStatus.textContent = 'That destination is not available right now.';
 }, () => {
   inputController.resetMovement();
   inputController.consumeInteractionRequest();

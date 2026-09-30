@@ -16,7 +16,9 @@ const assets = [
 ];
 
 function expectSelectedPng(asset) {
-    const bytes = readFileSync(new URL(`../../public/assets/${asset.path}`, import.meta.url));
+    const root = asset.key === 'living-room-background-couch-removed'
+      ? '../../output/assets/review-archive/' : '../../public/assets/';
+    const bytes = readFileSync(new URL(`${root}${asset.path}`, import.meta.url));
     expect(bytes.subarray(0, 8)).toEqual(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]));
     expect(bytes.toString('ascii', 12, 16)).toBe('IHDR');
     expect(bytes.readUInt32BE(16)).toBe(asset.width);

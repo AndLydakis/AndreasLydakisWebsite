@@ -44,7 +44,13 @@ const key = async (key, code, virtual) => {
 const highlight = () => evaluate("Array.from(document.querySelectorAll('.quick-travel [data-highlighted=true]')).map(b=>b.dataset.destination)");
 const destinations = [['cv','office',7.5,5.5],['media','living-room',7,6.5],['training','gym',6,7],['food-log','kitchen',4,6.5]];
 const verifyLanding = async ([id,roomId,x,y]) => {
-  await pause(180);
+  const deadline = Date.now() + 10000;
+  while (Date.now() < deadline) {
+    if ((await evaluate("document.querySelector('#game-status').textContent")).startsWith('Travelled to')) break;
+    await pause(50);
+  }
+  // Let the scene's next post-update apply camera follow after the async teleport.
+  await pause(50);
   const state = await evaluate(`(()=>{const p=s.playerSprite,b=p.body,r=s.layout.rooms.find(r=>r.id==='${roomId}'),v=s.cameras.main.worldView;
     return {dx:p.x-(r.origin.x+${x})*16,dy:b.bottom-(r.origin.y+${y})*16,vx:b.velocity.x,vy:b.velocity.y,
       visible:v.contains(p.x,p.y),focus:document.activeElement.id,dialog:document.querySelector('dialog').open,
@@ -66,6 +72,18 @@ try {
     const proto = await send('Runtime.evaluate',{expression:'Phaser.Game.prototype'});
     const games = await send('Runtime.queryObjects',{prototypeObjectId:proto.result.objectId});
     await send('Runtime.callFunctionOn',{objectId:games.objects.objectId,functionDeclaration:'function(){window.s=this[0].scene.getScene("HouseScene")}'});
+    const startupTextures = await evaluate(`({office:s.textures.exists('office-background-plants-removed'),
+      living:s.textures.exists('living-room-background-couch-table-removed'),gym:s.textures.exists('gym-background'),
+      kitchen:s.textures.exists('kitchen-background'),sources:performance.getEntriesByType('resource').map(e=>({name:e.name,start:e.startTime}))})`);
+    assert.equal(startupTextures.office,true);
+    assert.equal(startupTextures.living,true);assert.equal(startupTextures.gym,true);assert.equal(startupTextures.kitchen,true);
+    assert.equal(startupTextures.sources.filter(resource=>resource.name.includes('/sprites/player/runtime/')).length,8);
+    assert.equal(startupTextures.sources.some(resource=>resource.name.includes('/sprites/player/animations/')),false);
+    const requestedAt = fragment => startupTextures.sources.find(resource=>resource.name.includes(fragment)).start;
+    const orderedStarts = [requestedAt('/backgrounds/office/three-plants-removed-v1.png'),
+      requestedAt('/backgrounds/living-room/couch-table-removed.png'), requestedAt('/backgrounds/gym/background.png'),
+      requestedAt('/backgrounds/kitchen/sample-v3.png')];
+    assert.deepEqual([...orderedStarts].sort((a,b)=>a-b),orderedStarts);
     assert.deepEqual(await highlight(),['cv']);
     assert.equal(await evaluate("document.querySelectorAll('.quick-travel button:not(:disabled)').length"),4);
     assert.equal(await evaluate('document.documentElement.scrollWidth<=innerWidth'),true);

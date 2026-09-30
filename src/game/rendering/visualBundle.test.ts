@@ -1,7 +1,7 @@
 import type Phaser from 'phaser';
 import { describe, expect, it, vi } from 'vitest';
 import { houseLayout } from '../data/houseLayout';
-import { buildRoom, type HouseRenderLayers } from './houseRenderer';
+import { buildRoom, refreshRoomArtwork, type HouseRenderLayers } from './houseRenderer';
 import { DepthRegistry } from './DepthRegistry';
 import { getRoomLocalCollisionRects } from '../systems/collisionGeometry';
 import { office } from '../data/office';
@@ -25,6 +25,34 @@ const cases = Array.from({ length: 16 }, (_, mask) => ({
 }));
 
 describe('generic visual bundle failure matrix', () => {
+  it('refreshes existing image slots atomically when a room batch becomes available', () => {
+    const available = new Set(['furniture-placeholder', 'independent-art']);
+    const image = () => ({
+      width: 64, height: 64,
+      setTexture: vi.fn().mockReturnThis(), setVisible: vi.fn().mockReturnThis(),
+      setOrigin: vi.fn().mockReturnThis(), setDisplaySize: vi.fn().mockReturnThis(),
+      setScale: vi.fn().mockReturnThis(),
+    });
+    const background = image();
+    const memberA = image(), memberB = image(), independent = image();
+    const artwork = { background, sprites: new Map([
+      ['member-a', memberA], ['member-b', memberB], ['independent', independent],
+    ]) };
+    const scene = { textures: { exists: (key: string) => available.has(key) } };
+
+    refreshRoomArtwork(scene as unknown as Phaser.Scene, room, 16, artwork as never);
+    expect(background.setVisible).toHaveBeenLastCalledWith(false);
+    expect(memberA.setTexture).toHaveBeenLastCalledWith('furniture-placeholder');
+
+    ['restored', 'art-a', 'art-b'].forEach(key => available.add(key));
+    refreshRoomArtwork(scene as unknown as Phaser.Scene, room, 16, artwork as never);
+    expect(background.setTexture).toHaveBeenLastCalledWith('restored', '__BASE');
+    expect(background.setDisplaySize).toHaveBeenLastCalledWith(room.widthTiles * 16, room.heightTiles * 16);
+    expect(memberA.setTexture).toHaveBeenLastCalledWith('art-a');
+    expect(memberB.setTexture).toHaveBeenLastCalledWith('art-b');
+    expect(independent.setTexture).toHaveBeenLastCalledWith('independent-art');
+  });
+
   it.each(cases)('selects an atomic visual state %j', state => {
     const available = new Set(['independent-art', 'furniture-placeholder']);
     for (const [key, loaded] of [['restored', state.restored], ['art-a', state.a], ['art-b', state.b], ['original', state.original]] as const) {

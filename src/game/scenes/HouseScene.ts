@@ -1,7 +1,8 @@
 import Phaser from 'phaser';
 
 import { assetUrl } from '../../app/assetUrl';
-import { optionalTexturePaths, placeholderAssetPaths } from '../../app/assetManifest';
+import { optionalTexturePaths, placeholderAssetPaths, sharedTexturePaths } from '../../app/assetManifest';
+import { roomAtInitialSpawn, roomsForSequentialBackgroundLoad, textureAssetsForRoom } from '../assets/roomAssets';
 import {
   ALWAYS_SHOW_INTERACTABLE_NAMEPLATES,
   COLLISION_BOUNDS_VISIBLE,
@@ -25,7 +26,7 @@ import { DebugOverlay } from '../debug/DebugOverlay';
 import { Player } from '../entities/Player';
 import { PlayerVisual } from '../entities/PlayerVisual';
 import { playerAnimationAssets, PLAYER_FRAME_SIZE, PLAYER_WALK_REPAIRS } from '../entities/playerAnimation';
-import { buildHouse } from '../rendering/houseRenderer';
+import { buildHouse, refreshRoomArtwork } from '../rendering/houseRenderer';
 import type { HouseRenderLayers } from '../rendering/houseRenderer';
 import { DepthRegistry } from '../rendering/DepthRegistry';
 import { CollisionSystem } from '../systems/CollisionSystem';
@@ -77,6 +78,8 @@ export class HouseScene extends Phaser.Scene {
   private readonly depths = new DepthRegistry();
   private renderLayers?: HouseRenderLayers;
   private currentRoom?: RoomDefinition['id'];
+  private roomLoadQueue: Promise<void> = Promise.resolve();
+  private shuttingDown = false;
   private debugEnabled: boolean;
 
   public constructor(
@@ -102,6 +105,7 @@ export class HouseScene extends Phaser.Scene {
   }
 
   public preload(): void {
+    this.shuttingDown = false;
     this.load.image('player-placeholder', assetUrl(placeholderAssetPaths.player));
     this.load.image('floor-placeholder', assetUrl(placeholderAssetPaths.floor));
     this.load.image('wall-placeholder', assetUrl(placeholderAssetPaths.wall));
@@ -111,14 +115,17 @@ export class HouseScene extends Phaser.Scene {
       assetUrl(placeholderAssetPaths.interactableMarker),
     );
 
-    Object.entries(optionalTexturePaths).forEach(([key, path]) => {
+    Object.entries(sharedTexturePaths).forEach(([key, path]) => {
       this.load.image(key, assetUrl(path));
     });
+    const initialRoom = roomAtInitialSpawn(this.layout);
+    if (!initialRoom) throw new Error('Initial spawn is not inside a room.');
+    textureAssetsForRoom(initialRoom).forEach(({ key, path }) => this.load.image(key, assetUrl(path)));
     Object.entries(playerAnimationAssets).forEach(([key, path]) => {
       this.load.spritesheet(key, assetUrl(path), {
         frameWidth: PLAYER_FRAME_SIZE,
         frameHeight: PLAYER_FRAME_SIZE,
-        endFrame: 11,
+        endFrame: 3,
       });
     });
     Object.values(PLAYER_WALK_REPAIRS).forEach((repair) => {
@@ -129,7 +136,7 @@ export class HouseScene extends Phaser.Scene {
       this.load.spritesheet(repair.textureKey, assetUrl(repair.path), {
         frameWidth: repair.frameWidth,
         frameHeight: repair.frameHeight,
-        endFrame: 11,
+        endFrame: 7,
       });
     });
   }
@@ -226,6 +233,7 @@ export class HouseScene extends Phaser.Scene {
     }
 
     this.callbacks.onSceneReady?.();
+    this.loadRemainingRoomsSequentially();
   }
 
   public update(): void {
@@ -262,7 +270,36 @@ export class HouseScene extends Phaser.Scene {
     return true;
   }
 
+  /** Loads one destination's artwork as an isolated batch; navigation remains usable on art failure. */
+  public prepareRoom(roomId: RoomDefinition['id']): Promise<boolean> {
+    const room = this.layout.rooms.find(candidate => candidate.id === roomId);
+    if (!room || this.shuttingDown) return Promise.resolve(false);
+    const operation = this.roomLoadQueue.then(async () => {
+      if (this.shuttingDown) return false;
+      const missing = textureAssetsForRoom(room).filter(asset => !this.textures.exists(asset.key));
+      if (missing.length > 0) {
+        await new Promise<void>((resolve) => {
+          const complete = () => {
+            this.load.off(Phaser.Loader.Events.COMPLETE, complete);
+            resolve();
+          };
+          this.load.once(Phaser.Loader.Events.COMPLETE, complete);
+          missing.forEach(({ key, path }) => this.load.image(key, assetUrl(path)));
+          this.load.start();
+        });
+      }
+      if (this.shuttingDown) return false;
+      this.configureTextureFiltering();
+      const artwork = this.renderLayers?.roomArtwork.get(room.id);
+      if (artwork) refreshRoomArtwork(this, room, this.layout.tileSize, artwork);
+      return true;
+    });
+    this.roomLoadQueue = operation.then(() => undefined, () => undefined);
+    return operation;
+  }
+
   public shutdown(): void {
+    this.shuttingDown = true;
     this.events.off(Phaser.Scenes.Events.POST_UPDATE, this.synchronizePresentation, this);
     this.depths.clear();
     // CameraManager may already have disposed its cameras on scene shutdown.
@@ -353,12 +390,22 @@ export class HouseScene extends Phaser.Scene {
     }
   }
 
+  private loadRemainingRoomsSequentially(): void {
+    for (const room of roomsForSequentialBackgroundLoad(this.layout)) {
+      if (this.shuttingDown) return;
+      void this.prepareRoom(room.id);
+    }
+  }
+
   /** Smooth high-resolution environment art while retaining crisp player animation frames. */
   private configureTextureFiltering(): void {
     Object.keys(optionalTexturePaths).forEach((key) => {
       if (this.textures.exists(key)) {
         this.textures.get(key).setFilter(Phaser.Textures.FilterMode.LINEAR);
       }
+    });
+    Object.keys(sharedTexturePaths).forEach((key) => {
+      if (this.textures.exists(key)) this.textures.get(key).setFilter(Phaser.Textures.FilterMode.LINEAR);
     });
     const playerKeys = [
       'player-placeholder',

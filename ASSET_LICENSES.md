@@ -59,23 +59,23 @@ Replace this document with a full attribution record if approved third-party ass
 
 ## Player neutral front sample
 
-- File: `public/assets/sprites/player/idle-down-sample.png`.
+- File: `output/assets/player-animation-sources/idle-down-sample.png`.
 - Provenance: AI-generated using the built-in image generation tool on 2026-09-18 from the owner's character description in `utils/style_player.md`. Project-generated room, TV and record-player assets supplied the style references.
 - Status: original avatar design sample retained for provenance. No supplied real-person likeness or third-party reference artwork.
 - Design intent and missing-transcript notice: `output/imagegen/player-idle-down-sample.prompt.md`.
-- Revision 2: `public/assets/sprites/player/idle-down-sample-v2.png`, edited with the built-in image tool from the original sample at the owner's request for slightly lighter hair and a slimmer build. Approved as the identity reference for PORT-14. Edit intent and missing-transcript notice: `output/imagegen/player-idle-down-sample-v2.prompt.md`.
+- Revision 2: `output/assets/player-animation-sources/idle-down-sample-v2.png`, edited with the built-in image tool from the original sample at the owner's request for slightly lighter hair and a slimmer build. Approved as the identity reference for PORT-14. Edit intent and missing-transcript notice: `output/imagegen/player-idle-down-sample-v2.prompt.md`.
 
 ## Player directional animation sheets — PORT-14
 
-- Files: `public/assets/sprites/player/animations/{down,left,right,up}.png`.
+- Source files: `output/assets/player-animation-sources/animations/{down,left,right,up}.png`.
 - Provenance: generated with the built-in image tool on 2026-09-18, using the approved v2 character reference and the shared project styling. No third-party artwork was supplied.
 - Format: four original, unmodified 1448×1086 RGBA PNGs, 4×3 cells per sheet. First row: four idle frames. Remaining rows: eight walk frames.
-- Runtime: eight directional animation states; measured frame-origin metadata aligns artwork to the existing physics foot position without rewriting image pixels.
+- Runtime: eight lossless WebP strips under `public/assets/sprites/player/runtime/`; each contains only the four idle or eight walking frames consumed by the game. Measured frame-origin metadata aligns artwork to the existing physics foot position.
 - Prompt set: `output/imagegen/player-animation-sheets.prompt.md`; editable art brief: `utils/style_player.md`.
 
 ### Right/down walking corrections
 
-- Runtime files: `public/assets/sprites/player/animations/right-walk-v2.png` (1447×1087) and `down-walk-v3.png` (1448×1086).
+- Source files: `output/assets/player-animation-sources/animations/right-walk-v2.png` (1447×1087) and `down-walk-v3.png` (1448×1086). Their selected walking rows are packaged as lossless WebP runtime strips.
 - Generated using the built-in image tool on 2026-09-18. Right uses the project's working left sequence as a gait reference; down is a targeted refinement of the project's original down sheet. No third-party references.
 - Only walking frames are consumed. Original idle sources and working left/up artwork are preserved unchanged. Per-sheet dimensions and measured origins are explicit in `playerAnimation.ts`.
 - Exact prompts, rejected iteration notes and provenance: `output/imagegen/player-walking-repair.prompt.md`.
@@ -84,5 +84,5 @@ Replace this document with a full attribution record if approved third-party ass
 
 - File: `public/assets/sprites/gym-boxing-bag/front-three-quarter.png`.
 - Generated with the built-in image tool on 2026-09-20 from the owner's `utils/style_bbag.md`; no external reference image used.
-- Exact prompt: `public/assets/sprites/gym-boxing-bag/generation-prompt.md`. Original generated PNG preserved, with alpha transparency; included in the owner's 2026-09-20 visual approval.
+- Exact prompt: `output/assets/review-archive/sprites/generation-prompt.md`. Original generated PNG preserved, with alpha transparency; included in the owner's 2026-09-20 visual approval.
 - DEC-100: owner requested runtime placement; preloaded as optional artwork and displayed at 63.75px height in the gym's bottom-left. Original image remains unchanged; final placement review pending.

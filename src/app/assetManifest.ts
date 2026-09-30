@@ -10,6 +10,11 @@ export const placeholderAssetPaths = {
 
 export const requiredPlaceholderAssetPaths = Object.values(placeholderAssetPaths);
 
+/** Small shared scene textures that are needed before any optional room is entered. */
+export const sharedTexturePaths = {
+  'corridor-wood': 'tiles/corridor-wood.webp',
+} as const;
+
 /** Optional artwork can fail to load without preventing the generic house from starting. */
 export const optionalTexturePaths = {
   'kitchen-background': 'backgrounds/kitchen/sample-v3.png',

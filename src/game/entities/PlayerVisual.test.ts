@@ -53,26 +53,26 @@ describe('player visual isolation', () => {
 
   it('registers repaired walking textures and uses their matching frame anchors', () => {
     const { visual, scene, sprite, step } = fixture();
-    expect(scene.anims.generateFrameNumbers).toHaveBeenCalledWith('player-right-walk-matched-v1', { start:4, end:11 });
-    expect(scene.anims.generateFrameNumbers).toHaveBeenCalledWith('player-down-walk-v3', { start:4, end:11 });
+    expect(scene.anims.generateFrameNumbers).toHaveBeenCalledWith('player-right-walk-matched-v1', { start:0, end:7 });
+    expect(scene.anims.generateFrameNumbers).toHaveBeenCalledWith('player-down-walk-v3', { start:0, end:7 });
     visual!.update('right', {x:144,y:0});
     step(18);
     const repair=PLAYER_WALK_REPAIRS.right;
-    expect(sprite.setOrigin).toHaveBeenLastCalledWith(repair.anchors[6][0]/repair.frameRects[6][2],repair.anchors[6][1]/repair.frameRects[6][3]);
+    expect(sprite.setOrigin).toHaveBeenLastCalledWith(repair.anchors[2][0]/repair.frameRects[2][2],repair.anchors[2][1]/repair.frameRects[2][3]);
   });
 
   it('advances by actual travel, changes direction and idles when blocked despite held input', () => {
     const { visual, sprite, step, sync } = fixture();
     visual!.update('left', { x: -144, y: 0 });
     step(-9);
-    expect(sprite.frame.name).toBe(5);
+    expect(sprite.frame.name).toBe(1);
     expect(sprite.anims.pause).toHaveBeenCalledOnce();
     const calls = sprite.play.mock.calls.length;
     sync(); // No physics step on a high-refresh frame: keep walk, not idle.
     expect(sprite.play.mock.calls.length).toBe(calls);
     visual!.update('left', { x: -144, y: 0 });
     step(-9);
-    expect(sprite.frame.name).toBe(6);
+    expect(sprite.frame.name).toBe(2);
     expect(sprite.play.mock.calls.length).toBe(calls);
     visual!.update('right', { x: 144, y: 0 });
     step(9);
@@ -87,7 +87,7 @@ describe('player visual isolation', () => {
     step(0, 200);
     expect(sprite.play).toHaveBeenLastCalledWith('player-idle-down', true);
     step(0, 9);
-    expect(sprite.frame.name).toBe(5);
+    expect(sprite.frame.name).toBe(1);
     visual!.update('down', { x: 0, y: 0 });
     expect(sprite.play).toHaveBeenLastCalledWith('player-idle-down', true);
   });
@@ -96,7 +96,7 @@ describe('player visual isolation', () => {
     const { visual, sprite, anchor, scene } = fixture();
     expect(sprite.setPosition).toHaveBeenLastCalledWith(104, 184);
     anchor.x = 200; anchor.y = 240;
-    sprite.frame.name = 9;
+    sprite.frame.name = 2;
     visual!.synchronize();
     expect(sprite.setPosition).toHaveBeenLastCalledWith(200, 256);
     expect(anchor.width).toBe(32);
@@ -121,6 +121,6 @@ describe('player visual isolation', () => {
     visual!.synchronize(true);
     expect(sprite.setPosition).toHaveBeenLastCalledWith(anchor.x, anchor.y + 16);
     visual!.update('right', { x: 144, y: 0 }); step(9);
-    expect(sprite.frame.name).toBe(5); // New walk starts from zero distance.
+    expect(sprite.frame.name).toBe(1); // New walk starts from zero distance.
   });
 });

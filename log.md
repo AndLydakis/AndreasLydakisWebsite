@@ -2,6 +2,15 @@
 
 This file is the project decision record. New implementation decisions, approved changes, deferred choices, and story-completion decisions must be added here before or alongside changes to `plan.md` or source files.
 
+## DEC-184 — Implement the selected loading-performance mitigations
+
+- Date: 2026-09-30. Owner selects investigation recommendations 4, 5 and 8 and explicitly requests no push: room-scoped loading, compact player-frame packaging and removal of review-only files from the published tree.
+- Loading boundary: Startup loads placeholders, the reusable corridor crop, eight compact player strips and the initial office inventory. Once gameplay is ready, a generic metadata-derived loader immediately queues living room, gym and kitchen as separate sequential batches; loading does not wait for room entry. Quick travel disables its buttons, reports loading, waits for the already queued destination batch and then uses the existing synchronous teleport.
+- Rendering: Every room receives stable backdrop/object image slots at scene construction. Loaded textures refresh those slots in place, retaining all collision systems, interaction metadata, labels and depth registrations. Visual-bundle foregrounds and fallbacks still switch atomically.
+- Player package: Keep original generated PNG sheets and samples in `output/assets/player-animation-sources`; deploy lossless WebP strips with only four idle or eight walking frames per direction. Reindex presentation frames only; preserve display size, measured anchors, distance cadence and physics.
+- Deployment tree: Preserve unused viewpoints/backgrounds/prompts under `output/assets/review-archive`; remove them from `public/assets`. Add an exact runtime inventory regression so a review artifact cannot silently re-enter deployment.
+- Result: 1,968 tests pass; typecheck and production build pass. `dist` decreases from approximately 137 MiB to 57 MiB. Isolated Chrome confirms ordered office, living-room, gym and kitchen request starts, no source-sheet requests and all four quick-travel destinations across desktop, portrait, landscape and 320px-wide layouts. Motion verification passes all directions and diagonal travel with zero camera jitter, blocked idle, restart cleanup and no exceptions. Visual inspection confirms the final office/player frame. Keep all changes local until owner acceptance; no commit or push.
+
 ## DEC-183 — Replace Stella's placeholder photograph
 
 - Date: 2026-09-30. Owner supplies `public/assets/photos/dog/stella.jpg` and requests replacing the fictional placeholder, adjusting tests and removing unused assets.

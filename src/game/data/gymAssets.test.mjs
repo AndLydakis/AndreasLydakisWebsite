@@ -14,11 +14,19 @@ const views = {
 };
 
 describe('gym asset delivery inventory', () => {
-  it.each(Object.entries(views))('contains exactly the requested %s views as RGBA PNGs', (id, directions) => {
-    const folder = new URL(`../../../public/assets/sprites/gym-${id}/`, import.meta.url);
-    expect(readdirSync(folder).filter((file) => file.endsWith('.png')).sort())
-      .toEqual(directions.map((view) => `${view}.png`).sort());
+  const selected = {
+    'squat-rack': 'front-right', bench: 'front', 'dumbbell-rack': 'front', boombox: 'front',
+    'steel-plates': 'front', 'bumper-plates': 'front', 'boxing-bag': 'front-three-quarter',
+  };
+
+  it.each(Object.entries(views))('deploys only the selected %s view and archives alternatives', (id, directions) => {
+    const runtime = new URL(`../../../public/assets/sprites/gym-${id}/`, import.meta.url);
+    expect(readdirSync(runtime).filter((file) => file.endsWith('.png')).sort())
+      .toEqual([`${selected[id]}.png`]);
     for (const view of directions) {
+      const folder = view === selected[id] || directions.length === 1
+        ? runtime
+        : new URL(`../../../output/assets/review-archive/sprites/gym-${id}/`, import.meta.url);
       const png = readFileSync(new URL(`${view}.png`, folder));
       expect(png.subarray(0, 8).toString('hex')).toBe('89504e470d0a1a0a');
       expect(png.readUInt32BE(16)).toBeGreaterThan(0);

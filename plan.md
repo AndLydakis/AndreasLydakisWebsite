@@ -3697,6 +3697,102 @@ Close the extension with independent end-to-end evidence and a repeatable mainta
 
 Use a fresh checkout and the documented workflow. Have reviewers reproduce representative overlap, collision, asset-failure and interaction checks; repeat affected checks after any fix rather than relying on earlier evidence.
 
+## PORT-20A — Load room artwork on demand
+
+Type: Story
+Priority: High
+Dependencies: Existing room manifest and generic renderer
+Milestone: M7 — Runtime performance
+Status: Implemented locally — automated and isolated-browser verification passed; pending owner acceptance. Not committed or pushed.
+
+### Goal
+
+Reduce cold-start work by loading only shared assets, the player and the initial office before gameplay, then warm the remaining rooms in the fixed order living room, gym and kitchen without waiting for player movement.
+
+### Subtasks
+
+1. Derive a deduplicated texture inventory from generic room metadata, including coherent visual-bundle fallbacks, without room-specific loader branches.
+2. Build stable background/object image slots once and refresh their textures after a room batch loads; preserve authored collisions, interactions, labels and perspective registrations.
+3. Serialize Phaser loader batches in the content-defined order office, living room, gym and kitchen so rapid quick-travel requests cannot corrupt or reorder the shared loader queue.
+4. Keep `travelTo` synchronous for existing callers, but make the UI await destination artwork, show a loading status and disable duplicate menu actions before teleporting.
+5. Package the corridor wood crop as a small shared startup texture so corridors retain their accepted appearance without forcing the living-room backdrop into the initial batch.
+
+### Acceptance criteria
+
+- The startup gate contains only office artwork; once gameplay becomes ready, living-room, gym and kitchen batches begin automatically and sequentially.
+- Each completed background batch refreshes existing render objects without rebuilding geometry or waiting for the player to enter that room.
+- Visual bundles remain atomic: complete foreground bundles use their restored backdrop; incomplete bundles use their baked fallback or placeholders.
+- Loading failure cannot remove collision/interaction behavior, and duplicate quick-travel input is gated while a batch is active.
+- Desktop, portrait, landscape and 320px-wide quick travel reach all four destinations with correct camera, focus and no uncaught exceptions.
+
+### Verification
+
+Run room-inventory and visual-bundle unit tests, the full test/typecheck/build suite and `scripts/verify-quick-travel-browser.mjs`. The browser verifier must confirm office, living-room, gym and kitchen request start times are ordered before traversing every destination twice.
+
+---
+
+## PORT-20B — Package only runtime player frames
+
+Type: Story
+Priority: High
+Dependencies: `PORT-20A` startup boundary
+Milestone: M7 — Runtime performance
+Status: Implemented locally — automated and isolated-browser verification passed; pending owner acceptance. Not committed or pushed.
+
+### Goal
+
+Keep the accepted player appearance and distance-driven animation while removing unused rows and duplicate frames from the deployed animation package.
+
+### Subtasks
+
+1. Preserve every original PNG sheet and approved sample under the non-deployed source archive.
+2. Produce lossless WebP strips containing four idle frames and eight walking frames for each direction.
+3. Reindex frame rectangles, anchors, walk-cycle output and Phaser animation ranges to the compact strips without changing display height, physics or gait distance.
+4. Update source-integrity and runtime-format tests plus browser motion telemetry for the zero-based walking frames.
+
+### Acceptance criteria
+
+- Runtime loads exactly eight compact player files and requests no original animation sheet.
+- Every direction has four idle and eight walking frames with valid anchors and source rectangles.
+- Movement remains distance-driven, camera jitter remains zero in the existing verifier, blocked movement idles and scene restart does not leak listeners.
+- Original generated PNGs remain available for future regeneration and retain their pinned hashes.
+
+### Verification
+
+Run player asset, walk-cycle and `PlayerVisual` tests plus `scripts/verify-player-motion-browser.mjs` for all cardinal and diagonal movement, blocked idle and restart cleanup.
+
+---
+
+## PORT-20C — Exclude review artwork from deployment
+
+Type: Story
+Priority: High
+Dependencies: `PORT-20A`, `PORT-20B`
+Milestone: M7 — Runtime performance
+Status: Implemented locally — automated verification passed; pending owner acceptance. Not committed or pushed.
+
+### Goal
+
+Ensure the Vite `public/` tree contains only files used by the website while preserving alternates, source sheets and generation records in a tracked non-deployed archive.
+
+### Subtasks
+
+1. Move alternate room backgrounds, unused object viewpoints, player sources, raster-backed SVG copies and generation-only notes to `output/assets` with recognizable grouping.
+2. Update provenance documentation and asset tests to distinguish runtime selections from archived source/review material.
+3. Add an exact deployment-inventory regression derived from manifests plus the small set of content-only files.
+4. Compare clean production artifact size with the pre-change baseline and retain the existing application behavior tests.
+
+### Acceptance criteria
+
+- `public/assets` contains no unused directional variants, source animation sheets, review backgrounds, generation prompts or empty placeholder files.
+- All source/review files remain recoverable under `output/assets`; selected runtime files remain byte-identical unless explicitly repackaged by PORT-20B.
+- The deployment inventory test fails on either an unexpected published file or a missing runtime dependency.
+- Production output decreases from approximately 137 MiB to approximately 57 MiB and still builds without missing-asset errors.
+
+### Verification
+
+Run the exact asset-inventory tests, full test/typecheck/build suite, whitespace checks and browser room traversal. Review the generated desktop screenshot for complete office/player rendering.
+
 ## 6. Beginner Maintenance Workflow
 
 For future changes:

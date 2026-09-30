@@ -10,5 +10,5 @@ export function advanceWalkCycle(phase: number, distance: number): number {
 }
 
 export function walkFrame(phase: number): number {
-  return 4 + Math.min(7, Math.floor(phase * 8));
+  return Math.min(7, Math.floor(phase * 8));
 }

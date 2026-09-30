@@ -68,6 +68,12 @@ export interface HouseRenderLayers {
   readonly interactableLabelHighlights: Map<string, Phaser.GameObjects.Graphics>;
   readonly labelActivationBounds: Map<string, WorldTileRect>;
   readonly interactionRadiusPreview: Phaser.GameObjects.Graphics;
+  readonly roomArtwork: Map<string, RoomArtwork>;
+}
+
+export interface RoomArtwork {
+  readonly background: Phaser.GameObjects.Image;
+  readonly sprites: Map<string, Phaser.GameObjects.Image>;
 }
 
 /** Creates all generic layout render layers for the supplied house. */
@@ -159,6 +165,24 @@ export function buildRoom(
   // Scenery is independent of physics: never paint collision blocks over room art.
   // Missing optional textures retain the generic floor and visible obstacle fallback.
   const sprites = [...room.interactables, ...(room.decorations ?? [])];
+  const dynamicArtwork = layers.roomArtwork !== undefined;
+  if (dynamicArtwork) {
+    const background = scene.add.image(roomPixels.x, roomPixels.y, 'floor-placeholder')
+      .setOrigin(0, 0).setDisplaySize(roomPixels.width, roomPixels.height).setDepth(1).setVisible(false);
+    const images = new Map<string, Phaser.GameObjects.Image>();
+    sprites.forEach((sprite) => {
+      const position = worldTileToWorldPixel(roomTileToWorld(room, sprite.position), tileSize);
+      const image = scene.add.image(position.x, position.y, 'furniture-placeholder').setDepth(2).setOrigin(0.5, 0.5);
+      images.set(sprite.id, image);
+      if (sprite.groundAnchor !== undefined) {
+        const ground = roomGroundAnchorToWorldPixel(room, sprite.groundAnchor, tileSize);
+        options.depthRegistry?.registerObject(room.id, sprite.id, image, ground.y);
+      }
+    });
+    const artwork = { background, sprites: images };
+    layers.roomArtwork.set(room.id, artwork);
+    refreshRoomArtwork(scene, room, tileSize, artwork);
+  }
   const foregroundIds = new Set(room.visualBundle?.foregroundIds ?? []);
   const textureExists = (key: string | undefined): boolean => Boolean(key && scene.textures.exists(key));
   // Select once per room: never mix a baked fallback with its extracted foregrounds.
@@ -167,7 +191,7 @@ export function buildRoom(
   const backgroundKey = room.visualBundle && !bundleReady
     ? room.visualBundle.fallbackAssetId : room.visualAssetId;
   const hasBackground = textureExists(backgroundKey);
-  if (hasBackground && backgroundKey) {
+  if (!dynamicArtwork && hasBackground && backgroundKey) {
     // Corridor crops can change a texture's default frame; backgrounds need the full PNG.
     scene.add.image(roomPixels.x, roomPixels.y, backgroundKey, '__BASE')
       .setOrigin(0, 0)
@@ -181,7 +205,7 @@ export function buildRoom(
       tileSize,
     );
 
-    if (!hasBackground) {
+    if (!hasBackground && !dynamicArtwork) {
       layers.walls.fillStyle(COLORS.wall, 1);
       layers.walls.fillRect(
         collisionPixels.x,
@@ -201,7 +225,7 @@ export function buildRoom(
   });
 
   // Decorations use the same rendering contract, but are absent from interaction selection.
-  sprites.forEach((interactable) => {
+  if (!dynamicArtwork) sprites.forEach((interactable) => {
     const failedBundleMember = foregroundIds.has(interactable.id) && !bundleReady;
     if (failedBundleMember && hasBackground) return;
     // Painted furniture still has a normal interaction target, but needs no duplicate sprite.
@@ -253,6 +277,56 @@ export function buildRoom(
       layers.labelActivationBounds.set(interactable.id, rendered.activationBounds);
     });
   }
+}
+
+/** Rebinds existing room image objects after an on-demand texture batch completes. */
+export function refreshRoomArtwork(
+  scene: Phaser.Scene,
+  room: RoomDefinition,
+  tileSize: number,
+  artwork: RoomArtwork,
+): void {
+  const sprites = [...room.interactables, ...(room.decorations ?? [])];
+  const foregroundIds = new Set(room.visualBundle?.foregroundIds ?? []);
+  const exists = (key: string | undefined) => Boolean(key && scene.textures.exists(key));
+  const bundleReady = exists(room.visualAssetId) && [...foregroundIds].every(id =>
+    exists(sprites.find(sprite => sprite.id === id)?.assetId));
+  const backgroundKey = room.visualBundle && !bundleReady
+    ? room.visualBundle.fallbackAssetId : room.visualAssetId;
+  const hasBackground = exists(backgroundKey);
+
+  if (hasBackground && backgroundKey) {
+    artwork.background.setTexture(backgroundKey, '__BASE')
+      .setOrigin(0, 0)
+      .setDisplaySize(room.widthTiles * tileSize, room.heightTiles * tileSize)
+      .setVisible(true);
+  } else {
+    artwork.background.setVisible(false);
+  }
+
+  sprites.forEach((sprite) => {
+    const image = artwork.sprites.get(sprite.id);
+    if (!image) return;
+    const hiddenBundleMember = foregroundIds.has(sprite.id) && !bundleReady && hasBackground;
+    const paintedIntoBackground = sprite.artworkInBackground && hasBackground;
+    if (hiddenBundleMember || paintedIntoBackground) {
+      image.setVisible(false);
+      return;
+    }
+    const textureKey = sprite.assetId && exists(sprite.assetId) && !(foregroundIds.has(sprite.id) && !bundleReady)
+      ? sprite.assetId : 'furniture-placeholder';
+    const hasArtwork = textureKey === sprite.assetId;
+    image.setTexture(textureKey).setVisible(true).setOrigin(0.5, 0.5);
+    if (hasArtwork && sprite.displayHeightTiles !== undefined) {
+      if (sprite.displayWidthTiles !== undefined) {
+        image.setDisplaySize(sprite.displayWidthTiles * tileSize, sprite.displayHeightTiles * tileSize);
+      } else {
+        image.setScale((sprite.displayHeightTiles * tileSize) / image.height);
+      }
+    } else {
+      image.setScale(Math.min(1, (tileSize * 3) / Math.max(image.width, image.height)));
+    }
+  });
 }
 
 /** Places a nameplate below the authored physical base, with a safe fallback for baked artwork. */
@@ -347,14 +421,12 @@ export function drawLivingRoomFloor(
   rect: { x: number; y: number; width: number; height: number },
   tileSize: number,
 ): boolean {
-  const key = 'living-room-background';
+  const key = 'corridor-wood';
   if (!scene.textures.exists(key)) return false;
   const texture = scene.textures.get(key);
-  const source = texture.getSourceImage();
-  const scaleX = tileSize * 20 / source.width;
-  const scaleY = tileSize * 14 / source.height;
-  // This furniture-free patch also excludes the painted right wall and sunlight.
-  const patch = { x: 1080, y: 360, width: 312, height: 440 };
+  const scaleX = tileSize * 20 / 1499;
+  const scaleY = tileSize * 14 / 1049;
+  const patch = { x: 0, y: 0, width: 312, height: 440 };
   for (let y = 0; y < rect.height; y += patch.height * scaleY) {
     for (let x = 0; x < rect.width; x += patch.width * scaleX) {
       const width = Math.min(patch.width * scaleX, rect.width - x);
@@ -406,6 +478,7 @@ function createRenderLayers(scene: Phaser.Scene, debugEnabled: boolean): HouseRe
     interactableLabelHighlights: new Map(),
     labelActivationBounds: new Map(),
     interactionRadiusPreview: scene.add.graphics().setDepth(INTERACTION_RADIUS_DEPTH).setVisible(false),
+    roomArtwork: new Map(),
   };
 }
 

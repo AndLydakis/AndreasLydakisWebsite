@@ -19,7 +19,7 @@ describe('player animation contract', () => {
     expect(playerAnimationSource('down', 'walk').textureKey).toBe('player-down-walk-v3');
   });
 
-  it('preserves the accepted down walk and all idle artwork byte for byte', () => {
+  it('preserves the accepted source artwork byte for byte outside the deployment tree', () => {
     const expected = {
       'down-walk-v3': '3aba7ed262c46882cfbc13aa8ae4d2db92e31a2ef811b00503ced7766cdcd83b',
       down: '856ee738aa8f711d7e71694756e60059af2836902045062825d4433702595496',
@@ -28,21 +28,19 @@ describe('player animation contract', () => {
       up: 'd5ee38666bd57cbb4aee425e8c1e2c2868b0c5cd8d8fb9ac36607f186768cbf3',
     };
     for (const [direction, hash] of Object.entries(expected)) {
-      const data=readFileSync(`public/assets/sprites/player/animations/${direction}.png`);
+      const data=readFileSync(`output/assets/player-animation-sources/animations/${direction}.png`);
       expect(createHash('sha256').update(data).digest('hex')).toBe(hash);
     }
   });
 
-  it.each(Object.values(PLAYER_WALK_REPAIRS))('loads twelve cells using actual replacement dimensions: $textureKey', (repair) => {
-    const png=readFileSync(`public/assets/${repair.path}`);
-    expect(Math.floor(png.readUInt32BE(16)/repair.frameWidth)).toBe(4);
-    expect(Math.floor(png.readUInt32BE(20)/repair.frameHeight)).toBe(3);
-    expect(png[25]).toBe(6);
-    expect(repair.anchors).toHaveLength(12);
+  it.each(Object.values(PLAYER_WALK_REPAIRS))('loads only eight walking cells: $textureKey', (repair) => {
+    const webp=readFileSync(`public/assets/${repair.path}`);
+    expect(webp.toString('ascii', 0, 4)).toBe('RIFF');
+    expect(webp.toString('ascii', 8, 12)).toBe('WEBP');
+    expect(repair.anchors).toHaveLength(8);
     for (const [index,[x,y]] of repair.anchors.entries()) {
       const [sx,sy,w,h]=playerFrameRect(repair,index);
       expect(sx).toBeGreaterThanOrEqual(0); expect(sy).toBeGreaterThanOrEqual(0);
-      expect(sx+w).toBeLessThanOrEqual(png.readUInt32BE(16)); expect(sy+h).toBeLessThanOrEqual(png.readUInt32BE(20));
       expect(x).toBeGreaterThan(0); expect(x).toBeLessThan(w);
       expect(y).toBeGreaterThan(0); expect(y).toBeLessThanOrEqual(h);
     }
@@ -57,19 +55,18 @@ describe('player animation contract', () => {
 
   it('has four idle and eight walk frames, with no missing or repeated indices', () => {
     expect(PLAYER_ANIMATION_SEQUENCES.map((sequence) => sequence.frameRate)).toEqual([4, 8]);
-    const frames = PLAYER_ANIMATION_SEQUENCES.flatMap(({ start, end }) =>
-      Array.from({ length: end - start + 1 }, (_, index) => start + index));
-    expect(frames).toEqual(Array.from({ length: 12 }, (_, index) => index));
+    expect(PLAYER_ANIMATION_SEQUENCES.map(({ start, end }) => [start, end])).toEqual([[0, 3], [0, 7]]);
   });
 
-  it.each(PLAYER_DIRECTIONS)('ships the expected RGBA grid and anchors for %s', (direction) => {
+  it.each(PLAYER_DIRECTIONS)('ships a compact lossless WebP idle strip for %s', (direction) => {
     const file = readFileSync(`public/assets/${playerAnimationAssets[`player-${direction}`]}`);
-    expect(file.subarray(1, 4).toString()).toBe('PNG');
-    expect(file.readUInt32BE(16)).toBe(PLAYER_FRAME_SIZE * 4);
-    expect(file.readUInt32BE(20)).toBe(PLAYER_FRAME_SIZE * 3);
-    expect(file[24]).toBe(8);
-    expect(file[25]).toBe(6); // RGBA, not an opaque painted transparency pattern.
-    expect(PLAYER_FRAME_ANCHORS[direction]).toHaveLength(12);
+    expect(file.toString('ascii', 0, 4)).toBe('RIFF');
+    expect(file.toString('ascii', 8, 12)).toBe('WEBP');
+    expect(file.toString('ascii', 12, 16)).toBe('VP8L');
+    const dimensions = file.readUInt32LE(21);
+    expect((dimensions & 0x3fff) + 1).toBe(PLAYER_FRAME_SIZE * 4);
+    expect(((dimensions >>> 14) & 0x3fff) + 1).toBe(PLAYER_FRAME_SIZE);
+    expect(PLAYER_FRAME_ANCHORS[direction]).toHaveLength(4);
     for (const [x, y] of PLAYER_FRAME_ANCHORS[direction]) {
       expect(x).toBeGreaterThan(0);
       expect(x).toBeLessThan(PLAYER_FRAME_SIZE);

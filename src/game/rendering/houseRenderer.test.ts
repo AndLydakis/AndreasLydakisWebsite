@@ -63,15 +63,14 @@ describe('temporary collision bounds review', () => {
 describe('wooden corridor floors', () => {
   it('reuses living-room pixels at matching scale and caches source frames', () => {
     const frames = new Set<string>();
-    const texture = { getSourceImage: () => ({ width: 1499, height: 1049 }),
-      has: (key: string) => frames.has(key),
+    const texture = { has: (key: string) => frames.has(key),
       add: vi.fn((key: string) => frames.add(key)) };
     const image = { setOrigin: vi.fn().mockReturnThis(), setDisplaySize: vi.fn().mockReturnThis(), setDepth: vi.fn().mockReturnThis() };
     const scene = { textures: { exists: () => true, get: () => texture }, add: { image: vi.fn(() => image) } };
     const rect = { x: 160, y: 288, width: 64, height: 32 };
     expect(drawLivingRoomFloor(scene as unknown as Phaser.Scene, rect, 16)).toBe(true);
-    expect(texture.add).toHaveBeenCalledWith('corridor-wood-300-150', 0, 1080, 360, 300, 150);
-    expect(scene.add.image).toHaveBeenCalledWith(160, 288, 'living-room-background', 'corridor-wood-300-150');
+    expect(texture.add).toHaveBeenCalledWith('corridor-wood-300-150', 0, 0, 0, 300, 150);
+    expect(scene.add.image).toHaveBeenCalledWith(160, 288, 'corridor-wood', 'corridor-wood-300-150');
     expect(image.setDisplaySize).toHaveBeenCalledWith(64, 32);
     drawLivingRoomFloor(scene as unknown as Phaser.Scene, rect, 16);
     expect(texture.add).toHaveBeenCalledTimes(1);

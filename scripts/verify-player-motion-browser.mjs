@@ -58,7 +58,7 @@ try {
       const a=moving[i-1], b=moving[i]; const d=Math.hypot(b.x-a.x,b.y-a.y);distance+=d;
       const expected=(a.phase+d/72)%1;
       assert.ok(Math.abs(b.phase-expected)<1e-6,'gait tracks actual distance');
-      assert.equal(b.frame,4+Math.min(7,Math.floor(b.phase*8)));
+      assert.equal(b.frame,Math.min(7,Math.floor(b.phase*8)));
     }
     const summary={keys,frames:moving.length,distance,screenJitterX:spread('screenX'),screenJitterY:spread('screenY')};
     results.push(summary); console.log('PASS',summary);
