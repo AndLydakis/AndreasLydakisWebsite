@@ -2848,7 +2848,7 @@ Type: Security maintenance story
 Priority: High
 Dependencies: None
 Milestone: M5
-Status: In progress
+Status: Done
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 
 ### Goal
@@ -2875,6 +2875,8 @@ Remove the identified development-dependency vulnerability and local-path privac
 ### Verification
 
 Run the project validation commands, `npm audit`, a full-history content scan for the removed identifiers, `git bundle verify` on the offline backup, and compare local and remote rewritten heads after the force-push.
+
+Completion evidence: the verified backup contains the original complete history; all 1,960 tests, typecheck, production build, zero-vulnerability audit, whitespace check and 83-commit identifier scan passed. Rewritten `master` was published with an explicit lease against the backed-up pre-rewrite remote head.
 
 ---
 

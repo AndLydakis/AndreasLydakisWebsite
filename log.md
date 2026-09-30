@@ -9,6 +9,7 @@ This file is the project decision record. New implementation decisions, approved
 - Dependency: Upgrade Vitest and its mocker package from vulnerable 3.x releases to the Node-22-compatible patched `4.1.11` release; do not move to Vitest 5 because its minimum Node version exceeds the project’s declared baseline.
 - Privacy: Replace absolute workstation paths with `<repo>` or `<owner-supplied-reference>` and generated-image paths/session identifiers with `<generated-image-source>` in the current tree and every reachable historical commit.
 - Delivery: Add focused `PORT-17A1`, run full automated validation and history scans, then force-push rewritten `master` with lease protection. Existing clones must re-clone or explicitly reset to the rewritten history.
+- Delivered: the complete backup was verified before and after rewriting; all 1,960 tests, typecheck, production build, whitespace checks and the npm zero-vulnerability audit passed. All 83 reachable rewritten commits passed the identifier scan. Sanitized head `62bf65d` replaced the backed-up remote head through an explicit force-with-lease; `PORT-17A1` is complete.
 
 ## DEC-176 — Deliver the rendering and living-room presentation batch
 

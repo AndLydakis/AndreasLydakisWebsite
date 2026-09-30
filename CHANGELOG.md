@@ -12,6 +12,7 @@ pushed.
 - Replace public absolute workstation paths and generated-image session identifiers with portable placeholders.
 - Rewrite reachable Git history after creating and verifying a complete offline Desktop bundle.
 - Validate the rewritten repository with tests, typecheck, production build, dependency audit, history scan and whitespace checks before publishing with force-with-lease.
+- Publish the sanitized 83-commit history and retain the verified original history only in the owner-controlled Desktop recovery bundle.
 
 ### Content follow-up — Stella label
 
