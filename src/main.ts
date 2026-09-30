@@ -35,6 +35,7 @@ const dialogManager = new DialogManager({
   dialog: dom.dialog,
   eyebrow: dom.dialogEyebrow,
   title: dom.dialogTitle,
+  headerActions: dom.dialogHeaderActions,
   description: dom.dialogDescription,
   content: dom.dialogContent,
   closeButton: dom.dialogClose,

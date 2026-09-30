@@ -32,11 +32,20 @@ describe('toDialogContent', () => {
   });
 
   it('maps the placeholder CV download to a base-path-aware dialog link', () => {
+    expect(toDialogContent(officeContent).headerActions).toEqual([
+      {
+        label: 'Legacy Portfolio',
+        href: 'https://andlydakis.github.io/',
+        download: undefined,
+        openInNewTab: true,
+      },
+    ]);
     expect(toDialogContent(officeContent).actions).toEqual([
       {
         label: 'Download placeholder CV (PDF)',
         href: '/assets/cv.pdf',
         download: 'placeholder-cv.pdf',
+        openInNewTab: undefined,
       },
     ]);
   });

@@ -6,6 +6,12 @@ pushed.
 
 ## [Unreleased]
 
+### PORT-13B follow-up — Legacy portfolio link
+
+- Add a `Legacy Portfolio` header action to the CV dialog, linking to `https://andlydakis.github.io/` in a safe new tab.
+- Preserve the existing placeholder CV download as a separate body action.
+- Extend the generic content/dialog action model to support external URLs and reusable header placement.
+
 ### GitHub Pages deployment workflow
 
 - Add a manually runnable GitHub Pages workflow that deploys pushes to `master`.

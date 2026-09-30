@@ -2,6 +2,15 @@ import { assetUrl } from '../app/assetUrl';
 import type { ContentRecord } from '../content/types';
 import type { DialogContent } from './uiTypes';
 
+function toDialogAction(action: NonNullable<ContentRecord['actions']>[number]) {
+  return {
+    label: action.label,
+    href: action.href ?? assetUrl(action.assetPath),
+    download: action.downloadName,
+    openInNewTab: action.openInNewTab,
+  };
+}
+
 /**
  * Converts the data-only content contract into the smaller dialog contract.
  *
@@ -16,15 +25,14 @@ export function toDialogContent(record: ContentRecord): DialogContent {
     eyebrow: record.eyebrow,
     description: record.description,
     sections: record.sections,
+    ...(record.headerActions?.length
+      ? { headerActions: record.headerActions.map(toDialogAction) }
+      : {}),
     ...(record.image ? { image: { src: assetUrl(record.image.assetPath), alt: record.image.alt } } : {}),
     ...(record.gallery ? { gallery: record.gallery.map(({ assetPath, ...picture }) => ({ ...picture, src: assetUrl(assetPath) })) } : {}),
     ...(record.actions?.length
       ? {
-          actions: record.actions.map((action) => ({
-            label: action.label,
-            href: assetUrl(action.assetPath),
-            download: action.downloadName,
-          })),
+          actions: record.actions.map(toDialogAction),
         }
       : {}),
   };

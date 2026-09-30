@@ -101,6 +101,13 @@ describe('content and room registries', () => {
 
   it('keeps the dummy CV download explicit and replaceable', () => {
     expect(officeContent.eyebrow).toContain('PLACEHOLDER');
+    expect(officeContent.headerActions).toEqual([
+      {
+        label: 'Legacy Portfolio',
+        href: 'https://andlydakis.github.io/',
+        openInNewTab: true,
+      },
+    ]);
     expect(officeContent.actions).toEqual([
       {
         label: 'Download placeholder CV (PDF)',

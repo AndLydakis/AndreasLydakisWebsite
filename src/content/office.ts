@@ -22,6 +22,13 @@ export const officeContent: ContentRecord = {
       items: ['PLACEHOLDER SKILL', 'PLACEHOLDER SKILL'],
     },
   ],
+  headerActions: [
+    {
+      label: 'Legacy Portfolio',
+      href: 'https://andlydakis.github.io/',
+      openInNewTab: true,
+    },
+  ],
   actions: [
     {
       label: 'Download placeholder CV (PDF)',

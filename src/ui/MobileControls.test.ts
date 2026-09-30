@@ -142,7 +142,7 @@ describe('mobile controls and room dialog contract', () => {
     const shell = new ElementDouble();
     const manager = new DialogManager({
       dialog, title, closeButton: close, gameShell: shell,
-      eyebrow: new ElementDouble(), description: new ElementDouble(), content: new ElementDouble(),
+      eyebrow: new ElementDouble(), headerActions: new ElementDouble(), description: new ElementDouble(), content: new ElementDouble(),
       inputController: input,
       onGameplayEnabledChange: (enabled: boolean) => controls.setGameplayEnabled(enabled),
     } as unknown as ConstructorParameters<typeof DialogManager>[0]);

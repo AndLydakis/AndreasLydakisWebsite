@@ -13,11 +13,16 @@ export interface ContentSection {
   items?: readonly string[];
 }
 
-export interface ContentAction {
+interface ContentActionBase {
   label: string;
-  assetPath: string;
   downloadName?: string;
+  openInNewTab?: boolean;
 }
+
+export type ContentAction = ContentActionBase & (
+  | { assetPath: string; href?: never }
+  | { assetPath?: never; href: string }
+);
 
 export interface ContentRecord {
   id: ContentId;
@@ -28,6 +33,7 @@ export interface ContentRecord {
   eyebrow?: string;
   description?: string;
   sections: readonly ContentSection[];
+  headerActions?: readonly ContentAction[];
   actions?: readonly ContentAction[];
   /** Optional standalone picture; paths stay relative to public/assets. */
   image?: { assetPath: string; alt: string };

@@ -7,6 +7,7 @@ export interface DomShellElements {
   dialog: HTMLDialogElement;
   dialogEyebrow: HTMLElement;
   dialogTitle: HTMLHeadingElement;
+  dialogHeaderActions: HTMLElement;
   dialogDescription: HTMLParagraphElement;
   dialogContent: HTMLElement;
   dialogClose: HTMLButtonElement;
@@ -126,12 +127,14 @@ export function renderDomShell(root: HTMLElement): DomShellElements {
   const dialogTitle = createElement('h2');
   dialogTitle.id = 'dialog-title';
   dialogHeadingGroup.append(dialogEyebrow, dialogTitle);
+  const dialogHeaderActions = createElement('div', 'dialog-header-actions');
+  dialogHeaderActions.hidden = true;
   const dialogClose = createElement('button', 'dialog-close');
   dialogClose.type = 'button';
   dialogClose.textContent = 'Close';
   const dialogControls = createElement('div', 'dialog-controls');
   dialogControls.append(dialogClose);
-  dialogHeader.append(dialogHeadingGroup, dialogControls);
+  dialogHeader.append(dialogHeadingGroup, dialogHeaderActions, dialogControls);
   const dialogBody = createElement('div', 'dialog-body');
   const dialogDescription = createElement('p', 'dialog-description');
   dialogDescription.id = 'dialog-description';
@@ -151,6 +154,7 @@ export function renderDomShell(root: HTMLElement): DomShellElements {
     dialog,
     dialogEyebrow,
     dialogTitle,
+    dialogHeaderActions,
     dialogDescription,
     dialogContent,
     dialogClose,

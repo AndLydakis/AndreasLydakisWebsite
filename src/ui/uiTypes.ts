@@ -8,6 +8,7 @@ export interface DialogAction {
   label: string;
   href: string;
   download?: string;
+  openInNewTab?: boolean;
 }
 
 export interface DialogContent {
@@ -16,6 +17,7 @@ export interface DialogContent {
   eyebrow?: string;
   description?: string;
   sections: readonly DialogSection[];
+  headerActions?: readonly DialogAction[];
   actions?: readonly DialogAction[];
   image?: { src: string; alt: string };
   gallery?: readonly { src: string; alt: string; caption?: string }[];

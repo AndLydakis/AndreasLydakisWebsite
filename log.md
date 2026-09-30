@@ -2,6 +2,14 @@
 
 This file is the project decision record. New implementation decisions, approved changes, deferred choices, and story-completion decisions must be added here before or alongside changes to `plan.md` or source files.
 
+## DEC-179 — Add a legacy-portfolio header action to the CV dialog
+
+- Date: 2026-09-30. Owner requests an additional FF7-style header box in the CV interactable named `Legacy Portfolio`, linking to `https://andlydakis.github.io/`, and explicitly requests no push yet.
+- Model: Extend the shared content-action boundary so an action can target either a base-path-aware local asset or an absolute external URL. Add reusable header actions rather than a CV-specific DOM branch.
+- Behavior: Open the external portfolio in a new tab with `noopener noreferrer`; retain the existing downloadable placeholder CV body action unchanged.
+- Verification: Cover content metadata and adaptation in unit tests, then run the complete test, typecheck, production-build and whitespace checks. Keep all changes local for owner review.
+- Acceptance: Owner visually accepts the desktop and portrait presentation and authorizes committing and pushing the tested follow-up to `master`, which will trigger the GitHub Pages workflow.
+
 ## DEC-178 — Add a master-branch GitHub Pages deployment workflow
 
 - Date: 2026-09-30. Owner chooses to retain the repository's existing `master` branch and update the deployment trigger instead of renaming the branch.

@@ -1,19 +1,26 @@
 {
-  "url": "http://127.0.0.1:5173",
-  "recordedAt": "2026-09-28T06:22:04.065Z",
+  "url": "http://127.0.0.1:5178",
+  "recordedAt": "2026-09-30T07:15:54.467Z",
   "results": [
     {
       "viewport": "desktop",
       "width": 1280,
       "height": 900,
       "mobile": false,
+      "legacyLink": {
+        "label": "Legacy Portfolio",
+        "href": "https://andlydakis.github.io/",
+        "target": "_blank",
+        "rel": "noopener noreferrer",
+        "visible": true
+      },
       "link": {
         "title": "Curriculum vitae",
         "description": "This dummy CV and downloadable PDF will be replaced with the owner's approved CV later.",
         "label": "Download placeholder CV (PDF)",
-        "href": "http://127.0.0.1:5173/assets/cv.pdf",
+        "href": "http://127.0.0.1:5178/assets/cv.pdf",
         "pathname": "/assets/cv.pdf",
-        "origin": "http://127.0.0.1:5173",
+        "origin": "http://127.0.0.1:5178",
         "download": "placeholder-cv.pdf",
         "tag": "A",
         "visible": true,
@@ -26,13 +33,20 @@
       "width": 390,
       "height": 844,
       "mobile": true,
+      "legacyLink": {
+        "label": "Legacy Portfolio",
+        "href": "https://andlydakis.github.io/",
+        "target": "_blank",
+        "rel": "noopener noreferrer",
+        "visible": true
+      },
       "link": {
         "title": "Curriculum vitae",
         "description": "This dummy CV and downloadable PDF will be replaced with the owner's approved CV later.",
         "label": "Download placeholder CV (PDF)",
-        "href": "http://127.0.0.1:5173/assets/cv.pdf",
+        "href": "http://127.0.0.1:5178/assets/cv.pdf",
         "pathname": "/assets/cv.pdf",
-        "origin": "http://127.0.0.1:5173",
+        "origin": "http://127.0.0.1:5178",
         "download": "placeholder-cv.pdf",
         "tag": "A",
         "visible": true,

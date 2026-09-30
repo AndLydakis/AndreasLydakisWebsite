@@ -7,6 +7,7 @@ export interface DialogManagerOptions {
   dialog: HTMLDialogElement;
   eyebrow: HTMLElement;
   title: HTMLHeadingElement;
+  headerActions: HTMLElement;
   description: HTMLParagraphElement;
   content: HTMLElement;
   closeButton: HTMLButtonElement;
@@ -163,7 +164,13 @@ export class DialogManager {
     this.options.title.textContent = content.title;
     this.options.description.textContent = content.description ?? '';
     this.options.description.hidden = !content.description;
+    this.options.headerActions.replaceChildren();
+    this.options.headerActions.hidden = !content.headerActions?.length;
     this.options.content.replaceChildren();
+
+    content.headerActions?.forEach((action) => {
+      this.options.headerActions.append(this.createActionLink(action));
+    });
 
     if (content.gallery) this.options.content.append(createPhotoGallery(content.gallery));
 
@@ -213,19 +220,25 @@ export class DialogManager {
       actions.className = 'dialog-actions';
 
       content.actions.forEach((action) => {
-        const link = document.createElement('a');
-        link.href = action.href;
-        link.textContent = action.label;
-
-        if (action.download) {
-          link.download = action.download;
-        }
-
-        actions.append(link);
+        actions.append(this.createActionLink(action));
       });
 
       this.options.content.append(actions);
     }
+  }
+
+  private createActionLink(action: NonNullable<DialogContent['actions']>[number]): HTMLAnchorElement {
+    const link = document.createElement('a');
+    link.href = action.href;
+    link.textContent = action.label;
+
+    if (action.download) link.download = action.download;
+    if (action.openInNewTab) {
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+    }
+
+    return link;
   }
 
   private getActiveElement(): HTMLElement | null {

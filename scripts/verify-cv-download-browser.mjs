@@ -98,6 +98,14 @@ try {
     else await press('e', 'KeyE', 69);
     await waitFor("document.querySelector('dialog').open", 'CV dialog');
     await evaluate("document.querySelector('.dialog-reveal').click();void 0");
+    const legacyLink = await evaluate(`(()=>{const a=document.querySelector('.dialog-header-actions a'),r=a.getBoundingClientRect();return {
+      label:a.textContent,href:a.href,target:a.target,rel:a.rel,
+      visible:r.width>0&&r.height>=44&&r.top>=0&&r.bottom<=innerHeight,
+    }})()`);
+    assert.deepEqual(legacyLink, {
+      label: 'Legacy Portfolio', href: 'https://andlydakis.github.io/', target: '_blank',
+      rel: 'noopener noreferrer', visible: true,
+    });
     const link = await evaluate(`(()=>{const a=document.querySelector('.dialog-actions a'),r=a.getBoundingClientRect();return {
       title:document.querySelector('#dialog-title').textContent,
       description:document.querySelector('#dialog-description').textContent,
@@ -128,7 +136,7 @@ try {
     assert.ok(bytes.length > 2_000);
     const capture = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true });
     writeFileSync(`${output}/${viewport}-cv-dialog.png`, Buffer.from(capture.data, 'base64'));
-    results.push({ viewport, width, height, mobile, link, downloadedBytes: bytes.length });
+    results.push({ viewport, width, height, mobile, legacyLink, link, downloadedBytes: bytes.length });
   }
   assert.deepEqual(exceptions, []);
   writeFileSync(`${output}/results.json`, JSON.stringify({ url, recordedAt: new Date().toISOString(), results, exceptions }, null, 2));
