@@ -173,7 +173,14 @@ describe('mobile controls and room dialog contract', () => {
       expect(direction('right').captures.size).toBe(0);
       pointer(direction('right'), 'pointerdown');
       expect(input.getMovementSnapshot()).toEqual(stopped);
-      close.dispatchEvent(new Event('click'));
+      if (source === 'keyboard') {
+        const escape = new Event('keydown', { cancelable: true });
+        Object.defineProperty(escape, 'key', { value: 'Escape' });
+        dialog.dispatchEvent(escape);
+        expect(escape.defaultPrevented).toBe(true);
+      } else {
+        close.dispatchEvent(new Event('click'));
+      }
       expect(dialog.open).toBe(false);
       expect(input.isGameplayEnabled()).toBe(true);
       expect(input.getMovementSnapshot()).toEqual(stopped);

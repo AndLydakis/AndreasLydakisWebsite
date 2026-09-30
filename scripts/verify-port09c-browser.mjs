@@ -102,7 +102,7 @@ try {
     await press('ArrowUp', 1050);
     assert.ok((await state()).bottom < 22 * 16, `${name}: office exit`);
     for (const [id, x, y, title] of [
-      ['office-dog-bed', 6.5, 30.75, 'Dog — placeholder photo'],
+      ['office-dog-bed', 6.5, 30.75, 'Stella'],
       ['office-workstation', 6.5, 29, 'Curriculum vitae'],
       ['office-bookcase', 9.5, 26.25, 'Recently read books'],
     ]) {

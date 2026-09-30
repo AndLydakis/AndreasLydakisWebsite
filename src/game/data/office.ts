@@ -63,7 +63,7 @@ export const office: RoomDefinition = {
     {
       id: 'office-workstation', roomId: 'office',
       position: { x: 2.5, y: 3.9 },
-      label: 'Office workstation', promptLabel: 'office workstation',
+      label: 'My Resume', promptLabel: 'My Resume',
       contentId: 'office-cv', interactionRadiusTiles: 2.25,
       assetId: 'office-workstation-right-facing', displayHeightTiles: 4.5,
       // One plane for the complete desk/chair image, just below its lowest contact.

@@ -15,7 +15,10 @@ describe('toDialogContent', () => {
   });
   it('maps the dog picture through the asset URL boundary with accessible alt text', () => {
     const dialog = toDialogContent(dogContent);
-    expect(dialog.image).toEqual({ src: '/assets/photos/dog/placeholder.png', alt: dogContent.image!.alt });
+    expect(dialog.image).toEqual({
+      src: '/assets/photos/dog/stella.jpg',
+      alt: 'Stella, a black-and-white dog, looking to the right outdoors.',
+    });
     expect(dialog.sections).toEqual([]);
     expect(dialog.description).toBeUndefined();
     expect(dialog.actions).toBeUndefined();
@@ -31,7 +34,7 @@ describe('toDialogContent', () => {
     });
   });
 
-  it('maps the placeholder CV download to a base-path-aware dialog link', () => {
+  it('maps the current CV download to a base-path-aware dialog link', () => {
     expect(toDialogContent(officeContent).headerActions).toEqual([
       {
         label: 'Legacy Portfolio',
@@ -42,9 +45,9 @@ describe('toDialogContent', () => {
     ]);
     expect(toDialogContent(officeContent).actions).toEqual([
       {
-        label: 'Download placeholder CV (PDF)',
-        href: '/assets/cv.pdf',
-        download: 'placeholder-cv.pdf',
+        label: 'Download CV (PDF)',
+        href: '/assets/lydakis_cv_nolink.pdf',
+        download: 'lydakis-cv.pdf',
         openInNewTab: undefined,
       },
     ]);

@@ -78,7 +78,20 @@ try {
     for (const id of ['office-dog-photo','livingroom-media','office-cv']) {
       await evaluate(`s.callbacks.onContentRequested('${id}','keyboard');void 0`);
       assert.equal(await evaluate("document.querySelectorAll('.dialog-gallery').length"),0);
-      if(id==='office-dog-photo') assert.equal(await evaluate("document.querySelectorAll('.dialog-image').length"),1);
+      if(id==='office-dog-photo') {
+        await evaluate("document.querySelector('.dialog-image').decode()");
+        assert.deepEqual(await evaluate(`(()=>{const image=document.querySelector('.dialog-image');return {
+          title:document.querySelector('#dialog-title').textContent,
+          source:new URL(image.src).pathname,
+          alt:image.alt,
+          loaded:image.complete&&image.naturalWidth===1600&&image.naturalHeight===1200,
+        }})()`), {
+          title:'Stella',
+          source:'/assets/photos/dog/stella.jpg',
+          alt:'Stella, a black-and-white dog, looking to the right outdoors.',
+          loaded:true,
+        });
+      }
       await evaluate("document.querySelector('.dialog-close').click()"); await pause(150);
     }
     console.log(`PASS ${name}: globe, keyboard/touch gallery scroll, images, close/focus, existing dialogs`);

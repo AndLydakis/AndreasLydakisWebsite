@@ -2,6 +2,33 @@
 
 This file is the project decision record. New implementation decisions, approved changes, deferred choices, and story-completion decisions must be added here before or alongside changes to `plan.md` or source files.
 
+## DEC-183 — Replace Stella's placeholder photograph
+
+- Date: 2026-09-30. Owner supplies `public/assets/photos/dog/stella.jpg` and requests replacing the fictional placeholder, adjusting tests and removing unused assets.
+- Scope: Use the supplied JPEG in the existing `office-dog-photo` content record, rename the popup title to `Stella`, and describe the visible photograph accurately in alt text. Keep the interaction ID, room placement, collision and interaction behavior unchanged.
+- Cleanup: Remove only the superseded runtime file `public/assets/photos/dog/placeholder.png`. Retain its historical generation prompt and decision records as provenance; update the current asset inventory to distinguish owner-supplied material.
+- Verification: Update unit and browser-verifier expectations, confirm no current source references the removed file, run the full test/build checks and visually verify the real popup in desktop and portrait layouts. Do not push without separate authorization.
+- Result: All 1,960 tests pass; typecheck and production build pass (`index-CPQuiOM9.js`, existing bundle-size advisory only). Isolated Chrome verifies the 1600x1200 JPEG, `Stella` title, exact source and alt text in desktop, portrait and landscape layouts with zero uncaught exceptions. The older dog-geometry verifier stops on later approved collision deltas before popup assertions; its historical geometry baseline remains unchanged.
+
+## DEC-182 — Close all content popups with Escape
+
+- Date: 2026-09-30. Owner requires Escape to close popups.
+- Scope: Handle Escape in the shared `DialogManager` so every current and future content dialog follows the same behavior, including the non-modal fallback path. Preserve the visible Close button and existing native-dialog semantics.
+- Behavior: Escape closes only while the shared dialog is open, finishes typewriter text, clears movement, re-enables gameplay and restores focus through the existing close lifecycle.
+- Verification: Cover Escape in the repeated dialog-cycle unit contract and require the desktop and portrait CV browser checks to close via Escape with gameplay enabled and game-shell focus restored. Do not push without separate authorization.
+
+## DEC-181 — Rename the CV desk interaction to My Resume
+
+- Date: 2026-09-30. Owner requests replacing `Office workstation` with `My Resume` in the desk nameplate and all associated current descriptions/tests.
+- Scope: Update the office interactable display label, proximity prompt and shared CV content label. Keep the stable `office-workstation` object ID, artwork/asset IDs, geometry, historical baseline fixtures and historical QA records unchanged.
+- Verification: Add exact metadata assertions and require the isolated CV browser verifier to observe `My Resume` as the current interaction prompt. Run the complete unit suite, production build and development browser download check. Do not push without separate authorization.
+
+## DEC-180 — Align CV verification with the owner-supplied PDF
+
+- Date: 2026-09-30. Owner replaces the placeholder PDF with `public/assets/lydakis_cv_nolink.pdf`, changes the CV eyebrow to `Andreas Lydakis`, updates the action label to `Download CV (PDF)` and the browser download name to `lydakis-cv.pdf`, then requests that tests follow the new contract.
+- Tests: Update content-registry, content-adapter, asset-URL and isolated-browser expectations. Preserve historical PORT-13B records that accurately describe the former placeholder delivery.
+- Scope: Test and verification alignment only; do not alter the owner-supplied PDF or the current CV dialog copy, and do not push without separate authorization.
+
 ## DEC-179 — Add a legacy-portfolio header action to the CV dialog
 
 - Date: 2026-09-30. Owner requests an additional FF7-style header box in the CV interactable named `Legacy Portfolio`, linking to `https://andlydakis.github.io/`, and explicitly requests no push yet.

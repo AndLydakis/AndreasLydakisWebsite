@@ -1,12 +1,12 @@
 # Asset Licenses
 
-Current assets in `public/assets/` are project-created placeholders or AI-generated artwork. The owner-supplied cast-iron plate photograph described below was used as design inspiration, not included as a runtime image. No third-party fonts, music or sound effects have been added.
+Current assets in `public/assets/` are project-created placeholders, AI-generated artwork or owner-supplied material. The owner-supplied cast-iron plate photograph described below was used as design inspiration, not included as a runtime image. No third-party fonts, music or sound effects have been added.
 
 Replace this document with a full attribution record if approved third-party assets are added later.
 
 ## Office samples — PORT-09C (artwork review)
 
-- DEC-111: public/assets/photos/dog/placeholder.png generated with the built-in image tool on 2026-09-24 for picture-dialog testing. Fictional border collie, no reference photo and no real-pet likeness claimed. Exact prompt: output/imagegen/office-dog-photo.prompt.md. Replace via src/content/dog.ts when an owner-supplied photo is available.
+- Owner-supplied runtime photograph: `public/assets/photos/dog/stella.jpg`. Used only by Stella's office dialog. The superseded AI-generated placeholder was removed from runtime assets; its historical prompt remains in `output/imagegen/office-dog-photo.prompt.md`.
 
 - DEC-108 runtime selection: background sample-v5; workstation left-review.png (camera-view filename, screens/working side face screen-right); bookcase front; dog-bed front-three-quarter; sofa left; coffee-table front; standing and seated robots front-three-quarter. Existing generated originals preserved. The desk uses a previously labelled review candidate, not a claim that all directional variants are geometrically consistent. Runtime IDs/paths are in src/app/assetManifest.ts; placement/collisions in src/game/data/office.ts.
 

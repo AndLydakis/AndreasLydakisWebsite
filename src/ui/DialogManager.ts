@@ -48,8 +48,17 @@ export class DialogManager {
     this.close();
   };
 
+  private readonly handleKeyDown = (event: KeyboardEvent): void => {
+    if (event.key !== 'Escape' || !this.dialog.open) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+    this.close();
+  };
+
   public constructor(private readonly options: DialogManagerOptions) {
     this.options.dialog.addEventListener('close', this.handleClose);
+    this.options.dialog.addEventListener('keydown', this.handleKeyDown);
     this.options.closeButton.addEventListener('click', this.handleCloseButton);
     this.revealButton.type = 'button';
     this.revealButton.className = 'dialog-reveal';
@@ -142,6 +151,7 @@ export class DialogManager {
     }
 
     this.options.dialog.removeEventListener('close', this.handleClose);
+    this.options.dialog.removeEventListener('keydown', this.handleKeyDown);
     this.options.closeButton.removeEventListener('click', this.handleCloseButton);
     this.typewriter.finish();
     this.revealButton.removeEventListener('click', this.revealAll);

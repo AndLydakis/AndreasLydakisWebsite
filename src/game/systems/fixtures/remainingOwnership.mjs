@@ -159,9 +159,16 @@ export function undoRemainingOwnership(layout) {
     const strip = sprite => {
       const owner = owners.find(owner => owner.id === sprite.id);
       if (!owner) return sprite;
-      expect(rectKeys(sprite.footprints ?? [])).toEqual(rectKeys(owner.rects));
-      expect(sprite.groundAnchor).toEqual(owner.anchor);
-      const { groundAnchor, footprints, ...rest } = sprite;
+      let normalizedSprite = sprite;
+      if (sprite.id === 'office-workstation') {
+        const original = source.interactables.find(item => item.id === sprite.id);
+        expect(sprite.label).toBe('My Resume');
+        expect(sprite.promptLabel).toBe('My Resume');
+        normalizedSprite = { ...sprite, label: original.label, promptLabel: original.promptLabel };
+      }
+      expect(rectKeys(normalizedSprite.footprints ?? [])).toEqual(rectKeys(owner.rects));
+      expect(normalizedSprite.groundAnchor).toEqual(owner.anchor);
+      const { groundAnchor, footprints, ...rest } = normalizedSprite;
       if (sprite.id === approvedDogChange.id) {
         expect(sprite.position).toEqual(approvedDogChange.position);
         expect(sprite.label).toBe(approvedDogChange.label);

@@ -86,8 +86,19 @@ describe('office presentation and navigation', () => {
     const dog = office.interactables.find(i => i.id === 'office-dog-bed')!;
     expect(dog.interactionRadiusTiles).toBe(1.3125);
     expect(dog.label).toBe('Stella');
-    expect(contentById.get('office-dog-photo')).toMatchObject({ label: 'Stella', image: { alt: 'Our dog, Stella.' } });
-    expect(contentById.get('office-cv')!.eyebrow).toContain('PLACEHOLDER');
+    expect(contentById.get('office-dog-photo')).toMatchObject({
+      label: 'Stella',
+      title: 'Stella',
+      image: {
+        assetPath: 'photos/dog/stella.jpg',
+        alt: 'Stella, a black-and-white dog, looking to the right outdoors.',
+      },
+    });
+    expect(office.interactables.find(i => i.id === 'office-workstation')).toMatchObject({
+      label: 'My Resume',
+      promptLabel: 'My Resume',
+    });
+    expect(contentById.get('office-cv')).toMatchObject({ label: 'My Resume', eyebrow: 'Andreas Lydakis' });
     const books = houseLayout.rooms[0]!.interactables.find(i => i.id === 'living-room-bookcase')!;
     expect(office.interactables.find(i => i.id === 'office-bookcase')!.contentId).toBe(books.contentId);
   });

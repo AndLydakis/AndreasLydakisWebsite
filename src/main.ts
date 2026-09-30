@@ -64,7 +64,7 @@ const quickTravel = new QuickTravelMenu(dom.quickTravel, id => {
 // All rooms are now implemented: the content registry is the single source of truth.
 dialogManager.registerContents(contentRegistry.map(toDialogContent));
 contentIndex.setEntries([]);
-dom.gameStatus.textContent = 'Starting the interactive house...';
+dom.gameStatus.textContent = 'Loading the interactive portfolio...';
 
 const subscriptions = [
   bridge.on('currentRoomChanged', ({ roomId }) => quickTravel.setCurrentRoom(roomId)),
@@ -87,13 +87,13 @@ const subscriptions = [
   }),
   bridge.on('gameReady', () => {
     quickTravel.setEnabled(true);
-    dom.gameStatus.textContent = 'The interactive house is ready.';
+    dom.gameStatus.textContent = 'The interactive portfolio is ready.';
   }),
   bridge.on('gameStartupError', ({ error }) => {
     quickTravel.setEnabled(false);
     const message = error instanceof Error ? error.message : String(error);
     dom.startupError.hidden = false;
-    dom.startupError.textContent = `The interactive house could not start. ${message}`;
+    dom.startupError.textContent = `The interactive portfolio could not start. ${message}`;
     dom.gameStatus.textContent = 'Portfolio content remains available below.';
     mobileControls.setGameplayEnabled(false);
   }),

@@ -10,6 +10,6 @@ describe('assetUrl', () => {
   });
 
   it('does not duplicate the assets directory when given a rooted asset path', () => {
-    expect(assetUrl('/assets/cv.pdf')).toBe('/assets/cv.pdf');
+    expect(assetUrl('/assets/lydakis_cv_nolink.pdf')).toBe('/assets/lydakis_cv_nolink.pdf');
   });
 });

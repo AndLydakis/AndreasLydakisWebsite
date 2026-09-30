@@ -1,4 +1,4 @@
-// Verify the real office interaction and placeholder CV download in isolated Chrome.
+// Verify the real office interaction and current CV download in isolated Chrome.
 import assert from 'node:assert/strict';
 import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 
@@ -93,7 +93,8 @@ try {
     await pause(1_000);
     await attach();
     await evaluate(`s.player.teleportTo({x:6.5,y:27.125});s.synchronizePresentation();s.interactionSystem.update(s.player.getState());document.querySelector('#game-shell').focus();void 0`);
-    await waitFor("s.interactionSystem.getCurrentTarget()?.id==='office-workstation'", 'office workstation target');
+    await waitFor("s.interactionSystem.getCurrentTarget()?.id==='office-workstation'", 'My Resume target');
+    assert.equal(await evaluate("s.interactionSystem.getCurrentTarget()?.promptLabel"), 'My Resume');
     if (mobile) await tap('.mobile-interact');
     else await press('e', 'KeyE', 69);
     await waitFor("document.querySelector('dialog').open", 'CV dialog');
@@ -114,9 +115,9 @@ try {
       overflow:document.documentElement.scrollWidth>innerWidth
     }})()`);
     assert.equal(link.title, 'Curriculum vitae');
-    assert.match(link.description, /dummy CV and downloadable PDF/);
+    assert.match(link.description, /autonomous agents/);
     assert.deepEqual({ label: link.label, pathname: link.pathname, download: link.download, tag: link.tag }, {
-      label: 'Download placeholder CV (PDF)', pathname: '/assets/cv.pdf', download: 'placeholder-cv.pdf', tag: 'A',
+      label: 'Download CV (PDF)', pathname: '/assets/lydakis_cv_nolink.pdf', download: 'lydakis-cv.pdf', tag: 'A',
     });
     assert.equal(link.origin, new URL(url).origin);
     assert.equal(link.visible, true);
@@ -127,8 +128,8 @@ try {
       assert.equal(await evaluate("document.activeElement===document.querySelector('.dialog-actions a')"), true);
       await press('Enter', 'Enter', 13);
     }
-    const downloaded = `${downloadPath}/placeholder-cv.pdf`;
-    await waitFor(`fetch(${JSON.stringify(url + '/assets/cv.pdf')}).then(r=>r.ok&&r.headers.get('content-type')==='application/pdf')`, 'PDF response');
+    const downloaded = `${downloadPath}/lydakis-cv.pdf`;
+    await waitFor(`fetch(${JSON.stringify(url + '/assets/lydakis_cv_nolink.pdf')}).then(r=>r.ok&&r.headers.get('content-type')==='application/pdf')`, 'PDF response');
     for (let attempt = 0; attempt < 100 && !existsSync(downloaded); attempt++) await pause(100);
     assert.equal(existsSync(downloaded), true, `${viewport} download missing`);
     const bytes = readFileSync(downloaded);
@@ -136,7 +137,17 @@ try {
     assert.ok(bytes.length > 2_000);
     const capture = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true });
     writeFileSync(`${output}/${viewport}-cv-dialog.png`, Buffer.from(capture.data, 'base64'));
-    results.push({ viewport, width, height, mobile, legacyLink, link, downloadedBytes: bytes.length });
+    await press('Escape', 'Escape', 27);
+    await waitFor("!document.querySelector('dialog').open && s.inputController.isGameplayEnabled() && document.activeElement===document.querySelector('#game-shell')",
+      `${viewport} Escape close lifecycle`);
+    const closed = await evaluate(`({
+      open:document.querySelector('dialog').open,
+      gameplayEnabled:s.inputController.isGameplayEnabled(),
+      activeElement:document.activeElement?.id||document.activeElement?.className||document.activeElement?.tagName,
+    })`);
+    assert.deepEqual(closed, { open: false, gameplayEnabled: true, activeElement: 'game-shell' },
+      `${viewport} Escape did not close the dialog and restore gameplay focus`);
+    results.push({ viewport, width, height, mobile, legacyLink, link, downloadedBytes: bytes.length, escapeClosed: true });
   }
   assert.deepEqual(exceptions, []);
   writeFileSync(`${output}/results.json`, JSON.stringify({ url, recordedAt: new Date().toISOString(), results, exceptions }, null, 2));

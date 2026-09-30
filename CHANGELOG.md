@@ -8,9 +8,13 @@ pushed.
 
 ### PORT-13B follow-up — Legacy portfolio link
 
+- Replace Stella's generated placeholder picture with the owner-supplied `stella.jpg`, update the dialog title and accessible description, and remove the obsolete placeholder asset.
+- Close every shared content popup with the Escape key, restoring gameplay and focus afterward.
+- Rename the office desk content label and interaction prompt from `Office workstation` to `My Resume`.
 - Add a `Legacy Portfolio` header action to the CV dialog, linking to `https://andlydakis.github.io/` in a safe new tab.
-- Preserve the existing placeholder CV download as a separate body action.
+- Preserve the CV download as a separate body action and update it to serve `lydakis_cv_nolink.pdf` as `lydakis-cv.pdf`.
 - Extend the generic content/dialog action model to support external URLs and reusable header placement.
+- Update unit and browser verification to cover the current CV label, source path and downloaded filename.
 
 ### GitHub Pages deployment workflow
 

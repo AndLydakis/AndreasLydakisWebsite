@@ -1,6 +1,6 @@
 {
   "url": "http://127.0.0.1:5178",
-  "recordedAt": "2026-09-30T07:15:54.467Z",
+  "recordedAt": "2026-09-30T08:39:54.852Z",
   "results": [
     {
       "viewport": "desktop",
@@ -16,17 +16,18 @@
       },
       "link": {
         "title": "Curriculum vitae",
-        "description": "This dummy CV and downloadable PDF will be replaced with the owner's approved CV later.",
-        "label": "Download placeholder CV (PDF)",
-        "href": "http://127.0.0.1:5178/assets/cv.pdf",
-        "pathname": "/assets/cv.pdf",
+        "description": "Engineer with multiple years of experience in the field of autonomous agents, whether those are household robots or autonomous trucks. I take pride being able to pick up new concepts quickly and adapt strategic plans to deployed products.",
+        "label": "Download CV (PDF)",
+        "href": "http://127.0.0.1:5178/assets/lydakis_cv_nolink.pdf",
+        "pathname": "/assets/lydakis_cv_nolink.pdf",
         "origin": "http://127.0.0.1:5178",
-        "download": "placeholder-cv.pdf",
+        "download": "lydakis-cv.pdf",
         "tag": "A",
         "visible": true,
         "overflow": false
       },
-      "downloadedBytes": 2582
+      "downloadedBytes": 447220,
+      "escapeClosed": true
     },
     {
       "viewport": "portrait",
@@ -42,17 +43,18 @@
       },
       "link": {
         "title": "Curriculum vitae",
-        "description": "This dummy CV and downloadable PDF will be replaced with the owner's approved CV later.",
-        "label": "Download placeholder CV (PDF)",
-        "href": "http://127.0.0.1:5178/assets/cv.pdf",
-        "pathname": "/assets/cv.pdf",
+        "description": "Engineer with multiple years of experience in the field of autonomous agents, whether those are household robots or autonomous trucks. I take pride being able to pick up new concepts quickly and adapt strategic plans to deployed products.",
+        "label": "Download CV (PDF)",
+        "href": "http://127.0.0.1:5178/assets/lydakis_cv_nolink.pdf",
+        "pathname": "/assets/lydakis_cv_nolink.pdf",
         "origin": "http://127.0.0.1:5178",
-        "download": "placeholder-cv.pdf",
+        "download": "lydakis-cv.pdf",
         "tag": "A",
         "visible": true,
         "overflow": false
       },
-      "downloadedBytes": 2582
+      "downloadedBytes": 447220,
+      "escapeClosed": true
     }
   ],
   "exceptions": []

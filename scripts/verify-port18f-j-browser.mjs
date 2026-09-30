@@ -187,7 +187,7 @@ async function runInteractions() {
     // Existing reachable interaction positions in world pixels; metadata migration must not move them.
     for (const [id, x, y, title] of [
       ['office-workstation', 104, 434, 'Curriculum vitae'],
-      ['office-dog-bed', 104, 464, 'Dog — placeholder photo'],
+      ['office-dog-bed', 104, 464, 'Stella'],
       ['office-bookcase', 150, 388, 'Recently read books'],
       ['kitchen-stove', 443, 416, 'Recently cooked'],
       ['kitchen-fridge', 631, 404, 'Shopping list'],

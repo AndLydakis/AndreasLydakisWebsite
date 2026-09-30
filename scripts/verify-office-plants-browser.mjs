@@ -272,7 +272,7 @@ async function dogPhoto(){
  assert.equal(await evaluate('s.interactionSystem.getCurrentTarget()?.id'),'office-dog-bed');
  for(const[type,key,code]of [['keyDown','e',69],['keyUp','e',69]])await send('Input.dispatchKeyEvent',{type,key,code:'KeyE',windowsVirtualKeyCode:code});await pause(250);
  const state=await evaluate("({open:document.querySelector('dialog').open,title:document.querySelector('#dialog-title').textContent,loaded:[...document.querySelectorAll('dialog img')].some(i=>i.complete&&i.naturalWidth>0),enabled:s.inputController.isGameplayEnabled()})");
- assert.equal(state.open,true);assert.equal(state.title,'Dog — placeholder photo');assert.equal(state.loaded,true);assert.equal(state.enabled,false);await screenshot('dog-photo-regression');
+ assert.equal(state.open,true);assert.equal(state.title,'Stella');assert.equal(state.loaded,true);assert.equal(state.enabled,false);await screenshot('dog-photo-regression');
  for(const type of ['keyDown','keyUp'])await send('Input.dispatchKeyEvent',{type,key:'Escape',code:'Escape',windowsVirtualKeyCode:27});await pause(100);assert.equal(await evaluate("document.querySelector('dialog').open"),false);return state;
 }
 try{

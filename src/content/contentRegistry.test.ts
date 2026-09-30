@@ -99,8 +99,9 @@ describe('content and room registries', () => {
     ).toEqual([]);
   });
 
-  it('keeps the dummy CV download explicit and replaceable', () => {
-    expect(officeContent.eyebrow).toContain('PLACEHOLDER');
+  it('keeps the current CV download explicit and replaceable', () => {
+    expect(officeContent.label).toBe('My Resume');
+    expect(officeContent.eyebrow).toBe('Andreas Lydakis');
     expect(officeContent.headerActions).toEqual([
       {
         label: 'Legacy Portfolio',
@@ -110,9 +111,9 @@ describe('content and room registries', () => {
     ]);
     expect(officeContent.actions).toEqual([
       {
-        label: 'Download placeholder CV (PDF)',
-        assetPath: 'cv.pdf',
-        downloadName: 'placeholder-cv.pdf',
+        label: 'Download CV (PDF)',
+        assetPath: 'lydakis_cv_nolink.pdf',
+        downloadName: 'lydakis-cv.pdf',
       },
     ]);
   });

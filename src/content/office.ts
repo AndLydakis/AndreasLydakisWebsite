@@ -2,12 +2,12 @@ import type { ContentRecord } from './types';
 
 export const officeContent: ContentRecord = {
   id: 'office-cv',
-  label: 'Office workstation',
+  label: 'My Resume',
   roomId: 'office',
   roomLabel: 'Office',
   title: 'Curriculum vitae',
-  eyebrow: 'PLACEHOLDER CONTENT',
-  description: 'This dummy CV and downloadable PDF will be replaced with the owner\'s approved CV later.',
+  eyebrow: 'Andreas Lydakis',
+  description: 'Engineer with multiple years of experience in the field of autonomous agents, whether those are household robots or autonomous trucks. I take pride being able to pick up new concepts quickly and adapt strategic plans to deployed products.',
   sections: [
     {
       heading: 'Profile',
@@ -31,9 +31,9 @@ export const officeContent: ContentRecord = {
   ],
   actions: [
     {
-      label: 'Download placeholder CV (PDF)',
-      assetPath: 'cv.pdf',
-      downloadName: 'placeholder-cv.pdf',
+      label: 'Download CV (PDF)',
+      assetPath: 'lydakis_cv_nolink.pdf',
+      downloadName: 'lydakis-cv.pdf',
     },
   ],
 };

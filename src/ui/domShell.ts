@@ -42,9 +42,9 @@ export function renderDomShell(root: HTMLElement): DomShellElements {
   const header = createElement('header', 'site-header');
   const title = createElement('h1');
   title.id = 'site-title';
-  title.textContent = 'title.text';
+  title.textContent = 'Andreas Lydakis';
   const introduction = createElement('p');
-  introduction.textContent = 'intro.text.';
+  introduction.textContent = 'Resume and random tidbits';
   const headingGroup = createElement('div', 'site-heading');
   headingGroup.append(title, introduction);
   const quickTravel = createElement('nav');
@@ -71,7 +71,7 @@ export function renderDomShell(root: HTMLElement): DomShellElements {
   canvasLayer.id = 'game-canvas';
   canvasLayer.setAttribute('data-phaser-mount', 'true');
   const canvasPlaceholder = createElement('p', 'canvas-placeholder');
-  canvasPlaceholder.textContent = 'The interactive house will load here.';
+  canvasPlaceholder.textContent = 'The interactive portfolio will load here.';
   canvasLayer.append(canvasPlaceholder);
 
   const gameUiLayer = createElement('div', 'game-ui-layer');

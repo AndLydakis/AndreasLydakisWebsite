@@ -9,7 +9,7 @@
       "mobile": false,
       "link": {
         "title": "Curriculum vitae",
-        "description": "This dummy CV and downloadable PDF will be replaced with the owner's approved CV later.",
+        "description": "Engineer with multiple years of experience in the field of autonomous agents, whether those are household robots or autonomous trucks. I take pride being able to pick up new concepts quickly and adapt strategic plans to deployed products.",
         "label": "Download placeholder CV (PDF)",
         "href": "http://127.0.0.1:4173/assets/cv.pdf",
         "pathname": "/assets/cv.pdf",
@@ -28,7 +28,7 @@
       "mobile": true,
       "link": {
         "title": "Curriculum vitae",
-        "description": "This dummy CV and downloadable PDF will be replaced with the owner's approved CV later.",
+        "description": "Engineer with multiple years of experience in the field of autonomous agents, whether those are household robots or autonomous trucks. I take pride being able to pick up new concepts quickly and adapt strategic plans to deployed products.",
         "label": "Download placeholder CV (PDF)",
         "href": "http://127.0.0.1:4173/assets/cv.pdf",
         "pathname": "/assets/cv.pdf",

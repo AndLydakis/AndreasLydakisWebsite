@@ -280,7 +280,7 @@ try{
   assert.equal(await evaluate('s.interactionSystem.getCurrentTarget()?.id'),'office-dog-bed');
   await press(input);
   const dialog=await evaluate("({open:document.querySelector('dialog').open,title:document.querySelector('#dialog-title').textContent,gameplay:s.inputController.isGameplayEnabled(),images:[...document.querySelectorAll('dialog img')].map(i=>({complete:i.complete,width:i.naturalWidth,src:i.getAttribute('src')}))})");
-  assert.equal(dialog.open,true);assert.equal(dialog.title,'Dog — placeholder photo');assert.equal(dialog.gameplay,false);assert.ok(dialog.images.some(i=>i.complete&&i.width>0));
+  assert.equal(dialog.open,true);assert.equal(dialog.title,'Stella');assert.equal(dialog.gameplay,false);assert.ok(dialog.images.some(i=>i.complete&&i.width>0));
   await screenshot('dog-photo-'+input);await press('Escape');assert.equal(await evaluate("document.querySelector('dialog').open"),false);
   results.push({interaction:input,dialog});
  }
