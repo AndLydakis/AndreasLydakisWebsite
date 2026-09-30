@@ -2,6 +2,13 @@
 
 This file is the project decision record. New implementation decisions, approved changes, deferred choices, and story-completion decisions must be added here before or alongside changes to `plan.md` or source files.
 
+## DEC-178 — Add a master-branch GitHub Pages deployment workflow
+
+- Date: 2026-09-30. Owner chooses to retain the repository's existing `master` branch and update the deployment trigger instead of renaming the branch.
+- Workflow: Add `.github/workflows/deploy.yml` using the standard GitHub Pages artifact deployment flow. Trigger deployments from pushes to `master` and allow manual runs through `workflow_dispatch`.
+- Validation gates: Use the project's declared Node `22.14.0` baseline, install from the committed lockfile with `npm ci`, run the full unit-test suite, and require the production build before uploading `dist`.
+- Scope: This adds the repository workflow only. Enabling GitHub Pages, confirming the custom-domain/base-path configuration and validating the first live deployment remain external hosting steps. Owner authorizes committing and pushing the validated workflow to `master`.
+
 ## DEC-177 — Remediate dependency and Git-history privacy findings
 
 - Date: 2026-09-30. Owner authorizes fixing the two audit findings, requires a backup on the Desktop first, and then explicitly authorizes rewriting and force-pushing repository history.

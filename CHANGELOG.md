@@ -6,6 +6,12 @@ pushed.
 
 ## [Unreleased]
 
+### GitHub Pages deployment workflow
+
+- Add a manually runnable GitHub Pages workflow that deploys pushes to `master`.
+- Build with the project's Node 22.14.0 baseline and require `npm ci`, tests and the production build before uploading `dist`.
+- Grant only the repository-read, Pages-write and deployment identity permissions needed by the Pages job.
+
 ### PORT-17A1 — Repository security remediation
 
 - Upgrade Vitest from the vulnerable 3.x line to patched `4.1.11` and refresh the development lockfile.
