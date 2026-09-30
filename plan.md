@@ -2842,6 +2842,42 @@ Inspect a clean production build, search for debug-only markers and secrets, and
 
 ---
 
+## PORT-17A1 — Remediate repository security audit findings
+
+Type: Security maintenance story
+Priority: High
+Dependencies: None
+Milestone: M5
+Status: In progress
+Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
+
+### Goal
+
+Remove the identified development-dependency vulnerability and local-path privacy exposure from the public repository, including reachable Git history.
+
+### Subtasks
+
+1. Create and verify a complete offline Git bundle before rewriting history.
+2. Upgrade Vitest to the first compatible patched release and regenerate the lockfile.
+3. Replace tracked absolute workstation paths and generated-image session identifiers with portable placeholders.
+4. Rewrite all reachable commits with the same substitutions and remove rewrite backup refs from the working repository.
+5. Run the full tests, typecheck, production build, dependency audit, history scan and whitespace checks.
+6. Commit the remediation and force-push rewritten `master` with lease protection.
+
+### Acceptance criteria
+
+- `vitest` and `@vitest/mocker` resolve to `4.1.11` or newer without reported audit vulnerabilities.
+- No reachable commit contains the exposed local username, absolute workspace path or generated-image session identifier.
+- The pre-rewrite Desktop bundle verifies as complete and can restore the original refs.
+- Tests, typecheck, production build and whitespace checks pass.
+- Rewritten `master` is published with lease protection and the recovery/re-clone implications are documented.
+
+### Verification
+
+Run the project validation commands, `npm audit`, a full-history content scan for the removed identifiers, `git bundle verify` on the offline backup, and compare local and remote rewritten heads after the force-push.
+
+---
+
 ## PORT-17B — Document routine maintenance
 
 Type: Story  

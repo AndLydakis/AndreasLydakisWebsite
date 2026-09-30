@@ -6,6 +6,13 @@ pushed.
 
 ## [Unreleased]
 
+### PORT-17A1 — Repository security remediation
+
+- Upgrade Vitest from the vulnerable 3.x line to patched `4.1.11` and refresh the development lockfile.
+- Replace public absolute workstation paths and generated-image session identifiers with portable placeholders.
+- Rewrite reachable Git history after creating and verifying a complete offline Desktop bundle.
+- Validate the rewritten repository with tests, typecheck, production build, dependency audit, history scan and whitespace checks before publishing with force-with-lease.
+
 ### Content follow-up — Stella label
 
 Delivered with the presentation batch to `origin/master` in `762cf4e`.

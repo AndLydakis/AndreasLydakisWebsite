@@ -2,6 +2,14 @@
 
 This file is the project decision record. New implementation decisions, approved changes, deferred choices, and story-completion decisions must be added here before or alongside changes to `plan.md` or source files.
 
+## DEC-177 — Remediate dependency and Git-history privacy findings
+
+- Date: 2026-09-30. Owner authorizes fixing the two audit findings, requires a backup on the Desktop first, and then explicitly authorizes rewriting and force-pushing repository history.
+- Backup: Create and verify the complete `personal_website-pre-history-rewrite-2026-09-30.bundle` before any rewrite. The bundle retains the original local and remote-tracking refs and is the recovery source if rollback is required.
+- Dependency: Upgrade Vitest and its mocker package from vulnerable 3.x releases to the Node-22-compatible patched `4.1.11` release; do not move to Vitest 5 because its minimum Node version exceeds the project’s declared baseline.
+- Privacy: Replace absolute workstation paths with `<repo>` or `<owner-supplied-reference>` and generated-image paths/session identifiers with `<generated-image-source>` in the current tree and every reachable historical commit.
+- Delivery: Add focused `PORT-17A1`, run full automated validation and history scans, then force-push rewritten `master` with lease protection. Existing clones must re-clone or explicitly reset to the rewritten history.
+
 ## DEC-176 — Deliver the rendering and living-room presentation batch
 
 - Date: 2026-09-29. Owner requests pushing the complete current workspace state, accepting the DEC-174 rendering/font refinement and DEC-175 television clearance.
