@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import { optionalTexturePaths } from '../../app/assetManifest';
+import { gymContent } from '../../content/gym';
 import { houseLayout, houseDoorways } from './houseLayout';
 import { validateHouseLayout } from './layoutValidation';
 import { InteractionSystem } from '../systems/InteractionSystem';
@@ -22,6 +23,9 @@ describe('gym artwork and navigation', () => {
     expect(gym.visualAssetId).toBe('gym-background');
     expect(gym.interactables.map((item) => item.contentId)).toEqual(['gym-personal-records', 'livingroom-vinyl']);
     expect(gym.decorations).toHaveLength(6);
+    expect(gym.interactables[0]!.label).toBe('Training');
+    expect(gym.interactables[0]!.promptLabel).toBe('Training');
+    expect(gymContent.label).toBe('Training');
     expect(gym.interactables[0]!.assetId).toBe('gym-squat-rack-front-right');
     for (const item of [...gym.interactables, ...gym.decorations!]) {
       expect(item.assetId).toBeTruthy();
@@ -66,7 +70,8 @@ describe('gym artwork and navigation', () => {
     expect(dumbbells.displayHeightTiles).toBe(4.5 * 0.5);
     const boombox = gym.interactables.find((item) => item.id === 'gym-boombox')!;
     expect(boombox.position).toEqual({ x: 7.5, y: 3 });
-    expect(boombox.promptLabel).toBe('boombox');
+    expect(boombox.label).toBe('Music');
+    expect(boombox.promptLabel).toBe('Music');
     const vinyl = houseLayout.rooms.flatMap((room) => room.interactables)
       .find((item) => item.id !== boombox.id && item.contentId === 'livingroom-vinyl')!;
     expect(boombox.contentId).toBe(vinyl.contentId);

@@ -124,7 +124,7 @@ describe('InteractionSystem', () => {
     const y = room.origin.y + vinyl.position.y;
     system.update(playerState(x + dx, y + dy));
     expect(system.getCurrentTarget()).toMatchObject({
-      id: 'living-room-record-player', contentId: 'livingroom-vinyl', promptLabel: 'vinyl and record player',
+      id: 'living-room-record-player', contentId: 'livingroom-vinyl', promptLabel: 'Music',
     });
     system.update(playerState(x, y + 1.51));
     expect(system.getCurrentTarget()).toBeNull();

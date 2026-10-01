@@ -30,7 +30,7 @@ describe('GameUiBridge', () => {
 
     bridge.emit('interactionAvailable', {
       contentId: 'livingroom-media',
-      label: 'television and game console',
+      label: 'Movies and games',
     });
     bridge.emit('interactionUnavailable', undefined);
     bridge.emit('contentRequested', {
@@ -39,7 +39,7 @@ describe('GameUiBridge', () => {
     });
 
     expect(availability).toEqual([
-      'livingroom-media:television and game console',
+      'livingroom-media:Movies and games',
       'none',
     ]);
     expect(contentRequests).toEqual([

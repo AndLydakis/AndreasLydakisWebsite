@@ -2,7 +2,7 @@ import type { ContentRecord } from './types';
 
 export const vinylContent: ContentRecord = {
   id: 'livingroom-vinyl',
-  label: 'Vinyl records and record player',
+  label: 'Music',
   roomId: 'living-room',
   roomLabel: 'Living room',
   title: 'Music collection',

@@ -18,6 +18,9 @@ describe('globe gallery assets and placement', () => {
     const room = houseLayout.rooms.find(r => r.id === 'living-room');
     const globe = room.interactables.find(i => i.id === 'living-room-globe');
     expect(globe.contentId).toBe(travelContent.id);
+    expect(globe.label).toBe('Travel');
+    expect(globe.promptLabel).toBe('Travel');
+    expect(travelContent.label).toBe('Travel');
     expect(globe.position).toEqual({ x: 3.5, y: 6 });
     const png = readFileSync(`public/assets/${optionalTexturePaths[globe.assetId]}`);
     expect(png.toString('ascii',1,4)).toBe('PNG');

@@ -189,6 +189,9 @@ describe('initial house layout', () => {
   it('centers the television below the window with clear foot paths behind and in front', () => {
     const room = houseRooms[0];
     const tv = room.interactables.find((item) => item.id === 'living-room-television')!;
+    expect(tv.label).toBe('Movies and games');
+    expect(tv.promptLabel).toBe('Movies and games');
+    expect(contentRegistry.find((content) => content.id === tv.contentId)?.label).toBe('Movies and games');
     expect(tv.position.x + 0.5).toBe(room.widthTiles / 2);
     expect(tv.position.y).toBe(3.5);
     expect(tv.displayHeightTiles).toBe(2.8);
@@ -210,6 +213,9 @@ describe('initial house layout', () => {
     const room = houseRooms[0];
     const vinyl = room.interactables.find((item) => item.contentId === 'livingroom-vinyl')!;
     const books = room.interactables.find((item) => item.contentId === 'livingroom-books')!;
+    expect(vinyl.label).toBe('Music');
+    expect(vinyl.promptLabel).toBe('Music');
+    expect(contentRegistry.find((content) => content.id === vinyl.contentId)?.label).toBe('Music');
     expect(vinyl.position).toEqual({ x: 17, y: 6 });
     expect(vinyl.interactionRadiusTiles).toBe(1.5);
     const separation = Math.hypot(vinyl.position.x - books.position.x, vinyl.position.y - books.position.y);

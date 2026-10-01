@@ -43,7 +43,9 @@ describe('PORT-18E exact gym ownership migration', () => {
     expect(current.footprints).toHaveLength(count);
     expect(multiset(current.footprints)).toEqual(multiset(expected));
     const { groundAnchor, footprints, ...unchanged } = current;
-    expect(unchanged).toEqual(old);
+    expect(unchanged).toEqual(id === 'gym-squat-rack'
+      ? { ...old, label: 'Training', promptLabel: 'Training' }
+      : old);
     expect(groundAnchor).toBeDefined();
     expect(groundAnchor).toEqual(anchor);
     expect(Number.isFinite(groundAnchor.x)).toBe(true);
@@ -100,5 +102,9 @@ describe('PORT-18E exact gym ownership migration', () => {
 function stripMigration(sprite) {
   if (!migrations.some(item => item.id === sprite.id) && !laterIds.includes(sprite.id)) return sprite;
   const { groundAnchor, footprints, ...original } = sprite;
+  if (sprite.id === 'gym-squat-rack') {
+    const old = sprites(beforeGym).find(item => item.id === sprite.id);
+    return { ...original, label: old.label, promptLabel: old.promptLabel };
+  }
   return original;
 }

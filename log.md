@@ -2,6 +2,34 @@
 
 This file is the project decision record. New implementation decisions, approved changes, deferred choices, and story-completion decisions must be added here before or alongside changes to `plan.md` or source files.
 
+## DEC-188 — Shorten the squat-rack interaction label
+
+- Date: 2026-10-01. Owner requests renaming the squat rack to `Training`, following the other concise interaction-label changes.
+- Scope: Update the squat-rack nameplate, proximity prompt and registered content label. Preserve the stable object/content IDs, `Personal records` dialog title and contents, artwork, placement, collision, perspective and interaction behavior. Historical geometry fixtures remain unchanged and normalize only this approved metadata change.
+- Verification: Add exact metadata assertions and run the complete test, typecheck, build and whitespace checks. Keep changes local until separate push authorization.
+- Result: Focused gym/fixture checks pass (86 tests); the complete suite passes (46 files, 1,968 tests), along with typecheck, production build and whitespace validation. Existing bundle-size advisory unchanged. No commit or push.
+
+## DEC-187 — Shorten the television interaction label
+
+- Date: 2026-09-30. Owner requests renaming `Television and game console` to `Movies and games`, following the concise travel and music label changes.
+- Scope: Update the television nameplate, proximity prompt and registered content label. Preserve the stable object/content IDs, `Games and movies` dialog title and contents, artwork, placement, collision, perspective and interaction behavior. Historical geometry fixtures remain unchanged.
+- Verification: Add exact metadata assertions and run the complete test, typecheck, build and whitespace checks. Keep changes local until separate push authorization.
+- Result: Focused metadata/UI/fixture checks pass (84 tests); the complete suite passes (46 files, 1,968 tests), along with typecheck, production build and whitespace validation. Existing bundle-size advisory unchanged. No commit or push.
+
+## DEC-186 — Use Music for both music interactables
+
+- Date: 2026-09-30. Owner requests renaming the vinyl/record-player and boombox interactions to `Music`, following the concise travel-label change.
+- Scope: Update both visible nameplates and proximity prompts plus their shared content label. Preserve stable object/content IDs, the `Music collection` dialog title and contents, artwork, placement, collisions, perspective and interaction behavior. Historical geometry fixtures remain unchanged.
+- Verification: Add exact metadata assertions and run the complete test, typecheck, build and whitespace checks. Keep changes local until separate push authorization.
+- Result: Focused interaction/fixture checks pass (122 tests); the complete suite passes (46 files, 1,968 tests), along with typecheck, production build and whitespace validation. Existing bundle-size advisory unchanged. No commit or push.
+
+## DEC-185 — Shorten the globe interaction label to Travel
+
+- Date: 2026-09-30. Owner requests renaming `Globe and travel pictures` to `Travel` and aligning tests.
+- Scope: Update the living-room globe nameplate, proximity prompt and registered content label. Preserve the stable object/content IDs, gallery title and description, images, placement, collision, perspective and interaction behavior. Historical geometry fixtures remain unchanged.
+- Verification: Add exact metadata assertions and run the complete test, typecheck, build and whitespace checks. Keep changes local until separate push authorization.
+- Result: The complete suite passes (46 files, 1,968 tests), along with typecheck, production build and whitespace validation. Existing bundle-size advisory unchanged. Ready for the approved grouped label-change delivery.
+
 ## DEC-184 — Implement the selected loading-performance mitigations
 
 - Date: 2026-09-30. Owner selects investigation recommendations 4, 5 and 8 and explicitly requests no push: room-scoped loading, compact player-frame packaging and removal of review-only files from the published tree.

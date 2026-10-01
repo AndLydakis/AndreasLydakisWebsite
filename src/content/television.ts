@@ -2,7 +2,7 @@ import type { ContentRecord } from './types';
 
 export const televisionContent: ContentRecord = {
   id: 'livingroom-media',
-  label: 'Television and game console',
+  label: 'Movies and games',
   roomId: 'living-room',
   roomLabel: 'Living room',
   title: 'Games and movies',

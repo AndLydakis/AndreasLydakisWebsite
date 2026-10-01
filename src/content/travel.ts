@@ -5,7 +5,7 @@ export const travelContent: ContentRecord = {
   id: 'livingroom-travel',
   roomId: 'living-room',
   roomLabel: 'Living room',
-  label: 'Globe and travel pictures',
+  label: 'Travel',
   title: 'Around the world',
   eyebrow: 'TRAVEL GALLERY',
   description: 'Scroll through the pictures. These AI-generated placeholders can be replaced with my own travel photos.',

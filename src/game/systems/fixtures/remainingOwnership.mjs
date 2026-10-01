@@ -7,6 +7,8 @@ const office = oldRoom('office');
 const gym = oldRoom('gym');
 const livingRoom = oldRoom('living-room');
 const originalTelevision = livingRoom.interactables.find(sprite => sprite.id === 'living-room-television');
+const originalGlobe = livingRoom.interactables.find(sprite => sprite.id === 'living-room-globe');
+const originalRecordPlayer = livingRoom.interactables.find(sprite => sprite.id === 'living-room-record-player');
 export const approvedTelevisionMove = {
   position: { x: 9.5, y: 3.5 },
   anchor: { x: 10, y: 5.0625 },
@@ -112,13 +114,21 @@ export function undoRemainingOwnership(layout) {
   return { ...layout, rooms: layout.rooms.map(room => {
     if (room.id === 'living-room') {
       const currentTelevision = room.interactables.find(sprite => sprite.id === originalTelevision.id);
+      const currentGlobe = room.interactables.find(sprite => sprite.id === originalGlobe.id);
+      const currentRecordPlayer = room.interactables.find(sprite => sprite.id === originalRecordPlayer.id);
       expect(currentTelevision).toEqual({ ...originalTelevision,
+        label: 'Movies and games',
+        promptLabel: 'Movies and games',
         position: approvedTelevisionMove.position,
         groundAnchor: approvedTelevisionMove.anchor,
         footprints: [approvedTelevisionMove.rect],
       });
+      expect(currentGlobe).toEqual({ ...originalGlobe, label: 'Travel', promptLabel: 'Travel' });
+      expect(currentRecordPlayer).toEqual({ ...originalRecordPlayer, label: 'Music', promptLabel: 'Music' });
       room = { ...room, interactables: room.interactables.map(sprite =>
-        sprite.id === originalTelevision.id ? originalTelevision : sprite) };
+        sprite.id === originalTelevision.id ? originalTelevision
+          : sprite.id === originalGlobe.id ? originalGlobe
+            : sprite.id === originalRecordPlayer.id ? originalRecordPlayer : sprite) };
     }
     const owners = remainingOwners.filter(owner => owner.roomId === room.id);
     if (!owners.length) return room;
@@ -126,10 +136,16 @@ export function undoRemainingOwnership(layout) {
     if (room.id === 'gym') {
       const sourceSteel = source.decorations.find(sprite => sprite.id === approvedSteelMove.id);
       const currentSteel = room.decorations.find(sprite => sprite.id === approvedSteelMove.id);
+      const sourceSquatRack = source.interactables.find(sprite => sprite.id === 'gym-squat-rack');
+      const currentSquatRack = room.interactables.find(sprite => sprite.id === 'gym-squat-rack');
       expect(currentSteel).toEqual({ ...sourceSteel, position: approvedSteelMove.position,
         groundAnchor: approvedSteelMove.anchor, footprints: [approvedSteelMove.rect] });
-      room = { ...room, decorations: room.decorations.map(sprite =>
-        sprite.id === approvedSteelMove.id ? sourceSteel : sprite) };
+      expect(currentSquatRack).toEqual({ ...sourceSquatRack, label: 'Training', promptLabel: 'Training',
+        groundAnchor: currentSquatRack.groundAnchor, footprints: currentSquatRack.footprints });
+      room = { ...room,
+        interactables: room.interactables.map(sprite => sprite.id === sourceSquatRack.id
+          ? { ...sprite, label: sourceSquatRack.label, promptLabel: sourceSquatRack.promptLabel } : sprite),
+        decorations: room.decorations.map(sprite => sprite.id === approvedSteelMove.id ? sourceSteel : sprite) };
     }
     if (room.id === 'kitchen') {
       room = { ...room, interactables: room.interactables.map(sprite => {
@@ -164,6 +180,12 @@ export function undoRemainingOwnership(layout) {
         const original = source.interactables.find(item => item.id === sprite.id);
         expect(sprite.label).toBe('My Resume');
         expect(sprite.promptLabel).toBe('My Resume');
+        normalizedSprite = { ...sprite, label: original.label, promptLabel: original.promptLabel };
+      }
+      if (sprite.id === 'gym-boombox') {
+        const original = source.interactables.find(item => item.id === sprite.id);
+        expect(sprite.label).toBe('Music');
+        expect(sprite.promptLabel).toBe('Music');
         normalizedSprite = { ...sprite, label: original.label, promptLabel: original.promptLabel };
       }
       expect(rectKeys(normalizedSprite.footprints ?? [])).toEqual(rectKeys(owner.rects));

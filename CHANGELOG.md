@@ -6,6 +6,26 @@ pushed.
 
 ## [Unreleased]
 
+### PORT-09B follow-up — Concise training label
+
+- Rename the gym squat-rack nameplate, interaction prompt and content label to `Training`.
+- Preserve the `Personal records` dialog content, object identity, artwork, placement, collision and perspective behavior.
+
+### PORT-08A follow-up — Concise media label
+
+- Rename the living-room television and game-console nameplate, interaction prompt and shared content label to `Movies and games`.
+- Preserve the `Games and movies` dialog content, object identity, artwork, placement, collision and perspective behavior.
+
+### PORT-09A/PORT-09B follow-up — Concise music labels
+
+- Rename both the living-room record player and gym boombox nameplates and interaction prompts to `Music`.
+- Align their shared content label while preserving the `Music collection` dialog, object identities, artwork, placement, collisions and perspective behavior.
+
+### PORT-09D-G follow-up — Concise travel label
+
+- Rename the globe nameplate, interaction prompt and gallery content label from `Globe and travel pictures` to `Travel`.
+- Preserve the gallery content, object identity, artwork, placement, collision and perspective behavior.
+
 ### PORT-20A–20C — Runtime loading and deployment-size reduction
 
 - Load only shared textures, compact player animation and the initial office before gameplay; then automatically load living room, gym and kitchen as sequential background batches without waiting for room entry.

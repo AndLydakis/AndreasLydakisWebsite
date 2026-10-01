@@ -2,7 +2,7 @@ import type { ContentRecord } from './types';
 
 export const gymContent: ContentRecord = {
   id: 'gym-personal-records',
-  label: 'Squat rack',
+  label: 'Training',
   roomId: 'gym',
   roomLabel: 'Gym',
   title: 'Personal records',
