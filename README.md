@@ -48,3 +48,6 @@ The collision-bound and interaction-radius review flags, plus label-trigger beha
 
 The canvas backing scale, texture-filter policy and bundled nameplate font are documented in
 [`docs/rendering-quality.md`](./docs/rendering-quality.md).
+
+Click/tap movement, walk-to-interact, cancellation rules and navigation maintenance
+are documented in [`docs/click-navigation.md`](./docs/click-navigation.md).

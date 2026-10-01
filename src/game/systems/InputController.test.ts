@@ -51,6 +51,28 @@ function expectDirection(
 }
 
 describe('InputController', () => {
+  it('keeps independent gameplay suspensions through modal close and repeated release', () => {
+    const { controller } = createController();
+    const releaseA = controller.suspendGameplay(), releaseB = controller.suspendGameplay();
+    controller.setGameplayEnabled(false); controller.setGameplayEnabled(true);
+    expect(controller.isGameplayEnabled()).toBe(false);
+    releaseA(); releaseA(); expect(controller.isGameplayEnabled()).toBe(false);
+    releaseB(); expect(controller.isGameplayEnabled()).toBe(true);
+    controller.destroy();
+  });
+  it('synchronously notifies navigation on intent and lifecycle resets, even opposing directions', () => {
+    const { controller, keyboardTarget, visibilityTarget } = createController();
+    let count = 0; const off = controller.onManualIntent(() => { count++; });
+    dispatchKey(keyboardTarget, 'keydown', 'a');
+    dispatchKey(keyboardTarget, 'keydown', 'd');
+    controller.requestInteraction();
+    controller.setPointerDirection(1, 'up', true);
+    keyboardTarget.dispatchEvent(new Event('blur'));
+    visibilityTarget.visibilityState = 'hidden'; visibilityTarget.dispatchEvent(new Event('visibilitychange'));
+    controller.setGameplayEnabled(false);
+    expect(count).toBe(7);
+    off(); controller.resetMovement(); expect(count).toBe(7); controller.destroy();
+  });
   const controllers: InputController[] = [];
 
   afterEach(() => {

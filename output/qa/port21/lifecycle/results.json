@@ -1,0 +1,8 @@
+{
+  "results": [
+    "modal close cannot unlock pending travel",
+    "rejected load restores controls/menu and reports failure",
+    "restart ignores stale travel and restores mobile controls"
+  ],
+  "errors": []
+}

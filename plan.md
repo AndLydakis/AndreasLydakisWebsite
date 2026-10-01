@@ -3799,6 +3799,249 @@ Ensure the Vite `public/` tree contains only files used by the website while pre
 
 Run the exact asset-inventory tests, full test/typecheck/build suite, whitespace checks and browser room traversal. Review the generated desktop screenshot for complete office/player rendering.
 
+### M8 extension — Click/tap navigation and walk-to-interact (PORT-21)
+
+Type: Epic
+Priority: High — owner-requested addition; scheduling does not implicitly reorder existing work
+Dependencies: Existing collision/footprint, interaction/nameplate, input, dialog, camera and player-animation systems
+Status: Implemented locally — independent architect, engineer and game developer review gates passed after fixes; 2,063 tests/build plus development/production browser matrices pass. Owner visual acceptance and delivery pending (DEC-194)
+
+### Goal
+
+Let visitors click or tap a visible point to walk there. Clicking/tapping an interactable's interaction area or visible nameplate selects that specific object, walks to a reachable interaction position and opens its existing content automatically. Preserve physical movement, animation, camera, perspective and the existing content/dialog boundary.
+
+### Owner-confirmed behavior decisions
+
+1. Invalid/unreachable floor destination: cancel any previous command, remain at the current position and show brief non-modal “Cannot reach that point” feedback. Do not substitute another destination, teleport or cross solids. Stop any previous route when accepting a replacement request, including while its reachability is being checked.
+2. Controls: retain WASD/arrows and mobile D-pad; any manual movement cancels navigation, and a new click/tap replaces the previous command. Existing interaction keys/buttons remain available.
+
+Owner confirmed both choices (DEC-193) and then authorized implementation (DEC-194). PORT-21A's independent architecture gate passed before coding. Implementation/review evidence lives in `output/qa/port21/review.md`; no push before owner visual acceptance.
+
+### Shared behavior contract
+
+- Only primary clicks and completed single-finger taps on the game viewport issue commands. Dragging, scrolling, pointer cancellation, multi-touch, right clicks and clicks on DOM dialogs/menus/controls do not navigate. Do not disable page scrolling outside the game.
+- Convert screen coordinates through the active camera and canvas scaling once; navigation positions refer to the player's physics anchor, not the artwork's top-left or moving shoes.
+- Pointer priority: visible nameplate (use its shared padded activation rectangle), then an object's logical interaction area, then floor movement. Hidden nameplates do not create invisible pointer targets. Radius visibility is a diagnostic setting, not a condition for radius hit testing. Use existing bounds-plus-radius semantics, not a new approximate circle.
+- Overlapping candidates must resolve deterministically: label before radius, then nearest relevant region center, then stable object ID. Highlight the selected intent using existing label styling where possible; selection must not pretend the player is already in interaction range.
+- An object click pins its stable object ID, not merely a shared content ID or whichever object later becomes the nearest target. Choose the lowest-cost reachable collision-free approach position satisfying the existing interaction predicate, accounting for the player's interaction bounds. Already in range: stop and open once without walking away first.
+- Revalidate the exact target and range after movement/physics and immediately before dispatch. Another nearby object must never steal the click. Arrival opens the existing dialog through the UI bridge exactly once, without requiring E/F or another tap. Do not synthesize DOM clicks or bypass movement/dialog guards.
+- Route only over the union of room/corridor floor, respecting all current wall and object footprints plus the player's collider clearance. Labels and decorative art are not solid unless authored collisions say so. Preserve routes behind furniture, narrow passages, corridor alignment and existing physics collision enforcement.
+- Use ordinary player movement at the current speed with distance-driven animation. Never tween or teleport through the world; quick travel remains a separate existing feature. Navigation cannot activate interactions while merely passing other objects.
+- Latest command wins. Cancellation invalidates pending path results and arrival actions. Manual movement, explicit interaction, quick travel, dialog opening, blur/visibility loss and scene shutdown cancel automatic movement and queued interaction. Closing a dialog or returning focus must not restart it. A cancelled gesture issues no new command.
+- Unreachable objects show brief non-modal feedback and never open their dialog remotely. Missing artwork must not affect geometry-based reachability or logical radius hits. Stalled movement stops safely after a bounded timeout; no infinite retry loop.
+- No new assets, rooms, NPC navigation, navmesh editor, automatic page panning, or navigation-related changes to current collision geometry are included. Existing manual navigation and quick travel remain regression coverage.
+
+### Mandatory implementation/review loop for every PORT-21 story
+
+1. Confirm dependencies and owner decisions; map every acceptance criterion to a test or visual inspection. Split work estimated above two focused engineering days before implementation.
+2. PORT-21A requires independent experienced software architect and senior game developer review before coding starts. Changes to the approved architecture or behavior require renewed review.
+3. Implement only the current story and collect story-specific plus regression evidence.
+4. A senior software engineer other than the implementer reviews the actual diff, tests, modularity, lifecycle and error handling. A senior game developer independently reviews navigation, physics, input and interaction behavior for every runtime story.
+5. Resolve all blocking/high/medium findings, rerun affected and regression checks, and return the revised diff to both required reviewers. Repeat implementation → review → implementation → review until all criteria pass and both explicitly approve the final snapshot. No fixed iteration count and no self-approval substituted for independent review.
+6. Record reviewer role/identity, exact commit or diff snapshot, findings/severity, fixes, test evidence and explicit re-review disposition in `log.md` and `output/qa/port21/<story-id>/`. Missing reviewer access is an unmet gate. Low-severity deferrals require explicit reviewer and owner acceptance.
+7. Require owner visual acceptance for visible behavior before closure. Update plan/changelog/log, commit with the story ID and follow the existing push authorization workflow. No push while an owner hold applies; mark Done only after required review, verification and successful delivery. This planning change is not approval to implement or push.
+
+---
+
+## PORT-21A — Define and review the navigation contract
+
+Type: Story
+Priority: High
+Dependencies: Confirmed M8 behavior decisions; read current collision/input/interaction implementations
+Milestone: M8 — Click/tap navigation
+Status: Implemented locally — independent architect and senior game developer approved the revised contract; delivery pending
+Delivery: Shared PORT-21 review/delivery loop applies.
+
+### Goal
+
+Approve a small generic navigation design without changing gameplay.
+
+### Subtasks
+
+1. Trace authoritative floor/collider data, player body offset/size, rendered label rectangles, interaction predicates, camera transforms and input/dialog lifecycle. Document units and conversion boundaries.
+2. Define typed boundaries for geometry/query model, route planner, navigation controller and pointer-to-intent adapter. Keep room-specific cases out of `HouseScene`; use it only for orchestration.
+3. Compare a grid A* library such as EasyStar.js with a small internal planner; verify license, maintenance, bundle cost and integration constraints before selecting/pinning any package. The library is a candidate, not a predetermined requirement.
+4. Specify grid resolution, collider-expanded clearance, fractional room origins, legal diagonal steps, swept-segment validation, exact endpoint connector and invalid-point policy. Choose numeric tolerances, search work/node budgets and stall timeout; document worst-case world size and a browser performance budget.
+5. Define object approach-goal generation, deterministic pointer priority, route states/transitions, command IDs/stale-result cancellation and at-most-once interaction dispatch.
+6. Obtain independent architect and game developer feedback, revise the contract and repeat until both approve it. Refine/split subsequent stories if necessary.
+
+### Acceptance criteria
+
+- Both owner questions are resolved; route, input and interaction rules have no conflicting defaults.
+- Every room/corridor and authored footprint is covered using existing data, including the smallest accepted passages. Navigation does not need duplicate per-room maps.
+- Numeric bounds, fallback behavior and dependency choice are explicit and review-approved; no production dependency or gameplay change is made in this story.
+- A test matrix covers reachable/blocked points, overlap selection, approach positions, pointer transforms, interruption, failure, mobile gestures and missing assets.
+
+### Verification
+
+Review against current source/data and representative coordinates in all rooms. Record both independent approvals and criterion-to-test mapping. Docs-only validation and whitespace checks; runtime tests need not be claimed for an unchanged runtime.
+
+---
+
+## PORT-21B — Build collision-safe route queries
+
+Type: Story
+Priority: High
+Dependencies: Approved `PORT-21A`
+Milestone: M8
+Status: Implemented locally — independent planner re-review and integrated verification passed; owner acceptance and delivery pending
+Delivery: Shared PORT-21 review/delivery loop applies.
+
+### Goal
+
+Provide deterministic, bounded route planning without enabling pointer movement yet.
+
+### Subtasks
+
+1. Derive walkability from the authoritative floor union and complete collision footprints, with player-body clearance and correct physics-anchor offset.
+2. Implement the approved planner behind a small typed interface; keep Phaser rendering and DOM types outside pure geometry/search code.
+3. Validate start/goal connectors and every segment, forbid diagonal corner cutting and unsafe smoothing, and return explicit success/unreachable/invalid/budget-exceeded results.
+4. Add multi-goal queries for reachable interaction approach positions using the shared radius/label range predicate; select by path cost with deterministic ties.
+
+### Acceptance criteria
+
+- Routes connect all intended rooms through corridors and cannot leave the walkable union, cross furniture, clip corners or squeeze the player through undersized gaps.
+- Fractional origins, exact floor/collider edges, start-equals-goal and off-grid valid destinations behave according to PORT-21A. No global rounding silently blocks accepted passages.
+- Unreachable and budget-exceeded queries terminate within reviewed limits; approach queries never return a point outside interaction range.
+- Geometry is reusable across rooms, independent of loaded textures, and not rebuilt or searched every render frame.
+
+### Verification
+
+Pure tests with synthetic adversarial geometry plus current house fixtures; assert full-segment/player-footprint clearance, not just waypoint clearance. Include sealed rooms, narrow doors, diagonal corners, all floor transitions and multiple approach candidates. Run full tests/typecheck/build/whitespace checks and complete the review loop.
+
+---
+
+## PORT-21C — Follow routes using normal player movement
+
+Type: Story
+Priority: High
+Dependencies: `PORT-21B`
+Milestone: M8
+Status: Implemented locally — review fixes, physics regressions and final independent reviews passed; owner acceptance and delivery pending
+Delivery: Shared PORT-21 review/delivery loop applies.
+
+### Goal
+
+Execute a route safely while preserving existing physics, cadence, facing and camera behavior.
+
+### Subtasks
+
+1. Add a navigation controller with explicit idle/planning/following/arrived/failed transitions and command identity; expose a testable intent entry point, not a new public diagnostic UI.
+2. Steer through validated waypoints using the existing velocity/movement boundary. Handle waypoint overshoot and final settling without snapping through colliders or oscillating.
+3. Implement latest-command replacement, reviewed cancellation rules, bounded stall detection and cleanup of pending work/listeners.
+4. Verify actual post-physics progress and preserve the distinction between arrival, interruption and failure.
+
+### Acceptance criteria
+
+- Full-route and final-segment speed never exceed current player speed; movement is frame-rate tolerant and uses the accepted distance-driven walk cycle.
+- Manual control wins immediately; held input cannot allow an automatic route to take control. Quick travel, modal/blur/visibility changes and restart cannot leave latent movement.
+- Replaced or cancelled commands cannot later report arrival or trigger any interaction. Blocked motion stops safely without tunnelling, jitter or an endless retry.
+- Camera and perspective follow the physical player normally; no collider or asset changes are required.
+
+### Verification
+
+Unit/controller tests plus real Arcade Physics tests at 15/30/60/120 FPS, turn/arrival overshoot, interrupted async results and stall cases. Extend runtime motion telemetry for routed movement, diagonal travel, collision stopping and restart listener counts. Run the full quality suite and review loop.
+
+---
+
+## PORT-21D — Add desktop click and mobile tap destinations
+
+Type: Story
+Priority: High
+Dependencies: `PORT-21C`
+Milestone: M8
+Status: Implemented locally — gesture/cancellation checks, browser matrix and final independent reviews passed; owner acceptance and delivery pending
+Delivery: Shared PORT-21 review/delivery loop applies.
+
+### Goal
+
+Let valid floor clicks/taps issue route commands without breaking existing page or game controls.
+
+### Subtasks
+
+1. Implement the primary-pointer gesture adapter and camera-aware coordinate conversion using the approved tap thresholds and cancellation semantics.
+2. Exclude DOM overlays/menu/controls and suppress duplicate synthetic mouse events after touch; integrate the owner-selected mobile control policy.
+3. Resolve visible-label/radius hits into typed object intents for PORT-21E; until that consumer is implemented, swallow those hits rather than treating them as floor clicks.
+4. Apply invalid/unreachable-point behavior and brief accessible non-modal feedback; preserve modal focus and ordinary page scrolling outside the canvas.
+
+### Acceptance criteria
+
+- A floor click or completed tap moves to its world-space point within the reviewed tolerance, with correct results after camera movement, resize and device-pixel-ratio changes.
+- New commands replace old ones; right-click, drag, cancelled touch, multi-touch, D-pad, quick-travel and dialog gestures never issue accidental routes.
+- Label/radius hit priority matches the shared contract even when radius diagnostics are hidden; hidden labels do not intercept floor input.
+- Invalid targets provide feedback without teleporting or continuing an obsolete command. Manual navigation remains usable according to the owner decision.
+
+### Verification
+
+Pointer unit tests and real-browser mouse/touch-emulation tests in desktop, portrait, landscape and 320px-wide layouts. Cover scaled canvas, scrolled page, camera offsets, touch-to-mouse deduplication and repeated commands. Run full quality checks and review loop; document physical-device evidence separately from emulation.
+
+---
+
+## PORT-21E — Walk to the selected interactable and open it once
+
+Type: Story
+Priority: High
+Dependencies: `PORT-21D`, interaction approach queries from `PORT-21B`
+Milestone: M8
+Status: Implemented locally — exact-target arrival, browser matrix and final independent reviews passed; owner acceptance and delivery pending
+Delivery: Shared PORT-21 review/delivery loop applies.
+
+### Goal
+
+Make clicking an object's logical radius or visible label a complete walk-and-interact command.
+
+### Subtasks
+
+1. Resolve pointer object intents to stable object IDs and choose a reachable approach goal, without targeting the object's solid center or altering its collision.
+2. Stop/open immediately when already in valid range; otherwise follow the approach route and recheck the selected target/range after physics settles.
+3. Dispatch through the existing content callback/UI bridge exactly once, independently of nearest-object selection. Preserve normal prompt selection and manual interaction behavior.
+4. Cancel queued interactions on interruption/replacement, unavailable targets, failures and lifecycle changes; show non-modal failure feedback instead of remotely opening content.
+
+### Acceptance criteria
+
+- Both radius and visible-label clicks/taps work for every interactable; completed movement automatically opens the intended existing content without an extra button press.
+- The bookcase, desk, globe, dog, both music objects and other registered targets use the same generic implementation. Shared content IDs do not confuse distinct object destinations.
+- Overlapping radii/labels resolve deterministically; passing another target cannot change the destination or open unrelated content. Already-in-range and repeated taps cannot double-open.
+- An unreachable target does not trigger remotely; a valid approach respects collider clearance and the current label/radius proximity rules. Cancelling or closing a dialog never resumes a stale command.
+- Missing artwork, late room artwork refresh and label visibility changes cannot invalidate stable object identity or bypass interaction guards.
+
+### Verification
+
+Unit tests for object selection, approach goals, stale command races and single dispatch. Browser checks for every interactable via radius and label, already-near/far/unreachable states, overlap priority, click replacement and interruption by each control/lifecycle path. Run full suite/build and existing dialog/interaction/motion regression checks; iterate independent reviews and owner visual acceptance.
+
+---
+
+## PORT-21F — Verify navigation integration and document maintenance
+
+Type: Story
+Priority: High
+Dependencies: `PORT-21A`–`PORT-21E` completed review gates
+Milestone: M8
+Status: Implemented locally — full suite, production/development matrices, lifecycle races, manual-motion regression and both final independent runtime approvals passed. Documentation complete; owner visual acceptance and delivery pending
+Delivery: Shared PORT-21 review/delivery loop applies.
+
+### Goal
+
+Demonstrate that click/tap navigation is reliable across the house and document how future room/object changes remain navigable.
+
+### Subtasks
+
+1. Create repeatable development/production browser verification covering all rooms, corridor directions, behind-object routes and interactables with mouse and touch emulation.
+2. Exercise worst-case route searches, rapid command replacement, unreachable goals and repeated scene/dialog lifecycle cycles against the PORT-21A budgets; check exceptions, listener leaks and camera/animation regressions.
+3. Document approved dependency/algorithm, coordinate/clearance contracts, controls, invalid-target behavior, tunable thresholds, diagnostic hooks and how adding collisions/rooms affects navigation.
+4. Obtain independent senior engineer/game developer final integration review. Any fix returns to implementation and re-review with affected tests rerun; material architecture changes return to PORT-21A review. Obtain owner desktop/mobile visual acceptance and explicitly record any unavailable physical-device coverage.
+
+### Acceptance criteria
+
+- Full automated suite, typecheck/build, whitespace and development/production browser matrices pass with reproducible evidence, including all four current rooms and every registered interactable.
+- No collision bypass, void crossing, incorrect/duplicate dialog, stale movement, stuck controls or measured performance-budget breach remains unresolved.
+- Future room/object configuration feeds one navigation model; no duplicated hand-maintained navigation maps or per-object runtime branches are required.
+- Both final reviewers approve the delivered snapshot, owner accepts visible behavior, and maintenance instructions identify actual files and verification commands. Do not claim physical-device or live deployment checks that were not performed.
+
+### Verification
+
+Run the documented workflow against a clean checkout/production build. Store environment, viewport, commands/results, screenshots/recordings and review iterations under `output/qa/port21/`. Update story states and delivery records only after their individual gates pass.
+
 ## 6. Beginner Maintenance Workflow
 
 For future changes:

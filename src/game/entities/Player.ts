@@ -5,6 +5,9 @@ import { InputController } from '../systems/InputController';
 import type { Direction } from '../systems/InputController';
 import { PLAYER_SPEED, facingFromMovement, movementSnapshotToVelocity } from './playerMotion';
 import type { PlayerVisual } from './PlayerVisual';
+import type { Velocity } from './playerMotion';
+import type { Point } from '../navigation/RoutePlanner';
+import type { NavigationShape } from '../navigation/interactionGoals';
 
 export { PLAYER_SPEED } from './playerMotion';
 
@@ -53,11 +56,33 @@ export class Player {
 
   public update(): void {
     const movement = this.inputController.getMovementSnapshot();
+    const velocity = movementSnapshotToVelocity(movement, this.speed);
     this.facing = facingFromMovement(movement, this.facing);
 
-    const velocity = movementSnapshotToVelocity(movement, this.speed);
     this.body.setVelocity(velocity.x, velocity.y);
     this.options.visual?.update(this.facing, velocity);
+  }
+
+  public stop(): void {
+    this.body.setVelocity(0, 0);
+    this.options.visual?.update(this.facing, { x: 0, y: 0 });
+  }
+
+  /** Steering for the NEXT physics step must not animate that future motion. */
+  public prepareAutomaticVelocity(velocity: Velocity): void { this.body.setVelocity(velocity.x, velocity.y); }
+
+  public recordAutomaticStep(dx: number, dy: number): void {
+    this.facing = facingFromMovement({ up: dy < -1e-9, down: dy > 1e-9, left: dx < -1e-9, right: dx > 1e-9 }, this.facing);
+    this.options.visual?.recordAutomaticStep(this.facing, Math.hypot(dx, dy));
+  }
+
+  public getFootCenter(): Point { return { x: this.body.x + this.body.width / 2, y: this.body.y + this.body.height / 2 }; }
+
+  public getNavigationShape(): NavigationShape {
+    return { width: this.body.width, height: this.body.height,
+      offsetX: this.body.offset.x + this.body.width / 2 - this.sprite.width / 2,
+      offsetY: this.body.offset.y + this.body.height / 2 - this.sprite.height / 2,
+      tileSize: this.options.tileSize };
   }
 
   public getState(): PlayerState {

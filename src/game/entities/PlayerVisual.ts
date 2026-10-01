@@ -23,6 +23,7 @@ export class PlayerVisual {
   private facing: Direction = 'down';
   private movementRequested = false;
   private stepped = false;
+  private automaticDistance: number | undefined;
   private phase = 0;
   private animationKey = '';
   private previousPosition: { x: number; y: number };
@@ -81,6 +82,12 @@ export class PlayerVisual {
     if (!this.movementRequested) this.setPose(false);
   }
 
+  /** Accumulate actual physics travel, including corners within catch-up frames. */
+  public recordAutomaticStep(facing: Direction, distance: number): void {
+    this.facing = facing;
+    this.automaticDistance = (this.automaticDistance ?? 0) + distance;
+  }
+
   private markStep(): void {
     this.stepped = true;
   }
@@ -106,6 +113,7 @@ export class PlayerVisual {
    */
   public synchronize(reset = false): void {
     if (reset) {
+      this.automaticDistance = undefined;
       this.previousPosition = { x: this.anchor.x, y: this.anchor.y };
       this.stepped = false;
       this.phase = 0;
@@ -113,7 +121,11 @@ export class PlayerVisual {
     const distance = Math.hypot(this.anchor.x - this.previousPosition.x, this.anchor.y - this.previousPosition.y);
     // Don't alternate idle/walk on high-refresh render frames without a physics
     // step. Large discontinuities (spawn/debug teleport) must not advance gait.
-    if (this.stepped) {
+    if (this.automaticDistance !== undefined) {
+      if (this.automaticDistance > 1e-9) this.phase = advanceWalkCycle(this.phase, this.automaticDistance);
+      this.setPose(this.automaticDistance > 1e-9);
+      this.automaticDistance = undefined;
+    } else if (this.stepped) {
       const walking = this.movementRequested && distance > 1e-6 && distance < PLAYER_DISPLAY_HEIGHT;
       if (walking) this.phase = advanceWalkCycle(this.phase, distance);
       this.setPose(walking);

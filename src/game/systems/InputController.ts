@@ -1,6 +1,6 @@
 export type Direction = 'up' | 'down' | 'left' | 'right';
 
-export type InteractionTriggerSource = 'keyboard' | 'mobile';
+export type InteractionTriggerSource = 'keyboard' | 'mobile' | 'pointer';
 
 export interface InteractionRequest {
   triggerSource: InteractionTriggerSource;
@@ -31,10 +31,28 @@ export class InputController {
   private readonly pointerDirections = new Map<number, Direction>();
   private interactionRequest: InteractionRequest | null = null;
   private gameplayEnabled = true;
+  private readonly suspensions = new Set<symbol>();
+
+  /** Each async owner releases only its own lock; modal close cannot release loading. */
+  public suspendGameplay(): () => void {
+    const token = Symbol(); this.suspensions.add(token);
+    this.resetMovement(); this.interactionRequest = null;
+    return () => { this.suspensions.delete(token); };
+  }
   private destroyed = false;
+  private readonly intentListeners = new Set<() => void>();
+
+  /** Immediate cancellation boundary for automatic movement, including blur,
+   * dialogs and quick travel (all already reset manual input here). */
+  public onManualIntent(listener: () => void): () => void {
+    this.intentListeners.add(listener);
+    return () => { this.intentListeners.delete(listener); };
+  }
+
+  private notifyIntent(): void { this.intentListeners.forEach(listener => listener()); }
 
   private readonly handleKeyDown = (event: KeyboardEvent): void => {
-    if (this.destroyed || !this.gameplayEnabled) {
+    if (this.destroyed || !this.isGameplayEnabled()) {
       return;
     }
 
@@ -43,6 +61,7 @@ export class InputController {
 
     if (direction) {
       event.preventDefault();
+      this.notifyIntent();
       this.pressedDirections.add(direction);
       return;
     }
@@ -100,7 +119,8 @@ export class InputController {
   }
 
   public requestInteraction(source: InteractionTriggerSource = 'keyboard'): void {
-    if (this.destroyed || !this.gameplayEnabled || this.interactionRequest) {
+    if (this.isGameplayEnabled() && !this.destroyed) this.notifyIntent();
+    if (this.destroyed || !this.isGameplayEnabled() || this.interactionRequest) {
       return;
     }
 
@@ -108,7 +128,7 @@ export class InputController {
   }
 
   public consumeInteractionRequest(): InteractionRequest | null {
-    if (this.destroyed || !this.gameplayEnabled) {
+    if (this.destroyed || !this.isGameplayEnabled()) {
       this.interactionRequest = null;
       return null;
     }
@@ -123,12 +143,13 @@ export class InputController {
       return;
     }
 
-    if (!active || !this.gameplayEnabled) {
+    if (!active || !this.isGameplayEnabled()) {
       this.pointerDirections.delete(pointerId);
       return;
     }
 
     this.pointerDirections.set(pointerId, direction);
+    this.notifyIntent();
   }
 
   public releasePointer(pointerId: number): void {
@@ -136,6 +157,7 @@ export class InputController {
   }
 
   public resetMovement(): void {
+    this.notifyIntent();
     this.pressedDirections.clear();
     this.pointerDirections.clear();
   }
@@ -150,7 +172,7 @@ export class InputController {
   }
 
   public isGameplayEnabled(): boolean {
-    return this.gameplayEnabled;
+    return !this.destroyed && this.gameplayEnabled && this.suspensions.size === 0;
   }
 
   public destroy(): void {
@@ -165,6 +187,8 @@ export class InputController {
     this.resetMovement();
     this.interactionRequest = null;
     this.destroyed = true;
+    this.intentListeners.clear();
+    this.suspensions.clear();
   }
 
   private isDirectionActive(direction: Direction): boolean {

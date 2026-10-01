@@ -32,6 +32,16 @@ function fixture(missing: string | false = false, existingAnimations = false) {
 }
 
 describe('player visual isolation', () => {
+  it('accumulates completed catch-up travel through corners rather than its chord', () => {
+    const { visual, sprite, anchor, sync } = fixture();
+    visual!.recordAutomaticStep('right', 9);
+    visual!.recordAutomaticStep('down', 9);
+    anchor.x += 9; anchor.y += 9; sync();
+    expect(sprite.frame.name).toBe(2); // 18px, not sqrt(162).
+    expect(sprite.play).toHaveBeenLastCalledWith('player-walk-down', true);
+    visual!.recordAutomaticStep('down', 0); sync();
+    expect(sprite.play).toHaveBeenLastCalledWith('player-idle-down', true);
+  });
   it('registers eight looping animations and starts facing down', () => {
     const { scene, sprite } = fixture();
     expect(scene.anims.create).toHaveBeenCalledTimes(8);

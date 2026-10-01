@@ -34,8 +34,10 @@ import { InteractionSystem } from '../systems/InteractionSystem';
 import type { InteractionTarget } from '../systems/InteractionSystem';
 import { InputController } from '../systems/InputController';
 import type { InteractionTriggerSource } from '../systems/InputController';
+import { HouseNavigation } from '../navigation/HouseNavigation';
 
 export interface HouseSceneCallbacks {
+  readonly onNavigationStatus?: (message: string) => void;
   readonly onRoomChanged?: (roomId: RoomDefinition['id']) => void;
   readonly onSceneReady?: () => void;
   readonly onStartupError?: (error: unknown) => void;
@@ -71,6 +73,7 @@ export class HouseScene extends Phaser.Scene {
   private readonly roomBoundsVisible: boolean;
   private playerSprite?: Phaser.GameObjects.Sprite;
   private player?: Player;
+  private navigation?: HouseNavigation;
   private collisionSystem?: CollisionSystem;
   private interactionSystem?: InteractionSystem;
   private debugOverlay?: DebugOverlay;
@@ -80,6 +83,8 @@ export class HouseScene extends Phaser.Scene {
   private currentRoom?: RoomDefinition['id'];
   private roomLoadQueue: Promise<void> = Promise.resolve();
   private shuttingDown = false;
+  private generation = 0;
+  public getGeneration(): number { return this.generation; }
   private debugEnabled: boolean;
 
   public constructor(
@@ -106,6 +111,7 @@ export class HouseScene extends Phaser.Scene {
 
   public preload(): void {
     this.shuttingDown = false;
+    this.roomLoadQueue = Promise.resolve();
     this.load.image('player-placeholder', assetUrl(placeholderAssetPaths.player));
     this.load.image('floor-placeholder', assetUrl(placeholderAssetPaths.floor));
     this.load.image('wall-placeholder', assetUrl(placeholderAssetPaths.wall));
@@ -127,6 +133,7 @@ export class HouseScene extends Phaser.Scene {
   }
 
   public create(): void {
+    this.generation++;
     this.currentRoom = undefined;
     try {
       assertValidHouseLayout(this.layout);
@@ -198,6 +205,10 @@ export class HouseScene extends Phaser.Scene {
         },
       });
       this.depths.registerPlayer(this.player.getDisplayObject(), () => this.player!.getGroundY());
+      this.navigation = new HouseNavigation(this, this.layout, this.player, this.inputController, this.interactionSystem,
+        id => this.renderLayers?.interactableLabels.get(id)?.visible ?? false,
+        message => this.callbacks.onNavigationStatus?.(message),
+        contentId => this.callbacks.onContentRequested?.(contentId, 'pointer'));
       this.synchronizePresentation();
       // Arcade's plugin registers POST_UPDATE before scene creation. Own one
       // ordered callback: body-to-anchor copy -> visual -> depth -> camera.
@@ -222,7 +233,8 @@ export class HouseScene extends Phaser.Scene {
   }
 
   public update(): void {
-    this.player?.update();
+    if (this.navigation) this.navigation.update();
+    else this.player?.update();
 
     if (this.player && this.interactionSystem) {
       this.interactionSystem.setGameplayEnabled(this.inputController.isGameplayEnabled());
@@ -257,23 +269,27 @@ export class HouseScene extends Phaser.Scene {
 
   /** Loads one destination's artwork as an isolated batch; navigation remains usable on art failure. */
   public prepareRoom(roomId: RoomDefinition['id']): Promise<boolean> {
+    const generation = this.generation;
     const room = this.layout.rooms.find(candidate => candidate.id === roomId);
     if (!room || this.shuttingDown) return Promise.resolve(false);
     const operation = this.roomLoadQueue.then(async () => {
-      if (this.shuttingDown) return false;
+      if (this.shuttingDown || generation !== this.generation) return false;
       const missing = textureAssetsForRoom(room).filter(asset => !this.textures.exists(asset.key));
       if (missing.length > 0) {
         await new Promise<void>((resolve) => {
+          const loader = this.load;
           const complete = () => {
-            this.load.off(Phaser.Loader.Events.COMPLETE, complete);
+            loader.off(Phaser.Loader.Events.COMPLETE, complete);
+            this.events.off(Phaser.Scenes.Events.SHUTDOWN, complete);
             resolve();
           };
-          this.load.once(Phaser.Loader.Events.COMPLETE, complete);
+          loader.once(Phaser.Loader.Events.COMPLETE, complete);
+          this.events.once(Phaser.Scenes.Events.SHUTDOWN, complete);
           missing.forEach(({ key, path }) => this.load.image(key, assetUrl(path)));
           this.load.start();
         });
       }
-      if (this.shuttingDown) return false;
+      if (this.shuttingDown || generation !== this.generation) return false;
       this.configureTextureFiltering();
       const artwork = this.renderLayers?.roomArtwork.get(room.id);
       if (artwork) refreshRoomArtwork(this, room, this.layout.tileSize, artwork);
@@ -284,7 +300,10 @@ export class HouseScene extends Phaser.Scene {
   }
 
   public shutdown(): void {
+    this.generation++;
     this.shuttingDown = true;
+    this.navigation?.destroy();
+    this.navigation = undefined;
     this.events.off(Phaser.Scenes.Events.POST_UPDATE, this.synchronizePresentation, this);
     this.depths.clear();
     // CameraManager may already have disposed its cameras on scene shutdown.
@@ -317,6 +336,14 @@ export class HouseScene extends Phaser.Scene {
 
   private synchronizePresentation(): void {
     this.player?.synchronizePresentation();
+    this.navigation?.afterPhysics();
+    const selected = this.navigation?.selectedId;
+    this.renderLayers?.interactableLabels.forEach((label, id) => {
+      label.setVisible(this.alwaysShowInteractableNameplates || id === selected || id === this.interactionSystem?.getCurrentTarget()?.id);
+    });
+    this.renderLayers?.interactableLabelHighlights.forEach((highlight, id) => {
+      highlight.setVisible(id === (selected ?? this.interactionSystem?.getCurrentTarget()?.id));
+    });
     this.depths.sort();
     this.updateCameraFollow();
     if (this.player && this.playerSprite) {

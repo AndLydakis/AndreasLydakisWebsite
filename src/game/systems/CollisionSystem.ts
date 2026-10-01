@@ -1,8 +1,7 @@
 import Phaser from 'phaser';
 
-import { worldRectToWorldPixel } from '../data/coordinates';
 import type { HouseLayout, WorldTileRect } from '../data/types';
-import { getAllCollisionRects } from './collisionGeometry';
+import { collisionRectToPixel, getAllCollisionRects } from './collisionGeometry';
 
 /**
  * Owns the static Arcade bodies that make the layout navigable.
@@ -53,11 +52,11 @@ export class CollisionSystem {
     tileSize: number,
     collisionRect: WorldTileRect,
   ): void {
-    const pixelRect = worldRectToWorldPixel(collisionRect, tileSize);
+    const pixelRect = collisionRectToPixel(collisionRect, tileSize);
     const bodyObject = scene.add
       .rectangle(
-        pixelRect.x + pixelRect.width / 2,
-        pixelRect.y + pixelRect.height / 2,
+        pixelRect.centerX,
+        pixelRect.centerY,
         pixelRect.width,
         pixelRect.height,
         0,

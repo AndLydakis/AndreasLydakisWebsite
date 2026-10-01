@@ -2,6 +2,7 @@ import type { InteractionTriggerSource } from '../game/systems/InputController';
 import type { RoomDefinition } from '../game/data/types';
 
 export interface GameUiEventMap {
+  navigationStatus: { message: string };
   currentRoomChanged: { roomId: RoomDefinition['id'] };
   interactionAvailable: { contentId: string; label: string };
   interactionUnavailable: undefined;

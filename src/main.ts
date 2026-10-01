@@ -41,7 +41,7 @@ const dialogManager = new DialogManager({
   closeButton: dom.dialogClose,
   gameShell: dom.gameShell,
   inputController,
-  onGameplayEnabledChange: (enabled) => mobileControls.setGameplayEnabled(enabled),
+  onGameplayEnabledChange: () => mobileControls.setGameplayEnabled(inputController.isGameplayEnabled()),
 });
 const contentIndex = new ContentIndex(dom.contentList, dialogManager);
 const bridge = new GameUiBridge();
@@ -49,10 +49,24 @@ const quickTravel = new QuickTravelMenu(dom.quickTravel, async id => {
   const scene = game?.scene.getScene('HouseScene');
   const destination = quickTravelDestinations.find(item => item.id === id)!;
   if (scene instanceof HouseScene) {
+    const generation = scene.getGeneration();
     quickTravel.setEnabled(false);
+    const release = inputController.suspendGameplay();
+    mobileControls.setGameplayEnabled(false);
     dom.gameStatus.textContent = `Loading ${destination.label}...`;
-    const ready = await scene.prepareRoom(destination.roomId);
-    quickTravel.setEnabled(true);
+    let ready = false;
+    try { ready = await scene.prepareRoom(destination.roomId); }
+    catch { ready = false; }
+    finally {
+      release();
+      // Reconcile the CURRENT effective state even if an older load was cancelled
+      // by restart; never leave mobile buttons disabled after its lock is gone.
+      mobileControls.setGameplayEnabled(inputController.isGameplayEnabled());
+      if (scene.getGeneration() === generation && scene.scene.isActive()) {
+        quickTravel.setEnabled(true);
+      }
+    }
+    if (scene.getGeneration() !== generation || !scene.scene.isActive()) return;
     if (ready && scene.travelTo(id)) {
       const room = houseLayout.rooms.find(item => item.id === destination.roomId)!;
       dom.gameStatus.textContent = `Travelled to ${room.name}.`;
@@ -73,6 +87,7 @@ contentIndex.setEntries([]);
 dom.gameStatus.textContent = 'Loading the interactive portfolio...';
 
 const subscriptions = [
+  bridge.on('navigationStatus', ({ message }) => { dom.gameStatus.textContent = message; }),
   bridge.on('currentRoomChanged', ({ roomId }) => quickTravel.setCurrentRoom(roomId)),
   bridge.on('interactionAvailable', ({ label }) => {
     dom.interactionPrompt.hidden = false;
@@ -92,6 +107,7 @@ const subscriptions = [
     }
   }),
   bridge.on('gameReady', () => {
+    mobileControls.setGameplayEnabled(inputController.isGameplayEnabled());
     quickTravel.setEnabled(true);
     dom.gameStatus.textContent = 'The interactive portfolio is ready.';
   }),
@@ -118,6 +134,7 @@ const startGame = async (): Promise<void> => {
     parent: dom.canvasLayer,
     layout: houseLayout,
     inputController,
+    onNavigationStatus: message => bridge.emit('navigationStatus', { message }),
     onRoomChanged: roomId => bridge.emit('currentRoomChanged', { roomId }),
     onSceneReady: () => {
       bridge.emit('gameReady', undefined);

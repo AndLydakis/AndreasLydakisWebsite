@@ -1,6 +1,14 @@
 import { corridorToWorldRect, roomRectToWorld } from '../data/coordinates';
 import type { HouseLayout, RoomDefinition, RoomTileRect, WorldTileRect } from '../data/types';
 
+/** Match Arcade StaticBody's center/size arithmetic exactly, including fractional
+ * authored bounds. Physics and navigation must not round the same edge differently. */
+export function collisionRectToPixel(rect: WorldTileRect, tileSize: number) {
+  const width = rect.width * tileSize, height = rect.height * tileSize;
+  const centerX = rect.x * tileSize + width / 2, centerY = rect.y * tileSize + height / 2;
+  return { x: centerX - width / 2, y: centerY - height / 2, width, height, centerX, centerY };
+}
+
 /** One source for room solids, independent of artwork availability or depth.
  * Keep compound pieces and multiplicity intact; authoring owns deduplication.
  */

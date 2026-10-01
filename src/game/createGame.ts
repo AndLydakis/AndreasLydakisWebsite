@@ -10,6 +10,7 @@ import { InputController } from './systems/InputController';
 import type { InteractionTriggerSource } from './systems/InputController';
 
 export interface CreateGameOptions {
+  readonly onNavigationStatus?: (message: string) => void;
   readonly parent: HTMLElement;
   readonly layout?: HouseLayout;
   readonly inputController: InputController;
@@ -59,6 +60,7 @@ export function createGame(options: CreateGameOptions): Phaser.Game {
       },
     },
     scene: new HouseScene(layout, options.inputController, {
+      onNavigationStatus: options.onNavigationStatus,
       onSceneReady: options.onSceneReady,
       onRoomChanged: options.onRoomChanged,
       onStartupError: options.onStartupError,

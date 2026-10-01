@@ -237,6 +237,8 @@ export class InteractionSystem {
     return this.currentTarget;
   }
 
+  public getTargets(): readonly InteractionTarget[] { return [...this.interactables.values()]; }
+
   public destroy(): void {
     if (this.destroyed) {
       return;

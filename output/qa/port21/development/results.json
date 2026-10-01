@@ -1,0 +1,1705 @@
+{
+  "records": [
+    {
+      "name": "desktop",
+      "id": "living-room-television",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "livingroom-media",
+          "expectedContent": "livingroom-media",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 157.5,
+            "y": 161.5
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "desktop",
+      "id": "living-room-television",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "livingroom-media",
+          "expectedContent": "livingroom-media",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 157.5,
+            "y": 161.5
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "desktop",
+      "id": "living-room-record-player",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "livingroom-vinyl",
+          "expectedContent": "livingroom-vinyl",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 288.13903085841963,
+            "y": 180.9204357684778
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "desktop",
+      "id": "living-room-record-player",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "livingroom-vinyl",
+          "expectedContent": "livingroom-vinyl",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 288.13903085841963,
+            "y": 180.9204357684778
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "desktop",
+      "id": "living-room-bookcase",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "livingroom-books",
+          "expectedContent": "livingroom-books",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 259,
+            "y": 140.5
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "desktop",
+      "id": "living-room-bookcase",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "livingroom-books",
+          "expectedContent": "livingroom-books",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 259,
+            "y": 140.5
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "desktop",
+      "id": "living-room-globe",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "livingroom-travel",
+          "expectedContent": "livingroom-travel",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 122.56313234538783,
+            "y": 174.6456225515374
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "desktop",
+      "id": "living-room-globe",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "livingroom-travel",
+          "expectedContent": "livingroom-travel",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 122.56313234538783,
+            "y": 174.6456225515374
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "desktop",
+      "id": "gym-squat-rack",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "gym-personal-records",
+          "expectedContent": "gym-personal-records",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 566.7870611404434,
+            "y": 156.56155439393635
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "desktop",
+      "id": "gym-squat-rack",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "gym-personal-records",
+          "expectedContent": "gym-personal-records",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 566.7870611404434,
+            "y": 156.56155439393635
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "desktop",
+      "id": "gym-boombox",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "livingroom-vinyl",
+          "expectedContent": "livingroom-vinyl",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 513.0073188587088,
+            "y": 154.240851426614
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "desktop",
+      "id": "gym-boombox",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "livingroom-vinyl",
+          "expectedContent": "livingroom-vinyl",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 513.0073188587088,
+            "y": 154.240851426614
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "desktop",
+      "id": "office-dog-bed",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "office-dog-photo",
+          "expectedContent": "office-dog-photo",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 129,
+            "y": 461.55
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "desktop",
+      "id": "office-dog-bed",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "office-dog-photo",
+          "expectedContent": "office-dog-photo",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 129,
+            "y": 461.55
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "desktop",
+      "id": "office-workstation",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "office-cv",
+          "expectedContent": "office-cv",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 139.991114401902,
+            "y": 406.6998025422645
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "desktop",
+      "id": "office-workstation",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "office-cv",
+          "expectedContent": "office-cv",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 139.991114401902,
+            "y": 406.6998025422645
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "desktop",
+      "id": "office-bookcase",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "livingroom-books",
+          "expectedContent": "livingroom-books",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 170.6,
+            "y": 396.5
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "desktop",
+      "id": "office-bookcase",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "livingroom-books",
+          "expectedContent": "livingroom-books",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 170.6,
+            "y": 396.5
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "desktop",
+      "id": "kitchen-stove",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "kitchen-meals",
+          "expectedContent": "kitchen-meals",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 453.6393927183053,
+            "y": 421.82846298541165
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "desktop",
+      "id": "kitchen-stove",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "kitchen-meals",
+          "expectedContent": "kitchen-meals",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 453.6393927183053,
+            "y": 421.82846298541165
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "desktop",
+      "id": "kitchen-fridge",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "kitchen-shopping",
+          "expectedContent": "kitchen-shopping",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 599.4747177769431,
+            "y": 396.99150077433893
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "desktop",
+      "id": "kitchen-fridge",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "kitchen-shopping",
+          "expectedContent": "kitchen-shopping",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 599.4747177769431,
+            "y": 396.99150077433893
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "desktop",
+      "floor": true,
+      "invalidReplacement": true,
+      "manualCancellation": true,
+      "walkingRestart": true
+    },
+    {
+      "name": "portrait",
+      "id": "living-room-television",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "livingroom-media",
+          "expectedContent": "livingroom-media",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 157.5,
+            "y": 161.5
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "portrait",
+      "id": "living-room-television",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "livingroom-media",
+          "expectedContent": "livingroom-media",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 157.5,
+            "y": 161.5
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "portrait",
+      "id": "living-room-record-player",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "livingroom-vinyl",
+          "expectedContent": "livingroom-vinyl",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 288.13903085841963,
+            "y": 180.9204357684778
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "portrait",
+      "id": "living-room-record-player",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "livingroom-vinyl",
+          "expectedContent": "livingroom-vinyl",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 288.13903085841963,
+            "y": 180.9204357684778
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "portrait",
+      "id": "living-room-bookcase",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "livingroom-books",
+          "expectedContent": "livingroom-books",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 259,
+            "y": 140.5
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "portrait",
+      "id": "living-room-bookcase",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "livingroom-books",
+          "expectedContent": "livingroom-books",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 259,
+            "y": 140.5
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "portrait",
+      "id": "living-room-globe",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "livingroom-travel",
+          "expectedContent": "livingroom-travel",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 122.56313234538783,
+            "y": 174.6456225515374
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "portrait",
+      "id": "living-room-globe",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "livingroom-travel",
+          "expectedContent": "livingroom-travel",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 122.56313234538783,
+            "y": 174.6456225515374
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "portrait",
+      "id": "gym-squat-rack",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "gym-personal-records",
+          "expectedContent": "gym-personal-records",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 566.7870611404434,
+            "y": 156.56155439393635
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "portrait",
+      "id": "gym-squat-rack",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "gym-personal-records",
+          "expectedContent": "gym-personal-records",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 566.7870611404434,
+            "y": 156.56155439393635
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "portrait",
+      "id": "gym-boombox",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "livingroom-vinyl",
+          "expectedContent": "livingroom-vinyl",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 513.0073188587088,
+            "y": 154.240851426614
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "portrait",
+      "id": "gym-boombox",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "livingroom-vinyl",
+          "expectedContent": "livingroom-vinyl",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 513.0073188587088,
+            "y": 154.240851426614
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "portrait",
+      "id": "office-dog-bed",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "office-dog-photo",
+          "expectedContent": "office-dog-photo",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 129,
+            "y": 461.55
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "portrait",
+      "id": "office-dog-bed",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "office-dog-photo",
+          "expectedContent": "office-dog-photo",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 129,
+            "y": 461.55
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "portrait",
+      "id": "office-workstation",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "office-cv",
+          "expectedContent": "office-cv",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 139.991114401902,
+            "y": 406.6998025422645
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "portrait",
+      "id": "office-workstation",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "office-cv",
+          "expectedContent": "office-cv",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 139.991114401902,
+            "y": 406.6998025422645
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "portrait",
+      "id": "office-bookcase",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "livingroom-books",
+          "expectedContent": "livingroom-books",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 170.6,
+            "y": 396.5
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "portrait",
+      "id": "office-bookcase",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "livingroom-books",
+          "expectedContent": "livingroom-books",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 170.6,
+            "y": 396.5
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "portrait",
+      "id": "kitchen-stove",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "kitchen-meals",
+          "expectedContent": "kitchen-meals",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 453.6393927183053,
+            "y": 421.82846298541165
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "portrait",
+      "id": "kitchen-stove",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "kitchen-meals",
+          "expectedContent": "kitchen-meals",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 453.6393927183053,
+            "y": 421.82846298541165
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "portrait",
+      "id": "kitchen-fridge",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "kitchen-shopping",
+          "expectedContent": "kitchen-shopping",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 599.4747177769431,
+            "y": 396.99150077433893
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "portrait",
+      "id": "kitchen-fridge",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "kitchen-shopping",
+          "expectedContent": "kitchen-shopping",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 599.4747177769431,
+            "y": 396.99150077433893
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "portrait",
+      "floor": true,
+      "invalidReplacement": true,
+      "manualCancellation": true,
+      "walkingRestart": true
+    },
+    {
+      "name": "landscape",
+      "id": "living-room-television",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "livingroom-media",
+          "expectedContent": "livingroom-media",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 157.5,
+            "y": 161.5
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "landscape",
+      "id": "living-room-television",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "livingroom-media",
+          "expectedContent": "livingroom-media",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 157.5,
+            "y": 161.5
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "landscape",
+      "id": "living-room-record-player",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "livingroom-vinyl",
+          "expectedContent": "livingroom-vinyl",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 288.13903085841963,
+            "y": 180.9204357684778
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "landscape",
+      "id": "living-room-record-player",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "livingroom-vinyl",
+          "expectedContent": "livingroom-vinyl",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 288.13903085841963,
+            "y": 180.9204357684778
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "landscape",
+      "id": "living-room-bookcase",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "livingroom-books",
+          "expectedContent": "livingroom-books",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 259,
+            "y": 140.5
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "landscape",
+      "id": "living-room-bookcase",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "livingroom-books",
+          "expectedContent": "livingroom-books",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 259,
+            "y": 140.5
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "landscape",
+      "id": "living-room-globe",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "livingroom-travel",
+          "expectedContent": "livingroom-travel",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 122.56313234538783,
+            "y": 174.6456225515374
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "landscape",
+      "id": "living-room-globe",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "livingroom-travel",
+          "expectedContent": "livingroom-travel",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 122.56313234538783,
+            "y": 174.6456225515374
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "landscape",
+      "id": "gym-squat-rack",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "gym-personal-records",
+          "expectedContent": "gym-personal-records",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 566.7870611404434,
+            "y": 156.56155439393635
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "landscape",
+      "id": "gym-squat-rack",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "gym-personal-records",
+          "expectedContent": "gym-personal-records",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 566.7870611404434,
+            "y": 156.56155439393635
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "landscape",
+      "id": "gym-boombox",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "livingroom-vinyl",
+          "expectedContent": "livingroom-vinyl",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 513.0073188587088,
+            "y": 154.240851426614
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "landscape",
+      "id": "gym-boombox",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "livingroom-vinyl",
+          "expectedContent": "livingroom-vinyl",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 513.0073188587088,
+            "y": 154.240851426614
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "landscape",
+      "id": "office-dog-bed",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "office-dog-photo",
+          "expectedContent": "office-dog-photo",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 129,
+            "y": 461.55
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "landscape",
+      "id": "office-dog-bed",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "office-dog-photo",
+          "expectedContent": "office-dog-photo",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 129,
+            "y": 461.55
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "landscape",
+      "id": "office-workstation",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "office-cv",
+          "expectedContent": "office-cv",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 139.991114401902,
+            "y": 406.6998025422645
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "landscape",
+      "id": "office-workstation",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "office-cv",
+          "expectedContent": "office-cv",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 139.991114401902,
+            "y": 406.6998025422645
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "landscape",
+      "id": "office-bookcase",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "livingroom-books",
+          "expectedContent": "livingroom-books",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 170.6,
+            "y": 396.5
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "landscape",
+      "id": "office-bookcase",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "livingroom-books",
+          "expectedContent": "livingroom-books",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 170.6,
+            "y": 396.5
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "landscape",
+      "id": "kitchen-stove",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "kitchen-meals",
+          "expectedContent": "kitchen-meals",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 453.6393927183053,
+            "y": 421.82846298541165
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "landscape",
+      "id": "kitchen-stove",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "kitchen-meals",
+          "expectedContent": "kitchen-meals",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 453.6393927183053,
+            "y": 421.82846298541165
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "landscape",
+      "id": "kitchen-fridge",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "kitchen-shopping",
+          "expectedContent": "kitchen-shopping",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 599.4747177769431,
+            "y": 396.99150077433893
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "landscape",
+      "id": "kitchen-fridge",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "kitchen-shopping",
+          "expectedContent": "kitchen-shopping",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 599.4747177769431,
+            "y": 396.99150077433893
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "landscape",
+      "floor": true,
+      "invalidReplacement": true,
+      "manualCancellation": true,
+      "walkingRestart": true
+    },
+    {
+      "name": "narrow",
+      "id": "living-room-television",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "livingroom-media",
+          "expectedContent": "livingroom-media",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 157.5,
+            "y": 161.5
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "narrow",
+      "id": "living-room-television",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "livingroom-media",
+          "expectedContent": "livingroom-media",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 157.5,
+            "y": 161.5
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "narrow",
+      "id": "living-room-record-player",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "livingroom-vinyl",
+          "expectedContent": "livingroom-vinyl",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 288.13903085841963,
+            "y": 180.9204357684778
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "narrow",
+      "id": "living-room-record-player",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "livingroom-vinyl",
+          "expectedContent": "livingroom-vinyl",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 288.13903085841963,
+            "y": 180.9204357684778
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "narrow",
+      "id": "living-room-bookcase",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "livingroom-books",
+          "expectedContent": "livingroom-books",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 259,
+            "y": 140.5
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "narrow",
+      "id": "living-room-bookcase",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "livingroom-books",
+          "expectedContent": "livingroom-books",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 259,
+            "y": 140.5
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "narrow",
+      "id": "living-room-globe",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "livingroom-travel",
+          "expectedContent": "livingroom-travel",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 122.56313234538783,
+            "y": 174.6456225515374
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "narrow",
+      "id": "living-room-globe",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "livingroom-travel",
+          "expectedContent": "livingroom-travel",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 122.56313234538783,
+            "y": 174.6456225515374
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "narrow",
+      "id": "gym-squat-rack",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "gym-personal-records",
+          "expectedContent": "gym-personal-records",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 566.7870611404434,
+            "y": 156.56155439393635
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "narrow",
+      "id": "gym-squat-rack",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "gym-personal-records",
+          "expectedContent": "gym-personal-records",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 566.7870611404434,
+            "y": 156.56155439393635
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "narrow",
+      "id": "gym-boombox",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "livingroom-vinyl",
+          "expectedContent": "livingroom-vinyl",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 513.0073188587088,
+            "y": 154.240851426614
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "narrow",
+      "id": "gym-boombox",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "livingroom-vinyl",
+          "expectedContent": "livingroom-vinyl",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 513.0073188587088,
+            "y": 154.240851426614
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "narrow",
+      "id": "office-dog-bed",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "office-dog-photo",
+          "expectedContent": "office-dog-photo",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 129,
+            "y": 461.55
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "narrow",
+      "id": "office-dog-bed",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "office-dog-photo",
+          "expectedContent": "office-dog-photo",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 129,
+            "y": 461.55
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "narrow",
+      "id": "office-workstation",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "office-cv",
+          "expectedContent": "office-cv",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 139.991114401902,
+            "y": 406.6998025422645
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "narrow",
+      "id": "office-workstation",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "office-cv",
+          "expectedContent": "office-cv",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 139.991114401902,
+            "y": 406.6998025422645
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "narrow",
+      "id": "office-bookcase",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "livingroom-books",
+          "expectedContent": "livingroom-books",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 170.6,
+            "y": 396.5
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "narrow",
+      "id": "office-bookcase",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "livingroom-books",
+          "expectedContent": "livingroom-books",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 170.6,
+            "y": 396.5
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "narrow",
+      "id": "kitchen-stove",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "kitchen-meals",
+          "expectedContent": "kitchen-meals",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 453.6393927183053,
+            "y": 421.82846298541165
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "narrow",
+      "id": "kitchen-stove",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "kitchen-meals",
+          "expectedContent": "kitchen-meals",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 453.6393927183053,
+            "y": 421.82846298541165
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "narrow",
+      "id": "kitchen-fridge",
+      "kind": "radius",
+      "opens": [
+        {
+          "contentId": "kitchen-shopping",
+          "expectedContent": "kitchen-shopping",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 599.4747177769431,
+            "y": 396.99150077433893
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "narrow",
+      "id": "kitchen-fridge",
+      "kind": "label",
+      "opens": [
+        {
+          "contentId": "kitchen-shopping",
+          "expectedContent": "kitchen-shopping",
+          "source": "pointer",
+          "inRange": true,
+          "feet": {
+            "x": 599.4747177769431,
+            "y": 396.99150077433893
+          }
+        }
+      ],
+      "status": "Arrived.",
+      "active": false
+    },
+    {
+      "name": "narrow",
+      "floor": true,
+      "invalidReplacement": true,
+      "manualCancellation": true,
+      "walkingRestart": true
+    }
+  ],
+  "errors": []
+}
