@@ -2,6 +2,14 @@
 
 This file is the project decision record. New implementation decisions, approved changes, deferred choices, and story-completion decisions must be added here before or alongside changes to `plan.md` or source files.
 
+## DEC-197 — Preserve walking cadence during keyboard auto-repeat
+
+- Date: 2026-10-01. Owner reported sustained walking freezes the cycle and requested verification, diagnosis and fix. After preview review, owner accepted the result and explicitly authorized commit/push.
+- Reproduction: real repeated keyboard events in an isolated browser reproduce all eight arrow/WASD keys staying on phase slot 0, with 29 phase resets after repeat begins despite continued travel. Baseline in `output/qa/held-walk/before/results.json`.
+- Cause: PORT-21 manual-intent notification ran on every movement keydown, including OS repeats. Navigation cancellation calls Player.stop, which resets visual gait and zeroes velocity. Prior browser tests sent only initial keydown/key-up and therefore missed OS-repeat behavior.
+- Fix: only notify new manual movement intent when that logical keyboard direction is not already held. Continue preventing browser defaults and preserving held input. Use actual held state rather than the repeat flag so post-reset input still cancels automatic navigation. Lifecycle resets, interaction, new/opposing directions and touch cancellation remain unchanged.
+- Scope: no artwork, walk-frame order, speed, physics, or route algorithm changes. Add all-key repeat and post-reset unit regressions plus a repeat-aware browser verifier. Review/verification record: `output/qa/held-walk/review.md`.
+
 ## DEC-196 — Gate on-screen controls by pointer capability
 
 - Date: 2026-10-01. Owner requests a story, implementation, testing, verification and push for the laptop mobile-control issue.

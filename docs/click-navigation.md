@@ -11,6 +11,13 @@ the old route and show feedback, rather than choosing a different destination.
 Dialogs, quick travel, blur/hidden tabs and scene restart cancel pending movement
 and interaction. Closing a dialog never resumes a previous route.
 
+Keyboard auto-repeat is continuation, not new movement intent: only a direction
+not already held notifies route cancellation. Otherwise each repeated keydown
+would call Player.stop and restart the walking cycle. Input reset clears held
+state, so even an OS-repeat event after reset must cancel any new automatic route.
+`scripts/verify-held-walk-browser.mjs` exercises real repeat events for all eight
+movement keys; a single keydown followed by a delayed keyup does not simulate OS repeat.
+
 ## Small, separate responsibilities
 
 Automatic facing uses actual completed displacement, not keyboard booleans:

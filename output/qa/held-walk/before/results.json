@@ -1,0 +1,5253 @@
+{
+  "records": [
+    {
+      "key": "ArrowRight",
+      "direction": "right",
+      "travel": 71.99999999999932,
+      "resets": 29,
+      "frames": [
+        0
+      ],
+      "idle": "player-idle-right",
+      "rows": [
+        {
+          "time": 645.3000000119209,
+          "x": 512,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 791.1000000238419,
+          "x": 512,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 827.4000000357628,
+          "x": 514.4,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 844.9000000357628,
+          "x": 516.8,
+          "y": 272,
+          "phase": 0.06666666666666604,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 964.4000000357628,
+          "x": 519.1999999999999,
+          "y": 272,
+          "phase": 0.09999999999999906,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 969.9000000357628,
+          "x": 521.5999999999999,
+          "y": 272,
+          "phase": 0.13333333333333208,
+          "frame": 1,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1009.9000000357628,
+          "x": 523.9999999999999,
+          "y": 272,
+          "phase": 0.1666666666666651,
+          "frame": 1,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1017.7000000476837,
+          "x": 523.9999999999999,
+          "y": 272,
+          "phase": 0.1666666666666651,
+          "frame": 1,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1023.3000000119209,
+          "x": 526.3999999999999,
+          "y": 272,
+          "phase": 0.19999999999999812,
+          "frame": 1,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1036.7000000476837,
+          "x": 528.7999999999998,
+          "y": 272,
+          "phase": 0.23333333333333114,
+          "frame": 1,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1061.9000000357628,
+          "x": 531.1999999999998,
+          "y": 272,
+          "phase": 0.26666666666666416,
+          "frame": 2,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1069.9000000357628,
+          "x": 533.5999999999998,
+          "y": 272,
+          "phase": 0.29999999999999716,
+          "frame": 2,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1086.5,
+          "x": 535.9999999999998,
+          "y": 272,
+          "phase": 0.33333333333333015,
+          "frame": 2,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1103.1000000238419,
+          "x": 538.3999999999997,
+          "y": 272,
+          "phase": 0.36666666666666314,
+          "frame": 2,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1119.800000011921,
+          "x": 540.7999999999997,
+          "y": 272,
+          "phase": 0.39999999999999614,
+          "frame": 3,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1136.4000000357628,
+          "x": 543.1999999999997,
+          "y": 272,
+          "phase": 0.43333333333332913,
+          "frame": 3,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1153.1000000238419,
+          "x": 543.1999999999997,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 1169.800000011921,
+          "x": 545.5999999999997,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1186.6000000238419,
+          "x": 545.5999999999997,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 1203.1000000238419,
+          "x": 547.9999999999997,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1219.800000011921,
+          "x": 547.9999999999997,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 1236.4000000357628,
+          "x": 550.3999999999996,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1253.300000011921,
+          "x": 550.3999999999996,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 1269.5,
+          "x": 552.7999999999996,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1286.2000000476837,
+          "x": 552.7999999999996,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 1303.7000000476837,
+          "x": 555.1999999999996,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1319.5,
+          "x": 555.1999999999996,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 1338,
+          "x": 557.5999999999996,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1353.1000000238419,
+          "x": 557.5999999999996,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 1369.800000011921,
+          "x": 559.9999999999995,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1386.5,
+          "x": 559.9999999999995,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 1403.1000000238419,
+          "x": 562.3999999999995,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1419.7000000476837,
+          "x": 562.3999999999995,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 1436.5,
+          "x": 564.7999999999995,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1453.2000000476837,
+          "x": 564.7999999999995,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 1469.800000011921,
+          "x": 567.1999999999995,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1486.800000011921,
+          "x": 567.1999999999995,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 1503,
+          "x": 569.5999999999995,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1519.800000011921,
+          "x": 569.5999999999995,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 1536.6000000238419,
+          "x": 571.9999999999994,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1553.1000000238419,
+          "x": 571.9999999999994,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 1569.300000011921,
+          "x": 574.3999999999994,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1586.4000000357628,
+          "x": 574.3999999999994,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 1603.300000011921,
+          "x": 576.7999999999994,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1620.300000011921,
+          "x": 576.7999999999994,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 1636.2000000476837,
+          "x": 579.1999999999994,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1652.4000000357628,
+          "x": 579.1999999999994,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 1669.300000011921,
+          "x": 581.5999999999993,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1686.5,
+          "x": 581.5999999999993,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 1703.1000000238419,
+          "x": 583.9999999999993,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1720.2000000476837,
+          "x": 583.9999999999993,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 1736.4000000357628,
+          "x": 586.3999999999993,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1753.1000000238419,
+          "x": 586.3999999999993,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 1769.7000000476837,
+          "x": 588.7999999999993,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1786.5,
+          "x": 588.7999999999993,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 1803.1000000238419,
+          "x": 591.1999999999992,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1819.9000000357628,
+          "x": 591.1999999999992,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 1837.300000011921,
+          "x": 593.5999999999992,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1852.9000000357628,
+          "x": 593.5999999999992,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 1869.7000000476837,
+          "x": 595.9999999999992,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1886.5,
+          "x": 595.9999999999992,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 1903.2000000476837,
+          "x": 598.3999999999992,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1919.800000011921,
+          "x": 598.3999999999992,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 1936.4000000357628,
+          "x": 600.7999999999992,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1953.300000011921,
+          "x": 600.7999999999992,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 1969.7000000476837,
+          "x": 603.1999999999991,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 1986.4000000357628,
+          "x": 603.1999999999991,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 2002.9000000357628,
+          "x": 605.5999999999991,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 2019.7000000476837,
+          "x": 605.5999999999991,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 2036.300000011921,
+          "x": 607.9999999999991,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 2053.100000023842,
+          "x": 607.9999999999991,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 2069.7000000476837,
+          "x": 610.3999999999991,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 2085.800000011921,
+          "x": 610.3999999999991,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 2102.7000000476837,
+          "x": 612.799999999999,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 2119.400000035763,
+          "x": 612.799999999999,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 2136,
+          "x": 615.199999999999,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        }
+      ]
+    },
+    {
+      "key": "ArrowLeft",
+      "direction": "left",
+      "travel": 71.99999999999932,
+      "resets": 29,
+      "frames": [
+        0
+      ],
+      "idle": "player-idle-left",
+      "rows": [
+        {
+          "time": 2202.800000011921,
+          "x": 512,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 2219.400000035763,
+          "x": 509.6,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2237.300000011921,
+          "x": 507.20000000000005,
+          "y": 272,
+          "phase": 0.06666666666666604,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2252.800000011921,
+          "x": 504.80000000000007,
+          "y": 272,
+          "phase": 0.09999999999999906,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2269.400000035763,
+          "x": 502.4000000000001,
+          "y": 272,
+          "phase": 0.13333333333333208,
+          "frame": 1,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2286.100000023842,
+          "x": 500.0000000000001,
+          "y": 272,
+          "phase": 0.1666666666666651,
+          "frame": 1,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2302.800000011921,
+          "x": 497.60000000000014,
+          "y": 272,
+          "phase": 0.19999999999999812,
+          "frame": 1,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2319.400000035763,
+          "x": 495.20000000000016,
+          "y": 272,
+          "phase": 0.23333333333333114,
+          "frame": 1,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2336.100000023842,
+          "x": 492.8000000000002,
+          "y": 272,
+          "phase": 0.26666666666666416,
+          "frame": 2,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2352.800000011921,
+          "x": 490.4000000000002,
+          "y": 272,
+          "phase": 0.29999999999999716,
+          "frame": 2,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2369.2000000476837,
+          "x": 488.0000000000002,
+          "y": 272,
+          "phase": 0.33333333333333015,
+          "frame": 2,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2385.600000023842,
+          "x": 485.60000000000025,
+          "y": 272,
+          "phase": 0.36666666666666314,
+          "frame": 2,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2402.800000011921,
+          "x": 483.2000000000003,
+          "y": 272,
+          "phase": 0.39999999999999614,
+          "frame": 3,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2419.300000011921,
+          "x": 480.8000000000003,
+          "y": 272,
+          "phase": 0.43333333333332913,
+          "frame": 3,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2435.7000000476837,
+          "x": 478.4000000000003,
+          "y": 272,
+          "phase": 0.4666666666666621,
+          "frame": 3,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2452.600000023842,
+          "x": 476.00000000000034,
+          "y": 272,
+          "phase": 0.4999999999999951,
+          "frame": 3,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2469.400000035763,
+          "x": 473.60000000000036,
+          "y": 272,
+          "phase": 0.5333333333333281,
+          "frame": 4,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2486.100000023842,
+          "x": 471.2000000000004,
+          "y": 272,
+          "phase": 0.5666666666666611,
+          "frame": 4,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2502.800000011921,
+          "x": 468.8000000000004,
+          "y": 272,
+          "phase": 0.5999999999999941,
+          "frame": 4,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2519.300000011921,
+          "x": 466.40000000000043,
+          "y": 272,
+          "phase": 0.6333333333333271,
+          "frame": 5,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2536.300000011921,
+          "x": 464.00000000000045,
+          "y": 272,
+          "phase": 0.6666666666666601,
+          "frame": 5,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2552.800000011921,
+          "x": 464.00000000000045,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 2569.300000011921,
+          "x": 461.6000000000005,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2585.900000035763,
+          "x": 461.6000000000005,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 2603.100000023842,
+          "x": 459.2000000000005,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2619.5,
+          "x": 459.2000000000005,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 2636,
+          "x": 456.8000000000005,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2652.7000000476837,
+          "x": 456.8000000000005,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 2669.300000011921,
+          "x": 454.40000000000055,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2686.100000023842,
+          "x": 454.40000000000055,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 2702.300000011921,
+          "x": 452.00000000000057,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2719.2000000476837,
+          "x": 452.00000000000057,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 2736,
+          "x": 449.6000000000006,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2753.300000011921,
+          "x": 449.6000000000006,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 2769.300000011921,
+          "x": 447.2000000000006,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2786.100000023842,
+          "x": 447.2000000000006,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 2802.600000023842,
+          "x": 444.80000000000064,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2819.400000035763,
+          "x": 444.80000000000064,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 2836,
+          "x": 442.40000000000066,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2852.7000000476837,
+          "x": 442.40000000000066,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 2869.800000011921,
+          "x": 440.0000000000007,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2886.100000023842,
+          "x": 440.0000000000007,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 2902.7000000476837,
+          "x": 437.6000000000007,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2919.400000035763,
+          "x": 437.6000000000007,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 2936,
+          "x": 435.2000000000007,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2952.800000011921,
+          "x": 435.2000000000007,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 2969.300000011921,
+          "x": 432.80000000000075,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 2986.100000023842,
+          "x": 432.80000000000075,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 3002.300000011921,
+          "x": 430.4000000000008,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 3019.400000035763,
+          "x": 430.4000000000008,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 3035.7000000476837,
+          "x": 428.0000000000008,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 3052.7000000476837,
+          "x": 428.0000000000008,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 3069.300000011921,
+          "x": 425.6000000000008,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 3086.100000023842,
+          "x": 425.6000000000008,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 3102.600000023842,
+          "x": 423.20000000000084,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 3119.400000035763,
+          "x": 423.20000000000084,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 3136,
+          "x": 420.80000000000086,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 3153.2000000476837,
+          "x": 420.80000000000086,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 3169.300000011921,
+          "x": 418.4000000000009,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 3186.400000035763,
+          "x": 418.4000000000009,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 3203.2000000476837,
+          "x": 416.0000000000009,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 3219.900000035763,
+          "x": 416.0000000000009,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 3236.400000035763,
+          "x": 413.60000000000093,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 3252.800000011921,
+          "x": 413.60000000000093,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 3269.800000011921,
+          "x": 411.20000000000095,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 3286.600000023842,
+          "x": 411.20000000000095,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 3302.7000000476837,
+          "x": 408.800000000001,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 3319.300000011921,
+          "x": 408.800000000001,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 3336.5,
+          "x": 406.400000000001,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 3353.400000035763,
+          "x": 406.400000000001,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 3369.400000035763,
+          "x": 404.000000000001,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 3386.100000023842,
+          "x": 404.000000000001,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 3402.600000023842,
+          "x": 401.60000000000105,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 3419.400000035763,
+          "x": 401.60000000000105,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 3435.800000011921,
+          "x": 399.20000000000107,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 3452.800000011921,
+          "x": 399.20000000000107,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 3469.300000011921,
+          "x": 396.8000000000011,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 3486.2000000476837,
+          "x": 396.8000000000011,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 3502.800000011921,
+          "x": 394.4000000000011,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 3519.300000011921,
+          "x": 394.4000000000011,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 3536,
+          "x": 392.00000000000114,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        }
+      ]
+    },
+    {
+      "key": "ArrowUp",
+      "direction": "up",
+      "travel": 72.00000000000017,
+      "resets": 29,
+      "frames": [
+        0
+      ],
+      "idle": "player-idle-up",
+      "rows": [
+        {
+          "time": 3603.400000035763,
+          "x": 512,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 3619,
+          "x": 512,
+          "y": 269.6,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 3639.2000000476837,
+          "x": 512,
+          "y": 267.20000000000005,
+          "phase": 0.06666666666666604,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 3652.900000035763,
+          "x": 512,
+          "y": 264.80000000000007,
+          "phase": 0.09999999999999906,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 3669.2000000476837,
+          "x": 512,
+          "y": 262.4000000000001,
+          "phase": 0.13333333333333208,
+          "frame": 1,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 3686.100000023842,
+          "x": 512,
+          "y": 260.0000000000001,
+          "phase": 0.1666666666666651,
+          "frame": 1,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 3702.800000011921,
+          "x": 512,
+          "y": 257.60000000000014,
+          "phase": 0.19999999999999812,
+          "frame": 1,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 3719.100000023842,
+          "x": 512,
+          "y": 255.20000000000016,
+          "phase": 0.23333333333333114,
+          "frame": 1,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 3736.400000035763,
+          "x": 512,
+          "y": 252.80000000000018,
+          "phase": 0.26666666666666416,
+          "frame": 2,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 3752.600000023842,
+          "x": 512,
+          "y": 250.4000000000002,
+          "phase": 0.29999999999999716,
+          "frame": 2,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 3769,
+          "x": 512,
+          "y": 248.00000000000023,
+          "phase": 0.33333333333333015,
+          "frame": 2,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 3786.7000000476837,
+          "x": 512,
+          "y": 245.60000000000025,
+          "phase": 0.36666666666666314,
+          "frame": 2,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 3815.5,
+          "x": 512,
+          "y": 243.20000000000027,
+          "phase": 0.39999999999999614,
+          "frame": 3,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 3840.800000011921,
+          "x": 512,
+          "y": 240.80000000000027,
+          "phase": 0.4333333333333296,
+          "frame": 3,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 3853.2000000476837,
+          "x": 512,
+          "y": 238.40000000000026,
+          "phase": 0.466666666666663,
+          "frame": 3,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 3869.100000023842,
+          "x": 512,
+          "y": 236.00000000000026,
+          "phase": 0.49999999999999645,
+          "frame": 3,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 3886.7000000476837,
+          "x": 512,
+          "y": 233.60000000000025,
+          "phase": 0.5333333333333299,
+          "frame": 4,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 3903.400000035763,
+          "x": 512,
+          "y": 231.20000000000024,
+          "phase": 0.5666666666666633,
+          "frame": 4,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 3919.600000023842,
+          "x": 512,
+          "y": 226.40000000000023,
+          "phase": 0.6333333333333302,
+          "frame": 5,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 3936.600000023842,
+          "x": 512,
+          "y": 224.00000000000023,
+          "phase": 0.6666666666666636,
+          "frame": 5,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 3953.100000023842,
+          "x": 512,
+          "y": 224.00000000000023,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 3970.300000011921,
+          "x": 512,
+          "y": 221.60000000000022,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 3986.100000023842,
+          "x": 512,
+          "y": 221.60000000000022,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 4002.600000023842,
+          "x": 512,
+          "y": 219.20000000000022,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 4020,
+          "x": 512,
+          "y": 219.20000000000022,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 4036.5,
+          "x": 512,
+          "y": 216.8000000000002,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 4052.7000000476837,
+          "x": 512,
+          "y": 216.8000000000002,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 4069.800000011921,
+          "x": 512,
+          "y": 214.4000000000002,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 4086.7000000476837,
+          "x": 512,
+          "y": 214.4000000000002,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 4103.200000047684,
+          "x": 512,
+          "y": 212.0000000000002,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 4119.300000011921,
+          "x": 512,
+          "y": 212.0000000000002,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 4136.5,
+          "x": 512,
+          "y": 209.6000000000002,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 4152.600000023842,
+          "x": 512,
+          "y": 209.6000000000002,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 4169.800000011921,
+          "x": 512,
+          "y": 207.2000000000002,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 4185.800000011921,
+          "x": 512,
+          "y": 207.2000000000002,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 4202.5,
+          "x": 512,
+          "y": 204.80000000000018,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 4220,
+          "x": 512,
+          "y": 204.80000000000018,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 4235.900000035763,
+          "x": 512,
+          "y": 202.40000000000018,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 4252.700000047684,
+          "x": 512,
+          "y": 202.40000000000018,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 4269.200000047684,
+          "x": 512,
+          "y": 200.00000000000017,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 4285.600000023842,
+          "x": 512,
+          "y": 200.00000000000017,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 4302.600000023842,
+          "x": 512,
+          "y": 197.60000000000016,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 4319,
+          "x": 512,
+          "y": 197.60000000000016,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 4335.600000023842,
+          "x": 512,
+          "y": 195.20000000000016,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 4352.700000047684,
+          "x": 512,
+          "y": 195.20000000000016,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 4369.700000047684,
+          "x": 512,
+          "y": 192.80000000000015,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 4385.600000023842,
+          "x": 512,
+          "y": 192.80000000000015,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 4402.200000047684,
+          "x": 512,
+          "y": 190.40000000000015,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 4419,
+          "x": 512,
+          "y": 190.40000000000015,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 4436,
+          "x": 512,
+          "y": 188.00000000000014,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 4453.200000047684,
+          "x": 512,
+          "y": 188.00000000000014,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 4469.700000047684,
+          "x": 512,
+          "y": 185.60000000000014,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 4485.900000035763,
+          "x": 512,
+          "y": 185.60000000000014,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 4503.200000047684,
+          "x": 512,
+          "y": 183.20000000000013,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 4519.100000023842,
+          "x": 512,
+          "y": 183.20000000000013,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 4536.400000035763,
+          "x": 512,
+          "y": 180.80000000000013,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 4552.200000047684,
+          "x": 512,
+          "y": 180.80000000000013,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 4569.800000011921,
+          "x": 512,
+          "y": 178.40000000000012,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 4586.400000035763,
+          "x": 512,
+          "y": 178.40000000000012,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 4602.300000011921,
+          "x": 512,
+          "y": 176.0000000000001,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 4619.400000035763,
+          "x": 512,
+          "y": 176.0000000000001,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 4635.700000047684,
+          "x": 512,
+          "y": 173.6000000000001,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 4653,
+          "x": 512,
+          "y": 173.6000000000001,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 4669.700000047684,
+          "x": 512,
+          "y": 171.2000000000001,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 4686.700000047684,
+          "x": 512,
+          "y": 171.2000000000001,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 4702.400000035763,
+          "x": 512,
+          "y": 168.8000000000001,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 4719.700000047684,
+          "x": 512,
+          "y": 168.8000000000001,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 4735.5,
+          "x": 512,
+          "y": 166.4000000000001,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 4752.400000035763,
+          "x": 512,
+          "y": 166.4000000000001,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 4769.800000011921,
+          "x": 512,
+          "y": 164.00000000000009,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 4786.200000047684,
+          "x": 512,
+          "y": 164.00000000000009,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 4802.5,
+          "x": 512,
+          "y": 161.60000000000008,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 4819.400000035763,
+          "x": 512,
+          "y": 161.60000000000008,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 4835.700000047684,
+          "x": 512,
+          "y": 159.20000000000007,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 4852.400000035763,
+          "x": 512,
+          "y": 159.20000000000007,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 4869,
+          "x": 512,
+          "y": 156.80000000000007,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 4886,
+          "x": 512,
+          "y": 156.80000000000007,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 4902.700000047684,
+          "x": 512,
+          "y": 154.40000000000006,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 4919.200000047684,
+          "x": 512,
+          "y": 154.40000000000006,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 4935.800000011921,
+          "x": 512,
+          "y": 152.00000000000006,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        }
+      ]
+    },
+    {
+      "key": "ArrowDown",
+      "direction": "down",
+      "travel": 76.79999999999927,
+      "resets": 29,
+      "frames": [
+        0
+      ],
+      "idle": "player-idle-down",
+      "rows": [
+        {
+          "time": 5002.700000047684,
+          "x": 512,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 5019.100000023842,
+          "x": 512,
+          "y": 274.4,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5052.900000035763,
+          "x": 512,
+          "y": 276.79999999999995,
+          "phase": 0.06666666666666604,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5069.800000011921,
+          "x": 512,
+          "y": 279.19999999999993,
+          "phase": 0.09999999999999906,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5086.700000047684,
+          "x": 512,
+          "y": 281.5999999999999,
+          "phase": 0.13333333333333208,
+          "frame": 1,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5103.300000011921,
+          "x": 512,
+          "y": 283.9999999999999,
+          "phase": 0.1666666666666651,
+          "frame": 1,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5119.5,
+          "x": 512,
+          "y": 286.39999999999986,
+          "phase": 0.19999999999999812,
+          "frame": 1,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5136.200000047684,
+          "x": 512,
+          "y": 291.1999999999998,
+          "phase": 0.26666666666666416,
+          "frame": 2,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5152.800000011921,
+          "x": 512,
+          "y": 293.5999999999998,
+          "phase": 0.29999999999999716,
+          "frame": 2,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5169.400000035763,
+          "x": 512,
+          "y": 295.9999999999998,
+          "phase": 0.33333333333333015,
+          "frame": 2,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5185.900000035763,
+          "x": 512,
+          "y": 298.39999999999975,
+          "phase": 0.36666666666666314,
+          "frame": 2,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5202.300000011921,
+          "x": 512,
+          "y": 300.7999999999997,
+          "phase": 0.39999999999999614,
+          "frame": 3,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5219.400000035763,
+          "x": 512,
+          "y": 303.1999999999997,
+          "phase": 0.43333333333332913,
+          "frame": 3,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5236.200000047684,
+          "x": 512,
+          "y": 305.5999999999997,
+          "phase": 0.4666666666666621,
+          "frame": 3,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5252.700000047684,
+          "x": 512,
+          "y": 307.99999999999966,
+          "phase": 0.4999999999999951,
+          "frame": 3,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5269.5,
+          "x": 512,
+          "y": 310.39999999999964,
+          "phase": 0.5333333333333281,
+          "frame": 4,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5286.200000047684,
+          "x": 512,
+          "y": 312.7999999999996,
+          "phase": 0.5666666666666611,
+          "frame": 4,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5302.5,
+          "x": 512,
+          "y": 315.1999999999996,
+          "phase": 0.5999999999999941,
+          "frame": 4,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5319.100000023842,
+          "x": 512,
+          "y": 317.59999999999957,
+          "phase": 0.6333333333333271,
+          "frame": 5,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5336,
+          "x": 512,
+          "y": 319.99999999999955,
+          "phase": 0.6666666666666601,
+          "frame": 5,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5352.5,
+          "x": 512,
+          "y": 319.99999999999955,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 5369.900000035763,
+          "x": 512,
+          "y": 322.3999999999995,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5385.900000035763,
+          "x": 512,
+          "y": 322.3999999999995,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 5402.700000047684,
+          "x": 512,
+          "y": 324.7999999999995,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5419.800000011921,
+          "x": 512,
+          "y": 324.7999999999995,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 5435.800000011921,
+          "x": 512,
+          "y": 327.1999999999995,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5452.700000047684,
+          "x": 512,
+          "y": 327.1999999999995,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 5469.100000023842,
+          "x": 512,
+          "y": 329.59999999999945,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5486.100000023842,
+          "x": 512,
+          "y": 329.59999999999945,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 5502.600000023842,
+          "x": 512,
+          "y": 331.99999999999943,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5519.600000023842,
+          "x": 512,
+          "y": 331.99999999999943,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 5536,
+          "x": 512,
+          "y": 334.3999999999994,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5552.800000011921,
+          "x": 512,
+          "y": 334.3999999999994,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 5569.700000047684,
+          "x": 512,
+          "y": 336.7999999999994,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5585.600000023842,
+          "x": 512,
+          "y": 336.7999999999994,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 5602.800000011921,
+          "x": 512,
+          "y": 339.19999999999936,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5619.100000023842,
+          "x": 512,
+          "y": 339.19999999999936,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 5635.900000035763,
+          "x": 512,
+          "y": 341.59999999999934,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5652.200000047684,
+          "x": 512,
+          "y": 341.59999999999934,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 5669.600000023842,
+          "x": 512,
+          "y": 343.9999999999993,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5685.900000035763,
+          "x": 512,
+          "y": 343.9999999999993,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 5702.600000023842,
+          "x": 512,
+          "y": 346.3999999999993,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5719.200000047684,
+          "x": 512,
+          "y": 346.3999999999993,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 5736.300000011921,
+          "x": 512,
+          "y": 348.7999999999993,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5752.5,
+          "x": 512,
+          "y": 348.7999999999993,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 5769.100000023842,
+          "x": 512,
+          "y": 351.19999999999925,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5785.700000047684,
+          "x": 512,
+          "y": 351.19999999999925,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 5802.700000047684,
+          "x": 512,
+          "y": 353.5999999999992,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5819.400000035763,
+          "x": 512,
+          "y": 353.5999999999992,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 5835.5,
+          "x": 512,
+          "y": 355.9999999999992,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5852.600000023842,
+          "x": 512,
+          "y": 355.9999999999992,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 5869.300000011921,
+          "x": 512,
+          "y": 358.3999999999992,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5886.300000011921,
+          "x": 512,
+          "y": 358.3999999999992,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 5902.600000023842,
+          "x": 512,
+          "y": 360.79999999999916,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5919.300000011921,
+          "x": 512,
+          "y": 360.79999999999916,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 5936.400000035763,
+          "x": 512,
+          "y": 363.19999999999914,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5952.5,
+          "x": 512,
+          "y": 363.19999999999914,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 5969.100000023842,
+          "x": 512,
+          "y": 365.5999999999991,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 5986,
+          "x": 512,
+          "y": 365.5999999999991,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 6002.5,
+          "x": 512,
+          "y": 367.9999999999991,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 6019.200000047684,
+          "x": 512,
+          "y": 367.9999999999991,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 6036.400000035763,
+          "x": 512,
+          "y": 370.39999999999907,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 6052.300000011921,
+          "x": 512,
+          "y": 370.39999999999907,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 6069,
+          "x": 512,
+          "y": 372.79999999999905,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 6085.800000011921,
+          "x": 512,
+          "y": 372.79999999999905,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 6102,
+          "x": 512,
+          "y": 375.199999999999,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 6119.200000047684,
+          "x": 512,
+          "y": 375.199999999999,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 6135.900000035763,
+          "x": 512,
+          "y": 377.599999999999,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 6152.600000023842,
+          "x": 512,
+          "y": 377.599999999999,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 6169.300000011921,
+          "x": 512,
+          "y": 379.999999999999,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 6186,
+          "x": 512,
+          "y": 379.999999999999,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 6202.600000023842,
+          "x": 512,
+          "y": 382.39999999999895,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 6219.900000035763,
+          "x": 512,
+          "y": 384.79999999999893,
+          "phase": 0.06666666666666604,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 6236.5,
+          "x": 512,
+          "y": 384.79999999999893,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 6252.600000023842,
+          "x": 512,
+          "y": 387.1999999999989,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 6269.400000035763,
+          "x": 512,
+          "y": 387.1999999999989,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 6285.900000035763,
+          "x": 512,
+          "y": 389.5999999999989,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 6302.300000011921,
+          "x": 512,
+          "y": 389.5999999999989,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 6318.700000047684,
+          "x": 512,
+          "y": 391.99999999999886,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 6335.900000035763,
+          "x": 512,
+          "y": 394.39999999999884,
+          "phase": 0.06666666666666604,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 6352.600000023842,
+          "x": 512,
+          "y": 394.39999999999884,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 6369.5,
+          "x": 512,
+          "y": 396.7999999999988,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        }
+      ]
+    },
+    {
+      "key": "d",
+      "direction": "right",
+      "travel": 71.99999999999932,
+      "resets": 29,
+      "frames": [
+        0
+      ],
+      "idle": "player-idle-right",
+      "rows": [
+        {
+          "time": 6436,
+          "x": 512,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 6452.800000011921,
+          "x": 512,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 6469.200000047684,
+          "x": 514.4,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 6485.900000035763,
+          "x": 516.8,
+          "y": 272,
+          "phase": 0.06666666666666604,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 6502.5,
+          "x": 519.1999999999999,
+          "y": 272,
+          "phase": 0.09999999999999906,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 6519,
+          "x": 521.5999999999999,
+          "y": 272,
+          "phase": 0.13333333333333208,
+          "frame": 1,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 6536,
+          "x": 523.9999999999999,
+          "y": 272,
+          "phase": 0.1666666666666651,
+          "frame": 1,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 6552.400000035763,
+          "x": 526.3999999999999,
+          "y": 272,
+          "phase": 0.19999999999999812,
+          "frame": 1,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 6569.200000047684,
+          "x": 528.7999999999998,
+          "y": 272,
+          "phase": 0.23333333333333114,
+          "frame": 1,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 6586.200000047684,
+          "x": 531.1999999999998,
+          "y": 272,
+          "phase": 0.26666666666666416,
+          "frame": 2,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 6602.600000023842,
+          "x": 533.5999999999998,
+          "y": 272,
+          "phase": 0.29999999999999716,
+          "frame": 2,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 6619.200000047684,
+          "x": 535.9999999999998,
+          "y": 272,
+          "phase": 0.33333333333333015,
+          "frame": 2,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 6635.900000035763,
+          "x": 538.3999999999997,
+          "y": 272,
+          "phase": 0.36666666666666314,
+          "frame": 2,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 6652.600000023842,
+          "x": 540.7999999999997,
+          "y": 272,
+          "phase": 0.39999999999999614,
+          "frame": 3,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 6669.200000047684,
+          "x": 543.1999999999997,
+          "y": 272,
+          "phase": 0.43333333333332913,
+          "frame": 3,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 6686.300000011921,
+          "x": 545.5999999999997,
+          "y": 272,
+          "phase": 0.4666666666666621,
+          "frame": 3,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 6702.600000023842,
+          "x": 547.9999999999997,
+          "y": 272,
+          "phase": 0.4999999999999951,
+          "frame": 3,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 6719.300000011921,
+          "x": 550.3999999999996,
+          "y": 272,
+          "phase": 0.5333333333333281,
+          "frame": 4,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 6736,
+          "x": 552.7999999999996,
+          "y": 272,
+          "phase": 0.5666666666666611,
+          "frame": 4,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 6752.600000023842,
+          "x": 555.1999999999996,
+          "y": 272,
+          "phase": 0.5999999999999941,
+          "frame": 4,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 6769.400000035763,
+          "x": 557.5999999999996,
+          "y": 272,
+          "phase": 0.6333333333333271,
+          "frame": 5,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 6785.700000047684,
+          "x": 559.9999999999995,
+          "y": 272,
+          "phase": 0.6666666666666601,
+          "frame": 5,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 6803.100000023842,
+          "x": 559.9999999999995,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 6819.100000023842,
+          "x": 562.3999999999995,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 6836.100000023842,
+          "x": 562.3999999999995,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 6852.600000023842,
+          "x": 564.7999999999995,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 6869.300000011921,
+          "x": 564.7999999999995,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 6885.900000035763,
+          "x": 567.1999999999995,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 6902.700000047684,
+          "x": 567.1999999999995,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 6919.200000047684,
+          "x": 569.5999999999995,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 6935.800000011921,
+          "x": 569.5999999999995,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 6952.600000023842,
+          "x": 571.9999999999994,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 6969.600000023842,
+          "x": 571.9999999999994,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 6985.900000035763,
+          "x": 574.3999999999994,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 7003.200000047684,
+          "x": 574.3999999999994,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 7019.5,
+          "x": 576.7999999999994,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 7036.100000023842,
+          "x": 576.7999999999994,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 7052.600000023842,
+          "x": 579.1999999999994,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 7069.600000023842,
+          "x": 579.1999999999994,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 7086,
+          "x": 581.5999999999993,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 7102.800000011921,
+          "x": 581.5999999999993,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 7119.300000011921,
+          "x": 583.9999999999993,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 7136.100000023842,
+          "x": 583.9999999999993,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 7152.700000047684,
+          "x": 586.3999999999993,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 7169.300000011921,
+          "x": 586.3999999999993,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 7185.900000035763,
+          "x": 588.7999999999993,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 7202.700000047684,
+          "x": 588.7999999999993,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 7219.200000047684,
+          "x": 591.1999999999992,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 7236.300000011921,
+          "x": 591.1999999999992,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 7252.700000047684,
+          "x": 593.5999999999992,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 7269.600000023842,
+          "x": 593.5999999999992,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 7285.900000035763,
+          "x": 595.9999999999992,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 7302.800000011921,
+          "x": 595.9999999999992,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 7319.400000035763,
+          "x": 598.3999999999992,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 7336.100000023842,
+          "x": 598.3999999999992,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 7352.600000023842,
+          "x": 600.7999999999992,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 7369.600000023842,
+          "x": 600.7999999999992,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 7386,
+          "x": 603.1999999999991,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 7403.100000023842,
+          "x": 603.1999999999991,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 7419.400000035763,
+          "x": 605.5999999999991,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 7436,
+          "x": 605.5999999999991,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 7452.5,
+          "x": 607.9999999999991,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 7469.600000023842,
+          "x": 607.9999999999991,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 7486.100000023842,
+          "x": 610.3999999999991,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 7502.5,
+          "x": 610.3999999999991,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 7519.200000047684,
+          "x": 612.799999999999,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 7536,
+          "x": 612.799999999999,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 7552.700000047684,
+          "x": 615.199999999999,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 7569.5,
+          "x": 615.199999999999,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 7585.700000047684,
+          "x": 617.599999999999,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 7602.800000011921,
+          "x": 617.599999999999,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 7619.300000011921,
+          "x": 619.999999999999,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 7636.100000023842,
+          "x": 619.999999999999,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 7652.700000047684,
+          "x": 622.399999999999,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 7669.700000047684,
+          "x": 622.399999999999,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 7685.800000011921,
+          "x": 624.7999999999989,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 7702.600000023842,
+          "x": 624.7999999999989,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 7719.200000047684,
+          "x": 627.1999999999989,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 7736,
+          "x": 627.1999999999989,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 7752.800000011921,
+          "x": 629.5999999999989,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        },
+        {
+          "time": 7769.400000035763,
+          "x": 629.5999999999989,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-right"
+        },
+        {
+          "time": 7786,
+          "x": 631.9999999999989,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-right"
+        }
+      ]
+    },
+    {
+      "key": "a",
+      "direction": "left",
+      "travel": 71.99999999999932,
+      "resets": 29,
+      "frames": [
+        0
+      ],
+      "idle": "player-idle-left",
+      "rows": [
+        {
+          "time": 7852.800000011921,
+          "x": 512,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 7868.800000011921,
+          "x": 509.6,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 7885.900000035763,
+          "x": 507.20000000000005,
+          "y": 272,
+          "phase": 0.06666666666666604,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 7902.200000047684,
+          "x": 504.80000000000007,
+          "y": 272,
+          "phase": 0.09999999999999906,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 7919.300000011921,
+          "x": 502.4000000000001,
+          "y": 272,
+          "phase": 0.13333333333333208,
+          "frame": 1,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 7936.400000035763,
+          "x": 500.0000000000001,
+          "y": 272,
+          "phase": 0.1666666666666651,
+          "frame": 1,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 7953.100000023842,
+          "x": 497.60000000000014,
+          "y": 272,
+          "phase": 0.19999999999999812,
+          "frame": 1,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 7969.300000011921,
+          "x": 495.20000000000016,
+          "y": 272,
+          "phase": 0.23333333333333114,
+          "frame": 1,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 7986.400000035763,
+          "x": 492.8000000000002,
+          "y": 272,
+          "phase": 0.26666666666666416,
+          "frame": 2,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8002.700000047684,
+          "x": 490.4000000000002,
+          "y": 272,
+          "phase": 0.29999999999999716,
+          "frame": 2,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8018.900000035763,
+          "x": 488.0000000000002,
+          "y": 272,
+          "phase": 0.33333333333333015,
+          "frame": 2,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8036.400000035763,
+          "x": 485.60000000000025,
+          "y": 272,
+          "phase": 0.36666666666666314,
+          "frame": 2,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8052.600000023842,
+          "x": 483.2000000000003,
+          "y": 272,
+          "phase": 0.39999999999999614,
+          "frame": 3,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8069.200000047684,
+          "x": 480.8000000000003,
+          "y": 272,
+          "phase": 0.43333333333332913,
+          "frame": 3,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8086,
+          "x": 478.4000000000003,
+          "y": 272,
+          "phase": 0.4666666666666621,
+          "frame": 3,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8102.600000023842,
+          "x": 476.00000000000034,
+          "y": 272,
+          "phase": 0.4999999999999951,
+          "frame": 3,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8118.900000035763,
+          "x": 473.60000000000036,
+          "y": 272,
+          "phase": 0.5333333333333281,
+          "frame": 4,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8136,
+          "x": 471.2000000000004,
+          "y": 272,
+          "phase": 0.5666666666666611,
+          "frame": 4,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8152.700000047684,
+          "x": 468.8000000000004,
+          "y": 272,
+          "phase": 0.5999999999999941,
+          "frame": 4,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8169.400000035763,
+          "x": 466.40000000000043,
+          "y": 272,
+          "phase": 0.6333333333333271,
+          "frame": 5,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8186.200000047684,
+          "x": 464.00000000000045,
+          "y": 272,
+          "phase": 0.6666666666666601,
+          "frame": 5,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8202.900000035763,
+          "x": 464.00000000000045,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 8219.300000011921,
+          "x": 461.6000000000005,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8236.300000011921,
+          "x": 461.6000000000005,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 8252.900000035763,
+          "x": 459.2000000000005,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8269.5,
+          "x": 459.2000000000005,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 8285.900000035763,
+          "x": 456.8000000000005,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8302.700000047684,
+          "x": 456.8000000000005,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 8319.300000011921,
+          "x": 454.40000000000055,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8336.100000023842,
+          "x": 454.40000000000055,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 8352.600000023842,
+          "x": 452.00000000000057,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8369.900000035763,
+          "x": 452.00000000000057,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 8385.5,
+          "x": 449.6000000000006,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8402.700000047684,
+          "x": 449.6000000000006,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 8419.300000011921,
+          "x": 447.2000000000006,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8435.900000035763,
+          "x": 447.2000000000006,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 8452.5,
+          "x": 444.80000000000064,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8469.700000047684,
+          "x": 444.80000000000064,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 8485.700000047684,
+          "x": 442.40000000000066,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8502.700000047684,
+          "x": 442.40000000000066,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 8519.200000047684,
+          "x": 440.0000000000007,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8535.800000011921,
+          "x": 440.0000000000007,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 8552.400000035763,
+          "x": 437.6000000000007,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8569.100000023842,
+          "x": 437.6000000000007,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 8585.800000011921,
+          "x": 435.2000000000007,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8602.600000023842,
+          "x": 435.2000000000007,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 8618.800000011921,
+          "x": 432.80000000000075,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8635.800000011921,
+          "x": 432.80000000000075,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 8652.5,
+          "x": 430.4000000000008,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8669.300000011921,
+          "x": 430.4000000000008,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 8685.800000011921,
+          "x": 428.0000000000008,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8702.800000011921,
+          "x": 428.0000000000008,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 8719.400000035763,
+          "x": 425.6000000000008,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8736.100000023842,
+          "x": 425.6000000000008,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 8752.700000047684,
+          "x": 423.20000000000084,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8769.800000011921,
+          "x": 423.20000000000084,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 8785.900000035763,
+          "x": 420.80000000000086,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8802.900000035763,
+          "x": 420.80000000000086,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 8819.300000011921,
+          "x": 418.4000000000009,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8835.600000023842,
+          "x": 418.4000000000009,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 8852,
+          "x": 416.0000000000009,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8868.800000011921,
+          "x": 416.0000000000009,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 8885.800000011921,
+          "x": 413.60000000000093,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8902.800000011921,
+          "x": 413.60000000000093,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 8919.300000011921,
+          "x": 411.20000000000095,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8936.100000023842,
+          "x": 411.20000000000095,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 8952.600000023842,
+          "x": 408.800000000001,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 8969.300000011921,
+          "x": 408.800000000001,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 8985.800000011921,
+          "x": 406.400000000001,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 9002.5,
+          "x": 406.400000000001,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 9019.100000023842,
+          "x": 404.000000000001,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 9035.900000035763,
+          "x": 404.000000000001,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 9052.5,
+          "x": 401.60000000000105,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 9069.100000023842,
+          "x": 401.60000000000105,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 9085.700000047684,
+          "x": 399.20000000000107,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 9102.5,
+          "x": 399.20000000000107,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 9118.800000011921,
+          "x": 396.8000000000011,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 9136,
+          "x": 396.8000000000011,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 9152.900000035763,
+          "x": 394.4000000000011,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        },
+        {
+          "time": 9169.300000011921,
+          "x": 394.4000000000011,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-left"
+        },
+        {
+          "time": 9185.800000011921,
+          "x": 392.00000000000114,
+          "y": 272,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-left"
+        }
+      ]
+    },
+    {
+      "key": "w",
+      "direction": "up",
+      "travel": 72.00000000000017,
+      "resets": 29,
+      "frames": [
+        0
+      ],
+      "idle": "player-idle-up",
+      "rows": [
+        {
+          "time": 9252.800000011921,
+          "x": 512,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 9269.800000011921,
+          "x": 512,
+          "y": 269.6,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9286,
+          "x": 512,
+          "y": 267.20000000000005,
+          "phase": 0.06666666666666604,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9302.5,
+          "x": 512,
+          "y": 264.80000000000007,
+          "phase": 0.09999999999999906,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9319.400000035763,
+          "x": 512,
+          "y": 262.4000000000001,
+          "phase": 0.13333333333333208,
+          "frame": 1,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9335.900000035763,
+          "x": 512,
+          "y": 260.0000000000001,
+          "phase": 0.1666666666666651,
+          "frame": 1,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9352.600000023842,
+          "x": 512,
+          "y": 257.60000000000014,
+          "phase": 0.19999999999999812,
+          "frame": 1,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9369.200000047684,
+          "x": 512,
+          "y": 255.20000000000016,
+          "phase": 0.23333333333333114,
+          "frame": 1,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9385.900000035763,
+          "x": 512,
+          "y": 252.80000000000018,
+          "phase": 0.26666666666666416,
+          "frame": 2,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9402.600000023842,
+          "x": 512,
+          "y": 250.4000000000002,
+          "phase": 0.29999999999999716,
+          "frame": 2,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9419.200000047684,
+          "x": 512,
+          "y": 248.00000000000023,
+          "phase": 0.33333333333333015,
+          "frame": 2,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9435.900000035763,
+          "x": 512,
+          "y": 245.60000000000025,
+          "phase": 0.36666666666666314,
+          "frame": 2,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9452.600000023842,
+          "x": 512,
+          "y": 243.20000000000027,
+          "phase": 0.39999999999999614,
+          "frame": 3,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9469.100000023842,
+          "x": 512,
+          "y": 240.80000000000027,
+          "phase": 0.4333333333333296,
+          "frame": 3,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9485.900000035763,
+          "x": 512,
+          "y": 238.40000000000026,
+          "phase": 0.466666666666663,
+          "frame": 3,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9502.600000023842,
+          "x": 512,
+          "y": 236.00000000000026,
+          "phase": 0.49999999999999645,
+          "frame": 3,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9519.300000011921,
+          "x": 512,
+          "y": 233.60000000000025,
+          "phase": 0.5333333333333299,
+          "frame": 4,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9535.900000035763,
+          "x": 512,
+          "y": 231.20000000000024,
+          "phase": 0.5666666666666633,
+          "frame": 4,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9552.700000047684,
+          "x": 512,
+          "y": 228.80000000000024,
+          "phase": 0.5999999999999968,
+          "frame": 4,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9569.300000011921,
+          "x": 512,
+          "y": 226.40000000000023,
+          "phase": 0.6333333333333302,
+          "frame": 5,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9585.900000035763,
+          "x": 512,
+          "y": 224.00000000000023,
+          "phase": 0.6666666666666636,
+          "frame": 5,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9602.600000023842,
+          "x": 512,
+          "y": 224.00000000000023,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 9619.200000047684,
+          "x": 512,
+          "y": 221.60000000000022,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9636,
+          "x": 512,
+          "y": 221.60000000000022,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 9652.600000023842,
+          "x": 512,
+          "y": 219.20000000000022,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9669.700000047684,
+          "x": 512,
+          "y": 219.20000000000022,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 9685.900000035763,
+          "x": 512,
+          "y": 216.8000000000002,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9702.600000023842,
+          "x": 512,
+          "y": 216.8000000000002,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 9719.200000047684,
+          "x": 512,
+          "y": 214.4000000000002,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9735.800000011921,
+          "x": 512,
+          "y": 214.4000000000002,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 9752.5,
+          "x": 512,
+          "y": 212.0000000000002,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9769.300000011921,
+          "x": 512,
+          "y": 212.0000000000002,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 9785.800000011921,
+          "x": 512,
+          "y": 209.6000000000002,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9802.100000023842,
+          "x": 512,
+          "y": 209.6000000000002,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 9818.600000023842,
+          "x": 512,
+          "y": 207.2000000000002,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9835.900000035763,
+          "x": 512,
+          "y": 207.2000000000002,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 9852.5,
+          "x": 512,
+          "y": 204.80000000000018,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9869.200000047684,
+          "x": 512,
+          "y": 204.80000000000018,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 9885.900000035763,
+          "x": 512,
+          "y": 202.40000000000018,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9902.700000047684,
+          "x": 512,
+          "y": 202.40000000000018,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 9919.700000047684,
+          "x": 512,
+          "y": 200.00000000000017,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9936.5,
+          "x": 512,
+          "y": 200.00000000000017,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 9952.5,
+          "x": 512,
+          "y": 197.60000000000016,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 9969.300000011921,
+          "x": 512,
+          "y": 197.60000000000016,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 9985.900000035763,
+          "x": 512,
+          "y": 195.20000000000016,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 10002.800000011921,
+          "x": 512,
+          "y": 195.20000000000016,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 10019.100000023842,
+          "x": 512,
+          "y": 192.80000000000015,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 10035.800000011921,
+          "x": 512,
+          "y": 192.80000000000015,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 10052.400000035763,
+          "x": 512,
+          "y": 190.40000000000015,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 10069.300000011921,
+          "x": 512,
+          "y": 190.40000000000015,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 10085.900000035763,
+          "x": 512,
+          "y": 188.00000000000014,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 10102.600000023842,
+          "x": 512,
+          "y": 188.00000000000014,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 10119.200000047684,
+          "x": 512,
+          "y": 185.60000000000014,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 10136,
+          "x": 512,
+          "y": 185.60000000000014,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 10152.600000023842,
+          "x": 512,
+          "y": 183.20000000000013,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 10169.5,
+          "x": 512,
+          "y": 183.20000000000013,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 10185.300000011921,
+          "x": 512,
+          "y": 180.80000000000013,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 10202.5,
+          "x": 512,
+          "y": 180.80000000000013,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 10219.100000023842,
+          "x": 512,
+          "y": 178.40000000000012,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 10236.300000011921,
+          "x": 512,
+          "y": 178.40000000000012,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 10252,
+          "x": 512,
+          "y": 176.0000000000001,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 10269.200000047684,
+          "x": 512,
+          "y": 176.0000000000001,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 10285.400000035763,
+          "x": 512,
+          "y": 173.6000000000001,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 10302.5,
+          "x": 512,
+          "y": 173.6000000000001,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 10319.400000035763,
+          "x": 512,
+          "y": 171.2000000000001,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 10335.800000011921,
+          "x": 512,
+          "y": 171.2000000000001,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 10352.400000035763,
+          "x": 512,
+          "y": 168.8000000000001,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 10369.600000023842,
+          "x": 512,
+          "y": 168.8000000000001,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 10385.700000047684,
+          "x": 512,
+          "y": 166.4000000000001,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 10402.600000023842,
+          "x": 512,
+          "y": 166.4000000000001,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 10419.100000023842,
+          "x": 512,
+          "y": 164.00000000000009,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 10435.700000047684,
+          "x": 512,
+          "y": 164.00000000000009,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 10452.400000035763,
+          "x": 512,
+          "y": 161.60000000000008,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 10469.600000023842,
+          "x": 512,
+          "y": 161.60000000000008,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 10485.700000047684,
+          "x": 512,
+          "y": 159.20000000000007,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 10502.400000035763,
+          "x": 512,
+          "y": 159.20000000000007,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 10519,
+          "x": 512,
+          "y": 156.80000000000007,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 10535.400000035763,
+          "x": 512,
+          "y": 156.80000000000007,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 10552.400000035763,
+          "x": 512,
+          "y": 154.40000000000006,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        },
+        {
+          "time": 10569.100000023842,
+          "x": 512,
+          "y": 154.40000000000006,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-up"
+        },
+        {
+          "time": 10585.800000011921,
+          "x": 512,
+          "y": 152.00000000000006,
+          "phase": 0.03333333333333341,
+          "frame": 0,
+          "animation": "player-walk-up"
+        }
+      ]
+    },
+    {
+      "key": "s",
+      "direction": "down",
+      "travel": 71.99999999999932,
+      "resets": 29,
+      "frames": [
+        0
+      ],
+      "idle": "player-idle-down",
+      "rows": [
+        {
+          "time": 10652.200000047684,
+          "x": 512,
+          "y": 272,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 10669.100000023842,
+          "x": 512,
+          "y": 274.4,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 10685.800000011921,
+          "x": 512,
+          "y": 276.79999999999995,
+          "phase": 0.06666666666666604,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 10702.5,
+          "x": 512,
+          "y": 279.19999999999993,
+          "phase": 0.09999999999999906,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 10719.200000047684,
+          "x": 512,
+          "y": 281.5999999999999,
+          "phase": 0.13333333333333208,
+          "frame": 1,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 10735.800000011921,
+          "x": 512,
+          "y": 283.9999999999999,
+          "phase": 0.1666666666666651,
+          "frame": 1,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 10752.200000047684,
+          "x": 512,
+          "y": 286.39999999999986,
+          "phase": 0.19999999999999812,
+          "frame": 1,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 10768.600000023842,
+          "x": 512,
+          "y": 288.79999999999984,
+          "phase": 0.23333333333333114,
+          "frame": 1,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 10785.900000035763,
+          "x": 512,
+          "y": 291.1999999999998,
+          "phase": 0.26666666666666416,
+          "frame": 2,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 10802.400000035763,
+          "x": 512,
+          "y": 293.5999999999998,
+          "phase": 0.29999999999999716,
+          "frame": 2,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 10819,
+          "x": 512,
+          "y": 295.9999999999998,
+          "phase": 0.33333333333333015,
+          "frame": 2,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 10835.800000011921,
+          "x": 512,
+          "y": 298.39999999999975,
+          "phase": 0.36666666666666314,
+          "frame": 2,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 10852.5,
+          "x": 512,
+          "y": 300.7999999999997,
+          "phase": 0.39999999999999614,
+          "frame": 3,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 10869.100000023842,
+          "x": 512,
+          "y": 303.1999999999997,
+          "phase": 0.43333333333332913,
+          "frame": 3,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 10885.800000011921,
+          "x": 512,
+          "y": 305.5999999999997,
+          "phase": 0.4666666666666621,
+          "frame": 3,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 10902.5,
+          "x": 512,
+          "y": 307.99999999999966,
+          "phase": 0.4999999999999951,
+          "frame": 3,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 10919.100000023842,
+          "x": 512,
+          "y": 310.39999999999964,
+          "phase": 0.5333333333333281,
+          "frame": 4,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 10935.800000011921,
+          "x": 512,
+          "y": 312.7999999999996,
+          "phase": 0.5666666666666611,
+          "frame": 4,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 10952.600000023842,
+          "x": 512,
+          "y": 315.1999999999996,
+          "phase": 0.5999999999999941,
+          "frame": 4,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 10969.200000047684,
+          "x": 512,
+          "y": 317.59999999999957,
+          "phase": 0.6333333333333271,
+          "frame": 5,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 10985.800000011921,
+          "x": 512,
+          "y": 319.99999999999955,
+          "phase": 0.6666666666666601,
+          "frame": 5,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11002.800000011921,
+          "x": 512,
+          "y": 319.99999999999955,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11019.100000023842,
+          "x": 512,
+          "y": 322.3999999999995,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11035.700000047684,
+          "x": 512,
+          "y": 322.3999999999995,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11052.300000011921,
+          "x": 512,
+          "y": 324.7999999999995,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11069.200000047684,
+          "x": 512,
+          "y": 324.7999999999995,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11085.800000011921,
+          "x": 512,
+          "y": 327.1999999999995,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11102.700000047684,
+          "x": 512,
+          "y": 327.1999999999995,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11119.200000047684,
+          "x": 512,
+          "y": 329.59999999999945,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11135.900000035763,
+          "x": 512,
+          "y": 329.59999999999945,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11152.300000011921,
+          "x": 512,
+          "y": 331.99999999999943,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11169.100000023842,
+          "x": 512,
+          "y": 331.99999999999943,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11185.600000023842,
+          "x": 512,
+          "y": 334.3999999999994,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11202.100000023842,
+          "x": 512,
+          "y": 334.3999999999994,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11219.100000023842,
+          "x": 512,
+          "y": 336.7999999999994,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11235.700000047684,
+          "x": 512,
+          "y": 336.7999999999994,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11252.400000035763,
+          "x": 512,
+          "y": 339.19999999999936,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11269.100000023842,
+          "x": 512,
+          "y": 339.19999999999936,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11285.700000047684,
+          "x": 512,
+          "y": 341.59999999999934,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11302.400000035763,
+          "x": 512,
+          "y": 341.59999999999934,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11318.700000047684,
+          "x": 512,
+          "y": 343.9999999999993,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11335.700000047684,
+          "x": 512,
+          "y": 343.9999999999993,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11352.600000023842,
+          "x": 512,
+          "y": 346.3999999999993,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11369.200000047684,
+          "x": 512,
+          "y": 346.3999999999993,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11385.700000047684,
+          "x": 512,
+          "y": 348.7999999999993,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11402.5,
+          "x": 512,
+          "y": 348.7999999999993,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11419.400000035763,
+          "x": 512,
+          "y": 351.19999999999925,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11435.900000035763,
+          "x": 512,
+          "y": 351.19999999999925,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11452.700000047684,
+          "x": 512,
+          "y": 353.5999999999992,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11469,
+          "x": 512,
+          "y": 353.5999999999992,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11485.700000047684,
+          "x": 512,
+          "y": 355.9999999999992,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11502.600000023842,
+          "x": 512,
+          "y": 355.9999999999992,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11519.5,
+          "x": 512,
+          "y": 358.3999999999992,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11536,
+          "x": 512,
+          "y": 358.3999999999992,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11552.800000011921,
+          "x": 512,
+          "y": 360.79999999999916,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11569.600000023842,
+          "x": 512,
+          "y": 360.79999999999916,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11585.800000011921,
+          "x": 512,
+          "y": 363.19999999999914,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11602.700000047684,
+          "x": 512,
+          "y": 363.19999999999914,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11619.400000035763,
+          "x": 512,
+          "y": 365.5999999999991,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11635.800000011921,
+          "x": 512,
+          "y": 365.5999999999991,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11652.300000011921,
+          "x": 512,
+          "y": 367.9999999999991,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11669.300000011921,
+          "x": 512,
+          "y": 367.9999999999991,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11685.800000011921,
+          "x": 512,
+          "y": 370.39999999999907,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11702.100000023842,
+          "x": 512,
+          "y": 370.39999999999907,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11719,
+          "x": 512,
+          "y": 372.79999999999905,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11735.900000035763,
+          "x": 512,
+          "y": 372.79999999999905,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11752.5,
+          "x": 512,
+          "y": 375.199999999999,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11768.900000035763,
+          "x": 512,
+          "y": 375.199999999999,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11785.800000011921,
+          "x": 512,
+          "y": 377.599999999999,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11802.600000023842,
+          "x": 512,
+          "y": 377.599999999999,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11819.100000023842,
+          "x": 512,
+          "y": 379.999999999999,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11835.700000047684,
+          "x": 512,
+          "y": 379.999999999999,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11852.800000011921,
+          "x": 512,
+          "y": 382.39999999999895,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11868.700000047684,
+          "x": 512,
+          "y": 382.39999999999895,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11885.600000023842,
+          "x": 512,
+          "y": 384.79999999999893,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11902.400000035763,
+          "x": 512,
+          "y": 384.79999999999893,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11919,
+          "x": 512,
+          "y": 387.1999999999989,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11935.300000011921,
+          "x": 512,
+          "y": 387.1999999999989,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11952.300000011921,
+          "x": 512,
+          "y": 389.5999999999989,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        },
+        {
+          "time": 11969,
+          "x": 512,
+          "y": 389.5999999999989,
+          "phase": 0,
+          "frame": 0,
+          "animation": "player-idle-down"
+        },
+        {
+          "time": 11985.600000023842,
+          "x": 512,
+          "y": 391.99999999999886,
+          "phase": 0.03333333333333302,
+          "frame": 0,
+          "animation": "player-walk-down"
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

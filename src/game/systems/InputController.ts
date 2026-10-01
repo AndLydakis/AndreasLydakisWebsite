@@ -61,7 +61,10 @@ export class InputController {
 
     if (direction) {
       event.preventDefault();
-      this.notifyIntent();
+      // OS key repeat continues a held direction; cancelling again would stop
+      // physics and reset the distance-driven gait on every repeated keydown.
+      // Check held state, not event.repeat, so input after a reset still cancels.
+      if (!this.pressedDirections.has(direction)) this.notifyIntent();
       this.pressedDirections.add(direction);
       return;
     }

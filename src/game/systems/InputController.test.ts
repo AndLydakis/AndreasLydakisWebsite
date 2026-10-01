@@ -51,6 +51,37 @@ function expectDirection(
 }
 
 describe('InputController', () => {
+  it.each(['w', 'a', 's', 'd', 'ArrowUp', 'ArrowLeft', 'ArrowDown', 'ArrowRight'])(
+    'notifies once for held %s, including repeated events, and again after release', key => {
+      const { controller, keyboardTarget } = createController();
+      let count = 0;
+      controller.onManualIntent(() => { count++; });
+      dispatchKey(keyboardTarget, 'keydown', key);
+      for (let i = 0; i < 30; i++) {
+        expect(dispatchKey(keyboardTarget, 'keydown', key, true).defaultPrevented).toBe(true);
+      }
+      dispatchKey(keyboardTarget, 'keydown', key); // Duplicate without repeat flag.
+      expect(count).toBe(1);
+      expect(Object.values(controller.getMovementSnapshot()).filter(Boolean)).toHaveLength(1);
+      dispatchKey(keyboardTarget, 'keyup', key);
+      expect(Object.values(controller.getMovementSnapshot()).some(Boolean)).toBe(false);
+      dispatchKey(keyboardTarget, 'keydown', key);
+      expect(count).toBe(2);
+      controller.destroy();
+    });
+
+  it('treats a repeated key after input reset as fresh cancellation intent', () => {
+    const { controller, keyboardTarget } = createController();
+    let count = 0;
+    controller.onManualIntent(() => { count++; });
+    dispatchKey(keyboardTarget, 'keydown', 'd');
+    controller.resetMovement();
+    dispatchKey(keyboardTarget, 'keydown', 'd', true);
+    expect(count).toBe(3);
+    expect(controller.getMovementSnapshot().right).toBe(true);
+    controller.destroy();
+  });
+
   it('keeps independent gameplay suspensions through modal close and repeated release', () => {
     const { controller } = createController();
     const releaseA = controller.suspendGameplay(), releaseB = controller.suspendGameplay();

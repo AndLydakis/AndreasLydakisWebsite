@@ -6,6 +6,12 @@ pushed.
 
 ## [Unreleased]
 
+### PORT-21C follow-up — Sustained keyboard walking
+
+- Prevent keyboard auto-repeat from repeatedly cancelling movement and resetting walking to frame 0.
+- Preserve immediate click-route cancellation on new direction intent and after input resets.
+- Add repeat-aware WASD/arrow unit and browser regressions. Owner visually accepted the fix and authorized delivery on 2026-10-01; 2,093 tests/build and independent review passed.
+
 ### PORT-22 — Capability-based on-screen controls
 
 - Hide mobile controls on mouse/trackpad-only laptops regardless of window width; remove the associated empty bottom/side space.
