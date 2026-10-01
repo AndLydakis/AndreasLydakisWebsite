@@ -1,0 +1,56 @@
+{
+  "results": [
+    {
+      "keys": [
+        "ArrowRight"
+      ],
+      "frames": 50,
+      "distance": 115.19999999999891,
+      "screenJitterX": 0,
+      "screenJitterY": 0
+    },
+    {
+      "keys": [
+        "ArrowLeft"
+      ],
+      "frames": 50,
+      "distance": 117.59999999999889,
+      "screenJitterX": 0,
+      "screenJitterY": 0
+    },
+    {
+      "keys": [
+        "ArrowUp"
+      ],
+      "frames": 50,
+      "distance": 117.59999999999997,
+      "screenJitterX": 0,
+      "screenJitterY": 0
+    },
+    {
+      "keys": [
+        "ArrowDown"
+      ],
+      "frames": 49,
+      "distance": 117.59999999999889,
+      "screenJitterX": 0,
+      "screenJitterY": 0
+    },
+    {
+      "keys": [
+        "ArrowRight",
+        "ArrowDown"
+      ],
+      "frames": 50,
+      "distance": 117.59999999999972,
+      "screenJitterX": 0,
+      "screenJitterY": 0
+    }
+  ],
+  "blockedIdle": true,
+  "restartListeners": {
+    "post": 2,
+    "step": 1
+  },
+  "exceptions": []
+}

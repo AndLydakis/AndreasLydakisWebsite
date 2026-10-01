@@ -1,7 +1,7 @@
 import { readdirSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { optionalTexturePaths, placeholderAssetPaths, sharedTexturePaths } from './assetManifest';
-import { playerAnimationAssets, PLAYER_WALK_REPAIRS } from '../game/entities/playerAnimation';
+import { PLAYER_ANIMATION_SOURCES } from '../game/entities/playerAnimation';
 
 function filesBelow(path, prefix = '') {
   return readdirSync(path, { withFileTypes: true }).flatMap(entry => {
@@ -16,8 +16,7 @@ describe('published asset inventory', () => {
       ...Object.values(optionalTexturePaths),
       ...Object.values(placeholderAssetPaths),
       ...Object.values(sharedTexturePaths),
-      ...Object.values(playerAnimationAssets),
-      ...Object.values(PLAYER_WALK_REPAIRS).map(asset => asset.path),
+      ...PLAYER_ANIMATION_SOURCES.map(asset => asset.path),
     ];
     const fixed = [
       'fonts/tiny5/OFL.txt', 'fonts/tiny5/Tiny5-Regular.ttf',

@@ -2455,6 +2455,10 @@ Milestone: M4
 Delivery: Follow the Story completion and delivery workflow above before marking this story `Done`.
 Status: Done — 2026-09-18. Owner approved the corrected artwork; implementation commit `f0b1967` pushed to `origin/master`. Scoped verification: 138 tests, typecheck and build pass. Working left/up, idle sequences and approved sizes are preserved.
 
+Follow-up — 2026-10-01: All four walking directions regenerated against the retained idle style/proportions (DEC-189). Implementation and automated/browser checks complete; owner visual review pending, explicitly no push. Review `/utils/player-animation-preview.html`; evidence in `output/qa/player-idle-matched-v2`. Original story delivery remains Done.
+
+Review correction (DEC-190): Owner reported jitter in left/right/up. Corrected source-pose order and upper-body anchoring, with decoded-frame and movement verification passing. Down unchanged. Owner subsequently accepted the cycle. Code/tooling cleanup (DEC-191) consolidates metadata and verifies the approved presentation is unchanged; evidence in `output/qa/player-idle-matched-v2/cleanup-review.md`. Follow-up complete; owner authorized commit/push on 2026-10-01 after verification (1,972 tests, typecheck/build and browser checks).
+
 ### Goal
 
 Add the required player’s basic visual state machine using placeholder or approved sprite assets. Environmental/dialog animation and audio remain optional follow-up work.

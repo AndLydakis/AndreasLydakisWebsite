@@ -25,7 +25,7 @@ import { resolveQuickTravel, type QuickTravelId } from '../data/quickTravel';
 import { DebugOverlay } from '../debug/DebugOverlay';
 import { Player } from '../entities/Player';
 import { PlayerVisual } from '../entities/PlayerVisual';
-import { playerAnimationAssets, PLAYER_FRAME_SIZE, PLAYER_WALK_REPAIRS } from '../entities/playerAnimation';
+import { PLAYER_ANIMATION_SOURCES } from '../entities/playerAnimation';
 import { buildHouse, refreshRoomArtwork } from '../rendering/houseRenderer';
 import type { HouseRenderLayers } from '../rendering/houseRenderer';
 import { DepthRegistry } from '../rendering/DepthRegistry';
@@ -121,23 +121,8 @@ export class HouseScene extends Phaser.Scene {
     const initialRoom = roomAtInitialSpawn(this.layout);
     if (!initialRoom) throw new Error('Initial spawn is not inside a room.');
     textureAssetsForRoom(initialRoom).forEach(({ key, path }) => this.load.image(key, assetUrl(path)));
-    Object.entries(playerAnimationAssets).forEach(([key, path]) => {
-      this.load.spritesheet(key, assetUrl(path), {
-        frameWidth: PLAYER_FRAME_SIZE,
-        frameHeight: PLAYER_FRAME_SIZE,
-        endFrame: 3,
-      });
-    });
-    Object.values(PLAYER_WALK_REPAIRS).forEach((repair) => {
-      if ('frameRects' in repair) {
-        this.load.image(repair.textureKey, assetUrl(repair.path));
-        return;
-      }
-      this.load.spritesheet(repair.textureKey, assetUrl(repair.path), {
-        frameWidth: repair.frameWidth,
-        frameHeight: repair.frameHeight,
-        endFrame: 7,
-      });
+    PLAYER_ANIMATION_SOURCES.forEach(({ textureKey, path }) => {
+      this.load.image(textureKey, assetUrl(path));
     });
   }
 
@@ -146,10 +131,10 @@ export class HouseScene extends Phaser.Scene {
     try {
       assertValidHouseLayout(this.layout);
       this.assertPlaceholderTexturesLoaded();
-      for (const repair of Object.values(PLAYER_WALK_REPAIRS)) {
-        if (!('frameRects' in repair) || !this.textures.exists(repair.textureKey)) continue;
-        const texture = this.textures.get(repair.textureKey);
-        repair.frameRects.forEach(([x, y, width, height], index) => {
+      for (const source of PLAYER_ANIMATION_SOURCES) {
+        if (!this.textures.exists(source.textureKey)) continue;
+        const texture = this.textures.get(source.textureKey);
+        source.frameRects.forEach(([x, y, width, height], index) => {
           if (!texture.has(String(index))) texture.add(String(index), 0, x, y, width, height);
         });
       }
@@ -409,8 +394,7 @@ export class HouseScene extends Phaser.Scene {
     });
     const playerKeys = [
       'player-placeholder',
-      ...Object.keys(playerAnimationAssets),
-      ...Object.values(PLAYER_WALK_REPAIRS).map(repair => repair.textureKey),
+      ...PLAYER_ANIMATION_SOURCES.map(source => source.textureKey),
     ];
     playerKeys.forEach((key) => {
       if (this.textures.exists(key)) {

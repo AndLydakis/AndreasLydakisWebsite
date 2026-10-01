@@ -7,8 +7,7 @@ import {
   PLAYER_DIRECTIONS,
   PLAYER_DISPLAY_HEIGHT,
   PLAYER_FRAME_SIZE,
-  PLAYER_WALK_REPAIRS,
-  playerAnimationKey,
+  PLAYER_ANIMATION_SOURCES,
   playerAnimationSource,
   playerFrameRect,
 } from './playerAnimation';
@@ -34,18 +33,14 @@ export class PlayerVisual {
     anchor: Phaser.GameObjects.Sprite,
   ): PlayerVisual | undefined {
     // A failed optional sheet leaves the original visible placeholder usable.
-    const requiredKeys = [
-      ...PLAYER_DIRECTIONS.map((direction) => `player-${direction}`),
-      ...Object.values(PLAYER_WALK_REPAIRS).map((repair) => repair.textureKey),
-    ];
-    if (!requiredKeys.every((key) => scene.textures.exists(key))) {
+    if (!PLAYER_ANIMATION_SOURCES.every(({ textureKey }) => scene.textures.exists(textureKey))) {
       return undefined;
     }
     return new PlayerVisual(scene, anchor);
   }
 
   private constructor(
-    private readonly scene: Phaser.Scene,
+    scene: Phaser.Scene,
     private readonly anchor: Phaser.GameObjects.Sprite,
   ) {
     this.previousPosition = { x: anchor.x, y: anchor.y };
@@ -91,8 +86,9 @@ export class PlayerVisual {
   }
 
   private setPose(walking: boolean): void {
-    this.source = playerAnimationSource(this.facing, walking ? 'walk' : 'idle');
-    const key = playerAnimationKey(this.facing, { x: walking ? 1 : 0, y: 0 });
+    const state = walking ? 'walk' : 'idle';
+    this.source = playerAnimationSource(this.facing, state);
+    const key = `player-${state}-${this.facing}`;
     if (key !== this.animationKey) {
       this.sprite.play(key, true);
       this.animationKey = key;

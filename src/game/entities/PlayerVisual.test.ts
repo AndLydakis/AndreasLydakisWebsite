@@ -1,13 +1,13 @@
 import type Phaser from 'phaser';
 import { describe, expect, it, vi } from 'vitest';
 import { PlayerVisual } from './PlayerVisual';
-import { PLAYER_DISPLAY_HEIGHT, PLAYER_FRAME_SIZE, PLAYER_WALK_REPAIRS } from './playerAnimation';
+import { PLAYER_ANIMATION_SOURCES, PLAYER_DISPLAY_HEIGHT, PLAYER_FRAME_SIZE, playerAnimationSource } from './playerAnimation';
 
 vi.mock('phaser', () => ({ default: { Scenes: { Events: {
   POST_UPDATE: 'postupdate', SHUTDOWN: 'shutdown',
 } }, Physics: { Arcade: { Events: { WORLD_STEP: 'worldstep' } } } } }));
 
-function fixture(missing = false, existingAnimations = false) {
+function fixture(missing: string | false = false, existingAnimations = false) {
   const sprite = {
     frame: { name: 0 },
     setOrigin: vi.fn().mockReturnThis(), setScale: vi.fn().mockReturnThis(),
@@ -16,7 +16,7 @@ function fixture(missing = false, existingAnimations = false) {
   };
   const anchor = { x: 104, y: 168, width: 32, height: 32, depth: 6, setVisible: vi.fn() };
   const scene = {
-    textures: { exists: vi.fn((key: string) => !(missing && key === 'player-up')) },
+    textures: { exists: vi.fn((key: string) => key !== missing) },
     anims: { exists: vi.fn(() => existingAnimations), create: vi.fn(), generateFrameNumbers: vi.fn() },
     add: { sprite: vi.fn(() => sprite) },
     events: { on: vi.fn(), once: vi.fn(), off: vi.fn() },
@@ -40,8 +40,8 @@ describe('player visual isolation', () => {
     expect(sprite.setScale).toHaveBeenCalledWith(PLAYER_DISPLAY_HEIGHT / PLAYER_FRAME_SIZE);
   });
 
-  it('retains the placeholder when any sheet is missing', () => {
-    const { visual, anchor, scene } = fixture(true);
+  it.each(PLAYER_ANIMATION_SOURCES)('retains the placeholder when $textureKey is missing', ({ textureKey }) => {
+    const { visual, anchor, scene } = fixture(textureKey);
     expect(visual).toBeUndefined();
     expect(anchor.setVisible).not.toHaveBeenCalled();
     expect(scene.add.sprite).not.toHaveBeenCalled();
@@ -51,14 +51,14 @@ describe('player visual isolation', () => {
     expect(fixture(false, true).scene.anims.create).not.toHaveBeenCalled();
   });
 
-  it('registers repaired walking textures and uses their matching frame anchors', () => {
+  it('registers walking textures and uses their matching frame anchors', () => {
     const { visual, scene, sprite, step } = fixture();
-    expect(scene.anims.generateFrameNumbers).toHaveBeenCalledWith('player-right-walk-matched-v1', { start:0, end:7 });
-    expect(scene.anims.generateFrameNumbers).toHaveBeenCalledWith('player-down-walk-v3', { start:0, end:7 });
+    expect(scene.anims.generateFrameNumbers).toHaveBeenCalledWith('player-right-walk-idle-matched-v2', { start:0, end:7 });
+    expect(scene.anims.generateFrameNumbers).toHaveBeenCalledWith('player-down-walk-idle-matched-v2', { start:0, end:7 });
     visual!.update('right', {x:144,y:0});
     step(18);
-    const repair=PLAYER_WALK_REPAIRS.right;
-    expect(sprite.setOrigin).toHaveBeenLastCalledWith(repair.anchors[2][0]/repair.frameRects[2][2],repair.anchors[2][1]/repair.frameRects[2][3]);
+    const source = playerAnimationSource('right', 'walk');
+    expect(sprite.setOrigin).toHaveBeenLastCalledWith(source.anchors[2][0]/source.frameRects[2][2],source.anchors[2][1]/source.frameRects[2][3]);
   });
 
   it('advances by actual travel, changes direction and idles when blocked despite held input', () => {

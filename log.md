@@ -2,6 +2,31 @@
 
 This file is the project decision record. New implementation decisions, approved changes, deferred choices, and story-completion decisions must be added here before or alongside changes to `plan.md` or source files.
 
+## DEC-191 — Consolidate the approved player-animation pipeline
+
+- Delivery authorization: Owner subsequently requested pushing the changes on 2026-10-01. Deliver the PORT-14 animation follow-up and review evidence; leave separate owner edits in `index.html` and `src/ui/domShell.ts` local.
+- Date: 2026-10-01. Owner accepts the corrected cycle and requests a thorough cleanup. No commit/push authorized.
+- Scope: Review runtime metadata, loading, filtering, frame selection, fallback/lifecycle behavior, export tools and regression coverage. Preserve approved art bytes, phase order, anchors, movement cadence, collisions and camera behavior. Unrelated owner edits remain untouched.
+- Cleanup: Replace historical repair branches and duplicate asset inventories with one typed, cached idle/walk registry. Remove repeated idle metadata allocation, fabricated velocity-based animation-key selection and unused scene storage. Register all source frames consistently, including idle frames.
+- Tooling: Retire the obsolete PNG inspector targeting old assets. Share isolated browser-session tooling with bounded requests and cleanup. Add non-writing export verification; temporary packing files are no longer retained in the repository. Four existing packed PNG intermediates were moved to `/private/tmp/player-animation-intermediates.kvwSSH` for temporary recovery; originals and historical provenance remain intact.
+- Regression contract: Freeze the approved crop rectangles, origins and WebP hashes in a fixture captured before refactoring. Test fallback independently for all eight missing textures. Preview readiness is explicit rather than a fixed load delay. Future intentional art changes must update the approval fixture only after review.
+- Validation: Full tests, typecheck/build, byte-identical re-export, decoded-frame/preview checks and development/production movement checks. Results recorded in `output/qa/player-idle-matched-v2/cleanup-review.md`. This is an implementation self-review, not independent agent sign-off. Keep local.
+
+## DEC-190 — Correct sideways and upward gait sequencing and alignment
+
+- Date: 2026-10-01. Owner reports mismatched/jittery left, right and upward walking after the art refresh. Continue the no-push hold.
+- Cause: Generated recovery cells 3/7 repeat contact A prematurely; upward cell 6 also fails to provide a neutral passing pose. Aligning every image to its lowest shoe additionally moves the head when the projected foot height changes. Previous camera/phase tests could not detect either artwork defect.
+- Fix: Use reviewed source-cell orders left/right [0,1,2,2,4,5,6,6] and up [0,1,2,2,4,5,2,2]. Deliberately hold passing poses for two phase slots rather than display the incorrect recovery poses. Retain eight distance-driven phase slots; speed and cycle distance stay unchanged. Offset each frame origin by measured body height to stabilize the head relative to the idle reference, permitting the projected ground anchor to fall below lifted feet. No image stretching or new image generation. Downward loop remains unchanged.
+- Verification: Browser checks now inspect the actual selected source regions and rendered head position, passing holds and opposite contacts, including wraparound. Head-position spread is at most one source pixel in all three corrected directions. All 1,968 tests, typecheck/build and runtime movement checks pass; camera jitter remains zero and blocked idle/restart cleanup pass without exceptions. Updated comparison screenshots reviewed. Owner visual acceptance still pending; no commit or push.
+
+## DEC-189 — Match walking artwork to the retained idle character
+
+- Date: 2026-10-01. Owner requests closer walking/idle style and proportions, with no push.
+- Art: Use the four runtime idle strips as the appearance masters and prior walking strips only for pose order. Built-in image generation produces four eight-pose sheets, retained under `output/assets/player-animation-sources/idle-matched-v2`; selected prompts are in `output/imagegen/player-idle-matched-v2.prompt.md`. Earlier idle/source artwork is retained byte-for-byte.
+- Export: Measure frame gutters, body bounds and head alignment; apply one uniform scale per direction against idle height. Package into padded 362px cells with a fixed (181,356) ground anchor, retaining lossless WebP and the existing runtime paths. Do not stretch individual axes or frames. Explicit frame rectangles replace the old mixed sheet layouts; movement speed, physics and distance-driven gait remain unchanged.
+- Review: Repair the development animation preview's obsolete +4 frame offset and show original idle beside walking with pause, stepping and slow/full-speed playback. Generated anatomy is an approximation; visual acceptance remains with the owner.
+- Verification: 1,968 tests and production build/typecheck pass. Browser motion checks pass all directions and diagonal travel with zero camera jitter, blocked idle, restart cleanup and no exceptions. All 32 decoded walking frames have clear margins and fixed sole baselines; preview stepping and both playback speeds pass without exceptions. Contact sheets and comparison screenshots inspected; evidence in `output/qa/player-idle-matched-v2`. No commit or push; owner edits to index.html and domShell.ts preserved.
+
 ## DEC-188 — Shorten the squat-rack interaction label
 
 - Date: 2026-10-01. Owner requests renaming the squat rack to `Training`, following the other concise interaction-label changes.

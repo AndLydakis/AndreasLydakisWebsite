@@ -1,5 +1,5 @@
-/** Trial stride calibration: eight poses per 72 world pixels, independent of
- * time/FPS. At 144px/s this gives 16 poses/s instead of the previous fixed 8.
+/** Eight phase slots per 72 world pixels, independent of time/FPS.
+ * At 144px/s this advances 16 slots/s; some slots hold the same source pose.
  * Tune this distance against the artwork, never against canvas resolution.
  */
 export const WALK_CYCLE_DISTANCE = 72;

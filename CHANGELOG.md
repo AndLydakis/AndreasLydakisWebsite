@@ -6,6 +6,16 @@ pushed.
 
 ## [Unreleased]
 
+### PORT-14 follow-up — Match walking artwork to idle
+
+- Delivery authorized 2026-10-01 after owner visual acceptance and cleanup verification (1,972 tests, typecheck/build and development/production browser checks passed).
+- Consolidate idle/walk metadata, loading, filtering and fallback; remove obsolete repair branches and PNG inspector. Add approved-presentation regression snapshots, all-texture fallback tests, shared browser tooling and non-writing export verification.
+- Correct left/right/up pose order to remove premature repeated contacts and hold passing poses; compensate frame origins for projected shoe-height changes so the upper body stays stable. Keep the downward loop and distance cadence unchanged.
+- Regenerate all four directional walking sheets using the retained idle character as the style/proportion reference and the existing walking poses as the motion reference.
+- Normalize exports against idle height with clear frame margins and aligned feet; keep original idle art, physics, movement speed and distance-driven animation timing.
+- Repair the animation comparison preview and add side-by-side idle/walk review, measured export metadata and browser evidence for all 32 frames.
+- Validation: Owner accepted the corrected cycle. Cleanup validation and evidence are recorded in `output/qa/player-idle-matched-v2/cleanup-review.md`; no push.
+
 ### PORT-09B follow-up — Concise training label
 
 - Rename the gym squat-rack nameplate, interaction prompt and content label to `Training`.

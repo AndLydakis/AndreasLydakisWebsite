@@ -1,0 +1,421 @@
+{
+  "measurements": {
+    "down": {
+      "width": 1448,
+      "height": 724,
+      "frames": [
+        {
+          "left": 85,
+          "top": 6,
+          "right": 276,
+          "bottom": 355,
+          "count": 40459,
+          "height": 350
+        },
+        {
+          "left": 85,
+          "top": 17,
+          "right": 276,
+          "bottom": 355,
+          "count": 40471,
+          "height": 339
+        },
+        {
+          "left": 86,
+          "top": 19,
+          "right": 276,
+          "bottom": 355,
+          "count": 40251,
+          "height": 337
+        },
+        {
+          "left": 85,
+          "top": 6,
+          "right": 277,
+          "bottom": 355,
+          "count": 40464,
+          "height": 350
+        },
+        {
+          "left": 85,
+          "top": 15,
+          "right": 276,
+          "bottom": 355,
+          "count": 39181,
+          "height": 341
+        },
+        {
+          "left": 85,
+          "top": 16,
+          "right": 275,
+          "bottom": 355,
+          "count": 38563,
+          "height": 340
+        },
+        {
+          "left": 86,
+          "top": 29,
+          "right": 277,
+          "bottom": 355,
+          "count": 39942,
+          "height": 327
+        },
+        {
+          "left": 85,
+          "top": 14,
+          "right": 278,
+          "bottom": 355,
+          "count": 39742,
+          "height": 342
+        }
+      ],
+      "runtime": [
+        {
+          "cell": 0,
+          "headY": -350
+        },
+        {
+          "cell": 1,
+          "headY": -339
+        },
+        {
+          "cell": 2,
+          "headY": -337
+        },
+        {
+          "cell": 3,
+          "headY": -350
+        },
+        {
+          "cell": 4,
+          "headY": -341
+        },
+        {
+          "cell": 5,
+          "headY": -340
+        },
+        {
+          "cell": 6,
+          "headY": -327
+        },
+        {
+          "cell": 7,
+          "headY": -342
+        }
+      ]
+    },
+    "left": {
+      "width": 1448,
+      "height": 724,
+      "frames": [
+        {
+          "left": 76,
+          "top": 10,
+          "right": 254,
+          "bottom": 355,
+          "count": 36028,
+          "height": 346
+        },
+        {
+          "left": 82,
+          "top": 10,
+          "right": 259,
+          "bottom": 355,
+          "count": 35438,
+          "height": 346
+        },
+        {
+          "left": 105,
+          "top": 6,
+          "right": 235,
+          "bottom": 355,
+          "count": 32252,
+          "height": 350
+        },
+        {
+          "left": 76,
+          "top": 10,
+          "right": 254,
+          "bottom": 355,
+          "count": 35914,
+          "height": 346
+        },
+        {
+          "left": 72,
+          "top": 17,
+          "right": 283,
+          "bottom": 355,
+          "count": 35992,
+          "height": 339
+        },
+        {
+          "left": 83,
+          "top": 22,
+          "right": 268,
+          "bottom": 355,
+          "count": 34556,
+          "height": 334
+        },
+        {
+          "left": 111,
+          "top": 15,
+          "right": 238,
+          "bottom": 355,
+          "count": 31709,
+          "height": 341
+        },
+        {
+          "left": 75,
+          "top": 23,
+          "right": 264,
+          "bottom": 355,
+          "count": 35697,
+          "height": 333
+        }
+      ],
+      "runtime": [
+        {
+          "cell": 0,
+          "headY": -346
+        },
+        {
+          "cell": 1,
+          "headY": -346
+        },
+        {
+          "cell": 2,
+          "headY": -346
+        },
+        {
+          "cell": 2,
+          "headY": -346
+        },
+        {
+          "cell": 4,
+          "headY": -346
+        },
+        {
+          "cell": 5,
+          "headY": -346
+        },
+        {
+          "cell": 6,
+          "headY": -346
+        },
+        {
+          "cell": 6,
+          "headY": -346
+        }
+      ]
+    },
+    "right": {
+      "width": 1448,
+      "height": 724,
+      "frames": [
+        {
+          "left": 94,
+          "top": 8,
+          "right": 283,
+          "bottom": 355,
+          "count": 35817,
+          "height": 348
+        },
+        {
+          "left": 104,
+          "top": 9,
+          "right": 284,
+          "bottom": 355,
+          "count": 35190,
+          "height": 347
+        },
+        {
+          "left": 124,
+          "top": 6,
+          "right": 249,
+          "bottom": 355,
+          "count": 32154,
+          "height": 350
+        },
+        {
+          "left": 94,
+          "top": 7,
+          "right": 295,
+          "bottom": 355,
+          "count": 36066,
+          "height": 349
+        },
+        {
+          "left": 89,
+          "top": 23,
+          "right": 299,
+          "bottom": 355,
+          "count": 34375,
+          "height": 333
+        },
+        {
+          "left": 87,
+          "top": 26,
+          "right": 294,
+          "bottom": 355,
+          "count": 32495,
+          "height": 330
+        },
+        {
+          "left": 127,
+          "top": 22,
+          "right": 247,
+          "bottom": 355,
+          "count": 30345,
+          "height": 334
+        },
+        {
+          "left": 92,
+          "top": 23,
+          "right": 295,
+          "bottom": 355,
+          "count": 34920,
+          "height": 333
+        }
+      ],
+      "runtime": [
+        {
+          "cell": 0,
+          "headY": -351
+        },
+        {
+          "cell": 1,
+          "headY": -351
+        },
+        {
+          "cell": 2,
+          "headY": -351
+        },
+        {
+          "cell": 2,
+          "headY": -351
+        },
+        {
+          "cell": 4,
+          "headY": -351
+        },
+        {
+          "cell": 5,
+          "headY": -351
+        },
+        {
+          "cell": 6,
+          "headY": -351
+        },
+        {
+          "cell": 6,
+          "headY": -351
+        }
+      ]
+    },
+    "up": {
+      "width": 1448,
+      "height": 724,
+      "frames": [
+        {
+          "left": 91,
+          "top": 13,
+          "right": 258,
+          "bottom": 355,
+          "count": 33698,
+          "height": 343
+        },
+        {
+          "left": 94,
+          "top": 14,
+          "right": 267,
+          "bottom": 355,
+          "count": 33500,
+          "height": 342
+        },
+        {
+          "left": 95,
+          "top": 14,
+          "right": 268,
+          "bottom": 355,
+          "count": 35963,
+          "height": 342
+        },
+        {
+          "left": 95,
+          "top": 12,
+          "right": 266,
+          "bottom": 355,
+          "count": 33507,
+          "height": 344
+        },
+        {
+          "left": 97,
+          "top": 17,
+          "right": 273,
+          "bottom": 355,
+          "count": 34360,
+          "height": 339
+        },
+        {
+          "left": 99,
+          "top": 27,
+          "right": 271,
+          "bottom": 355,
+          "count": 34147,
+          "height": 329
+        },
+        {
+          "left": 94,
+          "top": 14,
+          "right": 260,
+          "bottom": 355,
+          "count": 33476,
+          "height": 342
+        },
+        {
+          "left": 93,
+          "top": 14,
+          "right": 266,
+          "bottom": 355,
+          "count": 33621,
+          "height": 342
+        }
+      ],
+      "runtime": [
+        {
+          "cell": 0,
+          "headY": -342
+        },
+        {
+          "cell": 1,
+          "headY": -342
+        },
+        {
+          "cell": 2,
+          "headY": -342
+        },
+        {
+          "cell": 2,
+          "headY": -342
+        },
+        {
+          "cell": 4,
+          "headY": -342
+        },
+        {
+          "cell": 5,
+          "headY": -342
+        },
+        {
+          "cell": 2,
+          "headY": -342
+        },
+        {
+          "cell": 2,
+          "headY": -342
+        }
+      ]
+    }
+  },
+  "errors": []
+}
