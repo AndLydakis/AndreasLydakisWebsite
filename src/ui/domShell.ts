@@ -59,7 +59,7 @@ export function renderDomShell(root: HTMLElement): DomShellElements {
   gameHeading.textContent = 'Explore the house';
   const gameInstructions = createElement('p');
   gameInstructions.id = 'game-instructions';
-  gameInstructions.textContent = 'Use WASD or arrow keys on desktop. Mobile controls will appear on touch screens.';
+  gameInstructions.textContent = 'Use WASD or arrow keys to move, E or F to interact. Mobile controls will appear on touch screens. Click on the menu on the right to teleport.';
 
   const gameShell = createElement('div', 'game-shell');
   gameShell.id = 'game-shell';

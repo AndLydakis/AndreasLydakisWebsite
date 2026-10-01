@@ -2376,6 +2376,8 @@ Run the production build and deployed network check for 404s, compare asset dime
 
 ## PORT-13A — Render the CV in the reusable dialog
 
+Content follow-up — 2026-10-01 (DEC-192): Done. Owner-provided introduction, profile, roles and skills plus site title/instructions verified with 1,972 tests, typecheck/build and whitespace checks. Owner authorized delivery.
+
 Type: Story  
 Priority: High  
 Dependencies: `PORT-09D`, `PORT-10B`  

@@ -6,6 +6,11 @@ pushed.
 
 ## [Unreleased]
 
+### PORT-13A follow-up — Resume content and site copy
+
+- Publish owner-provided CV introduction, profile, experience and skills.
+- Update the page title/description and instructions for movement, interaction and quick travel.
+
 ### PORT-14 follow-up — Match walking artwork to idle
 
 - Delivery authorized 2026-10-01 after owner visual acceptance and cleanup verification (1,972 tests, typecheck/build and development/production browser checks passed).

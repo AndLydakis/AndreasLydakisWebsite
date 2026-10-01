@@ -2,6 +2,12 @@
 
 This file is the project decision record. New implementation decisions, approved changes, deferred choices, and story-completion decisions must be added here before or alongside changes to `plan.md` or source files.
 
+## DEC-192 — Publish owner-provided resume and site copy
+
+- Date: 2026-10-01. Owner requests pushing all current changes, including previously local page-title and instruction edits plus updated office CV content.
+- Scope: Preserve the supplied wording in `index.html`, `src/content/office.ts` and `src/ui/domShell.ts`; record as a PORT-13A content follow-up. Run full tests, typecheck/build and whitespace validation before committing and pushing. No deployment-settings changes are included.
+- Verification: All 1,972 tests pass, along with typecheck/build and whitespace checks. Existing bundle-size advisory remains unchanged.
+
 ## DEC-191 — Consolidate the approved player-animation pipeline
 
 - Delivery authorization: Owner subsequently requested pushing the changes on 2026-10-01. Deliver the PORT-14 animation follow-up and review evidence; leave separate owner edits in `index.html` and `src/ui/domShell.ts` local.
