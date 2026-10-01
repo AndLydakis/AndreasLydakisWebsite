@@ -59,7 +59,8 @@
   pointer-events: auto;
 }
 
-@media (hover: none), (max-width: 56rem) {
+/* Capability, not window width, enables controls. Include touch/mouse hybrids. */
+@media (any-pointer: coarse) {
   /* Keep touch targets off the small portrait viewport. The canvas keeps its
      own 16:9 box; the control row adds height without changing world scale. */
   .game-shell {
@@ -88,7 +89,7 @@
 }
 
 /* A side rail leaves enough vertical room to play on short landscape screens. */
-@media (orientation: landscape) and (max-height: 32rem) and (max-width: 56rem) {
+@media (any-pointer: coarse) and (orientation: landscape) and (max-height: 32rem) and (max-width: 56rem) {
   .game-shell {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 10rem;

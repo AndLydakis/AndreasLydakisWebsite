@@ -59,13 +59,15 @@ describe('mobile controls and room dialog contract', () => {
   let visibility: EventTarget & { visibilityState: string };
   let input: InputController;
   let controls: MobileControls;
+  let capability: EventTarget & { matches: boolean };
   const direction = (name: string) => root.children[0]!.children.find((button) => button.dataset.direction === name)!;
   const interact = () => root.children[1]!;
 
   beforeEach(() => {
     root = new ElementDouble();
     keyboard = new EventTarget();
-    Object.assign(keyboard, { matchMedia: () => Object.assign(new EventTarget(), { matches: true }) });
+    capability = Object.assign(new EventTarget(), { matches: true });
+    Object.assign(keyboard, { matchMedia: () => capability });
     visibility = Object.assign(new EventTarget(), {
       visibilityState: 'visible', createElement: () => new ElementDouble(), activeElement: null,
     });
@@ -91,6 +93,27 @@ describe('mobile controls and room dialog contract', () => {
     expect(input.getMovementSnapshot()).toEqual(stopped);
     expect(up.classList.has('is-pressed')).toBe(false);
     expect(up.hasPointerCapture(1)).toBe(false);
+  });
+
+  it('releases all held touch input when controls become unavailable and never resumes it', () => {
+    pointer(direction('up'), 'pointerdown', 1);
+    pointer(direction('right'), 'pointerdown', 2);
+    capability.matches = false;
+    capability.dispatchEvent(new Event('change'));
+    expect(input.getMovementSnapshot()).toEqual(stopped);
+    for (const name of ['up', 'right']) {
+      expect(direction(name).captures.size).toBe(0);
+      expect(direction(name).classList.has('is-pressed')).toBe(false);
+    }
+    capability.matches = true;
+    capability.dispatchEvent(new Event('change'));
+    expect(input.getMovementSnapshot()).toEqual(stopped);
+  });
+
+  it('removes the capability listener on teardown', () => {
+    const remove = vi.spyOn(capability, 'removeEventListener');
+    controls.destroy();
+    expect(remove).toHaveBeenCalledWith('change', expect.any(Function));
   });
 
   it('keeps a direction pressed until its last finger releases', () => {

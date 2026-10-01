@@ -6,6 +6,13 @@ pushed.
 
 ## [Unreleased]
 
+### PORT-22 — Capability-based on-screen controls
+
+- Hide mobile controls on mouse/trackpad-only laptops regardless of window width; remove the associated empty bottom/side space.
+- Retain controls for coarse-pointer devices, including touch-capable hybrids, with existing portrait and landscape layouts.
+- Clear held touch movement if touch capability disappears; remove the capability listener on teardown.
+- Add development/production capability and viewport regression checks; preserve existing input behavior.
+
 ### PORT-21C/F follow-up — Automatic movement facing
 
 - Match walking direction to the dominant axis of actual travel, preventing shallow horizontal routes from showing vertical animation.

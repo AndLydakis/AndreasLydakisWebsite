@@ -2,6 +2,15 @@
 
 This file is the project decision record. New implementation decisions, approved changes, deferred choices, and story-completion decisions must be added here before or alongside changes to `plan.md` or source files.
 
+## DEC-196 — Gate on-screen controls by pointer capability
+
+- Date: 2026-10-01. Owner requests a story, implementation, testing, verification and push for the laptop mobile-control issue.
+- Cause: longstanding `(hover: none), (max-width: 56rem)` condition enables controls on narrow mouse-only windows; reproduced on the live site at 850px but not 1440px.
+- Decision: use CSS `(any-pointer: coarse)` for both visibility/control-row space and the short-landscape side rail. Touch-capable hybrids intentionally retain controls even with a mouse; width alone never enables them. No user-agent detection or duplicated layout state. Browser capability changes automatically update CSS.
+- Review/fix iteration: reviewer requested a held-touch capability-removal check; browser reproduced stale held movement. Add one media-query change listener to release held pointers when controls hide, with teardown cleanup and unit/browser regressions. CSS still owns all layout.
+- Scope: PORT-22 below; preserve touch targets, input lifecycle, keyboard/click navigation and game geometry. Verify narrow/short/wide desktop, portrait/landscape touch, large touch screens and capability transitions. Record independent review and limitations before delivery.
+- Verification: 2,084 tests/typecheck/build pass; 13 browser records per development/production build including real keyboard/touch press/release and held-touch capability loss. Production click-navigation regression passes 12 routes. Lagrange independently inspected final code/evidence and explicitly approved after the cleanup fix; did not rerun tests. Physical hybrid devices not tested. Owner authorized commit/push; review record in `output/qa/port22/review.md`.
+
 ## DEC-195 — Correct automatic-route sprite facing
 
 - Date: 2026-10-01. Owner authorized the diagnosed facing fix, initially held locally for visual review. Owner subsequently requested pushing the changes, releasing that hold.

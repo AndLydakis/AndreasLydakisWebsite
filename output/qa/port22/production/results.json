@@ -1,0 +1,862 @@
+{
+  "records": [
+    {
+      "width": 1440,
+      "height": 900,
+      "touch": false,
+      "state": {
+        "width": 1440,
+        "coarse": false,
+        "display": "none",
+        "grid": "block",
+        "uiBottom": "0px",
+        "uiRight": "0px",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "shell": {
+          "x": 136.5,
+          "y": 271.5625,
+          "width": 1152,
+          "height": 648,
+          "right": 1288.5,
+          "bottom": 919.5625
+        },
+        "canvas": {
+          "x": 139.5,
+          "y": 274.5625,
+          "width": 1146,
+          "height": 642,
+          "right": 1285.5,
+          "bottom": 916.5625
+        },
+        "buttons": [
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          }
+        ]
+      }
+    },
+    {
+      "width": 897,
+      "height": 900,
+      "touch": false,
+      "state": {
+        "width": 897,
+        "coarse": false,
+        "display": "none",
+        "grid": "block",
+        "uiBottom": "0px",
+        "uiRight": "0px",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "shell": {
+          "x": 35.875,
+          "y": 271.5625,
+          "width": 825.25,
+          "height": 464.203125,
+          "right": 861.125,
+          "bottom": 735.765625
+        },
+        "canvas": {
+          "x": 38.875,
+          "y": 274.5625,
+          "width": 819.25,
+          "height": 458.203125,
+          "right": 858.125,
+          "bottom": 732.765625
+        },
+        "buttons": [
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          }
+        ]
+      }
+    },
+    {
+      "width": 896,
+      "height": 900,
+      "touch": false,
+      "state": {
+        "width": 896,
+        "coarse": false,
+        "display": "none",
+        "grid": "block",
+        "uiBottom": "0px",
+        "uiRight": "0px",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "shell": {
+          "x": 35.828125,
+          "y": 271.5625,
+          "width": 824.34375,
+          "height": 463.6875,
+          "right": 860.171875,
+          "bottom": 735.25
+        },
+        "canvas": {
+          "x": 38.828125,
+          "y": 274.5625,
+          "width": 818.34375,
+          "height": 457.6875,
+          "right": 857.171875,
+          "bottom": 732.25
+        },
+        "buttons": [
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          }
+        ]
+      }
+    },
+    {
+      "width": 850,
+      "height": 900,
+      "touch": false,
+      "state": {
+        "width": 850,
+        "coarse": false,
+        "display": "none",
+        "grid": "block",
+        "uiBottom": "0px",
+        "uiRight": "0px",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "shell": {
+          "x": 34,
+          "y": 271.5625,
+          "width": 782,
+          "height": 439.875,
+          "right": 816,
+          "bottom": 711.4375
+        },
+        "canvas": {
+          "x": 37,
+          "y": 274.5625,
+          "width": 776,
+          "height": 433.875,
+          "right": 813,
+          "bottom": 708.4375
+        },
+        "buttons": [
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          }
+        ]
+      }
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "touch": false,
+      "state": {
+        "width": 844,
+        "coarse": false,
+        "display": "none",
+        "grid": "block",
+        "uiBottom": "0px",
+        "uiRight": "0px",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "shell": {
+          "x": 33.75,
+          "y": 271.5625,
+          "width": 761.5,
+          "height": 428.34375,
+          "right": 795.25,
+          "bottom": 699.90625
+        },
+        "canvas": {
+          "x": 36.75,
+          "y": 274.5625,
+          "width": 755.5,
+          "height": 422.34375,
+          "right": 792.25,
+          "bottom": 696.90625
+        },
+        "buttons": [
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          }
+        ]
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "touch": false,
+      "state": {
+        "width": 390,
+        "coarse": false,
+        "display": "none",
+        "grid": "block",
+        "uiBottom": "0px",
+        "uiRight": "0px",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "shell": {
+          "x": 16,
+          "y": 309.5625,
+          "width": 358,
+          "height": 201.375,
+          "right": 374,
+          "bottom": 510.9375
+        },
+        "canvas": {
+          "x": 19,
+          "y": 312.5625,
+          "width": 352,
+          "height": 195.375,
+          "right": 371,
+          "bottom": 507.9375
+        },
+        "buttons": [
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          }
+        ]
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "touch": true,
+      "state": {
+        "width": 390,
+        "coarse": true,
+        "display": "flex",
+        "grid": "block",
+        "uiBottom": "154.4px",
+        "uiRight": "0px",
+        "root": {
+          "x": 19,
+          "y": 568.1875,
+          "width": 352,
+          "height": 155.375,
+          "right": 371,
+          "bottom": 723.5625
+        },
+        "shell": {
+          "x": 16,
+          "y": 367.1875,
+          "width": 358,
+          "height": 359.375,
+          "right": 374,
+          "bottom": 726.5625
+        },
+        "canvas": {
+          "x": 19,
+          "y": 370.1875,
+          "width": 352,
+          "height": 198,
+          "right": 371,
+          "bottom": 568.1875
+        },
+        "buttons": [
+          {
+            "x": 74.1875,
+            "y": 577.1875,
+            "width": 44,
+            "height": 44,
+            "right": 118.1875,
+            "bottom": 621.1875
+          },
+          {
+            "x": 27,
+            "y": 624.375,
+            "width": 44,
+            "height": 44,
+            "right": 71,
+            "bottom": 668.375
+          },
+          {
+            "x": 74.1875,
+            "y": 671.5625,
+            "width": 44,
+            "height": 44,
+            "right": 118.1875,
+            "bottom": 715.5625
+          },
+          {
+            "x": 121.375,
+            "y": 624.375,
+            "width": 44,
+            "height": 44,
+            "right": 165.375,
+            "bottom": 668.375
+          }
+        ]
+      }
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "touch": true,
+      "state": {
+        "width": 844,
+        "coarse": true,
+        "display": "flex",
+        "grid": "grid",
+        "uiBottom": "0px",
+        "uiRight": "160px",
+        "root": {
+          "x": 632.25,
+          "y": 332.1875,
+          "width": 160,
+          "height": 334.96875,
+          "right": 792.25,
+          "bottom": 667.15625
+        },
+        "shell": {
+          "x": 33.75,
+          "y": 329.1875,
+          "width": 761.5,
+          "height": 340.96875,
+          "right": 795.25,
+          "bottom": 670.15625
+        },
+        "canvas": {
+          "x": 36.75,
+          "y": 332.1875,
+          "width": 595.5,
+          "height": 334.96875,
+          "right": 632.25,
+          "bottom": 667.15625
+        },
+        "buttons": [
+          {
+            "x": 690.75,
+            "y": 340.1875,
+            "width": 44,
+            "height": 44,
+            "right": 734.75,
+            "bottom": 384.1875
+          },
+          {
+            "x": 643.5625,
+            "y": 387.375,
+            "width": 44,
+            "height": 44,
+            "right": 687.5625,
+            "bottom": 431.375
+          },
+          {
+            "x": 690.75,
+            "y": 434.5625,
+            "width": 44,
+            "height": 44,
+            "right": 734.75,
+            "bottom": 478.5625
+          },
+          {
+            "x": 737.9375,
+            "y": 387.375,
+            "width": 44,
+            "height": 44,
+            "right": 781.9375,
+            "bottom": 431.375
+          }
+        ]
+      }
+    },
+    {
+      "width": 320,
+      "height": 740,
+      "touch": true,
+      "state": {
+        "width": 320,
+        "coarse": true,
+        "display": "flex",
+        "grid": "block",
+        "uiBottom": "154.4px",
+        "uiRight": "0px",
+        "root": {
+          "x": 19,
+          "y": 526.8125,
+          "width": 282,
+          "height": 155.375,
+          "right": 301,
+          "bottom": 682.1875
+        },
+        "shell": {
+          "x": 16,
+          "y": 365.1875,
+          "width": 288,
+          "height": 320,
+          "right": 304,
+          "bottom": 685.1875
+        },
+        "canvas": {
+          "x": 19,
+          "y": 368.1875,
+          "width": 282,
+          "height": 158.625,
+          "right": 301,
+          "bottom": 526.8125
+        },
+        "buttons": [
+          {
+            "x": 74.1875,
+            "y": 535.8125,
+            "width": 44,
+            "height": 44,
+            "right": 118.1875,
+            "bottom": 579.8125
+          },
+          {
+            "x": 27,
+            "y": 583,
+            "width": 44,
+            "height": 44,
+            "right": 71,
+            "bottom": 627
+          },
+          {
+            "x": 74.1875,
+            "y": 630.1875,
+            "width": 44,
+            "height": 44,
+            "right": 118.1875,
+            "bottom": 674.1875
+          },
+          {
+            "x": 121.375,
+            "y": 583,
+            "width": 44,
+            "height": 44,
+            "right": 165.375,
+            "bottom": 627
+          }
+        ]
+      }
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "touch": true,
+      "state": {
+        "width": 1440,
+        "coarse": true,
+        "display": "flex",
+        "grid": "block",
+        "uiBottom": "154.4px",
+        "uiRight": "0px",
+        "root": {
+          "x": 139.5,
+          "y": 956.8125,
+          "width": 1146,
+          "height": 155.375,
+          "right": 1285.5,
+          "bottom": 1112.1875
+        },
+        "shell": {
+          "x": 136.5,
+          "y": 309.1875,
+          "width": 1152,
+          "height": 806,
+          "right": 1288.5,
+          "bottom": 1115.1875
+        },
+        "canvas": {
+          "x": 139.5,
+          "y": 312.1875,
+          "width": 1146,
+          "height": 644.625,
+          "right": 1285.5,
+          "bottom": 956.8125
+        },
+        "buttons": [
+          {
+            "x": 194.6875,
+            "y": 965.8125,
+            "width": 44,
+            "height": 44,
+            "right": 238.6875,
+            "bottom": 1009.8125
+          },
+          {
+            "x": 147.5,
+            "y": 1013,
+            "width": 44,
+            "height": 44,
+            "right": 191.5,
+            "bottom": 1057
+          },
+          {
+            "x": 194.6875,
+            "y": 1060.1875,
+            "width": 44,
+            "height": 44,
+            "right": 238.6875,
+            "bottom": 1104.1875
+          },
+          {
+            "x": 241.875,
+            "y": 1013,
+            "width": 44,
+            "height": 44,
+            "right": 285.875,
+            "bottom": 1057
+          }
+        ]
+      }
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "touch": false,
+      "state": {
+        "width": 1440,
+        "coarse": false,
+        "display": "none",
+        "grid": "block",
+        "uiBottom": "0px",
+        "uiRight": "0px",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "shell": {
+          "x": 136.5,
+          "y": 211.5625,
+          "width": 1152,
+          "height": 648,
+          "right": 1288.5,
+          "bottom": 859.5625
+        },
+        "canvas": {
+          "x": 139.5,
+          "y": 214.5625,
+          "width": 1146,
+          "height": 642,
+          "right": 1285.5,
+          "bottom": 856.5625
+        },
+        "buttons": [
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          }
+        ]
+      }
+    },
+    {
+      "width": 850,
+      "height": 900,
+      "touch": false,
+      "state": {
+        "width": 850,
+        "coarse": false,
+        "display": "none",
+        "grid": "block",
+        "uiBottom": "0px",
+        "uiRight": "0px",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "shell": {
+          "x": 34,
+          "y": 271.5625,
+          "width": 782,
+          "height": 439.875,
+          "right": 816,
+          "bottom": 711.4375
+        },
+        "canvas": {
+          "x": 37,
+          "y": 274.5625,
+          "width": 776,
+          "height": 433.875,
+          "right": 813,
+          "bottom": 708.4375
+        },
+        "buttons": [
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0
+          }
+        ]
+      }
+    },
+    {
+      "scenario": "held touch capability removal",
+      "hidden": true,
+      "right": false
+    }
+  ],
+  "errors": []
+}

@@ -4043,6 +4043,43 @@ Demonstrate that click/tap navigation is reliable across the house and document 
 
 Run the documented workflow against a clean checkout/production build. Store environment, viewport, commands/results, screenshots/recordings and review iterations under `output/qa/port21/`. Update story states and delivery records only after their individual gates pass.
 
+## PORT-22 — Show on-screen controls only for coarse-pointer devices
+
+Type: Story
+Priority: High
+Dependencies: `PORT-08B`, `PORT-21F`
+Milestone: M8
+Status: Done — implementation, 2,084 tests/typecheck/build, development/production browser checks and independent re-review passed. Owner authorized delivery; see `output/qa/port22/review.md`.
+Delivery: Commit with `PORT-22`; update `log.md`, `CHANGELOG.md` and this status after verification. Push only after the review loop passes.
+
+### Goal
+
+Keep mouse/trackpad-only laptops free of mobile controls at every window size while preserving usable touch controls on phones, tablets and touch-capable hybrids.
+
+### Subtasks
+
+1. Record the reproduced live-site width-triggered behavior and define capability policy.
+2. Gate control visibility and its reserved layout space with `(any-pointer: coarse)`; apply the same guard to the landscape rail.
+3. Add repeatable browser assertions for desktop widths/boundaries/short heights, touch portrait/landscape/wide screens and capability changes without reload.
+4. Verify real keyboard and D-pad press/release behavior; run the full suite, typecheck and production build.
+5. Have an independent senior engineer review implementation and evidence; resolve findings and repeat review/testing until approved. Record emulation versus physical-device coverage honestly.
+6. Close the story and commit/push the verified implementation and evidence under its story ID.
+
+### Acceptance criteria
+
+- Without a coarse pointer, controls remain hidden at all tested widths and heights, including 850px and either side of the old 896px breakpoint.
+- Hidden controls reserve neither a bottom strip nor a landscape side rail; canvas and UI layer fill the game shell normally.
+- With a coarse pointer, controls remain visible on portrait, short landscape and large screens; hybrids intentionally qualify even with a fine pointer available.
+- Touch control targets remain at least 44px and outside the canvas. Short landscape retains the existing side-rail layout.
+- Resize, rotation and capability changes update layout without reload; no keyboard/click movement or touch press/release regressions.
+- Tests/build and development/production browser checks pass; independent review approves before delivery.
+
+### Verification
+
+Run the full unit suite, typecheck/build, the PORT-22 browser matrix on development and production preview, and existing manual/click navigation regressions. Save results and the review/fix/re-review record under `output/qa/port22/`. Physical-device testing is separate and must not be implied by browser emulation.
+
+---
+
 ## 6. Beginner Maintenance Workflow
 
 For future changes:

@@ -18,12 +18,18 @@ const directionButtons: Array<{ direction: Direction; symbol: string; label: str
 ];
 
 export class MobileControls {
+  private readonly touchCapability = window.matchMedia('(any-pointer: coarse)');
   private readonly pointerButtons = new Map<number, HTMLButtonElement>();
   private readonly directionBindings: DirectionButtonBinding[] = [];
   private readonly interactButton: HTMLButtonElement;
   private gameplayEnabled = true;
   private interactionAvailable = false;
   private destroyed = false;
+
+  // CSS owns layout; release held input when that capability hides the controls.
+  private readonly handleTouchCapabilityChange = (): void => {
+    if (!this.touchCapability.matches) this.resetPointers();
+  };
 
   private readonly handleWindowBlur = (): void => {
     this.resetPointers();
@@ -108,6 +114,7 @@ export class MobileControls {
     this.interactButton.addEventListener('click', this.handleInteract);
 
     this.root.replaceChildren(dPad, this.interactButton);
+    this.touchCapability.addEventListener('change', this.handleTouchCapabilityChange);
     window.addEventListener('blur', this.handleWindowBlur);
     document.addEventListener('visibilitychange', this.handleVisibilityChange);
   }
@@ -155,6 +162,7 @@ export class MobileControls {
     }
 
     this.resetPointers();
+    this.touchCapability.removeEventListener('change', this.handleTouchCapabilityChange);
     window.removeEventListener('blur', this.handleWindowBlur);
     document.removeEventListener('visibilitychange', this.handleVisibilityChange);
     this.interactButton.removeEventListener('click', this.handleInteract);
