@@ -9,12 +9,13 @@ pushed.
 ### PORT-21A–F — Click/tap navigation and walk-to-interact
 
 - Owner approved delivery on 2026-10-01 after the independent review/fix loop and preview handoff.
+- Delivered in `d89b0c9`, successfully pushed to `origin/master`; PORT-21A–F closed.
 
 - Add bounded, dependency-free routing over existing floor/collision geometry with normal Arcade movement and accepted player animation.
 - Click/tap floor to walk, or an object's radius/visible label to approach and open its existing dialog once. Retain keyboard/D-pad controls and deterministic object selection.
 - Cancel on manual intent, replacement, dialogs, quick travel, blur/hidden and restart; reject unreachable points with feedback and stop searches/stalled movement within explicit limits.
 - Record completed physics-step travel for animation, share exact fractional collider bounds, and protect loading/input state across dialog and scene lifecycle changes.
-- Add planner, controller, gesture, interaction, physics and lifecycle regressions plus isolated desktop/touch browser verification. Document the independent review/fix loop and maintainer workflow. Pending final owner visual acceptance; not pushed.
+- Add planner, controller, gesture, interaction, physics and lifecycle regressions plus isolated desktop/touch browser verification. Document the independent review/fix loop and maintainer workflow.
 - Verification: 2,063 tests, typecheck/build, both 92-record browser matrices, loading/modal lifecycle checks and manual motion regression pass. Independent engineer/game developer final reviews approve the implementation after fixes.
 
 ### PORT-13A follow-up — Resume content and site copy

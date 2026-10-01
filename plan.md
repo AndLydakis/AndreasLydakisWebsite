@@ -3804,7 +3804,7 @@ Run the exact asset-inventory tests, full test/typecheck/build suite, whitespace
 Type: Epic
 Priority: High — owner-requested addition; scheduling does not implicitly reorder existing work
 Dependencies: Existing collision/footprint, interaction/nameplate, input, dialog, camera and player-animation systems
-Status: Implemented locally — independent architect, engineer and game developer review gates passed after fixes; 2,063 tests/build plus development/production browser matrices pass. Owner visual acceptance and delivery pending (DEC-194)
+Status: Done — owner approved delivery; implementation `d89b0c9` pushed to `origin/master` on 2026-10-01. Independent reviews, 2,063 tests/build and browser matrices passed (DEC-194).
 
 ### Goal
 
@@ -3849,7 +3849,7 @@ Type: Story
 Priority: High
 Dependencies: Confirmed M8 behavior decisions; read current collision/input/interaction implementations
 Milestone: M8 — Click/tap navigation
-Status: Implemented locally — independent architect and senior game developer approved the revised contract; delivery pending
+Status: Done — approved contract delivered in `d89b0c9`, pushed 2026-10-01.
 Delivery: Shared PORT-21 review/delivery loop applies.
 
 ### Goal
@@ -3884,7 +3884,7 @@ Type: Story
 Priority: High
 Dependencies: Approved `PORT-21A`
 Milestone: M8
-Status: Implemented locally — independent planner re-review and integrated verification passed; owner acceptance and delivery pending
+Status: Done — independent re-review and verification passed; owner-approved implementation `d89b0c9` pushed 2026-10-01.
 Delivery: Shared PORT-21 review/delivery loop applies.
 
 ### Goal
@@ -3917,7 +3917,7 @@ Type: Story
 Priority: High
 Dependencies: `PORT-21B`
 Milestone: M8
-Status: Implemented locally — review fixes, physics regressions and final independent reviews passed; owner acceptance and delivery pending
+Status: Done — physics regressions and independent reviews passed; owner-approved implementation `d89b0c9` pushed 2026-10-01.
 Delivery: Shared PORT-21 review/delivery loop applies.
 
 ### Goal
@@ -3950,7 +3950,7 @@ Type: Story
 Priority: High
 Dependencies: `PORT-21C`
 Milestone: M8
-Status: Implemented locally — gesture/cancellation checks, browser matrix and final independent reviews passed; owner acceptance and delivery pending
+Status: Done — gesture/cancellation checks and independent reviews passed; owner-approved implementation `d89b0c9` pushed 2026-10-01.
 Delivery: Shared PORT-21 review/delivery loop applies.
 
 ### Goal
@@ -3983,7 +3983,7 @@ Type: Story
 Priority: High
 Dependencies: `PORT-21D`, interaction approach queries from `PORT-21B`
 Milestone: M8
-Status: Implemented locally — exact-target arrival, browser matrix and final independent reviews passed; owner acceptance and delivery pending
+Status: Done — exact-target arrival checks and independent reviews passed; owner-approved implementation `d89b0c9` pushed 2026-10-01.
 Delivery: Shared PORT-21 review/delivery loop applies.
 
 ### Goal
@@ -4017,7 +4017,7 @@ Type: Story
 Priority: High
 Dependencies: `PORT-21A`–`PORT-21E` completed review gates
 Milestone: M8
-Status: Implemented locally — full suite, production/development matrices, lifecycle races, manual-motion regression and both final independent runtime approvals passed. Documentation complete; owner visual acceptance and delivery pending
+Status: Done — full suite, browser matrices, lifecycle/manual-motion regressions and both independent runtime approvals passed. Documentation and owner-approved implementation `d89b0c9` pushed 2026-10-01.
 Delivery: Shared PORT-21 review/delivery loop applies.
 
 ### Goal

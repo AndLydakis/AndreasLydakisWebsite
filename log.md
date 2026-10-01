@@ -5,6 +5,7 @@ This file is the project decision record. New implementation decisions, approved
 ## DEC-194 — Implement and independently review PORT-21
 
 - Delivery authorization: Owner requested pushing the reviewed implementation on 2026-10-01, releasing the visual-acceptance hold. Re-run tests/build and deliver PORT-21A–F, then record successful delivery in the plan.
+- Delivery result: `d89b0c9` successfully pushed to `origin/master`; fresh 2,063-test suite, typecheck/build and whitespace checks passed. Mark PORT-21A–F Done after that confirmed push. No live-deployment or physical-device acceptance is implied.
 - Date: 2026-10-01. Owner authorizes implementation, requests minimal documented code and repeated independent review/fix cycles. No push before owner visual acceptance of the feature.
 - Architecture: Maxwell (independent architect) and Bernoulli (senior game developer) reviewed the contract, requested revisions, then explicitly approved it before runtime implementation. Bounded internal A*/Dijkstra with no new package, exact foot-body geometry, frame-sliced generators and one cancellable command. Effective contract/revisions: `output/qa/port21/contract.md`.
 - Implementation roles: main agent owns integration/controller/pointer/interaction code; McClintock implemented planner and pure tests; Hegel added integration/lifecycle tests. Socrates is independent senior engineer reviewer; Bernoulli reviews runtime game behavior; Maxwell re-reviews planner/geometry. Reviewers did not author the implementation they approved.

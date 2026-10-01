@@ -1,6 +1,6 @@
 # PORT-21 implementation and review record
 
-2026-10-01. Local implementation; no commit/push. Owner visual acceptance remains outstanding.
+2026-10-01. Owner approved delivery after review; implementation `d89b0c9` successfully pushed to `origin/master`. The review history below precedes that delivery.
 
 ## Review roles and iterations
 
@@ -92,5 +92,6 @@ source snapshot `4f3546e25ffb5c3a…`; independently ran 2,063 tests, typecheck 
 whitespace validation, and reviewed both browser matrices/lifecycle evidence
 (did not independently rerun the browser scripts).
 
-Owner visual acceptance, physical-device coverage and live deployment are separate
-and have not been claimed. Do not mark stories Done or push before owner acceptance.
+Owner subsequently authorized delivery; PORT-21A–F were marked Done after the
+confirmed push. Physical-device coverage and live deployment verification remain
+separate and have not been claimed.
