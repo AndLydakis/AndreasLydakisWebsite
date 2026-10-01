@@ -6,6 +6,12 @@ pushed.
 
 ## [Unreleased]
 
+### PORT-21C/F follow-up — Automatic movement facing
+
+- Match walking direction to the dominant axis of actual travel, preventing shallow horizontal routes from showing vertical animation.
+- Stabilize near-diagonal facing without holding an opposite direction on reversal; preserve manual control and animation cadence.
+- Add displacement, corner/reversal and development/production real-click regression coverage. Owner authorized delivery on 2026-10-01 after verification and independent review.
+
 ### PORT-21A–F — Click/tap navigation and walk-to-interact
 
 - Owner approved delivery on 2026-10-01 after the independent review/fix loop and preview handoff.

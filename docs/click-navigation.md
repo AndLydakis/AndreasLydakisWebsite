@@ -13,6 +13,15 @@ and interaction. Closing a dialog never resumes a previous route.
 
 ## Small, separate responsibilities
 
+Automatic facing uses actual completed displacement, not keyboard booleans:
+`facingFromDisplacement` in `src/game/entities/playerMotion.ts` chooses the dominant
+axis. A 10% near-diagonal deadband retains a compatible facing to prevent flicker;
+opposite directions are never retained. Displacements at or below `1e-7` preserve
+facing. Manual facing and distance-driven animation cadence remain unchanged.
+Run `node scripts/verify-navigation-facing-browser.mjs [preview-url]` against an
+isolated Chrome endpoint on port 9333 to check 12 real click routes and their
+rendered animation keys. Set `QA_OUTPUT_DIR` to keep each build's evidence separate.
+
 | File | Responsibility |
 | --- | --- |
 | `src/game/navigation/RoutePlanner.ts` | Pure geometry and bounded A*/Dijkstra queries; no Phaser/DOM imports or new package |

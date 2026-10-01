@@ -3918,6 +3918,7 @@ Priority: High
 Dependencies: `PORT-21B`
 Milestone: M8
 Status: Done — physics regressions and independent reviews passed; owner-approved implementation `d89b0c9` pushed 2026-10-01.
+Follow-up (DEC-195): Done — automatic-facing correction verified with regression tests and independent review. Owner authorized commit/push on 2026-10-01; evidence in `output/qa/port21-facing/review.md`.
 Delivery: Shared PORT-21 review/delivery loop applies.
 
 ### Goal

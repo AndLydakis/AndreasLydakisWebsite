@@ -2,6 +2,14 @@
 
 This file is the project decision record. New implementation decisions, approved changes, deferred choices, and story-completion decisions must be added here before or alongside changes to `plan.md` or source files.
 
+## DEC-195 — Correct automatic-route sprite facing
+
+- Date: 2026-10-01. Owner authorized the diagnosed facing fix, initially held locally for visual review. Owner subsequently requested pushing the changes, releasing that hold.
+- Cause: converting completed displacement into keyboard-style booleans discarded axis magnitude and gave any vertical component priority. Browser reproduction showed `(64, 1)`, `(-64, 1)` and `(64, -1)` facing vertically.
+- Decision: choose the dominant axis of actual completed physics displacement. Within a 10% diagonal deadband, retain only a direction compatible with current travel; never retain the opposite direction. Ignore negligible displacement (largest component at most `1e-7`) and nonfinite input for facing.
+- Scope: preserve manual controls, artwork, route geometry, movement speed and distance-driven animation cadence. Add helper tests, a Player corner/reversal integration regression and a repeatable real-click browser verifier.
+- Verification/review evidence: `output/qa/port21-facing/review.md`. Follow-up complete with owner delivery authorization; original PORT-21 delivery remains complete. Run final tests/build and push the reviewed changes to `origin/master`.
+
 ## DEC-194 — Implement and independently review PORT-21
 
 - Delivery authorization: Owner requested pushing the reviewed implementation on 2026-10-01, releasing the visual-acceptance hold. Re-run tests/build and deliver PORT-21A–F, then record successful delivery in the plan.

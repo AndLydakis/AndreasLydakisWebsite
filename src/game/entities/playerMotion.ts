@@ -49,3 +49,16 @@ export function facingFromMovement(
 
   return previousFacing;
 }
+
+/** Automatic routes can travel at any angle, unlike binary keyboard input.
+ * Prefer the dominant axis; retain a compatible facing within a 10% diagonal
+ * deadband. Never retain a direction opposite to the actual displacement. */
+export function facingFromDisplacement({ x, y }: Velocity, previousFacing: Direction): Direction {
+  const ax = Math.abs(x), ay = Math.abs(y), largest = Math.max(ax, ay);
+  if (!Number.isFinite(largest) || largest <= 1e-7) return previousFacing;
+  const horizontal: Direction = x < 0 ? 'left' : 'right';
+  const vertical: Direction = y < 0 ? 'up' : 'down';
+  if (Math.abs(ax - ay) <= largest * 0.1 &&
+      (previousFacing === horizontal || previousFacing === vertical)) return previousFacing;
+  return ax > ay ? horizontal : vertical;
+}

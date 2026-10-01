@@ -21,6 +21,23 @@ vi.mock('phaser', () => ({
 }));
 
 describe('player ground contact', () => {
+  it('records automatic facing per completed step through shallow routes, corners and reversals', () => {
+    const body = new Phaser.Physics.Arcade.Body({} as Phaser.Physics.Arcade.World);
+    const sprite = { width: 32, height: 32, body, x: 104, y: 168 };
+    const scene = { physics: { add: { existing: vi.fn() } } };
+    const visual = { recordAutomaticStep: vi.fn() };
+    const player = new Player(scene as unknown as Phaser.Scene,
+      sprite as unknown as Phaser.GameObjects.Sprite, {} as InputController,
+      { tileSize: 16, visual: visual as unknown as PlayerVisual });
+    const steps = [[64, 1, 'right'], [1, 64, 'down'], [-64, -1, 'left'],
+      [-1, -64, 'up'], [0, 0, 'up']] as const;
+    for (const [dx, dy, facing] of steps) {
+      player.recordAutomaticStep(dx, dy);
+      expect(player.getState().facing).toBe(facing);
+      expect(visual.recordAutomaticStep).toHaveBeenLastCalledWith(facing, Math.hypot(dx, dy));
+    }
+  });
+
   it('teleports feet, clears held/queued input and returns to an idle down pose', () => {
     const body = new Phaser.Physics.Arcade.Body({} as Phaser.Physics.Arcade.World);
     const sprite = { width: 32, height: 32, body, x: 104, y: 168 };

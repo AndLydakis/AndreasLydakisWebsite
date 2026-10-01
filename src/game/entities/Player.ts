@@ -3,7 +3,7 @@ import Phaser from 'phaser';
 import type { WorldTilePoint, WorldTileRect } from '../data/types';
 import { InputController } from '../systems/InputController';
 import type { Direction } from '../systems/InputController';
-import { PLAYER_SPEED, facingFromMovement, movementSnapshotToVelocity } from './playerMotion';
+import { PLAYER_SPEED, facingFromDisplacement, facingFromMovement, movementSnapshotToVelocity } from './playerMotion';
 import type { PlayerVisual } from './PlayerVisual';
 import type { Velocity } from './playerMotion';
 import type { Point } from '../navigation/RoutePlanner';
@@ -72,7 +72,7 @@ export class Player {
   public prepareAutomaticVelocity(velocity: Velocity): void { this.body.setVelocity(velocity.x, velocity.y); }
 
   public recordAutomaticStep(dx: number, dy: number): void {
-    this.facing = facingFromMovement({ up: dy < -1e-9, down: dy > 1e-9, left: dx < -1e-9, right: dx > 1e-9 }, this.facing);
+    this.facing = facingFromDisplacement({ x: dx, y: dy }, this.facing);
     this.options.visual?.recordAutomaticStep(this.facing, Math.hypot(dx, dy));
   }
 
