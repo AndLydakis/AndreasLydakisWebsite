@@ -8,6 +8,7 @@ export const officeContent: ContentRecord = {
   title: 'Curriculum vitae',
   eyebrow: 'Andreas Lydakis',
   description: 'Hello, I am Andreas, and this is my resume. Thanks for dropping by :D. \nIf you don\'t want to explore, you can download my CV from the link at the bottom and see a more conventional (and maybe a bit outdated) portfolio by clicking "Legacy Portfolio"',
+  tabbedSectionPlacement: 'header',
   sections: [
     {
       heading: 'Profile',
@@ -20,12 +21,25 @@ export const officeContent: ContentRecord = {
           'Scania Group - Simulation Team, Senior Software Engineer',
           'Dyson Technology - Robotics Engineer, simulation & HRI',
           'Innotec UK - Robotics Engineer',
-          'NCSR Demokritos - Research Engineer'
+          'NCSR Demokritos - Research Engineer, HRI & Robotics'
         ],
     },
     {
       heading: 'Skills',
-      items: ['C++, Python, ROS/ROS2', 'PyTorch/Tensorflow experience', 'Databricks, AWS', 'Unity/Unreal (some)'],
+      items: ['C++, Python, ROS/ROS2/DDS', 'PyTorch/Tensorflow experience', 'Databricks, AWS', 'Unity/Unreal (some)'],
+    },
+    {
+      heading: 'Projects',
+      tabbed: true,
+      paragraphs: ['Short overview of individual projects - WIP'],
+      items: [
+        {
+          label: 'WIP',
+          href: 'http://localhost:4173/',
+          openInNewTab: true,
+          notes: ['WIP'],
+        },
+      ],
     },
   ],
   headerActions: [

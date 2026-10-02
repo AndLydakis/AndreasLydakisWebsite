@@ -129,7 +129,10 @@ export class DialogManager {
 
     this.options.closeButton.focus();
     this.options.content.parentElement!.scrollTop = 0;
-    const text = Array.from(this.options.content.querySelectorAll<HTMLElement>('.dialog-section p, .dialog-section li'));
+    const text = Array.from(this.options.content.querySelectorAll<HTMLElement>('.dialog-section p, .dialog-section li'))
+      // Keep linked entries and their nested notes intact so anchors remain
+      // clickable and the notes stay on their own lines.
+      .filter((element) => !element.querySelector('a, .dialog-item-notes'));
     if (content.description) text.unshift(this.options.description);
     this.typewriter.start(text, this.motionPreference.matches);
     this.revealButton.hidden = !this.typewriter.isRunning();
@@ -172,10 +175,25 @@ export class DialogManager {
     this.options.eyebrow.textContent = content.eyebrow ?? '';
     this.options.eyebrow.hidden = !content.eyebrow;
     this.options.title.textContent = content.title;
+    // Header tabs can be owned by a separate tablist in the accessibility tree.
+    // Keep the dialog's name independent of that ownership.
+    this.dialog.removeAttribute('aria-labelledby');
+    this.dialog.setAttribute('aria-label', content.title);
     this.options.description.textContent = content.description ?? '';
     this.options.description.hidden = !content.description;
+    const setDescriptionVisible = (visible: boolean): void => {
+      this.options.description.hidden = !visible;
+      if (visible && this.options.description.id) {
+        this.dialog.setAttribute('aria-describedby', this.options.description.id);
+      } else {
+        this.dialog.removeAttribute('aria-describedby');
+      }
+    };
+    setDescriptionVisible(Boolean(content.description));
     this.options.headerActions.replaceChildren();
-    this.options.headerActions.hidden = !content.headerActions?.length;
+    const hasHeaderTabs = content.tabbedSectionPlacement === 'header'
+      && content.sections.some((section) => section.tabbed);
+    this.options.headerActions.hidden = !content.headerActions?.length && !hasHeaderTabs;
     this.options.content.replaceChildren();
 
     content.headerActions?.forEach((action) => {
@@ -199,7 +217,7 @@ export class DialogManager {
       this.options.content.append(image);
     }
 
-    content.sections.forEach((section) => {
+    const sectionElements = content.sections.map((section) => {
       const sectionElement = document.createElement('section');
       sectionElement.className = 'dialog-section';
       const heading = document.createElement('h3');
@@ -216,14 +234,128 @@ export class DialogManager {
         const list = document.createElement('ul');
         section.items.forEach((item) => {
           const listItem = document.createElement('li');
-          listItem.textContent = item;
+          if (typeof item === 'string') {
+            listItem.textContent = item;
+          } else {
+            const link = document.createElement('a');
+            link.href = item.href;
+            link.textContent = item.label;
+            if (item.openInNewTab) {
+              link.target = '_blank';
+              link.rel = 'noopener noreferrer';
+            }
+            listItem.append(link);
+
+            if (item.notes?.length) {
+              const notes = document.createElement('div');
+              notes.className = 'dialog-item-notes';
+              item.notes.forEach((note) => {
+                const paragraph = document.createElement('p');
+                paragraph.textContent = note;
+                notes.append(paragraph);
+              });
+              listItem.append(notes);
+            }
+          }
           list.append(listItem);
         });
         sectionElement.append(list);
       }
 
-      this.options.content.append(sectionElement);
+      return sectionElement;
     });
+
+    let regularPanel: HTMLElement | undefined;
+    const appendTabs = (
+      tabEntries: readonly { section: HTMLElement; index: number; label?: string }[],
+      tabDestination: HTMLElement = this.options.content,
+    ): void => {
+      const tabList = document.createElement('div');
+      tabList.className = tabDestination === this.options.headerActions ? 'dialog-header-tabs' : 'dialog-tabs';
+      tabList.setAttribute('role', 'tablist');
+      tabList.setAttribute('aria-label', `${content.title} sections`);
+      const tabs: HTMLButtonElement[] = [];
+      const useTitleTab = tabDestination === this.options.headerActions && Boolean(regularPanel);
+      if (useTitleTab) {
+        // The CV heading and Projects share a tablist across the header layout.
+        tabList.setAttribute('aria-owns', tabEntries.map(({ index }) => `${content.id}-tab-${index}`).join(' '));
+      }
+
+      const activateTab = (selectedIndex: number): void => {
+        this.typewriter.finish();
+        tabs.forEach((tab, index) => {
+          const selected = index === selectedIndex;
+          tab.setAttribute('aria-selected', String(selected));
+          tab.tabIndex = selected ? 0 : -1;
+          tabEntries[index]?.section.toggleAttribute('hidden', !selected);
+        });
+        if (regularPanel) setDescriptionVisible(selectedIndex === 0 && Boolean(content.description));
+        this.options.content.parentElement!.scrollTop = 0;
+      };
+
+      tabEntries.forEach(({ section, index, label }, tabIndex) => {
+        const tab = document.createElement('button');
+        const tabId = `${content.id}-tab-${index}`;
+        const panelId = `${content.id}-panel-${index}`;
+        tab.type = 'button';
+        tab.className = 'dialog-tab';
+        if (useTitleTab && tabIndex === 0) tab.className = 'dialog-tab dialog-title-tab';
+        tab.id = tabId;
+        tab.setAttribute('role', 'tab');
+        tab.setAttribute('aria-controls', panelId);
+        tab.setAttribute('aria-selected', String(tabIndex === 0));
+        tab.tabIndex = tabIndex === 0 ? 0 : -1;
+        tab.textContent = label ?? content.sections[index]?.heading ?? '';
+        tab.addEventListener('click', () => activateTab(tabIndex));
+        tab.addEventListener('keydown', (event) => {
+          if (!['ArrowRight', 'ArrowDown', 'ArrowLeft', 'ArrowUp', 'Home', 'End'].includes(event.key)) return;
+          event.preventDefault();
+          const lastIndex = tabEntries.length - 1;
+          const nextIndex = event.key === 'Home'
+            ? 0
+            : event.key === 'End'
+              ? lastIndex
+              : (tabIndex + (event.key === 'ArrowRight' || event.key === 'ArrowDown' ? 1 : -1) + tabEntries.length) % tabEntries.length;
+          activateTab(nextIndex);
+          tabs[nextIndex]?.focus();
+        });
+        tabs.push(tab);
+        if (useTitleTab && tabIndex === 0) {
+          this.options.title.replaceChildren(tab);
+        } else {
+          tabList.append(tab);
+        }
+
+        section.id = panelId;
+        section.setAttribute('role', 'tabpanel');
+        section.setAttribute('aria-labelledby', tabId);
+        section.tabIndex = 0;
+        section.hidden = tabIndex !== 0;
+      });
+
+      tabDestination.append(tabList);
+      this.options.content.append(...tabEntries.map(({ section }) => section));
+    };
+
+    if (content.layout === 'tabs') {
+      appendTabs(sectionElements.map((section, index) => ({ section, index })));
+    } else {
+      const tabbedIndexes = new Set(content.sections.flatMap((section, index) => section.tabbed ? [index] : []));
+      const regularSections = sectionElements.filter((_, index) => !tabbedIndexes.has(index));
+      const tabbedSections = sectionElements
+        .map((section, index) => ({ section, index }))
+        .filter(({ index }) => tabbedIndexes.has(index));
+      if (tabbedSections.length) {
+        regularPanel = document.createElement('div');
+        regularPanel.append(...Array.from(this.options.content.children), ...regularSections);
+        appendTabs(
+          [{ section: regularPanel, index: -1, label: content.title }, ...tabbedSections],
+          content.tabbedSectionPlacement === 'header' ? this.options.headerActions : this.options.content,
+        );
+      } else {
+        this.options.content.append(...regularSections);
+      }
+    }
 
     if (content.actions?.length) {
       const actions = document.createElement('div');
@@ -233,7 +365,7 @@ export class DialogManager {
         actions.append(this.createActionLink(action));
       });
 
-      this.options.content.append(actions);
+      (regularPanel ?? this.options.content).append(actions);
     }
   }
 

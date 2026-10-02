@@ -47,7 +47,7 @@
 }
 .dialog-eyebrow { margin: 0 0 0.3rem; font-size: 0.7rem; color: #dce6ff; }
 .dialog-controls { display: flex; flex-wrap: wrap; justify-content: end; gap: 0.3rem; flex: 0 0 auto; max-width: 45%; padding-bottom: 0.5rem; }
-.dialog-close, .dialog-reveal, .dialog-actions a, .dialog-header-actions a {
+.dialog-close, .dialog-reveal, .dialog-actions a, .dialog-header-actions a, .dialog-header-tabs button {
   min-width: 2.75rem;
   min-height: 2.75rem;
   padding: 0.45rem 0.65rem;
@@ -61,9 +61,11 @@
 }
 .dialog-close:hover, .dialog-reveal:hover, .dialog-actions a:hover, .dialog-header-actions a:hover { filter: brightness(1.25); }
 .dialog-reveal[hidden] { display: none; }
-.dialog-header-actions { display: flex; flex: 0 1 auto; gap: 0.3rem; padding-bottom: 0.5rem; }
+.dialog-header-actions { display: flex; flex-wrap: wrap; flex: 0 1 auto; max-width: 100%; gap: 0.3rem; padding-bottom: 0.5rem; }
 .dialog-header-actions[hidden] { display: none; }
-.dialog-header-actions a { display: inline-flex; align-items: center; text-align: center; text-decoration: none; }
+.dialog-header-actions a, .dialog-header-tabs button { display: inline-flex; align-items: center; text-align: center; text-decoration: none; }
+.dialog-header-tabs { display: flex; flex-wrap: wrap; max-width: 100%; gap: 0.3rem; }
+.dialog-header-tabs button { cursor: pointer; }
 .dialog-body {
   min-height: 0;
   padding: clamp(1rem, 3vw, 1.5rem);
@@ -75,9 +77,40 @@
 }
 .dialog-description { margin-top: 0; }
 .dialog-section + .dialog-section { margin-top: 1.5rem; }
+.dialog-tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+.dialog-tab {
+  min-height: 2.75rem;
+  padding: 0.45rem 0.65rem;
+  border: 2px solid #bdc4d5;
+  border-radius: 0.3rem;
+  background: rgb(4 7 47 / 65%);
+  color: #dce6ff;
+  font: inherit;
+  text-shadow: inherit;
+  cursor: pointer;
+}
+.dialog-tab[aria-selected='true'] { background: var(--dialog-blue); color: #fff; box-shadow: inset 0 0 0 1px #fff; }
+.dialog-header-tabs .dialog-tab[aria-selected='false'] { background: #04072f; color: #bdc4d5; box-shadow: none; }
+.dialog-tab:hover { filter: brightness(1.25); }
+.dialog-tab:focus-visible, .dialog-close:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.dialog-title-tab, .dialog-title-tab[aria-selected='true'] {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+}
+.dialog-title-tab[aria-selected='false'] { color: #bdc4d5; }
+.dialog-title-tab[aria-selected='true'] { text-decoration: underline; text-underline-offset: 0.2em; }
 .dialog-section h3 { margin: 0 0 0.6rem; color: #fff; font: bold 1rem/1.4 'Courier New', Courier, monospace; }
 .dialog-section p { margin: 0 0 0.75rem; }
 .dialog-section ul { margin: 0; padding-left: 1.25rem; }
+.dialog-section li > a { display: inline-block; margin-bottom: 0.35rem; color: #fff; text-decoration: underline; text-underline-offset: 0.15em; }
+.dialog-section li a:hover { color: #dce6ff; }
+.dialog-item-notes { margin-top: 0.35rem; margin-bottom: 0.75rem; padding-left: 0.25rem; }
+.dialog-item-notes p { margin: 0 0 0.35rem; }
 .dialog-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
 .dialog-actions a { display: inline-flex; align-items: center; }
 .dialog-image {

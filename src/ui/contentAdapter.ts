@@ -24,6 +24,8 @@ export function toDialogContent(record: ContentRecord): DialogContent {
     title: record.title,
     eyebrow: record.eyebrow,
     description: record.description,
+    layout: record.layout,
+    tabbedSectionPlacement: record.tabbedSectionPlacement,
     sections: record.sections,
     ...(record.headerActions?.length
       ? { headerActions: record.headerActions.map(toDialogAction) }

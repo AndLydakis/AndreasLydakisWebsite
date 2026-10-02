@@ -7,10 +7,18 @@ export interface GalleryPicture {
   caption?: string;
 }
 
+export interface ContentItemLink {
+  label: string;
+  href: string;
+  openInNewTab?: boolean;
+  notes?: readonly string[];
+}
+
 export interface ContentSection {
   heading: string;
   paragraphs?: readonly string[];
-  items?: readonly string[];
+  items?: readonly (string | ContentItemLink)[];
+  tabbed?: boolean;
 }
 
 interface ContentActionBase {
@@ -32,6 +40,8 @@ export interface ContentRecord {
   title: string;
   eyebrow?: string;
   description?: string;
+  layout?: 'sections' | 'tabs';
+  tabbedSectionPlacement?: 'body' | 'header';
   sections: readonly ContentSection[];
   headerActions?: readonly ContentAction[];
   actions?: readonly ContentAction[];

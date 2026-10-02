@@ -28,8 +28,9 @@ describe('toDialogContent', () => {
     expect(toDialogContent(televisionContent)).toEqual({
       id: 'livingroom-media',
       title: 'Games and movies',
-      eyebrow: 'PLACEHOLDER CONTENT',
-      description: 'Dummy media notes will be replaced with the owner\'s reviews later.',
+      eyebrow: televisionContent.eyebrow,
+      description: televisionContent.description,
+      layout: 'tabs',
       sections: televisionContent.sections,
     });
   });
