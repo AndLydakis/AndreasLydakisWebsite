@@ -23,7 +23,7 @@ export const kitchenContent: ContentRecord = {
 /** Display-only content: no checked state, editing controls or persistence. */
 export const kitchenShoppingContent: ContentRecord = {
   id: 'kitchen-shopping', label: 'Shopping list', roomId: 'kitchen', roomLabel: 'Kitchen',
-  title: 'Shopping list', eyebrow: 'PLACEHOLDER CONTENT',
-  description: 'Read-only demo list; the owner can replace these entries in the content file.',
-  sections: [{ heading: 'To buy', items: ['DEMO: tomatoes', 'DEMO: pasta', 'DEMO: basil', 'DEMO: milk'] }],
+  title: 'Shopping list', eyebrow: 'Why are you looking at this?',
+  description: 'Shopping list.',
+  sections: [{ heading: 'To buy', items: ['Reusable freezer bags', 'Canolla oil'] }],
 };
